@@ -1,0 +1,435 @@
+#include "CCollision.h"
+#include "math.h"
+
+
+inline float min(float a,float b) {
+	return (a<b) ? a:b;
+}
+/*移動行列*/
+void COBB::Transeform(CMatrix44 &mat) {
+	for (int i=0;i<COBB::E_ARRAY;i++) mAxis[i] = mat * mAxis[i] - mat * CVector3();
+	CVector4 c = CVector4(mPos.x,mPos.y,mPos.z,1);
+	c = c*mat;
+	mPos = CVector3(c.x,c.y,c.z);
+}
+
+/*移動行列*/
+void CColSphere::Transeform(CMatrix44 &mat) {
+	CVector4 c = CVector4(mPos.x, mPos.y, mPos.z, 1);
+	c = c*mat;
+	mPos = CVector3(c.x, c.y, c.z);
+}
+/*球同士の当たり判定*/
+bool CCollision::CollisionShpere(const CColSphere &sphereA, const CColSphere &sphereB) {
+	CVector3 v = sphereB.mPos-sphereA.mPos;
+	return (v.LengthSq() >(sphereA.mRadius + sphereB.mRadius)*(sphereA.mRadius + sphereB.mRadius));
+}
+bool CCollision::TriangleIntersect(const CVector3 &c,const CVector3 &v0, const CVector3 &v1,const  CVector3 &v2,const CVector3 &n){
+	if(CVector3::Dot(CVector3::Cross(v1-v0, c-v0),n)<0) return false;
+	if(CVector3::Dot(CVector3::Cross(v2-v1, c-v1),n)<0) return false; 
+	if(CVector3::Dot(CVector3::Cross(v0-v2, c-v2),n)<0) return false;
+	return true;
+}
+
+
+//線分と三角形ポリゴンとの衝突判定
+bool CCollision::IntersectTriangleRay(CVector3 *corss,const CVector3 &p1, const CVector3 &p2,const CVector3 &v0, const CVector3 &v1, const CVector3 &v2,float *pt ) {
+	CVector3 e1, e2,normal,pv1,pv2;
+
+	e1 = v1 - v0;
+	e2 = v2 - v0;
+
+	//面の法線を求める
+	normal = CVector3::Cross(e1, e2).GetNormalize();
+
+	//始点からポリゴン上のある地点（どこでもいい）へのベクトル
+	pv1 = p1-v0;
+	//終点からポリゴン上のある地点（どこでもいい）へのベクトル
+	pv2 = p2-v0;
+
+	//ポリゴンの法線との内積を求める
+	float d1 = CVector3::Dot(pv1,normal);
+	float d2 = CVector3::Dot(pv2,normal);
+
+	//ポリゴンを貫通していない
+	if(d1*d2>0) return false;
+
+	//始点からポリゴンまでの距離と線分の長さの比率を求める
+	//接地地点を出すのに使用する
+	float t = d1/(d1-d2);
+	if( *pt < t ) return false;
+
+	//裏から貫通している場合は衝突していないことにする
+	if(t<0) return false;
+
+	//線分と平面の接地地点を求める
+	CVector3 c = p1+(p2-p1)*t;
+
+	//接地地点が三角形ポリゴン上か調べる
+	if(!TriangleIntersect(c,v0,v1,v2,normal)) return false;
+	
+	*pt = t;
+	*corss = c;
+
+	return true;
+}
+
+CVector3 CCollision::PointOnLineSegmentNearestPoint(const CVector3 &v0,const CVector3 &v1,const CVector3 &point){
+	CVector3 V = v1-v0;
+	float a = V.x*V.x+V.y*V.y+V.z*V.z;
+	//線分の始点と終点が同じ場所
+	if(a==0) return v0;
+	CVector3 VP = point-v0;
+	float b = CVector3::Dot(V,VP);
+	float t = b/a;
+	//v0よりに遠い場合は近い点をV0に
+	if(t<0) return v0;
+	//V1よりに遠い場合は近い点をV1に
+	if(t>1) return v1;
+	//t=<1 t>=0 の場合は線分上に近い点がある 
+	return v0 + V*t;
+}
+
+CVector2 CCollision::PointOnLineSegmentNearestPoint(const CVector2 &v0,const CVector2 &v1,const CVector2 &point){
+	CVector2 V = v1-v0;
+	float a = V.x*V.x+V.y*V.y;
+	//線分の始点と終点が同じ場所
+	if(a==0) return v0;
+	CVector2 VP = v0-point;
+	float b = CVector2::Dot(V,VP);
+	float t = -(b/a);
+	//v0よりに遠い場合は近い点をV0に
+	if(t<0) return v0;
+	//V1よりに遠い場合は近い点をV1に
+	if(t>1) return v1;
+	//t=<1 t>=0 の場合は線分上に近い点がある 
+	return v0 + V*t;
+}
+//-----------------------------------------------------------------------------
+bool CCollision::IntersectTriangleSphere( const CVector3 &v0,const CVector3 &v1,const CVector3 &v2,const CVector3 &center,float radius ,CVector3 *cross,float *length)
+{   
+     CVector3 V1(v1-v0);
+	 CVector3 V2(v2-v1);
+	 CVector3 N(CVector3::Cross(V1,V2).GetNormalize());
+	 
+	 CVector3 V = center - v0;
+	 //平面と点の距離を求める
+	 float Dist = CVector3::Dot(V,N);
+  
+	//球の半径より離れている場合は接触無し
+	 if(abs(Dist) > radius) return false;
+
+	 //点から平面上に垂直に下ろした地点を求める
+	 CVector3 Point =  center - ( N * Dist );
+	 
+	 
+	 //上記の点が三角形ポリゴン内なら接触している
+	 if(TriangleIntersect( Point, v0, v1, v2 , N)) {
+		if(cross) *cross = Point;
+		if(length) *length = Dist;
+		return true;
+	}
+
+	 //各辺に球がかすっている可能性がある
+	 //１辺ごとに球と辺の最短距離を求める
+
+	 //最短距離
+	 float l;
+	 //最短接触地点
+	 CVector3 c;
+	 
+	 //距離比較用
+	 float LengthSq;
+
+	 //辺１(v0→v1)
+	 Point = PointOnLineSegmentNearestPoint( v0, v1, center );
+	 LengthSq = (center - Point).LengthSq();
+	 l  = LengthSq;
+	 c = Point;
+
+	 //辺２(v1→v2)
+	 Point = PointOnLineSegmentNearestPoint( v1, v2, center );
+	 LengthSq = (center - Point).LengthSq();
+	 if(l>LengthSq) {
+		 l = LengthSq;
+		 c = Point;
+	 }
+	 
+	 //辺３(v2→v0)
+	 Point = PointOnLineSegmentNearestPoint( v2, v0, center );
+	 LengthSq = (center - Point).LengthSq();
+	 if(l>LengthSq) {
+		 l = LengthSq;
+		 c = Point;
+	 }
+
+	 //最短距離を確定
+	 if(length) *length = sqrt(l);
+	 //最短地点を確定
+	 if(cross) *cross = c;
+	
+    return (*length<=radius);
+}
+
+bool CCollision::IntersectTriangleCapsule(const CVector3 &v0,const CVector3 &v1,const CVector3 &v2,const CVector3 &top,const CVector3 &bottom,float radius,CVector3 *cross,float *length ){	
+	CVector3 V(top-bottom);
+	CVector3  VP;
+	float Dist = 1e10,d;
+
+	//ポリゴンの法線を求める
+	CVector3 N(CVector3::Cross(v1 - v0, v2 - v0).GetNormalize());
+
+	//始点からポリゴン上のある地点（どこでもいい）へのベクトル
+	CVector3 PV1 = top-v0;
+	//終点からポリゴン上のある地点（どこでもいい）へのベクトル
+	CVector3 PV2 = bottom-v0;
+
+	//ポリゴンの法線との内積を求める
+	float d1 = CVector3::Dot(PV1,N);
+	float d2 = CVector3::Dot(PV2,N);
+
+	if(d1*d2<0) {
+		//貫通している場合は線とポリゴンの判定を行う
+		if(IntersectTriangleRay(cross,top+CVector3(0,radius,0),bottom+CVector3(0,-radius,0),v0,v1,v2,&Dist)) {
+			if(length) {
+				//貫通点までの距離を求める
+				float lt = (*cross - top).LengthSq();
+				float lb = (*cross - bottom).LengthSq();
+				if(lt<lb) *length = sqrt(lt);
+				else *length = sqrt(lb);
+			}
+			return true;
+		}
+	}
+
+	d1=abs(d1);
+	d2=abs(d2);
+	//平面上の点との最短地点を求める
+	CVector3 C1(top-N*d1);
+	CVector3 C2(bottom-N*d2);
+	//点が平面上にない場合は無効、後の辺との接触で調べる
+	if(!TriangleIntersect(C1,v0,v1,v2,N)) d1=1e10;
+	if(!TriangleIntersect(C2,v0,v1,v2,N)) d2=1e10;
+
+	//面との距離が近い点の距離を選択
+	Dist = (d1<d2) ? d1:d2; 
+	
+	//各辺との距離を求める
+	d = DistanceLine(top,bottom,v0,v1,cross);
+	if(Dist > d) Dist = d;
+	
+	d = DistanceLine(top,bottom,v1,v2,cross);
+	if(Dist > d) Dist = d;
+	
+	d = DistanceLine(top,bottom,v2,v0,cross);
+	if(Dist > d) Dist = d;
+
+	if(length) *length = Dist;
+
+    return (Dist<=radius);
+}
+bool CCollision::CompareLength(const COBB &A,const COBB &B,const CVector3 &distVec,const CVector3 &separate){
+	float dist = abs(CVector3::Dot(distVec,separate));
+	float distA = 0;
+	for(int i=0;i<3;i++) distA+=abs( CVector3::Dot(A.mAxis[i],separate)) * A.mLength[i];
+	float distB = 0;
+	for(int i=0;i<3;i++) distB+=abs( CVector3::Dot(B.mAxis[i],separate)) * B.mLength[i];
+	if(dist > distA + distB) return false;
+	return true;
+}
+bool CCollision::CollisionOBB(const COBB &A,const COBB &B){
+	CVector3 distVec = B.mPos - A.mPos;
+
+	for(int i=0;i<3;i++)
+		if(!CompareLength(A,B,distVec,A.mAxis[i])) return false;
+	
+	for(int i=0;i<3;i++)
+		if(!CompareLength(A,B,distVec,B.mAxis[i])) return false;
+	
+	CVector3 separate;
+	for(int i=0;i<3;i++) {
+		for(int j=0;j<3;j++) {
+			separate = CVector3::Cross(A.mAxis[i],B.mAxis[j]);
+			if(!CompareLength(A,B,distVec,separate)) return false;
+		}
+	}
+
+	return true;
+}
+
+//AABB同士の衝突判定
+bool CCollision::CollisionAABB(const CVector3 &minA,const CVector3 &maxA,const CVector3 &minB,const CVector3 &maxB){
+	if( minA.x  < maxB.x && maxA.x > minB.x &&
+		minA.y  < maxB.y && maxA.y > minB.y &&
+		minA.z  < maxB.z && maxA.z > minB.z) return true;
+	return false;
+}
+
+//2線分間の距離
+float CCollision::DistanceLine(const CVector3 &s1,const CVector3 &e1,const CVector3 &s2,const CVector3 &e2,CVector3 *c,CVector3 *c2){
+	//線のベクトルを求める
+	CVector3 V1(e1-s1);
+	CVector3 V2(e2-s2);
+	//2つの線分の外積を求める
+	CVector3 N(CVector3::Cross(V1,V2));
+	//2つの線分が平行でない場合
+	if (N.LengthSq()) {
+		//交差しているか調べる	
+		if(CVector3::Dot(CVector3::Cross(V1,s1-s2),CVector3::Cross(V1,s1-e2)) < 0 &&
+			CVector3::Dot(CVector3::Cross(V2,s2-s1),CVector3::Cross(V2,s2-e1)) < 0 ) {
+				return abs(CVector3::Dot(N.GetNormalize(), s1-s2));
+		}
+	}
+	//始点と終点から線分との距離を求め、もっとも短い距離を返す
+	return sqrt(min(
+			min(DistancePointToLineSq(s2, e2, s1),
+				DistancePointToLineSq(s2, e2, e1)),
+			min(DistancePointToLineSq(s1, e1, s2),
+				DistancePointToLineSq(s1, e1, e2))
+		));
+}
+	//点と線の距離
+float CCollision::DistancePointToLine(const CVector3 &v0,const CVector3 &v1,const CVector3 &point)
+{
+	CVector3 p = PointOnLineSegmentNearestPoint(v0,v1,point);
+	return (point-p).Length();
+}
+//点と線の距離
+float CCollision::DistancePointToLineSq(const CVector3 &v0,const CVector3 &v1,const CVector3 &point)
+{
+	CVector3 p = PointOnLineSegmentNearestPoint(v0,v1,point);
+	return (point-p).LengthSq();
+}
+
+
+/*当たり判定の関数(丸とBOXの判定)*/
+bool CCollision::CollSphereBox(CColSphere sphere, COBB &box){
+
+	/*COBBの x y z 方向 半径をすべて見る*/
+	//BoxのX軸方向を求める
+	CVector3 vx = box.mMatrixRotation * VEC_RIGHT;
+	//BoxのY軸方向を求める
+	CVector3 vy = box.mMatrixRotation * VEC_TOP;
+	//BoxのZ軸方向を求める
+	CVector3 vz = box.mMatrixRotation * VEC_FRONT;
+
+
+
+	//四角形から球へのベクトルを求める
+	CVector3 vectorBS = sphere.mPos - box.mPos;
+	//四角形から球へ、四角形のX軸に対する長さとの差を求める
+	float dx = sphere.mRadius + box.mLength[COBB::E_X] - fabs(vx.Dot(vectorBS));
+	//四角形から球へ、四角形のY軸に対する長さとの差を求める
+	float dy = sphere.mRadius + box.mLength[COBB::E_Y] - fabs(vy.Dot(vectorBS));
+	//四角形から球へ、四角形のZ軸に対する長さとの差を求める
+	float dz = sphere.mRadius + box.mLength[COBB::E_Z] - fabs(vz.Dot(vectorBS));
+
+	//衝突しているか判定する
+	if (dx > 0.0f && dy > 0.0f && dz > 0.0f) {
+		//if (dx > dy) {
+		//	if (dy > dz) {
+		//		//Z軸で戻す
+		//		if (vz.Dot(vectorBS) > 0.0f) {
+		//			*pos = *pos + vz * dz;
+		//		}
+		//		else {
+		//			*pos = *pos - vz * dz;
+		//		}
+		//	}
+		//	else {
+		//		//Y軸で戻す
+		//		if (vy.Dot(vectorBS) > 0.0f) {
+		//			*pos = *pos + vy * dy;
+		//		}
+		//		else {
+		//			*pos = *pos - vy * dy;
+		//		}
+		//	}
+		//}
+		//else {
+		//	if (dx > dz) {
+		//		//Z軸で戻す
+		//		if (vz.Dot(vectorBS) > 0.0f) {
+		//			*pos = *pos + vz * dz;
+		//		}
+		//		else {
+		//			*pos = *pos - vz * dz;
+		//		}
+		//	}
+		//	else {
+		//		//X軸で戻す
+		//		if (vx.Dot(vectorBS) > 0.0f) {
+		//			*pos = *pos + vx * dx;
+		//		}
+		//		else {
+		//			*pos = *pos - vx * dx;
+		//		}
+		//	}
+		//}
+		return true;
+	}
+	return false;
+
+}
+
+/*当たり判定関数(球と壁判定)*/
+//static bool ColSphereWall(const CColSphere &sphere, const CColWall &wall){
+//	
+//	
+//	float dot;
+//	CVector3 vec;
+//	vec = sphere.mPos + wall.mPos * -1.0f;
+//	dot = vec.Dot(wall.mNormal);
+//	if (dot < sphere.mRadius){
+//		return true;
+//	}
+//}
+
+
+
+/*面と線分の衝突判定
+corss	=接地面
+pt		=割合
+line	=線
+tri		=面
+*/
+bool CCollision::IntersectTriangleRay(CVector3 *corss, float *pt, CColLine line, CColTriangle tri){
+	CVector3 e1, e2, normal, pv1, pv2;
+
+	e1 = tri.v1 - tri.v0;
+	e2 = tri.v2 - tri.v0;
+
+	//面の法線を求める
+	normal = CVector3::Cross(e1, e2).GetNormalize();
+
+	//始点からポリゴン上のある地点（どこでもいい）へのベクトル
+	pv1 = line.mBegins - tri.v0;
+	//終点からポリゴン上のある地点（どこでもいい）へのベクトル
+	pv2 = line.mEnd - tri.v0;
+
+	//ポリゴンの法線との内積を求める
+	float d1 = CVector3::Dot(pv1, normal);
+	float d2 = CVector3::Dot(pv2, normal);
+
+	//ポリゴンを貫通していない
+	if (d1*d2>0) return false;
+
+	//始点からポリゴンまでの距離と線分の長さの比率を求める
+	//接地地点を出すのに使用する
+	float t = d1 / (d1 - d2);
+	if (*pt < t) return false;
+
+	//裏から貫通している場合は衝突していないことにする
+	if (t<0) return false;
+
+	//線分と平面の接地地点を求める ほしい情報
+	CVector3 c = line.mBegins + (line.mEnd - line.mBegins)*t;
+
+	//接地地点が三角形ポリゴン上か調べる
+	if (!TriangleIntersect(c, tri.v0, tri.v1, tri.v2, normal)) return false;
+
+	*pt = t;
+	*corss = c;
+
+	return true;
+}

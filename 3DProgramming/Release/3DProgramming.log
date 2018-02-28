@@ -1,0 +1,338 @@
+﻿cl : コマンド ライン warning D9025: '/sdl-' より '/GS-' が優先されます。
+  CBase.cpp
+  CCamera.cpp
+  CColliderBox.cpp
+  CCollision.cpp
+  CCollisionManager.cpp
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(110): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(234): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(316): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(321): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(326): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+  CCollision2D.cpp
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+  CConvenient.cpp
+  CBillBoard.cpp
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+  CBox.cpp
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+  CHpBar.cpp
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+  CModelX.cpp
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CModelX.h(110): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CModelX.h(234): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CModelX.h(316): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CModelX.h(321): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CModelX.h(326): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+GameMain\Graphic\CModelX.cpp(28): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+GameMain\Graphic\CModelX.cpp(197): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+GameMain\Graphic\CModelX.cpp(210): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+GameMain\Graphic\CModelX.cpp(215): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+GameMain\Graphic\CModelX.cpp(223): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+GameMain\Graphic\CModelX.cpp(228): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+GameMain\Graphic\CModelX.cpp(281): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+GameMain\Graphic\CModelX.cpp(285): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+GameMain\Graphic\CModelX.cpp(301): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+GameMain\Graphic\CModelX.cpp(377): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+GameMain\Graphic\CModelX.cpp(400): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+GameMain\Graphic\CModelX.cpp(471): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+GameMain\Graphic\CModelX.cpp(701): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+GameMain\Graphic\CModelX.cpp(730): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+GameMain\Graphic\CModelX.cpp(778): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+GameMain\Graphic\CModelX.cpp(793): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+GameMain\Graphic\CModelX.cpp(847): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+GameMain\Graphic\CModelX.cpp(872): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+GameMain\Graphic\CModelX.cpp(998): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+GameMain\Graphic\CModelX.cpp(1054): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+GameMain\Graphic\CModelX.cpp(1089): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+GameMain\Graphic\CModelX.cpp(1213): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+GameMain\Graphic\CModelX.cpp(1274): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+GameMain\Graphic\CModelX.cpp(1278): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+GameMain\Graphic\CModelX.cpp(1279): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+GameMain\Graphic\CModelX.cpp(1295): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+GameMain\Graphic\CModelX.cpp(1299): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+GameMain\Graphic\CModelX.cpp(1300): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+GameMain\Graphic\CModelX.cpp(1313): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+  CRectangle.cpp
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+  CRectangle2.cpp
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+  CShader.cpp
+GameMain\Graphic\CShader.cpp(14): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+  CTriangle2.cpp
+  CInput.cpp
+  CKey.cpp
+  CMouse.cpp
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+C:\Program Files (x86)\Windows Kits\8.1\Include\shared\minwindef.h(130): warning C4005: 'APIENTRY' : マクロが再定義されました。
+          C:\Users\tomi-\Desktop\後期ゲーム制作βに向けて\3DProgramming\include\GLFW/glfw3.h(98) : 'APIENTRY' の前の定義を確認してください
+  CMatrix44.cpp
+GameMain\Matrix\CMatrix44.cpp(29): warning C4244: '初期化中' : 'double' から 'float' への変換です。データが失われる可能性があります。
+GameMain\Matrix\CMatrix44.cpp(43): warning C4244: '初期化中' : 'double' から 'float' への変換です。データが失われる可能性があります。
+  CCountDown.cpp
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+  コンパイル中...
+  CScene.cpp
+  CSceneManager.cpp
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(110): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(234): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(316): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(321): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(326): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\scene\optionsscene\COption.h(5): warning C4005: 'BGM_GAGE' : マクロが再定義されました。
+          c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\scene\gamescene\UI\CScoreBoard.h(8) : 'BGM_GAGE' の前の定義を確認してください
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\scene\optionsscene\COption.h(6): warning C4005: 'SE_GAGE' : マクロが再定義されました。
+          c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\scene\gamescene\UI\CScoreBoard.h(9) : 'SE_GAGE' の前の定義を確認してください
+  CGameClear.cpp
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+GameMain\Scene\GameClearScene\CGameClear.cpp(13): warning C4005: 'BG_SIZE' : マクロが再定義されました。
+          c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\scene\gameclearscene\../../../Define/Define.h(62) : 'BG_SIZE' の前の定義を確認してください
+  CGameClearScene.cpp
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+  CGameOver.cpp
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+GameMain\Scene\GameOverScene\CGameOver.cpp(13): warning C4005: 'BG_SIZE' : マクロが再定義されました。
+          c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\scene\gameoverscene\../../../Define/Define.h(62) : 'BG_SIZE' の前の定義を確認してください
+  CGameOverScene.cpp
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+  CGameScene.cpp
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(110): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(234): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(316): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(321): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(326): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+  CSceneModel.cpp
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(110): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(234): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(316): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(321): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(326): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+  CXCharacter.cpp
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(110): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(234): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(316): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(321): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(326): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+  CXCharEnemy.cpp
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(110): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(234): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(316): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(321): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(326): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+  CXCharPlayer.cpp
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(110): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(234): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(316): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(321): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(326): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+  CEffect2D.cpp
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+  CMap.cpp
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\scene\gamescene\map\../../../Graphic/CModelX.h(110): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\scene\gamescene\map\../../../Graphic/CModelX.h(234): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\scene\gamescene\map\../../../Graphic/CModelX.h(316): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\scene\gamescene\map\../../../Graphic/CModelX.h(321): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\scene\gamescene\map\../../../Graphic/CModelX.h(326): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+GameMain\Scene\GameScene\Map\CMap.cpp(501): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+  CXPuck.cpp
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\scene\gamescene\puck\../../../Graphic/CModelX.h(110): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\scene\gamescene\puck\../../../Graphic/CModelX.h(234): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\scene\gamescene\puck\../../../Graphic/CModelX.h(316): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\scene\gamescene\puck\../../../Graphic/CModelX.h(321): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\scene\gamescene\puck\../../../Graphic/CModelX.h(326): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+  CScoreBoard.cpp
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+GameMain\Scene\GameScene\UI\CScoreBoard.cpp(8): warning C4005: 'DISP_2D_Y' : マクロが再定義されました。
+          C:\Users\tomi-\Desktop\後期ゲーム制作βに向けて\3DProgramming\include\../Define/define.h(59) : 'DISP_2D_Y' の前の定義を確認してください
+  CHome.cpp
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+  CHomeScene.cpp
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+  CItem.cpp
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+GameMain\Scene\ItemScene\CItem.cpp(8): warning C4005: 'DISP_2D_Y' : マクロが再定義されました。
+          c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\../../Define/Define.h(59) : 'DISP_2D_Y' の前の定義を確認してください
+  CItemScene.cpp
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+  COption.cpp
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+GameMain\Scene\OptionsScene\COption.cpp(8): warning C4005: 'DISP_2D_Y' : マクロが再定義されました。
+          c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\../../Define/Define.h(59) : 'DISP_2D_Y' の前の定義を確認してください
+  コンパイル中...
+  COptionScene.cpp
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+  CQuest.cpp
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+  CQuestOverview.cpp
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+  CQuestScene.cpp
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+  CShop.cpp
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+  CShopCreating.cpp
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+  CShopScene.cpp
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+  CTitle.cpp
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+GameMain\Scene\TitleScene\CTitle.cpp(12): warning C4005: 'BG_SIZE' : マクロが再定義されました。
+          c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\scene\titlescene\../../../Define/Define.h(62) : 'BG_SIZE' の前の定義を確認してください
+  CTitleScene.cpp
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+  CTask.cpp
+  CTaskManager.cpp
+  CVector2.cpp
+  CVector3.cpp
+GameMain\Vector\CVector3.cpp(97): warning C4244: '引数' : 'double' から 'float' への変換です。データが失われる可能性があります。
+GameMain\Vector\CVector3.cpp(101): warning C4244: '引数' : 'double' から 'float' への変換です。データが失われる可能性があります。
+GameMain\Vector\CVector3.cpp(120): warning C4244: '引数' : 'int' から 'float' への変換です。データが失われる可能性があります。
+GameMain\Vector\CVector3.cpp(121): warning C4244: '引数' : 'int' から 'float' への変換です。データが失われる可能性があります。
+  CVector4.cpp
+GameMain\Vector\CVector4.cpp(87): warning C4244: '引数' : 'double' から 'float' への変換です。データが失われる可能性があります。
+GameMain\Vector\CVector4.cpp(91): warning C4244: '引数' : 'double' から 'float' への変換です。データが失われる可能性があります。
+GameMain\Vector\CVector4.cpp(110): warning C4244: '引数' : 'int' から 'float' への変換です。データが失われる可能性があります。
+GameMain\Vector\CVector4.cpp(111): warning C4244: '引数' : 'int' から 'float' への変換です。データが失われる可能性があります。
+  CLight.cpp
+  main.cpp
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+  コード生成しています。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\scene\gamescene\map\cmap.cpp(287): warning C4715: 'CMap::EnemyFirstPos' : 値を返さないコントロール パスがあります。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\gamemain\scene\gamescene\map\cmap.cpp(278): warning C4715: 'CMap::PlayerFirstPos' : 値を返さないコントロール パスがあります。
+c:\users\tomi-\desktop\後期ゲーム制作βに向けて\3dprogramming\main\main.cpp(118): warning C4700: 初期化されていないローカル変数 'window' が使用されます
+  コード生成が終了しました。
+  3DProgramming.vcxproj -> C:\Users\tomi-\Desktop\後期ゲーム制作βに向けて\Release\3DProgramming.exe
