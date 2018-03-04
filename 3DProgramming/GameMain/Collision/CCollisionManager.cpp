@@ -101,7 +101,6 @@ void CCollisionManager::PlayerCollision(CTask *Task_You, CTask *Player){
 		plSphere = dynamic_cast<CCollider *>(Player);
 
 		pl->Collision(youBox->mObb, plSphere->mColSphere);
-	
 		break;
 	case CTask::E_TAG_NET:
 		youBox = dynamic_cast<CCollider *>(Task_You);
@@ -111,8 +110,7 @@ void CCollisionManager::PlayerCollision(CTask *Task_You, CTask *Player){
 
 		break;
 	case CTask::E_TAG_SLOPE:
-		/*坂の設定*/
-		pl->ColSlope();
+		
 		/*キャスト処理*/
 		youBox = dynamic_cast<CCollider *>(Task_You);
 		plSphere = dynamic_cast<CCollider *>(Player);
@@ -157,8 +155,11 @@ void CCollisionManager::EnemyCollision(CTask *Task_You, CTask *Enemy){
 
 			youBox = dynamic_cast<CCollider *>(Task_You);
 			eneSphere = dynamic_cast<CCollider *>(Enemy);
+			
+	
 			/*元の一位戻す*/
-			ene->Collision(youBox->mObb,eneSphere->mColSphere);
+			ene->Collision(youBox->mObb, eneSphere->mColSphere);
+			
 			break;
 			/*障害物の場合*/
 		case CTask::E_TAG_BOX:
@@ -206,8 +207,7 @@ void CCollisionManager::EnemyCollision(CTask *Task_You, CTask *Enemy){
 
 		/*坂の当たり判定*/
 	case CTask::E_TAG_SLOPE:
-		/*坂の設定*/
-		ene->ColSlope();
+		
 		/*キャスト処理*/
 		youBox = dynamic_cast<CCollider *>(Task_You);
 		eneSphere = dynamic_cast<CCollider *>(Enemy);
@@ -216,6 +216,7 @@ void CCollisionManager::EnemyCollision(CTask *Task_You, CTask *Enemy){
 		/*当たり判定が足の時*/
 		if (ene->mpCBLeg == eneSphere){
 			ene->Collision(youBox->mObb, eneSphere->mColSphere);
+		
 		}
 
 
@@ -255,7 +256,7 @@ void  CCollisionManager::PuckCollision(CTask *Task_You, CTask *Puck){
 		break;
 		/*ボックス*/
 	case CTask::E_TAG_BOX:
-	case CTask::E_TAG_SLOPE_REF:
+	//case CTask::E_TAG_SLOPE_REF:
 
 
 		/*キャスト処理*/

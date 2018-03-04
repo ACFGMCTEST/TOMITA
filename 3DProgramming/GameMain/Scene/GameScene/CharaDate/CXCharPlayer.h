@@ -176,10 +176,14 @@ public:
 	void SearchGoPosInit();
 
 
-	/*当たり判定呼び出し
-	元の場所に戻すための関数
-	*/
+	/*おもな当たり判定呼び出し*/
 	void Collision(const COBB &box, const CColSphere &sphere);
+	///*ボックスにあたったとき*/
+	//void CollisionBox(const COBB &box, const CColSphere &sphere);
+	///*坂にあたったとき*/
+	//void CollisionSlope(const COBB &box, const CColSphere &sphere);
+
+
 
 	/*ハンマーの溜める処理*/
 	void HammerUp();
@@ -202,8 +206,6 @@ public:
 	/*グラウンドの設定*/
 	void ColGround();
 
-	/*坂に当たった時の判定*/
-	void ColSlope();
 };
 
 #endif

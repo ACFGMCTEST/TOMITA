@@ -4,14 +4,6 @@
 #include "../CMap.h"
 
 
-/*あたり判定:ボックス設定*/
-#define OBB_POS CVector3(0.0f,0.0f,0.0f) 
-#define OBB_SIZE new float[]{MAPCHIP_SIZE, MAPCHIP_SIZE/2, MAPCHIP_SIZE} 
-#define SMALL_SIZE(num) num*0.999f//ボックスとかぶらない用
-#define SET_OBB OBB_POS,OBB_SIZE,&mMatrix
-
-
-
 
 
 /*更新*/
@@ -101,12 +93,13 @@ void CSlope::MapRot(){
 	if (CMap::FlagMapMacth(mMapChipX - 1, mMapChipZ, CMap::E_HIGH_BOX_A)){
 		eSlopeRot = E_LEFT;
 		/*回転させ坂の向きを決める*/
-		mRot.z = ANGLE_315;
-		mRot.y = ANGLE_180;
+		mRot.y = ANGLE_90;
+		mRot.x = ANGLE_45;
+		//mRot.z = ANGLE_45;
 		/*サイズ変更*/
 		SetSize(CHIP_SLANTING);
-		mMinZ = -SMALL_SIZE(MAPCHIP_SIZE);
-		mMaxZ = SMALL_SIZE(MAPCHIP_SIZE);
+		mMinX = -SMALL_SIZE(MAPCHIP_SIZE);
+		mMaxX = SMALL_SIZE(MAPCHIP_SIZE);
 
 
 		///*ポジション設定*/
@@ -117,16 +110,18 @@ void CSlope::MapRot(){
 	if (CMap::FlagMapMacth(mMapChipX + 1, mMapChipZ, CMap::E_HIGH_BOX_A)){
 		eSlopeRot = E_RIGHT;
 		/*回転させ坂の向きを決める*/
-		mRot.z = ANGLE_315;
+		mRot.y = ANGLE_270;
+		mRot.x = 45;
+
 		/*サイズ変更*/
 		SetSize(CHIP_SLANTING);
-		mMinZ = -SMALL_SIZE(MAPCHIP_SIZE);
-		mMaxZ = SMALL_SIZE(MAPCHIP_SIZE);
+		mMinX = -SMALL_SIZE(MAPCHIP_SIZE);
+		mMaxX = SMALL_SIZE(MAPCHIP_SIZE);
 
 
 		//*ポジション設定*/
 		//mPos = ARRAY_POS(POS_X(mMapChipX+1), -MAPCHIP_SIZE / 2, POS_Z(mMapChipZ));
-		mPos.x += SMALL_SIZE(MAPCHIP_SIZE);
+		mPos.x += MAPCHIP_SIZE;
 	}
 	/*後ろがボックスだった場合&& マップからはみ出してないか つまり坂は前にあります*/
 	if (CMap::FlagMapMacth(mMapChipX, mMapChipZ + 1, CMap::E_HIGH_BOX_A)){

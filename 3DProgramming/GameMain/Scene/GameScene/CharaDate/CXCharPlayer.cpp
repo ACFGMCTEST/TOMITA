@@ -532,7 +532,7 @@ void CXCharPlayer::AnimaState(ESTATE state){
 /*更新処理*/
 void CXCharPlayer::Update(){
 	mPrevPos = mPosition;
-
+	mFlagSlpoe = false;
 	//キャラクターが選ばれているものか判断
 	if (CSceneModel::mCharcter == this){
 
@@ -838,7 +838,7 @@ void CXCharPlayer::Collision(const COBB &box,const CColSphere &sphere) {
 			}
 			else {
 				/*球がボディの時判定 && ジャンプしていないとき*/
-				if (&sphere == &mpCBLeg->mColSphere){
+				//if (&sphere == &mpCBLeg->mColSphere){
 					ColGround();//地面にあった時の処理
 					//Y軸で戻す
 					if (vy.Dot(vectorBS) > 0.0f) {
@@ -847,7 +847,7 @@ void CXCharPlayer::Collision(const COBB &box,const CColSphere &sphere) {
 					else {
 						mPosition = savePos - vy * dy;
 					}
-				}
+				//}
 			
 			}
 		}
@@ -898,6 +898,8 @@ void CXCharPlayer::Collision(const COBB &box,const CColSphere &sphere) {
 }
 
 
+
+
 /*ジャンプ関数*/
 void  CXCharPlayer::Jump(){
 	Move(mForward, JUMP_MOVE(mVelocity));
@@ -905,17 +907,5 @@ void  CXCharPlayer::Jump(){
 	/*ジャンプが0より大きい場合*/
 		mPosition.y += jumpVilocity;
 	
-
-}
-
-/*坂にあった時の判定*/
-void CXCharPlayer::ColSlope(){
-
-	///*足(球)と坂(箱)が当たっている場合*/
-	//if (CCollision::CollSphereBox(mpCBLeg->mColSphere,slope.mpColBox->mObb)){
-	//	//mPosition = slope.MiddlePos(mPosition);
-	//}
-	mFlagSlpoe = true;
-	ColGround();
 
 }

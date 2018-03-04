@@ -48,6 +48,6 @@ void CHighBox::Update(){
 /*描画*/
 void CHighBox::Render(){
 	CBox::UpdateMatrix();
-	//CBox::Render();
+	CBox::Render();
 }
 

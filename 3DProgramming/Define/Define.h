@@ -101,6 +101,7 @@ extern int WinPosX,WinPosY;//main.cppÇ≈ê›íË
 #define ANGLE_315 315//äpìx
 #define ANGLE_270 270//äpìx
 #define ANGLE_180 180//äpìx
+#define ANGLE_135 135//äpìx
 #define ANGLE_125 125//äpìx
 #define ANGLE_90 90 //äpìx
 #define ANGLE_45 45 //äpìx

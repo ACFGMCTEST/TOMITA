@@ -63,13 +63,14 @@ void CCollider::SetObbRot(const CVector3 rot){
 	if (eColTag == CTask::E_COL_BOX){
 
 
-		CMatrix44 mx, mz;
+		CMatrix44 mx,my, mz;
 		//‰ñ“]‚³‚¹‚é
 
 		mx.rotationX(mObb.mRotation.x);
+		my.rotationY(mObb.mRotation.y);
 		mz.rotationZ(mObb.mRotation.z);
 		
-		*mpCombinedMatrix = *mpCombinedMatrix * mx * mz;
+		*mpCombinedMatrix = *mpCombinedMatrix * mx *my * mz;
 		mObb.mMatrixRotation = *mpCombinedMatrix;
 	}
 	else if (eColTag == CTask::E_COL_NO){

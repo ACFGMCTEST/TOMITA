@@ -54,6 +54,9 @@ public:
 		E_TAG_TRAMPOLINE,		//ジャンプ台
 		E_TAG_GROUND,			//地面
 
+
+		E_TAG_HIGH_BOX,			//高いボックス
+
 		E_TAG_SLOPE,			//坂
 		E_TAG_SLOPE_REF,		//坂の横の壁
 
@@ -61,7 +64,6 @@ public:
 		E_TAG_GOAL_ENEMY,		//ゴール
 		E_TAG_BOX,				//箱
 		
-		E_TAG_HIGH_BOX,			//高いボックス
 		E_TAG_FAST_FLOOR,		//加速床　
 		E_TAG_SLOW_FLOOR,		//減速床
 		E_TAG_NET,				//中心の堺
