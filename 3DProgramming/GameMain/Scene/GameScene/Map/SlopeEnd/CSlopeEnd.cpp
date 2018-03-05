@@ -41,12 +41,13 @@ void CSlopeEnd::ColInitRight(){
 	/*サイズきめ*/
 	mpColRefRight->SetObbSize(new float[]{REF_SIZE_X, REF_SIZE_Y, mMaxZ});//当たり判定
 }
+
 /*当たり判定初期化 左*/
 void CSlopeEnd::ColInitLeft(){
 	/*インスタンス作成*/
 	mpColRefLeft = new CCollider(E_COL_BOX);
 	/*親設定*/
-	mpColRefRight->mpParent = this;
+	mpColRefLeft->mpParent = this;
 	/*当たり判定　跳ね返りよう　パラメータ設定*/
 	mpColRefLeft->SetBoxOBB(SET_REF_LEFT_OBB);
 	//タグ決める
@@ -55,9 +56,6 @@ void CSlopeEnd::ColInitLeft(){
 	CCollisionManager::GetInstance()->Add(mpColRefLeft->eTag, mpColRefLeft);
 	/*サイズきめ*/
 	mpColRefLeft->SetObbSize(new float[]{REF_SIZE_X, REF_SIZE_Y, mMaxZ});//当たり判定
-	//mSideMatrix = mSideMatrix.MatrixTransform(mPos,rot);
-
-
 }
 
 /*当たり判定の初期化*/

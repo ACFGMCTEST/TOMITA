@@ -18,6 +18,7 @@
 #define SPEED_DOWN_ALWAYS 0.0001f//常に下がる減速度
 #define SPEED_PUCK 0.1f//通常速度
 #define SPEED_MAX ATTACK_POWER_MAX + 0.1f//最高加速
+#define SPEED_MIN SPEED_PUCK/2.0f//最高加速
 //#define SPEED_MAX 10.0f//最大加速度
 #define SPEED_UP 0.01f//減速床に乗った時の上昇値
 #define SPEED_DOWN 0.01f//加速床に乗った時の減速値
@@ -116,8 +117,8 @@ void CXPuck::Gravity(){
 /*更新処理*/
 void CXPuck::Update(){
 	//mVelocity -= SPEED_DOWN_ALWAYS;//常に減速させる
-	if (mVelocity < 0){//進行度がminusになると
-		mVelocity = 0;
+	if (mVelocity < SPEED_MIN){//進行度が最低値になると
+		mVelocity = SPEED_MIN;//そこで減速度をストップにする
 	}
 	if (mVelocity > SPEED_MAX){//進行度が最高速になると
 		mVelocity = SPEED_MAX;

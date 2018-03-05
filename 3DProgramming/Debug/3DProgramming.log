@@ -8,5 +8,4 @@ c:\users\tomi-\desktop\tomita\3dprogramming\define\define.h(92): warning C4005: 
           c:\users\tomi-\desktop\tomita\3dprogramming\define\define.h(87) : 'BACK_POS' の前の定義を確認してください
 c:\users\tomi-\desktop\tomita\3dprogramming\define\define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
           c:\users\tomi-\desktop\tomita\3dprogramming\define\define.h(92) : 'BACK_POS' の前の定義を確認してください
-cl : コマンド ライン warning D9028: 簡易リビルド時のエラーです、通常のビルドに戻します
   3DProgramming.vcxproj -> C:\Users\tomi-\Desktop\TOMITA\Debug\3DProgramming.exe
