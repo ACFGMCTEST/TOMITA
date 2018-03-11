@@ -20,8 +20,8 @@ triangle2(left, top, right, bottom, right, top, r, g, b, a), position(pos), ptex
 {};
 
 
-CRectangle2::CRectangle2() :ptexture(0), deg_enabled(false), degree(0),
-m_BigX(0.0f), m_BigY(0.0f), m_SmallX(0.0f), m_SmallY(0.0f){}
+CRectangle2::CRectangle2() :ptexture(0), deg_enabled(false), degree(0), 
+m_BigX(0.0f), m_BigY(0.0f), m_SmallX(0.0f), m_SmallY(0.0f), position(0.0f, 0.0f){}
 
 
 

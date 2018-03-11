@@ -41,7 +41,7 @@ void CSlopeEnd::ColInitRight(){
 	/*サイズきめ*/
 	mpColRefRight->SetObbSize(new float[]{REF_SIZE_X, REF_SIZE_Y, mMaxZ});//当たり判定
 }
-
+ 
 /*当たり判定初期化 左*/
 void CSlopeEnd::ColInitLeft(){
 	/*インスタンス作成*/
@@ -90,10 +90,10 @@ void CSlopeEnd::ColInit(ESlpoeRot eState){
 		/*右*/
 	case CSlope::E_RIGHT:
 		/*左右に障害物がなければ生成*/
-		if (!CMap::FlagMapMacth(mMapChipX , mMapChipZ -1, CMap::E_SLOP_8)){
+		if (!CMap::FlagMapMacth(mMapChipX , mMapChipZ +1, CMap::E_SLOP_8)){
 			ColInitRight();
 		}
-		if (!CMap::FlagMapMacth(mMapChipX , mMapChipZ + 1, CMap::E_SLOP_8)){
+		if (!CMap::FlagMapMacth(mMapChipX , mMapChipZ - 1, CMap::E_SLOP_8)){
 			ColInitLeft();
 
 		}
@@ -102,10 +102,10 @@ void CSlopeEnd::ColInit(ESlpoeRot eState){
 		/*左*/
 	case CSlope::E_LEFT:
 		/*左右に障害物がなければ生成*/
-		if (!CMap::FlagMapMacth(mMapChipX , mMapChipZ+1, CMap::E_SLOP_8)){
+		if (!CMap::FlagMapMacth(mMapChipX , mMapChipZ-1, CMap::E_SLOP_8)){
 			ColInitRight();
 		}
-		if (!CMap::FlagMapMacth(mMapChipX , mMapChipZ-1, CMap::E_SLOP_8)){
+		if (!CMap::FlagMapMacth(mMapChipX , mMapChipZ+1, CMap::E_SLOP_8)){
 			ColInitLeft();
 
 		}
@@ -140,9 +140,9 @@ void CSlopeEnd::Update(){
 /*描画*/
 void CSlopeEnd::Render(){
 	UpdateMatrix();
-	//CBox::Render();
+	CBox::Render();
 #ifdef _DEBUG 
-	mpColBox->Render();
+	//mpColBox->Render();
 	/*生成されているなら更新*/
 	//if (mpColRefLeft != 0)mpColRefLeft->Render();
 	//if (mpColRefRight != 0)mpColRefRight->Render();

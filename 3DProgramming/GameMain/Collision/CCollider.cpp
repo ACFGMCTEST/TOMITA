@@ -70,7 +70,7 @@ void CCollider::SetObbRot(const CVector3 rot){
 		my.rotationY(mObb.mRotation.y);
 		mz.rotationZ(mObb.mRotation.z);
 		
-		*mpCombinedMatrix = *mpCombinedMatrix * mx *my * mz;
+		*mpCombinedMatrix = *mpCombinedMatrix *my * mx * mz;
 		mObb.mMatrixRotation = *mpCombinedMatrix;
 	}
 	else if (eColTag == CTask::E_COL_NO){

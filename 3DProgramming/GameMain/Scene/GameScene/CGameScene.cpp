@@ -4,6 +4,7 @@
 #include "../../Key/CKey.h"
 #include "../../Key/CMouse.h"
 #include "./../CSceneManager.h"
+#include "../QuestScene/CQuest.h"
 
 CCamera MainCamera;
 
@@ -72,9 +73,37 @@ void CGameScene::Update() {
 		CScoreBoard::GetInstance()->Init();
 		mSceneModel.Init();
 		MainCamera.Init();
-		eState = E_MAIN;
+
+		/*状態によりTutorialを表示*/
+		if(CQuest::eChoice == CQuest::E_QUEST00){
+			eState = E_TUTORIAL;
+		}
+		else{
+			eState = E_MAIN;
+		}
 		break;
 		
+		/*Tutorialの状態*/
+	case E_TUTORIAL:
+		MainCamera.Update();
+		mSceneModel.Update();
+		mSceneModel.Render();
+		mMap.Update();
+		mMap.Render();
+		mSceneModel.UpdateEffect();
+		TransitionManager();
+
+		CScoreBoard::GetInstance()->Update();
+		CCollisionManager::GetInstance()->Update();
+		CScoreBoard::GetInstance()->Render();
+
+		/*シーン切り替えフラグが立つと*/
+		if (CScoreBoard::GetInstance()->mFlagSceneChage ||
+			CPause::mSceneChangeFlag){
+			eState = E_END;
+		}
+
+		break;
 	case E_MAIN:
 		MainCamera.Update();
 
@@ -88,6 +117,7 @@ void CGameScene::Update() {
 
 		TransitionManager();
 			
+
 		CScoreBoard::GetInstance()->Update();
 
 		CCollisionManager::GetInstance()->Update();

@@ -26,7 +26,7 @@ public:
 	/* デフォルトコンストラクタ
 	x1 ～ y3までに0.0fを代入する
 	*/
-	CTriangle2():degree(0) {
+	CTriangle2() :degree(0), r(1.0f), g(1.0f), b(1.0f), a(1.0f){
 		x1 = y1 = x2 = y2 = x3 = y3 = 0.0f;
 	}
 

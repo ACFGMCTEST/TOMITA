@@ -7,10 +7,13 @@
 #include "../CScene.h"
 #include"../CountDown/CCountDown.h"
 #include "Pause/CPause.h"
+#include "Tutorial\CTutorial.h"
 
 class CGameScene : public CScene{
 public:
 
+
+	CTutorial mTutorial;
 	CPause mPause;
 	CSceneModel mSceneModel;
 	CMap mMap;
@@ -27,6 +30,7 @@ public:
 	/*èÛë‘*/
 	enum E_STATE{
 		E_INIT,
+		E_TUTORIAL,//TutorialÉVÅ[Éì
 		E_MAIN,
 		E_END
 	};

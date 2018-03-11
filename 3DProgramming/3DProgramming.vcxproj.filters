@@ -132,6 +132,9 @@
     <Filter Include="ソース ファイル\GameMain\Scene\GameScene\Map\SlopeEnd">
       <UniqueIdentifier>{b8859c8e-800c-41a7-a747-8d45af1059ca}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\GameMain\Scene\GameScene\Tutorial">
+      <UniqueIdentifier>{f76e92bc-52c2-4398-8c89-d43e342ed8be}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main\main.cpp">
@@ -343,6 +346,9 @@
     </ClCompile>
     <ClCompile Include="GameMain\Scene\GameScene\Map\SlopeEnd\CSlopeEnd.cpp">
       <Filter>ソース ファイル\GameMain\Scene\GameScene\Map\SlopeEnd</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMain\Scene\GameScene\Tutorial\CTutorial.cpp">
+      <Filter>ソース ファイル\GameMain\Scene\GameScene\Tutorial</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -573,6 +579,9 @@
     </ClInclude>
     <ClInclude Include="GameMain\Scene\GameScene\Map\SlopeEnd\CSlopeEnd.h">
       <Filter>ソース ファイル\GameMain\Scene\GameScene\Map\SlopeEnd</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMain\Scene\GameScene\Tutorial\CTutorial.h">
+      <Filter>ソース ファイル\GameMain\Scene\GameScene\Tutorial</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

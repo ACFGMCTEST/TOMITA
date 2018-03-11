@@ -60,6 +60,7 @@
     <ClCompile Include="GameMain\Scene\GameScene\Map\Trampoline\CTrampoline.cpp" />
     <ClCompile Include="GameMain\Scene\GameScene\Pause\CPause.cpp" />
     <ClCompile Include="GameMain\Scene\GameScene\Puck\CXPuck.cpp" />
+    <ClCompile Include="GameMain\Scene\GameScene\Tutorial\CTutorial.cpp" />
     <ClCompile Include="GameMain\Scene\GameScene\UI\CScoreBoard.cpp" />
     <ClCompile Include="GameMain\Scene\HomeScene\CHome.cpp" />
     <ClCompile Include="GameMain\Scene\HomeScene\CHomeScene.cpp" />
@@ -139,6 +140,7 @@
     <ClInclude Include="GameMain\Scene\GameScene\Map\Trampoline\CTrampoline.h" />
     <ClInclude Include="GameMain\Scene\GameScene\Pause\CPause.h" />
     <ClInclude Include="GameMain\Scene\GameScene\Puck\CXPuck.h" />
+    <ClInclude Include="GameMain\Scene\GameScene\Tutorial\CTutorial.h" />
     <ClInclude Include="GameMain\Scene\GameScene\UI\CScoreBoard.h" />
     <ClInclude Include="GameMain\Scene\HomeScene\CHome.h" />
     <ClInclude Include="GameMain\Scene\HomeScene\CHomeScene.h" />

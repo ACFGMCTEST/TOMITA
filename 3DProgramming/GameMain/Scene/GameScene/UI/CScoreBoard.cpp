@@ -141,11 +141,12 @@ void CScoreBoard::Init(){
 	mGoalManager = E_NORMAL;
 	skillgage = REFRESH;
 	mcFirstAction = true;
+	/*初期化*/
 	mGameClear .Init();
 	mGameOver  .Init();
 	mGameResult.Init();
 	mCountDown .Init();
-
+	mTutorial.Init();
 
 
 	//mSkillEffect
@@ -483,7 +484,7 @@ void CScoreBoard::Update(){
 		mEnScore1.position = E_SCORE_POS1;
 
 		mInit = false;
-		
+
 		break;
 	case E_PLAYER:
 		NumberUpdate(mPlScore2, mEnScore2, PSCORE_BPOS2, ESCORE_BPOS2);
@@ -507,11 +508,11 @@ void CScoreBoard::Update(){
 	mFrameLighting.SetVertex(-mLightingSize, mLightingSize, mLightingSize, -mLightingSize);
 
 	mFrameLighting.SetColor(1.0f, 1.0f, 1.0f, mAlpha);
-	
+
 	mSkillGauge.SetVertex(-2.0f, 0.0f, skillgage, -50.0f);
 
 	mSkillGauge.SetUv(mpGauge, 0, 0, skillgage, 50);
-	
+
 	mBackButton.SetColor(WHITE_COLOR);		   //白色
 
 	////カーソルのポジション
@@ -521,14 +522,14 @@ void CScoreBoard::Update(){
 
 	if (mFlagSkill0){
 		mSkillEffect.SetColor(S1_COLOR, 0.8f);
-		
+
 		if (!mSkillCollarUnder){
 			mSkillCollarR -= 0.01f;
 			mSkillCollarG -= 0.01f;
-		
+
 			if (mSkillCollarR <= 0.7f){
-			mSkillCollarUnder = true;
-		   }
+				mSkillCollarUnder = true;
+			}
 		}
 		else{
 			mSkillCollarR += 0.01f;
@@ -552,7 +553,7 @@ void CScoreBoard::Update(){
 		}
 		else{
 			mLightingSize = mcLightingBoxSize;
-			mAlpha =mcAlphaMax;
+			mAlpha = mcAlphaMax;
 		}
 
 	}
@@ -570,7 +571,12 @@ void CScoreBoard::Update(){
 	if (mResult){
 		mGameResult.Update();
 	}
-	};
+
+	/*チュートリアル*/
+	mTutorial.Update();
+};
+
+
 
 /*
 描画処理のみを行う。
@@ -607,9 +613,20 @@ void CScoreBoard::Render() {
 
 	mGameOver.Render();
 	mGameClear.Render();
-
 	mGameResult.Render();
+
+	/*チュートリアル*/
+	mTutorial.Render();
+
+
 	CRectangle2::Disp2D_Exit();//描画終了
+
+
+
+
+
+
+
 }
 
 //とりあえずこの中で使えればいい関数

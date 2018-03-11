@@ -65,8 +65,12 @@ void CGameOver::Update(){
 void CGameOver::Render() {
 	CRectangle2::Disp2D_Start();//2D処理開始
 	/*この場所に描画処理を入れる*/
+
+
 	mBG.Render();
 	mGameOverLogo.Render();
+
+
 	/*描画終了*/
 	CRectangle2::Disp2D_Exit();//2D処理終了
 }

@@ -6,6 +6,8 @@
 #include "../../GameOverScene/CGameOver.h"
 #include "../../CountDown/CCountDown.h"
 #include "../../GameResult/CGameResult.h"
+#include "../Tutorial/CTutorial.h"
+
 #define BGM_GAGE 9
 #define SE_GAGE 9
 
@@ -13,11 +15,14 @@ class CScoreBoard{
 private:
 	static CScoreBoard *mSceneManager;
 
+	CTutorial mTutorial;
+
 public:
 	bool mFlagSceneChage;//シーンチェンジするフラグ
 	static bool mFlagSkill0;//スキル発動中かどうか　バフ系
-
 	static CScoreBoard *GetInstance(); //GetInstance
+
+
 
 	~CScoreBoard();
 	CScoreBoard();
@@ -154,6 +159,8 @@ public:
 	void NumberUpdate(CRectangle2 &WinScore, CRectangle2 &LoseScore, CVector2 WinPos,CVector2 LosePos);
 
 	void Number(int Score, CRectangle2 &odifit, CRectangle2 &twdifit, CRectangle2 &thdifit);//スコア用の数字表示の関数
+
+	void TutoUpdate();
 
 	void Init();
 	void Update();
