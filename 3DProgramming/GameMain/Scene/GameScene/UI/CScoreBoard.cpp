@@ -564,16 +564,15 @@ void CScoreBoard::Update(){
 
 	//ファーストアクションでカウントダウンを行う。
 	if (mcFirstAction){ mCountDown.Update(); }
+	//チュートリアル*/
+	else{mTutorial.Update();	}
 
-	//ゲームオーバーとゲームクリアをアップデート
+	//Zゲームオーバーとゲームクリアをアップデート
 	mGameOver.Update();
 	mGameClear.Update();
 	if (mResult){
 		mGameResult.Update();
 	}
-
-	/*チュートリアル*/
-	mTutorial.Update();
 };
 
 
@@ -610,14 +609,14 @@ void CScoreBoard::Render() {
 	//mCursor.Render();
 
 	if (mcFirstAction){ mCountDown.Render(); }
+	//チュートリアル*/
+	else{ mTutorial.Render(); }
 
 	mGameOver.Render();
 	mGameClear.Render();
 	mGameResult.Render();
 
-	/*チュートリアル*/
-	mTutorial.Render();
-
+	
 
 	CRectangle2::Disp2D_Exit();//描画終了
 

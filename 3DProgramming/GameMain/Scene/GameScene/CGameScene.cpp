@@ -20,6 +20,29 @@ CGameScene::~CGameScene(){
 }
 
 
+/*マップ上からの視点*/
+void CGameScene::RenderMiniMap() {
+
+	gluPerspective(75.0, (double)DISP_X / (double)DISP_Y, 1.0, 1000.0);
+	glPushMatrix();
+	glViewport(600, 450, 200, 150); //画面の描画エリアの指定
+	glLoadIdentity();
+	gluLookAt(0, 80, -10, 0, 0, 0, 0, 1, 0);
+
+	glDisable(GL_NORMALIZE);
+	glDisable(GL_DEPTH_TEST);
+	/*描画*/
+	mSceneModel.Render();
+	mMap.Render();
+	mSceneModel.UpdateEffect();
+
+
+	glPopMatrix();
+	glViewport(0, 0, DISP_X, DISP_Y); //画面の描画エリアの指定
+
+	glEnable(GL_NORMALIZE);
+	glEnable(GL_DEPTH_TEST);
+}
 //ゲーム遷移の処理
 void CGameScene::TransitionManager(){
 
@@ -97,6 +120,8 @@ void CGameScene::Update() {
 		CCollisionManager::GetInstance()->Update();
 		CScoreBoard::GetInstance()->Render();
 
+
+
 		/*シーン切り替えフラグが立つと*/
 		if (CScoreBoard::GetInstance()->mFlagSceneChage ||
 			CPause::mSceneChangeFlag){
@@ -106,13 +131,11 @@ void CGameScene::Update() {
 		break;
 	case E_MAIN:
 		MainCamera.Update();
-
 		mSceneModel.Update();
+		mMap.Update();
+
 		mSceneModel.Render();
-
-		mMap.Update(); 
 		mMap.Render();
-
 		mSceneModel.UpdateEffect();
 
 		TransitionManager();
@@ -129,6 +152,7 @@ void CGameScene::Update() {
 			CPause::mSceneChangeFlag){
 			eState = E_END;
 		}
+
 
 		break;
 	case E_END:

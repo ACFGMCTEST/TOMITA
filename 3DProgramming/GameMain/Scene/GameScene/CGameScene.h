@@ -43,7 +43,10 @@ public:
 	void TransitionManager();
 	//繰り返し実行される処理
 	void Update();
+	//ミニマップ
 
+	/*マップ上からの視点*/
+	void RenderMiniMap();
 };
 
 #endif

@@ -36,7 +36,7 @@
 
 CXPuck::CXPuck() : mVelocity(0.0f), mSaveSpeed(0.0f), mRefFlag(true), mFlagJump(false),
 mGravitTime(GRA_INIT_TIME_COUNT), mGoalStandUpFlag(false), mRefrectVec(0.0f, 0.0f, 0.0f), mFlagSlope(false){
-	mForward = CVector3(FORWARD);
+	//mForward = CVector3(FORWARD);
 	mpParent = this;
 	mState = E_IDLE;
 	ePriority = CTask::E_PUCK;

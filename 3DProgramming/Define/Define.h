@@ -25,7 +25,7 @@
 //#define MAP_ARRAY_Z 27 //マップ数 
 
 
-#define MAPCHIP_SIZE 2.5f //１マスの大きさ
+#define MAPCHIP_SIZE 3.0f //１マスの大きさ
 //タイトルカメラXY
 #define CAMERA_X 11
 #define CAMERA_Y 22

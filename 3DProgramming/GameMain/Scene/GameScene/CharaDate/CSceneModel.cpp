@@ -53,7 +53,7 @@
 /*lag回避用*/
 #define LAG_SIZE 0.1f //0，1秒間lag回避用
 /*パックの初期位置*/
-#define PUCK_INIT_POS 0.0f,0.0f,10.0f
+#define PUCK_INIT_POS 0.0f,0.0f,-10.0f
 /*静的初期化*/
 CXCharPlayer *CSceneModel::mCharcter;
 CVector3 CSceneModel::mRotation;
