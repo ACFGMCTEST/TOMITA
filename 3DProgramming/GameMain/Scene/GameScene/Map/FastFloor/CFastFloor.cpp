@@ -30,6 +30,7 @@ CFastFloor::CFastFloor(CVector4 pos){
 	SetColor(WHITE_COLOR);
 	/*テクスチャ設定*/
 	SetTex(CBox::E_TexBox::E_SPEED_UP);
+
 	/*当たり判定設定*/
 	mpColBox->SetBoxOBB(SET_OBB);//設定
 	mpColBox->eTag = CTask::E_TAG::E_TAG_FAST_FLOOR;

@@ -45,6 +45,7 @@ public:
 	/*属性*/
 	enum E_TAG{
 		E_TAG_NO,				//初期値
+		E_TAG_CAMERA,			//カメラ
 		E_TAG_PUCK,				//パック
 		E_TAG_PLAYER,			//プレイヤー
 		E_TAG_WEAPON,			//攻撃範囲

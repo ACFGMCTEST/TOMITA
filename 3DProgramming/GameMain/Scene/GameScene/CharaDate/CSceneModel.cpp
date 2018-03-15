@@ -350,12 +350,18 @@ void CSceneModel::Render() {
 	cp += SavePos;
 	//カメラの視点(eye)と注意点(pos)を設定
 
-	MainCamera.pos[0] = SavePos.x;
+	/*MainCamera.pos[0] = SavePos.x;
 	MainCamera.pos[1] = SavePos.y;
-	MainCamera.pos[2] = SavePos.z;
+	MainCamera.pos[2] = SavePos.z;*/
+
+	//カメラ位置代入
+	MainCamera.mPos = SavePos;
+	//カメラ視点代入
+	MainCamera.mEye = cp;
+/*
 	MainCamera.eye[0] = cp.x;
 	MainCamera.eye[1] = cp.y;
-	MainCamera.eye[2] = cp.z;
+	MainCamera.eye[2] = cp.z;*/
 
 
 	mModelTaskManager.AllRender();

@@ -7,6 +7,7 @@
 #include "../Scene/GameScene//Map/Slope/CSlope.h"
 #include "../Scene/GameScene/Puck/CXPuck.h"
 #include "CCollisionManager.h"
+#include "../Camera/CCamera.h"
 
 /*回転を逆向きにする*/
 #define REVERSE_ROT(rot) CVector3(rot.x,rot.y +180,rot.z)
@@ -343,6 +344,27 @@ void  CCollisionManager::PuckCollision(CTask *Task_You, CTask *Puck){
 	};
 }
 
+/*カメラの当たり判定*/
+void  CCollisionManager::CameraCollision(CTask *Task_You, CTask *Camera){
+
+	
+	/*キャスト*/
+	CCollider *youBox;
+
+	/*あたり判定が何か判断*/
+	switch (Task_You->eTag)
+	{
+		/*ボックスに当たった場合*/
+	case CTask::E_TAG_BOX:
+		/*キャスト処理*/
+		youBox = dynamic_cast<CCollider *>(Task_You);
+
+		MainCamera.Collision(youBox->mObb);
+		break;
+	};
+}
+
+
 /*更新2段目*/
 void CCollisionManager::Update(CTask *t){
 	CTask *task;
@@ -372,6 +394,12 @@ void CCollisionManager::Update(CTask *t){
 				/*当たっていて場合処理*/
 				if (ColIf(task, t)){
 					PuckCollision(task, t);//task何か,tパック
+				}
+				break;
+			case CTask::E_TAG_CAMERA:
+				/*当たっていて場合処理*/
+				if (ColIf(task, t)){
+					CameraCollision(task, t);//task何か,tパック
 				}
 				break;
 			}
