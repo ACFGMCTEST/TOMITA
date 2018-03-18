@@ -9,6 +9,7 @@
 #include "../UI/CScoreBoard.h"
 #include "../../GameScene/Map/CMap.h"
 #include "../../ItemScene/CItem.h"
+#include "../../../Camera/CCamera.h"
 #include <math.h>
 
 
@@ -150,7 +151,7 @@ bool CXCharPlayer::FlagMove(){
 bool CXCharPlayer::FlagRotMove(int angle){
 	int middle = abs((int)mRotation.y) % ANGLE_360;
 	
-	angle = (abs((int)CSceneModel::mRotation.y) + angle) % ANGLE_360;
+	angle = (abs((int)MainCamera.Rot().y) + angle) % ANGLE_360;
 
 	if (middle == angle){
 		return true;
@@ -168,7 +169,7 @@ bool CXCharPlayer::FlagRight(){
 		Rot = mRotation.y - ANGLE_360;
 	}
 
-	if (Rot - CSceneModel::mRotation.y < ANGLE_90){
+	if (Rot - MainCamera.Rot().y < ANGLE_90){
 
 		return true;
 	}
@@ -186,10 +187,10 @@ bool CXCharPlayer::FlagLeft(){
 	
 	float Rot;
 	if (mRotation.y <= ANGLE_180){
-		Rot = CSceneModel::mRotation.y - mRotation.y;
+		Rot = MainCamera.Rot().y - mRotation.y;
 	}
 	else{
-		Rot = CSceneModel::mRotation.y - mRotation.y - ANGLE_360;
+		Rot = MainCamera.Rot().y - mRotation.y - ANGLE_360;
 	}
 
 	if (Rot < -ANGLE_90){
@@ -219,18 +220,18 @@ void CXCharPlayer::MyMove(){
 		mRotation.y = 0;
 	}
 	/*UŒ‚‚·‚é‚Æ‚«ƒJƒƒ‰‚Ì•ûŒü‚ÉŒü‚­*/
-	if (mState == E_ATTACK || mState == E_ATTACK_INIT)	mRotation = CSceneModel::mRotation;
+	if (mState == E_ATTACK || mState == E_ATTACK_INIT)	mRotation = MainCamera.Rot();
 
 
 	if (CKey::push('A')){//¶‚ÉˆÚ“®
 		///*‰ñ“]*/
 		//if (FlagLeft())PlusRot(ANGLE_5);//‰ñ“]’l‘ã“ü
 		//else 
-			mRotation.y = ((int)CSceneModel::mRotation.y + ANGLE_90) % 360;
+			mRotation.y = ((int)MainCamera.Rot().y + ANGLE_90) % 360;
 
 	}
 	if (CKey::push('D')){//‰E‚ÉˆÚ“®
-		mRotation.y = ((int)CSceneModel::mRotation.y + ANGLE_270) % 360;
+		mRotation.y = ((int)MainCamera.Rot().y + ANGLE_270) % 360;
 	}
 
 
@@ -238,7 +239,7 @@ void CXCharPlayer::MyMove(){
 
 	if (CKey::push('W')){//‘O‚ÉˆÚ“®
 
-		mRotation.y = CSceneModel::mRotation.y;
+		mRotation.y = MainCamera.Rot().y;
 
 
 		if (CKey::push('A')){//¶‚ÉˆÚ“®
@@ -261,7 +262,7 @@ void CXCharPlayer::MyMove(){
 
 	if (CKey::push('S')){
 
-		mRotation.y = CSceneModel::mRotation.y;
+		mRotation.y = MainCamera.Rot().y;
 		mRotation.y -= ANGLE_180;//”½‘ÎŒü‚«‚É‚·‚é
 
 

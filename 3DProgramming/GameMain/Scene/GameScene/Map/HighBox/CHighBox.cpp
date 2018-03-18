@@ -2,11 +2,11 @@
 #include "../../../../../Define/Define.h"
 #include "../../../../Collision/CCollisionManager.h"
 /*大きさ*/
-#define BOX_SIZE -MAPCHIP_SIZE, MAPCHIP_SIZE, -MAPCHIP_SIZE, MAPCHIP_SIZE/2, -MAPCHIP_SIZE, MAPCHIP_SIZE
+#define BOX_SIZE -MAPCHIP_SIZE, MAPCHIP_SIZE, -MAPCHIP_SIZE, MAPCHIP_SIZE, -MAPCHIP_SIZE, MAPCHIP_SIZE
 
 /*あたり判定:ボックス設定*/
 #define OBB_BOX_POS CVector3(0.0f,0.0f,0.0f) 
-#define OBB_BOX_SIZE new float[]{MAPCHIP_SIZE, MAPCHIP_SIZE/2, MAPCHIP_SIZE} 
+#define OBB_BOX_SIZE new float[]{MAPCHIP_SIZE, MAPCHIP_SIZE, MAPCHIP_SIZE} 
 #define SET_BOX_OBB OBB_BOX_POS,OBB_BOX_SIZE,&mMatrix
 
 /*コンストラクタ*/
@@ -17,7 +17,7 @@ CHighBox::CHighBox(CVector3 pos){
 	mpColBox->mpParent = this;
 	/*ポジション設定*/
 	mPos.x = pos.x;
-	mPos.y = MAPCHIP_SIZE;
+	mPos.y = MAPCHIP_SIZE/2;
 	mPos.z = pos.z;
 	for (int i = 0; i < BOX_FACE_NUM; i++)
 	{

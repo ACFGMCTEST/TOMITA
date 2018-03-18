@@ -54,9 +54,10 @@
 #define LAG_SIZE 0.1f //0，1秒間lag回避用
 /*パックの初期位置*/
 #define PUCK_INIT_POS 0.0f,0.0f,-10.0f
+
+
 /*静的初期化*/
 CXCharPlayer *CSceneModel::mCharcter;
-CVector3 CSceneModel::mRotation;
 CXPuck *CSceneModel::mpPuck;
 CXGoal *CSceneModel::mpGoalPlayer;
 
@@ -141,7 +142,6 @@ void CSceneModel::Init() {
 	mMouseInitCount = 0.0f;							//マウスが初期位置に戻るまでの時間
 	mLagTime = 0.0f;								//lagによるバグ回避時間
 	mCharcter = 0;									//アクセス用 キャラクター操作に使うため 静的に
-	mRotation = CVector3(0.0f, 0.0f, 0.0f);		//キャラクター操作に使うため 静的に
 
 	CVector3 mPosition;								//位置　
 
@@ -255,23 +255,23 @@ void CSceneModel::Update() {
 		}
 
 
-		/*カメラ設定*/
-		if (CKey::push(VK_LEFT)) {//左
-			mRotation.y += ANGLE_SPEED;
-		}
-		if (CKey::push(VK_RIGHT)) {//右
-			mRotation.y -= ANGLE_SPEED;
-		}
-		if (CKey::push(VK_DOWN) && mRotation.x < ANGLE_90) {//下
-			mRotation.x += ANGLE_SPEED;
-		}
-		if (CKey::push(VK_UP) && mRotation.x > -ANGLE_90) {//上
-			mRotation.x -= ANGLE_SPEED;
-		}
-		/*ローテーションがマイナスの場合*/
-		if (mRotation.y < 0){
-			mRotation.y = ANGLE_360 + mRotation.y;
-		}
+		///*カメラ設定*/
+		//if (CKey::push(VK_LEFT)) {//左
+		//	mRotation.y += ANGLE_SPEED;
+		//}
+		//if (CKey::push(VK_RIGHT)) {//右
+		//	mRotation.y -= ANGLE_SPEED;
+		//}
+		//if (CKey::push(VK_DOWN) && mRotation.x < ANGLE_90) {//下
+		//	mRotation.x += ANGLE_SPEED;
+		//}
+		//if (CKey::push(VK_UP) && mRotation.x > -ANGLE_90) {//上
+		//	mRotation.x -= ANGLE_SPEED;
+		//}
+		///*ローテーションがマイナスの場合*/
+		//if (mRotation.y < 0){
+		//	mRotation.y = ANGLE_360 + mRotation.y;
+		//}
 
 		///*カメラ設定マウス*/
 		//if (CMouse::mPos.x != mSaveMousePos.x && mSaveMousePos.x  > CMouse::mPos.x){//左
@@ -325,43 +325,33 @@ void CSceneModel::Update() {
 }
 
 void CSceneModel::Render() {
-	mRotation.y =abs(mRotation.y);
+	//mRotation.y = abs(mRotation.y);
+	//int mRotPercent = mRotation.y;
+	///*カメラ位置プレイヤーからの相対位置*/
+	//CVector3 cp(CAMERA_OFFSET);
+	///*カメラの回転行列*/
+	//CMatrix44 mat;
+	///*キャラクターの位置からカメラ位置を計算*/
+	//CVector3 SavePos = CAMERA_POS;
 
-	//printf("%f\n", mRotation.y);
-	int mRotPercent = mRotation.y;
-	//カメラ位置プレイヤーからの相対位置
-	CVector3 cp(CAMERA_OFFSET);
-	//カメラの回転行列
-	CMatrix44 mat;
-	//キャラクターの位置からカメラ位置を計算
-	CVector3 SavePos = CAMERA_POS;
+	///*３人称*/
+	//cp.z *= -1;
+	//mRotPercent %= ANGLE_360;
+	//CVector3 rot = mRotation;
+	//mRotation.y = mRotPercent;//３６０にする
+	//rot.y = mRotPercent;
+	//mat.rotationX(rot.x);
+	//mat.rotationY(rot.y);
 
-	/*３人称*/
-	cp.z *= -1;
-	mRotPercent %= ANGLE_360;
-	CVector3 rot = mRotation;
-	mRotation.y = mRotPercent;//３６０にする
-	rot.y = mRotPercent;
-	mat.rotationX(rot.x);
-	mat.rotationY(rot.y);
+	///*カメラを回転させる*/
+	//cp = cp * mat;
+	//cp += SavePos;
+	///*カメラの視点(eye)と注意点(pos)を設定*/
 
-	//カメラを回転させる
-	cp = cp * mat;
-	cp += SavePos;
-	//カメラの視点(eye)と注意点(pos)を設定
-
-	/*MainCamera.pos[0] = SavePos.x;
-	MainCamera.pos[1] = SavePos.y;
-	MainCamera.pos[2] = SavePos.z;*/
-
-	//カメラ位置代入
-	MainCamera.mPos = SavePos;
-	//カメラ視点代入
-	MainCamera.mEye = cp;
-/*
-	MainCamera.eye[0] = cp.x;
-	MainCamera.eye[1] = cp.y;
-	MainCamera.eye[2] = cp.z;*/
+	///*カメラ位置代入*/
+	//MainCamera.mPos = SavePos;
+	///*カメラ視点代入*/
+	//MainCamera.mEye = cp;
 
 
 	mModelTaskManager.AllRender();

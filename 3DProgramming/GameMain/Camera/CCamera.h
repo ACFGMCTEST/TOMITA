@@ -11,8 +11,19 @@
 class CCamera : public CTask{
 private:
 	CVector3 mRot;//自分の方向
+	CVector3 mForward;//移動方向
 	CMatrix44 mMatrix;//行列
+
+
+
 public:
+	/*カメラの位置*/
+	static enum E_STATE{
+		E_CHARA,
+		E_PACK,
+		E_GOAL,
+	};
+	E_STATE eState;//ステータス管理
 	enum E_XYZ
 	{
 		E_X,
@@ -49,12 +60,21 @@ public:
 	U：左後ろから　I：後ろから　O：右後ろから
 	*/
 	void Update();
-
-	void Update(CVector3 eye, CVector3 pos, CVector3 up);
-	/*指定された部分に移動する true で移動完了*/
-	bool CameraMove(CVector3 pos);
+	/*矢印キーでカメラ移動*/
+	void CharaUpdate();
+	/*ポジションを指定した場所にもっていく*/
+	void PosUpdate(CVector3 rot, CVector3 pos);
+	/*指定された部分に移動する true で移動完了
+	pos = 目的値
+	speed = 速さ
+	*/
+	void Move(CVector3 pos, float speed);
 	/*当たり判定戻す*/
 	void CCamera::Collision(const COBB &box);
+	/*回転値の参照*/
+	CVector3 Rot();
+	/*カメラのステータス変更*/
+	void StateChange(E_STATE state);
 	
 };
 

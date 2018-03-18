@@ -21,7 +21,7 @@ public:
 	//CXCharEnemy *mCharEnemy;//アクセス用
 	static CXCharPlayer *mCharcter; //アクセス用 キャラクター操作に使うため 静的に
 	static CXGoal *mpGoalPlayer; //アクセス用
-	static CVector3 mRotation;//キャラクター操作に使うため 静的に
+	//static CVector3 mRotation;//キャラクター操作に使うため 静的に
 
 
 	CMatrix44 mMatrix;

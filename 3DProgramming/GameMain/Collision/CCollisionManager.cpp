@@ -352,18 +352,13 @@ void  CCollisionManager::CameraCollision(CTask *Task_You, CTask *Camera){
 	CCollider *youBox;
 
 	/*あたり判定が何か判断*/
-	switch (Task_You->eTag)
-	{
-		/*ボックスに当たった場合*/
-	case CTask::E_TAG_BOX:
+	if (Task_You->eTag == CTask::E_TAG_BOX){
 		/*キャスト処理*/
 		youBox = dynamic_cast<CCollider *>(Task_You);
+		//MainCamera.Collision(youBox->mObb);
+	}
 
-		MainCamera.Collision(youBox->mObb);
-		break;
-	};
 }
-
 
 /*更新2段目*/
 void CCollisionManager::Update(CTask *t){
@@ -376,6 +371,12 @@ void CCollisionManager::Update(CTask *t){
 		if (t != task && t != 0 && task != 0){
 			switch (t->eTag)
 			{
+			case CTask::E_TAG_CAMERA:
+				/*当たっていて場合処理*/
+				if (ColIf(task, t)){
+					CameraCollision(task, t);//task何か,tパック
+				}
+				break;
 			case CTask::E_TAG_PLAYER:
 				/*当たっていて場合処理*/
 				if (ColIf(task, t)){
@@ -391,17 +392,15 @@ void CCollisionManager::Update(CTask *t){
 				}
 				break;
 			case CTask::E_TAG_PUCK:
+				//printf("カメラに当たっているものは%dです\n", task->eTag);
 				/*当たっていて場合処理*/
-				if (ColIf(task, t)){
-					PuckCollision(task, t);//task何か,tパック
+				if (task->eTag == CTask::E_TAG_BOX){
+			//		if (ColIf(task, t)){
+						PuckCollision(task, t);//task何か,tパック
+				//	}
 				}
 				break;
-			case CTask::E_TAG_CAMERA:
-				/*当たっていて場合処理*/
-				if (ColIf(task, t)){
-					CameraCollision(task, t);//task何か,tパック
-				}
-				break;
+		
 			}
 		}
 		task = task->mpNext;

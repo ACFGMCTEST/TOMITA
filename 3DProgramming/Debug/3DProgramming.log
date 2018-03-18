@@ -1,5 +1,5 @@
 ﻿cl : コマンド ライン warning D9025: '/sdl' より '/GS-' が優先されます。
-  CCollisionManager.cpp
+  CCamera.cpp
 c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\graphic\ctexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
           c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 'fopen' の宣言を確認してください。
 c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\graphic\ctexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
@@ -13,8 +13,8 @@ c:\users\tomi-\desktop\tomita\3dprogramming\define\define.h(92): warning C4005: 
           c:\users\tomi-\desktop\tomita\3dprogramming\define\define.h(87) : 'BACK_POS' の前の定義を確認してください
 c:\users\tomi-\desktop\tomita\3dprogramming\define\define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
           c:\users\tomi-\desktop\tomita\3dprogramming\define\define.h(92) : 'BACK_POS' の前の定義を確認してください
-c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\scene\itemscene\citem.h(11): warning C4005: 'TIP_ARRAY' : マクロが再定義されました。
-          c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\scene\gamescene\effect\ceffect2d.h(5) : 'TIP_ARRAY' の前の定義を確認してください
-  CCamera.cpp
-  コードを生成中...
+c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\camera\ccamera.cpp(24): warning C4005: 'OBB_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\cslope.h(12) : 'OBB_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\camera\ccamera.cpp(25): warning C4005: 'OBB_SIZE' : マクロが再定義されました。
+          c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\cslope.h(13) : 'OBB_SIZE' の前の定義を確認してください
   3DProgramming.vcxproj -> C:\Users\tomi-\Desktop\TOMITA\Debug\3DProgramming.exe

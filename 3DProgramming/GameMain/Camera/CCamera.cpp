@@ -1,23 +1,43 @@
 #include "Windows.h"
+
+#include "../Scene/GameScene/CharaDate/CSceneModel.h"
 #include "glut.h"
 #include "../Collision/CCollisionManager.h"
 #include "CCamera.h"
+#include "../Scene/GameScene/Puck/CXPuck.h"
+#include "../Scene/GameScene/Map/CMap.h"
 #include <math.h>
 
 
-#define SET_EYE	x, y+1.0f, z+10.0f //目線の設定
 
+#define ANGLE_SPEED 3.0f//カメラスピード
+#define SET_EYE	x, y+1.0f, z+10.0f //目線の設定
+/*移動方向*/
+#define MOVE_FORWARD CVector3(0.0f,0.0f,1.0f)
 /*カメラの設定値 gluLookAtで使用
 Eye = 視点の位置x,y,z;
 pos = 視界の中心位置の参照点座標x,y,z
 mUp = //視界の上方向のベクトルx,y,z
 */
 #define CAMERA_LOOK mEye.x,mEye.y,mEye.z, mPos.x,mPos.y,mPos.z, mUp.x,mUp.y,mUp.z
-
 /*あたり判定の設定値*/
 #define OBB_POS CVector3(0.0f, 1.0f, 0.0f) 
 #define OBB_SIZE new float[]{1.5f,0.5f, 1.5f} 
 #define OBB_SPHERE_SIZE 1.0f
+/*カメラの位置*/
+#define CAMERA_OFFSET CVector3(0.0f, 0.5f, 4.0f) //カメラ位置プレイヤーからの相対位置
+//キャラ
+#define CHARA_POS	CVector3(CSceneModel::mCharcter->mPosition.x,\
+							CSceneModel::mCharcter->mPosition.y+2.0f,\
+							CSceneModel::mCharcter->mPosition.z-0.1f)
+/*パックポジ*/
+#define PUCK_POS	CVector3(CSceneModel::mpPuck->mPosition.x,\
+							4.3f,\
+							CSceneModel::mpPuck->mPosition.z - 4.0f)
+/*ゴールポジ*/
+#define GOAL_POS	CVector3(CMap::GoalEnemyFirstPos().x,\
+							4.3f, \
+							CMap::GoalEnemyFirstPos().z - 8.0f)
 
 //カメラの上方向の初期化
 CCamera::CCamera() : mUp(0.0f, 1.0f, 0.0f) {
@@ -62,13 +82,91 @@ void CCamera::SetPos(float x, float y, float z) {
 	gluLookAt(CAMERA_LOOK);
 }
 
+/*ポジションを指定した場所にもっていく*/
+void CCamera::PosUpdate(CVector3 rot, CVector3 pos){
+
+	int mRotPercent = rot.y;
+	//カメラ位置プレイヤーからの相対位置
+	CVector3 cp = CAMERA_OFFSET;
+	//カメラの回転行列
+	CMatrix44 mat;
+	//キャラクターの位置からカメラ位置を計算
+	CVector3 SavePos = pos;
+
+	/*３人称*/
+	cp.z *= -1;
+	mRotPercent %= ANGLE_360;
+	CVector3 matrixRot = mRot;
+	mRot.y = mRotPercent;//３６０にする
+	mat.rotationX(matrixRot.x);
+	mat.rotationY(matrixRot.y);
+
+	//カメラを回転させる
+	cp = cp * mat;
+	cp += SavePos;
+	//カメラの視点(eye)と注意点(pos)を設定
+
+	//カメラ位置代入
+	MainCamera.mPos = SavePos;
+	//カメラ視点代入
+	MainCamera.mEye = cp;
+}
+
+/*矢印キーでカメラ移動*/
+void CCamera::CharaUpdate(){
+	/*カメラ設定*/
+	if (CKey::push(VK_LEFT)) {//左
+		mRot.y += ANGLE_SPEED;
+	}
+	if (CKey::push(VK_RIGHT)) {//右
+		mRot.y -= ANGLE_SPEED;
+	}
+	//if (CKey::push(VK_DOWN) && mRot.x < ANGLE_90) {//下
+	//	mRot.x += ANGLE_SPEED;
+	//}
+	//if (CKey::push(VK_UP) && mRot.x > -ANGLE_90) {//上
+	//	mRot.x -= ANGLE_SPEED;
+	//}
+	/*ローテーションがマイナスの場合*/
+	if (mRot.y < 0){
+		mRot.y = ANGLE_360 + mRot.y;
+	}
+
+	mRot.y = abs(mRot.y);
+
+
+}
+/*回転値の参照*/
+CVector3 CCamera::Rot(){
+	return mRot;
+}
+
 /* 更新処理
 キーにより視点を変更する
 J：左前から　K：前面から　L：右前から
 U：左後ろから　I：後ろから　O：右後ろから
 */
 void CCamera::Update() {
+	/*ステータスによって場所を変える*/
+	switch (eState)
+	{
+	case E_CHARA:
+		/*キャラクターに合わせる*/
+		CharaUpdate();
+		PosUpdate(mRot, CHARA_POS);
+		break;
+	case E_PACK:
+		PosUpdate(CVector3(0.0f, 0.0f, 0.0f), PUCK_POS);
+		break;
+	case E_GOAL:
+		PosUpdate(CVector3(0.0f, 0.0f, 0.0f), GOAL_POS);
+		break;
+	}
+
+	
 	mpCBSphere->mColSphere.mPos = mPos;
+	//移動行列を計算する
+	mMatrix.translate(mPos);
 	//当たり判定更新
 	mpCBSphere->Update();
 	//行列のモードをモデルビューにする
@@ -201,4 +299,33 @@ void CCamera::Collision(const COBB &box) {
 	/*当たり判定更新*/
 	mpCBSphere->Update();
 
+}
+
+/*指定された部分に移動する true で移動完了*/
+void CCamera::Move(CVector3 pos,float speed){
+	/*方向を直す*/
+	mForward = MOVE_FORWARD;
+	/*指定された方向に向ける*/
+	mRot = mPos.getRotationTowards(pos);
+	/*移動させる*/
+	CMatrix44 rot_y, matrix;
+	//回転行列の作成
+	rot_y.rotationY(mForward.y);
+	///進行方向を計算
+	mPos = mForward * rot_y * speed;
+
+
+
+	/*目的地に着いた場合*/
+	if (pos == mPos){
+		
+	}
+	/*ついていない場合*/
+	else{
+
+	}
+}
+/*カメラのステータス変更*/
+void CCamera::StateChange(E_STATE state){
+	eState = state;
 }
