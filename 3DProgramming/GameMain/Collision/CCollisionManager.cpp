@@ -394,10 +394,8 @@ void CCollisionManager::Update(CTask *t){
 			case CTask::E_TAG_PUCK:
 				//printf("カメラに当たっているものは%dです\n", task->eTag);
 				/*当たっていて場合処理*/
-				if (task->eTag == CTask::E_TAG_BOX){
-			//		if (ColIf(task, t)){
-						PuckCollision(task, t);//task何か,tパック
-				//	}
+				if (ColIf(task, t)){
+					PuckCollision(task, t);//task何か,tパック
 				}
 				break;
 		

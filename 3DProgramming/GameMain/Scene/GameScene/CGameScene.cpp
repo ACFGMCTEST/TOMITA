@@ -114,13 +114,13 @@ void CGameScene::Update() {
 		mMap.Update();
 		mMap.Render();
 		mSceneModel.UpdateEffect();
-		TransitionManager();
+	
 
 		CScoreBoard::GetInstance()->Update();
 		CCollisionManager::GetInstance()->Update();
 		CScoreBoard::GetInstance()->Render();
 
-
+		TransitionManager();
 
 		/*シーン切り替えフラグが立つと*/
 		if (CScoreBoard::GetInstance()->mFlagSceneChage ||
@@ -138,7 +138,6 @@ void CGameScene::Update() {
 		mMap.Render();
 		mSceneModel.UpdateEffect();
 
-		TransitionManager();
 			
 
 		CScoreBoard::GetInstance()->Update();
@@ -146,6 +145,8 @@ void CGameScene::Update() {
 		CCollisionManager::GetInstance()->Update();
 
 		CScoreBoard::GetInstance()->Render();
+
+		TransitionManager();
 
 		/*シーン切り替えフラグが立つと*/
 		if (CScoreBoard::GetInstance()->mFlagSceneChage ||

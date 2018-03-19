@@ -4,10 +4,13 @@
 #include "../UI/CScoreBoard.h"
 #include "../../../Camera/CCamera.h"
 /*サイズ*/
-#define SIZE_FRAME			-150,50,150,-50
-#define SIZE_OPERA			-150,50,150,-50
+#define PERCENT_OPERA 1.2f
+#define SIZE_OPERA			-200*PERCENT_OPERA,\
+							20*PERCENT_OPERA,\
+							200*PERCENT_OPERA,\
+							-20*PERCENT_OPERA
 /*読み込み*/
-#define TEX_NAME					TGA_FILE"tutorial/operation.tga"
+#define TEX_NAME			TGA_FILE"tutorial/operation.tga"
 
 /*テクスチャサイズ*/
 #define TEX_SIZE		0,0,400,280//すべての大きさ 上幅感覚４０です

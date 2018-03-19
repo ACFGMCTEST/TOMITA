@@ -83,7 +83,7 @@ extern int WinPosX,WinPosY;//main.cpp‚Åİ’è
 
 //‰¼ŠG‚Ì“z
 
-#define  TEST_CG  0, 0, 900, 200
+#define TEST_CG  0, 0, 900, 200
 #define BACK_POS -400.0f, -240.0f, -300.0f, -300.0f
 
 //–ß‚éƒ{ƒ^ƒ“‚Ìİ’è

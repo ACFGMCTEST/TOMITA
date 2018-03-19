@@ -8,17 +8,29 @@
 
 
 class CPause{
+private:
+	bool mOperationFlag;//Operation表示
 public:
 	static bool mSceneChangeFlag;//シーンが変わるフラグ
 
 	CRectangle2 mPauseLogo;	//ポーズロゴ
 	CRectangle2 mBG;        //バックグラウンドの略 （背景)
-	CRectangle2 mBack;		//ゲームへ戻る
-	CRectangle2 mTitleBack;		//タイトル終了
-	CRectangle2 mCursor;//カーソル
+	/*ボタン*/
+	CRectangle2 mBackButton;		//ゲームへ戻る
+	CRectangle2 mTitleBackButton;	//タイトル終了
+	CRectangle2 mGuideButton;//操作説明ボタン
 
-	CTexture	*mpTexture;
-	CTexture	*mpTexCursor;
+	CRectangle2 mCursor;//カーソル
+	CRectangle2 mOperation;//操作説明
+
+	/*テクスチャ*/
+	CTexture	mTexFilter;	//フィルタ
+	CTexture	mTexPauze;	//ポーズ
+	CTexture	mTexCursor;	//カーソル
+	CTexture	mTexResume;	//ゲームに戻る
+	CTexture	mTexQuit;	//終了する
+	CTexture	mTexOperation;//操作説明
+	CTexture	mTexGuideButton;//操作説明に行くボタン
 
 	
 	static bool mGoTitle;
@@ -33,7 +45,7 @@ public:
 	EStatus eStatus;
 
 	~CPause();
-	CPause(){};
+	CPause();
 	void Init();
 	void Update();
 	void Render();
