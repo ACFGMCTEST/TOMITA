@@ -339,7 +339,7 @@ void CItem::Number(int score, CRectangle2 &odifit, CRectangle2 &twdifit, CRectan
 //更新処理を行う
 void CItem::Update(){
 	//カーソルポジション
-	mCursor.position = CMouse::mPos;
+	mCursor.position = CMouse::GetInstance()->mPos;
 	//攻撃力のナンバー設定
 	Number(mSaveAtk, mAtkNo[0], mAtkNo[1], mAtkNo[2]);
 	//常に更新を行いたいやつ
@@ -349,7 +349,7 @@ void CItem::Update(){
 	//確定buttonを押したときの処理
 	if (CCollision2D::Collision2D(mCursor, mDecisionButton)){ //カーソルがあっている?
 		mDecisionButton.SetColor(GRAY_COLOR);
-		if (CMouse::mOneLeftFlag){
+		if (CMouse::GetInstance()->mOneLeftFlag){
 			
 			mPopUpFlag = true;
 			mDecisionButton.SetColor(DARK_GRAY_COLOR);
@@ -375,7 +375,7 @@ void CItem::Update(){
 	//デフォルトハンマーは購入という概念が存在しない為ソールドアウトは武器のリストよりも数値が少ない
 	//装備アイコン0を押したときの処理
 	if (CCollision2D::Collision2D(mCursor, mOutfitIcon[WEAPON0])){ //カーソルがあっている?
-		if (CMouse::mOneLeftFlag){
+		if (CMouse::GetInstance()->mOneLeftFlag){
 			mSelectPicture.position = CVector2(SELECT_MARKER_POS_0);/*選択中四角形のポジション変更*/ 
 			mSelectWeapon = WEAPON0;//ステータスを変更する
 			mSaveAtk = WEAPON_ATKD;
@@ -383,7 +383,7 @@ void CItem::Update(){
 	}
 	//装備アイコン1を押したときの処理
 	if (CCollision2D::Collision2D(mCursor, mOutfitIcon[WEAPON1]) && CShop::mSoldOut[WEAPON0]){ //カーソルがあっている?
-		if (CMouse::mOneLeftFlag){
+		if (CMouse::GetInstance()->mOneLeftFlag){
 			mSelectPicture.position = CVector2(SELECT_MARKER_POS_1);/*選択中四角形のポジション変更*/
 			mSelectWeapon = WEAPON1;
 			mSaveAtk = WEAPON_ATK0;
@@ -391,7 +391,7 @@ void CItem::Update(){
 	}
 	//装備アイコン2を押したときの処理
 	if (CCollision2D::Collision2D(mCursor, mOutfitIcon[WEAPON2]) && CShop::mSoldOut[WEAPON1]){ //カーソルがあっている?
-		if (CMouse::mOneLeftFlag){
+		if (CMouse::GetInstance()->mOneLeftFlag){
 			mSelectPicture.position = CVector2(SELECT_MARKER_POS_2);/*選択中四角形のポジション変更*/
 			mSelectWeapon = WEAPON2;
 			mSaveAtk = WEAPON_ATK1;
@@ -401,7 +401,7 @@ void CItem::Update(){
 	//
 	////装備アイコン3を押したときの処理
 	//if (CCollision2D::Collision2D(mCursor, mOutfitIcon[WEAPON3]) && CShop::mSoldOut[WEAPON2]){ //カーソルがあっている?
-	//	if (CMouse::mOneLeftFlag){
+	//	if (CMouse::GetInstance()->mOneLeftFlag){
 	//		mSelectPicture.position = CVector2(SELECT_MARKER_POS_3);/*選択中四角形のポジション変更*/
 	//		mSelectWeapon = WEAPON3;
 	//		mSaveAtk = WEAPON_ATK2;
@@ -409,7 +409,7 @@ void CItem::Update(){
 	//}
 	////装備アイコン4を押したときの処理
 	//if (CCollision2D::Collision2D(mCursor, mOutfitIcon[WEAPON4]) && CShop::mSoldOut[WEAPON3]){ //カーソルがあっている?
-	//	if (CMouse::mOneLeftFlag){
+	//	if (CMouse::GetInstance()->mOneLeftFlag){
 	//		mSelectPicture.position = CVector2(SELECT_MARKER_POS_4);/*選択中四角形のポジション変更*/
 	//		mSelectWeapon = WEAPON4;
 	//		mSaveAtk = WEAPON_ATK3;

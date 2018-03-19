@@ -23,7 +23,7 @@ void CQuestScene::Update(){
 
 	//クエスト00をクリックしたとき
 	if (CCollision2D::Collision2D(mQuest.mCursor, mQuest.mQuestName00)){
-		if (CMouse::mOneLeftFlag){//マウス左クリック
+		if (CMouse::GetInstance()->mOneLeftFlag){//マウス左クリック
 			CQuest::eChoice = CQuest::E_QUEST00;//クエスト00を選択した
 			CGameResult::mPrize = CGameResult::E_Quest0;
 			/*ゲームメインに移行*/
@@ -32,7 +32,7 @@ void CQuestScene::Update(){
 	}
 	//クエスト01をクリックしたとき
 	if (CCollision2D::Collision2D(mQuest.mCursor, mQuest.mQuestName01)){
-		if (CMouse::mOneLeftFlag){//マウス左クリック
+		if (CMouse::GetInstance()->mOneLeftFlag){//マウス左クリック
 			CQuest::eChoice = CQuest::E_QUEST01;//クエスト01を選択した
 			CGameResult::mPrize = CGameResult::E_Quest1;
 			/*ゲームメインに移行*/
@@ -41,7 +41,7 @@ void CQuestScene::Update(){
 	}
 	//クエスト02をクリックしたとき
 	if (CCollision2D::Collision2D(mQuest.mCursor, mQuest.mQuestName02)){
-		if (CMouse::mOneLeftFlag){//マウス左クリック
+		if (CMouse::GetInstance()->mOneLeftFlag){//マウス左クリック
 			CQuest::eChoice = CQuest::E_QUEST02;//クエスト02を選択した
 			CGameResult::mPrize = CGameResult::E_Quest2;
 			/*ゲームメインに移行*/
@@ -50,7 +50,7 @@ void CQuestScene::Update(){
 	}
 	//クエスト03をクリックしたとき
 	if (CCollision2D::Collision2D(mQuest.mCursor, mQuest.mQuestName03)){
-		if (CMouse::mOneLeftFlag){//マウス左クリック
+		if (CMouse::GetInstance()->mOneLeftFlag){//マウス左クリック
 			CQuest::eChoice = CQuest::E_QUEST03;//クエスト03を選択した
 			CGameResult::mPrize = CGameResult::E_Quest3;
 			/*ゲームメインに移行*/
@@ -62,7 +62,7 @@ void CQuestScene::Update(){
 
 	//ホームボタンとの連結
 	if (CCollision2D::Collision2D(mQuest.mCursor, mQuest.mBackButton)){ //カーソルがあっている?
-		if (CMouse::mOneLeftFlag)//マウス左クリック
+		if (CMouse::GetInstance()->mOneLeftFlag)//マウス左クリック
 			CSceneManager::GetInstance()->ChangeScene(eSceneNo::E_HOME);
 	}
 

@@ -1,8 +1,11 @@
-#pragma once
+#ifndef CAMERA_HPP
+#define CAMERA_HPP
+
 #include "../Matrix/CMatrix44.h"
 #include "../Vector/CVector3.h"
 #include "../Collision/CCollider.h"
 #include "../Task/CTask.h"
+#include "../Graphic/CRectangle2.h"
 
 /* カメラクラス（視点のクラス）
 目の位置と目的の位置を保持し、
@@ -14,7 +17,10 @@ private:
 	CVector3 mForward;//移動方向
 	CMatrix44 mMatrix;//行列
 
+	CVector2 mSaveMousePos;//マウスのポジション
+	CRectangle2 mColInitMouse;//マウスの初期位置
 
+	float mMouseInitCount;//カメラの初期化時間
 
 public:
 	/*カメラの位置*/
@@ -51,7 +57,8 @@ public:
 	規定の視点は注視点よりYへ+2、Zへ+4移動
 	*/
 	void SetPos(float x, float y, float z);
-
+	/*マウスカメラ設定*/
+	void MouseCamera();
 	/*初期化処理*/
 	void Init();
 	/* 更新処理
@@ -80,3 +87,5 @@ public:
 
 //カメラクラスのインスタンス
 extern CCamera MainCamera;
+
+#endif

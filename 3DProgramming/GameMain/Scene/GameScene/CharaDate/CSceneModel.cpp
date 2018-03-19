@@ -29,11 +29,6 @@
 #define ANGLE_180 180.0f
 /*サイズ*/
 #define COL_INIT_MOUSE_SIZE -DISP_X/2, DISP_Y/2, DISP_X/2, -DISP_Y/2
-/*カメラ*/
-#define ANGLE_SPEED 3.0f//カメラスピード
-#define CAMERA_IF_DIVIDE  50//カメラスピード調整用
-#define CAMERA_DIVIDE  10//カメラスピード調整用
-#define ARRIVAL_TIME 0.1f//待ち時間
 
 /*モデルのファイル場所*/
 #define MODEL_FILE_UNITY			"x\\SDUnity\\SDUniEriHammer.x"
@@ -247,74 +242,14 @@ void CSceneModel::Init() {
 }
 
 void CSceneModel::Update() {
-	if (CGameScene::Transition == CGameScene::E_ACTIVE){
+	if (CGameScene::eTransition == CGameScene::E_ACTIVE){
 
 		/*lag回避*/
 		if (!CConvenient::Time(&mLagTime, LAG_SIZE)){
-			CMouse::mLeftFlag = false;
+			CMouse::GetInstance()->mLeftFlag = false;
 		}
 
-
-		///*カメラ設定*/
-		//if (CKey::push(VK_LEFT)) {//左
-		//	mRotation.y += ANGLE_SPEED;
-		//}
-		//if (CKey::push(VK_RIGHT)) {//右
-		//	mRotation.y -= ANGLE_SPEED;
-		//}
-		//if (CKey::push(VK_DOWN) && mRotation.x < ANGLE_90) {//下
-		//	mRotation.x += ANGLE_SPEED;
-		//}
-		//if (CKey::push(VK_UP) && mRotation.x > -ANGLE_90) {//上
-		//	mRotation.x -= ANGLE_SPEED;
-		//}
-		///*ローテーションがマイナスの場合*/
-		//if (mRotation.y < 0){
-		//	mRotation.y = ANGLE_360 + mRotation.y;
-		//}
-
-		///*カメラ設定マウス*/
-		//if (CMouse::mPos.x != mSaveMousePos.x && mSaveMousePos.x  > CMouse::mPos.x){//左
-		//	mRotation.y += (mSaveMousePos.x - CMouse::mPos.x) / CAMERA_DIVIDE;
-
-		//	CMouse::SetMousePos(WinPosX + DISP_X / 2, WinPosY + DISP_Y / 2);//カーソルをウィンドウの中心にする
-
-		//}
-		//if (CMouse::mPos.x != mSaveMousePos.x && mSaveMousePos.x < CMouse::mPos.x){//右
-		//	mRotation.y += (mSaveMousePos.x - CMouse::mPos.x) / CAMERA_DIVIDE;
-
-		//	CMouse::SetMousePos(WinPosX + DISP_X / 2, WinPosY + DISP_Y / 2);//カーソルをウィンドウの中心にする
-		//}
-		//if (CMouse::mPos.y != mSaveMousePos.y && mSaveMousePos.y> CMouse::mPos.y && mRotation.x < ANGLE_50){//下
-		//	mRotation.x += (mSaveMousePos.y - CMouse::mPos.y) / CAMERA_DIVIDE;
-
-
-		//	CMouse::SetMousePos(WinPosX + DISP_X / 2, WinPosY + DISP_Y / 2);//カーソルをウィンドウの中心にする
-		//}
-		//if (CMouse::mPos.y != mSaveMousePos.y && mSaveMousePos.y   < CMouse::mPos.y && mRotation.x > -ANGLE_50){//上
-		//	mRotation.x += (mSaveMousePos.y - CMouse::mPos.y) / CAMERA_DIVIDE;
-
-
-			CMouse::SetMousePos(WinPosX + DISP_X / 2, WinPosY + DISP_Y / 2);//カーソルをウィンドウの中心にする
-		//}
-		///*中心からそれると真ん中に戻す処理*/
-		//if (CCollision2D::Collision2D(mColInitMouse, CMouse::mRect)){
-		//	/*時間が経つと真ん中に戻る*/
-		//	if (CConvenient::Time(&mMouseInitCount, ARRIVAL_TIME) &&
-		//		mSaveMousePos.x == CMouse::mPos.x &&
-		//		mSaveMousePos.y == CMouse::mPos.y){ //0.1秒間動かなければ
-		//		CMouse::SetMousePos(WinPosX + DISP_X / 2, WinPosY + DISP_Y / 2);//カーソルをウィンドウの中心にする
-		//		mMouseInitCount = 0;//0に戻す
-
-		//	}
-		//}
-		//else
-		//{
-		//	CMouse::SetMousePos(WinPosX + DISP_X / 2, WinPosY + DISP_Y / 2);//カーソルをウィンドウの中心にする
-		//}
-
-		//mSaveMousePos = CMouse::mPos;//セーブする
-
+		
 		mModelTaskManager.AllUpdate();
 
 

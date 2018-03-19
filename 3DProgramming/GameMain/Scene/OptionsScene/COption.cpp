@@ -214,7 +214,7 @@ void COption::Update(){
 
 	mBackButton.SetColor(WHITE_COLOR);		   //黒色
 
-	mCursor.position = CMouse::mPos;
+	mCursor.position = CMouse::GetInstance()->mPos;
 
 	//メニュー画面での選択。２項目しかないからstatus移動もここでやる
 

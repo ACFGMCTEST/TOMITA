@@ -8,6 +8,6 @@ c:\users\tomi-\desktop\tomita\3dprogramming\define\define.h(92): warning C4005: 
           c:\users\tomi-\desktop\tomita\3dprogramming\define\define.h(87) : 'BACK_POS' の前の定義を確認してください
 c:\users\tomi-\desktop\tomita\3dprogramming\define\define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
           c:\users\tomi-\desktop\tomita\3dprogramming\define\define.h(92) : 'BACK_POS' の前の定義を確認してください
-c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\scene\gamescene\tutorial\ctutorial.cpp(17): warning C4005: 'TEX_SIZE' : マクロが再定義されました。
-          c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\scene\gamescene\tutorial\ctutorial.cpp(16) : 'TEX_SIZE' の前の定義を確認してください
+c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\scene\gamescene\tutorial\ctutorial.cpp(18): warning C4005: 'TEX_SIZE' : マクロが再定義されました。
+          c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\scene\gamescene\tutorial\ctutorial.cpp(17) : 'TEX_SIZE' の前の定義を確認してください
   3DProgramming.vcxproj -> C:\Users\tomi-\Desktop\TOMITA\Debug\3DProgramming.exe

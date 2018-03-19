@@ -1,23 +1,33 @@
 #include "CMouse.h"
 #include "../../Define/Define.h"
 
-CVector2 CMouse::mPos = CVector2();
-bool CMouse::mLeftFlag = false;
-bool CMouse::mOneLeftFlag = false;
-bool CMouse::mClipFlag = true;
-CRectangle2 CMouse::mRect;
+
+
 
 GLFWwindow *CMouse::window;
 /*サイズ*/
 #define RECT_SIZE -100.0f, 100.0f, 100.0f, -100.0f
+
+CMouse* CMouse::mpMouse = 0;
+
+
+//GetInstance
+CMouse* CMouse::GetInstance() {
+	if (mpMouse == 0) {
+		mpMouse = new CMouse();
+	}
+	return mpMouse;
+}
+/*コンストラクタ*/
 CMouse::CMouse()
 {
 	mRect.SetVertex(RECT_SIZE);
 	mRect.SetColor(WHITE_COLOR);
 }
-
+/*デストラクタ*/
 CMouse::~CMouse()
 {
+
 }
 
 void CMouse::SetMousePos(float x, float y){

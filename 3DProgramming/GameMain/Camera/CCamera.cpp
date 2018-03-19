@@ -6,6 +6,10 @@
 #include "CCamera.h"
 #include "../Scene/GameScene/Puck/CXPuck.h"
 #include "../Scene/GameScene/Map/CMap.h"
+#include "../Key/CMouse.h"
+#include "../Collision/CCollision2D.h"
+#include "../Convenient/CConvenient.h"
+#include "../Scene/GameScene/CGameScene.h"
 #include <math.h>
 
 
@@ -38,6 +42,13 @@ mUp = //視界の上方向のベクトルx,y,z
 #define GOAL_POS	CVector3(CMap::GoalEnemyFirstPos().x,\
 							4.3f, \
 							CMap::GoalEnemyFirstPos().z - 8.0f)
+
+/*カメラマウス*/
+#define ARRIVAL_TIME 0.1f//待ち時間
+#define ANGLE_SPEED 3.0f//カメラスピード
+#define CAMERA_IF_DIVIDE  50//カメラスピード調整用
+#define CAMERA_DIVIDE  10//カメラスピード調整用
+
 
 //カメラの上方向の初期化
 CCamera::CCamera() : mUp(0.0f, 1.0f, 0.0f) {
@@ -81,6 +92,48 @@ void CCamera::SetPos(float x, float y, float z) {
 	//gluLookAt(eye[0], eye[1], eye[2], pos[0], pos[1], pos[2], 0.0f, 1.0f, 0.0f);
 	gluLookAt(CAMERA_LOOK);
 }
+/*カメラ設定*/
+void CCamera::MouseCamera(){
+	/*カメラ設定マウス*/
+	if (CMouse::GetInstance()->mPos.x != mSaveMousePos.x && mSaveMousePos.x  > CMouse::GetInstance()->mPos.x){//左
+		mRot.y += (mSaveMousePos.x - CMouse::GetInstance()->mPos.x) / CAMERA_DIVIDE;
+
+		CMouse::GetInstance()->SetMousePos(WinPosX + DISP_X / 2, WinPosY + DISP_Y / 2);//カーソルをウィンドウの中心にする
+
+	}
+	if (CMouse::GetInstance()->mPos.x != mSaveMousePos.x && mSaveMousePos.x < CMouse::GetInstance()->mPos.x){//右
+		mRot.y += (mSaveMousePos.x - CMouse::GetInstance()->mPos.x) / CAMERA_DIVIDE;
+
+		CMouse::GetInstance()->SetMousePos(WinPosX + DISP_X / 2, WinPosY + DISP_Y / 2);//カーソルをウィンドウの中心にする
+	}
+	//if (CMouse::GetInstance()->mPos.y != mSaveMousePos.y && mSaveMousePos.y> CMouse::GetInstance()->mPos.y && mRot.x < ANGLE_45){//下
+	//	mRot.x += (mSaveMousePos.y - CMouse::GetInstance()->mPos.y) / CAMERA_DIVIDE;
+	//	CMouse::GetInstance()->SetMousePos(WinPosX + DISP_X / 2, WinPosY + DISP_Y / 2);//カーソルをウィンドウの中心にする
+	//}
+	//if (CMouse::GetInstance()->mPos.y != mSaveMousePos.y && mSaveMousePos.y   < CMouse::GetInstance()->mPos.y && mRot.x > -ANGLE_45){//上
+	//	mRot.x += (mSaveMousePos.y - CMouse::GetInstance()->mPos.y) / CAMERA_DIVIDE;
+	//	CMouse::GetInstance()->SetMousePos(WinPosX + DISP_X / 2, WinPosY + DISP_Y / 2);//カーソルをウィンドウの中心にする
+	//}
+	/*中心からそれると真ん中に戻す処理*/
+	if (CCollision2D::Collision2D(mColInitMouse, CMouse::GetInstance()->mRect)){
+		/*時間が経つと真ん中に戻る*/
+		if (CConvenient::Time(&mMouseInitCount, ARRIVAL_TIME) &&
+			mSaveMousePos.x == CMouse::GetInstance()->mPos.x &&
+			mSaveMousePos.y == CMouse::GetInstance()->mPos.y){ //0.1秒間動かなければ
+			CMouse::GetInstance()->SetMousePos(WinPosX + DISP_X / 2, WinPosY + DISP_Y / 2);//カーソルをウィンドウの中心にする
+			mMouseInitCount = 0;//0に戻す
+
+		}
+	}
+	else
+	{
+		CMouse::GetInstance()->SetMousePos(WinPosX + DISP_X / 2, WinPosY + DISP_Y / 2);//カーソルをウィンドウの中心にする
+	}
+
+	mSaveMousePos = CMouse::GetInstance()->mPos;//セーブする
+
+}
+
 
 /*ポジションを指定した場所にもっていく*/
 void CCamera::PosUpdate(CVector3 rot, CVector3 pos){
@@ -153,6 +206,10 @@ void CCamera::Update() {
 	case E_CHARA:
 		/*キャラクターに合わせる*/
 		CharaUpdate();
+		/*メインゲームが進行中のみ*/
+		if (CGameScene::eTransition == CGameScene::E_ACTIVE){
+			MouseCamera();//mouseでカメラ制御
+		}
 		PosUpdate(mRot, CHARA_POS);
 		break;
 	case E_PACK:

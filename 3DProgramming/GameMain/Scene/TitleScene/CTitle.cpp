@@ -169,7 +169,7 @@ void CTitle::Update(){
 		mGameExit.SetVertex(GAME_STATE_SIZE);
 	}
 
-	mCursor.position = CMouse::mPos;
+	mCursor.position = CMouse::GetInstance()->mPos;
 
 	//mCursor.GradationLoop(0.02f);
 };

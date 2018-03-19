@@ -8,10 +8,10 @@
 
 CCamera MainCamera;
 
-int CGameScene::Transition = E_ACTIVE;
+CGameScene::E_TRANSTION CGameScene::eTransition = E_ACTIVE;
 
 CGameScene::CGameScene() : eState(E_INIT){
-	Transition = E_ACTIVE;
+	eTransition = E_ACTIVE;
 	mPause.Init();
 };
 
@@ -46,38 +46,39 @@ void CGameScene::RenderMiniMap() {
 //ゲーム遷移の処理
 void CGameScene::TransitionManager(){
 
-	switch (Transition)
+	switch (eTransition)
 	{
 	case E_COUNTDOWN:
 
-		if (CKey::once(VK_ESCAPE))Transition = E_ACTIVE;
-		if (CKey::once(VK_RETURN))exit(0);
+
 		if (CScoreBoard::mcFirstAction == false){
 			firstaction = true;
-			Transition = E_ACTIVE;
+			eTransition = E_ACTIVE;
 		}
 
 		break;
 
 
 	case E_ACTIVE:
+		/*エスケープキーでポーズに移行*/
+		if (CKey::once(VK_ESCAPE))eTransition=E_PAUSE;
 
-		if (CKey::once(VK_ESCAPE))Transition=E_PAUSE;
-		CMouse::mClipFlag = true; //画面内
+		CMouse::GetInstance()->mClipFlag = true; //画面内
 
 		if (firstaction == false){
-			Transition = E_COUNTDOWN;
+			eTransition = E_COUNTDOWN;
 		}
 
 		break;
 	case E_PAUSE:
-		CMouse::mClipFlag = false; //画面外
-
+		CMouse::GetInstance()->mClipFlag = false; //画面外
+		/*ポーズ画面表示*/
 		mPause.Render();
 		mPause.Update();
 
-		if (mPause.mBackGame)Transition = E_ACTIVE; mPause.mBackGame = false;
-		if (CKey::once(VK_RETURN))exit(0);//プログラムを終了させる
+		if (mPause.mBackGame)eTransition = E_ACTIVE;
+		mPause.mBackGame = false;
+		
 
 		break;
 	default:
@@ -97,38 +98,9 @@ void CGameScene::Update() {
 		mSceneModel.Init();
 		MainCamera.Init();
 
-		/*状態によりTutorialを表示*/
-		if(CQuest::eChoice == CQuest::E_QUEST00){
-			eState = E_TUTORIAL;
-		}
-		else{
-			eState = E_MAIN;
-		}
+		eState = E_MAIN;
 		break;
 		
-		/*Tutorialの状態*/
-	case E_TUTORIAL:
-		MainCamera.Update();
-		mSceneModel.Update();
-		mSceneModel.Render();
-		mMap.Update();
-		mMap.Render();
-		mSceneModel.UpdateEffect();
-	
-
-		CScoreBoard::GetInstance()->Update();
-		CCollisionManager::GetInstance()->Update();
-		CScoreBoard::GetInstance()->Render();
-
-		TransitionManager();
-
-		/*シーン切り替えフラグが立つと*/
-		if (CScoreBoard::GetInstance()->mFlagSceneChage ||
-			CPause::mSceneChangeFlag){
-			eState = E_END;
-		}
-
-		break;
 	case E_MAIN:
 		MainCamera.Update();
 		mSceneModel.Update();

@@ -212,7 +212,7 @@ void CShopCreating::Update(){
 	mWeaponName03.SetColor(WHITE_COLOR); //灰色
 	mWeaponDetails.SetColor(WHITE_COLOR); //黄色
 
-	mCursor.position = CMouse::mPos;
+	mCursor.position = CMouse::GetInstance()->mPos;
 
 	//メニュー画面での選択。２項目しかないからstatus移動もここでやる
 

@@ -11,6 +11,8 @@ CTaskManager* CTaskManager::GetInstance() {
 	}
 	return mTaskManager;
 }
+
+
 void CTaskManager::SwapTask(CTask **p, CTask **n){ //“ü‚ê‘Ö‚¦ˆ—
 	CTask *s = *n;
 	*n = *p;

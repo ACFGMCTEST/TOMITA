@@ -466,7 +466,7 @@ void CGameResult::Update(){
 		}
 		//画面をクリックするとシーンを移行する
 		else if (CCollision2D::Collision2D(mCursor, mBG)){ //カーソルがあっている?
-			if (CMouse::mOneLeftFlag)//マウス左クリック
+			if (CMouse::GetInstance()->mOneLeftFlag)//マウス左クリック
 			{
 		    CScoreBoard::mResult = false;
 			CScoreBoard::GetInstance()->mFlagSceneChage = true;
@@ -475,7 +475,7 @@ void CGameResult::Update(){
 
 	}
 
-	mCursor.position = CMouse::mPos;
+	mCursor.position = CMouse::GetInstance()->mPos;
 
 };
 

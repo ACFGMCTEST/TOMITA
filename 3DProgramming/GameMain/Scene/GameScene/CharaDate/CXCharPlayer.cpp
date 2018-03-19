@@ -555,11 +555,11 @@ void CXCharPlayer::Update(){
 
 
 		///*一回押したとき*/
-		if (AttackInitKey.Onces(KEY_ATTACK)){//Kボタンか
+		if (AttackInitKey.Onces(KEY_ATTACK) || CMouse::GetInstance()->mOneLeftFlag){//Kボタンか
 			AnimaState(E_ATTACK_INIT); //初めのいっかいだけ呼び出す
 		}
 		/*長押しの時*/
-		else if (CKey::push(KEY_ATTACK)){
+		else if (CKey::push(KEY_ATTACK) || CMouse::GetInstance()->mLeftFlag){
 			//スキルゲージ増加
 			if (CScoreBoard::skillgage <= mGageLimit && !CScoreBoard::mFlagSkill0){
 				CScoreBoard::skillgage += mGageDecrease;

@@ -19,14 +19,14 @@ void CHomeScene::Update(){
 	/*ここからシーン移行処理*/
 	/*あたり判定*/
 	if (CCollision2D::Collision2D(mHome.mCursor, mHome.mSelectButton) && mHome.mStatus == mHome.QUEST&&mHome.mMove==false){ //カーソルがあっている?
-		if (CMouse::mOneLeftFlag){//マウス左クリック
+		if (CMouse::GetInstance()->mOneLeftFlag){//マウス左クリック
 			CSceneManager::GetInstance()->ChangeScene(eSceneNo::E_QUEST);
 			return;
 		}
 	}
 	/*あたり判定*/
 	if (CCollision2D::Collision2D(mHome.mCursor, mHome.mShopButton) && mHome.mStatus == mHome.SHOP&&mHome.mMove == false){ //カーソルがあっている?
-		if (CMouse::mOneLeftFlag){//マウス左クリック
+		if (CMouse::GetInstance()->mOneLeftFlag){//マウス左クリック
 			CSceneManager::GetInstance()->ChangeScene(eSceneNo::E_SHOP);
 			return;
 
@@ -35,7 +35,7 @@ void CHomeScene::Update(){
 
 	/*あたり判定*/
 	if (CCollision2D::Collision2D(mHome.mCursor, mHome.mItemButton) && mHome.mStatus == mHome.ITEM&&mHome.mMove == false){ //カーソルがあっている?
-		if (CMouse::mOneLeftFlag){//マウス左クリック
+		if (CMouse::GetInstance()->mOneLeftFlag){//マウス左クリック
 			CSceneManager::GetInstance()->ChangeScene(eSceneNo::E_ITEM);
 			return;
 
@@ -44,7 +44,7 @@ void CHomeScene::Update(){
 
 	/*あたり判定*/
 	if (CCollision2D::Collision2D(mHome.mCursor, mHome.mTitleButton) && mHome.mStatus == mHome.TITLE&&mHome.mMove == false){ //カーソルがあっている?
-		if (CMouse::mOneLeftFlag){//マウス左クリック
+		if (CMouse::GetInstance()->mOneLeftFlag){//マウス左クリック
 			CSceneManager::GetInstance()->ChangeScene(eSceneNo::E_TITLE);
 			return;
 

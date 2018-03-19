@@ -102,7 +102,7 @@ void CPause::Update(){
 	/*Operationが出ている場合*/
 	if (mOperationFlag){
 		/*右クリックを押した場合 || エンターボタンを押した場合*/
-		if (CMouse::mOneLeftFlag || CKey::once(VK_RETURN)){
+		if (CMouse::GetInstance()->mOneLeftFlag || CKey::once(VK_RETURN)){
 			mOperationFlag = false;
 		}
 	}
@@ -110,7 +110,7 @@ void CPause::Update(){
 		//ゲームへ戻る
 		if (CCollision2D::Collision2D(mCursor, mBackButton)){ //カーソルがあっている?
 			mBackButton.SetColor(GRAY_COLOR);
-			if (CMouse::mOneLeftFlag)//マウス左クリック
+			if (CMouse::GetInstance()->mOneLeftFlag)//マウス左クリック
 				mBackGame = true;
 		}
 		else{
@@ -119,7 +119,7 @@ void CPause::Update(){
 		//タイトルへ移動
 		if (CCollision2D::Collision2D(mCursor, mTitleBackButton)){ //カーソルがあっている?
 			mTitleBackButton.SetColor(GRAY_COLOR);
-			if (CMouse::mOneLeftFlag){//マウス左クリック
+			if (CMouse::GetInstance()->mOneLeftFlag){//マウス左クリック
 				//CSceneManager::GetInstance()->ChangeScene(eSceneNo::E_TITLE);
 				mSceneChangeFlag = true;
 			}
@@ -130,7 +130,7 @@ void CPause::Update(){
 		//操作説明
 		if (CCollision2D::Collision2D(mCursor, mGuideButton)){ //カーソルがあっている?
 			mGuideButton.SetColor(GRAY_COLOR);
-			if (CMouse::mOneLeftFlag){//マウス左クリック
+			if (CMouse::GetInstance()->mOneLeftFlag){//マウス左クリック
 				//CSceneManager::GetInstance()->ChangeScene(eSceneNo::E_TITLE);
 				mOperationFlag = true;
 			}
@@ -140,7 +140,7 @@ void CPause::Update(){
 		}
 	}
 
-	mCursor.position = CMouse::mPos;
+	mCursor.position = CMouse::GetInstance()->mPos;
 };
 
 /*

@@ -1,4 +1,5 @@
 //高橋弘樹
+#include "../CGameScene.h"
 #include"CScoreBoard.h"
 #include"../../../Key/CKey.h"
 #include"../../../Key/CMouse.h"
@@ -6,6 +7,8 @@
 #include <time.h>
 #include<stdio.h>
 #include"../../CSceneManager.h"
+#include "../../QuestScene/CQuest.h"
+
 #define DISP_2D_Y 768 //縦幅
 
 #define BACK_GROUND     -400.0f, 300.0f, 400.0f, -300.0f
@@ -564,8 +567,11 @@ void CScoreBoard::Update(){
 
 	//ファーストアクションでカウントダウンを行う。
 	if (mcFirstAction){ mCountDown.Update(); }
-	//チュートリアル*/
-	else{mTutorial.Update();	}
+	//チュートリアルクエストが0の場合 メインゲーム中のみ*/
+	else if (CQuest::eChoice == CQuest::E_QUEST00 &&
+		CGameScene::eTransition == CGameScene::E_ACTIVE){
+		mTutorial.Update();
+	}
 
 	//Zゲームオーバーとゲームクリアをアップデート
 	mGameOver.Update();
@@ -609,8 +615,10 @@ void CScoreBoard::Render() {
 	//mCursor.Render();
 
 	if (mcFirstAction){ mCountDown.Render(); }
-	//チュートリアル*/
-	else{ mTutorial.Render(); }
+	//チュートリアルクエストが0の場合*/
+	else if(CQuest::eChoice == CQuest::E_QUEST00){
+		mTutorial.Render(); 
+	}
 
 	mGameOver.Render();
 	mGameClear.Render();

@@ -119,7 +119,7 @@ void CHome::AllMove(bool zeroover){
 
 void CHome::Update(){
 	//カーソルポジション
-	mCursor.position = CMouse::mPos;
+	mCursor.position = CMouse::GetInstance()->mPos;
 	//メニューのサイズを常時アップデートする(変動するため)
 	mSelectButton.SetVertex(MENU_SIZE);
 	mShopButton.SetVertex(MENU_SIZE);
@@ -150,7 +150,7 @@ void CHome::Update(){
 		//マウスカーソルが合っているか
 		if (CCollision2D::Collision2D(mCursor, mShopButton)){
 			mShopButton.SetColor(GRAY_COLOR);
-			if (CMouse::mOneLeftFlag){ mMove = true; mStatus = SHOP; }}
+			if (CMouse::GetInstance()->mOneLeftFlag){ mMove = true; mStatus = SHOP; }}
 		     if (mMenuPos0 < 0)    { AllMove(true); } //ポジションが0より大きい時か小さい時かでmoveを指定する
 		else if (mMenuPos0 > 0)    { AllMove(false); }
 		     if (mMenuPos0 != 0.0f){ mMove = false; }//メニューが移動するとクリックを有効化
@@ -162,11 +162,11 @@ void CHome::Update(){
 		mShopButton.position = CVector2(mMenuPos1, RE_MOVE_Y);
 		if (CCollision2D::Collision2D(mCursor, mItemButton))  {
 			mItemButton.SetColor(GRAY_COLOR);
-		if (CMouse::mOneLeftFlag){ mMove = true; mStatus = ITEM; } }
+		if (CMouse::GetInstance()->mOneLeftFlag){ mMove = true; mStatus = ITEM; } }
 
 		if (CCollision2D::Collision2D(mCursor, mSelectButton)){
 			mSelectButton.SetColor(GRAY_COLOR);
-			if (CMouse::mOneLeftFlag){ mMove = true; mStatus = QUEST; }}
+			if (CMouse::GetInstance()->mOneLeftFlag){ mMove = true; mStatus = QUEST; }}
 
 		     if (mMenuPos1 < 0)    { AllMove(true);  }
 		else if (mMenuPos1 > 0)    { AllMove(false); }
@@ -179,10 +179,10 @@ void CHome::Update(){
 		mItemButton.position = CVector2(mMenuPos2, RE_MOVE_Y);
 		if (CCollision2D::Collision2D(mCursor, mTitleButton)){
 			mTitleButton.SetColor(GRAY_COLOR);
-			if (CMouse::mOneLeftFlag){ mMove = true; mStatus = TITLE; }}
+			if (CMouse::GetInstance()->mOneLeftFlag){ mMove = true; mStatus = TITLE; }}
 		if (CCollision2D::Collision2D(mCursor, mShopButton )){ 
 			mShopButton.SetColor(GRAY_COLOR);
-			if (CMouse::mOneLeftFlag){ mMove = true; mStatus = SHOP; }}
+			if (CMouse::GetInstance()->mOneLeftFlag){ mMove = true; mStatus = SHOP; }}
 		     if (mMenuPos2 < 0)     { AllMove(true); }
 		else if (mMenuPos2> 0)      { AllMove(false);}
 		     if (mMenuPos2 != 0.0f) { mMove = false; }
@@ -194,7 +194,7 @@ void CHome::Update(){
 		mTitleButton.position = CVector2(mMenuPos3, RE_MOVE_Y);
 		if (CCollision2D::Collision2D(mCursor, mItemButton)){
 			mItemButton.SetColor(GRAY_COLOR);
-			if (CMouse::mOneLeftFlag) { mMove = true; mStatus = ITEM; }}
+			if (CMouse::GetInstance()->mOneLeftFlag) { mMove = true; mStatus = ITEM; }}
 		     if (mMenuPos3 < 0)    { AllMove(true); }
 		else if (mMenuPos3 > 0)    { AllMove(false); }
 	     	 if (mMenuPos3 != 0.0f){ mMove = false; }

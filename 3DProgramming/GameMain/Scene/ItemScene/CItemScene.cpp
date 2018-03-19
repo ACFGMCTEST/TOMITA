@@ -18,13 +18,13 @@ void CItemScene::Update(){
 
 	/*あたり判定*/
 	if (CCollision2D::Collision2D(mItem.mCursor, mItem.mBackButton)){ //カーソルがあっている?
-		if (CMouse::mLeftFlag){//マウス左クリック
+		if (CMouse::GetInstance()->mLeftFlag){//マウス左クリック
 			CSceneManager::GetInstance()->ChangeScene(eSceneNo::E_HOME);
 		}
 	}
 	///*あたり判定*/
 	//if (CCollision2D::Collision2D(mItem.mCursor, mItem.mShopButton)){ //カーソルがあっている?
-	//	if (CMouse::mLeftFlag){//マウス左クリック
+	//	if (CMouse::GetInstance()->mLeftFlag){//マウス左クリック
 	//		CSceneManager::GetInstance()->ChangeScene(eSceneNo::E_SHOP);
 	//	}
 	//}

@@ -30,7 +30,7 @@ void CShopScene::Update() {
 		if (mShop.mBuyScene == false){
 
 			if (CCollision2D::Collision2D(mShop.mCursor, mShop.mBackButton)){ //カーソルがあっている?
-				if (CMouse::mOneLeftFlag)//マウス左クリック
+				if (CMouse::GetInstance()->mOneLeftFlag)//マウス左クリック
 					CSceneManager::GetInstance()->ChangeScene(eSceneNo::E_HOME);
 			}
 		}

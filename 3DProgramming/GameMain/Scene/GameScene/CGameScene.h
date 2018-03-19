@@ -13,24 +13,23 @@ class CGameScene : public CScene{
 public:
 
 
-	CTutorial mTutorial;
 	CPause mPause;
 	CSceneModel mSceneModel;
 	CMap mMap;
 	
 	bool firstaction=false;
 
-	static int Transition;
-
-	enum eTransition{
-		E_COUNTDOWN,
-		E_ACTIVE,
-		E_PAUSE,
+	/*画面偏移*/
+	enum E_TRANSTION{
+		E_COUNTDOWN, //カウントダウン
+		E_ACTIVE,//
+		E_PAUSE,//ポーズ中
 	};
+	static E_TRANSTION eTransition;
+
 	/*状態*/
 	enum E_STATE{
 		E_INIT,
-		E_TUTORIAL,//Tutorialシーン
 		E_MAIN,
 		E_END
 	};

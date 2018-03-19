@@ -3,6 +3,7 @@
 #include "../../../Key/CKey.h"
 #include "../UI/CScoreBoard.h"
 #include "../../../Camera/CCamera.h"
+#include "../../../Key/CMouse.h"
 /*サイズ*/
 #define PERCENT_OPERA 1.2f
 #define SIZE_OPERA			-200*PERCENT_OPERA,\
@@ -17,9 +18,9 @@
 #define TEX_SIZE(i)		0,i*40,400,40*(i+1)//i個でテクスチャ分け
 
 /*位置*/
-#define FAST_POS			CVector2(0.0f,100)	
+#define FAST_POS			CVector2(0.0f,-100)	
 
-#define POS(i)			CVector2(0.0f*(i+1),100*(i+1))	
+#define POS(i)			CVector2(0.0f*(i+1),-100*(i+1))	
 
 /*コンストラクタ*/
 CTutorial::CTutorial() : mFlagUv(false), eTutoState(E_RULE){}
@@ -52,7 +53,7 @@ void CTutorial::Update(){
 	case CTutorial::E_RULE:
 
 		/*エンター切り替え*/
-		if (CKey::once(VK_RETURN)){
+		if (CKey::once(VK_RETURN) || CMouse::GetInstance()->mOneLeftFlag){
 			eTutoState = E_PUCK;
 			MainCamera.StateChange(CCamera::E_STATE::E_PACK);
 		}
@@ -61,7 +62,7 @@ void CTutorial::Update(){
 	case E_PUCK:
 
 		/*エンター切り替え*/
-		if (CKey::once(VK_RETURN)){
+		if (CKey::once(VK_RETURN) || CMouse::GetInstance()->mOneLeftFlag){
 			eTutoState = E_GOAL;
 			MainCamera.StateChange(CCamera::E_STATE::E_GOAL);
 		}
@@ -69,7 +70,7 @@ void CTutorial::Update(){
 		break;
 	case E_GOAL:
 		/*エンター切り替え*/
-		if (CKey::once(VK_RETURN)){
+		if (CKey::once(VK_RETURN) || CMouse::GetInstance()->mOneLeftFlag){
 			eTutoState = E_WALK;
 			MainCamera.StateChange(CCamera::E_STATE::E_CHARA);
 		}
@@ -82,7 +83,7 @@ void CTutorial::Update(){
 			mFlagUv = true;
 		}
 		/*エンター切り替え*/
-		if (CKey::once(VK_RETURN)){
+		if (CKey::once(VK_RETURN) || CMouse::GetInstance()->mOneLeftFlag){
 			eTutoState = E_CAMERA;
 			mFlagUv = false;
 		}
@@ -99,7 +100,7 @@ void CTutorial::Update(){
 			mFlagUv = true;
 		}
 		/*エンター切り替え*/
-		if (CKey::once(VK_RETURN)){
+		if (CKey::once(VK_RETURN) || CMouse::GetInstance()->mOneLeftFlag){
 			eTutoState = E_ATTACK;
 			mFlagUv = false;
 		}
@@ -117,7 +118,7 @@ void CTutorial::Update(){
 			mFlagUv = true;
 		}
 		/*エンター切り替え*/
-		if (CKey::once(VK_RETURN)){
+		if (CKey::once(VK_RETURN) || CMouse::GetInstance()->mOneLeftFlag){
 			eTutoState = E_PAUZE;
 			mFlagUv = false;
 		}
@@ -130,7 +131,7 @@ void CTutorial::Update(){
 			mFlagUv = true;
 		}
 		/*エンター切り替え*/
-		if (CKey::once(VK_RETURN)){
+		if (CKey::once(VK_RETURN) || CMouse::GetInstance()->mOneLeftFlag){
 			eTutoState = E_ARRAY;
 			mFlagUv = false;
 		}

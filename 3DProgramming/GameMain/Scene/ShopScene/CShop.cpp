@@ -423,27 +423,31 @@ void CShop::Update(){
 	mBoard[WEAPON3].position = CVector2(mWeaponPos3, BOARD_Y);
 	//武器詳細の表示の為の処理
 	if (!mBuyScene){//購入確認画面でなければ処理を行う
-		if (CCollision2D::Collision2D(mCursor, mWeaponName[WEAPON0]) || CCollision2D::Collision2D(mCursor, mBoard[WEAPON0])){ //カーソルがあっている?
+		if (CCollision2D::Collision2D(mCursor, mWeaponName[WEAPON0]) ||
+			CCollision2D::Collision2D(mCursor, mBoard[WEAPON0])){ //カーソルがあっている?
 			mWeaponName[WEAPON0].SetColor(GRAY_COLOR);
-			if (CMouse::mOneLeftFlag)//マウス左クリック
+			if (CMouse::GetInstance()->mOneLeftFlag)//マウス左クリック
 				mWeapnNo = WEAPON0;
 			mHiddenFlag = true;
 		}
-		if (CCollision2D::Collision2D(mCursor, mWeaponName[WEAPON1]) || CCollision2D::Collision2D(mCursor, mBoard[WEAPON1])){ //カーソルがあっている?
+		if (CCollision2D::Collision2D(mCursor, mWeaponName[WEAPON1]) ||
+			CCollision2D::Collision2D(mCursor, mBoard[WEAPON1])){ //カーソルがあっている?
 			mWeaponName[WEAPON1].SetColor(GRAY_COLOR);
-			if (CMouse::mOneLeftFlag)//マウス左クリック
+			if (CMouse::GetInstance()->mOneLeftFlag)//マウス左クリック
 				mWeapnNo = WEAPON1;
 			mHiddenFlag = true;
 		}
-		if (CCollision2D::Collision2D(mCursor, mWeaponName[WEAPON2]) || CCollision2D::Collision2D(mCursor, mBoard[WEAPON2])){ //カーソルがあっている?
+		if (CCollision2D::Collision2D(mCursor, mWeaponName[WEAPON2]) ||
+			CCollision2D::Collision2D(mCursor, mBoard[WEAPON2])){ //カーソルがあっている?
 			mWeaponName[WEAPON2].SetColor(GRAY_COLOR);
-			if (CMouse::mOneLeftFlag)//マウス左クリック
+			if (CMouse::GetInstance()->mOneLeftFlag)//マウス左クリック
 				mWeapnNo = WEAPON2;
 			mHiddenFlag = true;
 		}
-		if (CCollision2D::Collision2D(mCursor, mWeaponName[WEAPON3]) || CCollision2D::Collision2D(mCursor, mBoard[WEAPON3])){ //カーソルがあっている?
+		if (CCollision2D::Collision2D(mCursor, mWeaponName[WEAPON3]) ||
+			CCollision2D::Collision2D(mCursor, mBoard[WEAPON3])){ //カーソルがあっている?
 			mWeaponName[WEAPON3].SetColor(GRAY_COLOR);
-			if (CMouse::mOneLeftFlag)//マウス左クリック
+			if (CMouse::GetInstance()->mOneLeftFlag)//マウス左クリック
 				mWeapnNo = WEAPON3;
 			mHiddenFlag = true;
 		}
@@ -454,14 +458,17 @@ void CShop::Update(){
 			//ソールドアウトになると購入ボタンを無効にする
 			for (int i = 0; i <WEAPON_TYPE; i++)
 			{
-				if (mWeapnNo == i&&!mSoldOut[i] && !mSoldOut[i]){ if (CMouse::mOneLeftFlag){ mBuyScene = true;/*購入を真に*/ }/*マウス左クリック*/ }
+				if (mWeapnNo == i&&!mSoldOut[i] && !mSoldOut[i]){
+					if (CMouse::GetInstance()->mOneLeftFlag){ mBuyScene = true;/*購入を真に*/ 
+					}/*マウス左クリック*/ 
+				}
 			}
 		}
 	}
 	else{
 		//イエスボタンを押したときの処理
 		if (CCollision2D::Collision2D(mCursor, mYes)){ //カーソルがあっている?
-			if (CMouse::mOneLeftFlag){ 
+			if (CMouse::GetInstance()->mOneLeftFlag){ 
 				//WEAPON0を選択している//売り切れになっていない場合
 				if (mWeapnNo == WEAPON0){
 					//所持金が購入する武器の価格を超えている場合
@@ -516,7 +523,7 @@ void CShop::Update(){
 		}
 		//ノーボタンを押したときの処理
 		if (CCollision2D::Collision2D(mCursor, mNo)){ //カーソルがあっている?
-			if (CMouse::mOneLeftFlag){ mBuyScene = false;/*購入を真に*/ }//マウス左クリック
+			if (CMouse::GetInstance()->mOneLeftFlag){ mBuyScene = false;/*購入を真に*/ }//マウス左クリック
 		}
 	}
 
@@ -567,7 +574,7 @@ void CShop::Update(){
 		break;
 	}
 	mBoard[WEAPON0].SetVertex(-mBoardX, mBoardY, mBoardX, -mBoardY); //ここで大きさ変更
-	mCursor.position = CMouse::mPos;	//カーソルのポジション
+	mCursor.position = CMouse::GetInstance()->mPos;	//カーソルのポジション
 	//ボードの移動処理
 	if (mBoardX >= mcBoardX + mcBoardSubX){mBoardX -= mcBoardSubX;}
 	if (mBoardY >= mcBoardY + mcBoardSubY){mBoardY -= mcBoardSubY;}

@@ -11,22 +11,26 @@ class CMouse
 {
 private:
 	static GLFWwindow* window;//アクセス用
+	static CMouse *mpMouse;
 public:
+	static CMouse *GetInstance();
 
-	static CVector2 mPos;
-	static bool mLeftFlag; //ずっと左クリック
-	static bool mOneLeftFlag; //一回だけ左クリック
-	static CRectangle2 mRect;//四角形
-	static bool CMouse::mClipFlag; //画面内にとどめるか否か　trueだととどめる
+	CVector2 mPos;
+	bool mLeftFlag; //ずっと左クリック
+	bool mOneLeftFlag; //一回だけ左クリック
+	
+	CRectangle2 mRect;//四角形
+	bool CMouse::mClipFlag; //画面内にとどめるか否か　trueだととどめる
 	
 	CMouse();
 	~CMouse();
-	static void Update();
+	void Update();
 
-	static void Render();
-	static void SetMousePos(float x, float y);
+	void Render();
+	
+	void SetMousePos(float x, float y);
 
-	static void Access(GLFWwindow *win);
+	void Access(GLFWwindow *win);
 };
 
 #endif

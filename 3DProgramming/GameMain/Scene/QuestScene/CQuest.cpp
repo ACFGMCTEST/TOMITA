@@ -148,23 +148,23 @@ void CQuest::Update(){
 
 	//クリック時に押し込まれたような形に
 	if (CCollision2D::Collision2D(mCursor, mQuestName00)){mQuestName00.SetColor(GRAY_COLOR);
-	if (CMouse::mOneLeftFlag){ mQuestName00.position = NAME_POS0S; mQuestName00.SetColor(DARK_GRAY_COLOR); }
+	if (CMouse::GetInstance()->mOneLeftFlag){ mQuestName00.position = NAME_POS0S; mQuestName00.SetColor(DARK_GRAY_COLOR); }
 	}
 	if (CCollision2D::Collision2D(mCursor, mQuestName01)){mQuestName01.SetColor(GRAY_COLOR);
-	if (CMouse::mOneLeftFlag){ mQuestName01.position = NAME_POS1S;  mQuestName01.SetColor(DARK_GRAY_COLOR); }
+	if (CMouse::GetInstance()->mOneLeftFlag){ mQuestName01.position = NAME_POS1S;  mQuestName01.SetColor(DARK_GRAY_COLOR); }
 	}
 	if (CCollision2D::Collision2D(mCursor, mQuestName02)){mQuestName02.SetColor(GRAY_COLOR);
-	if (CMouse::mOneLeftFlag){ mQuestName02.position = NAME_POS2S; mQuestName02.SetColor(DARK_GRAY_COLOR); }
+	if (CMouse::GetInstance()->mOneLeftFlag){ mQuestName02.position = NAME_POS2S; mQuestName02.SetColor(DARK_GRAY_COLOR); }
 	}
 	if (CCollision2D::Collision2D(mCursor, mQuestName03)){mQuestName03.SetColor(GRAY_COLOR);
-	if (CMouse::mOneLeftFlag){ mQuestName03.position = NAME_POS3S; mQuestName03.SetColor(DARK_GRAY_COLOR); }
+	if (CMouse::GetInstance()->mOneLeftFlag){ mQuestName03.position = NAME_POS3S; mQuestName03.SetColor(DARK_GRAY_COLOR); }
 	}
 
 	mBackButton.SetColor(WHITE_COLOR);
 	if (CCollision2D::Collision2D(mCursor, mBackButton)){
 mBackButton.SetColor(GRAY_COLOR);
 	}
-	mCursor.position = CMouse::mPos;
+	mCursor.position = CMouse::GetInstance()->mPos;
 
 };
 

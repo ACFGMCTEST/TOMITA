@@ -25,7 +25,7 @@ void display() {
 
 	Main.SceneMain();
 
-	CMouse::Update();
+	CMouse::GetInstance()->Update();
 	//画面に表示
 //	glutSwapBuffers();
 }
@@ -117,7 +117,7 @@ void idle() {
 int main(void)
 {
 	GLFWwindow* window;
-	//CMouse::Access(window);
+	//CMouse::GetInstance()->Access(window);
 
 	/* Initialize the library */
 	if (!glfwInit())
@@ -191,17 +191,17 @@ int main(void)
 		glfwGetCursorPos(window, &mx, &my);
 		mx = mx - winX / 2;
 		my = -my + winY / 2;
-		CMouse::mPos = CVector2(mx, my);
+		CMouse::GetInstance()->mPos = CVector2(mx, my);
 
 		/*クリックされている*/
 		if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT)){
-			if (!CMouse::mLeftFlag)CMouse::mOneLeftFlag = true;//一回だけ有効
-			else CMouse::mOneLeftFlag = false;//一回だけ有効
-			CMouse::mLeftFlag = true;//ずっと有効
+			if (!CMouse::GetInstance()->mLeftFlag)CMouse::GetInstance()->mOneLeftFlag = true;//一回だけ有効
+			else CMouse::GetInstance()->mOneLeftFlag = false;//一回だけ有効
+			CMouse::GetInstance()->mLeftFlag = true;//ずっと有効
 		}
 		else{
-			CMouse::mLeftFlag = false;
-			CMouse::mOneLeftFlag = false;//一回だけ有効
+			CMouse::GetInstance()->mLeftFlag = false;
+			CMouse::GetInstance()->mOneLeftFlag = false;//一回だけ有効
 		}
 
 		/*window座標取得*/

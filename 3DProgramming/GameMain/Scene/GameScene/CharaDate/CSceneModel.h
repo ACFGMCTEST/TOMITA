@@ -35,8 +35,7 @@ public:
 
 	CVector3 mPosition; //位置　
 
-	//CVector2 mSaveMousePos; //マウスのポジション
-	//CRectangle2 mColInitMouse;//マウスの初期位置
+	
 	/*パックアクセス用　エネミーで使う*/
 	static CXPuck *mpPuck;
 
