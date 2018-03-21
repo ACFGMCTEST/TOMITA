@@ -18,7 +18,7 @@
 #define FORWARD_JUMP  0.0f,1.0f,1.0f//ジャンプ
 
 /*動きの回転する速さ*/
-#define TURN_SPEED 5
+#define TURN_SPEED 7
 /*あたり判定の設定値*/
 /*胴*/
 #define OBB_SPHERE_BODY_SIZE 0.4f
@@ -67,10 +67,7 @@ void CXCharPlayer::ColInit(){
 	mpCBLeg->mpParent = this;
 }
 
-/*
- Init
- モデルと衝突判定の設定を行う
-*/
+/*Init = モデルと衝突判定の設定を行う*/
 void CXCharPlayer::Init(CModelX *model) {
 	ColInit();
 
@@ -460,8 +457,9 @@ void CXCharPlayer::AnimaState(ESTATE state){
 		break;
 	}
 }
-/*キャラクター回転*/
+/*キャラクター回転差が小さい方向に回転する*/
 int CXCharPlayer::MoveRotation(int angle){
+
 	printf("入った数値%d\n",angle);
 	/*右回り*/
 	int turnRight = angle - mRotation.y;
@@ -471,19 +469,21 @@ int CXCharPlayer::MoveRotation(int angle){
 	int turnLeft = ANGLE_360  - turnRight;
 
 	printf("右回転:%d,左回転%d\n", turnRight, turnLeft);
-	/*同じの場合*/
-	if (mRotation.y == angle){
+	/*同じの場合 ||
+	  右に越えてしまう場合 ||
+	  左に越えてしまう場合 ||
+	*/
+	if (mRotation.y == angle ||
+		mRotation.y <= angle && angle <= mRotation.y + TURN_SPEED ||
+		mRotation.y - TURN_SPEED <= angle && angle <= mRotation.y){
 		return angle;
 	}
 	/*右方向確認*/
-	else if (turnRight < turnLeft){
-		if ((turnRight) < angle && angle < turnRight + TURN_SPEED) return angle;
-		else return mRotation.y + TURN_SPEED;
+	if (turnRight < turnLeft){
+		return mRotation.y + TURN_SPEED;
 	}
-	/*方向確認 小さい場合*/
-	else{
-		if ((turnLeft - TURN_SPEED) < angle && angle < turnLeft) return angle;
-		else return mRotation.y - TURN_SPEED;
+	/*方向確認*/
+	else{return mRotation.y - TURN_SPEED;
 	}
 	
 	
