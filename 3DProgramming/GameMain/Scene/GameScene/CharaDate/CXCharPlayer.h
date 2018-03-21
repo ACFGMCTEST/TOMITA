@@ -110,27 +110,14 @@ public:
 	void Render();
 	//billboardの描画処理
 	void BillboardRender();
-	/*限界まで*/
-	bool FlagRight();
-	/*回転関数
-	rot = 回転値*/
-	void PlusRot(float rot);
 	void PosUpdate();//ポジションの変更関数　
 	int mCountKnockBack; //ノックバックする回数
 
-	/*当たったときに呼び出す
-	count:移動回数
-	Forward:進む方角
-	*/
-	void ColMove(int count, CVector3 Foward);
 
 	/*操作する場合*/
 	void MyMove();
 	/*簡易移動フラグ関数*/
 	bool FlagMove();
-	bool FlagLeft();
-	/*回転するまで移動しない*/
-	bool FlagRotMove(int angle);
 	/*簡易アニメーション切り替え*/
 	void AnimaState(ESTATE state);
 
@@ -205,6 +192,10 @@ public:
 	void Jump();
 	/*グラウンドの設定*/
 	void ColGround();
+	/*キャラクター動く時の回転
+	float = 向きたい方向
+	*/
+	int MoveRotation(int  angle);
 
 };
 

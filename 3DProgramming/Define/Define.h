@@ -100,6 +100,7 @@ extern int WinPosX,WinPosY;//main.cpp‚ÅÝ’è
 #define ANGLE_360 360//Šp“x
 #define ANGLE_315 315//Šp“x
 #define ANGLE_270 270//Šp“x
+#define ANGLE_225 225//Šp“x
 #define ANGLE_180 180//Šp“x
 #define ANGLE_135 135//Šp“x
 #define ANGLE_125 125//Šp“x
@@ -107,6 +108,9 @@ extern int WinPosX,WinPosY;//main.cpp‚ÅÝ’è
 #define ANGLE_45 45 //Šp“x
 #define ANGLE_5 5//Šp“x
 #define ANGLE_1 1//Šp“x
+//360“x‰z‚µ‚½ê‡ ||  ƒ}ƒCƒiƒX‚Ìê‡ Šp“x‚É’¼‚·
+#define LIMIT_ANGLE(i)	if(i >= ANGLE_360) i -= ANGLE_360; \
+						if (i < 0) i += ANGLE_360;
 
 /*d—Í*/
 #define GRA_INIT_TIME_COUNT 1.0f//d—Í‰Á‘¬“x‚ÌŽžŠÔ_‰Šú’l

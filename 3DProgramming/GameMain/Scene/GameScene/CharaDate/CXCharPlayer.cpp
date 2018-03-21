@@ -10,12 +10,15 @@
 #include "../../GameScene/Map/CMap.h"
 #include "../../ItemScene/CItem.h"
 #include "../../../Camera/CCamera.h"
+#include "../../../Convenient/CConvenient.h"
 #include <math.h>
 
 
 /*向き*/
 #define FORWARD_JUMP  0.0f,1.0f,1.0f//ジャンプ
 
+/*動きの回転する速さ*/
+#define TURN_SPEED 5
 /*あたり判定の設定値*/
 /*胴*/
 #define OBB_SPHERE_BODY_SIZE 0.4f
@@ -35,7 +38,8 @@
 #define JUMP_SPEED 0.7f//ジャンプするスピード
 #define JUMP_MOVE(vel) vel * 0.7f//ジャンプ移動 
 
-
+/*歩く加速度*/
+#define MOVE_ACC SPEED_RUN/10
 
 CXCharPlayer::CXCharPlayer() : mVelocity(0.0f), mFlagKnockback(false), mRotCount(0),
 mGoCount(0), mGoPos(0), mGoPosSize(0), mGravitTime(GRA_INIT_TIME_COUNT), mFlagJump(false),mFlagSlpoe(false){
@@ -99,24 +103,37 @@ void CXCharPlayer::Init(CModelX *model) {
 }
 
 /*速さ制御関数*/
+float VelocityMax = SPEED_RUN;//限界値
 void CXCharPlayer::MoveSpeed(){
+
 
 	/*スキル発動時*/
 	if (CScoreBoard::mFlagSkill0&&CItem::status==CItem::WEAPON0){
-		if(mState == E_ATTACK_RUN)	mVelocity = SPEED_ATTACK_RUN_SKILL;
+		if (mState == E_ATTACK_RUN)	VelocityMax = SPEED_ATTACK_RUN_SKILL;
 
-		if (mState == E_RUN)		mVelocity = SPEED_RUN_SKILL;
+		if (mState == E_RUN)		VelocityMax = SPEED_RUN_SKILL;
 	}
 	else{
 		/*攻撃準備中*/
-		if (mState == E_ATTACK_IDLE || mState == E_ATTACK_RUN) mVelocity = SPEED_ATTACK_RUN;
+		if (mState == E_ATTACK_IDLE || mState == E_ATTACK_RUN) VelocityMax = SPEED_ATTACK_RUN;
 		/*攻撃外*/
-		if (mState == E_RUN)mVelocity = SPEED_RUN;
+		if (mState == E_RUN)VelocityMax = SPEED_RUN;
 	}
+	
+	/*限界値まで加速*/
+	if (VelocityMax > mVelocity){
+		mVelocity += MOVE_ACC;//加速
+	}
+	else{
+		mVelocity = VelocityMax;//限界値にする
+	}
+
 	/*ジャンプ中で移動している場合減速　初回のみ*/
-	if (mVelocity == SPEED_ATTACK_RUN_SKILL || mVelocity == SPEED_ATTACK_RUN || 
-		mVelocity == SPEED_RUN_SKILL || mVelocity == SPEED_RUN){
-		mVelocity -= SPEED_JUMP_DOWN;
+	if (mState == E_ATTACK_JUMP || mState == E_JUMP){
+		if (mVelocity == SPEED_ATTACK_RUN_SKILL || mVelocity == SPEED_ATTACK_RUN ||
+			mVelocity == SPEED_RUN_SKILL || mVelocity == SPEED_RUN){
+			mVelocity -= SPEED_JUMP_DOWN;
+		}
 	}
 	/*動いていない場合*/
 	if (mState == E_IDLE || mState == E_ATTACK_IDLE){ mVelocity = 0; }
@@ -125,6 +142,7 @@ void CXCharPlayer::MoveSpeed(){
 
 /*ポジションのアップデート関数*/
 void CXCharPlayer::PosUpdate(){
+
 	CMatrix44 rot_y, pos, matrix;
 	//回転行列の作成
 	rot_y.rotationY(mRotation.y);
@@ -147,135 +165,48 @@ bool CXCharPlayer::FlagMove(){
 	return false;
 }
 
-/*回転するまで移動しない*/
-bool CXCharPlayer::FlagRotMove(int angle){
-	int middle = abs((int)mRotation.y) % ANGLE_360;
-	
-	angle = (abs((int)MainCamera.Rot().y) + angle) % ANGLE_360;
-
-	if (middle == angle){
-		return true;
-	}
-	return false;
-}
-
-
-bool CXCharPlayer::FlagRight(){
-	float Rot;
-	if (mRotation.y <= ANGLE_180){
-		Rot =mRotation.y;
-	}
-	else{
-		Rot = mRotation.y - ANGLE_360;
-	}
-
-	if (Rot - MainCamera.Rot().y < ANGLE_90){
-
-		return true;
-	}
-	else{
-		return false;
-	}
-}
-/*向きの制御*/
-bool CXCharPlayer::DirectionAnima(){
-
-	return true;
-}
-
-bool CXCharPlayer::FlagLeft(){
-	
-	float Rot;
-	if (mRotation.y <= ANGLE_180){
-		Rot = MainCamera.Rot().y - mRotation.y;
-	}
-	else{
-		Rot = MainCamera.Rot().y - mRotation.y - ANGLE_360;
-	}
-
-	if (Rot < -ANGLE_90){
-		return true;
-	}
-	else{
-	
-		return false;
-	}
-}
-
-/*回転関数*/
-void CXCharPlayer::PlusRot(float rot){
-	
-	mRotation.y += rot;//タス処理
-	if (mRotation.y < 0){//回転値がマイナスなら
-		mRotation.y = ANGLE_360 + mRotation.y;//３６０以内にとどめる
-	}
-	if (mRotation.y > ANGLE_360){//３６０以上の場合
-		mRotation.y = mRotation.y + ANGLE_360;
-	}
-}
 
 /*動くときの関数*/
 void CXCharPlayer::MyMove(){
-	if (mRotation.y >= ANGLE_360){
-		mRotation.y = 0;
-	}
+	
+	LIMIT_ANGLE(mRotation.y);
+	printf("現在の回転:%f\n", mRotation.y);
 	/*攻撃するときカメラの方向に向く*/
-	if (mState == E_ATTACK || mState == E_ATTACK_INIT)	mRotation = MainCamera.Rot();
+	//if (mState == E_ATTACK || mState == E_ATTACK_INIT)	mRotation = MainCamera.Rot();
+
 
 
 	if (CKey::push('A')){//左に移動
-		///*回転*/
-		//if (FlagLeft())PlusRot(ANGLE_5);//回転値代入
-		//else 
-			mRotation.y = ((int)MainCamera.Rot().y + ANGLE_90) % 360;
-
+		mRotation.y = MoveRotation(((int)MainCamera.Rot().y + ANGLE_90) % 360);
 	}
 	if (CKey::push('D')){//右に移動
-		mRotation.y = ((int)MainCamera.Rot().y + ANGLE_270) % 360;
+		mRotation.y = MoveRotation(((int)MainCamera.Rot().y + ANGLE_270) % 360);
 	}
-
-
-
 
 	if (CKey::push('W')){//前に移動
 
-		mRotation.y = MainCamera.Rot().y;
-
-
+		mRotation.y = MoveRotation(((int)MainCamera.Rot().y) % 360);
 		if (CKey::push('A')){//左に移動
-			///*回転*/
-			//if (FlagLeft())PlusRot(ANGLE_5);//回転値代入
-			//else 
-			mRotation.y += ANGLE_45;
-
+			mRotation.y = MoveRotation(((int)MainCamera.Rot().y + ANGLE_45) % 360);
 		}
 		if (CKey::push('D')){//右に移動
-			mRotation.y -= ANGLE_45;
+			mRotation.y = MoveRotation(((int)MainCamera.Rot().y + ANGLE_315) % 360);
 		}
-
-
 	}
-
-
-
-
 
 	if (CKey::push('S')){
-
-		mRotation.y = MainCamera.Rot().y;
-		mRotation.y -= ANGLE_180;//反対向きにする
-
-
+		mRotation.y = MoveRotation(((int)MainCamera.Rot().y + ANGLE_180) % 360);
 		if (CKey::push('A')){//左に移動
-			mRotation.y -= ANGLE_45;
-
+			mRotation.y = MoveRotation(((int)MainCamera.Rot().y + ANGLE_125) % 360);
 		}
 		if (CKey::push('D')){//右に移動
-			mRotation.y += ANGLE_45;
-
+			mRotation.y = MoveRotation(((int)MainCamera.Rot().y + ANGLE_225) % 360);
 		}
-
 	}
+
+
+
+
 
 
 	/*ステータス設定*/
@@ -529,6 +460,34 @@ void CXCharPlayer::AnimaState(ESTATE state){
 		break;
 	}
 }
+/*キャラクター回転*/
+int CXCharPlayer::MoveRotation(int angle){
+	printf("入った数値%d\n",angle);
+	/*右回り*/
+	int turnRight = angle - mRotation.y;
+	/*過剰余剰*/
+	LIMIT_ANGLE(turnRight);
+	/*左回り*/
+	int turnLeft = ANGLE_360  - turnRight;
+
+	printf("右回転:%d,左回転%d\n", turnRight, turnLeft);
+	/*同じの場合*/
+	if (mRotation.y == angle){
+		return angle;
+	}
+	/*右方向確認*/
+	else if (turnRight < turnLeft){
+		if ((turnRight) < angle && angle < turnRight + TURN_SPEED) return angle;
+		else return mRotation.y + TURN_SPEED;
+	}
+	/*方向確認 小さい場合*/
+	else{
+		if ((turnLeft - TURN_SPEED) < angle && angle < turnLeft) return angle;
+		else return mRotation.y - TURN_SPEED;
+	}
+	
+	
+}
 
 /*更新処理*/
 void CXCharPlayer::Update(){
@@ -772,20 +731,7 @@ void CXCharPlayer::BillboardRender(){
 
 }
 
-/*あたり判定の時に呼び出し*/
-void CXCharPlayer::ColMove(int count, CVector3 Forward){
-	if (count <= -1){//カウントがマイナスなら
-		mVelocity = -KNOCK_BACK; //後ろ向きにする
-		count *= -1;//プラスにする
-	}
-	else
-	{
-		mVelocity = -KNOCK_BACK;
-	}
-	mForward = Forward;
-	mCountKnockBack = count;
-	SearchGoPosInit();
-}
+
 
 /*当たり判定呼び出し
 元の場所に戻すための関数
@@ -897,9 +843,6 @@ void CXCharPlayer::Collision(const COBB &box,const CColSphere &sphere) {
 	mpCBLeg->Update();
 	
 }
-
-
-
 
 /*ジャンプ関数*/
 void  CXCharPlayer::Jump(){
