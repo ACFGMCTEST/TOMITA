@@ -22,6 +22,8 @@
 //0-5の場合５倍　２－５の場合３倍
 
 class CGameResult :public CScene{
+
+
 public:
 
 	CItem mItem;
@@ -29,10 +31,10 @@ public:
 	CRectangle2 mBG;                    //バックグラウンドの略 （背景)
 	CRectangle2 mResult;	            //リザルト
 	CRectangle2 mQuestName;	            //クエスト名ロゴ
-	CRectangle2 mBaseMoney    [DIGIT];      //元となる金額
+	CRectangle2 mBaseMoney    [DIGIT];  //元となる金額
 	CRectangle2 mMagnification[DIGIT];  //報酬にかかる倍率
-	CRectangle2 mTotalMoney   [DIGIT];     //元金と倍率を計算した結果。最終的に手に入る金額を表示する
-	CRectangle2 mPocketMoney  [DIGIT];    //所持金の表示
+	CRectangle2 mTotalMoney   [DIGIT];  //元金と倍率を計算した結果。最終的に手に入る金額を表示する
+	CRectangle2 mPocketMoney  [DIGIT];  //所持金の表示
 	CRectangle2 mTips         [TIPS];
 
 	CRectangle2 mCursor;//カーソル
@@ -60,6 +62,7 @@ public:
 
 	float mAlpha = 0.0f;
 
+	static bool mFlagResult;//フラグが立つと更新処理
 
 	enum EPrize{
 		E_Quest0,

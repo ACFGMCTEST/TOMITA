@@ -13,11 +13,8 @@ public:
 	CRectangle2 mBG;        //バックグラウンドの略 （背景)
 
 
-	CTexture	*mpTexture;
-	CTexture	*mpMenu;
-
-	float mEnd;
-	float mAlpha=0.0f;
+	CTexture mTexBG;//背景のテクスチャ
+	CTexture mTexClearLogo;//クリアロゴのテクスチャ
 
 	/*状態選択*/
 	enum EStatus

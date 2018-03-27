@@ -45,8 +45,7 @@ public:
 
 	static int mPlayerScore;
 	static int mEnemyScore;
-	static bool mGameEnd;
-	static bool mResult; //Result画面かどうか
+	static bool mGameEnd;//ゲームを終了フラグ
 
 	static bool mcFirstAction;
 

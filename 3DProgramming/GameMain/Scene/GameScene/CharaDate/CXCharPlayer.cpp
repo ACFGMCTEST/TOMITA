@@ -167,7 +167,7 @@ bool CXCharPlayer::FlagMove(){
 void CXCharPlayer::MyMove(){
 	
 	LIMIT_ANGLE(mRotation.y);
-	printf("現在の回転:%f\n", mRotation.y);
+	//printf("現在の回転:%f\n", mRotation.y);
 	/*攻撃するときカメラの方向に向く*/
 	//if (mState == E_ATTACK || mState == E_ATTACK_INIT)	mRotation = MainCamera.Rot();
 
@@ -460,7 +460,7 @@ void CXCharPlayer::AnimaState(ESTATE state){
 /*キャラクター回転差が小さい方向に回転する*/
 int CXCharPlayer::MoveRotation(int angle){
 
-	printf("入った数値%d\n",angle);
+	//printf("入った数値%d\n",angle);
 	/*右回り*/
 	int turnRight = angle - mRotation.y;
 	/*過剰余剰*/
@@ -468,7 +468,7 @@ int CXCharPlayer::MoveRotation(int angle){
 	/*左回り*/
 	int turnLeft = ANGLE_360  - turnRight;
 
-	printf("右回転:%d,左回転%d\n", turnRight, turnLeft);
+	//printf("右回転:%d,左回転%d\n", turnRight, turnLeft);
 	/*同じの場合 ||
 	  右に越えてしまう場合 ||
 	  左に越えてしまう場合 ||

@@ -17,36 +17,23 @@
 
 
 CGameClear::~CGameClear(){
-	if (mpTexture) {
-		//テクスチャを使っていればインスタンス削除
-		delete mpTexture;
-		mpTexture = nullptr;
-	}
 
 }
 
 void CGameClear::Init(){
-	mEnd = END_TIME;
 	//背景の呼び出し
-
-	mpTexture = new CTexture();
-	mpTexture->load(TGA_FILE"Cle_ar.tga");
-
+	mTexBG.load(TGA_FILE"Cle_ar.tga");
 	mBG.SetVertex(BG_SIZE); //ここで大きさ変更
 	mBG.SetColor(W_COLOR,0.0f);
-	mBG.SetUv(mpTexture, TEST_CG);
+	mBG.SetUv(&mTexBG, TEST_CG);
 
-
-
-	mpTexture = new CTexture();
-	mpTexture->load(TGA_FILE"Clear.tga");
 
 	//クリアロゴの呼び出し
-	
+	mTexClearLogo.load(TGA_FILE"Clear.tga");
 	mClearLogo.SetVertex(TITLE_SIZE); //ここで大きさ変更
-	mClearLogo.SetColor(W_COLOR, mAlpha);
+	mClearLogo.SetColor(W_COLOR, 0.0f);
 	mClearLogo.position = CVector2(0.0f, 200);
-	mClearLogo.SetUv(mpTexture, TEST_CG);
+	mClearLogo.SetUv(&mTexClearLogo, TEST_CG);
 
 
 }
@@ -66,14 +53,11 @@ void CGameClear::Update(){
 		/*フェード*/
 		mClearLogo.Fade(FADE_SPEED, ALPHA_MAX);
 		mBG.Fade(FADE_SPEED, ALPHA_MAX);
-		mEnd -= 0.01f;
 		
 		/*透明でなくなったら*/
-		//if (mBG.triangle1.a >= ALPHA_MAX){
-		if (mEnd <= 0){
+		if (mBG.triangle1.a >= ALPHA_MAX){
 			/*シーン移行をするフラグを立てる*/
-
-			CScoreBoard::mResult = true;
+			CGameResult::mFlagResult = true;
 			//CScoreBoard::GetInstance()->mFlagSceneChage = true;
 		}
 

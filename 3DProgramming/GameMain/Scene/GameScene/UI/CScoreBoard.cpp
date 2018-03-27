@@ -96,8 +96,6 @@ float CScoreBoard::skillgage = 0.0f;
 
 bool CScoreBoard::mFlagSkill0 = false;
 
-bool CScoreBoard::mResult = false;
-
 
 CScoreBoard::CScoreBoard() :rectnum(0), effectalpha(0), mAlpha(mcAlphaMin), mFlagSceneChage(false), mFlash(0), mInit(false), mNumMin(false){
 
@@ -461,10 +459,12 @@ void CScoreBoard::Number(int score, CRectangle2 &odifit, CRectangle2 &twdifit, C
 }
 
 void CScoreBoard::Update(){
+
 	/*デバック用*/
 	if (CKey::once('U')){
 		GoalEnemy();
 	}
+	
 	switch (mGoalManager)
 	{
 	case E_NORMAL:
@@ -576,9 +576,8 @@ void CScoreBoard::Update(){
 	//Zゲームオーバーとゲームクリアをアップデート
 	mGameOver.Update();
 	mGameClear.Update();
-	if (mResult){
-		mGameResult.Update();
-	}
+	mGameResult.Update();
+	
 };
 
 

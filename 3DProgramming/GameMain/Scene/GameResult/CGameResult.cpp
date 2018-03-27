@@ -46,7 +46,7 @@
 #define PNUM_POS3 CVector2(  20, -250)
 
 #define ALPHA_HALF 0.5f
-#define RESULT_FADE 0.02f
+#define RESULT_FADE 0.2f //フェードスピード
 
 
 //TIPSの設定
@@ -64,7 +64,9 @@
 
 int CGameResult::mPrize = 0;
 
-CGameResult::CGameResult() :mQuestMoney(0),mTotal(777){
+bool CGameResult::mFlagResult = false;
+
+CGameResult::CGameResult() :mQuestMoney(0), mTotal(777){
 }
 
 CGameResult::~CGameResult(){
@@ -79,6 +81,7 @@ CGameResult::~CGameResult(){
 void CGameResult::Init(){
 	mNumCount = 0;
 	mPocketMoneySave = mItem.mMoney;
+	mFlagResult = false;
 
 	//背景の呼び出し
 
@@ -282,31 +285,31 @@ void CGameResult::Number(int score, CRectangle2 &odifit, CRectangle2 &twdifit, C
 	if (difit3 <= 0){
 		thdifit.ZERO;
 	}
-	if (difit3 == 1){
+	else if (difit3 == 1){
 		thdifit.ONE;
 	}
-	if (difit3 == 2){
+	else  if (difit3 == 2){
 		thdifit.TWO;
 	}
-	if (difit3 == 3){
+	else if(difit3 == 3){
 		thdifit.THREE;
 	}
-	if (difit3 == 4){
+	else if (difit3 == 4){
 		thdifit.FOUR;
 	}
-	if (difit3 == 5){
+	else if (difit3 == 5){
 		thdifit.FIVE;
 	}
-	if (difit3 == 6){
+	else if (difit3 == 6){
 		thdifit.SIX;
 	}
-	if (difit3 == 7){
+	else if (difit3 == 7){
 		thdifit.SEVEN;
 	}
-	if (difit3 == 8){
+	else if (difit3 == 8){
 		thdifit.EIGHT;
 	}
-	if (difit3 == 9){
+	else if (difit3 == 9){
 		thdifit.NINE;
 	}
 
@@ -318,31 +321,31 @@ void CGameResult::Number(int score, CRectangle2 &odifit, CRectangle2 &twdifit, C
 	if (difit2 <= 0){
 		twdifit.ZERO;
 	}
-	if (difit2 == 1){
+	else if (difit2 == 1){
 		twdifit.ONE;
 	}
-	if (difit2 == 2){
+	else if (difit2 == 2){
 		twdifit.TWO;
 	}
-	if (difit2 == 3){
+	else if (difit2 == 3){
 		twdifit.THREE;
 	}
-	if (difit2 == 4){
+	else if (difit2 == 4){
 		twdifit.FOUR;
 	}
-	if (difit2 == 5){
+	else if (difit2 == 5){
 		twdifit.FIVE;
 	}
-	if (difit2 == 6){
+	else if (difit2 == 6){
 		twdifit.SIX;
 	}
-	if (difit2 == 7){
+	else if (difit2 == 7){
 		twdifit.SEVEN;
 	}
-	if (difit2 == 8){
+	else if (difit2 == 8){
 		twdifit.EIGHT;
 	}
-	if (difit2 == 9){
+	else if (difit2 == 9){
 		twdifit.NINE;
 	}
 
@@ -353,31 +356,31 @@ void CGameResult::Number(int score, CRectangle2 &odifit, CRectangle2 &twdifit, C
 	if (difit1 <= 0){
 		odifit.ZERO;
 	}
-	if (difit1 == 1){
+	else if (difit1 == 1){
 		odifit.ONE;
 	}
-	if (difit1 == 2){
+	else if (difit1 == 2){
 		odifit.TWO;
 	}
-	if (difit1 == 3){
+	else if (difit1 == 3){
 		odifit.THREE;
 	}
-	if (difit1 == 4){
+	else if (difit1 == 4){
 		odifit.FOUR;
 	}
-	if (difit1 == 5){
+	else if (difit1 == 5){
 		odifit.FIVE;
 	}
-	if (difit1 == 6){
+	else if (difit1 == 6){
 		odifit.SIX;
 	}
-	if (difit1 == 7){
+	else if (difit1 == 7){
 		odifit.SEVEN;
 	}
-	if (difit1 == 8){
+	else if (difit1 == 8){
 		odifit.EIGHT;
 	}
-	if (difit1 == 9){
+	else if (difit1 == 9){
 		odifit.NINE;
 	}
 
@@ -386,90 +389,88 @@ void CGameResult::Number(int score, CRectangle2 &odifit, CRectangle2 &twdifit, C
 
 void CGameResult::Update(){
 
-	switch (mPrize)
-	{
-	case E_Quest0:
-		mQuestMoney = PRIZE0;
-		break;
-
-	case E_Quest1:
-		mQuestMoney = PRIZE1;
-		break;
-
-	case E_Quest2:
-		mQuestMoney = PRIZE2;
-		break;
-
-	case E_Quest3:
-		mQuestMoney = PRIZE3;
-		break;
-
-	default:
-		break;
-	}
-
-
-	mDifference = (CScoreBoard::mPlayerScore/10) - (CScoreBoard::mEnemyScore/10);
-
-	mTotal = mQuestMoney*mDifference;
-
-	
-
-	//if (CKey::push('J')){
-	//	mPocketMoneySave += 0.01f;
-	//}
-
-	//mItem.mMoney = mPocketMoneySave;
-
-	Number(mTotal, mTotalMoney[0], mTotalMoney[1], mTotalMoney[2]);
-
-	Number(mQuestMoney, mBaseMoney [0], mBaseMoney [1], mBaseMoney [2]);
-
-	Number(mDifference, mMagnification[0], mMagnification[1], mMagnification[2]);
-
-	Number(mItem.mMoney, mPocketMoney[0], mPocketMoney[1], mPocketMoney[2]);
-
-
-	if (CScoreBoard::mPlayerScore >= LIMIT_SCORE){
-		//CScoreBoard::mGameEnd = true;
-		//if (mAlpha <= ALPHA_MAX)mAlpha += 0.01f;
-		///*フェード*/
-		//if (mAlpha2 <= 0.5f){ mAlpha2 += 0.01f; }	
-		//mClearLogo.SetColor(W_COLOR, mAlpha);
-		//mBG.SetColor(B_COLOR, mAlpha2);
-
-		/*フェード*/
-		mBG.Fade(RESULT_FADE, ALPHA_HALF);
-		mResult.Fade(RESULT_FADE, ALPHA_MAX);
-		for (int i = 0; i < 3; i++)
+	if (mFlagResult){
+		switch (mPrize)
 		{
-			mTotalMoney[i].Fade(RESULT_FADE, ALPHA_MAX);
-			mPocketMoney[i].Fade(RESULT_FADE, ALPHA_MAX);
-		}
-		for (int i = 0; i < TIPS; i++)
-		{
-			mTips[i].Fade(RESULT_FADE, ALPHA_MAX);
-		}
-		for (int i = 1; i < 3; i++)
-		{
-			mBaseMoney[i].Fade(RESULT_FADE, ALPHA_MAX);
-		}
-		mMagnification[0].Fade(RESULT_FADE, ALPHA_MAX);
+		case E_Quest0:
+			mQuestMoney = PRIZE0;
+			break;
 
-		if (mNumCount < mTotal){
-				//printf("%d\n", );
-				mNumCount += 0.1f;
-				mPocketMoneySave += 0.1f;
-				mNumCount += 0.1f;
-				mPocketMoneySave += 0.1f;
-				mItem.mMoney = mPocketMoneySave;
+		case E_Quest1:
+			mQuestMoney = PRIZE1;
+			break;
+
+		case E_Quest2:
+			mQuestMoney = PRIZE2;
+			break;
+
+		case E_Quest3:
+			mQuestMoney = PRIZE3;
+			break;
+
+		default:
+			break;
 		}
-		//画面をクリックするとシーンを移行する
-		else if (CCollision2D::Collision2D(mCursor, mBG)){ //カーソルがあっている?
-			if (CMouse::GetInstance()->mOneLeftFlag)//マウス左クリック
+
+
+		mDifference = (CScoreBoard::mPlayerScore / 10) - (CScoreBoard::mEnemyScore / 10);
+
+		mTotal = mQuestMoney*mDifference;
+
+
+
+		//if (CKey::push('J')){
+		//	mPocketMoneySave += 0.01f;
+		//}
+
+		//mItem.mMoney = mPocketMoneySave;
+
+		Number(mTotal, mTotalMoney[0], mTotalMoney[1], mTotalMoney[2]);
+
+		Number(mQuestMoney, mBaseMoney[0], mBaseMoney[1], mBaseMoney[2]);
+
+		Number(mDifference, mMagnification[0], mMagnification[1], mMagnification[2]);
+
+		Number(mItem.mMoney, mPocketMoney[0], mPocketMoney[1], mPocketMoney[2]);
+
+		if (CScoreBoard::mPlayerScore >= LIMIT_SCORE){
+			//CScoreBoard::mGameEnd = true;
+			//if (mAlpha <= ALPHA_MAX)mAlpha += 0.01f;
+			///*フェード*/
+			//if (mAlpha2 <= 0.5f){ mAlpha2 += 0.01f; }	
+			//mClearLogo.SetColor(W_COLOR, mAlpha);
+			//mBG.SetColor(B_COLOR, mAlpha2);
+
+			/*フェード*/
+			mBG.Fade(RESULT_FADE, ALPHA_HALF);
+			mResult.Fade(RESULT_FADE, ALPHA_MAX);
+			for (int i = 0; i < 3; i++)
 			{
-		    CScoreBoard::mResult = false;
-			CScoreBoard::GetInstance()->mFlagSceneChage = true;
+				mTotalMoney[i].Fade(RESULT_FADE, ALPHA_MAX);
+				mPocketMoney[i].Fade(RESULT_FADE, ALPHA_MAX);
+			}
+			for (int i = 0; i < TIPS; i++)
+			{
+				mTips[i].Fade(RESULT_FADE, ALPHA_MAX);
+			}
+			for (int i = 1; i < 3; i++)
+			{
+				mBaseMoney[i].Fade(RESULT_FADE, ALPHA_MAX);
+			}
+			mMagnification[0].Fade(RESULT_FADE, ALPHA_MAX);
+
+			/*カウントが所持金に達したら*/
+			if (mNumCount < mTotal){
+				mNumCount += 1.0f;
+				mPocketMoneySave += 1.0f;
+				mItem.mMoney = mPocketMoneySave;
+			} //画面をクリックするとシーンを移行する
+			else if (
+				CMouse::GetInstance()->mOneLeftFlag ||
+				CKey::push(VK_RETURN))//マウス左クリック
+			{
+				mFlagResult = false;
+				CScoreBoard::GetInstance()->mFlagSceneChage = true;
 			}
 		}
 
@@ -477,7 +478,7 @@ void CGameResult::Update(){
 
 	mCursor.position = CMouse::GetInstance()->mPos;
 
-};
+}
 
 /*
 描画処理のみを行う。

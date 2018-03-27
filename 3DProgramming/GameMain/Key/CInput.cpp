@@ -38,7 +38,7 @@ char CInput::ChangeInputKey(char k){
 	case VK_RETURN://エンターキー
 		return InputButton((int)E_ENTER);
 		break;
-	case VK_CONTROL://コントロールボタン
+	case VK_SHIFT://コントロールボタン
 		return InputButton((int)E_ATTACK);
 		break;
 	case VK_ESCAPE://ポーズボタン

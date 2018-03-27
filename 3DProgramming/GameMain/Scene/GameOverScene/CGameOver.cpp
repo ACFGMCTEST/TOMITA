@@ -45,11 +45,6 @@ void CGameOver::Init(){
 void CGameOver::Update(){
 	if (CScoreBoard::mEnemyScore >= LIMIT_SCORE){
 		CScoreBoard::mGameEnd = true;
-		/*if (mAlpha < 1.0f){ mAlpha += 0.01f; }
-		if (mAlpha2 < 0.5f){ mAlpha2 += 0.01f; }
-		mGameOverLogo.SetColor(W_COLOR, mAlpha);
-		mBG.SetColor(B_COLOR, mAlpha2);*/
-
 		/*フェード*/
 		mGameOverLogo.Fade(FADE_SPEED, ALPHA_MAX);
 		mBG.Fade(FADE_SPEED, ALPHA_MAX);
