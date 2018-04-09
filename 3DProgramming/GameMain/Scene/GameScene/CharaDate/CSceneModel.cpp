@@ -31,8 +31,8 @@
 #define COL_INIT_MOUSE_SIZE -DISP_X/2, DISP_Y/2, DISP_X/2, -DISP_Y/2
 
 /*モデルのファイル場所*/
-#define MODEL_FILE_UNITY			"x\\SDUnity\\SDUniEriHammer.x"
-//#define MODEL_FILE_SD_ELIZABETH		"x\\ElizabethWarren\\ElizabethSDWeapon.x"
+#define MODEL_FILE_UNITY			"x\\SDUnity\SDUniEriHammer.x"
+#define MODEL_FILE_SD_ELIZABETH		"x\\ElizabethWarren\\ElizabethSDWeapon.x"
 #define MODEL_FILE_ELIZABETH		"x\\ElizabethWarren\\ElizabethSD.x"
 #define MODEL_FILE_PUCK				"x\\Puck\\Puck.x"
 #define MODEL_FILE_GOAL				"x\\Goal\\goal.x"

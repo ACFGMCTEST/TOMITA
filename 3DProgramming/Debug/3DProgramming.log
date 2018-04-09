@@ -1,13 +1,23 @@
 ﻿cl : コマンド ライン warning D9025: '/sdl' より '/GS-' が優先されます。
-  CGameResult.cpp
+  CSceneModel.cpp
 c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\graphic\ctexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
           c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 'fopen' の宣言を確認してください。
 c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\graphic\ctexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
           c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : 'strcpy' の宣言を確認してください。
+c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\graphic\cmodelx.h(110): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\graphic\cmodelx.h(234): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\graphic\cmodelx.h(319): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\graphic\cmodelx.h(324): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\graphic\cmodelx.h(329): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
 c:\users\tomi-\desktop\tomita\3dprogramming\define\define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
           c:\users\tomi-\desktop\tomita\3dprogramming\define\define.h(87) : 'BACK_POS' の前の定義を確認してください
 c:\users\tomi-\desktop\tomita\3dprogramming\define\define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
           c:\users\tomi-\desktop\tomita\3dprogramming\define\define.h(92) : 'BACK_POS' の前の定義を確認してください
-c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\scene\gameresult\cgameresult.cpp(26): warning C4005: 'BG_SIZE' : マクロが再定義されました。
-          c:\users\tomi-\desktop\tomita\3dprogramming\define\define.h(77) : 'BG_SIZE' の前の定義を確認してください
+c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\scene\itemscene\citem.h(11): warning C4005: 'TIP_ARRAY' : マクロが再定義されました。
+          c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\scene\gamescene\effect\ceffect2d.h(5) : 'TIP_ARRAY' の前の定義を確認してください
+c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\scene\gamescene\charadate\cscenemodel.cpp(28): warning C4005: 'ANGLE_5' : マクロが再定義されました。
+          c:\users\tomi-\desktop\tomita\3dprogramming\define\define.h(109) : 'ANGLE_5' の前の定義を確認してください
+c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\scene\gamescene\charadate\cscenemodel.cpp(29): warning C4005: 'ANGLE_180' : マクロが再定義されました。
+          c:\users\tomi-\desktop\tomita\3dprogramming\define\define.h(104) : 'ANGLE_180' の前の定義を確認してください
+c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\scene\gamescene\charadate\cscenemodel.cpp(148): warning C4129: 'S' : エスケープ シーケンスとして正しく認識されませんでした。
   3DProgramming.vcxproj -> C:\Users\tomi-\Desktop\TOMITA\Debug\3DProgramming.exe
