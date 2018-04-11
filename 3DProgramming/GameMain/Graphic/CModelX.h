@@ -5,13 +5,12 @@
 #include "glut.h"
 
 /*アニメのスピード
-Blenderのタイムライン  60の場合
-4倍がちょうどよくなる
 */
 #define ANIMA_SPEED 60 * 4
 #define ANIMA_SPEED_RUN 60 
 #define ANIMA_SPEED_ATTCK 20
-#define ANIMA_SPEED_JUMP 30
+#define ANIMA_SPEED_JUMP 40
+#define ANIMA_SPEED_IDOL 60 * 2
 
 #define MODEL_FILE "sample.blend.x"	//入力ファイル名
 //#define MODEL_FILE "ラグナ.x"	//入力ファイル名

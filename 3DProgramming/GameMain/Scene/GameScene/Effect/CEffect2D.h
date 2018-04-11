@@ -6,18 +6,19 @@
 
 
 /*ハンマーエフェクトサイズ*/
-#define HAMMER_EFFECT_SIZE	CVector3 (-0.2f, 0.2f,0.0f),\
-	CVector3(-0.2f, -0.2f, 0.0f), \
-	CVector3(0.2f, -0.2f, 0.0f), \
-	CVector3(0.2f, 0.2f, 0.0f)
-#define HAMMER_EFFECT_POS CVector3(0.0f, 1.0f, 0.0f)
-#define HAMMER_SIZE_UP 0.001f //サイズアップするスピード
+#define HAMMER_EFFECT_SIZE	CVector3 (-0.1f, 0.1f,0.0f),\
+	CVector3(-0.1f, -0.1f, 0.0f), \
+	CVector3(0.1f, -0.1f, 0.0f), \
+	CVector3(0.1f, 0.1f, 0.0f)
+#define HAMMER_EFFECT_POS CVector3(0.25f, 0.8f, 0.2f)
+#define HAMMER_SIZE_UP 0.002f //サイズアップするスピード
 /*火花サイズ*/
 #define ONE_SPARK_SIZE 0.5f
 #define SPARK_EFFECT_SIZE	CVector3 (-ONE_SPARK_SIZE, ONE_SPARK_SIZE,0.0f),\
 	CVector3(-ONE_SPARK_SIZE, -ONE_SPARK_SIZE, 0.0f), \
 	CVector3(ONE_SPARK_SIZE, -ONE_SPARK_SIZE, 0.0f), \
 	CVector3(ONE_SPARK_SIZE, ONE_SPARK_SIZE, 0.0f)
+/*エフェクトのポジション*/
 #define SPARK_EFFECT_POS CVector3(0.0f, 1.0f, 0.0f)
 
 /*テクスチャのエフェクトサイズ*/

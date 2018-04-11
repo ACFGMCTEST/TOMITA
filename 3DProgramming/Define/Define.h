@@ -17,8 +17,7 @@
 
 /*ÉLÅ[ì¸óÕ*/
 #define KEY_JUMP VK_SPACE
-
-#define KEY_ATTACK VK_CONTROL
+#define KEY_ATTACK VK_SHIFT
 #define KEY_SKILL 'E'
 #define SOUNDFILE "../Sound/"
 

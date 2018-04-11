@@ -6,9 +6,9 @@
 #include "../../../Convenient/CConvenient.h"
 #include "../../../Graphic/CLoadTexManager.h"
 /*アニメーション変わるスピード*/
-#define ANIMA_SPEED 0.05f
+#define ANIMA_SPEED 0.07f
 /*大きさ調整用*/
-#define SIZE_UP_DIVIDE 3.0f //サイズ調整用
+#define SIZE_UP_DIVIDE 5.0f //サイズ調整用
 /*法線向き*/
 #define VEC_NORMAL 1.0f,1.0f,0.0f
 #include<stdio.h>

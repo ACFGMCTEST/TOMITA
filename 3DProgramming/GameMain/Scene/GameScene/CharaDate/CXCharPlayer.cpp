@@ -558,7 +558,7 @@ void CXCharPlayer::Update(){
 	{
 	case E_IDLE://óßÇø
 		
-		ChangeAnimation(E_IDLE, true, ANIMA_SPEED);
+		ChangeAnimation(E_IDLE, true, ANIMA_SPEED_IDOL);
 		mCountKnockBack = 0;
 		break;
 	case E_RUN://ëñÇÈ
@@ -602,7 +602,6 @@ void CXCharPlayer::Update(){
 	};
 	AnimaState(E_ATTACK_IDLE);
 	AnimaState(E_IDLE);
-	
 }
 
 /*HammerÇÃó≠ÇﬂÇÈèàóù*/
