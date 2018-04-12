@@ -63,7 +63,7 @@
 
 
 #define ITEM_MENU	 TGA_FILE"itembutton.tga"
-#define ITEM_ICON	 TGA_FILE"IconSet.tga"
+#define ITEM_ICON	 TGA_FILE"IconSetAll.tga"
 #define BACK	     TGA_FILE"backbutton.tga"
 
 /*texフェイル*/
@@ -154,8 +154,6 @@ void CItem::Init(){
 	if (status == WEAPON0)mSelectPicture.position = CVector2(SELECT_MARKER_POS_0);
 	else if (status == WEAPON1)mSelectPicture.position = CVector2(SELECT_MARKER_POS_1);
 	else if (status == WEAPON2)mSelectPicture.position = CVector2(SELECT_MARKER_POS_2);
-	else if (status == WEAPON3)mSelectPicture.position = CVector2(SELECT_MARKER_POS_3);
-	else if (status == WEAPON4)mSelectPicture.position = CVector2(SELECT_MARKER_POS_4);
 	else mSelectPicture.position = CVector2(SELECT_MARKER_POS_0);
 	mSelectPicture.SetUv(mpMenu, 0, 0, 0, 0);
 
@@ -195,7 +193,7 @@ void CItem::Init(){
 
 	//装備Boardの表示
 	mpMenu = new CTexture();	//テクスチャクラスのインスタンス作成
-	mpMenu->load(TGA_FILE"Board0.tga");	//テクスチャファイル読み込み
+	mpMenu->load(TGA_FILE"Board1.tga");	//テクスチャファイル読み込み
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 
@@ -205,7 +203,7 @@ void CItem::Init(){
 	mCurrentOutfit[WEAPON1].SetUv(CURRENT_UV);
 
 	mpMenu = new CTexture();	//テクスチャクラスのインスタンス作成
-	mpMenu->load(TGA_FILE"Board1.tga");	//テクスチャファイル読み込み
+	mpMenu->load(TGA_FILE"Board2.tga");	//テクスチャファイル読み込み
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 
@@ -214,25 +212,6 @@ void CItem::Init(){
 	mCurrentOutfit[WEAPON2].position = CVector2(CURRENT_POS);
 	mCurrentOutfit[WEAPON2].SetUv(CURRENT_UV);
 
-	mpMenu = new CTexture();	//テクスチャクラスのインスタンス作成
-	mpMenu->load(TGA_FILE"Board2.tga");	//テクスチャファイル読み込み
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-
-	mCurrentOutfit[WEAPON3].SetVertex(CURRENT_OUTFIT);
-	mCurrentOutfit[WEAPON3].SetColor(WHITE_COLOR);
-	mCurrentOutfit[WEAPON3].position = CVector2(CURRENT_POS);
-	mCurrentOutfit[WEAPON3].SetUv(CURRENT_UV);
-
-	mpMenu = new CTexture();	//テクスチャクラスのインスタンス作成
-	mpMenu->load(TGA_FILE"Board3.tga");	//テクスチャファイル読み込み
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-
-	mCurrentOutfit[WEAPON4].SetVertex(CURRENT_OUTFIT);
-	mCurrentOutfit[WEAPON4].SetColor(WHITE_COLOR);
-	mCurrentOutfit[WEAPON4].position = CVector2(CURRENT_POS);
-	mCurrentOutfit[WEAPON4].SetUv(CURRENT_UV);
 
 	////戻るボタンの呼び出し
 	mpMenu = new CTexture();	//テクスチャクラスのインスタンス作成
@@ -357,8 +336,6 @@ void CItem::Update(){
 			if (mSelectWeapon == WEAPON0){ status = WEAPON0; }
 			if (mSelectWeapon == WEAPON1){ status = WEAPON1; }
 			if (mSelectWeapon == WEAPON2){ status = WEAPON2; }
-			if (mSelectWeapon == WEAPON3){ status = WEAPON3; }
-			if (mSelectWeapon == WEAPON4){ status = WEAPON4; }
 
 		}//マウス左クリック
 	}
@@ -432,16 +409,6 @@ void CItem::Update(){
 		mAtk = WEAPON_ATK1;
 		mSkillNo = WEAPON2;
 		break;
-	case WEAPON3:
-		mAtk = WEAPON_ATK2;
-		mSkillNo = WEAPON3;
-		break;
-	case WEAPON4:
-		mAtk = WEAPON_ATK3;
-		mSkillNo = WEAPON4;
-		break;
-	default:
-		break;
 	}
 
 
@@ -469,16 +436,6 @@ void CItem::Render() {
 		break;
 	case WEAPON2:
 		mCurrentOutfit[WEAPON2].Render();
-		break;
-	case WEAPON3:
-		mCurrentOutfit[WEAPON3].Render();
-		break;
-	case WEAPON4:
-		mCurrentOutfit[WEAPON4].Render();
-		break;
-	
-	
-	default: 
 		break;
 	}
 

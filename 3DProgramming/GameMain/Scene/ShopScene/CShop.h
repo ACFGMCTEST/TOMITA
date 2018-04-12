@@ -167,9 +167,10 @@ public:
 
 	enum E_WEAPON
 	{
-		WEAPON0,//みょるにる
-		WEAPON1,//ツナ
-		WEAPON2,//ピコハン
+		WEAPON0,//ピコハン
+		WEAPON1,//マグロ
+
+		WEAPON2,//うぉー
 		WEAPON3,//ﾊﾞﾄﾙﾊﾝﾏ-
 	};
 

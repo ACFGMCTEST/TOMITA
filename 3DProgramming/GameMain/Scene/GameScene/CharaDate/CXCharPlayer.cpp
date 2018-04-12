@@ -668,30 +668,30 @@ void CXCharPlayer::HammerUp(){
 		}
 	}
 
-	//武器3
-	if (CItem::status == CItem::WEAPON3){
-		mPower += W_2_POWER_UP;
-		if (mPower >= ATTACK_W2_POWER_MAX){
-			mPower = ATTACK_W2_POWER_MAX;
-			mHammerEffect.EnableAnima();//アニメーションを有効にする
-		}
-		else{
-			mHammerEffect.SizeUp(W_2_POWER_UP);//サイズを大きくする
-			mpCBWeapon->SizeUP(W_2_POWER_UP);
-		}
-	}
-	//武器4
-	mPower += W_3_POWER_UP;
-	if (CItem::status == CItem::WEAPON4){
-		if (mPower >= ATTACK_W3_POWER_MAX){
-			mPower = ATTACK_W3_POWER_MAX;
-			mHammerEffect.EnableAnima();//アニメーションを有効にする
-		}
-		else{
-			mHammerEffect.SizeUp(W_3_POWER_UP);//サイズを大きくする
-			mpCBWeapon->SizeUP(W_3_POWER_UP);
-		}
-	}
+	////武器3
+	//if (CItem::status == CItem::WEAPON3){
+	//	mPower += W_2_POWER_UP;
+	//	if (mPower >= ATTACK_W2_POWER_MAX){
+	//		mPower = ATTACK_W2_POWER_MAX;
+	//		mHammerEffect.EnableAnima();//アニメーションを有効にする
+	//	}
+	//	else{
+	//		mHammerEffect.SizeUp(W_2_POWER_UP);//サイズを大きくする
+	//		mpCBWeapon->SizeUP(W_2_POWER_UP);
+	//	}
+	//}
+	////武器4
+	//mPower += W_3_POWER_UP;
+	//if (CItem::status == CItem::WEAPON4){
+	//	if (mPower >= ATTACK_W3_POWER_MAX){
+	//		mPower = ATTACK_W3_POWER_MAX;
+	//		mHammerEffect.EnableAnima();//アニメーションを有効にする
+	//	}
+	//	else{
+	//		mHammerEffect.SizeUp(W_3_POWER_UP);//サイズを大きくする
+	//		mpCBWeapon->SizeUP(W_3_POWER_UP);
+	//	}
+	//}
 
 }
 

@@ -32,6 +32,8 @@
 
 /*モデルのファイル場所*/
 #define MODEL_FILE_UNITY			"x\\SDUnity\\SDUniEriHammer.x"
+#define MODEL_FILE_UNITY_TOY		"x\\SDUnity\\SDUnityToy.x"//ピコピコ
+#define MODEL_FILE_UNITY_TUNA		"x\\SDUnity\\SDUnityTuna.x"//マグロ
 //#define MODEL_FILE_SD_ELIZABETH	"x\\ElizabethWarren\\ElizabethSDWeapon.x"
 #define MODEL_FILE_ELIZABETH		"x\\ElizabethWarren\\ElizabethSD.x"
 #define MODEL_FILE_PUCK				"x\\Puck\\Puck.x"
@@ -145,7 +147,12 @@ void CSceneModel::Init() {
 
 
 	/*プレイヤー*/
-	mModel.Load(MODEL_FILE_UNITY);
+	//mModel.Load(MODEL_FILE_UNITY);
+	//mModel.Load(MODEL_FILE_UNITY_TOY)
+	if (CItem::status == CItem::WEAPON0)mModel.Load(MODEL_FILE_UNITY);
+	else if (CItem::status == CItem::WEAPON1)mModel.Load(MODEL_FILE_UNITY_TUNA);
+	else if (CItem::status == CItem::WEAPON2)mModel.Load(MODEL_FILE_UNITY_TOY);
+
 	/*アニメーション追加処理*/
 	for (int i = 0; i < CTask::E_STATE_ARRAY; i++)
 	{

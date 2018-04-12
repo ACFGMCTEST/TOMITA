@@ -74,7 +74,7 @@ void CShop::Init(){
 
 	//ボードの呼び出し
 	mpTexture = new CTexture();	//テクスチャクラスのインスタンス作成
-	mpTexture->load(TGA_FILE"Board0.tga");	//テクスチャファイル読み込み
+	mpTexture->load(TGA_FILE"Board1.tga");	//テクスチャファイル読み込み
 
 	mBoard[WEAPON0].SetVertex(-mcBoardX, mcBoardY, mcBoardX, -mcBoardY); //ここで大きさ変更
 	mBoard[WEAPON0].SetColor(WHITE_COLOR);
@@ -82,19 +82,19 @@ void CShop::Init(){
 	mBoard[WEAPON0].SetUv(mpTexture, 0, 0, 600, 494);
 
 	mpTexture = new CTexture();	//テクスチャクラスのインスタンス作成
-	mpTexture->load(TGA_FILE"Board1.tga");	//テクスチャファイル読み込み
+	mpTexture->load(TGA_FILE"Board2.tga");	//テクスチャファイル読み込み
 	mBoard[WEAPON1].SetVertex(-mcBoardX, mcBoardY, mcBoardX, -mcBoardY); //ここで大きさ変更
 	mBoard[WEAPON1].SetColor(WHITE_COLOR);
 	mBoard[WEAPON1].position = CVector2(0, 90);
 	mBoard[WEAPON1].SetUv(mpTexture, 0, 0, 600, 494);
 	mpTexture = new CTexture();	//テクスチャクラスのインスタンス作成
-	mpTexture->load(TGA_FILE"Board2.tga");	//テクスチャファイル読み込み
+	mpTexture->load(TGA_FILE"Board3.tga");	//テクスチャファイル読み込み
 	mBoard[WEAPON2].SetVertex(-mcBoardX, mcBoardY, mcBoardX, -mcBoardY); //ここで大きさ変更
 	mBoard[WEAPON2].SetColor(WHITE_COLOR);
 	mBoard[WEAPON2].position = CVector2(0, 90);
 	mBoard[WEAPON2].SetUv(mpTexture, 0, 0, 600, 494);
 	mpTexture = new CTexture();	//テクスチャクラスのインスタンス作成
-	mpTexture->load(TGA_FILE"Board3.tga");	//テクスチャファイル読み込み
+	mpTexture->load(TGA_FILE"Board0.tga");	//テクスチャファイル読み込み
 	mBoard[WEAPON3].SetVertex(-mcBoardX, mcBoardY, mcBoardX, -mcBoardY); //ここで大きさ変更
 	mBoard[WEAPON3].SetColor(WHITE_COLOR);
 	mBoard[WEAPON3].position = CVector2(0, 90);
@@ -169,7 +169,7 @@ void CShop::Init(){
 		
 		//武器ネーム
 		mpWeaponName = new CTexture();	//テクスチャクラスのインスタンス作成
-		mpWeaponName->load(TGA_FILE"WeaponName.tga");	//テクスチャファイル読み込み
+		mpWeaponName->load(TGA_FILE"WeaponNameAll.tga");	//テクスチャファイル読み込み
 		glMatrixMode(GL_PROJECTION);
 		glLoadIdentity();
 

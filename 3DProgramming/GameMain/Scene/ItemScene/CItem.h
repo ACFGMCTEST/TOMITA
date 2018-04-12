@@ -52,10 +52,8 @@ public:
    enum E_WEAPONLIST
 	{
 		WEAPON0,//デフォルトハンマー
-		WEAPON1,//みょるにる
-		WEAPON2,//ツナ
-		WEAPON3,//ピコハン
-		WEAPON4,//ﾊﾞﾄﾙﾊﾝﾏ-
+		WEAPON1,//ツナ
+		WEAPON2,//ピコハン
 	};
 
 

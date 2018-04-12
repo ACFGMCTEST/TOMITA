@@ -10,7 +10,7 @@
 	CVector3(-0.1f, -0.1f, 0.0f), \
 	CVector3(0.1f, -0.1f, 0.0f), \
 	CVector3(0.1f, 0.1f, 0.0f)
-#define HAMMER_EFFECT_POS CVector3(0.25f, 0.8f, 0.2f)
+#define HAMMER_EFFECT_POS CVector3(0.0f, 0.8f, 0.0f)
 #define HAMMER_SIZE_UP 0.002f //サイズアップするスピード
 /*火花サイズ*/
 #define ONE_SPARK_SIZE 0.5f

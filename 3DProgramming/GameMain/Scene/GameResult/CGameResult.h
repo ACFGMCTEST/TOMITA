@@ -10,10 +10,10 @@
 #define TIPS  4
 #define NUM_SIZE -40,40,40,-40
 
-#define PRIZE0 10
-#define PRIZE1 20
-#define PRIZE2 30
-#define PRIZE3 40
+#define PRIZE0 10 * 2
+#define PRIZE1 20 * 2
+#define PRIZE2 30 * 2
+#define PRIZE3 40 * 2
 
 
 //Result‰æ–Ê
