@@ -355,7 +355,7 @@ void  CCollisionManager::CameraCollision(CTask *Task_You, CTask *Camera){
 	if (Task_You->eTag == CTask::E_TAG_BOX){
 		/*ƒLƒƒƒXƒgˆ—*/
 		youBox = dynamic_cast<CCollider *>(Task_You);
-		//MainCamera.Collision(youBox->mObb);
+		MainCamera.Collision(youBox->mObb);
 	}
 
 }
