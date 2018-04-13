@@ -17,7 +17,7 @@
 #define Char_HP_SIZE 600.0f,600.0f,0.8f,0.1f //キャラのHP
 /*キャラクターのポジション*/
 #define PLAYER_POS i*2,0.0f,0.0f//プレイヤーのポジション
-#define ENEMY_POS i*3.0f,0.0f,10.0f//エネミーのポジション
+#define ENEMY_POS  i*3.0f,0.0f,10.0f//エネミーのポジション
 /*カメラの位置*/
 #define CAMERA_OFFSET 0.0f, 0.5f, 4.0f //カメラ位置プレイヤーからの相対位置
 #define CAMERA_POS CVector3(mCharcter->mPosition.x,mCharcter->mPosition.y+2.3f,mCharcter->mPosition.z)

@@ -1,6 +1,6 @@
 #include <Windows.h>
 #include <stdio.h>
-
+#include "../../Define/Define.h"
 #include "CInput.h"
 int CInput::mButtonNum;
 int CInput::mAxisNum;
@@ -38,7 +38,7 @@ char CInput::ChangeInputKey(char k){
 	case VK_RETURN://エンターキー
 		return InputButton((int)E_ENTER);
 		break;
-	case VK_SHIFT://コントロールボタン
+	case KEY_ATTACK://攻撃ボタン
 		return InputButton((int)E_ATTACK);
 		break;
 	case VK_ESCAPE://ポーズボタン

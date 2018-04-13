@@ -48,15 +48,15 @@ void CQuestScene::Update(){
 			CSceneManager::GetInstance()->ChangeScene(eSceneNo::E_GAMEMAIN);
 		}
 	}
-	//クエスト03をクリックしたとき
-	if (CCollision2D::Collision2D(mQuest.mCursor, mQuest.mQuestName03)){
-		if (CMouse::GetInstance()->mOneLeftFlag){//マウス左クリック
-			CQuest::eChoice = CQuest::E_QUEST03;//クエスト03を選択した
-			CGameResult::mPrize = CGameResult::E_Quest3;
-			/*ゲームメインに移行*/
-			CSceneManager::GetInstance()->ChangeScene(eSceneNo::E_GAMEMAIN);
-		}
-	}
+	////クエスト03をクリックしたとき
+	//if (CCollision2D::Collision2D(mQuest.mCursor, mQuest.mQuestName03)){
+	//	if (CMouse::GetInstance()->mOneLeftFlag){//マウス左クリック
+	//		CQuest::eChoice = CQuest::E_QUEST03;//クエスト03を選択した
+	//		CGameResult::mPrize = CGameResult::E_Quest3;
+	//		/*ゲームメインに移行*/
+	//		CSceneManager::GetInstance()->ChangeScene(eSceneNo::E_GAMEMAIN);
+	//	}
+	//}
 
 
 

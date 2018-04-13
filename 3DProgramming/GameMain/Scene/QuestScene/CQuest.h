@@ -5,7 +5,7 @@
 #include"../../Graphic/CRectangle2.h"
 #include"../CScene.h"
 
-#define BOARD 4
+#define BOARD 3
 
 class CQuest :public CScene{
 public:
@@ -14,7 +14,7 @@ public:
 	CRectangle2 mQuestName00;	    //クエスト名
 	CRectangle2 mQuestName01;
 	CRectangle2 mQuestName02;
-	CRectangle2 mQuestName03;
+	//CRectangle2 mQuestName03;
 	CRectangle2 mShadow[BOARD];
 
 

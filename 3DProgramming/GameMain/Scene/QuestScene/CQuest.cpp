@@ -13,16 +13,18 @@
 #define QUEST_NAME3 TGA_FILE"questname3.tga"
 
 #define NAME_SIZE -310.0f, 50.0f, 310.0f, -50.0f
+#define NAME_Y -0//微調整用
+#define NAME_INTRV 1.1f//ネームの間隔
 //ネームボードのポジション
-#define NAME_POS0	CVector2(0, 200)
-#define NAME_POS1	CVector2(0,  70)
-#define NAME_POS2	CVector2(0, -70)
-#define NAME_POS3	CVector2(0,-200)
+#define NAME_POS0	CVector2(0, 160 + NAME_Y)
+#define NAME_POS1	CVector2(0,  0 + NAME_Y)
+#define NAME_POS2	CVector2(0, -160 + NAME_Y)
+//#define NAME_POS3	CVector2(0,-200)
 //ネームボードの影
-#define NAME_POS0S	CVector2(10, 190)
-#define NAME_POS1S	CVector2(10,  60)
-#define NAME_POS2S	CVector2(10, -80)
-#define NAME_POS3S	CVector2(10,-210)
+#define NAME_POS0S	CVector2(10, 150 + NAME_Y)
+#define NAME_POS1S	CVector2(10,  -10 + NAME_Y)
+#define NAME_POS2S	CVector2(10, -170 + NAME_Y)
+//#define NAME_POS3S	CVector2(10,-210)
 
 
 #define BACK       TGA_FILE"backbutton.tga"
@@ -102,17 +104,17 @@ void CQuest::Init(){
 	mShadow[2].SetColor(SKELETON_BLACK_COLOR);
 	mShadow[2].position = NAME_POS2S;
 
-	//クエスト名03
-	mpMenu = new CTexture();	//テクスチャクラスのインスタンス作成
-	mpMenu->load(QUEST_NAME3);	//テクスチャファイル読み込み
-	mQuestName03.SetVertex(NAME_SIZE);
-	mQuestName03.SetColor(WHITE_COLOR);
-	mQuestName03.SetUv(mpMenu, TEST_CG);
-	mQuestName03.position = NAME_POS3;
+	////クエスト名03
+	//mpMenu = new CTexture();	//テクスチャクラスのインスタンス作成
+	//mpMenu->load(QUEST_NAME3);	//テクスチャファイル読み込み
+	//mQuestName03.SetVertex(NAME_SIZE);
+	//mQuestName03.SetColor(WHITE_COLOR);
+	//mQuestName03.SetUv(mpMenu, TEST_CG);
+	//mQuestName03.position = NAME_POS3;
 
-	mShadow[3] = mQuestName03;
+	/*mShadow[3] = mQuestName03;
 	mShadow[3].SetColor(SKELETON_BLACK_COLOR);
-	mShadow[3].position = NAME_POS3S;
+	mShadow[3].position = NAME_POS3S;*/
 
 	////戻るボタンの呼び出し
 	mpMenu = new CTexture();	//テクスチャクラスのインスタンス作成
@@ -140,11 +142,11 @@ void CQuest::Update(){
 	mQuestName00.SetColor(WHITE_COLOR);
 	mQuestName01.SetColor(WHITE_COLOR);
 	mQuestName02.SetColor(WHITE_COLOR);
-	mQuestName03.SetColor(WHITE_COLOR);
+	//mQuestName03.SetColor(WHITE_COLOR);
 	mQuestName00.position = NAME_POS0;
 	mQuestName01.position = NAME_POS1;
 	mQuestName02.position = NAME_POS2;
-	mQuestName03.position = NAME_POS3;
+	//mQuestName03.position = NAME_POS3;
 
 	//クリック時に押し込まれたような形に
 	if (CCollision2D::Collision2D(mCursor, mQuestName00)){mQuestName00.SetColor(GRAY_COLOR);
@@ -156,9 +158,9 @@ void CQuest::Update(){
 	if (CCollision2D::Collision2D(mCursor, mQuestName02)){mQuestName02.SetColor(GRAY_COLOR);
 	if (CMouse::GetInstance()->mOneLeftFlag){ mQuestName02.position = NAME_POS2S; mQuestName02.SetColor(DARK_GRAY_COLOR); }
 	}
-	if (CCollision2D::Collision2D(mCursor, mQuestName03)){mQuestName03.SetColor(GRAY_COLOR);
-	if (CMouse::GetInstance()->mOneLeftFlag){ mQuestName03.position = NAME_POS3S; mQuestName03.SetColor(DARK_GRAY_COLOR); }
-	}
+	//if (CCollision2D::Collision2D(mCursor, mQuestName03)){mQuestName03.SetColor(GRAY_COLOR);
+	//if (CMouse::GetInstance()->mOneLeftFlag){ mQuestName03.position = NAME_POS3S; mQuestName03.SetColor(DARK_GRAY_COLOR); }
+	//}
 
 	mBackButton.SetColor(WHITE_COLOR);
 	if (CCollision2D::Collision2D(mCursor, mBackButton)){
@@ -182,7 +184,7 @@ void CQuest::Render() {
 	mQuestName00.Render();
 	mQuestName01.Render();
 	mQuestName02.Render();
-	mQuestName03.Render();
+	//mQuestName03.Render();
 	mBackButton.Render();
 
 	mCursor.Render();

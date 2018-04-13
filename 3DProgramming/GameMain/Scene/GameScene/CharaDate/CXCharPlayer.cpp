@@ -29,7 +29,6 @@
 /*ë´*/
 #define OBB_LEG_SIZE 0.3f
 #define OBB_LEG_POS CVector3(0.0f,-1.0f,0.0f)
-
 /*HPÉoÅ[ÇÃê›íËíl*/
 #define HP_BAR_POS CVector3(mPosition.x,mPosition.y + 1.8f,mPosition.z)
 #define HP_BAR_SIZE -0.4f, 0.4f, -0.1f, 0.0f
