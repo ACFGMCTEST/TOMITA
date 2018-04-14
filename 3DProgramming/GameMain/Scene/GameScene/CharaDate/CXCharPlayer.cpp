@@ -257,6 +257,8 @@ void CXCharPlayer::Gravity(){
 void CXCharPlayer::ColGround(){
 	mGravitTime = GRA_INIT_TIME_COUNT;
 	mFlagJump = false;//ジャンプ終了
+	AnimaState(E_ATTACK_IDLE);
+	AnimaState(E_IDLE);
 }
 
 /*経路探索　道筋用*/
@@ -513,11 +515,11 @@ void CXCharPlayer::Update(){
 
 
 		///*一回押したとき*/
-		if (AttackInitKey.Onces(KEY_ATTACK) || CMouse::GetInstance()->mOneLeftFlag){//Kボタンか
+		if (AttackInitKey.Onces(KEY_ATTACK) || AttackInitKey.Onces(KEY_ATTACK2) || CMouse::GetInstance()->mOneLeftFlag){//Kボタンか
 			AnimaState(E_ATTACK_INIT); //初めのいっかいだけ呼び出す
 		}
 		/*長押しの時*/
-		else if (CKey::push(KEY_ATTACK) || CMouse::GetInstance()->mLeftFlag){
+		else if (CKey::push(KEY_ATTACK) || CKey::push(KEY_ATTACK2) || CMouse::GetInstance()->mLeftFlag){
 			//スキルゲージ増加
 			if (CScoreBoard::skillgage <= mGageLimit && !CScoreBoard::mFlagSkill0){
 				CScoreBoard::skillgage += mGageDecrease;

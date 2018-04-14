@@ -10,7 +10,7 @@
 #include "../../../Convenient/CConvenient.h"
 #include "CXCharEnemy.h"
 #include "../CGameScene.h"
-#include "../Map/Goal/CXGoal.h"
+#include "../Map/Goal/CGoal.h"
 #include "../Puck/CXPuck.h"
 
 
@@ -18,9 +18,7 @@
 /*キャラクターのポジション*/
 #define PLAYER_POS i*2,0.0f,0.0f//プレイヤーのポジション
 #define ENEMY_POS  i*3.0f,0.0f,10.0f//エネミーのポジション
-/*カメラの位置*/
-#define CAMERA_OFFSET 0.0f, 0.5f, 4.0f //カメラ位置プレイヤーからの相対位置
-#define CAMERA_POS CVector3(mCharcter->mPosition.x,mCharcter->mPosition.y+2.3f,mCharcter->mPosition.z)
+
 /*角度*/
 #define ANGLE_360 360
 #define ANGLE_90  90
@@ -56,7 +54,7 @@
 /*静的初期化*/
 CXCharPlayer *CSceneModel::mCharcter;
 CXPuck *CSceneModel::mpPuck;
-CXGoal *CSceneModel::mpGoalPlayer;
+//CGoal *CSceneModel::mpGoalPlayer;
 
 /*コンストラクタ*/
 CSceneModel::CSceneModel() :mMouseInitCount(0.0f),mLagTime(0.0f){
@@ -112,27 +110,27 @@ void CSceneModel::CPuckAdd(CVector3 PuckPos, CModelX *model){
 }
 /*ゴールプレイヤー追加処理*/
 void CSceneModel::CGoalPlayerAdd(CVector3 GoalPos, CModelX *model){
-	CXGoal *goal = new CXGoal();//作成
-	goal->Init(model,GoalPos);
-	/*プレイヤーの場合こっちに向ける*/
-	goal->mRotation.y -= ANGLE_180;
-	/*レンダー順番決める*/
-	goal->ePriority = CTask::E_GOAL_PLAYER;
-	/*当たり判定追加処理*/
-	CCollisionManager::GetInstance()->Add(CTask::E_TAG_GOAL_PLAYER, goal->mCBBox);
-	mModelTaskManager.Add(goal);
-	mpGoalPlayer = goal;
+	//CXGoal *goal = new CXGoal();//作成
+	//goal->Init(model,GoalPos);
+	///*プレイヤーの場合こっちに向ける*/
+	//goal->mRotation.y -= ANGLE_180;
+	///*レンダー順番決める*/
+	//goal->ePriority = CTask::E_GOAL_PLAYER;
+	///*当たり判定追加処理*/
+	//CCollisionManager::GetInstance()->Add(CTask::E_TAG_GOAL_PLAYER, goal->mCBBox);
+	//mModelTaskManager.Add(goal);
+	//mpGoalPlayer = goal;
 }
 
 /*ゴールエネミー追加処理*/
 void CSceneModel::CGoalEnemyAdd(CVector3 GoalPos, CModelX *model){
-	CXGoal *goal = new CXGoal();//作成
-	goal->Init(model, GoalPos);
-	/*レンダー順番決める*/
-	goal->ePriority = CTask::E_GOAL_PLAYER;
-	/*当たり判定追加処理*/
-	CCollisionManager::GetInstance()->Add(CTask::E_TAG_GOAL_ENEMY, goal->mCBBox);
-	mModelTaskManager.Add(goal);
+	//CXGoal *goal = new CXGoal();//作成
+	//goal->Init(model, GoalPos);
+	///*レンダー順番決める*/
+	//goal->ePriority = CTask::E_GOAL_PLAYER;
+	///*当たり判定追加処理*/
+	//CCollisionManager::GetInstance()->Add(CTask::E_TAG_GOAL_ENEMY, goal->mCBBox);
+	//mModelTaskManager.Add(goal);
 }
 
 void CSceneModel::Init() {
@@ -234,14 +232,14 @@ void CSceneModel::Init() {
 	//mModelPuck.Load(MODEL_FILE_GOAL);						//ロード
 	mModelPuck.AddAnimationSet(ANIMA_FILE_IDLE);			//から入れ
 	CPuckAdd(CVector3(PUCK_INIT_POS), &mModelPuck);				//パック追加処理
-	/*ゴールプレイヤー*/
-	mModelGoal.Load(MODEL_FILE_GOAL);						//ロード
-	mModelGoal.AddAnimationSet(ANIMA_FILE_IDLE);			//から入れ
-	CGoalPlayerAdd(CMap::GoalPlayerFirstPos(), &mModelGoal);			//パック追加処理
-	/*ゴールエネミー*/
-	mModelEGoal.Load(MODEL_FILE_GOAL);						//ロード
-	mModelEGoal.AddAnimationSet(ANIMA_FILE_IDLE);			//から入れ
-	CGoalEnemyAdd(CMap::GoalEnemyFirstPos(), &mModelEGoal);	//パック追加処理
+	///*ゴールプレイヤー*/
+	//mModelGoal.Load(MODEL_FILE_GOAL);						//ロード
+	//mModelGoal.AddAnimationSet(ANIMA_FILE_IDLE);			//から入れ
+	//CGoalPlayerAdd(CMap::GoalPlayerFirstPos(), &mModelGoal);			//パック追加処理
+	///*ゴールエネミー*/
+	//mModelEGoal.Load(MODEL_FILE_GOAL);						//ロード
+	//mModelEGoal.AddAnimationSet(ANIMA_FILE_IDLE);			//から入れ
+	//CGoalEnemyAdd(CMap::GoalEnemyFirstPos(), &mModelEGoal);	//パック追加処理
 
 	///*マウスのサイズ*/
 	//mColInitMouse.SetVertex(COL_INIT_MOUSE_SIZE);

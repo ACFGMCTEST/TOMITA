@@ -4,7 +4,7 @@
 #include "../../../Graphic/CModelX.h"
 #include "../../../Matrix/CMatrix44.h"
 #include "../../../Camera/CCamera.h"
-#include "../Map/Goal/CXGoal.h"
+#include "../Map/Goal/CGoal.h"
 #include "CXCharPlayer.h"
 
 #include "../../../Graphic/CRectangle2.h"
@@ -20,7 +20,7 @@ public:
 	//敵キャラのインスタンス
 	//CXCharEnemy *mCharEnemy;//アクセス用
 	static CXCharPlayer *mCharcter; //アクセス用 キャラクター操作に使うため 静的に
-	static CXGoal *mpGoalPlayer; //アクセス用
+	//static CGoal *mpGoalPlayer; //アクセス用
 	//static CVector3 mRotation;//キャラクター操作に使うため 静的に
 
 

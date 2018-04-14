@@ -3,6 +3,7 @@
 #include "../../../Graphic/CModelX.h"
 #include "../../../../Light/CLight.h"
 #include "../../QuestScene/CQuest.h"
+#include "Goal\CGoal.h"
 
 /*マップチップ設定インクルード
 ゴールはモデルでするのでmodelファイルのところで処理
@@ -184,11 +185,13 @@ void CMap::MapInit(CCsv &csv){
 	CSlope *slope;
 	/*坂の端用意*/
 	CSlopeEnd *slopeEnd;
+	/*ゴール用意*/
+	CGoal *goal;
 
 	for (int z = 0; z < CMap::mMapZ; z++){
 		for (int x = 0; x < CMap::mMapX; x++){
-			/*タイル設定*/
-			tile = new CTile(ARRAY_POS(x,0,z), mTexTile);
+			/*タイルを張る*/
+			tile = new CTile(ARRAY_POS(x, 0, z), mTexTile);
 			mMapTaskManager.Add(tile);//追加
 
 			/*現在の状態から追加する要素を決める*/
@@ -208,6 +211,18 @@ void CMap::MapInit(CCsv &csv){
 			case CMap::E_SLOW_FLOOR_3:
 				slowFloor = new CSlowFloor(ARRAY_POS(x, 0, z));
 				mMapTaskManager.Add(slowFloor);
+				break;
+				/*プレイヤーゴール設定*/
+			case CMap::E_GOAL_PLAYER_6:
+				goal = new CGoal(ARRAY_POS(x, 0, z), CTask::E_TAG::E_TAG_GOAL_PLAYER);
+				mMapTaskManager.Add(goal);
+				tile->mRect.SetDiffuse(BLACK_COLOR);//穴代わり
+				break;
+				/*エネミーゴール設定*/
+			case CMap::E_GOAL_ENEMY_7:
+				goal = new CGoal(ARRAY_POS(x, 0, z), CTask::E_TAG::E_TAG_GOAL_ENEMY);
+				mMapTaskManager.Add(goal);
+				tile->mRect.SetDiffuse(BLACK_COLOR);//穴替わり
 				break;
 				/*坂の設定*/
 			case CMap::E_SLOP_8:
@@ -230,6 +245,11 @@ void CMap::MapInit(CCsv &csv){
 				//mMapTaskManager.Add(highBox);
 				break;
 			};
+			///*タイル設定ゴールは貼らない*/
+			//if (mCsvMapData.mpData[(z*mMapX) + x] != E_GOAL_PLAYER_6 &&
+			//	mCsvMapData.mpData[(z*mMapX) + x] != E_GOAL_ENEMY_7){
+			//	
+			//}
 		}
 	}
 

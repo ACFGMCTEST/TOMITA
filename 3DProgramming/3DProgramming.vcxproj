@@ -51,7 +51,7 @@
     <ClCompile Include="GameMain\Scene\GameScene\Effect\CExplosion.cpp" />
     <ClCompile Include="GameMain\Scene\GameScene\Map\CMap.cpp" />
     <ClCompile Include="GameMain\Scene\GameScene\Map\FastFloor\CFastFloor.cpp" />
-    <ClCompile Include="GameMain\Scene\GameScene\Map\Goal\CXGoal.cpp" />
+    <ClCompile Include="GameMain\Scene\GameScene\Map\Goal\CGoal.cpp" />
     <ClCompile Include="GameMain\Scene\GameScene\Map\HighBox\CHighBox.cpp" />
     <ClCompile Include="GameMain\Scene\GameScene\Map\Net\CNet.cpp" />
     <ClCompile Include="GameMain\Scene\GameScene\Map\SlopeEnd\CSlopeEnd.cpp" />
@@ -131,7 +131,7 @@
     <ClInclude Include="GameMain\Scene\GameScene\Effect\CExplosion.h" />
     <ClInclude Include="GameMain\Scene\GameScene\Map\CMap.h" />
     <ClInclude Include="GameMain\Scene\GameScene\Map\FastFloor\CFastFloor.h" />
-    <ClInclude Include="GameMain\Scene\GameScene\Map\Goal\CXGoal.h" />
+    <ClInclude Include="GameMain\Scene\GameScene\Map\Goal\CGoal.h" />
     <ClInclude Include="GameMain\Scene\GameScene\Map\HighBox\CHighBox.h" />
     <ClInclude Include="GameMain\Scene\GameScene\Map\Net\CNet.h" />
     <ClInclude Include="GameMain\Scene\GameScene\Map\SlopeEnd\CSlopeEnd.h" />

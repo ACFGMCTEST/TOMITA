@@ -3,7 +3,7 @@
 #include "../Scene/GameScene/CharaDate/CSceneModel.h"
 #include "../Scene/GameScene/UI/CScoreBoard.h"
 #include "../../GameMain/Scene/CSceneManager.h"
-#include "../Scene/GameScene/Map/Goal/CXGoal.h"
+#include "../Scene/GameScene/Map/Goal/CGoal.h"
 #include "../Scene/GameScene//Map/Slope/CSlope.h"
 #include "../Scene/GameScene/Puck/CXPuck.h"
 #include "CCollisionManager.h"
@@ -237,7 +237,7 @@ void  CCollisionManager::PuckCollision(CTask *Task_You, CTask *Puck){
 	/*キャスト中身を見る*/
 	CXCharPlayer *chara;
 	/*ゴールキャスト*/
-	CXGoal *goal;
+	CGoal *goal;
 	//OBB衝突判定
 
 
@@ -311,7 +311,7 @@ void  CCollisionManager::PuckCollision(CTask *Task_You, CTask *Puck){
 		puck->GoalPlayer();//プレイヤー側にゴールしたなら
 
 		/*ゴール呼び出し*/
-		goal = dynamic_cast<CXGoal*>(Task_You->mpParent);
+		goal = dynamic_cast<CGoal*>(Task_You->mpParent);
 		goal->GoalPerformance();
 		break;
 
@@ -322,7 +322,7 @@ void  CCollisionManager::PuckCollision(CTask *Task_You, CTask *Puck){
 		puck->GoalEnemy();//エネミー側にゴールしたなら
 
 		/*ゴール呼び出し*/
-		goal = dynamic_cast<CXGoal*>(Task_You->mpParent);
+		goal = dynamic_cast<CGoal*>(Task_You->mpParent);
 		goal->GoalPerformance();
 
 		break;

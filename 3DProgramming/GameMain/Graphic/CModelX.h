@@ -9,7 +9,7 @@
 #define ANIMA_SPEED 60 * 4
 #define ANIMA_SPEED_RUN 60 
 #define ANIMA_SPEED_ATTCK 60 /5
-#define ANIMA_SPEED_JUMP 40
+#define ANIMA_SPEED_JUMP 30
 #define ANIMA_SPEED_IDOL 60 * 2
 
 #define MODEL_FILE "sample.blend.x"	//“ü—Íƒtƒ@ƒCƒ‹–¼

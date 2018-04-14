@@ -75,7 +75,7 @@ CVector3 CXCharEnemy::GoalShot(){
 	//}
 	/*ÉSÅ[ÉãÇÃï˚å¸Ç…å¸ÇØÇÈ*/
 	//else{
-		Vec = CSceneModel::mpGoalPlayer->mPosition;
+		Vec = CMap::GoalPlayerFirstPos();
 
 		int randMax = MAPCHIP_SIZE	*CMap::mMapX;//ç≈ëÂíl
 		int randMin = -MAPCHIP_SIZE *CMap::mMapX; //ç≈è¨íl

@@ -32,9 +32,9 @@ CHighBox::CHighBox(CVector3 pos){
 	SetColor(WHITE_COLOR);
 	/*テクスチャ設定*/
 	SetTex(CBox::E_TexBox::E_BOX);
+
 	/*当たり判定設定*/
 	mpColBox->SetBoxOBB(SET_BOX_OBB);//設定
-
 	mpColBox->eTag = CTask::E_TAG::E_TAG_BOX;
 	/*レンダー順番決める*/
 	ePriority = CTask::E_HIGH_BOX;

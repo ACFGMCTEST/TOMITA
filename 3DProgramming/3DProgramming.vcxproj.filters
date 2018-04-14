@@ -296,9 +296,6 @@
     <ClCompile Include="GameMain\Scene\GameScene\UI\CScoreBoard.cpp">
       <Filter>ソース ファイル\GameMain\Scene\GameScene\UI</Filter>
     </ClCompile>
-    <ClCompile Include="GameMain\Scene\GameScene\Map\Goal\CXGoal.cpp">
-      <Filter>ソース ファイル\GameMain\Scene\GameScene\Map\Goal</Filter>
-    </ClCompile>
     <ClCompile Include="GameMain\Scene\GameScene\Effect\CEffect2D.cpp">
       <Filter>ソース ファイル\GameMain\Scene\GameScene\Effect</Filter>
     </ClCompile>
@@ -349,6 +346,9 @@
     </ClCompile>
     <ClCompile Include="GameMain\Scene\GameScene\Tutorial\CTutorial.cpp">
       <Filter>ソース ファイル\GameMain\Scene\GameScene\Tutorial</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMain\Scene\GameScene\Map\Goal\CGoal.cpp">
+      <Filter>ソース ファイル\GameMain\Scene\GameScene\Map\Goal</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -514,9 +514,6 @@
     <ClInclude Include="GameMain\Scene\GameScene\UI\CScoreBoard.h">
       <Filter>ソース ファイル\GameMain\Scene\GameScene\UI</Filter>
     </ClInclude>
-    <ClInclude Include="GameMain\Scene\GameScene\Map\Goal\CXGoal.h">
-      <Filter>ソース ファイル\GameMain\Scene\GameScene\Map\Goal</Filter>
-    </ClInclude>
     <ClInclude Include="GameMain\Scene\GameScene\Effect\CEffect2D.h">
       <Filter>ソース ファイル\GameMain\Scene\GameScene\Effect</Filter>
     </ClInclude>
@@ -582,6 +579,9 @@
     </ClInclude>
     <ClInclude Include="GameMain\Scene\GameScene\Tutorial\CTutorial.h">
       <Filter>ソース ファイル\GameMain\Scene\GameScene\Tutorial</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMain\Scene\GameScene\Map\Goal\CGoal.h">
+      <Filter>ソース ファイル\GameMain\Scene\GameScene\Map\Goal</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
