@@ -45,6 +45,8 @@
 #define ANIMA_FILE_ATTACK			"x\\Anima\\Ani_Attack.x"
 #define ANIMA_FILE_ATTACK_JUMP		"x\\Anima\\Ani_AttackJump.x"
 #define ANIMA_FILE_JUMP				"x\\Anima\\Ani_Jump.x"
+#define ANIMA_FILE_DAMAGE			"x\\Anima\\Ani_Damage.x"
+
 /*lag回避用*/
 #define LAG_SIZE 0.1f //0，1秒間lag回避用
 /*パックの初期位置*/
@@ -181,7 +183,7 @@ void CSceneModel::Init() {
 			mModel.AddAnimationSet(ANIMA_FILE_ATTACK_JUMP);//攻撃中ジャンプ追加 
 			break;
 		case CTask::E_DMGM:
-			mModel.AddAnimationSet(ANIMA_FILE_ATTACK_JUMP);//ジャンプ追加 
+			mModel.AddAnimationSet(ANIMA_FILE_DAMAGE);//ダメージ
 			break;
 		}
 	}
@@ -221,7 +223,7 @@ void CSceneModel::Init() {
 			mModelE.AddAnimationSet(ANIMA_FILE_ATTACK_JUMP);//攻撃中ジャンプ追加 
 			break;
 		case CTask::E_DMGM:
-			mModelE.AddAnimationSet(ANIMA_FILE_ATTACK_JUMP);//ジャンプ追加 
+			//mModelE.AddAnimationSet(ANIMA_FILE_DAMAGE);//ダメージ追加 
 			break;
 		}
 	}
@@ -231,7 +233,8 @@ void CSceneModel::Init() {
 	mModelPuck.Load(MODEL_FILE_PUCK);						//ロード
 	//mModelPuck.Load(MODEL_FILE_GOAL);						//ロード
 	mModelPuck.AddAnimationSet(ANIMA_FILE_IDLE);			//から入れ
-	CPuckAdd(CVector3(PUCK_INIT_POS), &mModelPuck);				//パック追加処理
+	CPuckAdd(CVector3(PUCK_INIT_POS), &mModelPuck);			//パック追加処理
+
 	///*ゴールプレイヤー*/
 	//mModelGoal.Load(MODEL_FILE_GOAL);						//ロード
 	//mModelGoal.AddAnimationSet(ANIMA_FILE_IDLE);			//から入れ

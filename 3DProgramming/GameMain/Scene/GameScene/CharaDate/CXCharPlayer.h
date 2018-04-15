@@ -165,6 +165,9 @@ public:
 
 	/*おもな当たり判定呼び出し*/
 	void Collision(const COBB &box, const CColSphere &sphere);
+	/*玉判定*/
+	void Collision(const CColSphere &youSphere, const CColSphere &sphere);
+
 	///*ボックスにあたったとき*/
 	//void CollisionBox(const COBB &box, const CColSphere &sphere);
 	///*坂にあたったとき*/

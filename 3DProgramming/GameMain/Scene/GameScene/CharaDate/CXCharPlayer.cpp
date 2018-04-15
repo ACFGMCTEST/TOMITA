@@ -377,6 +377,10 @@ void CXCharPlayer::AnimaState(ESTATE state){
 		if (mState == E_JUMP && mAnimationTime > mpModel->mAnimationSet[mAnimationIndex]->mMaxTime){
 			mState = state;
 		}
+		//DAMAGEが終わっている場合
+		if (mState == E_DMGM && mAnimationTime > mpModel->mAnimationSet[mAnimationIndex]->mMaxTime){
+			mState = state;
+		}
 		break;
 
 		/*走り中*/
@@ -494,8 +498,8 @@ int CXCharPlayer::MoveRotation(int angle){
 void CXCharPlayer::Update(){
 	mPrevPos = mPosition;
 	mFlagSlpoe = false;
-	//キャラクターが選ばれているものか判断
-	if (CSceneModel::mCharcter == this){
+	//キャラクターが選ばれているものか判断 && DAMAGEをくらっていない場合
+	if (CSceneModel::mCharcter == this && mState != E_DMGM){
 
 		//スキル発動！！！
 		if (CKey::push(KEY_SKILL)){
@@ -592,13 +596,13 @@ void CXCharPlayer::Update(){
 		ChangeAnimation(E_ATTACK_JUMP, false, ANIMA_SPEED_JUMP);
 		break;
 	case E_DMGM://ダメージ
-		ChangeAnimation(E_DMGM, false, ANIMA_SPEED);
-		if (mCountKnockBack <= 0){ //カウントが０になると
-			mCountKnockBack = 0;
-		}
-		else{
-			mCountKnockBack -= 1;
-		}
+		ChangeAnimation(E_DMGM, false, ANIMA_SPEED_DAMAGE);
+		//if (mCountKnockBack <= 0){ //カウントが０になると
+		//	mCountKnockBack = 0;
+		//}
+		//else{
+		//	mCountKnockBack -= 1;
+		//}
 		break;
 	};
 	AnimaState(E_ATTACK_IDLE);
@@ -843,6 +847,116 @@ void CXCharPlayer::Collision(const COBB &box,const CColSphere &sphere) {
 	mpCBLeg->Update();
 	
 }
+/*玉バージョン*/
+void CXCharPlayer::Collision(const CColSphere &youSphere, const CColSphere &sphere) {
+
+
+
+	CVector3 savePos = sphere.mPos;//計算用
+
+	float lengthX = mPosition.x - savePos.x;  //球とポジションの距離
+	float lengthY = mPosition.y - savePos.y;  //球とポジションの距離
+	float lengthZ = mPosition.z - savePos.z;  //球とポジションの距離
+
+
+	//BoxのX軸方向を求める
+	CVector3 vx = youSphere.mMatrixRotation * VEC_RIGHT;
+	//BoxのY軸方向を求める
+	CVector3 vy = youSphere.mMatrixRotation * VEC_TOP;
+	//BoxのZ軸方向を求める
+	CVector3 vz = youSphere.mMatrixRotation * VEC_FRONT;
+
+	/*vx = youSphere.mAxis[0];
+	vy = box.mAxis[1];
+	vz = box.mAxis[2];*/
+
+
+
+	//四角形から球へのベクトルを求める
+	CVector3 vectorBS = savePos - youSphere.mPos;
+
+
+	//四角形から球へ、四角形のX軸に対する長さとの差を求める
+	float dx = sphere.mRadius + youSphere.mRadius - fabs(vx.Dot(vectorBS));
+	//四角形から球へ、四角形のY軸に対する長さとの差を求める
+	float dy = sphere.mRadius + youSphere.mRadius - fabs(vy.Dot(vectorBS));
+	//四角形から球へ、四角形のZ軸に対する長さとの差を求める
+	float dz = sphere.mRadius + youSphere.mRadius - fabs(vz.Dot(vectorBS));
+
+	//衝突しているか判定する
+	if (dx > 0.0f && dy > 0.0f && dz > 0.0f) {
+		if (dx > dy) {
+			if (dy > dz) {
+				//Z軸で戻す
+				if (vz.Dot(vectorBS) > 0.0f) {
+					mPosition = savePos + vz * dz;
+				}
+				else {
+					mPosition = savePos - vz * dz;
+				}
+			}
+			else {
+				/*球がボディの時判定 && ジャンプしていないとき*/
+				if (&sphere == &mpCBLeg->mColSphere){
+					ColGround();//地面にあった時の処理
+					//Y軸で戻す
+					if (vy.Dot(vectorBS) > 0.0f) {
+						mPosition = savePos + vy * dy;
+					}
+					else {
+						mPosition = savePos - vy * dy;
+					}
+				}
+
+			}
+		}
+		else{
+			if (dx > dz) {
+
+				//Z軸で戻す
+				if (vz.Dot(vectorBS) > 0.0f) {
+					mPosition = savePos + vz * dz;
+				}
+				else {
+					mPosition = savePos - vz * dz;
+				}
+			}
+			else {
+
+				//X軸で戻す
+				if (vx.Dot(vectorBS) > 0.0f) {
+					mPosition = savePos + vx * dx;
+				}
+				else {
+					mPosition = savePos - vx * dx;
+				}
+			}
+		}
+	}
+	mPosition.x += lengthX;
+	mPosition.y += lengthY;
+	mPosition.z += lengthZ;
+
+	/*マトリックスだけ更新*/
+	CMatrix44 rot_y, pos, matrix;
+	//回転行列の作成
+	rot_y.rotationY(mRotation.y);
+
+	//移動行列を計算する
+	pos.translate(mPosition);
+	//回転移動行列を求める
+	matrix = pos * rot_y;
+	//頂点データの更新
+	CModelXS::MatrixUpdate(matrix);
+
+	//当たり判定更新
+	mpCBBody->Update();
+	mpCBWeapon->Update();
+	mpCBLeg->Update();
+
+}
+
+
 
 /*ジャンプ関数*/
 void  CXCharPlayer::Jump(){

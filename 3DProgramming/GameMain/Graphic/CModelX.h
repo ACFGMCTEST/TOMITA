@@ -7,6 +7,7 @@
 /*アニメのスピード
 */
 #define ANIMA_SPEED 60 * 4
+#define ANIMA_SPEED_DAMAGE 50 
 #define ANIMA_SPEED_RUN 60 
 #define ANIMA_SPEED_ATTCK 60 /5
 #define ANIMA_SPEED_JUMP 30

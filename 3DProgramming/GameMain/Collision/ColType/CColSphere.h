@@ -8,6 +8,9 @@ class CColSphere :public CCollBase
 {
 public:
 	float mRadius;//”¼Œa
+	////‰ñ“]s—ñ 
+	CMatrix44 mMatrixRotation;
+
 
 	//OBB‚És—ñ‚ğ”½‰f
 	void Transeform(CMatrix44 &mat);

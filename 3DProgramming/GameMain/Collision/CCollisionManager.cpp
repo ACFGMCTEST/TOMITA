@@ -71,7 +71,7 @@ bool CCollisionManager::ColIf(CTask *Task_You, CTask *Task_I){
 			break;
 			/*球の場合*/
 		case CTask::E_COL_SPHEPE:
-			return CCollision::CollisionShpere(*you, col_I->mColSphere);
+			return !CCollision::CollisionShpere(*you, col_I->mColSphere);
 			break;
 		};
 		break;
@@ -91,6 +91,9 @@ void CCollisionManager::PlayerCollision(CTask *Task_You, CTask *Player){
 	/*ボックスキャスト*/
 	CCollider *youBox,*plSphere;
 	
+	/*パックキャスト*/
+	CXPuck *puck;
+
 	/*あたり判定が何か判断*/
 	switch (Task_You->eTag)
 	{
@@ -111,6 +114,7 @@ void CCollisionManager::PlayerCollision(CTask *Task_You, CTask *Player){
 
 		break;
 	case CTask::E_TAG_SLOPE:
+
 		
 		/*キャスト処理*/
 		youBox = dynamic_cast<CCollider *>(Task_You);
@@ -121,12 +125,24 @@ void CCollisionManager::PlayerCollision(CTask *Task_You, CTask *Player){
 		if (pl->mpCBLeg == plSphere){
 			pl->Collision(youBox->mObb, plSphere->mColSphere);
 		}
-
-	
-
-
 		break;
 
+	case CTask::E_TAG_PUCK:
+		
+		/*パックキャスト*/
+		puck = dynamic_cast<CXPuck *>(Task_You->mpParent);
+		youBox = dynamic_cast<CCollider *>(Task_You);
+		plSphere = dynamic_cast<CCollider *>(Player);
+
+		/*パックのスピードがある場合*/
+		if (puck->mVelocity >= SPEED_DAMAGE){
+			pl->AnimaState(CXCharPlayer::E_DMGM);
+			pl->Collision(puck->mpCBSphere->mColSphere, plSphere->mColSphere);
+		}
+
+		/*パックを跳ね返させる*/
+		puck->ColCharaReflect(youBox->mObb);
+		break;
 	};
 }
 
@@ -352,12 +368,15 @@ void  CCollisionManager::CameraCollision(CTask *Task_You, CTask *Camera){
 	CCollider *youBox;
 
 	/*あたり判定が何か判断*/
-	if (Task_You->eTag == CTask::E_TAG_BOX){
-		/*キャスト処理*/
-		youBox = dynamic_cast<CCollider *>(Task_You);
-		MainCamera.Collision(youBox->mObb);
-	}
-
+	switch (Task_You->eTag)
+	{
+	case CTask::E_TAG_HIGH_BOX:
+	case CTask::E_TAG_BOX:
+			/*キャスト処理*/
+			youBox = dynamic_cast<CCollider *>(Task_You);
+			MainCamera.Collision(youBox->mObb);
+			break;
+	};
 }
 
 /*更新2段目*/
@@ -413,6 +432,7 @@ void CCollisionManager::Update(){
 
 	CTask *task;
 	task = mpRoot;
+
 
 	/*探索処理*/
 	while (task != 0)

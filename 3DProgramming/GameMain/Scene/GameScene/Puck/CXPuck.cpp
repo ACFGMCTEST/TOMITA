@@ -14,11 +14,7 @@
 /*HPバーの設定値*/
 #define HP_BAR_POS CVector3(mPosition.x,mPosition.y + 1.8f,mPosition.z)
 #define HP_BAR_SIZE -0.4f, 0.4f, -0.1f, 0.0f
-/*スピード*/
-#define SPEED_DOWN_ALWAYS 0.0001f//常に下がる減速度
-#define SPEED_PUCK 0.1f//通常速度
-#define SPEED_MAX ATTACK_POWER_MAX + 0.1f//最高加速
-#define SPEED_MIN SPEED_PUCK/2.0f//最高加速
+
 //#define SPEED_MAX 10.0f//最大加速度
 #define SPEED_UP 0.01f//減速床に乗った時の上昇値
 #define SPEED_DOWN 0.01f//加速床に乗った時の減速値
@@ -33,6 +29,9 @@
 
 /*ポジションを上げる処理*/
 #define STAND_UP 0.6f
+
+/*キャラクターに当たった時の減速処理*/
+#define CHARA_SPEED_DOWN 0.1f
 
 CXPuck::CXPuck() : mVelocity(0.0f), mSaveSpeed(0.0f), mRefFlag(true), mFlagJump(false),
 mGravitTime(GRA_INIT_TIME_COUNT), mGoalStandUpFlag(false), mRefrectVec(0.0f, 0.0f, 0.0f), mFlagSlope(false){
@@ -117,8 +116,8 @@ void CXPuck::Gravity(){
 /*更新処理*/
 void CXPuck::Update(){
 	//mVelocity -= SPEED_DOWN_ALWAYS;//常に減速させる
-	if (mVelocity < SPEED_MIN){//進行度が最低値になると
-		mVelocity = SPEED_MIN;//そこで減速度をストップにする
+	if (mVelocity < SPEED_MIN_PUCK){//進行度が最低値になると
+		mVelocity = SPEED_MIN_PUCK;//そこで減速度をストップにする
 	}
 	if (mVelocity > SPEED_MAX){//進行度が最高速になると
 		mVelocity = SPEED_MAX;
@@ -184,6 +183,14 @@ void CXPuck::ColReflect(const COBB &obb){
 		PosUpdate();
 	}
 }
+/*キャラクターにあたったときに跳ね返り関数*/
+void CXPuck::ColCharaReflect(const COBB &obb){
+	/*減速させる*/
+	mVelocity *= CHARA_SPEED_DOWN;
+	ColReflect(obb);
+}
+
+
 /*あたり判定の時に呼び出し
 rot = 回転地
 */

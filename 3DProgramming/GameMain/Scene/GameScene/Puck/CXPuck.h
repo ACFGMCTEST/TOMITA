@@ -22,6 +22,13 @@
 #define GOAL_POS_Z 20.0f//真ん中だとリスキルが発生するので少しずらす
 #define GOAL_POS_PUCK_PLAYER CVector3(0.0f,30.0f,-GOAL_POS_Z)
 #define GOAL_POS_PUCK_ENEMY  CVector3(0.0f,30.0f,GOAL_POS_Z)
+
+/*スピード*/
+#define SPEED_DOWN_ALWAYS 0.0001f//常に下がる減速度
+#define SPEED_PUCK 0.1f//通常速度
+#define SPEED_MAX ATTACK_POWER_MAX + 0.1f//最高加速
+#define SPEED_MIN_PUCK SPEED_PUCK/2.0f//最低速度
+#define SPEED_DAMAGE SPEED_PUCK/1.5f//DAMAGEを食らう速度
 /*
 CXPuck
 パッククラス
@@ -69,6 +76,10 @@ public:
 	rot 回転地
 	*/
 	void ColReflect(CVector3 &rot,float &power);
+	/*キャラクターにあたったときに跳ね返り関数*/
+	void ColCharaReflect(const COBB &obb);
+
+
 	/*当たったとき動きを止める*/
 	void ColStop(const COBB &obb1, const COBB &obb2);//相手のあたり判定
 	/*減速処理*/

@@ -92,6 +92,7 @@ void CCollider::SetShere(float radius,CVector3 pos,CMatrix44 *matrix){
 		mColSphere.mRadius = radius;
 		//mpPos = pos;
 		mpCombinedMatrix = matrix;
+		mColSphere.mMatrixRotation = *matrix;
 	}
 	else if (eColTag == CTask::E_COL_NO){
 		printf("“–‚½‚è”»’è‚ÌŒ`‚ğİ’è‚µ‚Ä‚­‚¾‚³‚¢\n");
