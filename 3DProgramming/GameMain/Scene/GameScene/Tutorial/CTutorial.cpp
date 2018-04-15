@@ -76,7 +76,9 @@ void CTutorial::Update(){
 		if (CKey::once(VK_RETURN) || CKey::once(KEY_ATTACK) || CKey::once(KEY_ATTACK2)
 			|| CMouse::GetInstance()->mOneLeftFlag){
 			eTutoState = E_WALK;
-			MainCamera.StateChange(CCamera::E_STATE::E_CHARA);
+
+			MainCamera.CharaPos();
+			MainCamera.eState = CCamera::E_CHARA;
 		}
 		break;
 	case CTutorial::E_WALK:

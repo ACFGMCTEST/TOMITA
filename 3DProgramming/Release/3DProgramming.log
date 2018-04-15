@@ -4,11 +4,11 @@ c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\graphic\../Graphic/CTexture
           C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
 c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
           C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
-c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(109): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(233): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(318): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(323): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(328): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(110): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(234): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(319): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(324): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(329): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
 c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(93): warning C4005: 'BACK_POS' : マクロが再定義されました。
           c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(88) : 'BACK_POS' の前の定義を確認してください
 c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(88): warning C4005: 'BACK_POS' : マクロが再定義されました。
@@ -35,8 +35,10 @@ C:\Users\tomi-\Desktop\TOMITA\3DProgramming\include\../Define/define.h(93): warn
           C:\Users\tomi-\Desktop\TOMITA\3DProgramming\include\../Define/define.h(88) : 'BACK_POS' の前の定義を確認してください
 c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\scene\gameresult\../ItemScene/CItem.h(11): warning C4005: 'TIP_ARRAY' : マクロが再定義されました。
           c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\scene\gamescene\effect\CEffect2D.h(5) : 'TIP_ARRAY' の前の定義を確認してください
-GameMain\Camera\CCamera.cpp(28): warning C4005: 'OBB_POS' : マクロが再定義されました。
+GameMain\Camera\CCamera.cpp(38): warning C4005: 'OBB_POS' : マクロが再定義されました。
           c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../Map/Slope/CSlope.h(12) : 'OBB_POS' の前の定義を確認してください
+GameMain\Camera\CCamera.cpp(45): warning C4005: 'CHARA_POS' : マクロが再定義されました。
+          GameMain\Camera\CCamera.cpp(18) : 'CHARA_POS' の前の定義を確認してください
   コード生成しています。
 c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\scene\gamescene\map\cmap.cpp(130): warning C4715: 'CMap::GoalEnemyFirstPos' : 値を返さないコントロール パスがあります。
 c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\scene\gamescene\map\cmap.cpp(121): warning C4715: 'CMap::GoalPlayerFirstPos' : 値を返さないコントロール パスがあります。

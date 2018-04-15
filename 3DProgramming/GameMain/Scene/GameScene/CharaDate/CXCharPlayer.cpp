@@ -18,7 +18,7 @@
 #define FORWARD_JUMP  0.0f,1.0f,1.0f//ジャンプ
 
 /*動きの回転する速さ*/
-#define TURN_SPEED 7
+#define TURN_SPEED 10
 /*あたり判定の設定値*/
 /*胴*/
 #define OBB_SPHERE_BODY_SIZE 0.4f
@@ -519,7 +519,7 @@ void CXCharPlayer::Update(){
 
 
 		///*一回押したとき*/
-		if (AttackInitKey.Onces(KEY_ATTACK) || AttackInitKey.Onces(KEY_ATTACK2) || CMouse::GetInstance()->mOneLeftFlag){//Kボタンか
+		if (AttackInitKey.push(KEY_ATTACK) || AttackInitKey.push(KEY_ATTACK2) || CMouse::GetInstance()->mOneLeftFlag){//Kボタンか
 			AnimaState(E_ATTACK_INIT); //初めのいっかいだけ呼び出す
 		}
 		/*長押しの時*/
@@ -597,6 +597,7 @@ void CXCharPlayer::Update(){
 		break;
 	case E_DMGM://ダメージ
 		ChangeAnimation(E_DMGM, false, ANIMA_SPEED_DAMAGE);
+		HammerInit();
 		//if (mCountKnockBack <= 0){ //カウントが０になると
 		//	mCountKnockBack = 0;
 		//}
@@ -897,7 +898,7 @@ void CXCharPlayer::Collision(const CColSphere &youSphere, const CColSphere &sphe
 			}
 			else {
 				/*球がボディの時判定 && ジャンプしていないとき*/
-				if (&sphere == &mpCBLeg->mColSphere){
+				//if (&sphere == &mpCBLeg->mColSphere){
 					ColGround();//地面にあった時の処理
 					//Y軸で戻す
 					if (vy.Dot(vectorBS) > 0.0f) {
@@ -906,7 +907,7 @@ void CXCharPlayer::Collision(const CColSphere &youSphere, const CColSphere &sphe
 					else {
 						mPosition = savePos - vy * dy;
 					}
-				}
+				//}
 
 			}
 		}

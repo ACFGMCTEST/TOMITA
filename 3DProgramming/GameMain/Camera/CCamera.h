@@ -7,13 +7,13 @@
 #include "../Task/CTask.h"
 #include "../Graphic/CRectangle2.h"
 
+
 /* カメラクラス（視点のクラス）
 目の位置と目的の位置を保持し、
 カメラ行列（ビュー変換行列）を設定する
 */
 class CCamera : public CTask{
 private:
-	CVector3 mRot;//自分の方向
 	CVector3 mForward;//移動方向
 	CMatrix44 mMatrix;//行列
 
@@ -23,6 +23,8 @@ private:
 	float mMouseInitCount;//カメラの初期化時間
 
 public:
+	CVector3 mRot;//自分の方向
+
 	/*カメラの位置*/
 	static enum E_STATE{
 		E_CHARA,
@@ -83,6 +85,9 @@ public:
 	/*カメラのステータス変更*/
 	void StateChange(E_STATE state);
 	
+
+	/*キャラクターにポジション移動する*/
+	void CharaPos();
 };
 
 //カメラクラスのインスタンス

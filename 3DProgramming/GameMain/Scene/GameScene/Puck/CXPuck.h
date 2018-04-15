@@ -28,7 +28,7 @@
 #define SPEED_PUCK 0.1f//通常速度
 #define SPEED_MAX ATTACK_POWER_MAX + 0.1f//最高加速
 #define SPEED_MIN_PUCK SPEED_PUCK/2.0f//最低速度
-#define SPEED_DAMAGE SPEED_PUCK/1.5f//DAMAGEを食らう速度
+#define SPEED_DAMAGE SPEED_PUCK/1.2f//DAMAGEを食らう速度
 /*
 CXPuck
 パッククラス
@@ -68,6 +68,9 @@ public:
 	/*移動処理*/
 	void Move();
 
+
+	/*跳ね返り*/
+	void ColRef();
 
 	/*跳ね返り obb相手*/
 	void ColReflect(const COBB &col);

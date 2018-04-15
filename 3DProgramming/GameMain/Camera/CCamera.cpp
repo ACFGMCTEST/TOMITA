@@ -12,6 +12,11 @@
 #include "../Scene/GameScene/CGameScene.h"
 #include <math.h>
 
+//キャラ
+#define CHARA_POS	CVector3(CSceneModel::mCharcter->mPosition.x,\
+	CSceneModel::mCharcter->mPosition.y + 3.0f, \
+	CSceneModel::mCharcter->mPosition.z - 1.0f)
+
 /*カメラ追う速度*/
 #define SPEED CSceneModel::mCharcter->mVelocity 
 
@@ -58,6 +63,11 @@ mUp = //視界の上方向のベクトルx,y,z
 CCamera::CCamera() : mUp(0.0f, 1.0f, 0.0f) ,mForward(FORWARD){
 	//視点と注視点の設定
 //	setPos(0.0f, 0.0f, 0.0f);
+}
+
+/*キャラクターにポジション移動する*/
+void CCamera::CharaPos(){
+	PosUpdate(mRot, CHARA_POS);
 }
 
 /*初期化処理*/

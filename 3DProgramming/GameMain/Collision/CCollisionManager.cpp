@@ -1,4 +1,4 @@
- #include "../Scene/GameScene/CharaDate/CXCharacter.h"
+#include "../Scene/GameScene/CharaDate/CXCharacter.h"
 #include "../Scene/GameScene/CharaDate/CXCharEnemy.h"
 #include "../Scene/GameScene/CharaDate/CSceneModel.h"
 #include "../Scene/GameScene/UI/CScoreBoard.h"
@@ -134,14 +134,19 @@ void CCollisionManager::PlayerCollision(CTask *Task_You, CTask *Player){
 		youBox = dynamic_cast<CCollider *>(Task_You);
 		plSphere = dynamic_cast<CCollider *>(Player);
 
-		/*パックのスピードがある場合*/
-		if (puck->mVelocity >= SPEED_DAMAGE){
+		/*パックのスピードがある場合 && 攻撃中でない場合*/
+		if (puck->mVelocity >= SPEED_DAMAGE && pl->mState != CXCharPlayer::E_ATTACK){
 			pl->AnimaState(CXCharPlayer::E_DMGM);
+		}
+		/*当たり判定が足の時*/
+		if (pl->mpCBLeg == plSphere){
 			pl->Collision(puck->mpCBSphere->mColSphere, plSphere->mColSphere);
 		}
 
 		/*パックを跳ね返させる*/
 		puck->ColCharaReflect(youBox->mObb);
+
+
 		break;
 	};
 }
@@ -355,8 +360,13 @@ void  CCollisionManager::PuckCollision(CTask *Task_You, CTask *Puck){
 			/*坂にあたっているフラグを立てる*/
 			puck->EnabledSlope();
 		}
-
 		break;
+	//case CTask::E_TAG_PLAYER:
+
+	//	chara = dynamic_cast<CXCharPlayer*>(Task_You->mpParent->mpParent);
+	//	/*パックの当たり判定*/
+	//	puck->Collision(puck->mpCBRefBox->mObb, chara->mpCBLeg->mColSphere);
+	//	break;
 	};
 }
 

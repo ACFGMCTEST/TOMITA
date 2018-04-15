@@ -66,7 +66,7 @@ void CXPuck::Init(CModelX *model) {
 	/*当たり判定(球)*/
 	mpCBSphere->SetShere(OBB_SPHERE_SIZE, OBB_POS, &mpCombinedMatrix[model->FindFrame("Armature_Bone")->mIndex]);
 	mSaveSpeed = SPEED_PUCK;
-	mVelocity = mSaveSpeed; 
+	mVelocity = 0.0f;
 	PosUpdate();
 
 }
@@ -151,6 +151,10 @@ void CXPuck::Render() {
 #endif
 	CModelXS::Render();
 
+}
+/*跳ね返り*/
+void CXPuck::ColRef(){
+	mForward.x *= -1;//逆方向に
 }
 
 /*あたり判定の時に呼び出し*/
