@@ -149,7 +149,7 @@ void CXCharPlayer::PosUpdate(){
 	matrix = pos * rot_y;
 
 	//頂点データの更新
-	CModelXS::Update(matrix);;
+	CModelXS::Update(matrix);
 }
 /*簡易移動フラグ*/
 bool CXCharPlayer::FlagMove(){

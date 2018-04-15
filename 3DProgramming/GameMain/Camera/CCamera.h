@@ -71,7 +71,7 @@ public:
 	void CharaUpdate();
 	/*ポジションを指定した場所にもっていく*/
 	void PosUpdate(CVector3 rot, CVector3 pos);
-	/*指定された部分に移動する true で移動完了
+	/*指定された部分に移動する
 	pos = 目的値
 	speed = 速さ
 	*/

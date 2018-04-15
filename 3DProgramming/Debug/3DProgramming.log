@@ -15,6 +15,6 @@ c:\users\tomi-\desktop\tomita\3dprogramming\define\define.h(88): warning C4005: 
           c:\users\tomi-\desktop\tomita\3dprogramming\define\define.h(93) : 'BACK_POS' の前の定義を確認してください
 c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\scene\itemscene\citem.h(11): warning C4005: 'TIP_ARRAY' : マクロが再定義されました。
           c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\scene\gamescene\effect\ceffect2d.h(5) : 'TIP_ARRAY' の前の定義を確認してください
-c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\camera\ccamera.cpp(28): warning C4005: 'OBB_POS' : マクロが再定義されました。
+c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\camera\ccamera.cpp(33): warning C4005: 'OBB_POS' : マクロが再定義されました。
           c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\cslope.h(12) : 'OBB_POS' の前の定義を確認してください
   3DProgramming.vcxproj -> C:\Users\tomi-\Desktop\TOMITA\Debug\3DProgramming.exe

@@ -12,6 +12,11 @@
 #include "../Scene/GameScene/CGameScene.h"
 #include <math.h>
 
+/*カメラ追う速度*/
+#define SPEED CSceneModel::mCharcter->mVelocity 
+
+/*カメラ初期ポジション*/
+#define FIAST_POS CVector3(CMap::PlayerFirstPos().x,3.0f,CMap::PlayerFirstPos().z)
 
 
 #define ANGLE_SPEED 3.0f//カメラスピード
@@ -26,7 +31,7 @@ mUp = //視界の上方向のベクトルx,y,z
 #define CAMERA_LOOK mEye.x,mEye.y,mEye.z, mPos.x,mPos.y,mPos.z, mUp.x,mUp.y,mUp.z
 /*あたり判定の設定値*/
 #define OBB_POS CVector3(0.0f, 1.0f, 0.0f) 
-#define OBB_SPHERE_SIZE 4.0f
+#define OBB_SPHERE_SIZE 1.0f
 /*カメラの位置*/
 #define CAMERA_OFFSET CVector3(0.0f, 0.5f, 4.0f) //カメラ位置プレイヤーからの相対位置
 //キャラ
@@ -50,33 +55,15 @@ mUp = //視界の上方向のベクトルx,y,z
 
 
 //カメラの上方向の初期化
-CCamera::CCamera() : mUp(0.0f, 1.0f, 0.0f) {
+CCamera::CCamera() : mUp(0.0f, 1.0f, 0.0f) ,mForward(FORWARD){
 	//視点と注視点の設定
 //	setPos(0.0f, 0.0f, 0.0f);
 }
 
 /*初期化処理*/
 void CCamera::Init(){
-
-	/*ステータスによって場所を変える*/
-	switch (eState)
-	{
-	case E_CHARA:
-		/*キャラクターに合わせる*/
-		CharaUpdate();
-		/*メインゲームが進行中のみ*/
-		if (CGameScene::eTransition == CGameScene::E_ACTIVE){
-			MouseCamera();//mouseでカメラ制御
-		}
-		PosUpdate(mRot, CHARA_POS);
-		break;
-	case E_PACK:
-		PosUpdate(CVector3(0.0f, 0.0f, 0.0f), PUCK_POS);
-		break;
-	case E_GOAL:
-		PosUpdate(CVector3(0.0f, 0.0f, 0.0f), GOAL_POS);
-		break;
-	}
+	PosUpdate(mRot, FIAST_POS);
+	//PosUpdate(mRot, FIAST_POS);
 	/*for (int i = 0; i < E_ARRAY; i++)
 	{
 		pos[i] = 0.0f;
@@ -177,13 +164,16 @@ void CCamera::PosUpdate(CVector3 rot, CVector3 pos){
 	cp = cp * mat;
 	cp += SavePos;
 	//カメラの視点(eye)と注意点(pos)を設定
-	/*同じでない場合*/
-	if (mPos != pos){
-		//カメラ位置代入
-		MainCamera.mPos = SavePos;
-	}
+	
+	//カメラ位置代入
+	mPos = SavePos;
+
+	mMatrix.MatrixTransform(mRot, mPos);
+	
 	//カメラ視点代入
-	MainCamera.mEye = cp;
+	mEye = cp;
+
+
 }
 
 /*矢印キーでカメラ移動*/
@@ -225,12 +215,7 @@ void CCamera::Update() {
 
 
 
-	
-	mpCBSphere->mColSphere.mPos = mPos;
-	//移動行列を計算する
-	mMatrix.translate(mPos);
-	//当たり判定更新
-	mpCBSphere->Update();
+
 	//行列のモードをモデルビューにする
 	glMatrixMode(GL_MODELVIEW);
 	//モデルビューの行列を単位行列にする
@@ -244,9 +229,10 @@ void CCamera::Update() {
 	//CMatrix44 inverse;
 	//inverse = mCameraMatrix.getInverse();
 	//inverse = inverse * mCameraMatrix;
-
+	/*キャラクタスイッチに使う*/
+	CVector3 pos = CHARA_POS;
 	/*デバック用*/
-	mpCBSphere->Render();
+	//mpCBSphere->Render();
 	/*ステータスによって場所を変える*/
 	switch (eState)
 	{
@@ -257,7 +243,18 @@ void CCamera::Update() {
 		if (CGameScene::eTransition == CGameScene::E_ACTIVE){
 			MouseCamera();//mouseでカメラ制御
 		}
-		PosUpdate(mRot, CHARA_POS);
+
+		//PosUpdate(mRot, CHARA_POS);
+				/*範囲内の場合移動しない*/
+		if (pos.x - SPEED < mPos.x && mPos.x < pos.x + SPEED &&
+			pos.y - SPEED < mPos.y && mPos.y < pos.y + SPEED &&
+			pos.z - SPEED < mPos.z && mPos.z < pos.z + SPEED){
+		}
+		else{
+			Move(pos, SPEED);
+		}
+	
+		
 		break;
 	case E_PACK:
 		PosUpdate(CVector3(0.0f, 0.0f, 0.0f), PUCK_POS);
@@ -266,6 +263,12 @@ void CCamera::Update() {
 		PosUpdate(CVector3(0.0f, 0.0f, 0.0f), GOAL_POS);
 		break;
 	}
+
+	mpCBSphere->mColSphere.mPos = mPos;
+	//移動行列を計算する
+	mMatrix.translate(mPos);
+	//当たり判定更新
+	mpCBSphere->Update();
 }
 //
 //void CCamera::update(CVector3 aeye, CVector3 pos, CVector3 up) {
@@ -384,31 +387,31 @@ void CCamera::Collision(const COBB &box) {
 	/*当たり判定更新*/
 	mpCBSphere->Update();
 
+
 }
 
-/*指定された部分に移動する true で移動完了*/
-void CCamera::Move(CVector3 pos,float speed){
-	/*方向を直す*/
-	mForward = MOVE_FORWARD;
-	/*指定された方向に向ける*/
-	mRot = mPos.getRotationTowards(pos);
-	/*移動させる*/
+/*指定された部分に移動する
+pos = 目的値
+speed = 速さ
+*/
+void CCamera::Move(CVector3 pos, float speed){
+
+	//進行方向初期化
+	mForward = CVector3(FORWARD);
+	//回転値計算
+	CVector3 SaveRot = mForward.getRotationTowards(pos + mPos * -1.0f);
+	
 	CMatrix44 rot_y, matrix;
+
 	//回転行列の作成
-	rot_y.rotationY(mForward.y);
-	///進行方向を計算
-	mPos = mForward * rot_y * speed;
+	rot_y.rotationY(SaveRot.y);
 
+	mForward = mForward * rot_y;
+	//移動させる
+	mPos += mForward * speed;
 
+	PosUpdate(mRot, mPos);
 
-	/*目的地に着いた場合*/
-	if (pos == mPos){
-		
-	}
-	/*ついていない場合*/
-	else{
-
-	}
 }
 /*カメラのステータス変更*/
 void CCamera::StateChange(E_STATE state){
