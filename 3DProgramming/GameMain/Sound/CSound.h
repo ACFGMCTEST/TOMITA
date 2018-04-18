@@ -14,6 +14,13 @@
 #define SE_DAMAGE_FILE SOUND_FILE"\\Damage.mp3" //ダメージ音
 #define SE_GOAL_FILE SOUND_FILE"\\Goal.mp3" //ゴール音
 #define SE_REFLECT_FILE SOUND_FILE"\\Reflect.mp3" //跳ね返り音
+#define SE_CLEAR_FILE SOUND_FILE"\\SE_GameClear.mp3" //クリアー音
+#define SE_OVER_FILE SOUND_FILE"\\SE_GameOver.mp3" //オーバー音
+/*開始位置(秒数)*/
+#define SE_START_ATTACK_TIME 0.1
+#define SE_START_CLEAR_TIME 0.2
+#define SE_START_OVER_TIME 0.2
+#define SE_START_GOAL_TIME 0
 
 ///*サウンドクラス*/
 class CSound{
@@ -32,6 +39,11 @@ public:
 	void Load(char *filename);
 	/*一回鳴らす*/
 	void Play();
+	/*一回時間指定鳴らす
+	float startTime = 再生時間位置
+	*/
+	void Play(float startTime);
+
 	/*BGM用ループ*/
 	void Repeat();
 	/*ストップ関数*/

@@ -7,7 +7,9 @@
 class CSceneManager{
 private:
 	static CSceneManager *mSceneManager;
-	CSound mBgm;//BGM
+	
+	CSound mSEClear;//ゲームクリア
+	CSound mSEOver;//ゲームオーバー
 
 public:
 

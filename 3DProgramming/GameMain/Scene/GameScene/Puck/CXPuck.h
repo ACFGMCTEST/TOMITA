@@ -28,7 +28,7 @@
 #define SPEED_PUCK 0.1f//通常速度
 #define SPEED_MAX ATTACK_POWER_MAX + 0.1f//最高加速
 #define SPEED_MIN_PUCK SPEED_PUCK/2.0f//最低速度
-#define SPEED_DAMAGE SPEED_PUCK/1.2f//DAMAGEを食らう速度
+#define SPEED_DAMAGE SPEED_PUCK/1.1f//DAMAGEを食らう速度
 /*
 CXPuck
 パッククラス

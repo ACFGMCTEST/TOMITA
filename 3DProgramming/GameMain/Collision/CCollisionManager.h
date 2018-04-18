@@ -15,11 +15,6 @@ private:
 	CSound mSEDamage;//ƒ_ƒ[ƒW‚Ì‰¹
 
 
-	/*“–‚½‚è”»’è*/
-	//CCollider *mYouBox,*mIBox;
-	//CColliderSphere *mYouSphere,*mISphere;
-
-
 
 	bool ColIf(CTask *Task_You, CTask *Task_I);
 

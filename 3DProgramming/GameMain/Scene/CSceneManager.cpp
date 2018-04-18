@@ -17,11 +17,16 @@ CScene* mScene=0;
 
 
 CSceneManager::CSceneManager():eStatus(E_INIT){
-	mBgm.Load(BGM_FILE);//BGM読み込み
+	
+
+	mSEClear.Load(SE_CLEAR_FILE);//クリアー読み込み
+	mSEOver.Load(SE_OVER_FILE);//オーバー読み込み
 
 }
 CSceneManager::~CSceneManager(){
-	mBgm.Close();
+	
+	mSEClear.Close();
+	mSEOver.Close();
 }
 
 //GetInstance
@@ -43,7 +48,6 @@ void CSceneManager::ChangeScene(eSceneNo SceneNo) {
 	
 	DeleteScene();		//KILL
 
-	mBgm.Repeat();
 	/*シーン属性管理*/
 	CScene::State = SceneNo;
 
@@ -57,6 +61,7 @@ void CSceneManager::ChangeScene(eSceneNo SceneNo) {
 		mScene = new CHomeScene;
 		break;
 	case E_QUEST:
+
 		mScene = new CQuestScene;
 		break;
 	case E_SHOP:
@@ -71,15 +76,15 @@ void CSceneManager::ChangeScene(eSceneNo SceneNo) {
 		mScene = new COptionScene;
 		break;
 	case E_GAMEMAIN:
-
 		mScene = new CGameScene;
+		
 		break;
 	case E_GAMECLEAR:
-
+		mSEClear.Play();//クリア音鳴らす
 		mScene = new CGameClearScene;
 		break;
 	case E_GAMEOVER:
-
+		mSEOver.Play();//オーバー音鳴らす
 		mScene = new CGameOverScene;
 		break;
 	default:

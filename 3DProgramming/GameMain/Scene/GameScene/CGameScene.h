@@ -8,6 +8,7 @@
 #include"../CountDown/CCountDown.h"
 #include "Pause/CPause.h"
 #include "Tutorial\CTutorial.h"
+#include "../../Sound/CSound.h"
 
 class CGameScene : public CScene{
 public:
@@ -16,6 +17,7 @@ public:
 	CPause mPause;
 	CSceneModel mSceneModel;
 	CMap mMap;
+	CSound mBgm;//BGM
 	
 	bool firstaction=false;
 

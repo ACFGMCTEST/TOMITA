@@ -1,15 +1,25 @@
 ﻿cl : コマンド ライン warning D9025: '/sdl-' より '/GS-' が優先されます。
-  CCollision2D.cpp
-c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  CGameClear.cpp
+c:\users\tomi-\desktop\tomita2\tomita\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
           C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
-c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\tomi-\desktop\tomita2\tomita\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
           C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
-c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\tomita2\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\tomita2\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+C:\Users\tomi-\Desktop\Tomita2\TOMITA\3DProgramming\include\../Define/define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          C:\Users\tomi-\Desktop\Tomita2\TOMITA\3DProgramming\include\../Define/define.h(94) : 'BACK_POS' の前の定義を確認してください
+C:\Users\tomi-\Desktop\Tomita2\TOMITA\3DProgramming\include\../Define/define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          C:\Users\tomi-\Desktop\Tomita2\TOMITA\3DProgramming\include\../Define/define.h(89) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\tomita2\tomita\3dprogramming\gamemain\scene\gameclearscene\../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\tomita2\tomita\3dprogramming\gamemain\scene\gameclearscene\../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\tomita2\tomita\3dprogramming\gamemain\scene\gameclearscene\../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\tomita2\tomita\3dprogramming\gamemain\scene\gameclearscene\../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+GameMain\Scene\GameClearScene\CGameClear.cpp(13): warning C4005: 'BG_SIZE' : マクロが再定義されました。
+          c:\users\tomi-\desktop\tomita2\tomita\3dprogramming\gamemain\scene\gameclearscene\../../../Define/Define.h(79) : 'BG_SIZE' の前の定義を確認してください
   コード生成しています。
-c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\scene\gamescene\map\cmap.cpp(121): warning C4715: 'CMap::GoalPlayerFirstPos' : 値を返さないコントロール パスがあります。
-c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\scene\gamescene\map\cmap.cpp(130): warning C4715: 'CMap::GoalEnemyFirstPos' : 値を返さないコントロール パスがあります。
-c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\scene\gamescene\map\cmap.cpp(112): warning C4715: 'CMap::EnemyFirstPos' : 値を返さないコントロール パスがあります。
-c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\scene\gamescene\map\cmap.cpp(103): warning C4715: 'CMap::PlayerFirstPos' : 値を返さないコントロール パスがあります。
+c:\users\tomi-\desktop\tomita2\tomita\3dprogramming\gamemain\scene\gamescene\map\cmap.cpp(130): warning C4715: 'CMap::GoalEnemyFirstPos' : 値を返さないコントロール パスがあります。
+c:\users\tomi-\desktop\tomita2\tomita\3dprogramming\gamemain\scene\gamescene\map\cmap.cpp(112): warning C4715: 'CMap::EnemyFirstPos' : 値を返さないコントロール パスがあります。
+c:\users\tomi-\desktop\tomita2\tomita\3dprogramming\gamemain\scene\gamescene\map\cmap.cpp(103): warning C4715: 'CMap::PlayerFirstPos' : 値を返さないコントロール パスがあります。
+c:\users\tomi-\desktop\tomita2\tomita\3dprogramming\gamemain\scene\gamescene\map\cmap.cpp(121): warning C4715: 'CMap::GoalPlayerFirstPos' : 値を返さないコントロール パスがあります。
   コード生成が終了しました。
-  3DProgramming.vcxproj -> C:\Users\tomi-\Desktop\TOMITA\Release\3DProgramming.exe
+  3DProgramming.vcxproj -> C:\Users\tomi-\Desktop\Tomita2\TOMITA\Release\3DProgramming.exe

@@ -60,10 +60,7 @@ mUp = //視界の上方向のベクトルx,y,z
 
 
 //カメラの上方向の初期化
-CCamera::CCamera() : mUp(0.0f, 1.0f, 0.0f) ,mForward(FORWARD){
-	//視点と注視点の設定
-//	setPos(0.0f, 0.0f, 0.0f);
-}
+CCamera::CCamera() : mUp(0.0f, 1.0f, 0.0f) ,mForward(FORWARD){}
 
 /*キャラクターにポジション移動する*/
 void CCamera::CharaPos(){

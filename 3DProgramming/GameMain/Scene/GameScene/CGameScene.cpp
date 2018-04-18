@@ -11,12 +11,13 @@ CCamera MainCamera;
 CGameScene::E_TRANSTION CGameScene::eTransition = E_ACTIVE;
 
 CGameScene::CGameScene() : eState(E_INIT){
+	mBgm.Load(BGM_FILE);
 	eTransition = E_ACTIVE;
 	mPause.Init();
 };
 
 CGameScene::~CGameScene(){
-
+	mBgm.Close();
 }
 
 
@@ -79,7 +80,7 @@ void CGameScene::Update() {
 		CScoreBoard::GetInstance()->Init();
 		mSceneModel.Init();
 		MainCamera.Init();
-
+		mBgm.Repeat();
 		eState = E_MAIN;
 		break;
 		
@@ -111,6 +112,7 @@ void CGameScene::Update() {
 
 		break;
 	case E_END:
+		mBgm.Close();
 		CCollisionManager::GetInstance()->AllKill();
 		mSceneModel.mModelTaskManager.AllKill();
 		mMap.mMapTaskManager.AllKill();

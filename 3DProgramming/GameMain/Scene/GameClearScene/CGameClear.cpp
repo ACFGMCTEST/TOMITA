@@ -14,7 +14,7 @@
 #define TITLE_SIZE -200.0f, 80.0f, 200.0f, -80.0f
 #define GAME_STATE_SIZE -120.0f, -80.0f, 120.0f, -140.0f
 #define GAME_EXIT_SIZE - 120.0f, -160.0f, 120.0f, -220.0f
-
+/*テクスチャ場所*/
 
 CGameClear::~CGameClear(){
 
@@ -28,6 +28,7 @@ void CGameClear::Init(){
 
 
 	//クリアロゴの呼び出し
+	mTexClearLogo.load(TGA_FILE"Clear.tga");
 	mClearLogo.SetVertex(TITLE_SIZE); //ここで大きさ変更
 	mClearLogo.SetColor(W_COLOR, 0.0f);
 	mClearLogo.position = CVector2(0.0f, 200);

@@ -66,7 +66,7 @@ void CXPuck::Init(CModelX *model) {
 	/*当たり判定(球)*/
 	mpCBSphere->SetShere(OBB_SPHERE_SIZE, OBB_POS, &mpCombinedMatrix[model->FindFrame("Armature_Bone")->mIndex]);
 	mSaveSpeed = SPEED_PUCK;
-	mVelocity = 0.0f;
+	mVelocity = SPEED_MIN_PUCK;
 	PosUpdate();
 
 }
