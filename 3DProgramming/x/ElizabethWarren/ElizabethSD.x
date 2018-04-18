@@ -54057,14 +54057,14 @@ Frame Root {
              96.078431;
              0.000000; 0.000000; 0.000000;;
              0.000000; 0.000000; 0.000000;;
-            TextureFilename {"x\\ElizabethWarren\\WoodTexture.jpg";}
+            TextureFilename {"x\\ElizabethWarren\\WoodTexture.tga";}
           }
           Material Hammer {
              0.640000; 0.640000; 0.640000; 1.000000;;
              96.078431;
              0.000000; 0.000000; 0.000000;;
              0.000000; 0.000000; 0.000000;;
-            TextureFilename {"x\\ElizabethWarren\\HammerTexture.jpg";}
+            TextureFilename {"x\\ElizabethWarren\\HammerTexture.tga";}
           }
         } // End of eri material list
         XSkinMeshHeader {
@@ -137773,14 +137773,14 @@ Frame Root {
              96.078431;
              0.000000; 0.000000; 0.000000;;
              0.000000; 0.000000; 0.000000;;
-            TextureFilename {"x\\ElizabethWarren\\WoodTexture.jpg";}
+            TextureFilename {"x\\ElizabethWarren\\WoodTexture.tga";}
           }
           Material Hammer {
              0.640000; 0.640000; 0.640000; 1.000000;;
              96.078431;
              0.000000; 0.000000; 0.000000;;
              0.000000; 0.000000; 0.000000;;
-            TextureFilename {"x\\ElizabethWarren\\HammerTexture.jpg";}
+            TextureFilename {"x\\ElizabethWarren\\HammerTexture.tga";}
           }
         } // End of hammer material list
         XSkinMeshHeader {

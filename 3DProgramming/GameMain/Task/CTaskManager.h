@@ -67,8 +67,6 @@ public:
 	Num ‚Ù‚µ‚¢‘®«w’è
 	Count »‘¢”Ô†
 	*/
-	//CTask *GetTask(CTask::EMyNumber Num, int Count);
-	
 };
 
 #endif

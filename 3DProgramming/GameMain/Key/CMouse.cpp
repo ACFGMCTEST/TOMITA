@@ -4,7 +4,6 @@
 
 
 
-GLFWwindow *CMouse::window;
 /*サイズ*/
 #define RECT_SIZE -100.0f, 100.0f, 100.0f, -100.0f
 
@@ -43,11 +42,6 @@ void CMouse::Update(){
 	
 
 	RECT winRect;
-/*
-	winRect.left = 0;
-	winRect.right = 0;
-	winRect.top = 0;
-	winRect.bottom = 0;*/
 
 
 	winRect.left	=  WinPosX;
@@ -56,15 +50,10 @@ void CMouse::Update(){
 	winRect.bottom	= (WinPosY + DISP_Y);
 
 	/*マウス取得*/
-	//if(mClipFlag)ClipCursor(&winRect);//画面制御
 	ShowCursor(false);
 	mRect.position = mPos;
 }
 
 void CMouse::Render(){
 	mRect.Render();
-}
-
-void CMouse::Access(GLFWwindow *win){
-	window = win;
 }

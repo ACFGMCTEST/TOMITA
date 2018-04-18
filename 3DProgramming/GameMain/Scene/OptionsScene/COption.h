@@ -31,22 +31,12 @@ public:
 
 	CRectangle2 mCursor;//カーソル
 
-	//CRectangle2 mItemList;    //武器詳細
-
-	//CRectangle2 mHelp;          	//作成しますか？
-
-	//CRectangle2 mYes;			//はい
-
-	//CRectangle2 mNo;				//いいえ
 
 
 	CTexture	*mpTexture;
 	CTexture	*mpMenu;
 	CTexture	*mpTexCursor;
-	//CSound Itembgm;
-
-	//CSound returnkey;
-	//CSound cursorchange;
+	
 
 
 	float alpha;

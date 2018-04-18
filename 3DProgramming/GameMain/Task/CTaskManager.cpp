@@ -221,20 +221,12 @@ void CTaskManager::AllInit(){
 
 void CTaskManager::AllUpdate(){
 	CTask *task;
-	//CCollisionManager col;
 	task = mpRoot;
 	
 	/*すべてのRender表示*/
 	while (task != 0)
 	{
 		task->Update();
-		if (task->mCharaFlag){
-			//col.Update((CBase*)task);
-		}
-		//if (task->mKillFlag){
-			//Kill(&task);
-		//}
-
 
 		task = task->mpNext;
 
@@ -322,16 +314,3 @@ void CTaskManager::AllBillboardRender(){
 		task = task->mpNext;
 	}
 }
-//
-//
-//CTask *CTaskManager::GetTask(CTask::EMyNumber Num, int Count){
-//	CTask *task;
-//	task = mpRoot;//先頭から探す
-//	while (task != 0)
-//	{
-//		if (task->mCount == Count && task->mMyNumber == Num) //指定した条件なら
-//		return task;//値を返す
-//		task  =  task->mpNext;//次に進む
-//	}
-//	return nullptr;//何もないのでnullptrを返す
-//}

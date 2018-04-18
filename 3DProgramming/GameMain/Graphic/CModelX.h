@@ -7,7 +7,7 @@
 /*アニメのスピード
 */
 #define ANIMA_SPEED 60 * 4
-#define ANIMA_SPEED_DAMAGE 50 
+#define ANIMA_SPEED_DAMAGE 60 
 #define ANIMA_SPEED_RUN 60 
 #define ANIMA_SPEED_ATTCK 60 /5
 #define ANIMA_SPEED_JUMP 30
@@ -24,10 +24,6 @@
 #define ARRAY_SIZE(a) (sizeof(a) / sizeof(a[0]))
 
 #include <vector>	//vectorクラスのインクルード（動的配列）
-//#include "CMatrix44.h"	//マトリクスクラスのインクルード
-//#include "CTexture.h"	//テクスチャのインクルード
-//#include "CVector2.h"
-//#include "CShader.h"
 
 #include "../Matrix/CMatrix44.h"
 #include "../Graphic/CTexture.h"
@@ -195,7 +191,6 @@ public:
 	//Add Shader
 	GLuint	  mMyVertexBuffer;
 	int       mMyVertexNum;
-//	CMatrix44 mTransformMatrix[155];
 
 	float mRed, mGreen, mBlue, mAlpha; //rgba色情報
 

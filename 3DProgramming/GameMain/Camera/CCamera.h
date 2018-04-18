@@ -8,7 +8,8 @@
 #include "../Graphic/CRectangle2.h"
 
 
-/* カメラクラス（視点のクラス）
+/* 
+カメラクラス（視点のクラス）
 目の位置と目的の位置を保持し、
 カメラ行列（ビュー変換行列）を設定する
 */
@@ -39,8 +40,6 @@ public:
 		E_Z,
 		E_ARRAY
 	};
-	//float pos[E_ARRAY];	//注視点 [0]:X座標 [1]:Y座標 [2]:Z座標
-	//float eye[E_ARRAY];	//視点 [0]:X座標 [1]:Y座標 [2]:Z座標
 
 	CVector3 mPos;//ポジション
 	CVector3 mEye;//視点
@@ -92,5 +91,6 @@ public:
 
 //カメラクラスのインスタンス
 extern CCamera MainCamera;
+
 
 #endif

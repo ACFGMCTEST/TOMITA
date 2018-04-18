@@ -30,6 +30,9 @@
 #define UNITY_CHAN_SIZE   -223.0f, 346.5f, 223.0f, -346.5f
 #define UNITY_CHAN_UV           0,      0,    446,     693
 #define LOOP_SPEED		0.01f
+
+
+
 CHome::~CHome(){
 	if (mpTexture) {
 		//テクスチャを使っていればインスタンス削除
@@ -97,13 +100,7 @@ void CHome::Init(){
 	mCursor.SetColor(WHITE_COLOR);
 	mCursor.SetUv(mpTexCursor, CURSOR_CG);
 
-	 // E_GREEN_YELLOW,	//緑から黄
-	 // E_YELLOW_RED,	//黄から赤
-	 // E_RED_PURPLE,	//赤から紫
-	 // E_PURPLE_BLUE,	//紫から青
-	 // E_BLUE_CYAN,	//青から青緑
-	 // E_CYAN_GREEN,	//青緑から緑
-
+	/*グラデーション用意*/
 	mSelectButton.SetGradationLoop(CRectangle2::E_COLOR_CHANGE::E_RED_PURPLE);
 	mShopButton.SetGradationLoop(CRectangle2::E_COLOR_CHANGE::E_YELLOW_RED);
 	mItemButton.SetGradationLoop(CRectangle2::E_COLOR_CHANGE::E_GREEN_YELLOW);
@@ -118,6 +115,7 @@ void CHome::AllMove(bool zeroover){
 }
 
 void CHome::Update(){
+	
 	//カーソルポジション
 	mCursor.position = CMouse::GetInstance()->mPos;
 	//メニューのサイズを常時アップデートする(変動するため)

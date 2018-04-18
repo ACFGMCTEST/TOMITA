@@ -214,19 +214,6 @@ void CShopCreating::Update(){
 
 	mCursor.position = CMouse::GetInstance()->mPos;
 
-	//メニュー画面での選択。２項目しかないからstatus移動もここでやる
-
-	if (CKey::once(UP_KEY)){
-		//cursorchange.play();
-		//mCursor.SetVertex(-180.0f, -90.0f, -140.0f, -130.0f);
-		/*	status = 0;*/
-	}
-
-	if (CKey::once(DOWN_KEY)){
-		/*	cursorchange.play();
-		mCursor.SetVertex(-180.0f, -170.0f, -140.0f, -210.0f);*/
-		/*status = 1;*/
-	}
 
 	//促す
 	if (CKey::push(ENTER_KEY))
@@ -239,39 +226,6 @@ void CShopCreating::Update(){
 
 
 
-	}
-
-	switch (status)
-	{
-	case 0:
-		//mGameStart.SetColor(1.0f, 1.0f, 1.0f, 1.0f);
-		//mGameExit.SetColor(1.0f, 1.0f, 1.0f, 0.5f);
-		if (CKey::push(ENTER_KEY))
-		{
-			//SE再生
-			//returnkey.play();
-
-			//BGMをストップする
-			//ShopCreatingbgm.stop();
-
-			//CSceneManager::GetInstance()->ChangeScene(SceneNo::GAME_MAIN);	//ゲーム画面に移行します。
-
-		}
-		break;
-	case 1:
-		//mGameStart.SetColor(1.0f, 1.0f, 1.0f, 0.5f);
-		//mGameExit.SetColor(1.0f, 1.0f, 1.0f, 1.0f);
-
-		if (CKey::push(ENTER_KEY))
-		{
-			//SEの再生
-			/*	returnkey.play();*/
-
-			exit(0);	//ゲームを終了します。
-
-		}
-
-		break;
 	}
 
 
@@ -291,10 +245,6 @@ void CShopCreating::Render() {
 	mWeaponDetails.Render();
 	mCursor.Render();
 	CRectangle2::Disp2D_Exit();//描画終了
-	//odifit.Render();
-	//thdifit.Render();
-	//twdifit.Render();
-
 
 
 

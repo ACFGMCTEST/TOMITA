@@ -5,15 +5,11 @@
 #include "../CSceneManager.h"
 #include "../../Collision/CCollision2D.h"
 #include "../../Key/CMouse.h"
-//CScene eSceneNo Shop
-
 CShopScene::CShopScene() : eStatus(E_SHOP){
-	//	SE_Enter.load(SOUNDFILE"SE_ENTER.mp3");
 	mShop.Init();
 
 }
 CShopScene::~CShopScene(){
-	//	SE_Enter.close();
 }
 
 void CShopScene::Update() {
@@ -38,7 +34,7 @@ void CShopScene::Update() {
 		break;
 
 	case CShopScene::E_SHOP_CREATING:
-//
+
 
 		break;
 	default:

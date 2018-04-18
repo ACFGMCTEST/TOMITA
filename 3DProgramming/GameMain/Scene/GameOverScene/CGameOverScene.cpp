@@ -7,12 +7,10 @@
 #include "../../Key/CMouse.h"
 
 CGameOverScene::CGameOverScene(){
-//	SE_Enter.load(SOUNDFILE"SE_ENTER.mp3");
 	mGameOver.Init();
 }
 
 CGameOverScene::~CGameOverScene(){
-//	SE_Enter.close();
 }
 
 void CGameOverScene::Update() {

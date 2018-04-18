@@ -11,11 +11,7 @@
 #define OBB_RIGHT_POS CVector3(MAPCHIP_SIZE + REF_SIZE_X ,0.0f,0.0f) //ポジション左
 #define SET_REF_RIGHT_OBB OBB_RIGHT_POS,OBB_SIZE,&mMatrix//右
 #define SET_REF_LEFT_OBB  OBB_LEFT_POS,OBB_SIZE, &mMatrix//左
-///*左右の向き*/
-//#define FRONT_ROT	CVector3(ANGLE_315,ANGLE_180,0.0f)
-//#define BACK_ROT	CVector3(ANGLE_315,0.0f,0.0f)
-//#define LEFT_ROT	CVector3(ANGLE_45,ANGLE_90,ANGLE_45)
-//#define RIGHT_ROT	CVector3(0,ANGLE_90,0)
+
 
 #include "../../../../Key/CKey.h"
 
@@ -141,10 +137,5 @@ void CSlopeEnd::Update(){
 void CSlopeEnd::Render(){
 	UpdateMatrix();
 	CBox::Render();
-#ifdef _DEBUG 
-	//mpColBox->Render();
-	/*生成されているなら更新*/
-	//if (mpColRefLeft != 0)mpColRefLeft->Render();
-	//if (mpColRefRight != 0)mpColRefRight->Render();
-#endif
+
 }

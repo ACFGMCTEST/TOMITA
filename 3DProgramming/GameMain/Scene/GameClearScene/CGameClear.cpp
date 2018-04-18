@@ -22,14 +22,12 @@ CGameClear::~CGameClear(){
 
 void CGameClear::Init(){
 	//背景の呼び出し
-	mTexBG.load(TGA_FILE"Cle_ar.tga");
 	mBG.SetVertex(BG_SIZE); //ここで大きさ変更
 	mBG.SetColor(W_COLOR,0.0f);
-	mBG.SetUv(&mTexBG, TEST_CG);
+	//mBG.SetUv(&mTexBG, TEST_CG);
 
 
 	//クリアロゴの呼び出し
-	mTexClearLogo.load(TGA_FILE"Clear.tga");
 	mClearLogo.SetVertex(TITLE_SIZE); //ここで大きさ変更
 	mClearLogo.SetColor(W_COLOR, 0.0f);
 	mClearLogo.position = CVector2(0.0f, 200);
@@ -44,11 +42,6 @@ void CGameClear::Init(){
 void CGameClear::Update(){
 	if (CScoreBoard::mPlayerScore >= LIMIT_SCORE){
 		CScoreBoard::mGameEnd = true;
-		//if (mAlpha <= ALPHA_MAX)mAlpha += 0.01f;
-		///*フェード*/
-		//if (mAlpha2 <= 0.5f){ mAlpha2 += 0.01f; }	
-		//mClearLogo.SetColor(W_COLOR, mAlpha);
-		//mBG.SetColor(B_COLOR, mAlpha2);
 
 		/*フェード*/
 		mClearLogo.Fade(FADE_SPEED, ALPHA_MAX);
@@ -58,7 +51,6 @@ void CGameClear::Update(){
 		if (mBG.triangle1.a >= ALPHA_MAX){
 			/*シーン移行をするフラグを立てる*/
 			CGameResult::mFlagResult = true;
-			//CScoreBoard::GetInstance()->mFlagSceneChage = true;
 		}
 
 	}

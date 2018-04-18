@@ -45,14 +45,6 @@ public:
 	public:
 		CMatrix44 *mpMatrix;//マトリックス
 		CSpark(){
-			//CVector3 v0(EFFECT_SIZE_V0);
-			//CVector3 v1(EFFECT_SIZE_V1);
-			//CVector3 v2(EFFECT_SIZE_V2);
-			//CVector3 v3(EFFECT_SIZE_V3);
-
-			//mRect.SetVertex(v0, v1, v2, v3);
-			//mRect.SetDiffuse(WHITE_COLOR);
-			//mRect.SetNormal(0.0f, 1.0f, 0.0f);
 			CEffect2D::Init(CEffect2D::E_SPARK);
 		}
 		/*初期化処理*/
@@ -73,13 +65,7 @@ public:
 			mpCamera = &MainCamera;
 			mMatrix.identity();
 			mMatrix.translate(mPos);
-			///*初期のポジションの方向に向ける*/
-			//CVector3 normal = VEC_FRONT;
-			//CVector4 cameraPos = CVector4(mpCamera->pos[0], mpCamera->pos[1], mpCamera->pos[2]);
-			//normal = mForward.getRotationTowards(cameraPos + mPos * -1.0f);
-			//CVector3 
-			//printf("%f,%f,%f\n", mForward.x, mForward.y, mForward.z);
-
+			
 			CMatrix44 rot;
 			/*初期場所から回転値を出す*/
 			mRot.z = CVector2::Angle(CVector2(mPos.x, mPos.y), CVector2(mSavePos.x, mSavePos.y));
@@ -92,21 +78,6 @@ public:
 			rot.rotationZ(mRot.z);
 			mMatrix = mMatrix * mpCamera->mCameraInverse * rot;
 
-		//	/*法線の計算*/
-		//	normal_y = mRot.z / ANGLE_180;
-		//	/*画像が180以上の時*/
-		//	if (mRot.z > ANGLE_180){
-		//		normal_y =   -NORMAL_MAX +(normal_y - NORMAL_MAX);
-		//	}
-		///*法線の絶対値を0.5以下にする*/
-		//	/*法線がマイナスの場合の場合*/
-		//	if (-NORMAL_HALF < normal_y  && normal_y < 0){
-		//		normal_y -= NORMAL_HALF;
-		//	}
-		//	/*法線がプラスの場合の場合*/
-		//	if (0 < normal_y  && normal_y < NORMAL_HALF){
-		//		normal_y += NORMAL_HALF;
-		//	}
 	/*法線計算　上の失敗したもの　惜しいとこまで行ったから参考にする*/
 			float nx, ny, nz;//法線たち
 			/*0から90 OK*/

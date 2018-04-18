@@ -5,7 +5,7 @@ bool CKey::flg[256];
 CInput CKey::Input;//‰Šú‰»
 
 bool CKey::push(char k) {
-	//Input.Update();
+	
 	if (KEY(k) || Input.ChangeInputKey(k)){
 		return true;
 	}

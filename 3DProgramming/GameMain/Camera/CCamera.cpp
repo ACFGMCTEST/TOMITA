@@ -36,7 +36,7 @@ mUp = //視界の上方向のベクトルx,y,z
 #define CAMERA_LOOK mEye.x,mEye.y,mEye.z, mPos.x,mPos.y,mPos.z, mUp.x,mUp.y,mUp.z
 /*あたり判定の設定値*/
 #define OBB_POS CVector3(0.0f, 1.0f, 0.0f) 
-#define OBB_SPHERE_SIZE 1.0f
+#define OBB_SPHERE_SIZE 3.0f
 /*カメラの位置*/
 #define CAMERA_OFFSET CVector3(0.0f, 0.5f, 4.0f) //カメラ位置プレイヤーからの相対位置
 //キャラ
@@ -73,12 +73,7 @@ void CCamera::CharaPos(){
 /*初期化処理*/
 void CCamera::Init(){
 	PosUpdate(mRot, FIAST_POS);
-	//PosUpdate(mRot, FIAST_POS);
-	/*for (int i = 0; i < E_ARRAY; i++)
-	{
-		pos[i] = 0.0f;
-		eye[i] = 0.0f;
-	}*/
+	
 
 
 	/*球の当たり判定設定*/
@@ -95,17 +90,10 @@ x:注視点のX座標 y:注視点のY座標 z:注視点のZ座標
 */
 void CCamera::SetPos(float x, float y, float z) {
 	//注視点の設定
-	/*pos[0] = x;
-	pos[1] = y;
-	pos[2] = z;*/
 	mPos = CVector3(x, y, z);
 	//視点の設定
-	/*eye[0] = pos[0];
-	eye[1] = pos[1] + 1.0f;
-	eye[2] = pos[2] + 10.0f;*/
 	mEye = CVector3(SET_EYE);
 	//カメラ行列の設定
-	//gluLookAt(eye[0], eye[1], eye[2], pos[0], pos[1], pos[2], 0.0f, 1.0f, 0.0f);
 	gluLookAt(CAMERA_LOOK);
 }
 /*カメラ設定*/
@@ -122,14 +110,7 @@ void CCamera::MouseCamera(){
 
 		CMouse::GetInstance()->SetMousePos(WinPosX + DISP_X / 2, WinPosY + DISP_Y / 2);//カーソルをウィンドウの中心にする
 	}
-	//if (CMouse::GetInstance()->mPos.y != mSaveMousePos.y && mSaveMousePos.y> CMouse::GetInstance()->mPos.y && mRot.x < ANGLE_45){//下
-	//	mRot.x += (mSaveMousePos.y - CMouse::GetInstance()->mPos.y) / CAMERA_DIVIDE;
-	//	CMouse::GetInstance()->SetMousePos(WinPosX + DISP_X / 2, WinPosY + DISP_Y / 2);//カーソルをウィンドウの中心にする
-	//}
-	//if (CMouse::GetInstance()->mPos.y != mSaveMousePos.y && mSaveMousePos.y   < CMouse::GetInstance()->mPos.y && mRot.x > -ANGLE_45){//上
-	//	mRot.x += (mSaveMousePos.y - CMouse::GetInstance()->mPos.y) / CAMERA_DIVIDE;
-	//	CMouse::GetInstance()->SetMousePos(WinPosX + DISP_X / 2, WinPosY + DISP_Y / 2);//カーソルをウィンドウの中心にする
-	//}
+
 	/*中心からそれると真ん中に戻す処理*/
 	if (CCollision2D::Collision2D(mColInitMouse, CMouse::GetInstance()->mRect)){
 		/*時間が経つと真ん中に戻る*/
@@ -195,12 +176,7 @@ void CCamera::CharaUpdate(){
 	if (CKey::push(VK_RIGHT)) {//右
 		mRot.y -= ANGLE_SPEED;
 	}
-	//if (CKey::push(VK_DOWN) && mRot.x < ANGLE_90) {//下
-	//	mRot.x += ANGLE_SPEED;
-	//}
-	//if (CKey::push(VK_UP) && mRot.x > -ANGLE_90) {//上
-	//	mRot.x -= ANGLE_SPEED;
-	//}
+
 	/*ローテーションがマイナスの場合*/
 	if (mRot.y < 0){
 		mRot.y = ANGLE_360 + mRot.y;
@@ -236,13 +212,10 @@ void CCamera::Update() {
 	glGetFloatv(GL_MODELVIEW_MATRIX, mCameraMatrix.f);
 	mCameraInverse = mCameraMatrix.getInverse();
 	mCameraInverse.m[3][0] = mCameraInverse.m[3][1] = mCameraInverse.m[3][2] = 0.0f;
-	//CMatrix44 inverse;
-	//inverse = mCameraMatrix.getInverse();
-	//inverse = inverse * mCameraMatrix;
+
 	/*キャラクタスイッチに使う*/
 	CVector3 pos = CHARA_POS;
 	/*デバック用*/
-	//mpCBSphere->Render();
 	/*ステータスによって場所を変える*/
 	switch (eState)
 	{
@@ -254,8 +227,7 @@ void CCamera::Update() {
 			MouseCamera();//mouseでカメラ制御
 		}
 
-		//PosUpdate(mRot, CHARA_POS);
-				/*範囲内の場合移動しない*/
+		/*範囲内の場合移動しない*/
 		if (pos.x - SPEED < mPos.x && mPos.x < pos.x + SPEED &&
 			pos.y - SPEED < mPos.y && mPos.y < pos.y + SPEED &&
 			pos.z - SPEED < mPos.z && mPos.z < pos.z + SPEED){
@@ -280,39 +252,6 @@ void CCamera::Update() {
 	//当たり判定更新
 	mpCBSphere->Update();
 }
-//
-//void CCamera::update(CVector3 aeye, CVector3 pos, CVector3 up) {
-//	//行列のモードをモデルビューにする
-//	glMatrixMode(GL_MODELVIEW);
-//	//モデルビューの行列を単位行列にする
-//	glLoadIdentity();
-//	if (GetKeyState('J') & 0x8000) {
-//		//Jキーの時、左前から見る
-//		eye[0] -= 1.0f;
-//		//		eye[1] = pos[1] + 2.0f;
-//		//		eye[2] = pos[2] + 3.0f;
-//	}
-//	if (GetKeyState('K') & 0x8000) {
-//		//Kキーの時、真正面から見る
-//		//		eye[0] = pos[0];
-//		//		eye[1] = pos[1] + 2.0f;
-//		eye[2] += 1.0f;
-//	}
-//	if (GetKeyState('L') & 0x8000) {
-//		//Lキーの時、右前から見る
-//		eye[0] += 1.0f;
-//		//		eye[1] = pos[1] + 2.0f;
-//		//		eye[2] = pos[2] + 3.0f;
-//	}
-//	if (GetKeyState('I') & 0x8000) {
-//		//Iキーの時、真後ろから見る
-//		//eye[0] = pos[0];
-//		//eye[1] = pos[1] + 2.0f;
-//		eye[2] -= 1.0f;
-//	}
-//	//視点の設定
-//	gluLookAt(eye[0], eye[1], eye[2], pos.x, pos.y, pos.z, up.x, up.y, up.z);
-//}
 
 /*当たり判定呼び出し
 元の場所に戻すための関数

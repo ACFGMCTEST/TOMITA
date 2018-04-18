@@ -109,9 +109,6 @@ void CTriangle::Render() {
 		glVertex3f(mVertex[1].x, mVertex[1].y, mVertex[1].z);	//頂点の指定
 		glVertex3f(mVertex[2].x, mVertex[2].y, mVertex[2].z);	//頂点の指定
 
-		//glVertex3f(mVertex[0].x, mVertex[0].y, mVertex[0].z);	//頂点の指定
-		//glVertex3f(mVertex[2].x, mVertex[2].y, mVertex[2].z);	//頂点の指定
-		//glVertex3f(mVertex[3].x, mVertex[3].y, mVertex[3].z);	//頂点の指定
 		glEnd();	//頂点指定終了
 
 	}
@@ -138,12 +135,6 @@ void CTriangle::Render() {
 		glTexCoord2fv(mUv[2]);	//頂点のテクスチャマッピング
 		glVertex3f(mVertex[2].x, mVertex[2].y, mVertex[2].z);	//頂点の指定
 
-		//glTexCoord2fv(mUv[0]);	//頂点のテクスチャマッピング
-		//glVertex3f(mVertex[0].x, mVertex[0].y, mVertex[0].z);	//頂点の指定
-		//glTexCoord2fv(mUv[2]);	//頂点のテクスチャマッピング
-		//glVertex3f(mVertex[2].x, mVertex[2].y, mVertex[2].z);	//頂点の指定
-		//glTexCoord2fv(mUv[3]);	//頂点のテクスチャマッピング
-		//glVertex3f(mVertex[3].x, mVertex[3].y, mVertex[3].z);	//頂点の指定
 		glEnd();	//頂点指定終了
 
 		//テクスチャを解放

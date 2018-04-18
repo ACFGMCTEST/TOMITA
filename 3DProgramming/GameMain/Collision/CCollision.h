@@ -18,13 +18,6 @@
 #include "ColType\CColLine.h"
 
 
-//
-///*当たり判定クラス　壁*/
-//class CColWall :public CCollBase
-//{
-//public:
-//	CVector3 mNormal;		//向き
-//};
 
 //衝突判定クラス
 class CCollision {
@@ -72,9 +65,6 @@ public:
 
 	/*当たり判定の関数(球とBOXの判定)*/
 	static bool CollSphereBox(CColSphere sphere, COBB &box);
-
-	///*当たり判定関数(球と壁判定)*/
-	//static bool ColSphereWall(const CColSphere &sphere,const CColWall &wall);
 
 	/*面と線分の衝突判定
 	corss	=接地面

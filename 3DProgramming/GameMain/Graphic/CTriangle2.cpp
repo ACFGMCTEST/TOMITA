@@ -59,10 +59,7 @@ void CTriangle2::Render(CVector2 pos, float degree){
 }
 
 void CTriangle2::Render(CVector2 pos, float degree, float uv[]){
-	/*CMatricx22 scale;
-	scale.setscale(sinf(degree * M_PI / 180.0f) * 0.5f + 1.0f,
-	sinf(degree * M_PI / 180.0f) * 0.5f + 1.0f);*/
-
+	
 	CVector2 w1 = v1;
 	CVector2 w2 = v2;
 	CVector2 w3 = v3;

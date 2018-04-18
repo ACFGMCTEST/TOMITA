@@ -8,7 +8,7 @@
 #include "../../../../Collision/CCollisionManager.h"
 #include <math.h>
 /*大きさ*/
-#define BOX_SIZE MAPCHIP_SIZE, -MAPCHIP_SIZE, MAPCHIP_SIZE, -MAPCHIP_SIZE, MAPCHIP_SIZE, -MAPCHIP_SIZE
+#define BOX_SIZE -MAPCHIP_SIZE, MAPCHIP_SIZE, -MAPCHIP_SIZE, MAPCHIP_SIZE, -MAPCHIP_SIZE*0.1f, MAPCHIP_SIZE*0.1f
 /*あたり判定の設定値*/
 #define OBB_POS CVector3(0.0f, 0.0f, 0.0f) 
 #define OBB_SIZE new float[]{MAPCHIP_SIZE, MAPCHIP_SIZE*1.1f, MAPCHIP_SIZE} 
@@ -33,37 +33,7 @@
 
 CGoal::CGoal(CVector3 pos,CTask::E_TAG tag){
 
-	///*サイズ設定*/
-	//SetVertex(BOX_SIZE);
-	///*色設定*/
-	//SetColor(WHITE_COLOR);
-	///*テクスチャ設定*/
-	//SetTex(CBox::E_TexBox::E_BOX);
-
-	///*当たり判定インスタンス作成*/
-	//mCBBox = new CCollider(CTask::E_COL_BOX);
-	///*当たり判定設定*/
-	//mCBBox->SetBoxOBB(SET_OBB);//設定
-	//mCBBox->mpParent = this;
-	//mCBBox->eTag = tag;
-
-
-
-	///*レンダー順番決める*/
-	//ePriority = CTask::E_HIGH_BOX;
-	///*当たり判定追加*/
-	//CCollisionManager::GetInstance()->Add(mCBBox->eTag, mCBBox);
-
-
-
-
-	//mForward = CVector3(FORWARD);
-	////ColInit();
-	//mPosition = pos;
-
-	
-	/*mpParent = this;
-	mState = E_IDLE;*/
+	mPosition = pos;
 
 	/*当たり判定インスタンス作成*/
 	mCBBox = new CCollider(E_COL_BOX);
@@ -71,8 +41,8 @@ CGoal::CGoal(CVector3 pos,CTask::E_TAG tag){
 	mCBBox->mpParent = this;
 	/*ポジション設定*/
 	mPos.x = pos.x;
-	mPos.y = - MAPCHIP_SIZE;
-	mPos.z = pos.z;
+	mPos.y = 0;
+	mPos.z = pos.z - MAPCHIP_SIZE;
 	for (int i = 0; i < BOX_FACE_NUM; i++)
 	{
 		mRect[i].mMatrix = mMatrix;
@@ -83,9 +53,8 @@ CGoal::CGoal(CVector3 pos,CTask::E_TAG tag){
 	/*サイズ設定*/
 	SetVertex(BOX_SIZE);
 	/*色設定*/
-	SetColor(GRAY_COLOR);
-	/*テクスチャ設定*/
-	SetTex(CBox::E_TexBox::E_BOX);
+	SetColor(BLACK_COLOR);
+
 
 	/*当たり判定設定*/
 	mCBBox->SetBoxOBB(SET_OBB);//設定
@@ -104,39 +73,7 @@ CGoal::CGoal(CVector3 pos,CTask::E_TAG tag){
 	mEffect.DisableAnima();
 };
 /*当たり判定初期化*/
-void CGoal::ColInit() {
-	///*サイズ設定*/
-	//SetVertex(BOX_SIZE);
-	///*色設定*/
-	//SetColor(WHITE_COLOR);
-	///*テクスチャ設定*/
-	//SetTex(CBox::E_TexBox::E_BOX);
-	///*当たり判定インスタンス作成*/
-	//mCBBox = new CCollider(CTask::E_COL_BOX);
-	//mCBBox->mpParent = this;
-	//mCBBox->eTag = tag;
-	///*レンダー順番決める*/
-	//ePriority = CTask::E_HIGH_BOX;
-	///*当たり判定追加*/
-	//CCollisionManager::GetInstance()->Add(mCBBox->eTag, mCBBox);
-}
-///*
-//Init
-//モデルと衝突判定の設定を行う
-//*/
-//void CGoal::Init(CModelX *model,CVector3 pos) {
-//	ColInit();
-//	mPosition = pos;
-//	CModelXS::Init(model);
-//	mCBBox->SetBoxOBB(OBB_POS, OBB_SIZE
-//		, &mpCombinedMatrix[model->FindFrame("Armature_Bone")->mIndex]);
-//	
-//	PosUpdate();
-//	/*エフェクト*/
-//	mEffect.Init(pos, mRotation);
-//	//はじめはアニメーションをしないようにしておく
-//	mEffect.DisableAnima();
-//}
+void CGoal::ColInit() {}
 /*
 Init
 モデルと衝突判定の設定を行う
@@ -160,11 +97,6 @@ void CGoal::PosUpdate(){
 	CMatrix44 rot_y, pos, matrix;
 	//回転行列の作成
 	rot_y.rotationY(mRotation.y);
-
-	/////進行方向を計算
-	//mForward = mForward * rot_y;
-	////移動させる
-	//mPosition += mForward * mVelocity;
 
 	//移動行列を計算する
 	pos.translate(mPosition);
@@ -191,11 +123,8 @@ void CGoal::Update(){
 void CGoal::Render() {
 	BillboardRender();
 	CBox::UpdateMatrix();
-	//CModelXS::Render();
-	//CBox::Render();
-#ifdef _DEBUG
-	//mCBBox->Render();
-#endif
+
+	CBox::Render();
 }
 
 //billboardの描画処理

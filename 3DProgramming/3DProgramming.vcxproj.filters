@@ -135,6 +135,9 @@
     <Filter Include="ソース ファイル\GameMain\Scene\GameScene\Tutorial">
       <UniqueIdentifier>{f76e92bc-52c2-4398-8c89-d43e342ed8be}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\GameMain\Sound">
+      <UniqueIdentifier>{75a78c9b-f0b9-4ae7-9766-dbf8adced11c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main\main.cpp">
@@ -349,6 +352,12 @@
     </ClCompile>
     <ClCompile Include="GameMain\Scene\GameScene\Map\Goal\CGoal.cpp">
       <Filter>ソース ファイル\GameMain\Scene\GameScene\Map\Goal</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMain\Sound\CSound.cpp">
+      <Filter>ソース ファイル\GameMain\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMain\Sound\CSE.cpp">
+      <Filter>ソース ファイル\GameMain\Sound</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -582,6 +591,12 @@
     </ClInclude>
     <ClInclude Include="GameMain\Scene\GameScene\Map\Goal\CGoal.h">
       <Filter>ソース ファイル\GameMain\Scene\GameScene\Map\Goal</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMain\Sound\CSound.h">
+      <Filter>ソース ファイル\GameMain\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMain\Sound\CSE.h">
+      <Filter>ソース ファイル\GameMain\Sound</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

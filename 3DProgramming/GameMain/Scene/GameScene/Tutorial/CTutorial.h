@@ -9,12 +9,7 @@ private:
 	/*ポリゴン*/
 	CRectangle2 mOperation[ARRAY_OPERA];//操作説明文字
 	/*テクスチャ*/
-	//CTexture mTexOperation;//操作説明文字のテクスチャ
-	//CTexture mTexWalk;//歩き説明
-	//CTexture mTexAttack;//アタック説明
-	//CTexture mTexCameraKey;//カメラ説明(矢印)
-	//CTexture mTexCameraMouse;//カメラ説明(矢印)
-	//CTexture mTexPauze;//ポーズが説明
+
 	/*テクスチャの配列番号*/
 	enum E_TEX{
 	E_TEX_RULE,			//0番ルール

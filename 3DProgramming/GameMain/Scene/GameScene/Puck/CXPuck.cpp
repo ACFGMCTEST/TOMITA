@@ -82,10 +82,6 @@ void CXPuck::PosUpdate(){
 	rot.rotationZ(mRotation.z);
 	
 
-
-	////移動させる
-	//mPosition += mForward * mVelocity;
-
 	//移動行列を計算する
 	pos.translate(mPosition);
 	//回転移動行列を求める
@@ -285,9 +281,6 @@ void CXPuck::Move(){
 /*坂の処理*/
 void CXPuck::EnabledSlope(){
 	mFlagSlope = true;//坂道をtrueに
-	//mPosition = slope.MiddlePos(mPosition);//ポジションを合わせる
-	//slope.SlpoeRot(&mRotation);//回転値を坂の方向に変更
-	//mGravitTime = GRA_INIT_TIME_COUNT;//重力加速度リセット
 }
 
 /*当たり判定呼び出し

@@ -20,7 +20,8 @@
 #define KEY_ATTACK VK_SHIFT
 #define KEY_ATTACK2 VK_CONTROL
 #define KEY_SKILL 'E'
-#define SOUNDFILE "../Sound/"
+
+
 
 //#define MAP_ARRAY_X 15 //マップ数
 //#define MAP_ARRAY_Z 27 //マップ数 

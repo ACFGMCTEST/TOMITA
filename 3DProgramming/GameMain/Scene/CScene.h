@@ -17,8 +17,6 @@ enum eSceneNo{
 	E_GAMEOVER,
 };
 
-//eSceneNo eSceneNo_Predictive_Conversion;//予測変換用
-
 class CScene{
 public:
 	//シーン毎に設定　並びは流れの順番
@@ -26,13 +24,13 @@ public:
 	static int State; //属性管理
 
 
-		virtual	void Update(){};	//virtual　
-		virtual	void Render(){};
-		virtual	void Init(){};
-		
+	virtual	void Update(){};	//virtual　
+	virtual	void Render(){};
+	virtual	void Init(){};
 
-		friend class CSceneManager;
-		friend class CTitleScene;
+
+	friend class CSceneManager;
+	friend class CTitleScene;
 };
 
 #endif

@@ -14,7 +14,6 @@ public:
 	CRectangle2 mQuestName00;	    //クエスト名
 	CRectangle2 mQuestName01;
 	CRectangle2 mQuestName02;
-	//CRectangle2 mQuestName03;
 	CRectangle2 mShadow[BOARD];
 
 

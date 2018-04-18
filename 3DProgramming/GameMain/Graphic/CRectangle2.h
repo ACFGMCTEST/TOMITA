@@ -143,54 +143,11 @@ public:
 	void RectScaling(float x, float y, float time, bool flag);
 
 	/*‰ñ“]‚³‚¹‚é‚æ‚¤*/
-	void CRectangle2::SetUvRot() {
-
-		float saveUv0[2] = { uv[0][0], uv[0][1] };
-		uv[0][0] = uv[3][0];
-		uv[0][1] = uv[3][1];
-
-		float saveUv2[2] = { uv[2][2], uv[2][1] };
-		uv[2][0] = uv[1][0];
-		uv[2][1] = uv[1][1];
-
-		uv[1][0] = saveUv0[0];
-		uv[1][1] = saveUv0[1];
-
-		uv[3][0] = saveUv2[0];
-		uv[3][1] = saveUv2[1];
-	}
+	void CRectangle2::SetUvRot();
 	/*2Dˆ—‚ğŠJn‚·‚éˆ—*/
-	static void Disp2D_Start(){
-		/*•`‰æ€”õ*/
-		glDisable(GL_CULL_FACE);
-		glDisable(GL_LIGHTING);
-		glDisable(GL_DEPTH_TEST);
-
-		glEnable(GL_BLEND);
-		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
-		glMatrixMode(GL_PROJECTION);
-		glPushMatrix();
-		glLoadIdentity();
-		gluOrtho2D(-DISP_2D_X,DISP_2D_X,-DISP_2D_Y,DISP_2D_Y);
-
-		glMatrixMode(GL_MODELVIEW);
-		glPushMatrix();
-		glLoadIdentity();
-	}
+	static void Disp2D_Start();
 	/*2Dˆ—‚ğI—¹‚·‚éˆ—*/
-	static void Disp2D_Exit(){
-		glPopMatrix();
-		glMatrixMode(GL_PROJECTION);
-		glPopMatrix();
-
-		glMatrixMode(GL_MODELVIEW);
-		glDisable(GL_BLEND);
-
-		glEnable(GL_DEPTH_TEST);
-		glEnable(GL_LIGHTING);
-		glEnable(GL_CULL_FACE);
-	}
+	static void Disp2D_Exit();
 };
 
 #endif

@@ -24,13 +24,10 @@ CGameOver::~CGameOver(){
 }
 
 void CGameOver::Init(){
-	//背景の呼び出し
-	mpTexture = new CTexture();
-	mpTexture->load(TGA_FILE"Cle_ar.tga");
 	//背景の描画設定
 	mBG.SetVertex(BG_SIZE); //ここで大きさ変更
 	mBG.SetColor(B_COLOR, mAlpha2);
-	mBG.SetUv(mpTexture, TEST_CG);
+	//mBG.SetUv(mpTexture, TEST_CG);
 ///////////////////////////////////////////////////////////////////
 	//ゲームオーバーテクスチャの読み込み
 	mpTexture = new CTexture();

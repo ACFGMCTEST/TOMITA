@@ -1,6 +1,6 @@
 #include "CBillBoard.h"
 #include "glut.h"
-
+/*サイズ設定*/
 void CBillBoard::SetVertex(float left, float right, float bottom, float top) {
 	mVertex[0].x = left;
 	mVertex[0].y = top;
@@ -15,13 +15,13 @@ void CBillBoard::SetVertex(float left, float right, float bottom, float top) {
 	mVertex[3].y = top;
 	mVertex[3].z = 0.0f;
 }
-
+/*更新処理*/
 void CBillBoard::Update() {
 	mMatrix.identity();
 	mMatrix.translate(mPosition);
 	mMatrix = mMatrix * mpCamera->mCameraInverse;
 }
-
+/*描画*/
 void CBillBoard::Render() {
 
 	glPushMatrix();

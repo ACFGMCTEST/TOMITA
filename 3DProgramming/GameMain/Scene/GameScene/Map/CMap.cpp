@@ -216,14 +216,12 @@ void CMap::MapInit(CCsv &csv){
 			case CMap::E_GOAL_PLAYER_6:
 				goal = new CGoal(ARRAY_POS(x, 0, z), CTask::E_TAG::E_TAG_GOAL_PLAYER);
 				mMapTaskManager.Add(goal);
-				tile->mRect.SetDiffuse(BLACK_COLOR);//穴代わり
-				break;
+								break;
 				/*エネミーゴール設定*/
 			case CMap::E_GOAL_ENEMY_7:
 				goal = new CGoal(ARRAY_POS(x, 0, z), CTask::E_TAG::E_TAG_GOAL_ENEMY);
 				mMapTaskManager.Add(goal);
-				tile->mRect.SetDiffuse(BLACK_COLOR);//穴替わり
-				break;
+								break;
 				/*坂の設定*/
 			case CMap::E_SLOP_8:
 				slope = new CSlope(ARRAY_POS(x, 0, z), x, z);
@@ -239,17 +237,9 @@ void CMap::MapInit(CCsv &csv){
 			case CMap::E_HIGH_BOX_A:
 				highBox = new CHighBox(ARRAY_POS(x, 0, z));
 				mMapTaskManager.Add(highBox);
-				/*とりあえず普通の高台を入れている*/
-				//highBox = new CHighBox(ARRAY_POS);
-				//highBox->SetColor(YELLOW_COLOR);//デバック用色変え
-				//mMapTaskManager.Add(highBox);
 				break;
 			};
-			///*タイル設定ゴールは貼らない*/
-			//if (mCsvMapData.mpData[(z*mMapX) + x] != E_GOAL_PLAYER_6 &&
-			//	mCsvMapData.mpData[(z*mMapX) + x] != E_GOAL_ENEMY_7){
-			//	
-			//}
+			
 		}
 	}
 
@@ -318,19 +308,19 @@ void CMap::ColInit(){
 	/*右の壁設定*/
 	mpColPlane[E_WALL_RIGHT]->SetBoxOBB(right, OBB_WALL_RIGHT_SIZE, &mWallBox.mRect[CBox::E_x2].mMatrix);
 	mpColPlane[E_WALL_RIGHT]->NORMAL(VEC_LEFT);//法線を左に(パックの跳ね返り方向)
-	CCollisionManager::GetInstance()->Add(CTask::E_TAG_BOX, mpColPlane[E_WALL_RIGHT]);
+	CCollisionManager::GetInstance()->Add(CTask::E_TAG_WALL, mpColPlane[E_WALL_RIGHT]);
 	/*左の壁設定*/
 	mpColPlane[E_WALL_LEFT]->SetBoxOBB(left, OBB_WALL_LEFT_SIZE, &mWallBox.mRect[CBox::E_x1].mMatrix);
 	mpColPlane[E_WALL_LEFT]->NORMAL(VEC_RIGHT);//法線を右に(パックの跳ね返り方向)
-	CCollisionManager::GetInstance()->Add(CTask::E_TAG_BOX, mpColPlane[E_WALL_LEFT]);
+	CCollisionManager::GetInstance()->Add(CTask::E_TAG_WALL, mpColPlane[E_WALL_LEFT]);
 	/*上の壁設定*/
 	mpColPlane[E_WALL_UP]->SetBoxOBB(up, OBB_WALL_UP_SIZE, &mWallBox.mRect[CBox::E_z2].mMatrix);
 	mpColPlane[E_WALL_UP]->NORMAL(VEC_BACK);//法線を後方に(パックの跳ね返り方向)
-	CCollisionManager::GetInstance()->Add(CTask::E_TAG_BOX, mpColPlane[E_WALL_UP]);
+	CCollisionManager::GetInstance()->Add(CTask::E_TAG_WALL, mpColPlane[E_WALL_UP]);
 	/*下の壁設定*/
 	mpColPlane[E_WALL_DOWN]->SetBoxOBB(down, OBB_WALL_DOWN_SIZE, &mWallBox.mRect[CBox::E_z1].mMatrix);
 	mpColPlane[E_WALL_DOWN]->NORMAL(VEC_FRONT);//法線を前方に(パックの跳ね返り方向)
-	CCollisionManager::GetInstance()->Add(CTask::E_TAG_BOX, mpColPlane[E_WALL_DOWN]);
+	CCollisionManager::GetInstance()->Add(CTask::E_TAG_WALL, mpColPlane[E_WALL_DOWN]);
 
 }
 
@@ -353,10 +343,7 @@ void CMap::Update(){
 }
 
 void CMap::Render(){
-	//for (int i = 0; i < CMap::E_WALL_ARRAY; i++)
-	//{
-	//	//mpColPlane[i]->Render();
-	//}
+
 	mWallBox.Render2();
 	mMapTaskManager.AllRender();
 }

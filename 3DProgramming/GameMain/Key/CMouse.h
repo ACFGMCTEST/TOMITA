@@ -10,7 +10,6 @@
 class CMouse
 {
 private:
-	static GLFWwindow* window;//アクセス用
 	static CMouse *mpMouse;
 public:
 	static CMouse *GetInstance();
@@ -30,7 +29,6 @@ public:
 	
 	void SetMousePos(float x, float y);
 
-	void Access(GLFWwindow *win);
 };
 
 #endif

@@ -15,7 +15,6 @@ CTrampoline::CTrampoline(CVector3 pos){
 	/*当たり判定インスタンス作成*/
 	mpColBox = new CCollider(E_COL_BOX);
 	/*親設定*/
-	//mpParent = this;
 	mpColBox->mpParent = this;
 	/*ポジション設定*/
 	mPos.x = pos.x;

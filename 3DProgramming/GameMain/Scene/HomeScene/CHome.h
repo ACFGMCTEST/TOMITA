@@ -4,9 +4,9 @@
 #include "../Base\CBase.h"
 #include "../GameMain\Graphic\CRectangle2.h"
 #include "../GameMain\Scene\CScene.h"
-
 #define MOVE_SPEED 25
 
+/*ホームのクラス*/
 class CHome :public CScene{
 public:
 	CRectangle2 mBG;		    //ゲームタイトル（背景）

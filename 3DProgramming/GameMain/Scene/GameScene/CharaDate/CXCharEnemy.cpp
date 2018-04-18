@@ -69,24 +69,16 @@ CVector3 CXCharEnemy::GoalShot(){
 	/*進行方向の回転地を決める*/
 	CVector3 Vec;
 
-	/*打つ前に壁がある場合*/
-	//if (){
-	
-	//}
-	/*ゴールの方向に向ける*/
-	//else{
-		Vec = CMap::GoalPlayerFirstPos();
+	Vec = CMap::GoalPlayerFirstPos();
 
-		int randMax = MAPCHIP_SIZE	*CMap::mMapX;//最大値
-		int randMin = -MAPCHIP_SIZE *CMap::mMapX; //最小値
+	int randMax = MAPCHIP_SIZE	*CMap::mMapX;//最大値
+	int randMin = -MAPCHIP_SIZE *CMap::mMapX; //最小値
 
-		Vec.x = rand() % randMax + randMin;
-	//}
+	Vec.x = rand() % randMax + randMin;
 
 
 	return mForward.getRotationTowards(Vec + mPosition * -1.0f);
 }
-
 
 /*E_AIROT_STATEのステータス管理*/
 void CXCharEnemy::AIRotStateUpdate(){
@@ -102,11 +94,9 @@ void CXCharEnemy::AIRotStateUpdate(){
 	攻撃した状態であること
 
 	*/
-	//if (!CSceneModel::mpPuck->mGoalStandUpFlag){
+
 	eAIRotState = E_ROT_PUCK;
 
-	//	}
-	//else{
 
 	/*パックが自分の陣地でないときは*/
 	if (CSceneModel::mpPuck->mPosition.z <= 0){
@@ -116,7 +106,6 @@ void CXCharEnemy::AIRotStateUpdate(){
 			AnimaState(E_ATTACK_IDLE);
 		}
 	}
-	//}
 	if (mState == E_ATTACK){
 		eAIRotState = E_ROT_GOAL;
 	}

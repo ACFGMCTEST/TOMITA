@@ -31,12 +31,7 @@ public:
 
 	CRectangle mRect[6];	//面が6個分
 	GLuint	mMyVertexBuffer;
-	///*オールレンダー用*/
-	//static CMatrix44 *mAllBoxTransformMatrixSize;
-	//static int mAllBoxSize;
-	//static GLuint mAllBoxMyVertexBuffer;
-	//static CAllBoxVertex mAllBox;
-	//CShader mShader;
+	
 	/*大きさ記憶用*/
 	float mSizeX1;
 	float mSizeX2;

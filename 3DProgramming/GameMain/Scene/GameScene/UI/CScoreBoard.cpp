@@ -313,11 +313,6 @@ void CScoreBoard::Init(){
 	///////////////////////////////////////////////////////////////////
 	///////////////////////////////////////////////////////////////////
 
-	///*カーソル四角作成*/
-	//mCursor.SetVertex(CURSOR_SIZE);
-	//mCursor.SetColor(WHITE_COLOR);
-
-	//mPlScore3.SetGradationLoop(CRectangle2::E_COLOR_CHANGE::E_RED_BLUE);
 
 	status = 0;//デフォルトで0
 	/*シーンチェンジフラグ初期化*/
@@ -519,8 +514,6 @@ void CScoreBoard::Update(){
 	mBackButton.SetColor(WHITE_COLOR);		   //白色
 
 	////カーソルのポジション
-	//mCursor.position = CMouse::mPos;
-
 
 
 	if (mFlagSkill0){

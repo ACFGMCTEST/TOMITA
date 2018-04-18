@@ -104,17 +104,6 @@ void CQuest::Init(){
 	mShadow[2].SetColor(SKELETON_BLACK_COLOR);
 	mShadow[2].position = NAME_POS2S;
 
-	////クエスト名03
-	//mpMenu = new CTexture();	//テクスチャクラスのインスタンス作成
-	//mpMenu->load(QUEST_NAME3);	//テクスチャファイル読み込み
-	//mQuestName03.SetVertex(NAME_SIZE);
-	//mQuestName03.SetColor(WHITE_COLOR);
-	//mQuestName03.SetUv(mpMenu, TEST_CG);
-	//mQuestName03.position = NAME_POS3;
-
-	/*mShadow[3] = mQuestName03;
-	mShadow[3].SetColor(SKELETON_BLACK_COLOR);
-	mShadow[3].position = NAME_POS3S;*/
 
 	////戻るボタンの呼び出し
 	mpMenu = new CTexture();	//テクスチャクラスのインスタンス作成
@@ -158,10 +147,7 @@ void CQuest::Update(){
 	if (CCollision2D::Collision2D(mCursor, mQuestName02)){mQuestName02.SetColor(GRAY_COLOR);
 	if (CMouse::GetInstance()->mOneLeftFlag){ mQuestName02.position = NAME_POS2S; mQuestName02.SetColor(DARK_GRAY_COLOR); }
 	}
-	//if (CCollision2D::Collision2D(mCursor, mQuestName03)){mQuestName03.SetColor(GRAY_COLOR);
-	//if (CMouse::GetInstance()->mOneLeftFlag){ mQuestName03.position = NAME_POS3S; mQuestName03.SetColor(DARK_GRAY_COLOR); }
-	//}
-
+	
 	mBackButton.SetColor(WHITE_COLOR);
 	if (CCollision2D::Collision2D(mCursor, mBackButton)){
 mBackButton.SetColor(GRAY_COLOR);
@@ -184,21 +170,11 @@ void CQuest::Render() {
 	mQuestName00.Render();
 	mQuestName01.Render();
 	mQuestName02.Render();
-	//mQuestName03.Render();
 	mBackButton.Render();
 
 	mCursor.Render();
 	CRectangle2::Disp2D_Exit();;//描画終了
-	//enemytip.Render();
-	//stagename.Render();
-	//mQuestName.Render();
-	//stagetip.Render();
-
-	//odifit.Render();
-	//thdifit.Render();
-	//twdifit.Render();
-
-
+	
 
 
 }

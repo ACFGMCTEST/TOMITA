@@ -15,11 +15,6 @@ public:
 	CTexture	*mpTexture;
 	CTexture	*mpMenu;
 
-	/*
-	CSound titlebgm;
-	CSound returnkey;
-	CSound cursorchange;
-	*/
 
 
 	float mAlpha=0.0f;

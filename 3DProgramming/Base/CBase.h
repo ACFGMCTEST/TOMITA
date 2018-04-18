@@ -19,52 +19,7 @@ public:
 	CVector4 mNormal;
 	CVector4 mForward;
 
-	float mRadius; ///半径
 	CBase *mpParent;
-
-	float mHp; //体力
-	float mColRot; //当たったときの回転(てきのAIに使う)
-	static bool mFlagEnemyFight; //誰か戦闘しているか判断
-	static int mSumNum; //全員のナンバー合計
-	int mNum; //製造番号
-	bool mFlagSandwiching;//挟んでいる?判断用
-
-	CVector4 mGoRot; //行き先指定
-
-	enum ESTATE
-	{
-		NORMAL, FIGHT, EXPLOSIONINIT, EXPLOSION, DOWN,FALLINIT,FALL
-	};
-	const ESTATE mState;
-
-	enum COLLINDERTYPE{
-		NOCOLLIDER,
-		COL_PLANE,
-		COL_SPHERE,
-		COL_RECT
-	};
-	COLLINDERTYPE mColType;
-
-	enum TAG{
-		NOTAG,
-		TAG_CANNOBALL,
-		TAG_BAGGAGE,
-		TAG_TARGAT,
-		TAG_GROUND,
-		TAG_WALL,
-		TAG_TANK,
-		TAG_TANKENEMY,
-		TAG_EXPLOSION,
-		TAG_ATTACKCANNON,
-		TAG_RECT,
-		TAG_GOAL_PLAYER,
-		TAG_GOAL_ENEMY,
-		TAG_HOLE_SMALL,//自分タンク用
-		TAG_HOLE_BIG//荷物,敵タンク用
-	};
-	TAG mTag;
-
-	bool mEnabled;
 
 	CBase();
 

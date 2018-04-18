@@ -1,10 +1,14 @@
 #ifndef CSCENEMANAGER_HPP
 #define CSCENEMANAGER_HPP
 #include "../Scene/CScene.h"
+#include "../Sound/CSound.h"
 
+/*シーン管理クラス*/
 class CSceneManager{
 private:
 	static CSceneManager *mSceneManager;
+	CSound mBgm;//BGM
+
 public:
 
 	int NextNo;

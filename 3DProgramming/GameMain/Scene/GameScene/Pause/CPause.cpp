@@ -120,7 +120,6 @@ void CPause::Update(){
 		if (CCollision2D::Collision2D(mCursor, mTitleBackButton)){ //カーソルがあっている?
 			mTitleBackButton.SetColor(GRAY_COLOR);
 			if (CMouse::GetInstance()->mOneLeftFlag){//マウス左クリック
-				//CSceneManager::GetInstance()->ChangeScene(eSceneNo::E_TITLE);
 				mSceneChangeFlag = true;
 			}
 		}
@@ -131,7 +130,6 @@ void CPause::Update(){
 		if (CCollision2D::Collision2D(mCursor, mGuideButton)){ //カーソルがあっている?
 			mGuideButton.SetColor(GRAY_COLOR);
 			if (CMouse::GetInstance()->mOneLeftFlag){//マウス左クリック
-				//CSceneManager::GetInstance()->ChangeScene(eSceneNo::E_TITLE);
 				mOperationFlag = true;
 			}
 		}

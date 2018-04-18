@@ -126,12 +126,12 @@ void CCollider::Update(){
 
 		
 		//ˆÚ“®‰ñ“]‚³‚¹‚é
-		mObb.Transeform(*mpCombinedMatrix);
+		mObb.Transform(*mpCombinedMatrix);
 		break;
 	case CTask::E_COL_SPHEPE:
 		mColSphere.mPos = mParentNextPos;
 		//ˆÚ“®‰ñ“]‚³‚¹‚é
-		mColSphere.Transeform(*mpCombinedMatrix);
+		mColSphere.Transform(*mpCombinedMatrix);
 		break;
 	default:
 		break;
@@ -254,9 +254,6 @@ void CCollider::SetColor(float cr, float cg, float cb, float ca){
 	switch (eColTag)
 	{
 	case CTask::E_COL_NO:
-		break;
-	case CTask::E_COL_WALL:
-		//mColWall.SetColor(cr, cg, cb, ca);
 		break;
 	case CTask::E_COL_BOX:
 		mObb.SetColor(cr, cg, cb, ca);

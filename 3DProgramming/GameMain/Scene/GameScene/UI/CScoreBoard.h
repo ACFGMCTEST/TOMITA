@@ -101,7 +101,6 @@ public:
 
 	CRectangle2 mBackButton;	    //戻るボタン
 
-//	CRectangle2 mCursor;//カーソル
 
 	CRectangle2 mSkillGauge;//スキルゲージ
 
@@ -115,26 +114,12 @@ public:
 
 
 
-	//CRectangle2 mItemList;    //武器詳細
-
-	//CRectangle2 mHelp;          	//作成しますか？
-
-	//CRectangle2 mYes;			//はい
-
-	//CRectangle2 mNo;				//いいえ
-
-
 	CTexture	*mpTexture;
 	CTexture	*mpGauge;
 	CTexture	*mpMenu;
 	CTexture    *mpFrame;
 	CTexture    *mpLighting;
 	CTexture    *mpHyphen;
-
-	//CSound Itembgm;
-
-	//CSound returnkey;
-	//CSound cursorchange;
 
 
 	float mAlpha;

@@ -8,10 +8,8 @@ void CXCharacter::Init(CModelX *model) {
 	mAnimationIndex = 0;
 	mAnimationLoopFlg = true;
 	mAnimationFrameSize = 60.0f;
-	//24
 	mAnimationTime = 0.0f;
 	mpModel->mAnimationSet[0]->mWeight = 1.0f;
-	//	ChangeAnimation(0, true, 30.0f);
 }
 /*
  ChangeAnimation
@@ -23,9 +21,8 @@ void CXCharacter::Init(CModelX *model) {
 void CXCharacter::ChangeAnimation(int index, bool loop, float framesize) {
 	//同じ場合は切り替えない
 	if (mAnimationIndex == index) return;
-	//24
-	////アニメーションの重みを0.0（100%)にする
-	//削除mpModel->mAnimationSet[mAnimationIndex]->mWeight = 0.0f;
+	
+
 	//番号、繰り返し、フレーム数を設定
 	mAnimationIndex = index;
 	mAnimationLoopFlg = loop;
@@ -33,10 +30,6 @@ void CXCharacter::ChangeAnimation(int index, bool loop, float framesize) {
 	//24
 	//アニメーションの時間を最初にする
 	mAnimationTime = 0.0f;
-	////アニメーションの時間を最初にする
-	//削除mpModel->mAnimationSet[mAnimationIndex]->mTime = 0.0f;
-	////アニメーションの重みを1.0（100%)にする
-	//削除mpModel->mAnimationSet[mAnimationIndex]->mWeight = 1.0f;
 }
 /*
  Update

@@ -10,11 +10,6 @@
 #define VEC_BACK CVector3(0.0f,0.0f,-1.0f)
 class CMatrix44;
 
-//class CVector2 {
-//public:
-//	float x, y;
-//	CVector2() : x(0), y(0) {}
-//};
 
 class CVector3 {
 public:
@@ -84,7 +79,4 @@ public:
 	/*’†ŠÔ’l‚ğo‚·*/
 	CVector3 Median(const CVector3 &v)const;
 };
-
-//typedef CVector3 CVector3;
-//typedef const CVector3  const CVector3;
 

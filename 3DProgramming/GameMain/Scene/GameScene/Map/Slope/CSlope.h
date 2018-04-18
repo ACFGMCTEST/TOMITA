@@ -16,21 +16,7 @@
 
 /*坂クラス*/
 class CSlope : public CBox{
-//private:
-//	int mMapChipX, mMapChipZ;//自分のマップチップ上の座標値
-//
-//	bool mFlagRot;//回転したか判断
-//
-//	/*坂の現在の向いている方向*/
-//	enum  ESlpoeRot{
-//		E_FRONT,// 前
-//		E_BACK,// 後ろ
-//		E_RIGHT,// 右
-//		E_LEFT,// 左
-//	};
-//	ESlpoeRot eSlopeRot = E_FRONT;//坂の向き
-//
-//	friend class CSlopeEnd;
+
 
 public:
 	

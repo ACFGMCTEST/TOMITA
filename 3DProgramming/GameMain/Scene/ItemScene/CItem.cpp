@@ -375,24 +375,7 @@ void CItem::Update(){
 		}//マウス左クリック
 	}
 
-	//
-	////装備アイコン3を押したときの処理
-	//if (CCollision2D::Collision2D(mCursor, mOutfitIcon[WEAPON3]) && CShop::mSoldOut[WEAPON2]){ //カーソルがあっている?
-	//	if (CMouse::GetInstance()->mOneLeftFlag){
-	//		mSelectPicture.position = CVector2(SELECT_MARKER_POS_3);/*選択中四角形のポジション変更*/
-	//		mSelectWeapon = WEAPON3;
-	//		mSaveAtk = WEAPON_ATK2;
-	//	}//マウス左クリック
-	//}
-	////装備アイコン4を押したときの処理
-	//if (CCollision2D::Collision2D(mCursor, mOutfitIcon[WEAPON4]) && CShop::mSoldOut[WEAPON3]){ //カーソルがあっている?
-	//	if (CMouse::GetInstance()->mOneLeftFlag){
-	//		mSelectPicture.position = CVector2(SELECT_MARKER_POS_4);/*選択中四角形のポジション変更*/
-	//		mSelectWeapon = WEAPON4;
-	//		mSaveAtk = WEAPON_ATK3;
-	//	}//マウス左クリック
-	//}
-	//
+	
 
 	//武器の攻撃力とスキルを変更する。
 	switch (status)
@@ -454,8 +437,6 @@ void CItem::Render() {
 	if (CShop::mSoldOut[WEAPON0])mOutfitIcon[WEAPON1].Render();
 	if (CShop::mSoldOut[WEAPON1])mOutfitIcon[WEAPON2].Render();
 
-//	if (CShop::mSoldOut[WEAPON2])mOutfitIcon[WEAPON3].Render();
-//	if (CShop::mSoldOut[WEAPON3])mOutfitIcon[WEAPON4].Render();
 
 	mAtkNo[0].Render();
 	mAtkNo[1].Render();
@@ -471,46 +452,3 @@ void CItem::Render() {
 	CRectangle2::Disp2D_Exit();//描画終了
 
 }
-/*
-
-
-
-
-
-
-
-
-
-
-
-
-　　              　ｎ .／）)　　　　　　　／
-	 　       　　ｒ‐┘ｲﾚk(_             <　　キリンです。
-	          　.’,g｀.器├┘Yヽ　　　    ＼
-		   　／ * 　 ン┴ｫ┼┬爻
-		   . Lンノ￣　　　｀┼┤└〒ｪ
-			　 　 　 　 　 　 寸　┌┼テｭ
-						  　　 寸└┘┌斤ｭ，
-							 　 寸┌┼┴‐代ｭ，
-					             ┼┘┌┼┼┼ｭ
-			              　　　　寸 .└┘└┘├
-							     　┬┐┌┐┌┼┴┼┐
-							       ┴┼┼┘└┼┐└┴┼┼┐
-				　 　 　 　 　 　 代.└┘┌┐└┘┌┐└┘└┼ ，
-		   　 　 　 　 　 　 　 　 ┼┐┌┼┘┌┐├┘┌┬┐└┼‐､.,,,,,＿___ ,ｨ冖ﾊ
-				    　 　 　 　 　 ┼┘└┘┌┼┼┼┐├┼┘┌┤｀'''''''''''''''''''''ゝ ィ´
-				 　　 　 　   　 　 ,┌┐┌ぃ┼┤├┼ヤ┴┘┌┼┤
-							  　 　 /┼┘ｲ　 　.｀¨¨’.T´┬千ヽt┼┴‐!
-					  　 　 　 　 ／┼イ 　! 　 　 　 　 !. ┼┤　 ＼┬┼ ,
-			   　　 　 　 　 　 ,ｲXイ　 |┼┘　 　 　　　’┼ﾁ'. 　 　.｀　,┌┼，
-					  　  　 　{┘ｲ 　　|└!　　　　 　 　　ヾ┼ﾊ　　　　 ｀ヾ┬┴,
-						   　　 ＼ ヽ 　 }　/　　 　 　 　 　 　ﾍ┘ﾊ　 　 　　 ｀'┬ﾊ
-						   　　　 ＼＼ﾙｲ 　 　 　 　 　 　.　ﾉ　,ｲ　　　　 　 　 ヽ　											
-							        ヽ,＼ 　 　 　 　 　　　./ /　　　　 　 　 　　　'.ﾊ.
-							　　　　 ハ__｀ｰｭ. 　 　 　 　 / / 　 　 　 　 　　　　　 '.　､
-			    　 　 　 　 　 　 　 / f´　＼ﾊ　　　　　 / /　　　　　　　　　　　　　} ハ
-					 　 　 　　 　 ／.丿　ｨ　 ｀’　　　.／ ﾉ　 　 　 　 　 　　　　　　ﾉ__ .,’
-						      　 ∠ ヲ　　　 　 　 　 ∠ ヲ　　　　　　　　　　　　　　{_ イ
-
-
-*/

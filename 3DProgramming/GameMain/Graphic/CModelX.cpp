@@ -9,21 +9,7 @@
 #include "../../Light/CLight.h"
 
 void CModelX::Load(char *file) {
-	//
 	//ファイルサイズを取得する
-	//
-	//int fd = open(file, O_RDONLY);	//ファイルをオープンする
-	//if (fd == -1) {	//エラーチェック
-	//	printf("open error\n");
-	//	return;
-	//}
-	//struct stat statBuf;
-	//fstat(fd, &statBuf);	//ファイルの情報を取得する
-	//close(fd);	//ファイルをクローズする
-	//int size = statBuf.st_size;	//ファイルのサイズを取得する
-	//
-	//ファイルから3Dモデルのデータを読み込む
-	//
 	FILE *fp;	//ファイルポインタ変数の作成
 	fp = fopen(file, "rb");	//ファイルをオープンする
 	if (fp == NULL) {	//エラーチェック
@@ -196,7 +182,7 @@ void CModelX::Render() {
 	
 	for (int i = 0; i < mFrame.size(); i++) {
 		mFrame[i]->Render();
-		 //if (ColorFlag())glMaterialfv(GL_FRONT, GL_DIFFUSE, new float[]{mRed, mGreen, mBlue, mAlpha});//色の設定
+		
 	}
 }
 
@@ -258,18 +244,6 @@ void CModelX::AnimateFrame() {
 			}
 		}
 	}
-#ifdef _DEBUG
-	//for (int i = 0; i < mFrame.size(); i++) {
-	//	printf("Frame:%s\n", mFrame[i]->mpName);
-	//	for (int j = 0; j < 16; j++) {
-	//		printf("%10f", mFrame[i]->mTransformMatrix.f[j]);
-	//		if (j % 4 == 3) printf("\n");
-	//	}
-	//}
-#endif
-
-	//Set mCombinedMatrix mSkinningMatrix
-	//	mFrame[0]->Animate(world);
 }
 //16
 /*
@@ -448,13 +422,6 @@ CModelXFrame::CModelXFrame(CModelX* model) {
 			model->SkipNode();
 		}
 	}
-#ifdef _DEBUG
-	//printf("%s\n", mpName);
-	//for (int i = 0; i < ARRAY_SIZE(mTransformMatrix.f); i++) {
-	//	printf("%10f", mTransformMatrix.f[i]);
-	//	if ((i+1) % 4 == 0) printf("\n");
-	//}
-#endif
 }
 /*
  Render
@@ -475,13 +442,7 @@ void CModelXFrame::Animate(CMatrix44* parent) {
 	for (int i = 0; i < mChild.size(); i++) {
 		mChild[i]->Animate(&mCombinedMatrix);
 	}
-#ifdef _DEBUG
-	//printf("%s\n", mpName);
-	//for (int i = 0; i < ARRAY_SIZE(mCombinedMatrix.f); i++) {
-	//	printf("%10f", mCombinedMatrix.f[i]);
-	//	if ((i+1) % 4 == 0) printf("\n");
-	//}
-#endif
+
 }
 
 
@@ -544,15 +505,12 @@ void CMesh::Init(CModelX *model) {
 			for (int i = 0; i < mNormalNum; i += 3) {
 				model->GetToken(); // 3
 				ni = model->GetIntToken();
-//				mpNormal[mpVertexIndex[i]] = pNormal[ni];
 				mpNormal[i] = pNormal[ni];
 
 				ni = model->GetIntToken();
-//				mpNormal[mpVertexIndex[i + 1]] = pNormal[ni];
 				mpNormal[i+1] = pNormal[ni];
 
 				ni = model->GetIntToken();
-//				mpNormal[mpVertexIndex[i + 2]] = pNormal[ni];
 				mpNormal[i+2] = pNormal[ni];
 			}
 			delete[] pNormal;
@@ -571,10 +529,7 @@ void CMesh::Init(CModelX *model) {
 			//マテリアルデータの作成
 			for (int i = 0; i < mMaterialNum; i++) {
 				model->GetToken();	// Material
-				//if (strcmp(model->mToken, "Material") == 0) {
-				//	mMaterial.push_back(new CMaterial(model));
-				//}
-				//17S
+				
 				if (strcmp(model->mToken, "Material") == 0) {
 					// 新規
 					mMaterial.push_back(new CMaterial(model));
@@ -614,12 +569,6 @@ void CMesh::Init(CModelX *model) {
 		}
 	}
 
-#ifdef _DEBUG
-	//printf("NormalNum:%d\n", mNormalNum);
-	//for (int i = 0; i < mNormalNum ; i++) {
-	//	printf("%10f%10f%10f\n", mpNormal[i].x, mpNormal[i].y, mpNormal[i].z);
-	//}
-#endif
 }
 /*
  Render
@@ -900,13 +849,6 @@ CMaterial::CMaterial(CModelX *model)
 		mColorRGBA[i] = 0;
 	}
 
-#ifdef _DEBUG
-	//printf("Material\n");
-	//printf("Diffuse:%10f %10f %10f %10f\n", mDiffuse[0], mDiffuse[1], mDiffuse[2], mDiffuse[3]);
-	//printf("Power:%10f\n", mPower);
-	//printf("Specular:%10f %10f %10f %10f\n", mSpecular[0], mSpecular[1], mSpecular[2]);
-	//printf("Emissive:%10f %10f %10f %10f\n", mEmissive[0], mEmissive[1], mEmissive[2]);
-#endif
 }
 
 /*
@@ -1025,16 +967,6 @@ CSkinWeights::CSkinWeights(CModelX *model)
 	}
 	model->GetToken();	// }
 
-#ifdef _DEBUG
-	//printf("\nSkinWeights:%s\n", mpFrameName);
-	//for (int i = 0; i < mIndexNum; i++) {
-	//	printf("%d %10f\n", mpIndex[i], mpWeight[i]);
-	//}
-	//for (int i = 0; i < 16; i++) {
-	//	printf("%10f", mOffset.f[i]);
-	//	if ((i + 1) % 4 == 0) printf("\n");
-	//}
-#endif
 }
 
 /*
@@ -1069,9 +1001,7 @@ CAnimationSet::CAnimationSet(CModelX *model)
 	}
 	//終了時間設定
 	mMaxTime = mAnimation[0]->mpKey[mAnimation[0]->mKeyNum-1].mTime;
-#ifdef _DEBUG
-//	printf("AnimationSet:%s\n", mpName);
-#endif
+
 }
 
 CAnimation::CAnimation(CModelX *model)
@@ -1187,13 +1117,6 @@ CAnimation::CAnimation(CModelX *model)
 		SAFE_DELETE_ARRAY(key[i]);
 	}
 
-#ifdef _DEBUG
-	//printf("Animation:%s\n", mpFrameName);
-	//for (int j = 0; j < 16; j++) {
-	//	printf("%10f", mpKey[0].mMatrix.f[j]);
-	//	if (j % 4 == 3) printf("\n");
-	//}
-#endif
 
 }
 

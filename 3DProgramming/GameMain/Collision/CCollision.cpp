@@ -6,7 +6,7 @@ inline float min(float a,float b) {
 	return (a<b) ? a:b;
 }
 /*à⁄ìÆçsóÒ*/
-void COBB::Transeform(CMatrix44 &mat) {
+void COBB::Transform(CMatrix44 &mat) {
 	for (int i=0;i<COBB::E_ARRAY;i++) mAxis[i] = mat * mAxis[i] - mat * CVector3();
 	CVector4 c = CVector4(mPos.x,mPos.y,mPos.z,1);
 	c = c*mat;
@@ -14,7 +14,7 @@ void COBB::Transeform(CMatrix44 &mat) {
 }
 
 /*à⁄ìÆçsóÒ*/
-void CColSphere::Transeform(CMatrix44 &mat) {
+void CColSphere::Transform(CMatrix44 &mat) {
 	CVector4 c = CVector4(mPos.x, mPos.y, mPos.z, 1);
 	c = c*mat;
 	mPos = CVector3(c.x, c.y, c.z);
@@ -326,64 +326,14 @@ bool CCollision::CollSphereBox(CColSphere sphere, COBB &box){
 
 	//è’ìÀÇµÇƒÇ¢ÇÈÇ©îªíËÇ∑ÇÈ
 	if (dx > 0.0f && dy > 0.0f && dz > 0.0f) {
-		//if (dx > dy) {
-		//	if (dy > dz) {
-		//		//Zé≤Ç≈ñﬂÇ∑
-		//		if (vz.Dot(vectorBS) > 0.0f) {
-		//			*pos = *pos + vz * dz;
-		//		}
-		//		else {
-		//			*pos = *pos - vz * dz;
-		//		}
-		//	}
-		//	else {
-		//		//Yé≤Ç≈ñﬂÇ∑
-		//		if (vy.Dot(vectorBS) > 0.0f) {
-		//			*pos = *pos + vy * dy;
-		//		}
-		//		else {
-		//			*pos = *pos - vy * dy;
-		//		}
-		//	}
-		//}
-		//else {
-		//	if (dx > dz) {
-		//		//Zé≤Ç≈ñﬂÇ∑
-		//		if (vz.Dot(vectorBS) > 0.0f) {
-		//			*pos = *pos + vz * dz;
-		//		}
-		//		else {
-		//			*pos = *pos - vz * dz;
-		//		}
-		//	}
-		//	else {
-		//		//Xé≤Ç≈ñﬂÇ∑
-		//		if (vx.Dot(vectorBS) > 0.0f) {
-		//			*pos = *pos + vx * dx;
-		//		}
-		//		else {
-		//			*pos = *pos - vx * dx;
-		//		}
-		//	}
-		//}
+		
 		return true;
 	}
 	return false;
 
 }
 
-/*ìñÇΩÇËîªíËä÷êî(ãÖÇ∆ï«îªíË)*/
-//static bool ColSphereWall(const CColSphere &sphere, const CColWall &wall){
-//	
-//	
-//	float dot;
-//	CVector3 vec;
-//	vec = sphere.mPos + wall.mPos * -1.0f;
-//	dot = vec.Dot(wall.mNormal);
-//	if (dot < sphere.mRadius){
-//		return true;
-//	}
-//}
+
 
 
 

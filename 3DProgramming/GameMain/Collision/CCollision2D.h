@@ -6,11 +6,13 @@
 #define COLLISION2D_HPP
 #include "../Graphic/CRectangle2.h"
 #include "../Vector/CVector2.h"
+#include "../Sound/CSound.h"
 
 class CCollision2D {
 public:
 	/*base1‚ªUŒ‚”ÍˆÍ(lŠp) base2‚ªUŒ‚‚ğó‚¯‚é‚Ù‚¤ range‚ªUŒ‚”ÍˆÍ(²)*/
 	static bool Collision2D(const CRectangle2 rect1, const CRectangle2 rect2);
+
 };
 
 #endif

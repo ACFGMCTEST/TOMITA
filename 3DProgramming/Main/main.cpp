@@ -26,51 +26,9 @@ void display() {
 	Main.SceneMain();
 
 	CMouse::GetInstance()->Update();
-	//画面に表示
-//	glutSwapBuffers();
 }
 
 
-//
-//
-//
-//
-////関数のプロトタイプ宣言
-//void reshape(int, int);
-//void idle();
-//
-//void main(int argc, char* argv[]) {
-//	glutInit(&argc, argv);
-//	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH | GLUT_STENCIL);	//ディスプレイモード設定
-//	//ウィンドウの設定
-//	glutInitWindowSize(DISP_X,DISP_Y,);
-//	glutInitWindowPosition(0, 0);
-//	glutCreateWindow("Hello 3DProgramming");	//ウィンドウ作成
-//	glClearColor(0.5f, 0.5f, 0.5f, 1.f);	//クリア色を白に設定
-//
-//	glewInit();
-//
-//	glEnable(GL_DEPTH_TEST);
-//	glEnable(GL_CULL_FACE);
-//
-////ライトの設定
-//	//固定シェーダー用
-//	glEnable(GL_LIGHTING);
-//	glEnable(GL_LIGHT0);
-//	//メッシュシェーダー用
-////	CLight::getLight(0)->setDir(CVector3D(0, -1, 1).GetNormalize());
-////	CLight::getLight(0)->setColor(CVector3D(0.9f, 0.9f, 0.9f), CVector3D(1.0f, 1.0f, 1.0f));
-//
-//	//各種関数設定
-//	glutDisplayFunc(display);	//描画時の関数を指定
-//	glutReshapeFunc(reshape);	//ウィンドウ変形時の関数を指定
-//	glutIdleFunc(idle);			//待機時の関数を指定
-//
-//	//メインループ
-//	glutMainLoop();
-//
-//	return;
-//}
 int winX, winY;
 //
 /*ウィンドウサイズ変更時の処理
@@ -81,11 +39,11 @@ height:画面高さ
 void reshape(GLFWwindow* window, int width, int height) {
 	winX = width; winY = height;
 	glViewport(0, 0, width, height);	//画面の描画エリアの指定
-//	CCamera::getCamera()->SetSize(width, height);
+
 	glMatrixMode(GL_PROJECTION);		//行列をプロジェクションモードへ変更
 	glLoadIdentity();
 	gluPerspective(75.0, (double)width / (double)height, 1.0, 1000.0);
-//	gluLookAt(0.0, 5.0, 5.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
+
 
 }
 //
@@ -117,15 +75,12 @@ void idle() {
 int main(void)
 {
 	GLFWwindow* window;
-	//CMouse::GetInstance()->Access(window);
 
 	/* Initialize the library */
 	if (!glfwInit())
 		return -1;
 
-	/* Create a windowed mode window and its OpenGL context */
-	//window = glfwCreateWindow(DISP_X, DISP_Y, "Hello World", glfwGetPrimaryMonitor(), NULL);
-	window = glfwCreateWindow(DISP_X, DISP_Y, "Hello World", NULL, NULL);
+	window = glfwCreateWindow(DISP_X, DISP_Y, "BigHockey", NULL, NULL);
 	if (!window)
 	{
 		glfwTerminate();
@@ -142,19 +97,14 @@ int main(void)
 	glewExperimental = GL_TRUE;
 	if (glewInit() != GLEW_OK)
 	{
-		// GLEW の初期化に失敗した
-//		std::cerr << "Can't initialize GLEW" << std::endl;
 		return 1;
 	}
-	// 垂直同期のタイミングを待つ  
-	//glfwSwapInterval(1); 
-
 
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_CULL_FACE);
 
 	// ウィンドウのサイズ変更時に呼び出す処理の登録
-	//glfwSetWindowSizeCallback(window, reshape);
+	
 	reshape(window, DISP_X,DISP_Y);
 
 	glfwSetFramebufferSizeCallback(window, reshape);
@@ -169,23 +119,13 @@ int main(void)
 	glEnable(GL_LIGHT0);
 	static GLfloat lightPosition[4] = { LIGHT_POS }; //光源の位置
 
-	//static GLfloat lightDiffuse[3] = { 1.0, 1.0, 1.0 }; //拡散光
-	//static GLfloat lightAmbient[3] = { 0.25, 0.25, 0.25 }; //環境光
-	//static GLfloat lightSpecular[3] = { 1.0, 1.0, 1.0 }; //鏡面光
 	glLightfv(GL_LIGHT0, GL_POSITION, lightPosition);
-	//glLightfv(GL_LIGHT0, GL_DIFFUSE, lightDiffuse);
-	//glLightfv(GL_LIGHT0, GL_AMBIENT, lightAmbient);
-	//glLightfv(GL_LIGHT0, GL_SPECULAR, lightSpecular);
 	/* Loop until the user closes the window */
 	while (!glfwWindowShouldClose(window))
 	{
 		reshape(window, winX,winY);
 
 		idle();
-		/* Render here */
-		//		glClear(GL_COLOR_BUFFER_BIT);
-
-//		display();
 		/*マウス取得*/
 		double mx, my;
 		glfwGetCursorPos(window, &mx, &my);

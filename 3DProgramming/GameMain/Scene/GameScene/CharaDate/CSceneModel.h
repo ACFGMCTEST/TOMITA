@@ -18,10 +18,7 @@ private:
 public:
 
 	//敵キャラのインスタンス
-	//CXCharEnemy *mCharEnemy;//アクセス用
 	static CXCharPlayer *mCharcter; //アクセス用 キャラクター操作に使うため 静的に
-	//static CGoal *mpGoalPlayer; //アクセス用
-	//static CVector3 mRotation;//キャラクター操作に使うため 静的に
 
 
 	CMatrix44 mMatrix;
@@ -42,12 +39,6 @@ public:
 
 	//エネミーモデル
 
-	//enum E_CameraState
-	//{
-	//	E_FIRST,
-	//	E_THIRD
-	//};
-	//E_CameraState eCameraState;
 	/*キャラ追加処理
 	引数ポジション決める
 	*/

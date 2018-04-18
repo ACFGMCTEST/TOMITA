@@ -13,8 +13,6 @@ CSlope::CSlope(CVector3 pos,int x, int z) {
 	mMapChipZ = z;
 	/*当たり判定インスタンス作成*/
 	mpColBox = new CCollider(E_COL_BOX);
-	//mpColRefLeft = new CCollider(E_COL_BOX);
-	//mpColRefRight = new CCollider(E_COL_BOX);
 
 
 	/*親設定*/
@@ -47,15 +45,8 @@ CSlope::CSlope(CVector3 pos,int x, int z) {
 	mpColBox->eTag = CTask::E_TAG::E_TAG_SLOPE;						//タグ決める
 	CCollisionManager::GetInstance()->Add(mpColBox->eTag, mpColBox);//当たり判定追加
 
-	///*当たり判定　跳ね返りよう*/
-	//mpColRefLeft->SetBoxOBB(SET_REF_LEFT_OBB);									//設定
-	//mpColRefRight->SetBoxOBB(SET_REF_RIGHT_OBB);									//設定
-	//mpColRefLeft->SetColor(WHITE_COLOR);											//色設定		
-	//mpColRefRight->SetColor(WHITE_COLOR);											//色設定		
-	//mpColRefLeft->eTag = CTask::E_TAG::E_TAG_SLOPE_REF;							//タグ決める
-	//mpColRefRight->eTag = CTask::E_TAG::E_TAG_SLOPE_REF;						    //タグ決める
-	//CCollisionManager::GetInstance()->Add(mpColRefLeft->eTag, mpColRefLeft);	    //当たり判定追加
-	//CCollisionManager::GetInstance()->Add(mpColRefRight->eTag, mpColRefRight);	//当たり判定追加
+
+
 }
 
 /*サイズすべて*/
@@ -143,14 +134,9 @@ void CSlope::MapRot(){
 	SetVertex(mMinX, mMaxX, mMinY, mMaxY, mMinZ, mMaxZ);
 	mpColBox->SetObbSize(new float[]{mMaxX, mMaxY, mMaxZ});//当たり判定
 
-	//mpColRefLeft->SetObbSize(new float[]{REF_SIZE_X,REF_SIZE_Y, mMaxZ});//当たり判定
-	//mpColRefRight->SetObbSize(new float[]{REF_SIZE_X, REF_SIZE_Y, mMaxZ});//当たり判定
 
 	/*回転*/
 	mpColBox->SetObbRot(CVector3(mRot.x, mRot.y, mRot.z));
-
-	//mpColRefLeft->SetObbRot(CVector3(mRot.x, mRot.y, mRot.z));
-	//mpColRefRight->SetObbRot(CVector3(mRot.x, mRot.y, mRot.z));
 
 
 }
@@ -173,12 +159,6 @@ void CSlope::Update(){
 void CSlope::Render(){
 	UpdateMatrix();
 	CBox::Render();
-#ifdef _DEBUG 
-	///mpColBox->Render();
-	//mpColRefLeft->Render();
-	//mpColRefRight->Render();
-#endif
-
 }
 
 /*坂の中間値*/

@@ -28,8 +28,7 @@ public:
 	static int mMapX;
 	static int mMapZ;
 
-	/*VboId現在使っていない 小規模のものなので*/
-	//GLuint VboId[3];
+	
 
 	static CCollider *mpGoalPlayer;//アクセス用
 	static CCollider *mpGoalEnemy; //アクセス用

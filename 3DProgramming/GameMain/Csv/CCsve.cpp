@@ -39,12 +39,7 @@ void CCsv::Load(char *filename){
 
 		//1行のうち,文字列とコンマを分割する
 		while (getline(stream, token, ',')){
-			///*数字の場合*/
-			//if ('0' <= *token.c_str() && *token.c_str() <= '9'){
-			//	get += stof(token); //数字に変換　ここが違う
-			//}
-			///*文字の場合*/
-			//else{
+			
 			/*追加していく*/
 			get += token;
 			//}

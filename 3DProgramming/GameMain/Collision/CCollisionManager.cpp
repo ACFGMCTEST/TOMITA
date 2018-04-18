@@ -100,6 +100,7 @@ void CCollisionManager::PlayerCollision(CTask *Task_You, CTask *Player){
 
 	case CTask::E_TAG_GROUND:
 	case CTask::E_TAG_BOX:
+	case CTask::E_TAG_WALL:
 		/*キャスト処理*/
 		youBox = dynamic_cast<CCollider *>(Task_You);
 		plSphere = dynamic_cast<CCollider *>(Player);
@@ -137,6 +138,7 @@ void CCollisionManager::PlayerCollision(CTask *Task_You, CTask *Player){
 		/*パックのスピードがある場合 && 攻撃中でない場合*/
 		if (puck->mVelocity >= SPEED_DAMAGE && pl->mState != CXCharPlayer::E_ATTACK){
 			pl->AnimaState(CXCharPlayer::E_DMGM);
+			mSEDamage.Play();
 		}
 		/*当たり判定が足の時*/
 		if (pl->mpCBLeg == plSphere){
@@ -185,7 +187,7 @@ void CCollisionManager::EnemyCollision(CTask *Task_You, CTask *Enemy){
 			break;
 			/*障害物の場合*/
 		case CTask::E_TAG_BOX:
-
+		case CTask::E_TAG_WALL:
 			youBox = dynamic_cast<CCollider *>(Task_You);
 			eneSphere = dynamic_cast<CCollider *>(Enemy);
 			/*元の一位戻す*/
@@ -278,9 +280,9 @@ void  CCollisionManager::PuckCollision(CTask *Task_You, CTask *Puck){
 		break;
 		/*ボックス*/
 	case CTask::E_TAG_BOX:
-	//case CTask::E_TAG_SLOPE_REF:
+	case CTask::E_TAG_WALL:
 
-
+		mSEReflect.Play();//跳ね返り音鳴らす
 		/*キャスト処理*/
 		you = dynamic_cast<CCollider *>(Task_You);
 
@@ -321,6 +323,7 @@ void  CCollisionManager::PuckCollision(CTask *Task_You, CTask *Puck){
 		if (chara->mState == CXCharPlayer::E_ATTACK){
 			puck = dynamic_cast<CXPuck*>(Puck->mpParent);//自分
 			puck->ColReflect(chara->mRotation, chara->mPower);
+			mSEAttack.Play();//攻撃音
 		}
 
 		break;
@@ -331,6 +334,7 @@ void  CCollisionManager::PuckCollision(CTask *Task_You, CTask *Puck){
 		CScoreBoard::GetInstance()->GoalPlayer();
 		puck->GoalPlayer();//プレイヤー側にゴールしたなら
 
+		mSEGoal.Play();
 		/*ゴール呼び出し*/
 		goal = dynamic_cast<CGoal*>(Task_You->mpParent);
 		goal->GoalPerformance();
@@ -342,6 +346,7 @@ void  CCollisionManager::PuckCollision(CTask *Task_You, CTask *Puck){
 		CScoreBoard::GetInstance()->GoalEnemy();
 		puck->GoalEnemy();//エネミー側にゴールしたなら
 
+		mSEGoal.Play();
 		/*ゴール呼び出し*/
 		goal = dynamic_cast<CGoal*>(Task_You->mpParent);
 		goal->GoalPerformance();
@@ -361,12 +366,7 @@ void  CCollisionManager::PuckCollision(CTask *Task_You, CTask *Puck){
 			puck->EnabledSlope();
 		}
 		break;
-	//case CTask::E_TAG_PLAYER:
 
-	//	chara = dynamic_cast<CXCharPlayer*>(Task_You->mpParent->mpParent);
-	//	/*パックの当たり判定*/
-	//	puck->Collision(puck->mpCBRefBox->mObb, chara->mpCBLeg->mColSphere);
-	//	break;
 	};
 }
 
@@ -380,8 +380,7 @@ void  CCollisionManager::CameraCollision(CTask *Task_You, CTask *Camera){
 	/*あたり判定が何か判断*/
 	switch (Task_You->eTag)
 	{
-	case CTask::E_TAG_HIGH_BOX:
-	case CTask::E_TAG_BOX:
+	case CTask::E_TAG_WALL:
 			/*キャスト処理*/
 			youBox = dynamic_cast<CCollider *>(Task_You);
 			MainCamera.Collision(youBox->mObb);
@@ -457,5 +456,11 @@ void CCollisionManager::Update(){
 #endif
 }
 
-CCollisionManager::CCollisionManager(){}
+CCollisionManager::CCollisionManager(){
+	/*読み込み*/
+	mSEAttack.Load(SE_ATTACK_FILE);//攻撃時の音
+	mSEReflect.Load(SE_REFLECT_FILE);//跳ね返りの音
+	mSEGoal.Load(SE_GOAL_FILE);//ゴールの音
+	mSEDamage.Load(SE_DAMAGE_FILE);//ダメージの音
+}
 CCollisionManager::~CCollisionManager(){}

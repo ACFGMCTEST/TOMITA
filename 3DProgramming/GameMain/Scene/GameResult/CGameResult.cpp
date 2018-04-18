@@ -85,22 +85,18 @@ void CGameResult::Init(){
 
 	//背景の呼び出し
 
-	mpTexture = new CTexture();
-	mpTexture->load(TGA_FILE"Cle_ar.tga");
 
 	mBG.SetVertex(BG_SIZE); //ここで大きさ変更
 	mBG.SetColor(W_COLOR, mAlpha);
-	mBG.SetUv(mpTexture, TEST_CG);
+	//mBG.SetUv(mpTexture, TEST_CG);
 
-	mpTexture = new CTexture();
-	mpTexture->load(TGA_FILE"Clear.tga");
 
 	//タイトルロゴの呼び出し
 
 	mResult.SetVertex(TITLE_SIZE); //ここで大きさ変更
 	mResult.SetColor(W_COLOR, mAlpha);
 	mResult.position = CVector2(0.0f, DISP_2D_Y / 2);
-	mResult.SetUv(mpTexture, TEST_CG);
+	//mResult.SetUv(mpTexture, TEST_CG);
 
 
 	/////////元となる金額（クエスト固有金額）////////////////////////////////////////////////////////////////////
@@ -434,13 +430,7 @@ void CGameResult::Update(){
 		Number(mItem.mMoney, mPocketMoney[0], mPocketMoney[1], mPocketMoney[2]);
 
 		if (CScoreBoard::mPlayerScore >= LIMIT_SCORE){
-			//CScoreBoard::mGameEnd = true;
-			//if (mAlpha <= ALPHA_MAX)mAlpha += 0.01f;
-			///*フェード*/
-			//if (mAlpha2 <= 0.5f){ mAlpha2 += 0.01f; }	
-			//mClearLogo.SetColor(W_COLOR, mAlpha);
-			//mBG.SetColor(B_COLOR, mAlpha2);
-
+			
 			/*フェード*/
 			mBG.Fade(RESULT_FADE, ALPHA_HALF);
 			mResult.Fade(RESULT_FADE, ALPHA_MAX);
@@ -488,8 +478,7 @@ void CGameResult::Render() {
 	CRectangle2::Disp2D_Start();//2D処理開始
 
 	/*この場所に描画処理を入れる*/
-	//mBG.Render();
-	//mResult.Render();
+	
 
 	for (int i = 0; i < DIGIT; i++)
 	{
@@ -508,18 +497,7 @@ void CGameResult::Render() {
 	}
 
 
-	//mBaseMoney[2].Render();
-	//mBaseMoney[1].Render();
-	//mBaseMoney[0].Render();
-
-	//mTotalMoney[2].Render();
-	//mTotalMoney[1].Render();
-	//mTotalMoney[0].Render();
-
-	//mMagnification[0].Render();
-	//mMagnification[1].Render();
-
-
+	
 	/*描画終了*/
 	CRectangle2::Disp2D_Exit();//2D処理終了
 

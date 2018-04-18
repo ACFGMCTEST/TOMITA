@@ -75,6 +75,8 @@
     <ClCompile Include="GameMain\Scene\ShopScene\CShopScene.cpp" />
     <ClCompile Include="GameMain\Scene\TitleScene\CTitle.cpp" />
     <ClCompile Include="GameMain\Scene\TitleScene\CTitleScene.cpp" />
+    <ClCompile Include="GameMain\Sound\CSE.cpp" />
+    <ClCompile Include="GameMain\Sound\CSound.cpp" />
     <ClCompile Include="GameMain\Task\CTask.cpp" />
     <ClCompile Include="GameMain\Task\CTaskManager.cpp" />
     <ClCompile Include="GameMain\Vector\CVector2.cpp" />
@@ -155,6 +157,8 @@
     <ClInclude Include="GameMain\Scene\ShopScene\CShopScene.h" />
     <ClInclude Include="GameMain\Scene\TitleScene\CTitle.h" />
     <ClInclude Include="GameMain\Scene\TitleScene\CTitleScene.h" />
+    <ClInclude Include="GameMain\Sound\CSE.h" />
+    <ClInclude Include="GameMain\Sound\CSound.h" />
     <ClInclude Include="GameMain\Task\CTask.h" />
     <ClInclude Include="GameMain\Task\CTaskManager.h" />
     <ClInclude Include="GameMain\Vector\CVector2.h" />

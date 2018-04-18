@@ -40,7 +40,6 @@ public:
 	/*“–‚½‚è”»’è‰Šú‰»*/
 	void ColInit();
 	//‰Šú‰»ˆ—
-	//void Init(CModelX *model, CVector3 pos);
 	void Init(CVector3 pos);
 	//XVˆ—
 	void Update();

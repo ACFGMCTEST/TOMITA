@@ -64,6 +64,7 @@ public:
 		E_TAG_GOAL_PLAYER,		//ゴール
 		E_TAG_GOAL_ENEMY,		//ゴール
 		E_TAG_BOX,				//箱
+		E_TAG_WALL,				//ウォール
 		
 		E_TAG_FAST_FLOOR,		//加速床　
 		E_TAG_SLOW_FLOOR,		//減速床

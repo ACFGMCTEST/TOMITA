@@ -13,6 +13,6 @@ public:
 
 
 	//OBB‚És—ñ‚ğ”½‰f
-	void Transeform(CMatrix44 &mat);
+	void Transform(CMatrix44 &mat);
 };
 #endif

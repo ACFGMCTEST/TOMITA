@@ -1,6 +1,11 @@
 #include "CCollision2D.h"
-
+#include "../Key/CMouse.h"
+#include "../Sound/CSE.h"
 #include <math.h>
+
+
+
+
 
 
 bool CCollision2D::Collision2D(const CRectangle2 rect1, const CRectangle2 rect2){
@@ -16,6 +21,9 @@ bool CCollision2D::Collision2D(const CRectangle2 rect1, const CRectangle2 rect2)
 
 
 	if (w_xl1 < w_xr2 && w_xr1 > w_xl2 &&	w_yt1 > w_yb2 && w_yb1 < w_yt2 ){
+		if (CMouse::GetInstance()->mOneLeftFlag){//マウス左クリック
+			CSE::GetInstance()->mSEButton.Play();
+		}
 		return true;
 	}
 

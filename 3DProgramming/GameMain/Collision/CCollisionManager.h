@@ -3,10 +3,18 @@
 #include "CCollider.h"
 #include "../Task/CTaskManager.h"
 #include "CCollider.h"
+#include "../Sound/CSound.h"
 
 /*すべての当たり判定管理*/
 class CCollisionManager : public CTaskManager{
 private:
+
+	CSound mSEAttack;//攻撃時の音
+	CSound mSEReflect;//跳ね返りの音
+	CSound mSEGoal;//ゴールの音
+	CSound mSEDamage;//ダメージの音
+
+
 	/*当たり判定*/
 	//CCollider *mYouBox,*mIBox;
 	//CColliderSphere *mYouSphere,*mISphere;

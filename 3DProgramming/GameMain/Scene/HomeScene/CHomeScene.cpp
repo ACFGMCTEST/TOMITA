@@ -13,8 +13,6 @@ CHomeScene::~CHomeScene(){}
 void CHomeScene::Update(){
 	mHome.Update();//更新
 	mHome.Render();//描画
-	
-	//printf("%d  %d\n", mHome.mStatus,mHome.mMove);
 
 	/*ここからシーン移行処理*/
 	/*あたり判定*/

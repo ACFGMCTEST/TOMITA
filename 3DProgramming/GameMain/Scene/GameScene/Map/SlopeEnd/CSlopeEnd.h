@@ -8,9 +8,8 @@
 class CSlopeEnd : public CSlope{
 public:
 
-	CCollider *mpColRefLeft;//左のあたりはんてい
-	CCollider *mpColRefRight;//左のあたりはんてい
-
+	CCollider *mpColRefLeft;//左の当たり判定
+	CCollider *mpColRefRight;//左の当たり判定
 	/*デバック用*/
 	CVector3 SaveRot;
 

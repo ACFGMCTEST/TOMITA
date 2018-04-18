@@ -15,9 +15,13 @@ CSceneManager* CSceneManager::mSceneManager = 0;
 
 CScene* mScene=0;
 
+
 CSceneManager::CSceneManager():eStatus(E_INIT){
+	mBgm.Load(BGM_FILE);//BGM読み込み
+
 }
 CSceneManager::~CSceneManager(){
+	mBgm.Close();
 }
 
 //GetInstance
@@ -36,15 +40,17 @@ void CSceneManager::DeleteScene(){
 }
 
 void CSceneManager::ChangeScene(eSceneNo SceneNo) {
-
+	
 	DeleteScene();		//KILL
 
+	mBgm.Repeat();
 	/*シーン属性管理*/
 	CScene::State = SceneNo;
 
 	switch (SceneNo)
 	{
 	case E_TITLE:
+
 		mScene = new CTitleScene;
 		break;
 	case E_HOME:
@@ -57,18 +63,23 @@ void CSceneManager::ChangeScene(eSceneNo SceneNo) {
 		mScene = new CShopScene;
 		break;
 	case E_ITEM:
+
 		mScene = new CItemScene;
 		break;
 	case E_OPTION:
+
 		mScene = new COptionScene;
 		break;
 	case E_GAMEMAIN:
+
 		mScene = new CGameScene;
 		break;
 	case E_GAMECLEAR:
+
 		mScene = new CGameClearScene;
 		break;
 	case E_GAMEOVER:
+
 		mScene = new CGameOverScene;
 		break;
 	default:
@@ -81,7 +92,6 @@ void CSceneManager::SceneMain(){
 	switch (eStatus)
 	{
 	case E_INIT:
-
 		CSceneManager::GetInstance()->ChangeScene(eSceneNo::E_TITLE);
 
 		eStatus = E_LOOP;
@@ -89,25 +99,10 @@ void CSceneManager::SceneMain(){
 		break;
 	case E_LOOP:
 
+		
 		mScene->Update();
 
 		break;
 	}
 
 }
-
-/*
-作動用
-
-//初期シーンの指定
-CScene::GetInstance()->ChangeScene(CScene::E_TITLE);
-
-//シーンのアップデート
-CScene::GetInstance()->Update();
-
-//シーンのデリート
-CScene::GetInstance()->DeleteScene();
-
-
-
-*/

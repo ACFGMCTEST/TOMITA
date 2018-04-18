@@ -166,11 +166,6 @@ bool CXCharPlayer::FlagMove(){
 void CXCharPlayer::MyMove(){
 	
 	LIMIT_ANGLE(mRotation.y);
-	//printf("現在の回転:%f\n", mRotation.y);
-	/*攻撃するときカメラの方向に向く*/
-	//if (mState == E_ATTACK || mState == E_ATTACK_INIT)	mRotation = MainCamera.Rot();
-
-
 
 	if (CKey::push('A')){//左に移動
 		mRotation.y = MoveRotation(((int)MainCamera.Rot().y + ANGLE_90) % 360);
@@ -263,23 +258,7 @@ void CXCharPlayer::ColGround(){
 
 /*経路探索　道筋用*/
 void CXCharPlayer::CostMapping(int x, int z, int count,int *CostMap, bool FastFlag){
-	//count++;
-	////if (CMap::mNowMapDate[z][x] == CMap::E_BUIL || CMap::mNowMapDate[z][x] == CMap::E_HOLE) /*障害物判定*/
-	//if (CMap::mNowMapDate[z][x] == CMap::E_GOAL_6 ) /*障害物判定*/
-	//{
-	//	return;//壁があったら
-	//}
-	//if (CostMap[z*CMap::mMapX + x] == -1){//初期値なら
-	//	CostMap[z*CMap::mMapX + x] = count;//カウントを
-	//}
-	//else if (CostMap[z*CMap::mMapX + x] > count){
-	//	CostMap[z*CMap::mMapX + x] = count;//カウントを
-	//}
-	//else return;
-	//if (x < CMap::mMapX - 1) CostMapping(x + 1, z, count, CostMap, false);
-	//if (x > 0) CostMapping(x - 1, z, count, CostMap, false);
-	//if (z < CMap::mMapZ - 1)CostMapping(x, z + 1, count, CostMap, false);
-	//if (z > 0)CostMapping(x, z - 1, count, CostMap, false);
+	
 }
 
 /*経路探索　ゴールから自分の場所へ*/
@@ -465,7 +444,6 @@ void CXCharPlayer::AnimaState(ESTATE state){
 /*キャラクター回転差が小さい方向に回転する*/
 int CXCharPlayer::MoveRotation(int angle){
 
-	//printf("入った数値%d\n",angle);
 	/*右回り*/
 	int turnRight = angle - mRotation.y;
 	/*過剰余剰*/
@@ -598,12 +576,7 @@ void CXCharPlayer::Update(){
 	case E_DMGM://ダメージ
 		ChangeAnimation(E_DMGM, false, ANIMA_SPEED_DAMAGE);
 		HammerInit();
-		//if (mCountKnockBack <= 0){ //カウントが０になると
-		//	mCountKnockBack = 0;
-		//}
-		//else{
-		//	mCountKnockBack -= 1;
-		//}
+	
 		break;
 	};
 	AnimaState(E_ATTACK_IDLE);
@@ -674,30 +647,7 @@ void CXCharPlayer::HammerUp(){
 		}
 	}
 
-	////武器3
-	//if (CItem::status == CItem::WEAPON3){
-	//	mPower += W_2_POWER_UP;
-	//	if (mPower >= ATTACK_W2_POWER_MAX){
-	//		mPower = ATTACK_W2_POWER_MAX;
-	//		mHammerEffect.EnableAnima();//アニメーションを有効にする
-	//	}
-	//	else{
-	//		mHammerEffect.SizeUp(W_2_POWER_UP);//サイズを大きくする
-	//		mpCBWeapon->SizeUP(W_2_POWER_UP);
-	//	}
-	//}
-	////武器4
-	//mPower += W_3_POWER_UP;
-	//if (CItem::status == CItem::WEAPON4){
-	//	if (mPower >= ATTACK_W3_POWER_MAX){
-	//		mPower = ATTACK_W3_POWER_MAX;
-	//		mHammerEffect.EnableAnima();//アニメーションを有効にする
-	//	}
-	//	else{
-	//		mHammerEffect.SizeUp(W_3_POWER_UP);//サイズを大きくする
-	//		mpCBWeapon->SizeUP(W_3_POWER_UP);
-	//	}
-	//}
+
 
 }
 
@@ -713,12 +663,7 @@ void CXCharPlayer::HammerInit(){
 
 /*Render*/
 void CXCharPlayer::Render() {
-	//27
-	//HPバーの設定
-	//mHpBar.mPosition = mPosition;
-	//mHpBar.mPosition.y += 1.8f;
-	//mHpBar.Update();	//更新
-	//mHpBar.Render();	//描画
+	
 	CModelXS::Render();
 #ifdef _DEBUG
 	mpCBBody->Render();
@@ -866,10 +811,6 @@ void CXCharPlayer::Collision(const CColSphere &youSphere, const CColSphere &sphe
 	CVector3 vy = youSphere.mMatrixRotation * VEC_TOP;
 	//BoxのZ軸方向を求める
 	CVector3 vz = youSphere.mMatrixRotation * VEC_FRONT;
-
-	/*vx = youSphere.mAxis[0];
-	vy = box.mAxis[1];
-	vz = box.mAxis[2];*/
 
 
 

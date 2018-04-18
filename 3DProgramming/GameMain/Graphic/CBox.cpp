@@ -25,11 +25,6 @@
 */
 ///*全てのレンダー用*/
 
-//GLuint CBox::mAllBoxMyVertexBuffer;
-//int CBox::mAllBoxSize;
-//CMatrix44 *CBox::mAllBoxTransformMatrixSize;
-//CBoxVertex CBox::mAllBox = CBoxVertex();
-
 /* シェーダー使いたい時に使う
 myVer =　 代入したいもの
 i = 配列番号
@@ -197,9 +192,6 @@ void CBox::Render() {
 	//行列の作成
 	CBase::UpdateMatrix();
 	////回転
-	//mMatrix.rotationX(mRot.x);
-	//mMatrix.rotationY(mRot.y);
-	//mMatrix.rotationZ(mRot.z);
 
 
 	//行列で回転移動させる
