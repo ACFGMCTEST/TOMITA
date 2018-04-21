@@ -13,9 +13,10 @@ CCsv::CCsv():mSize(0),mLine(0),mRow(0),mpData(0){}
 /*デストラクタ*/
 CCsv::~CCsv(){
 	/*newしたものを初期化*/
-	for (int i = 0; i < mSize; i++){
-		P_DELETE(mpData);
-	}
+//	for (int i = 0; i < mSize; i++){
+//		P_DELETE(mpData);
+//	}
+	P_ARRAY_DELETE(mpData);
 	mLine = 0;
 	mRow = 0;
 	mSize = 0;

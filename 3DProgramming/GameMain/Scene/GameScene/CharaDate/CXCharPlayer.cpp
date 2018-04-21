@@ -25,7 +25,7 @@
 #define OBB_SPHERE_BODY_POS CVector3(0.0f,0.0f,0.0f)
 /*武器*/
 #define OBB_WEAPON_POS CVector3(0.0f,0.5f,0.0f)
-#define OBB_WEAPON_SIZE new float[]{0.4f, 0.7f, 0.4f}
+#define OBB_WEAPON_SIZE {0.4f, 0.7f, 0.4f}
 /*足*/
 #define OBB_LEG_SIZE 0.3f
 #define OBB_LEG_POS CVector3(0.0f,-1.0f,0.0f)
@@ -77,7 +77,8 @@ void CXCharPlayer::Init(CModelX *model) {
 	mpCBBody->SetShere(OBB_SPHERE_BODY_SIZE, OBB_SPHERE_BODY_POS
 		, &mpCombinedMatrix[model->FindFrame("metarig_chest")->mIndex]);
 	/*武器の当たり判定*/
-	mpCBWeapon->SetBoxOBB(OBB_WEAPON_POS, OBB_WEAPON_SIZE
+	float len[] = OBB_WEAPON_SIZE;
+	mpCBWeapon->SetBoxOBB(OBB_WEAPON_POS, len
 		, &mpCombinedMatrix[model->FindFrame("metarig_WeaponHandle")->mIndex]);
 	/*足の当たり判定*/
 	mpCBLeg->SetShere(OBB_LEG_SIZE, OBB_LEG_POS
@@ -657,7 +658,8 @@ void CXCharPlayer::HammerInit(){
 	mHammerEffect.DisableAnima();//アニメーションを無効にする
 	mPower = ATTACK_POWER;//戻す
 	/*武器の当たり判定*/
-	mpCBWeapon->SetBoxOBB(OBB_WEAPON_POS, OBB_WEAPON_SIZE
+	float len[] = OBB_WEAPON_SIZE;
+	mpCBWeapon->SetBoxOBB(OBB_WEAPON_POS, len
 		, &mpCombinedMatrix[mpModel->FindFrame("metarig_WeaponHandle")->mIndex]);
 }
 

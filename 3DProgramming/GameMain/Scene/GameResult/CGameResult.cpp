@@ -112,8 +112,8 @@ void CGameResult::Init(){
 	mBaseMoney[2].ZERO;
 
 	//2桁目の表示
-	mpNumber = new CTexture();	//テクスチャクラスのインスタンス作成
-	mpNumber->load(TGA_FILE"Number.tga");	//テクスチャファイル読み込み
+//	mpNumber = new CTexture();	//テクスチャクラスのインスタンス作成
+//	mpNumber->load(TGA_FILE"Number.tga");	//テクスチャファイル読み込み
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 
@@ -123,8 +123,8 @@ void CGameResult::Init(){
 	mBaseMoney[1].ZERO;
 
 	//1桁目の表示
-	mpNumber = new CTexture();	//テクスチャクラスのインスタンス作成
-	mpNumber->load(TGA_FILE"Number.tga");	//テクスチャファイル読み込み
+//	mpNumber = new CTexture();	//テクスチャクラスのインスタンス作成
+//	mpNumber->load(TGA_FILE"Number.tga");	//テクスチャファイル読み込み
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 
@@ -136,8 +136,8 @@ void CGameResult::Init(){
 
 	//////合計金額表示の初期設定////////////////////////////////////////////////////////////////////////////////////////
 	//3桁目の表示
-	mpNumber = new CTexture();	//テクスチャクラスのインスタンス作成
-	mpNumber->load(TGA_FILE"Number.tga");	//テクスチャファイル読み込み
+//	mpNumber = new CTexture();	//テクスチャクラスのインスタンス作成
+//	mpNumber->load(TGA_FILE"Number.tga");	//テクスチャファイル読み込み
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 
@@ -147,8 +147,8 @@ void CGameResult::Init(){
 	mTotalMoney[2].ZERO;
 
 	//2桁目の表示
-	mpNumber = new CTexture();	//テクスチャクラスのインスタンス作成
-	mpNumber->load(TGA_FILE"Number.tga");	//テクスチャファイル読み込み
+//	mpNumber = new CTexture();	//テクスチャクラスのインスタンス作成
+//	mpNumber->load(TGA_FILE"Number.tga");	//テクスチャファイル読み込み
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 
@@ -158,8 +158,8 @@ void CGameResult::Init(){
 	mTotalMoney[1].ZERO;
 
 	//1桁目の表示
-	mpNumber = new CTexture();	//テクスチャクラスのインスタンス作成
-	mpNumber->load(TGA_FILE"Number.tga");	//テクスチャファイル読み込み
+//	mpNumber = new CTexture();	//テクスチャクラスのインスタンス作成
+//	mpNumber->load(TGA_FILE"Number.tga");	//テクスチャファイル読み込み
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 
@@ -170,8 +170,8 @@ void CGameResult::Init(){
 
 	////////////倍率の表示//////////////////////////////////////////////////////////////////////////////////
 	//3桁目の表示
-	mpNumber = new CTexture();	//テクスチャクラスのインスタンス作成
-	mpNumber->load(TGA_FILE"Number.tga");	//テクスチャファイル読み込み
+//	mpNumber = new CTexture();	//テクスチャクラスのインスタンス作成
+//	mpNumber->load(TGA_FILE"Number.tga");	//テクスチャファイル読み込み
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 
@@ -181,8 +181,8 @@ void CGameResult::Init(){
 	mMagnification[2].ZERO;
 
 	//2桁目の表示
-	mpNumber = new CTexture();	//テクスチャクラスのインスタンス作成
-	mpNumber->load(TGA_FILE"Number.tga");	//テクスチャファイル読み込み
+//	mpNumber = new CTexture();	//テクスチャクラスのインスタンス作成
+//	mpNumber->load(TGA_FILE"Number.tga");	//テクスチャファイル読み込み
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 
@@ -192,8 +192,8 @@ void CGameResult::Init(){
 	mMagnification[1].ZERO;
 
 	//1桁目の表示
-	mpNumber = new CTexture();	//テクスチャクラスのインスタンス作成
-	mpNumber->load(TGA_FILE"Number.tga");	//テクスチャファイル読み込み
+//	mpNumber = new CTexture();	//テクスチャクラスのインスタンス作成
+//	mpNumber->load(TGA_FILE"Number.tga");	//テクスチャファイル読み込み
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 
@@ -202,11 +202,11 @@ void CGameResult::Init(){
 	mMagnification[0].position = MNUM_POS1;
 	mMagnification[0].ZERO;
 
+	//Resultチップス
+	mpTexture = new CTexture();	//テクスチャクラスのインスタンス作成
+	mpTexture->load(TGA_FILE"ResultTips.tga");	//テクスチャファイル読み込み
 	for (int i = 0; i < TIPS; i++)
 	{
-		//Resultチップス
-		mpTexture = new CTexture();	//テクスチャクラスのインスタンス作成
-		mpTexture->load(TGA_FILE"ResultTips.tga");	//テクスチャファイル読み込み
 		glMatrixMode(GL_PROJECTION);
 		glLoadIdentity();
 		mTips[i].SetVertex(TIP_RECT);
@@ -216,8 +216,8 @@ void CGameResult::Init(){
 
 	////////////所持金の表示//////////////////////////////////////////////////////////////////////////////////
 	//3桁目の表示
-	mpNumber = new CTexture();	//テクスチャクラスのインスタンス作成
-	mpNumber->load(TGA_FILE"Number.tga");	//テクスチャファイル読み込み
+//	mpNumber = new CTexture();	//テクスチャクラスのインスタンス作成
+//	mpNumber->load(TGA_FILE"Number.tga");	//テクスチャファイル読み込み
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 
@@ -227,8 +227,8 @@ void CGameResult::Init(){
 	mPocketMoney[2].ZERO;
 
 	//2桁目の表示
-	mpNumber = new CTexture();	//テクスチャクラスのインスタンス作成
-	mpNumber->load(TGA_FILE"Number.tga");	//テクスチャファイル読み込み
+//	mpNumber = new CTexture();	//テクスチャクラスのインスタンス作成
+//	mpNumber->load(TGA_FILE"Number.tga");	//テクスチャファイル読み込み
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 
@@ -238,8 +238,8 @@ void CGameResult::Init(){
 	mPocketMoney[1].ZERO;
 
 	//1桁目の表示
-	mpNumber = new CTexture();	//テクスチャクラスのインスタンス作成
-	mpNumber->load(TGA_FILE"Number.tga");	//テクスチャファイル読み込み
+//	mpNumber = new CTexture();	//テクスチャクラスのインスタンス作成
+//	mpNumber->load(TGA_FILE"Number.tga");	//テクスチャファイル読み込み
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 

@@ -1,24 +1,94 @@
-﻿cl : コマンド ライン warning D9025: '/sdl' より '/GS-' が優先されます。
-  CSceneManager.cpp
-c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\graphic\ctexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-          c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 'fopen' の宣言を確認してください。
-c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\graphic\ctexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-          c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : 'strcpy' の宣言を確認してください。
-c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\graphic\cmodelx.h(106): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\graphic\cmodelx.h(229): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\graphic\cmodelx.h(314): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\graphic\cmodelx.h(319): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\graphic\cmodelx.h(324): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\tomita\3dprogramming\define\define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          c:\users\tomi-\desktop\tomita\3dprogramming\define\define.h(89) : 'BACK_POS' の前の定義を確認してください
-c:\users\tomi-\desktop\tomita\3dprogramming\define\define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          c:\users\tomi-\desktop\tomita\3dprogramming\define\define.h(94) : 'BACK_POS' の前の定義を確認してください
-c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\scene\itemscene\citem.h(11): warning C4005: 'TIP_ARRAY' : マクロが再定義されました。
-          c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\scene\gamescene\effect\ceffect2d.h(5) : 'TIP_ARRAY' の前の定義を確認してください
-c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\scene\shopscene\cshop.h(55): warning C4005: 'MOVE_SPEED' : マクロが再定義されました。
-          c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\scene\homescene\chome.h(7) : 'MOVE_SPEED' の前の定義を確認してください
-c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\scene\optionsscene\coption.h(5): warning C4005: 'BGM_GAGE' : マクロが再定義されました。
-          c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\scene\gamescene\ui\cscoreboard.h(11) : 'BGM_GAGE' の前の定義を確認してください
-c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\scene\optionsscene\coption.h(6): warning C4005: 'SE_GAGE' : マクロが再定義されました。
-          c:\users\tomi-\desktop\tomita\3dprogramming\gamemain\scene\gamescene\ui\cscoreboard.h(12) : 'SE_GAGE' の前の定義を確認してください
-  3DProgramming.vcxproj -> C:\Users\tomi-\Desktop\TOMITA\Debug\3DProgramming.exe
+﻿2018/04/21 17:21:33 にビルドを開始しました。
+     1>ノード 2 上のプロジェクト "C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\3DProgramming.vcxproj" (Build ターゲット)。
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /Gm /EHsc /RTC1 /MDd /GS- /fp:precise /Zc:wchar_t /Zc:forScope /openmp /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt GameMain\Scene\GameScene\Effect\CEffect2D.cpp
+     1>cl : コマンド ライン warning D9025: '/sdl' より '/GS-' が優先されます。
+         CEffect2D.cpp
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\ctexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\ctexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\define\define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\define\define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\define\define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\define\define.h(94) : 'BACK_POS' の前の定義を確認してください
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\shinobu\Desktop\Git\TOMITA\Debug\3DProgramming.exe" /INCREMENTAL /NOLOGO glew32.lib glfw3dll.lib glfw3.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST:NO /DEBUG /PDB:"C:\Users\shinobu\Desktop\Git\TOMITA\Debug\3DProgramming.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\shinobu\Desktop\Git\TOMITA\Debug\3DProgramming.lib" /MACHINE:X86 Debug\CBase.obj
+         Debug\CCamera.obj
+         Debug\CCollider.obj
+         Debug\CCollision.obj
+         Debug\CCollisionManager.obj
+         Debug\CCollision2D.obj
+         Debug\CConvenient.obj
+         Debug\CCsve.obj
+         Debug\CBillBoard.obj
+         Debug\CBox.obj
+         Debug\CHpBar.obj
+         Debug\CLoadTexManager.obj
+         Debug\CModelX.obj
+         Debug\CRectangle.obj
+         Debug\CRectangle2.obj
+         Debug\CShader.obj
+         Debug\CTriangle.obj
+         Debug\CTriangle2.obj
+         Debug\CTriangularPrism.obj
+         Debug\CInput.obj
+         Debug\CKey.obj
+         Debug\CMouse.obj
+         Debug\CMatrix44.obj
+         Debug\CCountDown.obj
+         Debug\CScene.obj
+         Debug\CSceneManager.obj
+         Debug\CGameClear.obj
+         Debug\CGameClearScene.obj
+         Debug\CGameOver.obj
+         Debug\CGameOverScene.obj
+         Debug\CGameResult.obj
+         Debug\CGameScene.obj
+         Debug\CSceneModel.obj
+         Debug\CXCharacter.obj
+         Debug\CXCharEnemy.obj
+         Debug\CXCharPlayer.obj
+         Debug\CEffect2D.obj
+         Debug\CExplosion.obj
+         Debug\CMap.obj
+         Debug\CFastFloor.obj
+         Debug\CGoal.obj
+         Debug\CHighBox.obj
+         Debug\CNet.obj
+         Debug\CSlopeEnd.obj
+         Debug\CSlope.obj
+         Debug\CSlowFloor.obj
+         Debug\CTrampoline.obj
+         Debug\CPause.obj
+         Debug\CXPuck.obj
+         Debug\CTutorial.obj
+         Debug\CScoreBoard.obj
+         Debug\CHome.obj
+         Debug\CHomeScene.obj
+         Debug\CItem.obj
+         Debug\CItemScene.obj
+         Debug\COption.obj
+         Debug\COptionScene.obj
+         Debug\CQuest.obj
+         Debug\CQuestScene.obj
+         Debug\CShop.obj
+         Debug\CShopCreating.obj
+         Debug\CShopScene.obj
+         Debug\CTitle.obj
+         Debug\CTitleScene.obj
+         Debug\CSE.obj
+         Debug\CSound.obj
+         Debug\CTask.obj
+         Debug\CTaskManager.obj
+         Debug\CVector2.obj
+         Debug\CVector3.obj
+         Debug\CVector4.obj
+         Debug\CLight.obj
+         Debug\main.obj
+         3DProgramming.vcxproj -> C:\Users\shinobu\Desktop\Git\TOMITA\Debug\3DProgramming.exe
+     1>プロジェクト "C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\3DProgramming.vcxproj" (Build ターゲット) のビルドが完了しました。
+
+ビルドに成功しました。
+
+経過時間 00:00:01.31

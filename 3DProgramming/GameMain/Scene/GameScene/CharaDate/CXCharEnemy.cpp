@@ -10,10 +10,12 @@
 #define ROT_PYCK_TIME 1.0f
 /*“–‚½‚è”»’è*/
 /*€”õ*/
-#define OBB_ATTACK_INIT_BOX_SIZE new float[]{20.0f, 4.0f, 20.0f}
+//#define OBB_ATTACK_INIT_BOX_SIZE new float[]{20.0f, 4.0f, 20.0f}
+#define OBB_ATTACK_INIT_BOX_SIZE {20.0f, 4.0f, 20.0f}
 #define OBB_ATTACK_INIT_BOX_POS CVector3(-0.01f, -0.06f, -0.1f)
 /*UŒ‚*/
-#define OBB_ATTACK_BOX_SIZE new float[]{3.0f, 3.0f, 3.0f}
+//#define OBB_ATTACK_BOX_SIZE new float[]{3.0f, 3.0f, 3.0f}
+#define OBB_ATTACK_BOX_SIZE {3.0f, 3.0f, 3.0f}
 #define OBB_ATTACK_BOX_POS CVector3(-0.01f, -0.01f, -0.1f)
 /*ƒS[ƒ‹‚Ì•ûŒü‚ÉŒü‚¯‚é*/
 #define GOAL_POS_X (rand() % (int)MAPCHIP_SIZE*CMap::GoalCount()) - MAPCHIP_SIZE*CMap::GoalCount()*0.5f
@@ -52,10 +54,12 @@ void CXCharEnemy::Init(CModelX *model){
 	CXCharPlayer::Init(model);
 
 	/*UŒ‚”ÍˆÍ‚Ì“–‚½‚è”»’è*/
-	mpCBAttackInitBox->SetBoxOBB(OBB_ATTACK_INIT_BOX_POS, OBB_ATTACK_INIT_BOX_SIZE
+	float len[] = OBB_ATTACK_INIT_BOX_SIZE;
+	mpCBAttackInitBox->SetBoxOBB(OBB_ATTACK_INIT_BOX_POS, len
 		, &mpCombinedMatrix[model->FindFrame("metarig_chest")->mIndex]);
 	/*UŒ‚€”õ”ÍˆÍ‚Ì“–‚½‚è”»’è*/
-	mpCBAttackBox->SetBoxOBB(OBB_ATTACK_BOX_POS, OBB_ATTACK_BOX_SIZE
+	float len2[] = OBB_ATTACK_BOX_SIZE;
+	mpCBAttackBox->SetBoxOBB(OBB_ATTACK_BOX_POS, len2
 		, &mpCombinedMatrix[model->FindFrame("metarig_chest")->mIndex]);
 
 

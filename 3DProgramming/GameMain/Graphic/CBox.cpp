@@ -134,6 +134,8 @@ void CBox::SetVertex(float x1, float x2, float y1, float y2, float z1, float z2)
 	SetMyVertex(myVertex, &VerNum, v1, mRect[E_z2].mNormal);
 	SetMyVertex(myVertex, &VerNum, v2, mRect[E_z2].mNormal);
 	SetMyVertex(myVertex, &VerNum, v3, mRect[E_z2].mNormal);
+
+	P_ARRAY_DELETE(myVertex);
 }
 
 /*‚·‚×‚Ä‚ÌUV‚ð“¯‚¶‚É*/

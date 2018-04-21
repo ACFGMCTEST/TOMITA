@@ -33,7 +33,7 @@
 #define CAMERA_Y 22
 /*デリートして０を返す*/
 #define P_DELETE(p) if(p){delete p;p = nullptr;}
-#define P_ARRAY_DELETE(p) if(p){delete[] p;p = nullptr;}
+#define P_ARRAY_DELETE(p) {if(p){delete[] p;p = nullptr;}}
 
 
 /*色の設定値*/

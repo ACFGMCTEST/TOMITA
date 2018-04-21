@@ -16,9 +16,12 @@
 
 
 CEffect2D::CEffect2D() : mAnimaCount(0), mAnimaSize(0), mTimeCount(0), 
-mAnimaFrameNum(0), mAnimaFrameMax(0), mAnimaFlag(false){}
+mAnimaFrameNum(0), mAnimaFrameMax(0), mAnimaFlag(false), mpWidthLeft(0), mpWidthRight(0) {}
 
-CEffect2D::~CEffect2D(){}
+CEffect2D::~CEffect2D(){
+	P_ARRAY_DELETE(mpWidthLeft)
+	P_ARRAY_DELETE(mpWidthRight);
+}
 
 /*アニメーション設定*/
 void CEffect2D::SetAnima(int size, float width){

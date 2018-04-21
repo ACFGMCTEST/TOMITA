@@ -1,25 +1,1050 @@
-﻿cl : コマンド ライン warning D9025: '/sdl-' より '/GS-' が優先されます。
-  CGameClear.cpp
-c:\users\tomi-\desktop\tomita2\tomita\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
-c:\users\tomi-\desktop\tomita2\tomita\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
-c:\users\tomi-\desktop\tomita2\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          c:\users\tomi-\desktop\tomita2\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
-C:\Users\tomi-\Desktop\Tomita2\TOMITA\3DProgramming\include\../Define/define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          C:\Users\tomi-\Desktop\Tomita2\TOMITA\3DProgramming\include\../Define/define.h(94) : 'BACK_POS' の前の定義を確認してください
-C:\Users\tomi-\Desktop\Tomita2\TOMITA\3DProgramming\include\../Define/define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          C:\Users\tomi-\Desktop\Tomita2\TOMITA\3DProgramming\include\../Define/define.h(89) : 'BACK_POS' の前の定義を確認してください
-c:\users\tomi-\desktop\tomita2\tomita\3dprogramming\gamemain\scene\gameclearscene\../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          c:\users\tomi-\desktop\tomita2\tomita\3dprogramming\gamemain\scene\gameclearscene\../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
-c:\users\tomi-\desktop\tomita2\tomita\3dprogramming\gamemain\scene\gameclearscene\../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          c:\users\tomi-\desktop\tomita2\tomita\3dprogramming\gamemain\scene\gameclearscene\../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
-GameMain\Scene\GameClearScene\CGameClear.cpp(13): warning C4005: 'BG_SIZE' : マクロが再定義されました。
-          c:\users\tomi-\desktop\tomita2\tomita\3dprogramming\gamemain\scene\gameclearscene\../../../Define/Define.h(79) : 'BG_SIZE' の前の定義を確認してください
-  コード生成しています。
-c:\users\tomi-\desktop\tomita2\tomita\3dprogramming\gamemain\scene\gamescene\map\cmap.cpp(130): warning C4715: 'CMap::GoalEnemyFirstPos' : 値を返さないコントロール パスがあります。
-c:\users\tomi-\desktop\tomita2\tomita\3dprogramming\gamemain\scene\gamescene\map\cmap.cpp(112): warning C4715: 'CMap::EnemyFirstPos' : 値を返さないコントロール パスがあります。
-c:\users\tomi-\desktop\tomita2\tomita\3dprogramming\gamemain\scene\gamescene\map\cmap.cpp(103): warning C4715: 'CMap::PlayerFirstPos' : 値を返さないコントロール パスがあります。
-c:\users\tomi-\desktop\tomita2\tomita\3dprogramming\gamemain\scene\gamescene\map\cmap.cpp(121): warning C4715: 'CMap::GoalPlayerFirstPos' : 値を返さないコントロール パスがあります。
-  コード生成が終了しました。
-  3DProgramming.vcxproj -> C:\Users\tomi-\Desktop\Tomita2\TOMITA\Release\3DProgramming.exe
+﻿2018/04/21 17:22:21 にビルドを開始しました。
+     1>ノード 2 上のプロジェクト "C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\3DProgramming.vcxproj" (Build ターゲット)。
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl- /O2 /Oi /Oy- /GL /D WIN32 /D _MBCS /Gm- /EHsc /MD /GS- /Gy /fp:precise /Zc:wchar_t- /Zc:forScope /openmp /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt GameMain\Camera\CCamera.cpp GameMain\Collision\CCollision2D.cpp GameMain\Collision\CCollisionManager.cpp GameMain\Convenient\CConvenient.cpp GameMain\Csv\CCsve.cpp GameMain\Graphic\CBillBoard.cpp GameMain\Graphic\CBox.cpp GameMain\Graphic\CHpBar.cpp GameMain\Graphic\CLoadTexManager.cpp GameMain\Graphic\CRectangle.cpp GameMain\Graphic\CRectangle2.cpp GameMain\Graphic\CTriangle.cpp GameMain\Graphic\CTriangularPrism.cpp GameMain\Key\CInput.cpp GameMain\Key\CMouse.cpp GameMain\Scene\CScene.cpp GameMain\Scene\CSceneManager.cpp GameMain\Scene\CountDown\CCountDown.cpp GameMain\Scene\GameClearScene\CGameClear.cpp GameMain\Scene\GameClearScene\CGameClearScene.cpp GameMain\Scene\GameOverScene\CGameOver.cpp GameMain\Scene\GameOverScene\CGameOverScene.cpp GameMain\Scene\GameResult\CGameResult.cpp GameMain\Scene\GameScene\CGameScene.cpp GameMain\Scene\GameScene\CharaDate\CSceneModel.cpp GameMain\Scene\GameScene\CharaDate\CXCharEnemy.cpp GameMain\Scene\GameScene\CharaDate\CXCharPlayer.cpp GameMain\Scene\GameScene\Effect\CEffect2D.cpp GameMain\Scene\GameScene\Effect\CExplosion.cpp GameMain\Scene\GameScene\Map\CMap.cpp GameMain\Scene\GameScene\Map\FastFloor\CFastFloor.cpp GameMain\Scene\GameScene\Map\Goal\CGoal.cpp GameMain\Scene\GameScene\Map\HighBox\CHighBox.cpp GameMain\Scene\GameScene\Map\Net\CNet.cpp GameMain\Scene\GameScene\Map\SlopeEnd\CSlopeEnd.cpp GameMain\Scene\GameScene\Map\Slope\CSlope.cpp GameMain\Scene\GameScene\Map\SlowFloor\CSlowFloor.cpp GameMain\Scene\GameScene\Map\Trampoline\CTrampoline.cpp GameMain\Scene\GameScene\Pause\CPause.cpp GameMain\Scene\GameScene\Puck\CXPuck.cpp GameMain\Scene\GameScene\Tutorial\CTutorial.cpp GameMain\Scene\GameScene\UI\CScoreBoard.cpp GameMain\Scene\HomeScene\CHome.cpp GameMain\Scene\HomeScene\CHomeScene.cpp GameMain\Scene\ItemScene\CItem.cpp GameMain\Scene\ItemScene\CItemScene.cpp GameMain\Scene\OptionsScene\COption.cpp GameMain\Scene\OptionsScene\COptionScene.cpp GameMain\Scene\QuestScene\CQuest.cpp GameMain\Scene\QuestScene\CQuestScene.cpp GameMain\Scene\ShopScene\CShop.cpp GameMain\Scene\ShopScene\CShopCreating.cpp GameMain\Scene\ShopScene\CShopScene.cpp GameMain\Scene\TitleScene\CTitle.cpp GameMain\Scene\TitleScene\CTitleScene.cpp GameMain\Task\CTaskManager.cpp GameMain\Vector\CVector3.cpp Main\main.cpp
+     1>cl : コマンド ライン warning D9025: '/sdl-' より '/GS-' が優先されます。
+         CCamera.cpp
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(106): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(229): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(314): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(319): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(324): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gameresult\../ItemScene/CItem.h(11): warning C4005: 'TIP_ARRAY' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\effect\CEffect2D.h(5) : 'TIP_ARRAY' の前の定義を確認してください
+     1>GameMain\Camera\CCamera.cpp(38): warning C4005: 'OBB_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../Map/Slope/CSlope.h(12) : 'OBB_POS' の前の定義を確認してください
+     1>GameMain\Camera\CCamera.cpp(45): warning C4005: 'CHARA_POS' : マクロが再定義されました。
+                 GameMain\Camera\CCamera.cpp(18) : 'CHARA_POS' の前の定義を確認してください
+         CCollision2D.cpp
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+         CCollisionManager.cpp
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(106): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(229): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(314): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(319): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(324): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gameresult\../ItemScene/CItem.h(11): warning C4005: 'TIP_ARRAY' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../Effect/CEffect2D.h(5) : 'TIP_ARRAY' の前の定義を確認してください
+         CConvenient.cpp
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+         CCsve.cpp
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\csv\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\csv\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>GameMain\Csv\CCsve.cpp(61): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+         CBillBoard.cpp
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+         CBox.cpp
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+         CHpBar.cpp
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+         CLoadTexManager.cpp
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+         CRectangle.cpp
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+         CRectangle2.cpp
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+         CTriangle.cpp
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+         CTriangularPrism.cpp
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+         CInput.cpp
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\key\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\key\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+         CMouse.cpp
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\shared\minwindef.h(130): warning C4005: 'APIENTRY' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\GLFW/glfw3.h(98) : 'APIENTRY' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\key\../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\key\../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\key\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\key\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+         CScene.cpp
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(89) : 'BACK_POS' の前の定義を確認してください
+         CSceneManager.cpp
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(106): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(229): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(314): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(319): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(324): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gameresult\../ItemScene/CItem.h(11): warning C4005: 'TIP_ARRAY' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\effect\CEffect2D.h(5) : 'TIP_ARRAY' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\shopscene\CShop.h(55): warning C4005: 'MOVE_SPEED' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\homescene\CHome.h(7) : 'MOVE_SPEED' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\optionsscene\COption.h(5): warning C4005: 'BGM_GAGE' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\UI\CScoreBoard.h(11) : 'BGM_GAGE' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\optionsscene\COption.h(6): warning C4005: 'SE_GAGE' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\UI\CScoreBoard.h(12) : 'SE_GAGE' の前の定義を確認してください
+         CCountDown.cpp
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\countdown\../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\countdown\../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\countdown\../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\countdown\../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+         CGameClear.cpp
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gameclearscene\../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gameclearscene\../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gameclearscene\../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gameclearscene\../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>GameMain\Scene\GameClearScene\CGameClear.cpp(13): warning C4005: 'BG_SIZE' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gameclearscene\../../../Define/Define.h(79) : 'BG_SIZE' の前の定義を確認してください
+         CGameClearScene.cpp
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(94) : 'BACK_POS' の前の定義を確認してください
+         コンパイル中...
+         CGameOver.cpp
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gameoverscene\../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gameoverscene\../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gameoverscene\../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gameoverscene\../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>GameMain\Scene\GameOverScene\CGameOver.cpp(13): warning C4005: 'BG_SIZE' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gameoverscene\../../../Define/Define.h(79) : 'BG_SIZE' の前の定義を確認してください
+         CGameOverScene.cpp
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(94) : 'BACK_POS' の前の定義を確認してください
+         CGameResult.cpp
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gameresult\../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gameresult\../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gameresult\../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gameresult\../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>GameMain\Scene\GameResult\CGameResult.cpp(26): warning C4005: 'BG_SIZE' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gameresult\../../../Define/Define.h(79) : 'BG_SIZE' の前の定義を確認してください
+         CGameScene.cpp
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(106): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(229): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(314): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(319): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(324): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gameresult\../ItemScene/CItem.h(11): warning C4005: 'TIP_ARRAY' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\effect\CEffect2D.h(5) : 'TIP_ARRAY' の前の定義を確認してください
+         CSceneModel.cpp
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(106): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(229): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(314): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(319): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(324): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gameresult\../ItemScene/CItem.h(11): warning C4005: 'TIP_ARRAY' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\effect\CEffect2D.h(5) : 'TIP_ARRAY' の前の定義を確認してください
+     1>GameMain\Scene\GameScene\CharaDate\CSceneModel.cpp(26): warning C4005: 'ANGLE_5' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(111) : 'ANGLE_5' の前の定義を確認してください
+     1>GameMain\Scene\GameScene\CharaDate\CSceneModel.cpp(27): warning C4005: 'ANGLE_180' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(106) : 'ANGLE_180' の前の定義を確認してください
+         CXCharEnemy.cpp
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(106): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(229): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(314): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(319): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(324): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+         CXCharPlayer.cpp
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(106): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(229): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(314): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(319): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(324): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gameresult\../ItemScene/CItem.h(11): warning C4005: 'TIP_ARRAY' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../Effect/CEffect2D.h(5) : 'TIP_ARRAY' の前の定義を確認してください
+         CEffect2D.cpp
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+         CExplosion.cpp
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+         CMap.cpp
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../Graphic/CModelX.h(106): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../Graphic/CModelX.h(229): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../Graphic/CModelX.h(314): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../Graphic/CModelX.h(319): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../Graphic/CModelX.h(324): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\net\../../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\net\../../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\net\../../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\net\../../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\fastfloor\../../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\fastfloor\../../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\fastfloor\../../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\fastfloor\../../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slowfloor\../../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slowfloor\../../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slowfloor\../../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slowfloor\../../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\trampoline\../../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\trampoline\../../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\trampoline\../../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\trampoline\../../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\highbox\../../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\highbox\../../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\highbox\../../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\highbox\../../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+         CFastFloor.cpp
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\fastfloor\../../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\fastfloor\../../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\fastfloor\../../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\fastfloor\../../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+         CGoal.cpp
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\goal\../../../../Graphic/CModelX.h(106): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\goal\../../../../Graphic/CModelX.h(229): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\goal\../../../../Graphic/CModelX.h(314): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\goal\../../../../Graphic/CModelX.h(319): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\goal\../../../../Graphic/CModelX.h(324): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\goal\../../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\goal\../../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\goal\../../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\goal\../../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>GameMain\Scene\GameScene\Map\Goal\CGoal.cpp(13): warning C4005: 'OBB_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../Map/Slope/CSlope.h(12) : 'OBB_POS' の前の定義を確認してください
+     1>GameMain\Scene\GameScene\Map\Goal\CGoal.cpp(14): warning C4005: 'OBB_SIZE' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../Map/Slope/CSlope.h(13) : 'OBB_SIZE' の前の定義を確認してください
+         CHighBox.cpp
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\highbox\../../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\highbox\../../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\highbox\../../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\highbox\../../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+         CNet.cpp
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\net\../../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\net\../../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\net\../../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\net\../../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+         CSlopeEnd.cpp
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+         CSlope.cpp
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+         CSlowFloor.cpp
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slowfloor\../../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slowfloor\../../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slowfloor\../../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slowfloor\../../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+         CTrampoline.cpp
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\trampoline\../../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\trampoline\../../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\trampoline\../../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\trampoline\../../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+         CPause.cpp
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\pause\../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\pause\../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\pause\../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\pause\../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>GameMain\Scene\GameScene\Pause\CPause.cpp(18): warning C4005: 'BG_SIZE' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\pause\../../../../Define/Define.h(79) : 'BG_SIZE' の前の定義を確認してください
+         CXPuck.cpp
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\puck\../../../Graphic/CModelX.h(106): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\puck\../../../Graphic/CModelX.h(229): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\puck\../../../Graphic/CModelX.h(314): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\puck\../../../Graphic/CModelX.h(319): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\puck\../../../Graphic/CModelX.h(324): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\puck\../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\puck\../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\puck\../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\puck\../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>GameMain\Scene\GameScene\Puck\CXPuck.cpp(11): warning C4005: 'OBB_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\puck\../Map/Slope/CSlope.h(12) : 'OBB_POS' の前の定義を確認してください
+     1>GameMain\Scene\GameScene\Puck\CXPuck.cpp(12): warning C4005: 'OBB_SIZE' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\puck\../Map/Slope/CSlope.h(13) : 'OBB_SIZE' の前の定義を確認してください
+         コンパイル中...
+         CTutorial.cpp
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\tutorial\../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\tutorial\../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\tutorial\../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\tutorial\../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>GameMain\Scene\GameScene\Tutorial\CTutorial.cpp(18): warning C4005: 'TEX_SIZE' : マクロが再定義されました。
+                 GameMain\Scene\GameScene\Tutorial\CTutorial.cpp(17) : 'TEX_SIZE' の前の定義を確認してください
+         CScoreBoard.cpp
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(106): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(229): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(314): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(319): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(324): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gameresult\../ItemScene/CItem.h(11): warning C4005: 'TIP_ARRAY' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\effect\CEffect2D.h(5) : 'TIP_ARRAY' の前の定義を確認してください
+     1>GameMain\Scene\GameScene\UI\CScoreBoard.cpp(12): warning C4005: 'DISP_2D_Y' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(76) : 'DISP_2D_Y' の前の定義を確認してください
+         CHome.cpp
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define\Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define\Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define\Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define\Define.h(89) : 'BACK_POS' の前の定義を確認してください
+         CHomeScene.cpp
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+         CItem.cpp
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>GameMain\Scene\ItemScene\CItem.cpp(10): warning C4005: 'DISP_2D_Y' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(76) : 'DISP_2D_Y' の前の定義を確認してください
+         CItemScene.cpp
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+         COption.cpp
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>GameMain\Scene\OptionsScene\COption.cpp(8): warning C4005: 'DISP_2D_Y' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(76) : 'DISP_2D_Y' の前の定義を確認してください
+         COptionScene.cpp
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+         CQuest.cpp
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\questscene\../../../Define/define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\questscene\../../../Define/define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\questscene\../../../Define/define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\questscene\../../../Define/define.h(89) : 'BACK_POS' の前の定義を確認してください
+         CQuestScene.cpp
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+         CShop.cpp
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\shopscene\../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\shopscene\../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\shopscene\../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\shopscene\../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+         CShopCreating.cpp
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\shopscene\../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\shopscene\../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\shopscene\../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\shopscene\../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+         CShopScene.cpp
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(94) : 'BACK_POS' の前の定義を確認してください
+         CTitle.cpp
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\titlescene\../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\titlescene\../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\titlescene\../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\titlescene\../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>GameMain\Scene\TitleScene\CTitle.cpp(13): warning C4005: 'BG_SIZE' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\titlescene\../../../Define/Define.h(79) : 'BG_SIZE' の前の定義を確認してください
+         CTitleScene.cpp
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/define.h(94) : 'BACK_POS' の前の定義を確認してください
+         CTaskManager.cpp
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\task\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\task\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+         CVector3.cpp
+     1>C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\include\../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>GameMain\Vector\CVector3.cpp(97): warning C4244: '引数' : 'double' から 'float' への変換です。データが失われる可能性があります。
+     1>GameMain\Vector\CVector3.cpp(101): warning C4244: '引数' : 'double' から 'float' への変換です。データが失われる可能性があります。
+     1>GameMain\Vector\CVector3.cpp(120): warning C4244: '引数' : 'int' から 'float' への変換です。データが失われる可能性があります。
+     1>GameMain\Vector\CVector3.cpp(121): warning C4244: '引数' : 'int' から 'float' への変換です。データが失われる可能性があります。
+         main.cpp
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\main\../Define/define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\main\../Define/define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\main\../Define/define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\main\../Define/define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\graphic\../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\shinobu\Desktop\Git\TOMITA\Release\3DProgramming.exe" /NOLOGO glew32.lib glfw3dll.lib glfw3.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\shinobu\Desktop\Git\TOMITA\Release\3DProgramming.pdb" /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\shinobu\Desktop\Git\TOMITA\Release\3DProgramming.lib" /MACHINE:X86 /SAFESEH Release\CBase.obj
+         Release\CCamera.obj
+         Release\CCollider.obj
+         Release\CCollision.obj
+         Release\CCollisionManager.obj
+         Release\CCollision2D.obj
+         Release\CConvenient.obj
+         Release\CCsve.obj
+         Release\CBillBoard.obj
+         Release\CBox.obj
+         Release\CHpBar.obj
+         Release\CLoadTexManager.obj
+         Release\CModelX.obj
+         Release\CRectangle.obj
+         Release\CRectangle2.obj
+         Release\CShader.obj
+         Release\CTriangle.obj
+         Release\CTriangle2.obj
+         Release\CTriangularPrism.obj
+         Release\CInput.obj
+         Release\CKey.obj
+         Release\CMouse.obj
+         Release\CMatrix44.obj
+         Release\CCountDown.obj
+         Release\CScene.obj
+         Release\CSceneManager.obj
+         Release\CGameClear.obj
+         Release\CGameClearScene.obj
+         Release\CGameOver.obj
+         Release\CGameOverScene.obj
+         Release\CGameResult.obj
+         Release\CGameScene.obj
+         Release\CSceneModel.obj
+         Release\CXCharacter.obj
+         Release\CXCharEnemy.obj
+         Release\CXCharPlayer.obj
+         Release\CEffect2D.obj
+         Release\CExplosion.obj
+         Release\CMap.obj
+         Release\CFastFloor.obj
+         Release\CGoal.obj
+         Release\CHighBox.obj
+         Release\CNet.obj
+         Release\CSlopeEnd.obj
+         Release\CSlope.obj
+         Release\CSlowFloor.obj
+         Release\CTrampoline.obj
+         Release\CPause.obj
+         Release\CXPuck.obj
+         Release\CTutorial.obj
+         Release\CScoreBoard.obj
+         Release\CHome.obj
+         Release\CHomeScene.obj
+         Release\CItem.obj
+         Release\CItemScene.obj
+         Release\COption.obj
+         Release\COptionScene.obj
+         Release\CQuest.obj
+         Release\CQuestScene.obj
+         Release\CShop.obj
+         Release\CShopCreating.obj
+         Release\CShopScene.obj
+         Release\CTitle.obj
+         Release\CTitleScene.obj
+         Release\CSE.obj
+         Release\CSound.obj
+         Release\CTask.obj
+         Release\CTaskManager.obj
+         Release\CVector2.obj
+         Release\CVector3.obj
+         Release\CVector4.obj
+         Release\CLight.obj
+         Release\main.obj
+         コード生成しています。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\cmap.cpp(130): warning C4715: 'CMap::GoalEnemyFirstPos' : 値を返さないコントロール パスがあります。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\cmap.cpp(112): warning C4715: 'CMap::EnemyFirstPos' : 値を返さないコントロール パスがあります。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\cmap.cpp(121): warning C4715: 'CMap::GoalPlayerFirstPos' : 値を返さないコントロール パスがあります。
+     1>c:\users\shinobu\desktop\git\tomita\3dprogramming\gamemain\scene\gamescene\map\cmap.cpp(103): warning C4715: 'CMap::PlayerFirstPos' : 値を返さないコントロール パスがあります。
+         コード生成が終了しました。
+         3DProgramming.vcxproj -> C:\Users\shinobu\Desktop\Git\TOMITA\Release\3DProgramming.exe
+     1>プロジェクト "C:\Users\shinobu\Desktop\Git\TOMITA\3DProgramming\3DProgramming.vcxproj" (Build ターゲット) のビルドが完了しました。
+
+ビルドに成功しました。
+
+経過時間 00:00:42.08
