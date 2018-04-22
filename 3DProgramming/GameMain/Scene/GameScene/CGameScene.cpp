@@ -116,7 +116,7 @@ void CGameScene::Update() {
 		CCollisionManager::GetInstance()->AllKill();
 		mSceneModel.mModelTaskManager.AllKill();
 		mMap.mMapTaskManager.AllKill();
-		mMap.mCsvMapData.~CCsv();
+//		mMap.mCsvMapData.~CCsv();
 		eState = E_INIT;
 		/*ƒ^ƒCƒgƒ‹‚É–ß‚é*/
 		CSceneManager::GetInstance()->ChangeScene(eSceneNo::E_TITLE);

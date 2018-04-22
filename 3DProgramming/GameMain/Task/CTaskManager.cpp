@@ -38,88 +38,136 @@ void CTaskManager::Add(CTask  *t){
 	/*‰½‚àÝ’è‚µ‚Ä‚¢‚È‚¢‚Æ‚«*/
 	if (mpRoot == 0){
 		/*“ª‚ÌÝ’è*/
-		mpRoot = t; 
-		mpRoot->mpPrev = 0; 
+		mpRoot = t;
+		mpRoot->mpPrev = 0;
 		mpRoot->mpNext = 0;
 		/*K”ö‚ÌÝ’è*/
-		mpTail = 0;
+		mpTail = t;
+		return;
 	}
-	/*2”Ô–Ú‚Ìˆ—*/
-	else if (mpTail == 0){
-		/*Œ»Ý‚Ì‚à‚Ì‚ª¬‚³‚¢ê‡*/
-		if (mpRoot-> ePriority < t-> ePriority){
-			/*K”ö‚ÌÝ’è*/
-			mpTail = t;
-			mpTail->mpPrev = mpRoot;
-			mpTail->mpNext = 0;
-			/*“ª‚ÌÝ’è*/
-			mpRoot->mpPrev = 0;
-			mpRoot->mpNext = mpTail;
-			
-		}
-		/*Œ»Ý‚Ì‚à‚Ì‚ª‘å‚«‚¢ê‡*/
-		else{
-			/*K”ö‚ÌÝ’è*/
-			mpTail = mpRoot;
-			mpTail->mpPrev = t;
-			mpTail->mpNext = 0;
-			/*“ª‚ÌÝ’è*/
-			mpRoot = t;
-			mpRoot->mpPrev = 0;
-			mpRoot->mpNext = mpTail;
-		}
-	}
-	/*3”Ô–ÚˆÈã*/
-	else if(mpRoot->mpNext != 0 && mpTail->mpPrev != 0){
-		CTask temp;
-		CTask *moveTask = &temp;//’T‚·ƒ^ƒXƒN
-		moveTask->mpNext = mpRoot;
-
+	/*2”Ô–ÚˆÈã*/
+	else {
+		CTask *moveTask = mpRoot;//’T‚·ƒ^ƒXƒN
 		/*’Ç‰Á‚·‚éêŠ‚ð’T‚·*/
-		while (moveTask != mpTail)
+		while (moveTask)
 		{
+			if (moveTask->ePriority > t->ePriority){
+				/*Å‰*/
+				if (moveTask->mpPrev == 0) {
+					moveTask->mpPrev = t;
+					t->mpNext = moveTask;
+					t->mpPrev = 0;
+					mpRoot = t;
+					return;
+				}
+				/*“r’†*/
+				else {
+					moveTask->mpPrev->mpNext = t;
+					t->mpPrev = moveTask->mpPrev;
+					moveTask->mpPrev = t;
+					t->mpNext = moveTask;
+					return;
+				}
+			}
 			moveTask = moveTask->mpNext;
 
-
-			/*Å‰*/
-			if (mpRoot-> ePriority > t-> ePriority){
-				/*’Ç‰Á‚·‚é‚à‚ÌÝ’è*/
-				t->mpPrev = 0;
-				t->mpNext = mpRoot;
-				/*“ª‚Ìƒ^ƒXƒNÝ’è*/
-				mpRoot = t; 
-				/*’T‚·ƒ^ƒXƒNÝ’è*/
-				moveTask->mpPrev = t;
-				if (moveTask->mpNext == 0){
-					mpTail = moveTask;
-				}
-
-				break;
-			}
-			/*ÅŒã*/
-			else if (moveTask == mpTail){
-				/*‚µ‚Á‚ÛÝ’è*/
-				t->mpPrev = mpTail;
-				mpTail->mpNext = t;
-				mpTail = t;
-				mpTail->mpNext = 0;
-				break;
-			} 
-			/*’†ŠÔ*/
-			else if (moveTask-> ePriority <= t-> ePriority &&
-					t-> ePriority <= moveTask->mpNext-> ePriority){
-				/*’Ç‰Á‚·‚é‚à‚ÌÝ’è*/
-				t->mpNext = moveTask->mpNext;
-				t->mpPrev = moveTask;
-				/*ŠO‘¤‚Ìƒ^ƒXƒNÝ’è*/
-				moveTask->mpNext->mpPrev = t;
-				moveTask->mpNext = t;
-				
-				break;
-			}
-
 		}
+		/*ÅŒã*/
+		mpTail->mpNext = t;
+		t->mpPrev = mpTail;
+		mpTail = t;
+		mpTail->mpNext = 0;
 	}
+
+
+
+
+
+	///*‰½‚àÝ’è‚µ‚Ä‚¢‚È‚¢‚Æ‚«*/
+	//if (mpRoot == 0){
+	//	/*“ª‚ÌÝ’è*/
+	//	mpRoot = t; 
+	//	mpRoot->mpPrev = 0; 
+	//	mpRoot->mpNext = 0;
+	//	/*K”ö‚ÌÝ’è*/
+	//	mpTail = 0;
+	//}
+	///*2”Ô–Ú‚Ìˆ—*/
+	//else if (mpTail == 0){
+	//	/*Œ»Ý‚Ì‚à‚Ì‚ª¬‚³‚¢ê‡*/
+	//	if (mpRoot-> ePriority < t-> ePriority){
+	//		/*K”ö‚ÌÝ’è*/
+	//		mpTail = t;
+	//		mpTail->mpPrev = mpRoot;
+	//		mpTail->mpNext = 0;
+	//		/*“ª‚ÌÝ’è*/
+	//		mpRoot->mpPrev = 0;
+	//		mpRoot->mpNext = mpTail;
+	//		
+	//	}
+	//	/*Œ»Ý‚Ì‚à‚Ì‚ª‘å‚«‚¢ê‡*/
+	//	else{
+	//		/*K”ö‚ÌÝ’è*/
+	//		mpTail = mpRoot;
+	//		mpTail->mpPrev = t;
+	//		mpTail->mpNext = 0;
+	//		/*“ª‚ÌÝ’è*/
+	//		mpRoot = t;
+	//		mpRoot->mpPrev = 0;
+	//		mpRoot->mpNext = mpTail;
+	//	}
+	//}
+	///*3”Ô–ÚˆÈã*/
+	//else if(mpRoot->mpNext != 0 && mpTail->mpPrev != 0){
+	//	CTask temp;
+	//	CTask *moveTask = &temp;//’T‚·ƒ^ƒXƒN
+	//	moveTask->mpNext = mpRoot;
+
+	//	/*’Ç‰Á‚·‚éêŠ‚ð’T‚·*/
+	//	while (moveTask != mpTail)
+	//	{
+	//		moveTask = moveTask->mpNext;
+
+
+	//		/*Å‰*/
+	//		if (mpRoot-> ePriority > t-> ePriority){
+	//			/*’Ç‰Á‚·‚é‚à‚ÌÝ’è*/
+	//			t->mpPrev = 0;
+	//			t->mpNext = mpRoot;
+	//			/*“ª‚Ìƒ^ƒXƒNÝ’è*/
+	//			mpRoot = t; 
+	//			/*’T‚·ƒ^ƒXƒNÝ’è*/
+	//			moveTask->mpPrev = t;
+	//			if (moveTask->mpNext == 0){
+	//				mpTail = moveTask;
+	//			}
+
+	//			break;
+	//		}
+	//		/*ÅŒã*/
+	//		else if (moveTask == mpTail){
+	//			/*‚µ‚Á‚ÛÝ’è*/
+	//			t->mpPrev = mpTail;
+	//			mpTail->mpNext = t;
+	//			mpTail = t;
+	//			mpTail->mpNext = 0;
+	//			break;
+	//		} 
+	//		/*’†ŠÔ*/
+	//		else if (moveTask-> ePriority <= t-> ePriority &&
+	//				t-> ePriority <= moveTask->mpNext-> ePriority){
+	//			/*’Ç‰Á‚·‚é‚à‚ÌÝ’è*/
+	//			t->mpNext = moveTask->mpNext;
+	//			t->mpPrev = moveTask;
+	//			/*ŠO‘¤‚Ìƒ^ƒXƒNÝ’è*/
+	//			moveTask->mpNext->mpPrev = t;
+	//			moveTask->mpNext = t;
+	//			
+	//			break;
+	//		}
+
+	//	}
+	//}
 }
 
 void CTaskManager::Sort(CTask **t){
