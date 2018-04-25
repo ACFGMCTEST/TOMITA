@@ -25,7 +25,7 @@
 #define OBB_SPHERE_BODY_POS CVector3(0.0f,0.0f,0.0f)
 /*ïêäÌ*/
 #define OBB_WEAPON_POS CVector3(0.0f,0.5f,0.0f)
-#define OBB_WEAPON_SIZE new float[]{0.4f, 0.7f, 0.4f}
+#define OBB_WEAPON_SIZE CVector3(0.4f, 0.7f, 0.4f)
 /*ë´*/
 #define OBB_LEG_SIZE 0.3f
 #define OBB_LEG_POS CVector3(0.0f,-1.0f,0.0f)

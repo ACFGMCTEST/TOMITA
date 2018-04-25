@@ -132,7 +132,7 @@ void CSlope::MapRot(){
 
 	/*サイズ設定*/
 	SetVertex(mMinX, mMaxX, mMinY, mMaxY, mMinZ, mMaxZ);
-	mpColBox->SetObbSize(new float[]{mMaxX, mMaxY, mMaxZ});//当たり判定
+	mpColBox->SetObbSize(CVector3(mMaxX, mMaxY, mMaxZ));//当たり判定
 
 
 	/*回転*/
@@ -159,6 +159,9 @@ void CSlope::Update(){
 void CSlope::Render(){
 	UpdateMatrix();
 	CBox::Render();
+#ifdef _DEBUG
+	mpColBox->Render();
+#endif
 }
 
 /*坂の中間値*/

@@ -15,13 +15,20 @@
 
 
 
-CEffect2D::CEffect2D() : mAnimaCount(0), mAnimaSize(0), mTimeCount(0), 
+CEffect2D::CEffect2D() : mAnimaCount(0), mAnimaSize(0), mTimeCount(0), mpWidthLeft(nullptr), mpWidthRight(nullptr),
 mAnimaFrameNum(0), mAnimaFrameMax(0), mAnimaFlag(false){}
 
-CEffect2D::~CEffect2D(){}
+CEffect2D::~CEffect2D(){
+	/*メモリ開放*/
+	P_ARRAY_DELETE(mpWidthLeft);
+	P_ARRAY_DELETE(mpWidthRight);
+}
 
 /*アニメーション設定*/
 void CEffect2D::SetAnima(int size, float width){
+	/*メモリ開放*/
+	P_ARRAY_DELETE(mpWidthLeft);
+	P_ARRAY_DELETE(mpWidthRight);
 	mAnimaFrameMax = size; //Frame最大数記録 
 	mpWidthLeft = new float[size]; //サイズ保存
 	mpWidthRight = new float[size]; //サイズ保存
@@ -30,7 +37,7 @@ void CEffect2D::SetAnima(int size, float width){
 		mpWidthRight[i - 1] = width * i;
 	}
 	SetFrame(0);//初期値に設定
-
+	
 }
 /*サイズ指定*/
 void CEffect2D::SetVertex(CVector3 v0, CVector3 v1, CVector3 v2, CVector3 v3){

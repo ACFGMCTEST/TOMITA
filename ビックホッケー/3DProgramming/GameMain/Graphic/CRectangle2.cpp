@@ -102,6 +102,16 @@ void CRectangle2::SetUv(CTexture *t, int left, int top, int right, int bottom) {
 	uv[1][4] = (float)right / ptexture->header.width;
 	uv[1][5] = (float)(ptexture->header.height - top) / ptexture->header.height;
 }
+void CRectangle2::Uv(int left, int top, int right, int bottom) {
+	/*テクスチャがある場合*/
+	if (ptexture){
+		SetUv(ptexture, left, top, right, bottom);
+	}
+	else{
+		printf("テクスチャが張られていません.SetUv()で貼ってください\n");
+	}
+
+}
 
 void CRectangle2::SetVertex(float left, float top, float right, float bottom) {
 

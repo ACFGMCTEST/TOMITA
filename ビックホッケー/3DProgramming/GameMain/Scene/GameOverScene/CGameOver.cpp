@@ -16,11 +16,6 @@
 #define GAME_EXIT_SIZE - 120.0f, -160.0f, 120.0f, -220.0f
 
 CGameOver::~CGameOver(){
-	if (mpTexture) {
-		//テクスチャを使っていればインスタンス削除
-		delete mpTexture;
-		mpTexture = 0;
-	}
 }
 
 void CGameOver::Init(){
@@ -30,13 +25,12 @@ void CGameOver::Init(){
 	//mBG.SetUv(mpTexture, TEST_CG);
 ///////////////////////////////////////////////////////////////////
 	//ゲームオーバーテクスチャの読み込み
-	mpTexture = new CTexture();
-	mpTexture->load(TGA_FILE"GameOver.tga");
+	mTexLogo.load(TGA_FILE"GameOver.tga");
 	//ゲームオーバーロゴの描画設定
 	mGameOverLogo.SetVertex(TITLE_SIZE); //ここで大きさ変更
 	mGameOverLogo.SetColor(W_COLOR, mAlpha);
 	mGameOverLogo.position = CVector2(0, DISP_2D_Y / 2);
-	mGameOverLogo.SetUv(mpTexture, TEST_CG);
+	mGameOverLogo.SetUv(&mTexLogo, TEST_CG);
 }
 
 void CGameOver::Update(){

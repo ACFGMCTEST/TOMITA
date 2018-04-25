@@ -78,6 +78,9 @@ public:
 	bottom	画像の左上端を原点(0,0)とし、貼り付けたい領域の下の座標値
 	*/
 	void SetUv(CTexture *t, int left, int top, int right, int bottom);
+	/*テクスチャが張られている場合*/
+	void Uv(int left, int top, int right, int bottom);
+
 	/* setVertex
 	left:左のx座標
 	top:上のy座標

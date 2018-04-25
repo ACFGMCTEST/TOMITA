@@ -10,7 +10,7 @@
 
 /*あたり判定:ボックス設定*/
 #define OBB_POS CVector3(0.0f,0.0f,0.0f) 
-#define OBB_SIZE new float[]{MAPCHIP_SIZE, MAPCHIP_SIZE/2, MAPCHIP_SIZE} 
+#define OBB_SIZE CVector3(MAPCHIP_SIZE, MAPCHIP_SIZE, MAPCHIP_SIZE)
 #define SMALL_SIZE(num) num*0.999f//ボックスとかぶらない用
 #define SET_OBB OBB_POS,OBB_SIZE,&mMatrix
 

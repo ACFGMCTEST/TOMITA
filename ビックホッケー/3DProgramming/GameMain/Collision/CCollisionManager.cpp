@@ -124,7 +124,7 @@ void CCollisionManager::PlayerCollision(CTask *Task_You, CTask *Player){
 
 		/*当たり判定が足の時*/
 		if (pl->mpCBLeg == plSphere){
-			pl->Collision(youBox->mObb, plSphere->mColSphere);
+			pl->Collision(youBox->mObb, pl->mpCBLeg->mColSphere);
 		}
 		break;
 
@@ -323,7 +323,7 @@ void  CCollisionManager::PuckCollision(CTask *Task_You, CTask *Puck){
 		if (chara->mState == CXCharPlayer::E_ATTACK){
 			puck = dynamic_cast<CXPuck*>(Puck->mpParent);//自分
 			puck->ColReflect(chara->mRotation, chara->mPower);
-			mSEAttack.Play(SE_START_ATTACK_TIME);//攻撃音
+			mSEAttack.Play();//攻撃音
 		}
 
 		break;
@@ -334,7 +334,7 @@ void  CCollisionManager::PuckCollision(CTask *Task_You, CTask *Puck){
 		CScoreBoard::GetInstance()->GoalPlayer();
 		puck->GoalPlayer();//プレイヤー側にゴールしたなら
 
-		mSEGoal.Play(SE_START_GOAL_TIME);
+		mSEGoal.Play();
 		/*ゴール呼び出し*/
 		goal = dynamic_cast<CGoal*>(Task_You->mpParent);
 		goal->GoalPerformance();

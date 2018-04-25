@@ -11,7 +11,7 @@
 #define BOX_SIZE -MAPCHIP_SIZE, MAPCHIP_SIZE, -MAPCHIP_SIZE, MAPCHIP_SIZE, -MAPCHIP_SIZE*0.1f, MAPCHIP_SIZE*0.1f
 /*あたり判定の設定値*/
 #define OBB_POS CVector3(0.0f, 0.0f, 0.0f) 
-#define OBB_SIZE new float[]{MAPCHIP_SIZE, MAPCHIP_SIZE*1.1f, MAPCHIP_SIZE} 
+#define OBB_SIZE CVector3(MAPCHIP_SIZE, MAPCHIP_SIZE*1.1f, MAPCHIP_SIZE)
 /*HPバーの設定値*/
 #define HP_BAR_POS CVector3(mPosition.x,mPosition.y + 1.8f,mPosition.z)
 #define HP_BAR_SIZE -0.4f, 0.4f, -0.1f, 0.0f

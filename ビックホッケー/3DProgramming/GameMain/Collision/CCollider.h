@@ -30,7 +30,7 @@ public:
 
 
 	//OBBのボックスパラメータ設定
-	void SetBoxOBB(CVector3 &center, float length[], CMatrix44 *m);
+	void SetBoxOBB(CVector3 &center, CVector3 size, CMatrix44 *m);
 
 	/*球のパラメータ設定*/
 	void SetShere(float radius, CVector3 pos, CMatrix44 *m);
@@ -44,7 +44,7 @@ public:
 	/*Obbを回転させる*/
 	void SetObbRot(const CVector3 rot);
 	/*Obbを大きくさせる*/
-	void SetObbSize(float length[]);
+	void SetObbSize(CVector3 size);
 
 	/*色設定*/
 	void SetColor(float cr, float cg, float cb, float ca);

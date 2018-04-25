@@ -70,11 +70,9 @@ CGameResult::CGameResult() :mQuestMoney(0), mTotal(777){
 }
 
 CGameResult::~CGameResult(){
-	if (mpTexture) {
-		//テクスチャを使っていればインスタンス削除
-		delete mpTexture;
-		mpTexture = nullptr;
-	}
+	P_DELETE(mpTexture);
+	P_DELETE(mpTexture);
+	P_DELETE(mpTexture);
 
 }
 

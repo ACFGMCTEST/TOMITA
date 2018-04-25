@@ -35,7 +35,7 @@ void CSlopeEnd::ColInitRight(){
 	//当たり判定追加
 	CCollisionManager::GetInstance()->Add(mpColRefRight->eTag, mpColRefRight);	
 	/*サイズきめ*/
-	mpColRefRight->SetObbSize(new float[]{REF_SIZE_X, REF_SIZE_Y, mMaxZ});//当たり判定
+	mpColRefRight->SetObbSize(CVector3(REF_SIZE_X, REF_SIZE_Y, mMaxZ));//当たり判定
 }
  
 /*当たり判定初期化 左*/
@@ -51,7 +51,7 @@ void CSlopeEnd::ColInitLeft(){
 	//当たり判定追加
 	CCollisionManager::GetInstance()->Add(mpColRefLeft->eTag, mpColRefLeft);
 	/*サイズきめ*/
-	mpColRefLeft->SetObbSize(new float[]{REF_SIZE_X, REF_SIZE_Y, mMaxZ});//当たり判定
+	mpColRefLeft->SetObbSize(CVector3( REF_SIZE_X, REF_SIZE_Y, mMaxZ));//当たり判定
 }
 
 /*当たり判定の初期化*/

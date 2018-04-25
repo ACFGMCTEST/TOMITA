@@ -4,17 +4,14 @@
 #include"../../../Base/CBase.h"
 #include "../../Graphic/CRectangle2.h"
 #include"../CScene.h"
-
-
 class CGameOver :public CScene{
 public:
 	CRectangle2 mGameOverLogo;	//タイトルロゴ
 	CRectangle2 mBG;        //バックグラウンドの略 （背景)
 
-
-	CTexture	*mpTexture;
-	CTexture	*mpMenu;
-
+	/*テクスチャ*/
+	CTexture	mTexBG;
+	CTexture	mTexLogo;
 
 
 	float mAlpha=0.0f;

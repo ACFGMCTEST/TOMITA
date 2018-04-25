@@ -24,7 +24,6 @@ void CGameClear::Init(){
 	//背景の呼び出し
 	mBG.SetVertex(BG_SIZE); //ここで大きさ変更
 	mBG.SetColor(W_COLOR,0.0f);
-	//mBG.SetUv(&mTexBG, TEST_CG);
 
 
 	//クリアロゴの呼び出し

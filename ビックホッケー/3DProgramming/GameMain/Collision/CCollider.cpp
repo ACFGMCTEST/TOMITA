@@ -7,12 +7,14 @@
 #define DIVISION_NUM 20,20
 
 /*Obbを大きくさせる*/
-void CCollider::SetObbSize(float length[]){
+void CCollider::SetObbSize(CVector3 size){
 	/*ボックスであるか判定*/
 	if (eColTag == CTask::E_COL_BOX){
-		for (int i = 0; i < 3; i++){
-			mObb.mLength[i] = length[i];
-		}
+		/*サイズ変更*/
+		mObb.mLength[0] = size.x;
+		mObb.mLength[1] = size.y;
+		mObb.mLength[2] = size.z;
+		
 	}
 	else if (eColTag == CTask::E_COL_NO){
 		printf("当たり判定の形を設定してください\n");
@@ -30,7 +32,7 @@ center:中心の座標
 lenght:xyzの長さ
 matrix:フレームの合成行列
 */
-void CCollider::SetBoxOBB(CVector3 &center, float length[], CMatrix44 *matrix){
+void CCollider::SetBoxOBB(CVector3 &center, CVector3 size, CMatrix44 *matrix){
 	
 
 	/*ボックスであるか判定*/
@@ -39,9 +41,11 @@ void CCollider::SetBoxOBB(CVector3 &center, float length[], CMatrix44 *matrix){
 		mObb.mAxis[0] = CVector3(1.0f, 0.0f, 0.0f);
 		mObb.mAxis[1] = CVector3(0.0f, 1.0f, 0.0f);
 		mObb.mAxis[2] = CVector3(0.0f, 0.0f, 1.0f);
-		for (int i = 0; i < 3; i++){
-			mObb.mLength[i] = length[i];
-		}
+		/*サイズ変更*/
+		mObb.mLength[0] = size.x;
+		mObb.mLength[1] = size.y;
+		mObb.mLength[2] = size.z;
+		/*マトリックス設定*/
 		mpCombinedMatrix = matrix;
 		mObb.mMatrixRotation = *matrix;
 	}

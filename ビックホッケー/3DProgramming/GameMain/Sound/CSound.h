@@ -42,7 +42,7 @@ public:
 	/*一回時間指定鳴らす
 	float startTime = 再生時間位置
 	*/
-	void Play(float startTime);
+	//void Play(float startTime);
 
 	/*BGM用ループ*/
 	void Repeat();
