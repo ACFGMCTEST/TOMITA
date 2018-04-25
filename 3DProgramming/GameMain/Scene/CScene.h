@@ -23,6 +23,7 @@ public:
 
 	static int State; //‘®«ŠÇ—
 
+	virtual ~CScene(){};
 
 	virtual	void Update(){};	//virtual@
 	virtual	void Render(){};

@@ -19,7 +19,9 @@ void CItemScene::Update(){
 	/*あたり判定*/
 	if (CCollision2D::Collision2D(mItem.mCursor, mItem.mBackButton)){ //カーソルがあっている?
 		if (CMouse::GetInstance()->mLeftFlag){//マウス左クリック
-			CSceneManager::GetInstance()->ChangeScene(eSceneNo::E_HOME);
+			//B			CSceneManager::GetInstance()->ChangeScene(eSceneNo::E_HOME);
+			CSceneManager::GetInstance()->eStatus = CSceneManager::E_CHANGE;
+			CScene::State = eSceneNo::E_HOME;
 		}
 	}
 

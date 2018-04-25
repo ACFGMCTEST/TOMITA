@@ -17,9 +17,10 @@ public:
 	enum EState
 	{
 		E_INIT,
-		E_LOOP
+		E_LOOP,
+		E_CHANGE
 	};
-	EState eStatus = E_INIT;
+	static EState eStatus;
 	static CSceneManager *GetInstance(); //GetInstance
 
 	void ChangeScene(eSceneNo no);	//ƒV[ƒ“Ø‚è‘Ö‚¦

@@ -20,14 +20,16 @@ void CTitleScene::Update() {
 
 	/*あたり判定*/
 	if (CCollision2D::Collision2D(mTitle.mCursor, mTitle.mGameStart)){ //カーソルがあっている?
-		if (CMouse::GetInstance()->mOneLeftFlag)//マウス左クリック
-			CSceneManager::GetInstance()->ChangeScene(eSceneNo::E_HOME);
+		if (CMouse::GetInstance()->mOneLeftFlag) {//マウス左クリック
+			//B			CSceneManager::GetInstance()->ChangeScene(eSceneNo::E_HOME);
+			CSceneManager::GetInstance()->eStatus = CSceneManager::E_CHANGE;
+			CScene::State = eSceneNo::E_HOME;
+		}
 	}
 	
 	if (CCollision2D::Collision2D(mTitle.mCursor, mTitle.mGameExit)){ //カーソルがあっている?
 		if (CMouse::GetInstance()->mOneLeftFlag)//マウス左クリック
 			exit(0);
 	}
-
 
 }

@@ -26,8 +26,11 @@ void CShopScene::Update() {
 		if (mShop.mBuyScene == false){
 
 			if (CCollision2D::Collision2D(mShop.mCursor, mShop.mBackButton)){ //カーソルがあっている?
-				if (CMouse::GetInstance()->mOneLeftFlag)//マウス左クリック
-					CSceneManager::GetInstance()->ChangeScene(eSceneNo::E_HOME);
+				if (CMouse::GetInstance()->mOneLeftFlag) {//マウス左クリック
+					//B					CSceneManager::GetInstance()->ChangeScene(eSceneNo::E_HOME);
+					CSceneManager::GetInstance()->eStatus = CSceneManager::E_CHANGE;
+					CScene::State = eSceneNo::E_HOME;
+				}
 			}
 		}
 

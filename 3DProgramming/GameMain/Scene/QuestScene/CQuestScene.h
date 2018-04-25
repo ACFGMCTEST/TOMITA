@@ -9,7 +9,7 @@
 
 class CQuestScene :public CScene{
 private:
-	CQuest mQuest;
+	CQuest *mpQuest;
 
 	~CQuestScene();
 

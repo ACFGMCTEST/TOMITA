@@ -15,8 +15,10 @@ CSceneManager* CSceneManager::mSceneManager = 0;
 
 CScene* mScene=0;
 
+CSceneManager::EState CSceneManager::eStatus = E_INIT;
 
-CSceneManager::CSceneManager():eStatus(E_INIT){
+
+CSceneManager::CSceneManager() {
 	
 
 	mSEClear.Load(SE_CLEAR_FILE);//クリアー読み込み
@@ -49,9 +51,9 @@ void CSceneManager::ChangeScene(eSceneNo SceneNo) {
 	DeleteScene();		//KILL
 
 	/*シーン属性管理*/
-	CScene::State = SceneNo;
+//	CScene::State = SceneNo;
 
-	switch (SceneNo)
+	switch (CScene::State)
 	{
 	case E_TITLE:
 
@@ -90,7 +92,7 @@ void CSceneManager::ChangeScene(eSceneNo SceneNo) {
 	default:
 		break;
 	}
-
+	eStatus = E_LOOP;
 }
 
 void CSceneManager::SceneMain(){
@@ -107,6 +109,9 @@ void CSceneManager::SceneMain(){
 		
 		mScene->Update();
 
+		break;
+	case E_CHANGE:
+		ChangeScene((eSceneNo)CScene::State);
 		break;
 	}
 

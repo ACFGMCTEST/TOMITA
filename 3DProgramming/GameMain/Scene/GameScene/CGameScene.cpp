@@ -120,7 +120,9 @@ void CGameScene::Update() {
 //		mMap.mCsvMapData.~CCsv();
 		eState = E_INIT;
 		/*ƒ^ƒCƒgƒ‹‚É–ß‚é*/
-		CSceneManager::GetInstance()->ChangeScene(eSceneNo::E_TITLE);
+//B		CSceneManager::GetInstance()->ChangeScene(eSceneNo::E_TITLE);
+		CSceneManager::GetInstance()->eStatus = CSceneManager::E_CHANGE;
+		CScene::State = eSceneNo::E_TITLE;
 		break;
 	}
 
