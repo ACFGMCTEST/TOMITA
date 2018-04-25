@@ -1,0 +1,20 @@
+﻿cl : コマンド ライン warning D9025: '/sdl' より '/GS-' が優先されます。
+  CSceneModel.cpp
+c:\users\tomi-\desktop\blowoffblow\3dprogramming\gamemain\graphic\ctexture.h(83): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+c:\users\tomi-\desktop\blowoffblow\3dprogramming\gamemain\graphic\ctexture.h(90): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : 'strcpy' の宣言を確認してください。
+c:\users\tomi-\desktop\blowoffblow\3dprogramming\gamemain\graphic\cmodelx.h(103): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\blowoffblow\3dprogramming\gamemain\graphic\cmodelx.h(226): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\blowoffblow\3dprogramming\gamemain\graphic\cmodelx.h(311): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\blowoffblow\3dprogramming\gamemain\graphic\cmodelx.h(316): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\blowoffblow\3dprogramming\gamemain\graphic\cmodelx.h(321): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\blowoffblow\3dprogramming\define\define.h(90): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\blowoffblow\3dprogramming\define\define.h(85) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\blowoffblow\3dprogramming\define\define.h(85): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\blowoffblow\3dprogramming\define\define.h(90) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\blowoffblow\3dprogramming\gamemain\scene\gamescene\charadate\cscenemodel.cpp(24): warning C4005: 'ANGLE_5' : マクロが再定義されました。
+          c:\users\tomi-\desktop\blowoffblow\3dprogramming\define\define.h(107) : 'ANGLE_5' の前の定義を確認してください
+c:\users\tomi-\desktop\blowoffblow\3dprogramming\gamemain\scene\gamescene\charadate\cscenemodel.cpp(25): warning C4005: 'ANGLE_180' : マクロが再定義されました。
+          c:\users\tomi-\desktop\blowoffblow\3dprogramming\define\define.h(102) : 'ANGLE_180' の前の定義を確認してください
+  3DProgramming.vcxproj -> C:\Users\tomi-\Desktop\BlowOffBlow\Debug\3DProgramming.exe

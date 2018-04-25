@@ -1,0 +1,22 @@
+# Blender MTL File: 'SDUnityBox.blend'
+# Material Count: 2
+
+newmtl Material
+Ns 96.078431
+Ka 0.000000 0.000000 0.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd C:\\Users\\tomi-\\Desktop\\Tomita2\\TOMITA\\※画像データ\\Unity\\utc_all2.tga
+
+newmtl glove_1
+Ns 15.686275
+Ka 0.000000 0.000000 0.000000
+Kd 0.376470 0.376470 0.376470
+Ks 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd tex\boxing_gloves_noAO.jpg
