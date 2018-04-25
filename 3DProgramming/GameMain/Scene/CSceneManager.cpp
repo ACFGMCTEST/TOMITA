@@ -51,7 +51,7 @@ void CSceneManager::ChangeScene(eSceneNo SceneNo) {
 	DeleteScene();		//KILL
 
 	/*ƒV[ƒ“‘®«ŠÇ—*/
-//	CScene::State = SceneNo;
+	CScene::State = SceneNo;
 
 	switch (CScene::State)
 	{
@@ -99,8 +99,9 @@ void CSceneManager::SceneMain(){
 	switch (eStatus)
 	{
 	case E_INIT:
-		CSceneManager::GetInstance()->ChangeScene(eSceneNo::E_TITLE);
-
+//		CSceneManager::GetInstance()->ChangeScene(eSceneNo::E_TITLE);
+		CSceneManager::GetInstance()->ChangeScene(eSceneNo::E_GAMEMAIN);
+		
 		eStatus = E_LOOP;
 
 		break;
