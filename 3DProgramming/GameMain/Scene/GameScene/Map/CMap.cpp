@@ -192,7 +192,8 @@ void CMap::MapInit(CCsv &csv){
 		for (int x = 0; x < CMap::mMapX; x++){
 			/*タイルを張る*/
 			tile = new CTile(ARRAY_POS(x, 0, z), mTexTile);
-			mMapTaskManager.Add(tile);//追加
+//A			mMapTaskManager.Add(tile);//追加
+			CTaskManager::GetInstance()->Add(tile);
 
 			/*現在の状態から追加する要素を決める*/
 			switch (mCsvMapData.mpData[(z*mMapX) + x])
@@ -200,43 +201,51 @@ void CMap::MapInit(CCsv &csv){
 				/*トランポリン設定*/
 			case CMap::E_Trampoline_1:
 				trampoline = new CTrampoline(ARRAY_POS(x,0,z));
-				mMapTaskManager.Add(trampoline);
+//A				mMapTaskManager.Add(trampoline);
+				CTaskManager::GetInstance()->Add(trampoline);
 				break;
 				/*高速床*/
 			case CMap::E_FAST_FLOOR_2:
 				fastFloor = new CFastFloor(ARRAY_POS(x,0,z));
-				mMapTaskManager.Add(fastFloor);
+//A				mMapTaskManager.Add(fastFloor);
+				CTaskManager::GetInstance()->Add(fastFloor);
 				break;
 				/*減速床設定*/
 			case CMap::E_SLOW_FLOOR_3:
 				slowFloor = new CSlowFloor(ARRAY_POS(x, 0, z));
-				mMapTaskManager.Add(slowFloor);
+//A				mMapTaskManager.Add(slowFloor);
+				CTaskManager::GetInstance()->Add(slowFloor);
 				break;
 				/*プレイヤーゴール設定*/
 			case CMap::E_GOAL_PLAYER_6:
 				goal = new CGoal(ARRAY_POS(x, 0, z), CTask::E_TAG::E_TAG_GOAL_PLAYER);
-				mMapTaskManager.Add(goal);
-								break;
+//A				mMapTaskManager.Add(goal);
+				CTaskManager::GetInstance()->Add(goal);
+				break;
 				/*エネミーゴール設定*/
 			case CMap::E_GOAL_ENEMY_7:
 				goal = new CGoal(ARRAY_POS(x, 0, z), CTask::E_TAG::E_TAG_GOAL_ENEMY);
-				mMapTaskManager.Add(goal);
-								break;
+//A				mMapTaskManager.Add(goal);
+				CTaskManager::GetInstance()->Add(goal);
+				break;
 				/*坂の設定*/
 			case CMap::E_SLOP_8:
 				slope = new CSlope(ARRAY_POS(x, 0, z), x, z);
-				mMapTaskManager.Add(slope);
+//A				mMapTaskManager.Add(slope);
+				CTaskManager::GetInstance()->Add(slope);
 
 				break;
 			case CMap::E_SLOP_END_9:
 				
 				slopeEnd = new CSlopeEnd(ARRAY_POS(x, 0, z), x, z);
-				mMapTaskManager.Add(slopeEnd);
+//A				mMapTaskManager.Add(slopeEnd);
+				CTaskManager::GetInstance()->Add(slopeEnd);
 				break;
 				/*高い高台*/
 			case CMap::E_HIGH_BOX_A:
 				highBox = new CHighBox(ARRAY_POS(x, 0, z));
-				mMapTaskManager.Add(highBox);
+//A				mMapTaskManager.Add(highBox);
+				CTaskManager::GetInstance()->Add(highBox);
 				break;
 			};
 			
@@ -247,7 +256,8 @@ void CMap::MapInit(CCsv &csv){
 	/*網用意*/
 	CNet *net;
 	net = new CNet(CVector4(NET_POS_X(x), NET_POS_Y, NET_POS_Z(z)));
-	mMapTaskManager.Add(net);
+//A	mMapTaskManager.Add(net);
+	CTaskManager::GetInstance()->Add(net);
 
 
 	/*壁の設定*/
@@ -339,11 +349,11 @@ void CMap::Update(){
 	{
 		mpColPlane[i]->Update();
 	}
-	mMapTaskManager.AllUpdate();
+//A	mMapTaskManager.AllUpdate();
 }
 
 void CMap::Render(){
 
 	mWallBox.Render2();
-	mMapTaskManager.AllRender();
+//A	mMapTaskManager.AllRender();
 }

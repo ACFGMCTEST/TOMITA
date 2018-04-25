@@ -47,7 +47,7 @@ public:
 	void CSceneModel::CPuckAdd(CVector3 PuckPos, CModelX *model);
 	void CSceneModel::CGoalPlayerAdd(CVector3 GoalPos, CModelX *model);
 	void CSceneModel::CGoalEnemyAdd(CVector3 GoalPos, CModelX *model);
-	CTaskManager mModelTaskManager;
+//	CTaskManager mModelTaskManager;
 	CSceneModel();
 	~CSceneModel();
 

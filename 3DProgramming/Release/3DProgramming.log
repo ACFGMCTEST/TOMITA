@@ -1,9 +1,9 @@
-﻿2018/04/22 17:36:43 にビルドを開始しました。
+﻿2018/04/25 15:37:28 にビルドを開始しました。
      1>ノード 2 上のプロジェクト "C:\Users\Game\Desktop\TOMITA\3DProgramming\3DProgramming.vcxproj" (Build ターゲット)。
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl- /O2 /Oi /Oy- /GL /D WIN32 /D _MBCS /Gm- /EHsc /MD /GS- /Gy /fp:precise /Zc:wchar_t- /Zc:forScope /openmp /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt GameMain\Scene\GameScene\CGameScene.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl- /O2 /Oi /Oy- /GL /D WIN32 /D _MBCS /Gm- /EHsc /MD /GS- /Gy /fp:precise /Zc:wchar_t- /Zc:forScope /openmp /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt GameMain\Scene\GameScene\CharaDate\CSceneModel.cpp
      1>cl : コマンド ライン warning D9025: '/sdl-' より '/GS-' が優先されます。
-         CGameScene.cpp
+         CSceneModel.cpp
      1>c:\users\game\desktop\tomita\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
      1>c:\users\game\desktop\tomita\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
@@ -25,16 +25,28 @@
                  c:\users\game\desktop\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
      1>c:\users\game\desktop\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
                  c:\users\game\desktop\tomita\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\tomita\3dprogramming\gamemain\scene\gamescene\charadate\../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
      1>c:\users\game\desktop\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
                  c:\users\game\desktop\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
      1>c:\users\game\desktop\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
                  c:\users\game\desktop\tomita\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\Game\Desktop\TOMITA\3DProgramming\include\../Define/Define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\Game\Desktop\TOMITA\3DProgramming\include\../Define/Define.h(94) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\Game\Desktop\TOMITA\3DProgramming\include\../Define/Define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\Game\Desktop\TOMITA\3DProgramming\include\../Define/Define.h(89) : 'BACK_POS' の前の定義を確認してください
      1>C:\Users\Game\Desktop\TOMITA\3DProgramming\include\../Define/define.h(89): warning C4005: 'BACK_POS' : マクロが再定義されました。
                  C:\Users\Game\Desktop\TOMITA\3DProgramming\include\../Define/define.h(94) : 'BACK_POS' の前の定義を確認してください
      1>C:\Users\Game\Desktop\TOMITA\3DProgramming\include\../Define/define.h(94): warning C4005: 'BACK_POS' : マクロが再定義されました。
                  C:\Users\Game\Desktop\TOMITA\3DProgramming\include\../Define/define.h(89) : 'BACK_POS' の前の定義を確認してください
      1>c:\users\game\desktop\tomita\3dprogramming\gamemain\scene\gameresult\../ItemScene/CItem.h(11): warning C4005: 'TIP_ARRAY' : マクロが再定義されました。
                  c:\users\game\desktop\tomita\3dprogramming\gamemain\scene\gamescene\effect\CEffect2D.h(5) : 'TIP_ARRAY' の前の定義を確認してください
+     1>GameMain\Scene\GameScene\CharaDate\CSceneModel.cpp(26): warning C4005: 'ANGLE_5' : マクロが再定義されました。
+                 C:\Users\Game\Desktop\TOMITA\3DProgramming\include\../Define/define.h(111) : 'ANGLE_5' の前の定義を確認してください
+     1>GameMain\Scene\GameScene\CharaDate\CSceneModel.cpp(27): warning C4005: 'ANGLE_180' : マクロが再定義されました。
+                 C:\Users\Game\Desktop\TOMITA\3DProgramming\include\../Define/define.h(106) : 'ANGLE_180' の前の定義を確認してください
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Game\Desktop\TOMITA\Release\3DProgramming.exe" /NOLOGO glew32.lib glfw3dll.lib glfw3.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Game\Desktop\TOMITA\Release\3DProgramming.pdb" /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Game\Desktop\TOMITA\Release\3DProgramming.lib" /MACHINE:X86 /SAFESEH Release\CBase.obj
          Release\CCamera.obj
@@ -120,4 +132,4 @@
 
 ビルドに成功しました。
 
-経過時間 00:00:06.24
+経過時間 00:00:05.40

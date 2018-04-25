@@ -77,7 +77,8 @@ void CSceneModel::CPlayerAdd(CVector3 PlayerPos, CModelX *model){
 	CCollisionManager::GetInstance()->Add(CTask::E_TAG_PLAYER, pl->mpCBLeg);//あたり判定追加
 	CCollisionManager::GetInstance()->Add(CTask::E_TAG_PLAYER, pl->mpCBBody);//あたり判定追加
 	CCollisionManager::GetInstance()->Add(CTask::E_TAG_WEAPON, pl->mpCBWeapon);//あたり判定追加
-	mModelTaskManager.Add(pl);//タスクに追加
+//A	mModelTaskManager.Add(pl);//タスクに追加
+	CTaskManager::GetInstance()->Add(pl);
 	mCharcter = pl; //操作用
 }
 
@@ -94,7 +95,8 @@ void CSceneModel::CEnemyAdd(CVector3 EnemyPos, CModelX *model){
 	CCollisionManager::GetInstance()->Add(CTask::E_TAG_WEAPON,ene->mpCBWeapon);
 	CCollisionManager::GetInstance()->Add(CTask::E_TAG_ATTACK_INIT_RANGE, ene->mpCBAttackInitBox);
 	CCollisionManager::GetInstance()->Add(CTask::E_TAG_ATTACK_RANGE, ene->mpCBAttackBox);
-	mModelTaskManager.Add(ene);
+//A	mModelTaskManager.Add(ene);
+	CTaskManager::GetInstance()->Add(ene);
 }
 /*パック追加処理*/
 void CSceneModel::CPuckAdd(CVector3 PuckPos, CModelX *model){
@@ -105,7 +107,8 @@ void CSceneModel::CPuckAdd(CVector3 PuckPos, CModelX *model){
 	/*当たり判定追加*/
 	CCollisionManager::GetInstance()->Add(CTask::E_TAG_PUCK, puck->mpCBSphere);
 	CCollisionManager::GetInstance()->Add(CTask::E_TAG_PUCK, puck->mpCBRefBox);
-	mModelTaskManager.Add(puck);
+//A	mModelTaskManager.Add(puck);
+	CTaskManager::GetInstance()->Add(puck);
 	mpPuck = puck;//アクセス用に入れる
 }
 /*ゴールプレイヤー追加処理*/
@@ -220,21 +223,19 @@ void CSceneModel::Update() {
 		}
 
 		
-		mModelTaskManager.AllUpdate();
-
-
-
-
+//A		mModelTaskManager.AllUpdate();
+		CTaskManager::GetInstance()->AllUpdate();
 	}
 	
 }
 
 void CSceneModel::Render() {
 	
-	mModelTaskManager.AllRender();
-
+//A	mModelTaskManager.AllRender();
+	CTaskManager::GetInstance()->AllRender();
 }
 
 void CSceneModel::UpdateEffect(){
-	mModelTaskManager.AllBillboardRender();
+//A	mModelTaskManager.AllBillboardRender();
+//	CTaskManager::GetInstance()->AllRender();
 }

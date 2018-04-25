@@ -114,8 +114,9 @@ void CGameScene::Update() {
 	case E_END:
 		mBgm.Close();
 		CCollisionManager::GetInstance()->AllKill();
-		mSceneModel.mModelTaskManager.AllKill();
-		mMap.mMapTaskManager.AllKill();
+		CTaskManager::GetInstance()->AllKill();
+//A		mSceneModel.mModelTaskManager.AllKill();
+//A		mMap.mMapTaskManager.AllKill();
 //		mMap.mCsvMapData.~CCsv();
 		eState = E_INIT;
 		/*ƒ^ƒCƒgƒ‹‚É–ß‚é*/

@@ -34,7 +34,7 @@ public:
 	static CCollider *mpGoalEnemy; //アクセス用
 	static int mGoalCount;//ゴールのカウント
 
-	CTaskManager mMapTaskManager;//マップのタスクマネージャー
+//	CTaskManager mMapTaskManager;//マップのタスクマネージャー
 	CBox mWallBox; //かべ
 	/*タイルのテクスチャ*/
 	CTexture mTexTile;
