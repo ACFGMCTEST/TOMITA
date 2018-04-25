@@ -114,7 +114,10 @@ public:
 
 
 
-	CTexture	*mpTexture;
+	CTexture	*mpTextureSkillEffect1;
+	CTexture	*mpTextureP_Name;
+	CTexture	*mpTextureE_Name;
+	CTexture	*mpTexturevs;
 	CTexture	*mpGauge;
 	CTexture	*mpMenu;
 	CTexture    *mpFrame;

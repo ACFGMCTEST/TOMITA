@@ -21,8 +21,11 @@ public:
 
 	CRectangle2 mBackButton;	    //戻るボタン
 
-	CTexture	*mpTexture;
-	CTexture	*mpMenu;
+	CTexture	*mpTextureBG;
+	CTexture	*mpTextureQUEST_NAME0;
+	CTexture	*mpMenuQUEST_NAME1;
+	CTexture	*mpMenuQUEST_NAME2;
+	CTexture	*mpMenuBACK;
 	CTexture	*mpTexCursor;
 
 	/*クエストの状態*/
@@ -40,7 +43,14 @@ public:
 	int status;
 
 	~CQuest();
-	CQuest(){};
+	CQuest(){
+		mpTextureBG = 0;
+		mpTextureQUEST_NAME0 = 0;
+		mpMenuQUEST_NAME1 = 0;
+		mpMenuQUEST_NAME2 = 0;
+		mpMenuBACK = 0;
+		mpTexCursor = 0;
+	};
 	void Init();
 	void Update();
 	void Render();

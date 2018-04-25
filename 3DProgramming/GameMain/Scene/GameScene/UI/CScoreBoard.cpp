@@ -27,11 +27,12 @@
 ////////////////////////////////////////////////////////////////
 //ポジション等の座標情報
 
-#define NAME_SET	 mpTexture, 0, 0, 400, 200
+#define NAME_SET	 mpTextureP_Name, 0, 0, 400, 200
+#define ENAME_SET	 mpTextureE_Name, 0, 0, 400, 200
 
-#define VS_SET	 mpTexture, 0, 0, 400, 400
+#define VS_SET	 mpTexturevs, 0, 0, 400, 400
 
-#define S1_EFFECT_SET	 mpTexture, 0, 0, 800, 600
+#define S1_EFFECT_SET	 mpTextureSkillEffect1, 0, 0, 800, 600
 #define S1_EFFECT_SIZE -DISP_X/2,DISP_Y/2,DISP_X/2,-DISP_Y/2
 
 #define	S1_COLOR mSkillCollarR,mSkillCollarG, mSkillCollarB	//フェード処理用アルファはフロートで適当に入れてください
@@ -98,14 +99,33 @@ bool CScoreBoard::mFlagSkill0 = false;
 
 
 CScoreBoard::CScoreBoard() :rectnum(0), effectalpha(0), mAlpha(mcAlphaMin), mFlagSceneChage(false), mFlash(0), mInit(false), mNumMin(false){
-
+	mpTextureSkillEffect1 = 0;
+	mpTextureP_Name = 0;
+	mpTextureE_Name = 0;
+	mpTexturevs = 0;
 }
 
 CScoreBoard::~CScoreBoard(){
-	if (mpTexture) {
+
+	if (mpTextureSkillEffect1) {
 		//テクスチャを使っていればインスタンス削除
-		delete mpTexture;
-		mpTexture = nullptr;
+		delete mpTextureSkillEffect1;
+		mpTextureSkillEffect1 = nullptr;
+	}
+	if (mpTextureP_Name) {
+		//テクスチャを使っていればインスタンス削除
+		delete mpTextureP_Name;
+		mpTextureP_Name = nullptr;
+	}
+	if (mpTextureE_Name) {
+		//テクスチャを使っていればインスタンス削除
+		delete mpTextureE_Name;
+		mpTextureE_Name = nullptr;
+	}
+	if (mpTexturevs) {
+		//テクスチャを使っていればインスタンス削除
+		delete mpTexturevs;
+		mpTexturevs = nullptr;
 	}
 	if (mpNumber) {
 		//テクスチャを使っていればインスタンス削除
@@ -151,8 +171,8 @@ void CScoreBoard::Init(){
 
 
 	//mSkillEffect
-	mpTexture = new CTexture();	//テクスチャクラスのインスタンス作成
-	mpTexture->load(TGA_FILE"SkillEffect1.tga");	//テクスチャファイル読み込み
+	mpTextureSkillEffect1 = new CTexture();	//テクスチャクラスのインスタンス作成
+	mpTextureSkillEffect1->load(TGA_FILE"SkillEffect1.tga");	//テクスチャファイル読み込み
 	mSkillEffect.SetVertex(S1_EFFECT_SIZE); //ここで大きさ変更
 	mSkillEffect.SetColor(S1_COLOR, 0.8f);
 	mSkillEffect.SetUv(S1_EFFECT_SET);
@@ -160,8 +180,8 @@ void CScoreBoard::Init(){
 
 
 	//プレイヤーネーム
-	mpTexture = new CTexture();	//テクスチャクラスのインスタンス作成
-	mpTexture->load(TGA_FILE"P_Name.tga");	//テクスチャファイル読み込み
+	mpTextureP_Name = new CTexture();	//テクスチャクラスのインスタンス作成
+	mpTextureP_Name->load(TGA_FILE"P_Name.tga");	//テクスチャファイル読み込み
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 
@@ -171,20 +191,20 @@ void CScoreBoard::Init(){
 	mPlayer.SetUv(NAME_SET);
 
 	//エネミ―ネーム
-	mpTexture = new CTexture();	//テクスチャクラスのインスタンス作成
-	mpTexture->load(TGA_FILE"E_Name.tga");	//テクスチャファイル読み込み
+	mpTextureE_Name = new CTexture();	//テクスチャクラスのインスタンス作成
+	mpTextureE_Name->load(TGA_FILE"E_Name.tga");	//テクスチャファイル読み込み
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 
 	mEnemy.SetVertex(-110.0f, 50.0f, 110.0f, -50.0f);
 	mEnemy.SetColor(WHITE_COLOR);
 	mEnemy.position = E_NAME_POS;
-	mEnemy.SetUv(NAME_SET);
+	mEnemy.SetUv(ENAME_SET);
 
 
 	//VSマーク
-	mpTexture = new CTexture();	//テクスチャクラスのインスタンス作成
-	mpTexture->load(TGA_FILE"vs.tga");	//テクスチャファイル読み込み
+	mpTexturevs = new CTexture();	//テクスチャクラスのインスタンス作成
+	mpTexturevs->load(TGA_FILE"vs.tga");	//テクスチャファイル読み込み
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 
@@ -192,6 +212,7 @@ void CScoreBoard::Init(){
 	mVs.SetColor(WHITE_COLOR);
 	mVs.position = VS_POS;
 	mVs.SetUv(VS_SET);
+
 	///////////////////////////////////////////////////////////////////////////////////////
 
 	//プレイヤースコア
@@ -211,8 +232,8 @@ void CScoreBoard::Init(){
 	mPlScore2.ZERO;
 
 	//1桁目の表示
-	mpNumber = new CTexture();	//テクスチャクラスのインスタンス作成
-	mpNumber->load(TGA_FILE"Number.tga");	//テクスチャファイル読み込み
+//A	mpNumber = new CTexture();	//テクスチャクラスのインスタンス作成
+//A	mpNumber->load(TGA_FILE"Number.tga");	//テクスチャファイル読み込み
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 
@@ -227,8 +248,8 @@ void CScoreBoard::Init(){
 
 
 	//2桁目の表示
-	mpNumber = new CTexture();	//テクスチャクラスのインスタンス作成
-	mpNumber->load(TGA_FILE"Number.tga");	//テクスチャファイル読み込み
+//	mpNumber = new CTexture();	//テクスチャクラスのインスタンス作成
+//	mpNumber->load(TGA_FILE"Number.tga");	//テクスチャファイル読み込み
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 
@@ -238,8 +259,8 @@ void CScoreBoard::Init(){
 	mEnScore2.ZERO;
 
 	//1桁目の表示
-	mpNumber = new CTexture();	//テクスチャクラスのインスタンス作成
-	mpNumber->load(TGA_FILE"Number.tga");	//テクスチャファイル読み込み
+//	mpNumber = new CTexture();	//テクスチャクラスのインスタンス作成
+//	mpNumber->load(TGA_FILE"Number.tga");	//テクスチャファイル読み込み
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 

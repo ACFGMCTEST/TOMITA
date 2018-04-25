@@ -45,6 +45,7 @@ public:
 	CVector2	position;	//Šî€ˆÊ’u
 
 	CTexture	*ptexture;
+//	int textureId;
 	float		uv[2][6];
 	int degree;
 	bool deg_enabled;

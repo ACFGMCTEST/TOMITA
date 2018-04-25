@@ -26,12 +26,26 @@
 #define JAGGED_BALLOON_CG 0, 150, 600, 400
 
 CTitle::~CTitle(){
-	if (mpTexture) {
+	if (mpBg) {
 		//テクスチャを使っていればインスタンス削除
-		delete mpTexture;
-		mpTexture = 0;
+		delete mpBg;
+		mpBg = 0;
 	}
-
+	if (mpTextureLight_Frame) {
+		//テクスチャを使っていればインスタンス削除
+		delete mpTextureLight_Frame;
+		mpTextureLight_Frame = 0;
+	}
+	if (mpTexturetitle) {
+		//テクスチャを使っていればインスタンス削除
+		delete mpTexturetitle;
+		mpTexturetitle = 0;
+	}
+	if (mpTexturecursor) {
+		//テクスチャを使っていればインスタンス削除
+		delete mpTexturecursor;
+		mpTexturecursor = 0;
+	}
 	
 	if (mpMenu) {
 		//テクスチャを使っていればインスタンス削除
@@ -59,27 +73,27 @@ void CTitle::Init(){
 	mBG.SetColor(1.0f, 1.0f, 1.0f, 1.0f);
 	mBG.SetUv(mpBg, BG_SIZE);
 
-	mpTexture = new CTexture();
-	mpTexture->load(TGA_FILE"Light_Frame.tga");
+	mpTextureLight_Frame = new CTexture();
+	mpTextureLight_Frame->load(TGA_FILE"Light_Frame.tga");
 
 	//ゆにてぃちゃんライセンス
 
 	mUnityChanLicense.SetVertex(LICENSE_SIZE); //ここで大きさ変更
 	mUnityChanLicense.SetColor(WHITE_COLOR);
 	mUnityChanLicense.position = CVector2(250, -170);
-	mUnityChanLicense.SetUv(mpTexture, LICENSE_CG);
+	mUnityChanLicense.SetUv(mpTextureLight_Frame, LICENSE_CG);
 
 
 
-	mpTexture = new CTexture();
-	mpTexture->load(TGA_FILE"title.tga");
+	mpTexturetitle = new CTexture();
+	mpTexturetitle->load(TGA_FILE"title.tga");
 
 	//タイトルロゴの呼び出し
 
 	mTitleLogo.SetVertex(TITLE_SIZE); //ここで大きさ変更
 	mTitleLogo.SetColor(WHITE_COLOR);
 	mTitleLogo.position = CVector2(0, 170);
-	mTitleLogo.SetUv(mpTexture, TITLE_CG);
+	mTitleLogo.SetUv(mpTexturetitle, TITLE_CG);
 
 
 	//タイトルロゴの呼び出し
@@ -87,7 +101,7 @@ void CTitle::Init(){
 	mShadow.SetVertex(TITLE_SIZE); //ここで大きさ変更
 	mShadow.SetColor(0.0f, 0.0f, 0.0f, 0.5f);
 	mShadow.position = CVector2(20, 150);
-	mShadow.SetUv(mpTexture, TITLE_CG);
+	mShadow.SetUv(mpTexturetitle, TITLE_CG);
 
 
 
@@ -104,8 +118,8 @@ void CTitle::Init(){
 	mGameStart.SetUv(mpMenu, START_CG);
 
 	////ゲーム終了の呼び出し
-	mpMenu = new CTexture();	//テクスチャクラスのインスタンス作成
-	mpMenu->load(TGA_FILE"TitleSet.tga");	//テクスチャファイル読み込み
+//A	mpMenu = new CTexture();	//テクスチャクラスのインスタンス作成
+//A	mpMenu->load(TGA_FILE"TitleSet.tga");	//テクスチャファイル読み込み
 
 
 	mGameExit.SetVertex(GAME_EXIT_SIZE);
@@ -114,13 +128,13 @@ void CTitle::Init(){
 	mGameExit.SetUv(mpMenu, EXIT_CG);
 
 	////カーソルの呼び出し
-	mpTexture = new CTexture();	//テクスチャクラスのインスタンス作成
-	mpTexture->load(TGA_FILE"cursor.tga");	//テクスチャファイル読み込み
+	mpTexturecursor = new CTexture();	//テクスチャクラスのインスタンス作成
+	mpTexturecursor->load(TGA_FILE"cursor.tga");	//テクスチャファイル読み込み
 
 
 	mCursor.SetVertex(CURSOR_SIZE);
 	mCursor.SetColor(WHITE_COLOR);
-	mCursor.SetUv(mpTexture, 0, 0, 150, 120);
+	mCursor.SetUv(mpTexturecursor, 0, 0, 150, 120);
 
 	///*Gradation関数*/
 	//mCursor.SetGradationLoop(CRectangle2::E_COLOR_CHANGE::E_RED_PURPLE);

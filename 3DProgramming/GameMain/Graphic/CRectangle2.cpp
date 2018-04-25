@@ -20,7 +20,7 @@ triangle2(left, top, right, bottom, right, top, r, g, b, a), position(pos), ptex
 {};
 
 
-CRectangle2::CRectangle2() :ptexture(0), deg_enabled(false), degree(0), 
+CRectangle2::CRectangle2() :ptexture(0), deg_enabled(false), degree(0),
 m_BigX(0.0f), m_BigY(0.0f), m_SmallX(0.0f), m_SmallY(0.0f), position(0.0f, 0.0f){}
 
 
@@ -93,14 +93,14 @@ bottom	画像の左上端を原点(0,0)とし、貼り付けたい領域の下の座標値
 
 void CRectangle2::SetUv(CTexture *t, int left, int top, int right, int bottom) {
 	ptexture = t;
-	uv[0][0] = uv[1][0] = (float)left / ptexture->header.width;
-	uv[0][1] = uv[1][1] = (float)(ptexture->header.height - top) / ptexture->header.height;
-	uv[0][2] = (float)left / ptexture->header.width;
-	uv[0][3] = (float)(ptexture->header.height - bottom) / ptexture->header.height;
-	uv[0][4] = uv[1][2] = (float)right / ptexture->header.width;
-	uv[0][5] = uv[1][3] = (float)(ptexture->header.height - bottom) / ptexture->header.height;
-	uv[1][4] = (float)right / ptexture->header.width;
-	uv[1][5] = (float)(ptexture->header.height - top) / ptexture->header.height;
+	uv[0][0] = uv[1][0] = (float)left / t->header.width;
+	uv[0][1] = uv[1][1] = (float)(t->header.height - top) / t->header.height;
+	uv[0][2] = (float)left / t->header.width;
+	uv[0][3] = (float)(t->header.height - bottom) / t->header.height;
+	uv[0][4] = uv[1][2] = (float)right / t->header.width;
+	uv[0][5] = uv[1][3] = (float)(t->header.height - bottom) / t->header.height;
+	uv[1][4] = (float)right / t->header.width;
+	uv[1][5] = (float)(t->header.height - top) / t->header.height;
 }
 
 void CRectangle2::SetVertex(float left, float top, float right, float bottom) {

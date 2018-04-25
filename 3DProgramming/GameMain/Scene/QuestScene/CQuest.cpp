@@ -36,18 +36,38 @@ CQuest::E_CHOICE CQuest::eChoice = E_QUEST00;
 
 
 CQuest::~CQuest(){
-	if (mpTexture) {
+	if (mpTextureBG) {
 		//テクスチャを使っていればインスタンス削除
-		delete mpTexture;
-		mpTexture = 0;
+		delete mpTextureBG;
+		mpTextureBG = 0;
+	}
+	if (mpTextureQUEST_NAME0) {
+		//テクスチャを使っていればインスタンス削除
+		delete mpTextureQUEST_NAME0;
+		mpTextureQUEST_NAME0 = 0;
+	}
+	if (mpMenuQUEST_NAME1) {
+		//テクスチャを使っていればインスタンス削除
+		delete mpMenuQUEST_NAME1;
+		mpMenuQUEST_NAME1 = 0;
+	}
+	if (mpMenuQUEST_NAME2) {
+		//テクスチャを使っていればインスタンス削除
+		delete mpMenuQUEST_NAME2;
+		mpMenuQUEST_NAME2 = 0;
+	}
+	if (mpMenuBACK) {
+		//テクスチャを使っていればインスタンス削除
+		delete mpMenuBACK;
+		mpMenuBACK = 0;
 	}
 
-
-	if (mpMenu) {
+	if (mpTexCursor) {
 		//テクスチャを使っていればインスタンス削除
-		delete mpMenu;
-		mpMenu = 0;
+		delete mpTexCursor;
+		mpTexCursor = 0;
 	}
+	
 
 }
 
@@ -59,21 +79,21 @@ void CQuest::Init(){
 	alpha2 = 0.0f;
 
 	//背景の呼び出し
-	mpTexture = new CTexture();	//テクスチャクラスのインスタンス作成
-	mpTexture->load(TGA_FILE"BG.tga");	//テクスチャファイル読み込み
+	mpTextureBG = new CTexture();	//テクスチャクラスのインスタンス作成
+	mpTextureBG->load(TGA_FILE"BG.tga");	//テクスチャファイル読み込み
 	
 	mBG.SetVertex(BG_SIZE); //ここで大きさ変更
 	mBG.SetColor(1.0f, 1.0f, 1.0f, 1.0f);
-	mBG.SetUv(mpTexture, 0, 0, 1024, 768);
+	mBG.SetUv(mpTextureBG, 0, 0, 1024, 768);
 
 
 
 	////クエスト名00
-	mpTexture = new CTexture();	//テクスチャクラスのインスタンス作成
-	mpTexture->load(QUEST_NAME0);	//テクスチャファイル読み込み
+	mpTextureQUEST_NAME0 = new CTexture();	//テクスチャクラスのインスタンス作成
+	mpTextureQUEST_NAME0->load(QUEST_NAME0);	//テクスチャファイル読み込み
 	mQuestName00.SetVertex(NAME_SIZE);
 	mQuestName00.SetColor(WHITE_COLOR);
-	mQuestName00.SetUv(mpTexture, TEST_CG);
+	mQuestName00.SetUv(mpTextureQUEST_NAME0, TEST_CG);
 	mQuestName00.position = NAME_POS0;
 
 	mShadow[0] = mQuestName00;
@@ -81,11 +101,11 @@ void CQuest::Init(){
 	mShadow[0].position = NAME_POS0S;
 
 	//クエスト名01
-	mpMenu = new CTexture();	//テクスチャクラスのインスタンス作成
-	mpMenu->load(QUEST_NAME1);	//テクスチャファイル読み込み
+	mpMenuQUEST_NAME1 = new CTexture();	//テクスチャクラスのインスタンス作成
+	mpMenuQUEST_NAME1->load(QUEST_NAME1);	//テクスチャファイル読み込み
 	mQuestName01.SetVertex(NAME_SIZE);
 	mQuestName01.SetColor(WHITE_COLOR);
-	mQuestName01.SetUv(mpMenu, TEST_CG);
+	mQuestName01.SetUv(mpMenuQUEST_NAME1, TEST_CG);
 	mQuestName01.position = NAME_POS1;
 
 	mShadow[1] = mQuestName01;
@@ -93,11 +113,11 @@ void CQuest::Init(){
 	mShadow[1].position = NAME_POS1S;
 
 	//クエスト名02
-	mpMenu = new CTexture();	//テクスチャクラスのインスタンス作成
-	mpMenu->load(QUEST_NAME2);	//テクスチャファイル読み込み
+	mpMenuQUEST_NAME2 = new CTexture();	//テクスチャクラスのインスタンス作成
+	mpMenuQUEST_NAME2->load(QUEST_NAME2);	//テクスチャファイル読み込み
 	mQuestName02.SetVertex(NAME_SIZE);
 	mQuestName02.SetColor(WHITE_COLOR);
-	mQuestName02.SetUv(mpMenu, TEST_CG);
+	mQuestName02.SetUv(mpMenuQUEST_NAME2, TEST_CG);
 	mQuestName02.position = NAME_POS2;
 
 	mShadow[2] = mQuestName02;
@@ -106,11 +126,11 @@ void CQuest::Init(){
 
 
 	////戻るボタンの呼び出し
-	mpMenu = new CTexture();	//テクスチャクラスのインスタンス作成
-	mpMenu->load(BACK);	//テクスチャファイル読み込み
+	mpMenuBACK = new CTexture();	//テクスチャクラスのインスタンス作成
+	mpMenuBACK->load(BACK);	//テクスチャファイル読み込み
 	mBackButton.SetVertex(BACK_RECT);
 	mBackButton.SetColor(WHITE_COLOR);
-	mBackButton.SetUv(mpMenu, BACK_CG);
+	mBackButton.SetUv(mpMenuBACK, BACK_CG);
 	mBackButton.position = BACK_POS;
 
 

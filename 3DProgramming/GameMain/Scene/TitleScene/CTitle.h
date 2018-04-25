@@ -18,9 +18,11 @@ public:
 	CRectangle2 mGameExit;	//ゲーム終了
 	CRectangle2 mCursor;	//カーソル
 
-
+	
 	CTexture	*mpBg;
-	CTexture	*mpTexture;
+	CTexture	*mpTextureLight_Frame;
+	CTexture	*mpTexturetitle;
+	CTexture	*mpTexturecursor;
 	CTexture	*mpMenu;
 
 	bool mMaxSize;
@@ -48,7 +50,13 @@ public:
 	EStatus eStatus;
 
 	~CTitle();
-	CTitle(){};
+	CTitle(){
+		mpBg = 0;
+		mpTextureLight_Frame = 0;
+		mpTexturetitle = 0;
+		mpTexturecursor = 0;
+		mpMenu = 0;
+	};
 	void Init();
 	void Update();
 	void Render();
