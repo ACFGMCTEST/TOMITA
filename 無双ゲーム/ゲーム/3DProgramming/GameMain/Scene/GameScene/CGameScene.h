@@ -10,6 +10,7 @@
 class CGameScene : public CScene{
 private:
 	CSceneModel mSceneModel;
+	CMap mMap;
 public:
 
 	/*èÛë‘*/
@@ -19,7 +20,6 @@ public:
 		E_END
 	};
 	E_STATE eState;
-
 
 
 	CGameScene();

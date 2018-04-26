@@ -84,7 +84,6 @@ public:
 	virtual void BillboardRender();//billboardするもの　処理手順で見えなくなるものがあるので分ける
 
 };
-static CTask::ESTATE ReferenceState;	//アニメーション参照用 swich文で楽するために使う
 
 
 #endif

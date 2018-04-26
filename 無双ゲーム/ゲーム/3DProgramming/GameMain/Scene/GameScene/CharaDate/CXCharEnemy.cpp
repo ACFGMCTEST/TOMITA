@@ -94,9 +94,9 @@ void CXCharEnemy::AttackInit(){
 /*UŒ‚*/
 void CXCharEnemy::Attack(CCollider &col){
 	//OBBÕ“Ë”»’è
-	if (CCollision::CollSphereBox(col.mColSphere, mpCBWeapon->mObb)){
+	/*if (CCollision::CollSphereBox(col.mColSphere, mpCBWeapon->mObb)){
 		AnimaState(E_ATTACK);
-	}
+	}*/
 	
 }
 
