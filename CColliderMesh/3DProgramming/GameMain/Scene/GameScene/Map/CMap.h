@@ -15,6 +15,8 @@
 #include "../../../Collision/ColType/CColTriangle.h"
 #include "../../../Collision/CCollisionManager.h"
 
+#include "../../../../CModelObj.h"
+
 /*テクスチャサイズ*/
 #define GROUND_CG -DISP_2D_X,DISP_2D_Y,DISP_2D_X,-DISP_2D_Y
 
@@ -233,6 +235,8 @@ public:
 	void Update();
 	void Render();
 
+
+	CModelObj mGround;
 
 };
 

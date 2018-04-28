@@ -198,81 +198,86 @@ bool CCollision::IntersectTriangleSphere(const CVector3 &v0, const CVector3 &v1,
 }
 
 bool CCollision::IntersectTriangleSphere2(const CVector3 &v0, const CVector3 &v1, const CVector3 &v2, const CVector3 &center, float radius, CVector3 *cross, float *length, CVector3 *adjust)
-{   
-     CVector3 V1(v1-v0);
-	 CVector3 V2(v2-v1);
-	 CVector3 N(CVector3::Cross(V1,V2).GetNormalize());
-	 if (adjust) *adjust = N;
+{
+	float len = 0.0f;
+	CVector3 V1(v1 - v0);
+	CVector3 V2(v2 - v1);
+	CVector3 N(CVector3::Cross(V1, V2).GetNormalize());
+	if (adjust) *adjust = N;
 
-	 CVector3 V = center - v0;
-	 //•½–Ê‚Æ“_‚Ì‹——£‚ğ‹‚ß‚é
-	 float Dist = CVector3::Dot(V,N);
-  
+	CVector3 V = center - v0;
+	//•½–Ê‚Æ“_‚Ì‹——£‚ğ‹‚ß‚é
+	float Dist = CVector3::Dot(V, N);
+
 	//‹…‚Ì”¼Œa‚æ‚è—£‚ê‚Ä‚¢‚éê‡‚ÍÚG–³‚µ
-	 if(abs(Dist) > radius) return false;
+	if (abs(Dist) > radius) return false;
 
-	 //“_‚©‚ç•½–Êã‚É‚’¼‚É‰º‚ë‚µ‚½’n“_‚ğ‹‚ß‚é
-	 CVector3 Point =  center - ( N * Dist );
-	 
-	 
-	 //ã‹L‚Ì“_‚ªOŠpŒ`ƒ|ƒŠƒSƒ““à‚È‚çÚG‚µ‚Ä‚¢‚é
-	 if(TriangleIntersect( Point, v0, v1, v2 , N)) {
-		if(cross) *cross = Point;
-		if(length) 
+	//“_‚©‚ç•½–Êã‚É‚’¼‚É‰º‚ë‚µ‚½’n“_‚ğ‹‚ß‚é
+	CVector3 Point = center - (N * Dist);
+
+
+	//ã‹L‚Ì“_‚ªOŠpŒ`ƒ|ƒŠƒSƒ““à‚È‚çÚG‚µ‚Ä‚¢‚é
+	if (TriangleIntersect(Point, v0, v1, v2, N)) {
+		if (cross) *cross = Point;
+		len = radius - Dist;
+		if (length)
 			//*length = Dist;
-			*length = radius - Dist;
-		if(adjust) *adjust = *adjust * *length;
+			*length = len;
+		if (adjust) *adjust = *adjust * len;
 		return true;
 	}
 
-	 //Še•Ó‚É‹…‚ª‚©‚·‚Á‚Ä‚¢‚é‰Â”\«‚ª‚ ‚é
-	 //‚P•Ó‚²‚Æ‚É‹…‚Æ•Ó‚ÌÅ’Z‹——£‚ğ‹‚ß‚é
+	//Še•Ó‚É‹…‚ª‚©‚·‚Á‚Ä‚¢‚é‰Â”\«‚ª‚ ‚é
+	//‚P•Ó‚²‚Æ‚É‹…‚Æ•Ó‚ÌÅ’Z‹——£‚ğ‹‚ß‚é
 
-	 //Å’Z‹——£
-	 float l;
-	 //Å’ZÚG’n“_
-	 CVector3 c;
-	 
-	 //‹——£”äŠr—p
-	 float LengthSq;
+	//Å’Z‹——£
+	float l;
+	//Å’ZÚG’n“_
+	CVector3 c;
 
-	 //•Ó‚P(v0¨v1)
-	 Point = PointOnLineSegmentNearestPoint( v0, v1, center );
-	 LengthSq = (center - Point).LengthSq();
-	 l  = LengthSq;
-	 c = Point;
+	//‹——£”äŠr—p
+	float LengthSq;
 
-	 //•Ó‚Q(v1¨v2)
-	 Point = PointOnLineSegmentNearestPoint( v1, v2, center );
-	 LengthSq = (center - Point).LengthSq();
-	 if(l>LengthSq) {
-		 l = LengthSq;
-		 c = Point;
-	 }
-	 
-	 //•Ó‚R(v2¨v0)
-	 Point = PointOnLineSegmentNearestPoint( v2, v0, center );
-	 LengthSq = (center - Point).LengthSq();
-	 if(l>LengthSq) {
-		 l = LengthSq;
-		 c = Point;
-	 }
+	//•Ó‚P(v0¨v1)
+	Point = PointOnLineSegmentNearestPoint(v0, v1, center);
+	LengthSq = (center - Point).LengthSq();
+	l = LengthSq;
+	c = Point;
 
-	 //Å’Z‹——£‚ğŠm’è
-	 if(length) *length = sqrt(l);
-	 //Å’Z’n“_‚ğŠm’è
-	 if(cross) *cross = c;
-	
-	if(adjust) *adjust = CVector3();
-	 if (*length <= radius) {
-		 //
-		 *length = 0.0f;
-		 return true;
-	 }
-	 else {
-		 return false;
-	 }
+	//•Ó‚Q(v1¨v2)
+	Point = PointOnLineSegmentNearestPoint(v1, v2, center);
+	LengthSq = (center - Point).LengthSq();
+	if (l > LengthSq) {
+		l = LengthSq;
+		c = Point;
+	}
+
+	//•Ó‚R(v2¨v0)
+	Point = PointOnLineSegmentNearestPoint(v2, v0, center);
+	LengthSq = (center - Point).LengthSq();
+	if (l > LengthSq) {
+		l = LengthSq;
+		c = Point;
+	}
+
+	//Å’Z‹——£‚ğŠm’è
+	len = sqrt(l);
+	if (length) *length = len;
+	//Å’Z’n“_‚ğŠm’è
+	if (cross) *cross = c;
+
+	if (adjust) *adjust = CVector3();
+	if (len <= radius) {
+		//
+		if (length)
+			*length = 0.0f;
+		return true;
+	}
+	else {
+		return false;
+	}
 }
+
 
 bool CCollision::IntersectTriangleCapsule(const CVector3 &v0,const CVector3 &v1,const CVector3 &v2,const CVector3 &top,const CVector3 &bottom,float radius,CVector3 *cross,float *length ){	
 	CVector3 V(top-bottom);
@@ -647,7 +652,9 @@ bool CCollision::IntersectTriangleCapsule2(const CVector3 &v0, const CVector3 &v
 v0, v1, v2 : Triangle
 Capsule Height = top - bottom
 */
-bool CCollision::IntersectTriangleCapsule3(const CVector3 &v0, const CVector3 &v1, const CVector3 &v2, const CVector3 &top, const CVector3 &bottom, float radius, CVector3 *cross, float *length, CVector3 *adjust){
+bool CCollision::IntersectTriangleCapsule3(const CVector3 &v0, const CVector3 &v1, const CVector3 &v2, const CVector3 &top, const CVector3 &bottom, float radius, CVector3 *adjust, CVector3 *cross, float *length){
+	float len = 0.0f;
+	CVector3 cro;
 	//ƒ|ƒŠƒSƒ“‚Ì–@ü‚ğ‹‚ß‚é
 	CVector3 N(CVector3::Cross(v1 - v0, v2 - v0).GetNormalize());
 	if (adjust) *adjust = N;
@@ -667,42 +674,55 @@ bool CCollision::IntersectTriangleCapsule3(const CVector3 &v0, const CVector3 &v
 
 	if (dt*db<0) {
 		//ŠÑ’Ê‚µ‚Ä‚¢‚éê‡‚Íü‚Æƒ|ƒŠƒSƒ“‚Ì”»’è‚ğs‚¤
-		if (IntersectTriangleRay(cross, top, bottom, v0, v1, v2, &Dist)) {
-			if (length) {
-				CVector3 vt = (*cross - top);
-				CVector3 vb = (*cross - bottom);
+		if (IntersectTriangleRay(&cro, top, bottom, v0, v1, v2, &Dist)) {
+				CVector3 vt = (cro - top);
+				CVector3 vb = (cro - bottom);
 				//ŠÑ’Ê“_‚Ü‚Å‚Ì‹——£‚ğ‹‚ß‚é
-				float lt = (*cross - top).LengthSq();
-				float lb = (*cross - bottom).LengthSq();
+				float lt = (cro - top).LengthSq();
+				float lb = (cro - bottom).LengthSq();
 				if (dt < db) {
-					*length = sqrt(lt);
-					if (adjust) *adjust = *adjust * *length;
+					len = sqrt(lt);
+					if (adjust) *adjust = *adjust * len;
 				}
 				else {
-					*length = sqrt(lb);
-					if (adjust) *adjust = *adjust * *length;
+					len = sqrt(lb);
+					if (adjust) *adjust = *adjust * len;
 				}
-			}
+				if (length) {
+					*length = len;
+				}
+				if (cross)
+					*cross = cro;
 			return true;
 		}
 	}
 
-	float f;
+	float f = 0.0f;
 	CVector3 v = (top - bottom).normalize();
 	CVector3 wtop = top + v * radius * -1;
 	CVector3 wbottom = bottom + v * radius;
-	if (IntersectTriangleSphere2(v0, v1, v2, wtop, radius, cross, length)) {
+	if (IntersectTriangleSphere2(v0, v1, v2, wtop, radius, &cro, &len)) {
 		if (IntersectTriangleSphere2(v0, v1, v2, wbottom, radius, &v, &f)) {
-			if (*length > f) {
-				*cross = v;
-				*length = f;
+			if (cross)
+				*cross = cro;
+			if (length)
+				*length = len;
+			if (len > f) {
+				if (cross)
+					*cross = v;
+				if (length)
+					*length = f;
 			}
 		}
-		if (adjust) *adjust = *adjust * *length;
+		if (adjust) *adjust = *adjust * len;
 		return  true;
 	}
-	else if (IntersectTriangleSphere2(v0, v1, v2, wbottom, radius, cross, length)) {
-		if (adjust) *adjust = *adjust * *length;
+	else if (IntersectTriangleSphere2(v0, v1, v2, wbottom, radius, &cro, &len)) {
+		if (cross)
+			*cross = cro;
+		if (length)
+			*length = len;
+		if (adjust) *adjust = *adjust * len;
 		return true;
 	}
 
@@ -719,16 +739,17 @@ bool CCollision::IntersectTriangleCapsule3(const CVector3 &v0, const CVector3 &v
 	Dist = (dt<db) ? dt : db;
 
 	//Še•Ó‚Æ‚Ì‹——£‚ğ‹‚ß‚é
-	d = DistanceLine(wtop, wbottom, v0, v1, cross);
+	d = DistanceLine(wtop, wbottom, v0, v1, &cro);
 	if (Dist > d) Dist = d;
 
-	d = DistanceLine(wtop, wbottom, v1, v2, cross);
+	d = DistanceLine(wtop, wbottom, v1, v2, &cro);
 	if (Dist > d) Dist = d;
 
-	d = DistanceLine(wtop, wbottom, v2, v0, cross);
+	d = DistanceLine(wtop, wbottom, v2, v0, &cro);
 	if (Dist > d) Dist = d;
 
 	if (length) *length = radius - Dist;
 	if (adjust) *adjust = CVector3();
+	if (cross) *cross = cro;
 	return (Dist <= radius);
 }

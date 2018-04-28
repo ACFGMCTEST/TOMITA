@@ -64,7 +64,7 @@ public:
 	//三角ポリゴンとカプセルの衝突判定
 	static bool IntersectTriangleCapsule(const CVector3 &v0, const CVector3 &v1, const CVector3 &v2, const CVector3 &top, const CVector3 &bottom, float radius, CVector3 *cross = 0, float *length = 0);
 	static bool IntersectTriangleCapsule2(const CVector3 &v0, const CVector3 &v1, const CVector3 &v2, const CVector3 &top, const CVector3 &bottom, float radius, CVector3 *cross = 0, float *length = 0, CVector3 *n = 0);
-	static bool IntersectTriangleCapsule3(const CVector3 &v0, const CVector3 &v1, const CVector3 &v2, const CVector3 &top, const CVector3 &bottom, float radius, CVector3 *cross = 0, float *length = 0, CVector3 *adjust = 0);
+	static bool IntersectTriangleCapsule3(const CVector3 &v0, const CVector3 &v1, const CVector3 &v2, const CVector3 &top, const CVector3 &bottom, float radius, CVector3 *adjust = 0, CVector3 *cross = 0, float *length = 0);
 
 	//2線分間の距離
 	static float DistanceLine(const CVector3 &s1,const CVector3 &e1,const CVector3 &s2,const CVector3 &e2,CVector3 *cross=NULL,CVector3 *c2=NULL);

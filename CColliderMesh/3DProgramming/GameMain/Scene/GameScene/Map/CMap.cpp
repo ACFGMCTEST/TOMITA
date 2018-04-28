@@ -160,9 +160,10 @@ void CMap::Init(){
 #endif
 
 	/*ここで初期化*/
-	MapInit(mCsvMapData);
-
-
+//	MapInit(mCsvMapData);
+	mGround.LoadFile("x\\Ground.obj");
+	mGround.AddCollisionManager();
+	ColInit();
 }
 
 /*マップ初期配置関数*/
@@ -251,7 +252,6 @@ void CMap::MapInit(CCsv &csv){
 	mWallBox.SetColor(WHITE_COLOR);
 
 	mWallBox.UpdateMatrix();
-	ColInit();
 }
 
 /*座標に指定された属性を返す*/
@@ -436,4 +436,5 @@ void CMap::Render(){
 	//for (int i = 0; i < 8; i++) {
 	//	mpColTriangle2[i]->Render();
 	//}
+	mGround.Render();
 }

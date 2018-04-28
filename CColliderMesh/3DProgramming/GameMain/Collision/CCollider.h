@@ -91,4 +91,64 @@ public:
 
 };
 
+
+class CCollider3 : public CTask {
+public:
+	enum EType {
+		COL_TRIANGLE,
+		COL_CAPSULE
+	};
+	EType mType;
+	CVector3 mAdjust;
+	CTask *mpParent;
+	CMatrix44 *mpCombinedMatrix;
+	CCollider3() : mpParent(0), mpCombinedMatrix(0) {}
+	bool Collision(CCollider3 *col);
+};
+
+class CCollider3Triangle : public CCollider3 {
+public:
+	CVector3 mV[3];
+
+	CCollider3Triangle() {
+		mType = COL_TRIANGLE;
+	}
+
+	CCollider3Triangle(const CVector3 &v0, const CVector3 &v1, const CVector3 &v2) {
+		mV[0] = v0;
+		mV[1] = v1;
+		mV[2] = v2;
+	}
+
+	void Update();
+
+	CCollider3Triangle GetUpdate();
+};
+
+class CCollider3Capsule : public CCollider3 {
+public:
+	CVector3 mV[2];
+	float mRadius;
+
+	CCollider3Capsule() : mRadius(0.0f) {
+		mType = COL_CAPSULE;
+	}
+
+	CCollider3Capsule(const CVector3 &p0, const CVector3 &p1, const float r) {
+		mV[0] = p0;
+		mV[1] = p1;
+		mRadius = r;
+	}
+
+	void Update();
+
+	CCollider3Capsule GetUpdate();
+
+	void Init(CTask *parent, CVector3 v0, CVector3 v1, float radius, CMatrix44 *pcombinedMatrix);
+
+	void Render();
+
+};
+
+
 #endif

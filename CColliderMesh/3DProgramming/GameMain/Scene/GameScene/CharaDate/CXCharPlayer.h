@@ -101,6 +101,7 @@ public:
 	CEffect2D mHammerEffect;
 
 	CColCapsule *mpColCapsule;
+	CCollider3Capsule *mpColCapsule3;
 
 	CXCharPlayer();
 	//‰Šú‰»ˆ—
@@ -186,6 +187,7 @@ public:
 	bool Collision(const COBB *box, const CColSphere *sphere);
 
 	bool Collision(CCollider2* me, CCollider2* you);
+	bool Collision(CTask* me, CTask* you);
 
 	/*ƒnƒ“ƒ}[‚Ì—­‚ß‚éˆ—*/
 	void HammerUp();

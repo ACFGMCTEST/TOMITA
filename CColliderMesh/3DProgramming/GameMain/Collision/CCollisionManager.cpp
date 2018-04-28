@@ -414,4 +414,55 @@ void CCollisionManager::Update(){
 }
 
 CCollisionManager::CCollisionManager(){}
-CCollisionManager::~CCollisionManager(){}
+CCollisionManager3::CCollisionManager3(){}
+
+CCollisionManager3* CCollisionManager3::mCollisionManager = 0;
+
+//GetInstance
+CCollisionManager3* CCollisionManager3::GetInstance() {
+	if (mCollisionManager == 0) {
+		mCollisionManager = new CCollisionManager3();
+	}
+	return mCollisionManager;
+}
+
+
+void CCollisionManager3::Add(CCollider3 *col){
+	CTaskManager::Add(col);
+}
+
+/*XVˆ—*/
+void CCollisionManager3::Update(){
+
+	CCollider3 *task;
+	task = (CCollider3*)mpRoot;
+
+	/*’Tõˆ—*/
+	while (task != 0)
+	{
+		switch (task->mType) {
+		case CCollider3::COL_CAPSULE:
+			if (task->mpCombinedMatrix) {
+				CCollider3Capsule cc = *(CCollider3Capsule*)task;
+				cc.Update();
+				CTask *n = mpRoot;
+				while (n != NULL) {
+					if (task->mpParent && task != n) {
+						task->mpParent->Collision(&cc, n);
+					}
+					n = n->mpNext;
+				}
+			}
+			break;
+		}
+		task = (CCollider3*)task->mpNext;
+	}
+
+#ifdef _DEBUG 
+	//	AllRender();
+#endif
+}
+
+CCollisionManager3::~CCollisionManager3(){
+	AllKill();
+}

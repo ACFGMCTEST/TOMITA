@@ -92,7 +92,8 @@ void CGameScene::Update() {
 
 		CScoreBoard::GetInstance()->Update();
 
-		CCollisionManager::GetInstance()->Update();
+//		CCollisionManager::GetInstance()->Update();
+		CCollisionManager3::GetInstance()->Update();
 
 		CTaskManager::GetInstance()->AllRender();
 
@@ -107,7 +108,8 @@ void CGameScene::Update() {
 		break;
 	case E_END:
 		CCollisionManager::GetInstance()->AllKill();
-//		mSceneModel.mModelTaskManager.AllKill();
+		CCollisionManager3::GetInstance()->AllKill();
+		//		mSceneModel.mModelTaskManager.AllKill();
 		CTaskManager::GetInstance()->AllKill();
 //		mMap.mMapTaskManager.AllKill();
 		mMap.mCsvMapData.~CCsv();

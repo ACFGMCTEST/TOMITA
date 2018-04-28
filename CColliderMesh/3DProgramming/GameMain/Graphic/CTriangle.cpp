@@ -12,6 +12,8 @@ CTriangle::CTriangle()
 			mUv[i][j] = 0.0f;
 		}
 	}
+	diffuse[0] = diffuse[1] = diffuse[2] = 0.8f;
+	diffuse[3] = 1.0f;
 }
 
 

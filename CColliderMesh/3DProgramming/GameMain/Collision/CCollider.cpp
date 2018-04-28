@@ -1,5 +1,6 @@
 #include "CCollider.h"
 #include "glut.h"
+#include "CCollision.h"
 
 /*èâä˙ÉTÉCÉY*/
 #define INIT_SIZE 1.0f
@@ -274,4 +275,79 @@ void CCollider::SizeUP(float f){
 	for (int i = 0; i < 3; i++){
 		mObb.mLength[i] += f;
 	}
+}
+
+bool CCollider3::Collision(CCollider3 *col) {
+	switch (mType) {
+	case COL_CAPSULE:
+		CCollider3Capsule *pcc = dynamic_cast<CCollider3Capsule*>(this);
+		switch (col->mType) {
+		case COL_TRIANGLE:
+			CCollider3Triangle *pct = dynamic_cast<CCollider3Triangle*>(col);
+			return CCollision::IntersectTriangleCapsule3(pct->mV[0], pct->mV[0], pct->mV[0], pcc->mV[0], pcc->mV[1], pcc->mRadius, &mAdjust);
+		}
+	}
+	return false;
+}
+
+void CCollider3Triangle::Update() {
+	if (mpCombinedMatrix) {
+		mV[0] = mV[0] * *mpCombinedMatrix;
+		mV[1] = mV[1] * *mpCombinedMatrix;
+		mV[2] = mV[2] * *mpCombinedMatrix;
+	}
+}
+void CCollider3Capsule::Update() {
+	if (mpCombinedMatrix) {
+		mV[0] = mV[0] * *mpCombinedMatrix;
+		mV[1] = mV[1] * *mpCombinedMatrix;
+	}
+}
+
+CCollider3Capsule CCollider3Capsule::GetUpdate() {
+	CCollider3Capsule cc = *this;
+	cc.Update();
+	return cc;
+}
+
+void CCollider3Capsule::Init(CTask *parent, CVector3 v0, CVector3 v1, float radius, CMatrix44 *pcombinedMatrix) {
+	eColTag = E_COL_CAPSULE;
+	mpCombinedMatrix = pcombinedMatrix;
+	mV[0] = v0;
+	mV[1] = v1;
+	mRadius = radius;
+	mpParent = parent;
+}
+
+void CCollider3Capsule::Render() {
+	float color[] = { 1.0f, 1.0f, 0.0f, 0.5f };
+	glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, color);
+	CMatrix44 mat;
+	CVector3 vec;
+	glPushMatrix();
+	//			glMultMatrixf(mMatrix.f);
+	glPushMatrix();
+	vec = mV[0] - mV[1];
+	vec = vec.normalize();
+	vec = vec * mRadius;
+	vec = mV[1] + vec;
+	//
+	//				vec = mV[1][1];
+	mat.translate(vec);
+	glMultMatrixf(mat.f);
+	glutSolidSphere(mRadius, 20, 20);
+	glPopMatrix();
+	glPushMatrix();
+	vec = mV[1] - mV[0];
+	vec = vec.normalize();
+	vec = vec * mRadius;
+	vec = mV[0] + vec;
+	//
+	//				vec = mV[1][0];
+	mat.translate(vec);
+	glMultMatrixf(mat.f);
+	glutSolidSphere(mRadius, 20, 20);
+	glPopMatrix();
+
+	glPopMatrix();
 }

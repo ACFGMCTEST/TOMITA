@@ -338,6 +338,9 @@
     <ClCompile Include="GameMain\Scene\GameScene\Puck\CXPuck.cpp">
       <Filter>ソース ファイル\GameMain\Scene\GameScene\Puck</Filter>
     </ClCompile>
+    <ClCompile Include="CModelObj.cpp">
+      <Filter>ソース ファイル\GameMain\Graphic</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Define\Define.h">
@@ -567,6 +570,9 @@
     </ClInclude>
     <ClInclude Include="GameMain\Scene\GameScene\Puck\CXPuck.h">
       <Filter>ソース ファイル\GameMain\Scene\GameScene\Puck</Filter>
+    </ClInclude>
+    <ClInclude Include="CModelObj.h">
+      <Filter>ソース ファイル\GameMain\Graphic</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

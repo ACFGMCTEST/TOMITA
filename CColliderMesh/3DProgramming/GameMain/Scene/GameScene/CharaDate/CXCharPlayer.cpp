@@ -56,7 +56,8 @@ void CXCharPlayer::ColInit(){
 	mpCBLeg = new CCollider(CTask::E_COL_SPHEPE);
 
 	mpColCapsule = new CColCapsule();
-	
+	mpColCapsule3 = new CCollider3Capsule();
+
 	/*ペアレント設定*/
 	mpCBBody->mpParent = this;
 	mpCBWeapon->mpParent = this;
@@ -87,6 +88,8 @@ void CXCharPlayer::Init(CModelX *model) {
 	mpColCapsule->Init(this, CVector3(0.0f, 1.2f, 0.0f), CVector3(0.0f, -1.2f, 0.0f), 0.5f, CVector3(0.0f, 0.0f, 0.0f)
 		//		, &mpCombinedMatrix[model->FindFrame("Root")->mIndex]);
 		, &mpCombinedMatrix[model->FindFrame("metarig_chest")->mIndex]);
+	mpColCapsule3->Init(this, CVector3(0.0f, 1.2f, 0.0f), CVector3(0.0f, -1.2f, 0.0f), 0.5f
+		, &mpCombinedMatrix[model->FindFrame("metarig_chest")->mIndex]);
 
 	mHammerEffect.Init(CEffect2D::E_STATUS::E_HAMMER);
 
@@ -104,6 +107,7 @@ void CXCharPlayer::Init(CModelX *model) {
 	CCollisionManager::GetInstance()->Add(CTask::E_TAG_WEAPON, mpCBWeapon);//あたり判定追加
 
 	CCollisionManager::GetInstance()->Add(CTask::E_TAG_PLAYER, mpColCapsule);//あたり判定追加
+	CCollisionManager3::GetInstance()->Add(mpColCapsule3);//あたり判定追加
 }
 
 /*速さ制御関数*/
@@ -770,6 +774,7 @@ void CXCharPlayer::Render() {
 //	mpCBWeapon->Render();
 //	mpCBLeg->Render();
 	mpColCapsule->Render();
+	mpColCapsule3->Render();
 #endif
 }
 
@@ -938,40 +943,57 @@ bool CXCharPlayer::Collision(CCollider2* me, CCollider2* you) {
 	switch (me->eColTag) {
 	case E_COL_CAPSULE:
 		if (you->eColTag == E_COL_TRIANGLE &&
-			(you->eTag == E_TAG_GROUND || 
-			you->eTag == E_TAG_SLOPE || 
+			(you->eTag == E_TAG_GROUND ||
+			you->eTag == E_TAG_SLOPE ||
 			you->eTag == E_TAG_WALL)) {
 			CVector3 cross;
 			float length;
 			CVector3 adjust;
 			if (CCollision::IntersectTriangleCapsule3(you->mV[1][0], you->mV[1][1], you->mV[1][2],
-				me->mV[1][0], me->mV[1][1], me->mF[0], &cross, &length, &adjust)) {
-				if (cross == CVector3()) 
+				me->mV[1][0], me->mV[1][1], me->mF[0], &adjust, &cross, &length)) {
+				if (cross == CVector3())
 					return false;
-//				if (you->eTag == E_TAG_BOX)
-					ColGround();//地面にあった時の処理
-
-//				if ((me->mV[1][0] - cross).Dot(normal) < 0) {
-//					mPosition = mPosition + (cross - me->mV[1][1]).normalize() * length;
-//					mPosition = mPosition + cross * length;
-//					mPosition = mPosition + (me->mV[1][1] - cross).normalize() * length;
-//				}
-//				else {
-//					mPosition = mPosition + (cross - me->mV[1][0]).normalize() * length;
-//					mPosition = mPosition + cross * length;
-//					mPosition = mPosition + (me->mV[1][0] - cross).normalize() * length;
-//				}
-//				mPosition = mPosition + cross * length;
+				//				if (you->eTag == E_TAG_BOX)
+				ColGround();//地面にあった時の処理
 				mPosition = mPosition + adjust;
 			}
 		}
 		break;
 	case E_COL_SPHEPE:
 		if (you->eTag == E_TAG_BOX ||
-			you->eTag == E_TAG_GROUND ) {
+			you->eTag == E_TAG_GROUND) {
 			if (you->eColTag == E_COL_BOX)
 				return Collision((COBB*)&you->mObb, (CColSphere*)&me->mColSphere);
 		}
+	}
+
+	return false;
+}
+
+bool CXCharPlayer::Collision(CTask* me, CTask* you) {
+	CCollider3 *m = (CCollider3*)me;
+	CCollider3 *y = (CCollider3*)you;
+
+	switch (m->mType) {
+	case CCollider3::COL_CAPSULE:
+		CCollider3Capsule *cc = (CCollider3Capsule*)me;
+		switch (y->mType) {
+		case CCollider3::COL_TRIANGLE:
+			CCollider3Triangle ct = *(CCollider3Triangle*)y;
+			ct.Update();
+			if (CCollision::IntersectTriangleCapsule3(ct.mV[0], ct.mV[1], ct.mV[2],
+				cc->mV[0], cc->mV[1], cc->mRadius, &cc->mAdjust)) {
+				/*
+//				if (cross == CVector3())
+//					return false;
+				//				if (you->eTag == E_TAG_BOX)
+				*/
+				ColGround();//地面にあった時の処理
+				mPosition = mPosition + cc->mAdjust;
+			}
+			break;
+		}
+		break;
 	}
 
 	return false;

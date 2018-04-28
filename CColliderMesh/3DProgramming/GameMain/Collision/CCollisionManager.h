@@ -35,4 +35,23 @@ public:
 	void Update();
 };
 
+class CCollisionManager3 : public CTaskManager{
+private:
+
+//	void Update(CTask *t);//XVˆ—
+
+	static CCollisionManager3 *mCollisionManager;
+	CCollisionManager3();
+
+public:
+
+	static CCollisionManager3 *GetInstance(); //GetInstance
+	~CCollisionManager3();
+
+	void Add(CCollider3 *col);//‚ ‚½‚è”»’è’Ç‰Áˆ—
+
+	void Update();
+};
+
+
 #endif
