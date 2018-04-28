@@ -29,15 +29,15 @@
 /*モデルのファイル場所*/
 #define MODEL_FILE_UNITY			"x\\SDUnity\\SDUnityBoxing.x"
 /*アニメーションのファイル場所*/
-#define ANIMA_FILE_IDLING			"x\\Anima\\Idling.x.x"
-//#define ANIMA_FILE_ATTACK_RUN		"x\\Anima\\Ani_AttackRun.x"
-//#define ANIMA_FILE_RUN				"x\\Anima\\Ani_Run.x"
-//#define ANIMA_FILE_ATTACK_IDLE		"x\\Anima\\Ani_AttackIdle.x"
-//#define ANIMA_FILE_ATTACK_INIT		"x\\Anima\\Ani_AttackInit.x"
-//#define ANIMA_FILE_ATTACK			"x\\Anima\\Ani_Attack.x"
-//#define ANIMA_FILE_ATTACK_JUMP		"x\\Anima\\Ani_AttackJump.x"
-//#define ANIMA_FILE_JUMP				"x\\Anima\\Ani_Jump.x"
-//#define ANIMA_FILE_DAMAGE			"x\\Anima\\Ani_Damage.x"
+#define ANIMA_FILE_IDLING			"x\\Anima\\Idling.x"
+#define ANIMA_FILE_ATTACK_RUN		"x\\Anima\\Run.x"
+#define ANIMA_FILE_RUN				"x\\Anima\\Run.x"
+#define ANIMA_FILE_ATTACK_IDLING	"x\\Anima\\Ani_AttackIdle.x"
+#define ANIMA_FILE_ATTACK_INIT		"x\\Anima\\Ani_AttackInit.x"
+#define ANIMA_FILE_ATTACK			"x\\Anima\\Attack2.x"
+#define ANIMA_FILE_ATTACK_JUMP		"x\\Anima\\Ani_AttackJump.x"
+#define ANIMA_FILE_JUMP				"x\\Anima\\Ani_Jump.x"
+#define ANIMA_FILE_DAMAGE			"x\\Anima\\Ani_Damage.x"
 
 /*lag回避用*/
 #define LAG_SIZE 0.1f //0，1秒間lag回避用
@@ -48,29 +48,14 @@
 /*静的初期化*/
 CXCharPlayer *CSceneModel::mpPlayer;
 
+/*すべてのモデルキャラ削除*/
+void CSceneModel::ModelAllKill(){
+	mModelTaskManager.AllKill();
+}
+
 /*コンストラクタ*/
 CSceneModel::CSceneModel() :mMouseInitCount(0.0f),mLagTime(0.0f){
 
-	mMouseInitCount = 0.0f;							//マウスが初期位置に戻るまでの時間
-	mLagTime = 0.0f;								//lagによるバグ回避時間
-	mpPlayer = 0;									//アクセス用 キャラクター操作に使うため 静的に
-
-	CVector3 mPosition;								//位置　
-
-	/*プレイヤー*/
-	mModel.Load(MODEL_FILE_UNITY);
-	/*アニメーション追加処理*/
-	for (int i = 0; i < CTask::E_STATE_ARRAY; i++)
-	{
-		switch (i)
-		{
-		case CTask::E_IDLING:
-			mModel.AddAnimationSet(ANIMA_FILE_IDLING);//待機追加_0
-			break;
-		}
-	}
-	/*プレイヤー追加*/
-	CPlayerAdd(CVector3(0.0f, 0.0f, 0.0f), &mModel);
 
 }
 
@@ -79,6 +64,7 @@ CSceneModel::~CSceneModel(){
 	
 
 }
+
 /*プレイヤー追加処理*/
 void CSceneModel::CPlayerAdd(CVector3 PlayerPos, CModelX *model){
 	CXCharPlayer *pl = new CXCharPlayer(); //new作成
@@ -88,15 +74,9 @@ void CSceneModel::CPlayerAdd(CVector3 PlayerPos, CModelX *model){
 
 	CCollisionManager::GetInstance()->Add(CTask::E_TAG_PLAYER, pl->mpCBLeg);//あたり判定追加
 	CCollisionManager::GetInstance()->Add(CTask::E_TAG_PLAYER, pl->mpCBBody);//あたり判定追加
-	CCollisionManager::GetInstance()->Add(CTask::E_TAG_WEAPON, pl->mpCBWeapon);//あたり判定追加
 	mModelTaskManager.Add(pl);//タスクに追加
 	mpPlayer = pl; //操作用
 }
-/*プレイヤーの情報関数*/
-CXCharPlayer CSceneModel::Player(){
-	return *mpPlayer;
-}
-
 
 /*エネミー追加処理*/
 void CSceneModel::CEnemyAdd(CVector3 EnemyPos, CModelX *model){
@@ -108,31 +88,82 @@ void CSceneModel::CEnemyAdd(CVector3 EnemyPos, CModelX *model){
 	/*当たり判定追加処理*/
 	CCollisionManager::GetInstance()->Add(CTask::E_TAG_ENEMY, ene->mpCBLeg);//あたり判定追加
 	CCollisionManager::GetInstance()->Add(CTask::E_TAG_ENEMY, ene->mpCBBody);
-	CCollisionManager::GetInstance()->Add(CTask::E_TAG_WEAPON,ene->mpCBWeapon);
 	CCollisionManager::GetInstance()->Add(CTask::E_TAG_ATTACK_INIT_RANGE, ene->mpCBAttackInitBox);
 	CCollisionManager::GetInstance()->Add(CTask::E_TAG_ATTACK_RANGE, ene->mpCBAttackBox);
 	mModelTaskManager.Add(ene);
 }
 
-void CSceneModel::Update() {
-	/*lag回避*/
-	if (!CConvenient::Time(&mLagTime, LAG_SIZE)){
-		CMouse::GetInstance()->mLeftFlag = false;
+void CSceneModel::Init() {
+
+	mMouseInitCount = 0.0f;							//マウスが初期位置に戻るまでの時間
+	mLagTime = 0.0f;								//lagによるバグ回避時間
+
+	CVector3 mPosition;								//位置　
+
+	/*プレイヤー*/
+	mModel.Load(MODEL_FILE_UNITY);
+
+	/*アニメーション追加処理*/
+	for (int i = 0; i < CTask::E_STATE_ARRAY; i++)
+	{
+		switch (i)
+		{
+		case CTask::E_IDLING:
+			mModel.AddAnimationSet(ANIMA_FILE_IDLING);//待機追加_0 
+			break;
+		case CTask::E_ATTACK_RUN:
+			mModel.AddAnimationSet(ANIMA_FILE_ATTACK_RUN);//ためながら走る追加
+			break;
+		case CTask::E_RUN:
+			mModel.AddAnimationSet(ANIMA_FILE_RUN);//走る追加
+			break;
+		case CTask::E_ATTACK_IDLING:
+			mModel.AddAnimationSet(ANIMA_FILE_ATTACK_IDLING);//攻撃ためアイドル追加
+			break;
+		case CTask::E_ATTACK_INIT:
+			mModel.AddAnimationSet(ANIMA_FILE_ATTACK_INIT);//攻撃ためアイドル追加
+			break;
+		case CTask::E_ATTACK:
+			mModel.AddAnimationSet(ANIMA_FILE_ATTACK);//攻撃追加_2 
+			break;
+		case CTask::E_JUMP:
+			mModel.AddAnimationSet(ANIMA_FILE_JUMP);//ジャンプ追加
+			break;
+		case CTask::E_ATTACK_JUMP:
+			mModel.AddAnimationSet(ANIMA_FILE_ATTACK_JUMP);//攻撃中ジャンプ追加 
+			break;
+		case CTask::E_DMGM:
+			mModel.AddAnimationSet(ANIMA_FILE_DAMAGE);//ダメージ
+			break;
+		}
 	}
-	/*Modelすべての更新*/
-	mModelTaskManager.AllUpdate();
+	/*キャラクター初期化*/
+	CPlayerAdd(CVector3(0.0f, 0.0f, 0.0f), &mModel);
+
+}
+
+void CSceneModel::Update() {
+	
+		/*lag回避*/
+		if (!CConvenient::Time(&mLagTime, LAG_SIZE)){
+			CMouse::GetInstance()->mLeftFlag = false;
+		}
+
+		
+		mModelTaskManager.AllUpdate();
+
+
+
+
+	
 }
 
 void CSceneModel::Render() {
-	/*Modelすべての描画*/
+	
 	mModelTaskManager.AllRender();
 
 }
 
 void CSceneModel::UpdateEffect(){
 	mModelTaskManager.AllBillboardRender();
-}
-/*Modelのメモリ開放処理*/
-void CSceneModel::ModelAllKill(){
-	mModelTaskManager.AllKill();
 }

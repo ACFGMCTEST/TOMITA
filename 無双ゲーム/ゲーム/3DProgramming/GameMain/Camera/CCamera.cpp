@@ -11,13 +11,6 @@
 #include "../Scene/GameScene/CGameScene.h"
 #include <math.h>
 
-//キャラ
-#define CHARA_POS	CVector3(CSceneModel::mCharcter->mPosition.x,\
-	CSceneModel::mCharcter->mPosition.y + 3.0f, \
-	CSceneModel::mCharcter->mPosition.z - 1.0f)
-
-/*カメラ追う速度*/
-#define SPEED CSceneModel::Player().mVelocity 
 
 /*カメラ初期ポジション*/
 #define FIAST_POS CVector3(0.0f,3.0f,0.0f)
@@ -39,7 +32,7 @@ mUp = //視界の上方向のベクトルx,y,z
 /*カメラの位置*/
 #define CAMERA_OFFSET CVector3(0.0f, 0.5f, 4.0f) //カメラ位置プレイヤーからの相対位置
 //キャラ
-#define CHARA_POS(pos)	CVector3(pos.x,	pos.y + 3.0f, pos.z-1.0f)
+#define CHARA_POS(pos)	CVector3(pos.x,	pos.y + 5.5f, pos.z-1.5f)
 
 /*カメラマウス*/
 #define ARRIVAL_TIME 0.1f//待ち時間
@@ -56,7 +49,7 @@ CCamera::CCamera() : mUp(0.0f, 1.0f, 0.0f) ,mForward(FORWARD){
 
 /*キャラクターにポジション移動する*/
 void CCamera::CharaPos(){
-	PosUpdate(mRot, CHARA_POS(CSceneModel::Player().mPosition));
+	///PosUpdate(mRot, CHARA_POS(CSceneModel::Player().mPosition));
 }
 
 /*初期化処理*/
@@ -111,7 +104,7 @@ void CCamera::MouseCamera(){
 	}
 	else
 	{
-		CMouse::GetInstance()->SetMousePos(WinPosX + DISP_X / 2, WinPosY + DISP_Y / 2);//カーソルをウィンドウの中心にする
+		//CMouse::GetInstance()->SetMousePos(WinPosX + DISP_X / 2, WinPosY + DISP_Y / 2);//カーソルをウィンドウの中心にする
 	}
 
 	mSaveMousePos = CMouse::GetInstance()->mPos;//セーブする
@@ -201,14 +194,12 @@ void CCamera::Update() {
 	mCameraInverse.m[3][0] = mCameraInverse.m[3][1] = mCameraInverse.m[3][2] = 0.0f;
 
 	/*キャラクタスイッチに使う*/
-	CVector3 pos = CHARA_POS(CSceneModel::Player().mPosition);
+	CVector3 pos = CHARA_POS(CSceneModel::mpPlayer->mPosition);
 	/*キャラクターに合わせる*/
 	CharaUpdate();
 
-		MouseCamera();//mouseでカメラ制御
-
 	/*カメラの移動*/
-		Move(pos, SPEED);
+	Move(pos, CSceneModel::mpPlayer->mVelocity);
 
 
 	mpCBSphere->mColSphere.mPos = mPos;
@@ -310,9 +301,9 @@ speed = 速さ
 void CCamera::Move(CVector3 pos, float speed){
 
 	/*範囲内の場合移動しない*/
-	if (pos.x - SPEED < mPos.x && mPos.x < pos.x + SPEED &&
-		pos.y - SPEED < mPos.y && mPos.y < pos.y + SPEED &&
-		pos.z - SPEED < mPos.z && mPos.z < pos.z + SPEED){
+	if (pos.x - speed < mPos.x && mPos.x < pos.x + speed &&
+		pos.y - speed < mPos.y && mPos.y < pos.y + speed &&
+		pos.z - speed < mPos.z && mPos.z < pos.z + speed){
 		return;
 	}
 	else{

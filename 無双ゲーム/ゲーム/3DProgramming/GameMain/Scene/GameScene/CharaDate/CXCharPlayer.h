@@ -49,8 +49,11 @@
 #define POINT_UP_BIG 0.1f * 1.5f  //決め手型用
 /*進む方角*/
 #define FORWARD 0.0f,0.0f,1.0f
-
-/*プレイヤークラス*/
+/*
+ CXCharPlayer
+ プレイヤークラス
+*/
+//class CXCharPlayer : public CXCharacter {
 class CXCharPlayer : public CModelXS {
 private:
 	int mRotCount;//回転地カウント　移動するときに使う
@@ -90,10 +93,7 @@ public:
 	//CCollider *mCBBody;
 	CCollider *mpCBBody;//球判定
 	CCollider *mpCBLeg;//足
-	//衝突判定（武器）
-	CCollider *mpCBWeapon;
-	/*ハンマーのEFFECT*/
-	CEffect2D mHammerEffect;
+
 
 	CXCharPlayer();
 	//初期化処理
@@ -117,6 +117,10 @@ public:
 	/*簡易アニメーション切り替え*/
 	void AnimaState(ESTATE state);
 
+	/*経路探索　ポジションをとるよう*/
+	CVector4 *mGoPos; //向かうポジション newして保存
+	int mGoPosSize; //最後までの配列保存
+	int mGoCount;//どこに行くカウント 最後の配列から0に向かっていく
 	/*POSだけのマトリックスアップデート*/
 	void MatrixUpdate();
 
@@ -131,17 +135,14 @@ public:
 	*/
 	void Move(const CVector3 &forward,float velocity);
 
+
+
+
+
 	/*おもな当たり判定呼び出し*/
 	void Collision(const COBB &box, const CColSphere &sphere);
 	/*玉判定*/
 	void Collision(const CColSphere &youSphere, const CColSphere &sphere);
-
-	///*ボックスにあたったとき*/
-	//void CollisionBox(const COBB &box, const CColSphere &sphere);
-	///*坂にあたったとき*/
-	//void CollisionSlope(const COBB &box, const CColSphere &sphere);
-
-
 
 	/*ハンマーの溜める処理*/
 	void HammerUp();

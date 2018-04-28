@@ -50,7 +50,7 @@ void CMouse::Update(){
 	winRect.bottom	= (WinPosY + DISP_Y);
 
 	/*マウス取得*/
-	ShowCursor(false);
+	//ShowCursor(false);//マウスを非表示にする
 	mRect.mPosition = mPos;
 }
 

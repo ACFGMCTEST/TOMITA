@@ -8,7 +8,7 @@
 
 CCamera MainCamera;
 
-CGameScene::CGameScene() : eState(E_INIT),mSceneModel(){
+CGameScene::CGameScene() : eState(E_INIT){
 };
 
 CGameScene::~CGameScene(){
@@ -22,12 +22,16 @@ void CGameScene::Update() {
 	switch (eState)
 	{
 	case E_INIT:
+		mSceneModel.Init();
 		MainCamera.Init();
-
+		mMap.Init();
 		eState = E_MAIN;
 		break;
 		
 	case E_MAIN:
+		mMap.Update();
+		mMap.Render();
+
 		MainCamera.Update();
 		mSceneModel.Update();
 		

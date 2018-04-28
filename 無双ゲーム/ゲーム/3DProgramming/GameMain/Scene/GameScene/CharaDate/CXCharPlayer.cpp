@@ -40,7 +40,7 @@
 #define MOVE_ACC SPEED_RUN/10
 
 CXCharPlayer::CXCharPlayer() : mVelocity(0.0f), mFlagKnockback(false), mRotCount(0),
-mGravitTime(GRA_INIT_TIME_COUNT), mFlagJump(false),mFlagSlpoe(false){
+mGoCount(0), mGoPos(0), mGoPosSize(0), mGravitTime(GRA_INIT_TIME_COUNT), mFlagJump(false),mFlagSlpoe(false){
 	mForward = CVector3(FORWARD);
 	mpParent = this;
 
@@ -56,12 +56,10 @@ mGravitTime(GRA_INIT_TIME_COUNT), mFlagJump(false),mFlagSlpoe(false){
 void CXCharPlayer::ColInit(){
 	/*当たり判定インスタンス作成*/
 	mpCBBody = new CCollider(CTask::E_COL_SPHEPE);
-	mpCBWeapon = new CCollider(CTask::E_COL_BOX);
 	mpCBLeg = new CCollider(CTask::E_COL_SPHEPE);
 	
 	/*ペアレント設定*/
 	mpCBBody->mpParent = this;
-	mpCBWeapon->mpParent = this;
 	mpCBLeg->mpParent = this;
 }
 
@@ -75,15 +73,9 @@ void CXCharPlayer::Init(CModelX *model) {
 	/*体の当たり判定*/
 	mpCBBody->SetShere(OBB_SPHERE_BODY_SIZE, OBB_SPHERE_BODY_POS
 		, &mpCombinedMatrix[model->FindFrame("metarig_chest")->mIndex]);
-	/*武器の当たり判定*/
-	mpCBWeapon->SetBoxOBB(OBB_WEAPON_POS, OBB_WEAPON_SIZE
-		, &mpCombinedMatrix[model->FindFrame("metarig_WeaponHandle")->mIndex]);
 	/*足の当たり判定*/
 	mpCBLeg->SetShere(OBB_LEG_SIZE, OBB_LEG_POS
 		, &mpCombinedMatrix[model->FindFrame("metarig_chest")->mIndex]);
-
-	
-	mHammerEffect.Init(CEffect2D::E_STATUS::E_HAMMER);
 
 
 	mpCBBody->SetColor(BLUE_COLOR);//ボディーの色決め
@@ -100,11 +92,15 @@ void CXCharPlayer::Init(CModelX *model) {
 /*速さ制御関数*/
 float VelocityMax = SPEED_RUN;//限界値
 void CXCharPlayer::MoveSpeed(){
-	/*攻撃準備中*/
-	if (mState == E_ATTACK_IDLING || mState == E_ATTACK_RUN) VelocityMax = SPEED_ATTACK_RUN;
-	/*攻撃外*/
-	if (mState == E_RUN)VelocityMax = SPEED_RUN;
 
+
+	/*スキル発動時*/
+	
+		/*攻撃準備中*/
+		if (mState == E_ATTACK_IDLING || mState == E_ATTACK_RUN) VelocityMax = SPEED_ATTACK_RUN;
+		/*攻撃外*/
+		if (mState == E_RUN)VelocityMax = SPEED_RUN;
+	
 	/*限界値まで加速*/
 	if (VelocityMax > mVelocity){
 		mVelocity += MOVE_ACC;//加速
@@ -123,6 +119,7 @@ void CXCharPlayer::MoveSpeed(){
 	/*動いていない場合*/
 	if (mState == E_IDLING || mState == E_ATTACK_IDLING){ mVelocity = 0; }
 }
+
 
 /*ポジションのアップデート関数*/
 void CXCharPlayer::PosUpdate(){
@@ -244,6 +241,8 @@ void CXCharPlayer::ColGround(){
 	AnimaState(E_IDLING);
 }
 
+
+
 /*アタックのステータス*/
 bool CXCharPlayer::FlagAttackState(){
 	return (mState == E_ATTACK_IDLING || mState == E_ATTACK_INIT || mState == E_ATTACK_RUN);
@@ -313,7 +312,7 @@ void CXCharPlayer::AnimaState(ESTATE state){
 
 
 		/*攻撃待機中*/
-	case CTask::E_ATTACK_IDLING :
+	case CTask::E_ATTACK_IDLING:
 		/*攻撃準備が終わったら*/
 		if (mState == E_ATTACK_INIT && mAnimationTime > mpModel->mAnimationSet[mAnimationIndex]->mMaxTime){
 			mState = state;
@@ -390,8 +389,13 @@ void CXCharPlayer::Update(){
 	mPrevPos = mPosition;
 	mFlagSlpoe = false;
 	//キャラクターが選ばれているものか判断 && DAMAGEをくらっていない場合
-	if (&CSceneModel::Player() == this && mState != E_DMGM){
+	if (mState != E_DMGM){
 
+		//スキル発動！！！
+		if (CKey::push(KEY_SKILL)){
+			mSkillTime = mGageLimit;
+		}
+	
 
 		///*一回押したとき*/
 		if (AttackInitKey.push(KEY_ATTACK) || AttackInitKey.push(KEY_ATTACK2) || CMouse::GetInstance()->mOneLeftFlag){//Kボタンか
@@ -399,6 +403,7 @@ void CXCharPlayer::Update(){
 		}
 		/*長押しの時*/
 		else if (CKey::push(KEY_ATTACK) || CKey::push(KEY_ATTACK2) || CMouse::GetInstance()->mLeftFlag){
+			//スキルゲージ増加
 			AnimaState(E_ATTACK_IDLING);
 		}
 		/*離したとき*/
@@ -427,7 +432,6 @@ void CXCharPlayer::Update(){
 
 	//当たり判定更新
 	mpCBBody->Update();
-	mpCBWeapon->Update();
 	mpCBLeg->Update();
 	//状態によりアニメーション変化
 	switch (mState)
@@ -478,29 +482,17 @@ void CXCharPlayer::Update(){
 
 /*Hammerの溜める処理*/
 void CXCharPlayer::HammerUp(){
-	/*ハンマーのアニメ処理*/
-
-	//デフォルトﾊﾝﾏ
-	if (CItem::status == CItem::WEAPON0){
-		mPower += POWER_UP;//ためていくと攻撃力が上がる
-		if (mPower >= ATTACK_POWER_MAX){
-			mPower = ATTACK_POWER_MAX;
-			mHammerEffect.EnableAnima();//アニメーションを有効にする
-		}
-		else{
-			mHammerEffect.SizeUp(POWER_UP);//サイズを大きくする
-			mpCBWeapon->SizeUP(HAMMER_SIZE_UP);
-		}
+	mPower += POWER_UP;//ためていくと攻撃力が上がる
+	if (mPower >= ATTACK_POWER_MAX){
+		mPower = ATTACK_POWER_MAX;
+	}
+	else{
 	}
 }
+
 /*Hammerの初期化処理*/
 void CXCharPlayer::HammerInit(){
-	mHammerEffect.NoTexInit();
-	mHammerEffect.DisableAnima();//アニメーションを無効にする
 	mPower = ATTACK_POWER;//戻す
-	/*武器の当たり判定*/
-	mpCBWeapon->SetBoxOBB(OBB_WEAPON_POS, OBB_WEAPON_SIZE
-		, &mpCombinedMatrix[mpModel->FindFrame("metarig_WeaponHandle")->mIndex]);
 }
 
 /*Render*/
@@ -509,7 +501,6 @@ void CXCharPlayer::Render() {
 	CModelXS::Render();
 #ifdef _DEBUG
 	mpCBBody->Render();
-	mpCBWeapon->Render();
 	mpCBLeg->Render();
 #endif
 }
@@ -518,8 +509,6 @@ void CXCharPlayer::Render() {
 void CXCharPlayer::BillboardRender(){
 	CVector3 pos = HAMMER_EFFECT_POS;
 	pos = pos * mpCombinedMatrix[mpModel->FindFrame("metarig_WeaponHandle")->mIndex];//マトリックスから計算
-	mHammerEffect.Update(pos);//ポジション計算
-	mHammerEffect.Render();
 
 }
 
@@ -631,7 +620,6 @@ void CXCharPlayer::Collision(const COBB &box,const CColSphere &sphere) {
 
 	//当たり判定更新
 	mpCBBody->Update();
-	mpCBWeapon->Update();
 	mpCBLeg->Update();
 	
 }
@@ -735,7 +723,6 @@ void CXCharPlayer::Collision(const CColSphere &youSphere, const CColSphere &sphe
 
 	//当たり判定更新
 	mpCBBody->Update();
-	mpCBWeapon->Update();
 	mpCBLeg->Update();
 
 }

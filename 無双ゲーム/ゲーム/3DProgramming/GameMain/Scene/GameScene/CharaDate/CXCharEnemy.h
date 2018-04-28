@@ -5,12 +5,7 @@
 
 /*エネミーのクラス*/
 class CXCharEnemy : public CXCharPlayer{
-
-	
-public:
-	CCollider *mpCBAttackBox; //攻撃に移行する範囲設定
-	CCollider *mpCBAttackInitBox; //攻撃の準備に移行する範囲設定
-
+private:
 	/*AIの回転判断用*/
 	enum E_AIROT_STATE{
 		E_ROT_FAST_POS,
@@ -20,7 +15,14 @@ public:
 	E_AIROT_STATE eAIRotState;
 	/*E_AIROT_STATEのステータス管理*/
 	void AIRotStateUpdate();
+
+public:
+	
 	CXCharEnemy();
+
+	CCollider *mpCBAttackBox; //攻撃に移行する範囲設定
+	CCollider *mpCBAttackInitBox; //攻撃の準備に移行する範囲設定
+
 
 	void Init(CModelX *model);
 	/*あたり判定初期化*/
