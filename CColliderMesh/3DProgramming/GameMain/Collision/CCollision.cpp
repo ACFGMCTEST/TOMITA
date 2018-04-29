@@ -697,6 +697,8 @@ bool CCollision::IntersectTriangleCapsule3(const CVector3 &v0, const CVector3 &v
 		}
 	}
 
+	return false;
+
 	float f = 0.0f;
 	CVector3 v = (top - bottom).normalize();
 	CVector3 wtop = top + v * radius * -1;

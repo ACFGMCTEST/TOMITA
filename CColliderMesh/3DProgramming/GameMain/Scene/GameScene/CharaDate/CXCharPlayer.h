@@ -212,6 +212,8 @@ public:
 
 	/*â‚É“–‚½‚Á‚½‚Ì”»’è*/
 	void ColSlope();
+
+	CVector3 mAdjust;
 };
 
 #endif

@@ -545,6 +545,7 @@ void CXCharPlayer::AnimaState(ESTATE state){
 
 /*更新処理*/
 void CXCharPlayer::Update(){
+	mAdjust = CVector3();
 	mPrevPos = mPosition;
 
 	//キャラクターが選ばれているものか判断
@@ -768,12 +769,28 @@ void CXCharPlayer::Render() {
 	//mHpBar.mPosition.y += 1.8f;
 	//mHpBar.Update();	//更新
 	//mHpBar.Render();	//描画
-	CModelXS::Render();
+	if (mAdjust == CVector3()) {
+		CModelXS::Render();
+	}
+	else {
+		mPosition = mPosition + mAdjust;
+		CMatrix44 rot_y, pos, matrix;
+		//回転行列の作成
+		rot_y.rotationY(mRotation.y);
+
+		//移動行列を計算する
+		pos.translate(mPosition);
+		//回転移動行列を求める
+		matrix = pos * rot_y;
+
+		UpdateSkinMatrix(matrix);
+		CModelXS::Render();
+	}
 #ifdef _DEBUG
 //	mpCBBody->Render();
 //	mpCBWeapon->Render();
 //	mpCBLeg->Render();
-	mpColCapsule->Render();
+//	mpColCapsule->Render();
 	mpColCapsule3->Render();
 #endif
 }
@@ -970,6 +987,136 @@ bool CXCharPlayer::Collision(CCollider2* me, CCollider2* you) {
 	return false;
 }
 
+void SetAdjust(CVector3 *s, const CVector3 &t) {
+	//x
+	if (s->x > 0) {
+		if (t.x > 0) {
+			if (s->x < t.x)
+				s->x = t.x;
+		}
+		else {
+			if (s->x < -t.x)
+				s->x = t.x;
+		}
+	}
+	else {
+		if (t.x > 0) {
+			if (-s->x < t.x)
+				s->x = t.x;
+		}
+		else {
+			if (-s->x < -t.x)
+				s->x = t.x;
+		}
+	}
+	//y
+	if (s->y > 0) {
+		if (t.y > 0) {
+			if (s->y < t.y)
+				s->y = t.y;
+		}
+		else {
+			if (s->y < -t.y)
+				s->y = t.y;
+		}
+	}
+	else {
+		if (t.y > 0) {
+			if (-s->y < t.y)
+				s->y = t.y;
+		}
+		else {
+			if (-s->y < -t.y)
+				s->y = t.y;
+		}
+	}
+	//z
+	if (s->z > 0) {
+		if (t.z > 0) {
+			if (s->z < t.z)
+				s->z = t.z;
+		}
+		else {
+			if (s->z < -t.z)
+				s->z = t.z;
+		}
+	}
+	else {
+		if (t.z > 0) {
+			if (-s->z < t.z)
+				s->z = t.z;
+		}
+		else {
+			if (-s->z < -t.z)
+				s->z = t.z;
+		}
+	}
+}
+
+#define SETADJUST(m, t)  {\
+	if (m.x > 0) { \
+		if (t.x > 0) { \
+			if (m.x < t.x) \
+				m.x = t.x; \
+		} \
+		else { \
+			if (m.x < -t.x) \
+				m.x = t.x; \
+			} \
+	} \
+	else { \
+		if (t.x > 0) { \
+			if (-m.x < t.x) \
+				m.x = t.x; \
+		} \
+		else { \
+			if (-m.x < -t.x) \
+				m.x = t.x; \
+		} \
+	} \
+	if (m.y > 0) { \
+		if (t.y > 0) { \
+			if (m.y < t.y) \
+				m.y = t.y; \
+		} \
+		else { \
+			if (m.y < -t.y) \
+				m.y = t.y; \
+		} \
+	} \
+	else  { \
+		if (t.y > 0) { \
+			if (-m.y < t.y) \
+				m.y = t.y; \
+		} \
+		else { \
+			if (-m.y < -t.y) \
+				m.y = t.y; \
+		} \
+	} \
+	if (m.z > 0) { \
+		if (t.z > 0) { \
+			if (m.z < t.z) \
+				m.z = t.z; \
+		} \
+		else { \
+			if (m.z < -t.z) \
+				m.z = t.z; \
+		} \
+	} \
+	else { \
+		if (t.z > 0) { \
+			if (-m.z < t.z) \
+				m.z = t.z; \
+		} \
+		else { \
+			if (-m.z < -t.z) \
+				m.z = t.z; \
+		} \
+	} \
+} \
+
+
 bool CXCharPlayer::Collision(CTask* me, CTask* you) {
 	CCollider3 *m = (CCollider3*)me;
 	CCollider3 *y = (CCollider3*)you;
@@ -983,13 +1130,8 @@ bool CXCharPlayer::Collision(CTask* me, CTask* you) {
 			ct.Update();
 			if (CCollision::IntersectTriangleCapsule3(ct.mV[0], ct.mV[1], ct.mV[2],
 				cc->mV[0], cc->mV[1], cc->mRadius, &cc->mAdjust)) {
-				/*
-//				if (cross == CVector3())
-//					return false;
-				//				if (you->eTag == E_TAG_BOX)
-				*/
 				ColGround();//地面にあった時の処理
-				mPosition = mPosition + cc->mAdjust;
+				SETADJUST(mAdjust, cc->mAdjust);
 			}
 			break;
 		}

@@ -1,24 +1,9 @@
-﻿2018/04/29 1:14:52 にビルドを開始しました。
+﻿2018/04/29 10:42:19 にビルドを開始しました。
      1>ノード 2 上のプロジェクト "C:\Users\Game\Desktop\2018GitTest\TOMITA\CColliderMesh\3DProgramming\3DProgramming.vcxproj" (Build ターゲット)。
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS- /fp:precise /Zc:wchar_t /Zc:forScope /openmp /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt GameMain\Scene\GameScene\CGameScene.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS- /fp:precise /Zc:wchar_t /Zc:forScope /openmp /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt GameMain\Collision\CCollision.cpp
      1>cl : コマンド ライン warning D9025: '/sdl' より '/GS-' が優先されます。
-         CGameScene.cpp
-     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\ctexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 'fopen' の宣言を確認してください。
-     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\ctexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : 'strcpy' の宣言を確認してください。
-     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\cmodelx.h(110): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\cmodelx.h(234): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\cmodelx.h(319): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\cmodelx.h(324): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\cmodelx.h(329): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
-                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(87) : 'BACK_POS' の前の定義を確認してください
-     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
-                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(92) : 'BACK_POS' の前の定義を確認してください
-     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\itemscene\citem.h(11): warning C4005: 'TIP_ARRAY' : マクロが再定義されました。
-                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\effect\ceffect2d.h(5) : 'TIP_ARRAY' の前の定義を確認してください
+         CCollision.cpp
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Game\Desktop\2018GitTest\TOMITA\CColliderMesh\Debug\3DProgramming.exe" /INCREMENTAL /NOLOGO glew32.lib glfw3dll.lib glfw3.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST:NO /DEBUG /PDB:"C:\Users\Game\Desktop\2018GitTest\TOMITA\CColliderMesh\Debug\3DProgramming.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Game\Desktop\2018GitTest\TOMITA\CColliderMesh\Debug\3DProgramming.lib" /MACHINE:X86 Debug\CBase.obj
          Debug\CModelObj.obj
@@ -95,4 +80,4 @@
 
 ビルドに成功しました。
 
-経過時間 00:00:02.46
+経過時間 00:00:01.25

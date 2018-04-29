@@ -416,6 +416,7 @@ public:
 	void ChangeAnimation(int index, bool loop, float framesize);
 	//更新処理
 	void Update(CMatrix44 &m);
+	void UpdateSkinMatrix(CMatrix44 &matrix);
 
 	//MATRIXのみ更新
 	void MatrixUpdate(CMatrix44 &m);

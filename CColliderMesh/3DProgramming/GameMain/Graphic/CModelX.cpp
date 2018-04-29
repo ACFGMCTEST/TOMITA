@@ -1269,6 +1269,8 @@ void CModelXS::Update(CMatrix44 &matrix) {
 
 	mpModel->mAnimationSet[mAnimationIndex]->mTime = mAnimationTime;
 
+	UpdateSkinMatrix(matrix);
+	/*
 	//フレームの変換行列をアニメーションで更新する
 	mpModel->AnimateFrame();
 	//フレームの合成行列を計算する
@@ -1286,8 +1288,29 @@ void CModelXS::Update(CMatrix44 &matrix) {
 				= mpCombinedMatrix[ mpModel->mMesh[i]->mSkinWeights[j]->mFrameIndex] * mpModel->mMesh[i]->mSkinWeights[j]->mOffset;
 		}
 	}
-
+	*/
 }
+
+void CModelXS::UpdateSkinMatrix(CMatrix44 &matrix) {
+	//フレームの変換行列をアニメーションで更新する
+	mpModel->AnimateFrame();
+	//フレームの合成行列を計算する
+	mpModel->mFrame[0]->Animate(&matrix);
+	//フレームの合成行列を退避する
+
+	for (int i = 0; i < mpModel->mFrame.size(); i++) {
+		mpCombinedMatrix[i] = mpModel->mFrame[i]->mCombinedMatrix;
+	}
+	//メッシュ毎のスキンメッシュ行列配列を設定する
+	for (int i = 0; i < mpModel->mMesh.size(); i++) {
+		for (int j = 0; j < mpModel->mMesh[i]->mSkinWeights.size(); j++) {
+			//スキンメッシュの行列配列を退避する
+			mpMeshSkinMatrix[i].mpSkinnedMatrix[j + 1]
+				= mpCombinedMatrix[mpModel->mMesh[i]->mSkinWeights[j]->mFrameIndex] * mpModel->mMesh[i]->mSkinWeights[j]->mOffset;
+		}
+	}
+}
+
 /*MATRIXのアップデート*/
 void CModelXS::MatrixUpdate(CMatrix44 &matrix){
 	//フレームの変換行列をアニメーションで更新する
