@@ -88,8 +88,8 @@ void CXCharPlayer::Init(CModelX *model) {
 	mpColCapsule->Init(this, CVector3(0.0f, 1.2f, 0.0f), CVector3(0.0f, -1.2f, 0.0f), 0.5f, CVector3(0.0f, 0.0f, 0.0f)
 		//		, &mpCombinedMatrix[model->FindFrame("Root")->mIndex]);
 		, &mpCombinedMatrix[model->FindFrame("metarig_chest")->mIndex]);
-	mpColCapsule3->Init(this, CVector3(0.0f, 1.2f, 0.0f), CVector3(0.0f, -1.2f, 0.0f), 0.5f
-		, &mpCombinedMatrix[model->FindFrame("metarig_chest")->mIndex]);
+	mpColCapsule3->Init(this, CVector3(0.0f, 1.5f, 0.0f), CVector3(0.0f, -0.9f, 0.0f), 0.5f
+		, &mpCombinedMatrix[model->FindFrame("metarig_hips")->mIndex]);
 
 	mHammerEffect.Init(CEffect2D::E_STATUS::E_HAMMER);
 

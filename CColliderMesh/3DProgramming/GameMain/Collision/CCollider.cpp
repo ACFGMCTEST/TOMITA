@@ -325,29 +325,29 @@ void CCollider3Capsule::Render() {
 	CMatrix44 mat;
 	CVector3 vec;
 	glPushMatrix();
-	//			glMultMatrixf(mMatrix.f);
-	glPushMatrix();
-	vec = mV[0] - mV[1];
-	vec = vec.normalize();
-	vec = vec * mRadius;
-	vec = mV[1] + vec;
-	//
-	//				vec = mV[1][1];
-	mat.translate(vec);
-	glMultMatrixf(mat.f);
-	glutSolidSphere(mRadius, 20, 20);
-	glPopMatrix();
-	glPushMatrix();
-	vec = mV[1] - mV[0];
-	vec = vec.normalize();
-	vec = vec * mRadius;
-	vec = mV[0] + vec;
-	//
-	//				vec = mV[1][0];
-	mat.translate(vec);
-	glMultMatrixf(mat.f);
-	glutSolidSphere(mRadius, 20, 20);
-	glPopMatrix();
+		if (mpCombinedMatrix) glMultMatrixf(mpCombinedMatrix->f);
+		glPushMatrix();
+			vec = mV[0] - mV[1];
+			vec = vec.normalize();
+			vec = vec * mRadius;
+			vec = mV[1] + vec;
+			//
+			//				vec = mV[1][1];
+			mat.translate(vec);
+			glMultMatrixf(mat.f);
+			glutSolidSphere(mRadius, 20, 20);
+		glPopMatrix();
+		glPushMatrix();
+			vec = mV[1] - mV[0];
+			vec = vec.normalize();
+			vec = vec * mRadius;
+			vec = mV[0] + vec;
+			//
+			//				vec = mV[1][0];
+			mat.translate(vec);
+			glMultMatrixf(mat.f);
+			glutSolidSphere(mRadius, 20, 20);
+		glPopMatrix();
 
 	glPopMatrix();
 }

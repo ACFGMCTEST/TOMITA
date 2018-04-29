@@ -663,6 +663,10 @@ bool CCollision::IntersectTriangleCapsule3(const CVector3 &v0, const CVector3 &v
 	CVector3  VP;
 	float Dist = 1e10, d;
 
+	//if (adjust) {
+	//	*adjust = V.GetNormalize();
+	//}
+
 	//始点からポリゴン上のある地点（どこでもいい）へのベクトル
 	CVector3 PV1 = top - v0;
 	//終点からポリゴン上のある地点（どこでもいい）へのベクトル
@@ -697,7 +701,7 @@ bool CCollision::IntersectTriangleCapsule3(const CVector3 &v0, const CVector3 &v
 		}
 	}
 
-	return false;
+//	return false;
 
 	float f = 0.0f;
 	CVector3 v = (top - bottom).normalize();
