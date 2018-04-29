@@ -1,8 +1,125 @@
-﻿2018/04/29 20:06:59 にビルドを開始しました。
+﻿2018/04/29 20:43:50 にビルドを開始しました。
      1>ノード 2 上のプロジェクト "C:\Users\Game\Desktop\2018GitTest\TOMITA\CColliderMesh\3DProgramming\3DProgramming.vcxproj" (Build ターゲット)。
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS- /fp:precise /Zc:wchar_t /Zc:forScope /openmp /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt GameMain\Scene\GameScene\CharaDate\CXCharPlayer.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS- /fp:precise /Zc:wchar_t /Zc:forScope /openmp /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt CModelObj.cpp GameMain\Collision\CCollider.cpp GameMain\Collision\CCollision.cpp GameMain\Collision\CCollisionManager.cpp GameMain\Graphic\CBox.cpp GameMain\Graphic\CTriangularPrism.cpp GameMain\Scene\CSceneManager.cpp GameMain\Scene\GameScene\CGameScene.cpp GameMain\Scene\GameScene\CharaDate\CSceneModel.cpp GameMain\Scene\GameScene\CharaDate\CXCharEnemy.cpp GameMain\Scene\GameScene\CharaDate\CXCharPlayer.cpp GameMain\Scene\GameScene\Map\CMap.cpp GameMain\Scene\GameScene\Map\FastFloor\CFastFloor.cpp GameMain\Scene\GameScene\Map\Goal\CXGoal.cpp GameMain\Scene\GameScene\Map\HighBox\CHighBox.cpp GameMain\Scene\GameScene\Map\Net\CNet.cpp GameMain\Scene\GameScene\Map\Slope\CSlope.cpp GameMain\Scene\GameScene\Map\SlowFloor\CSlowFloor.cpp GameMain\Scene\GameScene\Map\Trampoline\CTrampoline.cpp GameMain\Scene\GameScene\Puck\CXPuck.cpp
      1>cl : コマンド ライン warning D9025: '/sdl' より '/GS-' が優先されます。
+         CCollisionManager.cpp
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\ctexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\ctexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\cmodelx.h(110): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\cmodelx.h(234): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\cmodelx.h(319): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\cmodelx.h(324): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\cmodelx.h(329): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(92) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\itemscene\citem.h(11): warning C4005: 'TIP_ARRAY' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\effect\ceffect2d.h(5) : 'TIP_ARRAY' の前の定義を確認してください
+         CCollider.cpp
+         コードを生成中...
+         コンパイル中...
+         CXPuck.cpp
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\ctexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\ctexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(92) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\cmodelx.h(110): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\cmodelx.h(234): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\cmodelx.h(319): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\cmodelx.h(324): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\cmodelx.h(329): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\itemscene\citem.h(11): warning C4005: 'TIP_ARRAY' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\effect\ceffect2d.h(5) : 'TIP_ARRAY' の前の定義を確認してください
+         CTrampoline.cpp
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\ctexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\ctexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(92) : 'BACK_POS' の前の定義を確認してください
+         CSlowFloor.cpp
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\ctexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\ctexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(92) : 'BACK_POS' の前の定義を確認してください
+         CSlope.cpp
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\ctexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\ctexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(92) : 'BACK_POS' の前の定義を確認してください
+         CNet.cpp
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\ctexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\ctexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(92) : 'BACK_POS' の前の定義を確認してください
+         CHighBox.cpp
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\ctexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\ctexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(92) : 'BACK_POS' の前の定義を確認してください
+         CXGoal.cpp
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\ctexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\ctexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\cmodelx.h(110): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\cmodelx.h(234): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\cmodelx.h(319): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\cmodelx.h(324): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\cmodelx.h(329): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(92) : 'BACK_POS' の前の定義を確認してください
+         CFastFloor.cpp
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\ctexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\ctexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(92) : 'BACK_POS' の前の定義を確認してください
+         CMap.cpp
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\ctexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\ctexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(92) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\cmodelx.h(110): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\cmodelx.h(234): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\cmodelx.h(319): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\cmodelx.h(324): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\cmodelx.h(329): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
          CXCharPlayer.cpp
      1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\ctexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 'fopen' の宣言を確認してください。
@@ -19,6 +136,129 @@
                  c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(92) : 'BACK_POS' の前の定義を確認してください
      1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\itemscene\citem.h(11): warning C4005: 'TIP_ARRAY' : マクロが再定義されました。
                  c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\effect\ceffect2d.h(5) : 'TIP_ARRAY' の前の定義を確認してください
+         CXCharEnemy.cpp
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\ctexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\ctexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\cmodelx.h(110): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\cmodelx.h(234): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\cmodelx.h(319): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\cmodelx.h(324): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\cmodelx.h(329): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(92) : 'BACK_POS' の前の定義を確認してください
+         CSceneModel.cpp
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\ctexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\ctexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\cmodelx.h(110): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\cmodelx.h(234): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\cmodelx.h(319): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\cmodelx.h(324): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\cmodelx.h(329): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(92) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\itemscene\citem.h(11): warning C4005: 'TIP_ARRAY' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\effect\ceffect2d.h(5) : 'TIP_ARRAY' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\charadate\cscenemodel.cpp(28): warning C4005: 'ANGLE_5' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(107) : 'ANGLE_5' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\charadate\cscenemodel.cpp(29): warning C4005: 'ANGLE_180' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(103) : 'ANGLE_180' の前の定義を確認してください
+         CGameScene.cpp
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\ctexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\ctexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\cmodelx.h(110): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\cmodelx.h(234): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\cmodelx.h(319): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\cmodelx.h(324): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\cmodelx.h(329): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(92) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\itemscene\citem.h(11): warning C4005: 'TIP_ARRAY' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\effect\ceffect2d.h(5) : 'TIP_ARRAY' の前の定義を確認してください
+         CSceneManager.cpp
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\ctexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\ctexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\cmodelx.h(110): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\cmodelx.h(234): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\cmodelx.h(319): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\cmodelx.h(324): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\cmodelx.h(329): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(92) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\itemscene\citem.h(11): warning C4005: 'TIP_ARRAY' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\effect\ceffect2d.h(5) : 'TIP_ARRAY' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\shopscene\cshop.h(55): warning C4005: 'MOVE_SPEED' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\homescene\chome.h(8) : 'MOVE_SPEED' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\optionsscene\coption.h(5): warning C4005: 'BGM_GAGE' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\ui\cscoreboard.h(9) : 'BGM_GAGE' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\optionsscene\coption.h(6): warning C4005: 'SE_GAGE' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\ui\cscoreboard.h(10) : 'SE_GAGE' の前の定義を確認してください
+         CTriangularPrism.cpp
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\ctexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\ctexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(92) : 'BACK_POS' の前の定義を確認してください
+         CBox.cpp
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\ctexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\ctexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\define\define.h(92) : 'BACK_POS' の前の定義を確認してください
+         CCollision.cpp
+         CModelObj.cpp
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\ctexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\ctexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\cmodelobj.cpp(20): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\cmodelobj.cpp(26): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(304) : 'sscanf' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\cmodelobj.cpp(33): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(304) : 'sscanf' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\cmodelobj.cpp(34): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(304) : 'sscanf' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\cmodelobj.cpp(35): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(304) : 'sscanf' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\cmodelobj.cpp(39): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(304) : 'sscanf' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\cmodelobj.cpp(40): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(304) : 'sscanf' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\cmodelobj.cpp(41): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(304) : 'sscanf' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\cmodelobj.cpp(53): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(304) : 'sscanf' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\cmodelobj.cpp(55): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(304) : 'sscanf' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\cmodelobj.cpp(57): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(304) : 'sscanf' の宣言を確認してください。
+         コードを生成中...
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\cmap.cpp(100): warning C4715: 'CMap::PlayerFirstPos' : 値を返さないコントロール パスがあります。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\cmap.cpp(118): warning C4715: 'CMap::GoalPlayerFirstPos' : 値を返さないコントロール パスがあります。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\cmap.cpp(127): warning C4715: 'CMap::GoalEnemyFirstPos' : 値を返さないコントロール パスがあります。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\cmap.cpp(109): warning C4715: 'CMap::EnemyFirstPos' : 値を返さないコントロール パスがあります。
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Game\Desktop\2018GitTest\TOMITA\CColliderMesh\Debug\3DProgramming.exe" /INCREMENTAL /NOLOGO glew32.lib glfw3dll.lib glfw3.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST:NO /DEBUG /PDB:"C:\Users\Game\Desktop\2018GitTest\TOMITA\CColliderMesh\Debug\3DProgramming.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Game\Desktop\2018GitTest\TOMITA\CColliderMesh\Debug\3DProgramming.lib" /MACHINE:X86 Debug\CBase.obj
          Debug\CModelObj.obj
@@ -95,4 +335,4 @@
 
 ビルドに成功しました。
 
-経過時間 00:00:02.56
+経過時間 00:00:17.14

@@ -13,10 +13,10 @@
 #define ROT_PYCK_TIME 1.0f
 /*“–‚½‚è”»’è*/
 /*€”õ*/
-#define OBB_ATTACK_INIT_BOX_SIZE new float[]{20.0f, 4.0f, 20.0f}
+#define OBB_ATTACK_INIT_BOX_SIZE CVector3(20.0f, 4.0f, 20.0f)
 #define OBB_ATTACK_INIT_BOX_POS CVector3(-0.01f, -0.06f, -0.1f)
 /*UŒ‚*/
-#define OBB_ATTACK_BOX_SIZE new float[]{3.0f, 3.0f, 3.0f}
+#define OBB_ATTACK_BOX_SIZE CVector3(3.0f, 3.0f, 3.0f)
 #define OBB_ATTACK_BOX_POS CVector3(-0.01f, -0.01f, -0.1f)
 /*ƒS[ƒ‹‚Ì•ûŒü‚ÉŒü‚¯‚é*/
 #define GOAL_POS_X (rand() % (int)MAPCHIP_SIZE*CMap::GoalCount()) - MAPCHIP_SIZE*CMap::GoalCount()*0.5f

@@ -371,7 +371,7 @@ void CCollisionManager::Update(CTask *t){
 				/*当たっていて場合処理*/
 //				if (ColIf(task, t)){
 //					PuckCollision(task, t);//task何か,tパック
-					t->mpParent->Collision(t, task);//task何か,tプレイヤー
+//					t->mpParent->Collision(t, task);//task何か,tプレイヤー
 //				}
 				break;
 			}
@@ -414,6 +414,12 @@ void CCollisionManager::Update(){
 }
 
 CCollisionManager::CCollisionManager(){}
+
+
+/*
+コリジョンマネージャ　第3世代
+*/
+
 CCollisionManager3::CCollisionManager3(){}
 
 CCollisionManager3* CCollisionManager3::mCollisionManager = 0;
@@ -425,7 +431,6 @@ CCollisionManager3* CCollisionManager3::GetInstance() {
 	}
 	return mCollisionManager;
 }
-
 
 void CCollisionManager3::Add(CCollider3 *col){
 	CTaskManager::Add(col);
@@ -445,12 +450,13 @@ void CCollisionManager3::Update(){
 			if (task->mpCombinedMatrix) {
 				CCollider3Capsule cc = *(CCollider3Capsule*)task;
 				cc.Update();
-				CTask *n = mpRoot;
+				CCollider3 *n = (CCollider3*)mpRoot;
 				while (n != NULL) {
+					//親のタスクで衝突判定させる
 					if (task->mpParent && task != n) {
 						task->mpParent->Collision(&cc, n);
 					}
-					n = n->mpNext;
+					n = (CCollider3*)n->mpNext;
 				}
 			}
 			break;

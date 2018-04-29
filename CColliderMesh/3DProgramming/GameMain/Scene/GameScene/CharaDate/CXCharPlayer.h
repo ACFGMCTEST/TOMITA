@@ -100,7 +100,6 @@ public:
 	/*ハンマーのEFFECT*/
 	CEffect2D mHammerEffect;
 
-	CColCapsule *mpColCapsule;
 	CCollider3Capsule *mpColCapsule3;
 
 	CXCharPlayer();
@@ -187,7 +186,7 @@ public:
 	bool Collision(const COBB *box, const CColSphere *sphere);
 
 	bool Collision(CCollider2* me, CCollider2* you);
-	bool Collision(CTask* me, CTask* you);
+	bool Collision(CCollider3* me, CCollider3* you);
 
 	/*ハンマーの溜める処理*/
 	void HammerUp();

@@ -33,6 +33,7 @@ public:
 
 	//OBBのボックスパラメータ設定
 	void SetBoxOBB(CVector3 &center, float length[], CMatrix44 *m);
+	void SetBoxOBB(CVector3 &center, CVector3 &v, CMatrix44 *matrix);
 
 	/*球のパラメータ設定*/
 	void SetShere(float radius, CVector3 pos, CMatrix44 *m);
@@ -47,7 +48,7 @@ public:
 	void SetObbRot(const CVector3 rot);
 	/*Obbを大きくさせる*/
 	void SetObbSize(float length[]);
-
+	void SetObbSize(CVector3 &v);
 	/*色設定*/
 	void SetColor(float cr, float cg, float cb, float ca);
 	void Update();
@@ -92,18 +93,22 @@ public:
 };
 
 
+/*
+コライダ　第3世代
+*/
+
 class CCollider3 : public CTask {
 public:
 	enum EType {
-		COL_TRIANGLE,
-		COL_CAPSULE
+		COL_TRIANGLE,	//三角形コライダ
+		COL_CAPSULE		//カプセルコライダ
 	};
 	EType mType;
-	CVector3 mAdjust;
-	CTask *mpParent;
-	CMatrix44 *mpCombinedMatrix;
+	CVector3 mAdjust;	//衝突応答　調整値
+	CTask *mpParent;	//親のタスク
+	CMatrix44 *mpCombinedMatrix;	//フレームの合成行列
 	CCollider3() : mpParent(0), mpCombinedMatrix(0) {}
-	bool Collision(CCollider3 *col);
+//	bool Collision(CCollider3 *col);
 };
 
 class CCollider3Triangle : public CCollider3 {

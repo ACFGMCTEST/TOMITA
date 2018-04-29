@@ -8,8 +8,12 @@
 #define DIVISION_NUM 20,20
 
 /*Obbを大きくさせる*/
+void CCollider::SetObbSize(CVector3 &v){
+	float a[] = { v.x, v.y, v.z };
+	SetObbSize(a);
+}
 void CCollider::SetObbSize(float length[]){
-	/*ボックスであるか判定*/
+		/*ボックスであるか判定*/
 	if (eColTag == CTask::E_COL_BOX){
 		for (int i = 0; i < 3; i++){
 			mObb.mLength[i] = length[i];
@@ -31,8 +35,13 @@ center:中心の座標
 lenght:xyzの長さ
 matrix:フレームの合成行列
 */
+void CCollider::SetBoxOBB(CVector3 &center, CVector3 &v, CMatrix44 *matrix){
+	float a[] = { v.x, v.y, v.z };
+	SetBoxOBB(center, a,matrix);
+}
+
 void CCollider::SetBoxOBB(CVector3 &center, float length[], CMatrix44 *matrix){
-	
+
 
 	/*ボックスであるか判定*/
 	if (eColTag == CTask::E_COL_BOX){
@@ -208,7 +217,7 @@ void CCollider::Render(COBB *obb){
 	pos[7] -= obb->mAxis[2] * obb->mLength[2];
 
 	//色の設定設定
-	//glMaterialfv(GL_FRONT, GL_DIFFUSE, new float[]{r, g, b, a});
+	//glMaterialfv(GL_FRONT, GL_DIFFUSE, CVector3(r, g, b, a});
 	//ブレンド方法を指定
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	glBegin(GL_QUADS);
@@ -276,7 +285,7 @@ void CCollider::SizeUP(float f){
 		mObb.mLength[i] += f;
 	}
 }
-
+/*
 bool CCollider3::Collision(CCollider3 *col) {
 	switch (mType) {
 	case COL_CAPSULE:
@@ -289,7 +298,7 @@ bool CCollider3::Collision(CCollider3 *col) {
 	}
 	return false;
 }
-
+*/
 void CCollider3Triangle::Update() {
 	if (mpCombinedMatrix) {
 		mV[0] = mV[0] * *mpCombinedMatrix;
@@ -331,8 +340,6 @@ void CCollider3Capsule::Render() {
 			vec = vec.normalize();
 			vec = vec * mRadius;
 			vec = mV[1] + vec;
-			//
-			//				vec = mV[1][1];
 			mat.translate(vec);
 			glMultMatrixf(mat.f);
 			glutSolidSphere(mRadius, 20, 20);
@@ -342,8 +349,6 @@ void CCollider3Capsule::Render() {
 			vec = vec.normalize();
 			vec = vec * mRadius;
 			vec = mV[0] + vec;
-			//
-			//				vec = mV[1][0];
 			mat.translate(vec);
 			glMultMatrixf(mat.f);
 			glutSolidSphere(mRadius, 20, 20);

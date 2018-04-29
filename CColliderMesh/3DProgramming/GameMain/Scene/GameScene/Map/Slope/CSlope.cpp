@@ -6,7 +6,7 @@
 
 /*あたり判定:ボックス設定*/
 #define OBB_POS CVector3(0.0f,0.0f,0.0f) 
-#define OBB_SIZE new float[]{MAPCHIP_SIZE, MAPCHIP_SIZE/2, MAPCHIP_SIZE} 
+#define OBB_SIZE CVector3(MAPCHIP_SIZE, MAPCHIP_SIZE/2, MAPCHIP_SIZE)
 #define SMALL_SIZE(num) num*0.999f//ボックスとかぶらない用
 #define SET_OBB OBB_POS,OBB_SIZE,&mMatrix
 /*当たり判定 跳ね返りよう*/
@@ -210,9 +210,9 @@ void CSlope::MapRot(){
 
 	/*サイズ設定*/
 	SetVertex(mMinX, mMaxX, mMinY, mMaxY, mMinZ, mMaxZ);
-	mpColBox->SetObbSize(new float[]{mMaxX, mMaxY, mMaxZ});//当たり判定
-	mpColRefLeft->SetObbSize(new float[]{REF_SIZE_X,REF_SIZE_Y, mMaxZ});//当たり判定
-	mpColRefRight->SetObbSize(new float[]{REF_SIZE_X, REF_SIZE_Y, mMaxZ});//当たり判定
+	mpColBox->SetObbSize(CVector3(mMaxX, mMaxY, mMaxZ));//当たり判定
+	mpColRefLeft->SetObbSize(CVector3(REF_SIZE_X,REF_SIZE_Y, mMaxZ));//当たり判定
+	mpColRefRight->SetObbSize(CVector3(REF_SIZE_X, REF_SIZE_Y, mMaxZ));//当たり判定
 
 	/*回転*/
 	mpColBox->SetObbRot(CVector3(mRot.x, mRot.y, mRot.z));

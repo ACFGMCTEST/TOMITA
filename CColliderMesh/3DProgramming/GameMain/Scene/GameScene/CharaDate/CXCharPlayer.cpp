@@ -23,7 +23,7 @@
 #define OBB_SPHERE_BODY_POS CVector3(0.0f,0.0f,0.0f)
 /*武器*/
 #define OBB_WEAPON_POS CVector3(0.0f,0.5f,0.0f)
-#define OBB_WEAPON_SIZE new float[]{0.4f, 0.7f, 0.4f}
+#define OBB_WEAPON_SIZE CVector3(0.4f, 0.7f, 0.4f)
 /*足*/
 #define OBB_LEG_SIZE 0.3f
 #define OBB_LEG_POS CVector3(0.0f,-1.0f,0.0f)
@@ -55,7 +55,7 @@ void CXCharPlayer::ColInit(){
 	mpCBWeapon = new CCollider(CTask::E_COL_BOX);
 	mpCBLeg = new CCollider(CTask::E_COL_SPHEPE);
 
-	mpColCapsule = new CColCapsule();
+	//カプセル
 	mpColCapsule3 = new CCollider3Capsule();
 
 	/*ペアレント設定*/
@@ -84,10 +84,7 @@ void CXCharPlayer::Init(CModelX *model) {
 	mpCBLeg->SetShere(OBB_LEG_SIZE, OBB_LEG_POS
 		, &mpCombinedMatrix[model->FindFrame("metarig_chest")->mIndex]);
 
-//	mpColCapsule->Init(this, CVector3(0.0f, 0.7f, 0.0f), CVector3(0.0f, -0.7f, 0.0f), 0.5f, CVector3(0.0f, 0.0f, 0.0f)
-	mpColCapsule->Init(this, CVector3(0.0f, 1.2f, 0.0f), CVector3(0.0f, -1.2f, 0.0f), 0.5f, CVector3(0.0f, 0.0f, 0.0f)
-		//		, &mpCombinedMatrix[model->FindFrame("Root")->mIndex]);
-		, &mpCombinedMatrix[model->FindFrame("metarig_chest")->mIndex]);
+	//カプセル　キャラクタ全体
 	mpColCapsule3->Init(this, CVector3(0.0f, 1.5f, 0.0f), CVector3(0.0f, -0.9f, 0.0f), 0.5f
 		, &mpCombinedMatrix[model->FindFrame("metarig_hips")->mIndex]);
 
@@ -106,7 +103,6 @@ void CXCharPlayer::Init(CModelX *model) {
 //	CCollisionManager::GetInstance()->Add(CTask::E_TAG_PLAYER, mpCBBody);//あたり判定追加
 	CCollisionManager::GetInstance()->Add(CTask::E_TAG_WEAPON, mpCBWeapon);//あたり判定追加
 
-	CCollisionManager::GetInstance()->Add(CTask::E_TAG_PLAYER, mpColCapsule);//あたり判定追加
 	CCollisionManager3::GetInstance()->Add(mpColCapsule3);//あたり判定追加
 }
 
@@ -1116,14 +1112,14 @@ void SetAdjust(CVector3 *s, const CVector3 &t) {
 	} \
 } \
 
-
-bool CXCharPlayer::Collision(CTask* me, CTask* you) {
-	CCollider3 *m = (CCollider3*)me;
-	CCollider3 *y = (CCollider3*)you;
+//m 自分　y 相手
+bool CXCharPlayer::Collision(CCollider3* m, CCollider3* y) {
+	//CCollider3 *m = (CCollider3*)me;
+	//CCollider3 *y = (CCollider3*)you;
 
 	switch (m->mType) {
 	case CCollider3::COL_CAPSULE:
-		CCollider3Capsule *cc = (CCollider3Capsule*)me;
+		CCollider3Capsule *cc = (CCollider3Capsule*)m;
 		switch (y->mType) {
 		case CCollider3::COL_TRIANGLE:
 			CCollider3Triangle ct = *(CCollider3Triangle*)y;

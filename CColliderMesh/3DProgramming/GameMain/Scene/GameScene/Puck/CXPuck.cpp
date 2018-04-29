@@ -12,7 +12,7 @@
 #include "../../../Scene/GameScene/UI/CScoreBoard.h"
 
 #define OBB_POS CVector3(0.0f, 1.0f, 0.0f) 
-#define OBB_SIZE new float[]{1.5f,0.5f, 1.5f} 
+#define OBB_SIZE CVector3(1.5f,0.5f, 1.5f)
 #define OBB_SPHERE_SIZE 1.0f
 /*HPバーの設定値*/
 #define HP_BAR_POS CVector3(mPosition.x,mPosition.y + 1.8f,mPosition.z)

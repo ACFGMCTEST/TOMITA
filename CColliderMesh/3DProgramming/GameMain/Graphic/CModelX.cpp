@@ -196,7 +196,7 @@ void CModelX::Render() {
 	
 	for (int i = 0; i < mFrame.size(); i++) {
 		mFrame[i]->Render();
-		 //if (ColorFlag())glMaterialfv(GL_FRONT, GL_DIFFUSE, new float[]{mRed, mGreen, mBlue, mAlpha});//êFÇÃê›íË
+		 //if (ColorFlag())glMaterialfv(GL_FRONT, GL_DIFFUSE, CVector3(mRed, mGreen, mBlue, mAlpha});//êFÇÃê›íË
 	}
 }
 

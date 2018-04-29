@@ -9,6 +9,7 @@
 
 //#include "../Collision/CCollider.h"
 class CCollider2;
+class CCollider3;
 
 class  CTask
 {
@@ -121,7 +122,7 @@ public:
 	///*タスクにはColliderBoxが入っています*/
 	//void OnCollision(CTask *TaskPrev,CTask *TaskNext);
 	virtual bool Collision(CCollider2* p1, CCollider2* p2) { return false; };
-	virtual bool Collision(CTask* p1, CTask* p2) { return false; };
+	virtual bool Collision(CCollider3* p1, CCollider3* p2) { return false; };
 
 };
 static CTask::ESTATE ReferenceState;	//アニメーション参照用 swich文で楽するために使う

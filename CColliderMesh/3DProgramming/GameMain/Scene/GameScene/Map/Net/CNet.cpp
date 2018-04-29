@@ -9,7 +9,7 @@
 /*あたり判定:ボックス設定*/
 /*網設定*/
 #define OBB_NET_POS CVector3(0.0f,0.0f,0.0f) 
-#define OBB_NET_SIZE new float[]{MAPCHIP_SIZE*CMap::mMapX*1.2f, MAPCHIP_SIZE*4, MAPCHIP_SIZE*0.5f} 
+#define OBB_NET_SIZE CVector3(MAPCHIP_SIZE*CMap::mMapX*1.2f, MAPCHIP_SIZE*4, MAPCHIP_SIZE*0.5f)
 #define SET_NET_OBB OBB_NET_POS,OBB_NET_SIZE,&mMatrix
 
 /*コンストラクタ*/
