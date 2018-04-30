@@ -4,6 +4,7 @@
 #include "../../Key/CKey.h"
 #include "../../Key/CMouse.h"
 #include "./../CSceneManager.h"
+#include "../../../CCollider3.h"
 
 CCamera MainCamera;
 

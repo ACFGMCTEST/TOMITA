@@ -9,6 +9,7 @@
 #include "../../../Graphic/CModelX.h"
 #include "../Map/Slope/CSlope.h"
 #include "../../../Collision/ColType/CColCapsule.h"
+#include "../../../../CCollider3.h"
 //プレイヤーの数
 #define CHARA_ARRAY 3
 /*キャラステータス*/
@@ -99,8 +100,6 @@ public:
 	CCollider *mpCBWeapon;
 	/*ハンマーのEFFECT*/
 	CEffect2D mHammerEffect;
-
-	CCollider3Capsule *mpColCapsule3;
 
 	CXCharPlayer();
 	//初期化処理

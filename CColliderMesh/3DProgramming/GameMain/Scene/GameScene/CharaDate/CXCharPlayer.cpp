@@ -55,9 +55,6 @@ void CXCharPlayer::ColInit(){
 	mpCBWeapon = new CCollider(CTask::E_COL_BOX);
 	mpCBLeg = new CCollider(CTask::E_COL_SPHEPE);
 
-	//カプセル
-	mpColCapsule3 = new CCollider3Capsule();
-
 	/*ペアレント設定*/
 	mpCBBody->mpParent = this;
 	mpCBWeapon->mpParent = this;
@@ -85,7 +82,7 @@ void CXCharPlayer::Init(CModelX *model) {
 		, &mpCombinedMatrix[model->FindFrame("metarig_chest")->mIndex]);
 
 	//カプセル　キャラクタ全体
-	mpColCapsule3->Init(this, CVector3(0.0f, 1.5f, 0.0f), CVector3(0.0f, -0.9f, 0.0f), 0.5f
+	new CCollider3Capsule(this, CVector3(0.0f, 1.5f, 0.0f), CVector3(0.0f, -0.9f, 0.0f), 0.5f
 		, &mpCombinedMatrix[model->FindFrame("metarig_hips")->mIndex]);
 
 	mHammerEffect.Init(CEffect2D::E_STATUS::E_HAMMER);
@@ -103,7 +100,7 @@ void CXCharPlayer::Init(CModelX *model) {
 //	CCollisionManager::GetInstance()->Add(CTask::E_TAG_PLAYER, mpCBBody);//あたり判定追加
 	CCollisionManager::GetInstance()->Add(CTask::E_TAG_WEAPON, mpCBWeapon);//あたり判定追加
 
-	CCollisionManager3::GetInstance()->Add(mpColCapsule3);//あたり判定追加
+
 }
 
 /*速さ制御関数*/
@@ -787,7 +784,6 @@ void CXCharPlayer::Render() {
 //	mpCBWeapon->Render();
 //	mpCBLeg->Render();
 //	mpColCapsule->Render();
-	mpColCapsule3->Render();
 #endif
 }
 
@@ -1122,8 +1118,7 @@ bool CXCharPlayer::Collision(CCollider3* m, CCollider3* y) {
 		CCollider3Capsule *cc = (CCollider3Capsule*)m;
 		switch (y->mType) {
 		case CCollider3::COL_TRIANGLE:
-			CCollider3Triangle ct = *(CCollider3Triangle*)y;
-			ct.Update();
+			CCollider3Triangle ct = (*(CCollider3Triangle*)y).GetUpdate();
 			if (CCollision::IntersectTriangleCapsule3(ct.mV[0], ct.mV[1], ct.mV[2],
 				cc->mV[0], cc->mV[1], cc->mRadius, &cc->mAdjust)) {
 				ColGround();//地面にあった時の処理

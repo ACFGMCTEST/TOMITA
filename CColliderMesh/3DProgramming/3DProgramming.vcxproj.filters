@@ -341,6 +341,9 @@
     <ClCompile Include="CModelObj.cpp">
       <Filter>ソース ファイル\GameMain\Graphic</Filter>
     </ClCompile>
+    <ClCompile Include="CCollider3.cpp">
+      <Filter>ソース ファイル\GameMain\Collision</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Define\Define.h">
@@ -573,6 +576,9 @@
     </ClInclude>
     <ClInclude Include="CModelObj.h">
       <Filter>ソース ファイル\GameMain\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="CCollider3.h">
+      <Filter>ソース ファイル\GameMain\Collision</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

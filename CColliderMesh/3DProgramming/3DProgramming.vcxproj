@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Base\CBase.cpp" />
+    <ClCompile Include="CCollider3.cpp" />
     <ClCompile Include="CModelObj.cpp" />
     <ClCompile Include="GameMain\Camera\CCamera.cpp" />
     <ClCompile Include="GameMain\Collision\CCollider.cpp" />
@@ -84,6 +85,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Base\CBase.h" />
+    <ClInclude Include="CCollider3.h" />
     <ClInclude Include="CModelObj.h" />
     <ClInclude Include="Define\Define.h" />
     <ClInclude Include="GameMain\Camera\CCamera.h" />

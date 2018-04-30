@@ -1,32 +1,313 @@
-﻿2018/04/29 21:12:04 にビルドを開始しました。
+﻿2018/04/30 11:33:51 にビルドを開始しました。
      1>ノード 2 上のプロジェクト "C:\Users\Game\Desktop\2018GitTest\TOMITA\CColliderMesh\3DProgramming\3DProgramming.vcxproj" (Build ターゲット)。
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl- /O2 /Oi /Oy- /GL /D WIN32 /D _MBCS /Gm- /EHsc /MD /GS- /Gy /fp:precise /Zc:wchar_t- /Zc:forScope /openmp /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt GameMain\Scene\GameScene\Map\SlowFloor\CSlowFloor.cpp GameMain\Scene\GameScene\Map\Trampoline\CTrampoline.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl- /O2 /Oi /Oy- /GL /D WIN32 /D _MBCS /Gm- /EHsc /MD /GS- /Gy /fp:precise /Zc:wchar_t- /Zc:forScope /openmp /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt CCollider3.cpp CModelObj.cpp GameMain\Collision\CCollisionManager.cpp GameMain\Scene\CSceneManager.cpp GameMain\Scene\GameScene\CGameScene.cpp GameMain\Scene\GameScene\CharaDate\CSceneModel.cpp GameMain\Scene\GameScene\CharaDate\CXCharEnemy.cpp GameMain\Scene\GameScene\CharaDate\CXCharPlayer.cpp GameMain\Scene\GameScene\Map\Goal\CXGoal.cpp GameMain\Scene\GameScene\Puck\CXPuck.cpp
      1>cl : コマンド ライン warning D9025: '/sdl-' より '/GS-' が優先されます。
-         CSlowFloor.cpp
+         CCollider3.cpp
+         CModelObj.cpp
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>CModelObj.cpp(20): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>CModelObj.cpp(26): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(304) : 'sscanf' の宣言を確認してください。
+     1>CModelObj.cpp(33): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(304) : 'sscanf' の宣言を確認してください。
+     1>CModelObj.cpp(34): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(304) : 'sscanf' の宣言を確認してください。
+     1>CModelObj.cpp(35): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(304) : 'sscanf' の宣言を確認してください。
+     1>CModelObj.cpp(39): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(304) : 'sscanf' の宣言を確認してください。
+     1>CModelObj.cpp(40): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(304) : 'sscanf' の宣言を確認してください。
+     1>CModelObj.cpp(41): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(304) : 'sscanf' の宣言を確認してください。
+     1>CModelObj.cpp(53): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(304) : 'sscanf' の宣言を確認してください。
+     1>CModelObj.cpp(55): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(304) : 'sscanf' の宣言を確認してください。
+     1>CModelObj.cpp(57): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(304) : 'sscanf' の宣言を確認してください。
+         CCollisionManager.cpp
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(110): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(234): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(319): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(324): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(329): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\../../Define/Define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\../../Define/Define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(92) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(92) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(92) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\../../Define/Define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\../../Define/Define.h(92) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\Game\Desktop\2018GitTest\TOMITA\CColliderMesh\3DProgramming\include\../Define/define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\Game\Desktop\2018GitTest\TOMITA\CColliderMesh\3DProgramming\include\../Define/define.h(92) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\Game\Desktop\2018GitTest\TOMITA\CColliderMesh\3DProgramming\include\../Define/define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\Game\Desktop\2018GitTest\TOMITA\CColliderMesh\3DProgramming\include\../Define/define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gameresult\../ItemScene/CItem.h(11): warning C4005: 'TIP_ARRAY' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\charadate\../Effect/CEffect2D.h(5) : 'TIP_ARRAY' の前の定義を確認してください
+         CSceneManager.cpp
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(110): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(234): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(319): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(324): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(329): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\../../Define/Define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\../../Define/Define.h(92) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\../../Define/Define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\../../Define/Define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(92) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(92) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\Game\Desktop\2018GitTest\TOMITA\CColliderMesh\3DProgramming\include\../Define/define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\Game\Desktop\2018GitTest\TOMITA\CColliderMesh\3DProgramming\include\../Define/define.h(92) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\Game\Desktop\2018GitTest\TOMITA\CColliderMesh\3DProgramming\include\../Define/define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\Game\Desktop\2018GitTest\TOMITA\CColliderMesh\3DProgramming\include\../Define/define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gameresult\../ItemScene/CItem.h(11): warning C4005: 'TIP_ARRAY' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\effect\CEffect2D.h(5) : 'TIP_ARRAY' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\shopscene\CShop.h(55): warning C4005: 'MOVE_SPEED' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\homescene\CHome.h(8) : 'MOVE_SPEED' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\optionsscene\COption.h(5): warning C4005: 'BGM_GAGE' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\UI\CScoreBoard.h(9) : 'BGM_GAGE' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\optionsscene\COption.h(6): warning C4005: 'SE_GAGE' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\UI\CScoreBoard.h(10) : 'SE_GAGE' の前の定義を確認してください
+         CGameScene.cpp
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(110): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(234): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(319): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(324): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(329): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\../../Define/Define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\../../Define/Define.h(92) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\../../Define/Define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\../../Define/Define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(92) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(92) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\Game\Desktop\2018GitTest\TOMITA\CColliderMesh\3DProgramming\include\../Define/define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\Game\Desktop\2018GitTest\TOMITA\CColliderMesh\3DProgramming\include\../Define/define.h(92) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\Game\Desktop\2018GitTest\TOMITA\CColliderMesh\3DProgramming\include\../Define/define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\Game\Desktop\2018GitTest\TOMITA\CColliderMesh\3DProgramming\include\../Define/define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gameresult\../ItemScene/CItem.h(11): warning C4005: 'TIP_ARRAY' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\effect\CEffect2D.h(5) : 'TIP_ARRAY' の前の定義を確認してください
+         CSceneModel.cpp
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(110): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(234): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(319): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(324): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(329): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\../../Define/Define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\../../Define/Define.h(92) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\../../Define/Define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\../../Define/Define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(92) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(92) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\charadate\../../../../Define/Define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\charadate\../../../../Define/Define.h(92) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\charadate\../../../../Define/Define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\charadate\../../../../Define/Define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\Game\Desktop\2018GitTest\TOMITA\CColliderMesh\3DProgramming\include\../Define/Define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\Game\Desktop\2018GitTest\TOMITA\CColliderMesh\3DProgramming\include\../Define/Define.h(92) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\Game\Desktop\2018GitTest\TOMITA\CColliderMesh\3DProgramming\include\../Define/Define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\Game\Desktop\2018GitTest\TOMITA\CColliderMesh\3DProgramming\include\../Define/Define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\Game\Desktop\2018GitTest\TOMITA\CColliderMesh\3DProgramming\include\../Define/define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\Game\Desktop\2018GitTest\TOMITA\CColliderMesh\3DProgramming\include\../Define/define.h(92) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\Game\Desktop\2018GitTest\TOMITA\CColliderMesh\3DProgramming\include\../Define/define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\Game\Desktop\2018GitTest\TOMITA\CColliderMesh\3DProgramming\include\../Define/define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gameresult\../ItemScene/CItem.h(11): warning C4005: 'TIP_ARRAY' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\effect\CEffect2D.h(5) : 'TIP_ARRAY' の前の定義を確認してください
+     1>GameMain\Scene\GameScene\CharaDate\CSceneModel.cpp(28): warning C4005: 'ANGLE_5' : マクロが再定義されました。
+                 C:\Users\Game\Desktop\2018GitTest\TOMITA\CColliderMesh\3DProgramming\include\../Define/define.h(107) : 'ANGLE_5' の前の定義を確認してください
+     1>GameMain\Scene\GameScene\CharaDate\CSceneModel.cpp(29): warning C4005: 'ANGLE_180' : マクロが再定義されました。
+                 C:\Users\Game\Desktop\2018GitTest\TOMITA\CColliderMesh\3DProgramming\include\../Define/define.h(103) : 'ANGLE_180' の前の定義を確認してください
+         CXCharEnemy.cpp
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(110): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(234): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(319): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(324): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(329): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\../../Define/Define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\../../Define/Define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(92) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(92) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(92) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\../../Define/Define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\../../Define/Define.h(92) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\Game\Desktop\2018GitTest\TOMITA\CColliderMesh\3DProgramming\include\../Define/Define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\Game\Desktop\2018GitTest\TOMITA\CColliderMesh\3DProgramming\include\../Define/Define.h(92) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\Game\Desktop\2018GitTest\TOMITA\CColliderMesh\3DProgramming\include\../Define/Define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\Game\Desktop\2018GitTest\TOMITA\CColliderMesh\3DProgramming\include\../Define/Define.h(87) : 'BACK_POS' の前の定義を確認してください
+         CXCharPlayer.cpp
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(110): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(234): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(319): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(324): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(329): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\../../Define/Define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\../../Define/Define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(92) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(92) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(92) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\../../Define/Define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\../../Define/Define.h(92) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\charadate\../../../../Define/Define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\charadate\../../../../Define/Define.h(92) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\charadate\../../../../Define/Define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\charadate\../../../../Define/Define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\Game\Desktop\2018GitTest\TOMITA\CColliderMesh\3DProgramming\include\../Define/Define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\Game\Desktop\2018GitTest\TOMITA\CColliderMesh\3DProgramming\include\../Define/Define.h(92) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\Game\Desktop\2018GitTest\TOMITA\CColliderMesh\3DProgramming\include\../Define/Define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\Game\Desktop\2018GitTest\TOMITA\CColliderMesh\3DProgramming\include\../Define/Define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\Game\Desktop\2018GitTest\TOMITA\CColliderMesh\3DProgramming\include\../Define/define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\Game\Desktop\2018GitTest\TOMITA\CColliderMesh\3DProgramming\include\../Define/define.h(92) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\Game\Desktop\2018GitTest\TOMITA\CColliderMesh\3DProgramming\include\../Define/define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\Game\Desktop\2018GitTest\TOMITA\CColliderMesh\3DProgramming\include\../Define/define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gameresult\../ItemScene/CItem.h(11): warning C4005: 'TIP_ARRAY' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\charadate\../Effect/CEffect2D.h(5) : 'TIP_ARRAY' の前の定義を確認してください
+         CXGoal.cpp
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\goal\../../../../Graphic/CModelX.h(110): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\goal\../../../../Graphic/CModelX.h(234): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\goal\../../../../Graphic/CModelX.h(319): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\goal\../../../../Graphic/CModelX.h(324): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\goal\../../../../Graphic/CModelX.h(329): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\goal\../../../../../Define/Define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\goal\../../../../../Define/Define.h(92) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\goal\../../../../../Define/Define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\goal\../../../../../Define/Define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\../../Define/Define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\../../Define/Define.h(92) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\../../Define/Define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\../../Define/Define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(92) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(92) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(87) : 'BACK_POS' の前の定義を確認してください
+         CXPuck.cpp
      1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
      1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
      1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\../../Define/Define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
                  c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\../../Define/Define.h(87) : 'BACK_POS' の前の定義を確認してください
-     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\slowfloor\../../../../../Define/Define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
-                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\slowfloor\../../../../../Define/Define.h(92) : 'BACK_POS' の前の定義を確認してください
-     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\slowfloor\../../../../../Define/Define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
-                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\slowfloor\../../../../../Define/Define.h(87) : 'BACK_POS' の前の定義を確認してください
-         CTrampoline.cpp
-     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\CTexture.h(69): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
-     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\CTexture.h(76): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-                 C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
-     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\../../Define/Define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
-                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\../../Define/Define.h(87) : 'BACK_POS' の前の定義を確認してください
-     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\trampoline\../../../../../Define/Define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
-                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\trampoline\../../../../../Define/Define.h(92) : 'BACK_POS' の前の定義を確認してください
-     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\trampoline\../../../../../Define/Define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
-                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\trampoline\../../../../../Define/Define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(92) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\slope\../../../../../Define/Define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(92) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\../../../../Define/Define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\puck\../../../Graphic/CModelX.h(110): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\puck\../../../Graphic/CModelX.h(234): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\puck\../../../Graphic/CModelX.h(319): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\puck\../../../Graphic/CModelX.h(324): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\puck\../../../Graphic/CModelX.h(329): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\puck\../../../../Define/Define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\puck\../../../../Define/Define.h(92) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\puck\../../../../Define/Define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\puck\../../../../Define/Define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\../../Define/Define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\graphic\../../Define/Define.h(92) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(92) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\Game\Desktop\2018GitTest\TOMITA\CColliderMesh\3DProgramming\include\../Define/define.h(87): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\Game\Desktop\2018GitTest\TOMITA\CColliderMesh\3DProgramming\include\../Define/define.h(92) : 'BACK_POS' の前の定義を確認してください
+     1>C:\Users\Game\Desktop\2018GitTest\TOMITA\CColliderMesh\3DProgramming\include\../Define/define.h(92): warning C4005: 'BACK_POS' : マクロが再定義されました。
+                 C:\Users\Game\Desktop\2018GitTest\TOMITA\CColliderMesh\3DProgramming\include\../Define/define.h(87) : 'BACK_POS' の前の定義を確認してください
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gameresult\../ItemScene/CItem.h(11): warning C4005: 'TIP_ARRAY' : マクロが再定義されました。
+                 c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\charadate\../Effect/CEffect2D.h(5) : 'TIP_ARRAY' の前の定義を確認してください
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Game\Desktop\2018GitTest\TOMITA\CColliderMesh\Release\3DProgramming.exe" /NOLOGO glew32.lib glfw3dll.lib glfw3.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Game\Desktop\2018GitTest\TOMITA\CColliderMesh\Release\3DProgramming.pdb" /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Game\Desktop\2018GitTest\TOMITA\CColliderMesh\Release\3DProgramming.lib" /MACHINE:X86 /SAFESEH Release\CBase.obj
+         Release\CCollider3.obj
          Release\CModelObj.obj
          Release\CCamera.obj
          Release\CCollider.obj
@@ -98,8 +379,8 @@
          Release\main.obj
          コード生成しています。
      1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\cmap.cpp(127): warning C4715: 'CMap::GoalEnemyFirstPos' : 値を返さないコントロール パスがあります。
-     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\cmap.cpp(109): warning C4715: 'CMap::EnemyFirstPos' : 値を返さないコントロール パスがあります。
      1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\cmap.cpp(118): warning C4715: 'CMap::GoalPlayerFirstPos' : 値を返さないコントロール パスがあります。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\cmap.cpp(109): warning C4715: 'CMap::EnemyFirstPos' : 値を返さないコントロール パスがあります。
      1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\cmap.cpp(100): warning C4715: 'CMap::PlayerFirstPos' : 値を返さないコントロール パスがあります。
          コード生成が終了しました。
          3DProgramming.vcxproj -> C:\Users\Game\Desktop\2018GitTest\TOMITA\CColliderMesh\Release\3DProgramming.exe
@@ -107,4 +388,4 @@
 
 ビルドに成功しました。
 
-経過時間 00:00:04.98
+経過時間 00:00:11.19
