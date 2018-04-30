@@ -78,12 +78,7 @@ void CModelObj::Render() {
 void CModelObj::AddCollisionManager() {
 	for each (CTriangle triangle in mTriangle)
 	{
-		//CCollider3Triangle *p = new CCollider3Triangle();
-		//p->mV[0] = triangle.mVertex[0];
-		//p->mV[1] = triangle.mVertex[1];
-		//p->mV[2] = triangle.mVertex[2];
-		CCollider3Triangle *p = new CCollider3Triangle(triangle.mVertex[0], triangle.mVertex[1], triangle.mVertex[2]);
-		//CCollisionManager3::GetInstance()->Add(p);
+		//三角形コライダを生成する
 		new CCollider3Triangle(triangle.mVertex[0], triangle.mVertex[1], triangle.mVertex[2]);
 	}
 }

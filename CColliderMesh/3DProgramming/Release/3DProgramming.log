@@ -1,4 +1,4 @@
-﻿2018/04/30 11:33:51 にビルドを開始しました。
+﻿2018/04/30 15:23:19 にビルドを開始しました。
      1>ノード 2 上のプロジェクト "C:\Users\Game\Desktop\2018GitTest\TOMITA\CColliderMesh\3DProgramming\3DProgramming.vcxproj" (Build ターゲット)。
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl- /O2 /Oi /Oy- /GL /D WIN32 /D _MBCS /Gm- /EHsc /MD /GS- /Gy /fp:precise /Zc:wchar_t- /Zc:forScope /openmp /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt CCollider3.cpp CModelObj.cpp GameMain\Collision\CCollisionManager.cpp GameMain\Scene\CSceneManager.cpp GameMain\Scene\GameScene\CGameScene.cpp GameMain\Scene\GameScene\CharaDate\CSceneModel.cpp GameMain\Scene\GameScene\CharaDate\CXCharEnemy.cpp GameMain\Scene\GameScene\CharaDate\CXCharPlayer.cpp GameMain\Scene\GameScene\Map\Goal\CXGoal.cpp GameMain\Scene\GameScene\Puck\CXPuck.cpp
@@ -380,12 +380,12 @@
          コード生成しています。
      1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\cmap.cpp(127): warning C4715: 'CMap::GoalEnemyFirstPos' : 値を返さないコントロール パスがあります。
      1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\cmap.cpp(118): warning C4715: 'CMap::GoalPlayerFirstPos' : 値を返さないコントロール パスがあります。
-     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\cmap.cpp(109): warning C4715: 'CMap::EnemyFirstPos' : 値を返さないコントロール パスがあります。
      1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\cmap.cpp(100): warning C4715: 'CMap::PlayerFirstPos' : 値を返さないコントロール パスがあります。
+     1>c:\users\game\desktop\2018gittest\tomita\ccollidermesh\3dprogramming\gamemain\scene\gamescene\map\cmap.cpp(109): warning C4715: 'CMap::EnemyFirstPos' : 値を返さないコントロール パスがあります。
          コード生成が終了しました。
          3DProgramming.vcxproj -> C:\Users\Game\Desktop\2018GitTest\TOMITA\CColliderMesh\Release\3DProgramming.exe
      1>プロジェクト "C:\Users\Game\Desktop\2018GitTest\TOMITA\CColliderMesh\3DProgramming\3DProgramming.vcxproj" (Build ターゲット) のビルドが完了しました。
 
 ビルドに成功しました。
 
-経過時間 00:00:11.19
+経過時間 00:00:12.63
