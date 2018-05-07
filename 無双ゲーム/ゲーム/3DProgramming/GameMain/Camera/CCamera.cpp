@@ -30,9 +30,9 @@ mUp = //視界の上方向のベクトルx,y,z
 #define OBB_POS CVector3(0.0f, 1.0f, 0.0f) 
 #define OBB_SPHERE_SIZE 3.0f
 /*カメラの位置*/
-#define CAMERA_OFFSET CVector3(0.0f, 0.5f, 4.0f) //カメラ位置プレイヤーからの相対位置
+#define CAMERA_OFFSET CVector3(0.0f, 0.3f, 3.0f) //カメラ位置プレイヤーからの相対位置
 //キャラ
-#define CHARA_POS(pos)	CVector3(pos.x,	pos.y + 5.5f, pos.z-1.5f)
+#define CHARA_POS(pos)	CVector3(pos.x,	pos.y + 5.5f, pos.z-3.5f)
 
 /*カメラマウス*/
 #define ARRIVAL_TIME 0.1f//待ち時間

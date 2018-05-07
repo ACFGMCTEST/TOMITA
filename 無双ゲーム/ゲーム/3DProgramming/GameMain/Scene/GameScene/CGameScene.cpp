@@ -30,16 +30,17 @@ void CGameScene::Update() {
 		break;
 		
 	case E_MAIN:
+
 		mMap.Update();
 		mMap.Render();
 
 		MainCamera.Update();
 		mSceneModel.Update();
-		
-		mSceneModel.Render();
-		
+
 		CCollisionManager::GetInstance()->Update();
 		CCollisionManager3::GetInstance()->Update();
+		mSceneModel.Render();
+		
 
 		break;
 	case E_END:
