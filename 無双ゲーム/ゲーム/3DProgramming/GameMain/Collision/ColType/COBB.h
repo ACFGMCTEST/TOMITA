@@ -23,7 +23,12 @@ public:
 	CMatrix44 mMatrixRotation;
 
 	//OBB‚És—ñ‚ğ”½‰f
-	void Transform(CMatrix44 &mat);
+	void Transform(CMatrix44 &mat){
+		for (int i = 0; i<COBB::E_ARRAY; i++) mAxis[i] = mat * mAxis[i] - mat * CVector3();
+		CVector4 c = CVector4(mPos.x, mPos.y, mPos.z, 1);
+		c = c*mat;
+		mPos = CVector3(c.x, c.y, c.z);
+	}
 
 };
 #endif

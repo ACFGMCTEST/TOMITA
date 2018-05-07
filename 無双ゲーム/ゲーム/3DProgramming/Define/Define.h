@@ -112,7 +112,7 @@ extern int WinPosX,WinPosY;//main.cppで設定
 
 /*重力*/
 #define GRA_INIT_TIME_COUNT 1.0f//重力加速度の時間_初期値
-#define GRA_ACCELERA  0.98f * 0.06f//重力加速度
+#define GRA_ACCELERA  0.98f * 0.01f//重力加速度
 #define GRA_TIME_UP 0.3f//重力の加速時間
 #define GRA_ADJUSTMENT 1.0f//調整用
-#define GRAVITY(time) (GRA_ACCELERA * time * GRA_ADJUSTMENT) //最終的にかかる力
+#define GRAVITY(time) (GRA_ACCELERA * time * GRA_ADJUSTMENT) //最終的sにかかる力

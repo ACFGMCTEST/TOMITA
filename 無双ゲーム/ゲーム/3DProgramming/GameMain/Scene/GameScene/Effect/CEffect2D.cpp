@@ -43,9 +43,11 @@ void CEffect2D::SetVertex(CVector3 v0, CVector3 v1, CVector3 v2, CVector3 v3){
 	ver[E_RT] = v3;
 	CRectangle::SetVertex(ver[E_LT], ver[E_LB], ver[E_RB], ver[E_RT]);
 }
+
 /*現在のフレーム数指定*/
 void CEffect2D::SetFrame(int i){
 	SetUv(mpTexture, mpWidthLeft[i], mTexTop, mpWidthRight[i], mTexBottom);
+
 }
 /*テクスチャ設定*/
 void CEffect2D::SetTex(CTexture *name,float left,float top,float right,float bottom){

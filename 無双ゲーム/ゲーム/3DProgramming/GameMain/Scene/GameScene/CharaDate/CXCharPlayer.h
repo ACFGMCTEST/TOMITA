@@ -6,6 +6,9 @@
 #include "../../../Collision/CCollider.h"
 #include "../Effect/CEffect2D.h"
 #include "../../../Key/CKey.h"
+#include "../../../Collision/CCollider.h"
+#include "../../../Collision/CCollider3.h"
+
 
 //プレイヤーの数
 #define CHARA_ARRAY 3
@@ -50,8 +53,8 @@
 /*進む方角*/
 #define FORWARD 0.0f,0.0f,1.0f
 /*
- CXCharPlayer
- プレイヤークラス
+CXCharPlayer
+プレイヤークラス
 */
 //class CXCharPlayer : public CXCharacter {
 class CXCharPlayer : public CModelXS {
@@ -68,7 +71,7 @@ public:
 
 
 	const float mGageDecrease = 0.17f;//スキルゲージの１フレーム毎の減少速度
-	const float mGageLimit=200.0f;	//スキルゲージのリミット都合がいいので時間制御も兼ねる
+	const float mGageLimit = 200.0f;	//スキルゲージのリミット都合がいいので時間制御も兼ねる
 
 	float mSkillTime;//スキルの発動時間
 
@@ -81,20 +84,14 @@ public:
 	CVector3 mRotation;	//回転
 	/*向き*/
 	enum E_DIRECTION{
-	E_RIGHT,
-	E_LEFT,
-	E_TOP,
-	E_BOTTOM
+		E_RIGHT,
+		E_LEFT,
+		E_TOP,
+		E_BOTTOM
 	};
 	E_DIRECTION eDirection;//現在の方向
 	bool DirectionAnima();//向きの制御 アニメーションが終わるまで移動しない
-	//25
-	//衝突判定（体）
-	//CCollider *mCBBody;
-	CCollider *mpCBBody;//球判定
-	CCollider *mpCBLeg;//足
-
-
+	//CCollider *mpCBWeapon;
 	CXCharPlayer();
 	//初期化処理
 	void Init(CModelX *model);
@@ -106,14 +103,23 @@ public:
 	void Render();
 	//billboardの描画処理
 	void BillboardRender();
+
+	/*回転関数
+	rot = 回転値*/
+	void PlusRot(float rot);
 	void PosUpdate();//ポジションの変更関数　
 	int mCountKnockBack; //ノックバックする回数
 
+	/*当たったときに呼び出す
+	count:移動回数
+	Forward:進む方角
+	*/
+	void ColMove(int count, CVector3 Foward);
 
 	/*操作する場合*/
 	void MyMove();
-	/*簡易移動フラグ関数*/
-	bool FlagMove();
+	/*回転するまで移動しない*/
+	bool FlagRotMove(int angle);
 	/*簡易アニメーション切り替え*/
 	void AnimaState(ESTATE state);
 
@@ -133,25 +139,35 @@ public:
 	forward = 方向設定
 	velocity = 力
 	*/
-	void Move(const CVector3 &forward,float velocity);
+	void Move(const CVector3 &forward, float velocity);
+
+
+	/*経路探索　道筋用
+	x,z =　今の座標値
+	count = 初めに使うとき0を入れる
+	CostMap = costを格納するマップを入れる
+	FastFlag = 初めに使うときはtrueを入れる
+	*/
+	void CostMapping(int x, int z, int count, int *CostMap, bool FastFlag);
 
 
 
+	/*当たり判定呼び出し
+	元の場所に戻すための関数
+	*/
+	bool Collision(const COBB &box, const CColSphere &sphere);
+	bool Collision(const COBB *box, const CColSphere *sphere);
+
+	bool Collision(CCollider2* me, CCollider2* you);
+	bool Collision(CCollider3* me, CCollider3* you);
 
 
-	/*おもな当たり判定呼び出し*/
-	void Collision(const COBB &box, const CColSphere &sphere);
-	/*玉判定*/
-	void Collision(const CColSphere &youSphere, const CColSphere &sphere);
-
-	/*ハンマーの溜める処理*/
-	void HammerUp();
-	/*Hammerの初期化処理*/
-	void HammerInit();
 	/*重力
 	自分の足がついているときを重力を止める場所にする
 	*/
 	void Gravity();
+	/*簡易移動フラグ関数*/
+	bool FlagMove();
 
 	/*ジャンプ関数
 	当たり判定の仕様
@@ -164,11 +180,16 @@ public:
 	void Jump();
 	/*グラウンドの設定*/
 	void ColGround();
+
+	/*坂に当たった時の判定*/
+	void ColSlope();
+
 	/*キャラクター動く時の回転
 	float = 向きたい方向
 	*/
 	int MoveRotation(int  angle);
 
+	CVector3 mAdjust;
 };
 
 #endif

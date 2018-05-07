@@ -2,16 +2,15 @@
 #define MAP_HPP
 
 #include "../../../Collision/CCollisionManager.h"
+#include "../../../Graphic/CModelObj.h"
 
 /*マップ*/
 class CMap{
 
 private:
 	CMatrix44 m44;//仮のもの
+	CModelObj mGround;//Objファイル
 public:
-	/*当たり判定*/
-	CCollider *mpGround;//仮のもの
-
 	CMap(){};
 	~CMap(){};
 	/*初期化*/

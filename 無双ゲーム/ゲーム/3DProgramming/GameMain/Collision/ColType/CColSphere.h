@@ -13,6 +13,10 @@ public:
 
 
 	//OBBÇ…çsóÒÇîΩâf
-	void Transform(CMatrix44 &mat);
+	void Transform(CMatrix44 &mat) {
+		CVector4 c = CVector4(mPos.x, mPos.y, mPos.z, 1);
+		c = c*mat;
+		mPos = CVector3(c.x, c.y, c.z);
+	}
 };
 #endif

@@ -1,6 +1,7 @@
 #include "Windows.h"
 #include "CGameScene.h"
 #include "../../Collision/CCollisionManager.h"
+#include "../../Collision/CCollider3.h"
 #include "../../Key/CKey.h"
 #include "../../Key/CMouse.h"
 #include "./../CSceneManager.h"
@@ -37,13 +38,13 @@ void CGameScene::Update() {
 		
 		mSceneModel.Render();
 		
-		mSceneModel.UpdateEffect();
-		
 		CCollisionManager::GetInstance()->Update();
+		CCollisionManager3::GetInstance()->Update();
 
 		break;
 	case E_END:
 		CCollisionManager::GetInstance()->AllKill();
+		CCollisionManager3::GetInstance()->AllKill();
 		mSceneModel.ModelAllKill();
 		
 		eState = E_INIT;

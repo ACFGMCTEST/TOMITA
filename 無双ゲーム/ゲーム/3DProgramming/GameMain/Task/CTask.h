@@ -7,6 +7,9 @@
 #include <stdio.h>
 #include <assert.h>
 
+class CCollider2;
+class CCollider3;
+
 class  CTask
 {
 public:
@@ -64,6 +67,7 @@ public:
 	};
 	E_PRIORITY ePriority;//レンダーの順番
 
+
 	/*当たり判定の形*/
 	enum  E_COL_TAG
 	{
@@ -71,6 +75,8 @@ public:
 		E_COL_WALL,//壁
 		E_COL_BOX,//ボックス
 		E_COL_SPHEPE,//球
+		E_COL_TRIANGLE,//三角形
+		E_COL_CAPSULE,//カプセル
 	};
 	E_COL_TAG eColTag;
 
@@ -82,6 +88,8 @@ public:
 	virtual void Update();
 	virtual void Render();
 	virtual void BillboardRender();//billboardするもの　処理手順で見えなくなるものがあるので分ける
+	virtual bool Collision(CCollider2* p1, CCollider2* p2) { return false; };
+	virtual bool Collision(CCollider3* p1, CCollider3* p2) { return false; };
 
 };
 

@@ -5,15 +5,18 @@
 #include "glut.h"
 
 /*アニメのスピード
+Blenderのタイムライン  60の場合
+4倍がちょうどよくなる
 */
 #define ANIMA_SPEED 60 * 4
-#define ANIMA_SPEED_DAMAGE 60 
 #define ANIMA_SPEED_RUN 60 
-#define ANIMA_SPEED_ATTCK 60 /5
+#define ANIMA_SPEED_ATTCK 20
 #define ANIMA_SPEED_JUMP 30
-#define ANIMA_SPEED_IDOL 60 * 2
 
 #define MODEL_FILE "sample.blend.x"	//入力ファイル名
+//#define MODEL_FILE "ラグナ.x"	//入力ファイル名
+//#define MODEL_FILE "x\\00_Mesh1P.x"	//入力ファイル名
+
 //領域解放をマクロ化
 #define SAFE_DELETE_ARRAY(a) { if(a) delete[] a; a = 0;}
 #define SAFE_DELETE(a) { if(a) delete a; a = 0;}
@@ -21,6 +24,10 @@
 #define ARRAY_SIZE(a) (sizeof(a) / sizeof(a[0]))
 
 #include <vector>	//vectorクラスのインクルード（動的配列）
+//#include "CMatrix44.h"	//マトリクスクラスのインクルード
+//#include "CTexture.h"	//テクスチャのインクルード
+//#include "CVector2.h"
+//#include "CShader.h"
 
 #include "../Matrix/CMatrix44.h"
 #include "../Graphic/CTexture.h"
@@ -47,8 +54,8 @@ public:
 class CModelX;	// CModelXクラスの宣言
 
 /*
- CAnimationKey
- アニメーションキークラス
+CAnimationKey
+アニメーションキークラス
 */
 class CAnimationKey {
 public:
@@ -59,8 +66,8 @@ public:
 };
 
 /*
- CAnimation
- アニメーションクラス
+CAnimation
+アニメーションクラス
 */
 class CAnimation {
 public:
@@ -79,8 +86,8 @@ public:
 };
 
 /*
- CAnimationSet
- アニメーションセット
+CAnimationSet
+アニメーションセット
 */
 class CAnimationSet {
 public:
@@ -107,8 +114,8 @@ public:
 };
 
 /*
- CSkinWeights
- スキンウェイトクラス
+CSkinWeights
+スキンウェイトクラス
 */
 class CSkinWeights {
 public:
@@ -128,8 +135,8 @@ public:
 	}
 };
 /*
- CMaterial
- マテリアルクラス
+CMaterial
+マテリアルクラス
 */
 class CMaterial {
 public:
@@ -188,6 +195,7 @@ public:
 	//Add Shader
 	GLuint	  mMyVertexBuffer;
 	int       mMyVertexNum;
+	//	CMatrix44 mTransformMatrix[155];
 
 	float mRed, mGreen, mBlue, mAlpha; //rgba色情報
 
@@ -274,8 +282,8 @@ public:
 };
 
 /*
- CModelX
- Xファイル形式の3Dモデルデータをプログラムで認識する
+CModelX
+Xファイル形式の3Dモデルデータをプログラムで認識する
 */
 class CModelX {
 public:
@@ -302,7 +310,7 @@ public:
 
 	std::vector<CMesh*> mMesh;	//Mesh配列
 
-	CModelX() 
+	CModelX()
 		: mpPointer(0), mAnimationIndex(0)
 	{}
 	~CModelX() {
@@ -408,6 +416,7 @@ public:
 	void ChangeAnimation(int index, bool loop, float framesize);
 	//更新処理
 	void Update(CMatrix44 &m);
+	void UpdateSkinMatrix(CMatrix44 &matrix);
 
 	//MATRIXのみ更新
 	void MatrixUpdate(CMatrix44 &m);

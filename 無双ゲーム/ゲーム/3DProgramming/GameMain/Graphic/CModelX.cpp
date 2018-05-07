@@ -9,7 +9,21 @@
 #include "../../Light/CLight.h"
 
 void CModelX::Load(char *file) {
+	//
 	//ファイルサイズを取得する
+	//
+	//int fd = open(file, O_RDONLY);	//ファイルをオープンする
+	//if (fd == -1) {	//エラーチェック
+	//	printf("open error\n");
+	//	return;
+	//}
+	//struct stat statBuf;
+	//fstat(fd, &statBuf);	//ファイルの情報を取得する
+	//close(fd);	//ファイルをクローズする
+	//int size = statBuf.st_size;	//ファイルのサイズを取得する
+	//
+	//ファイルから3Dモデルのデータを読み込む
+	//
 	FILE *fp;	//ファイルポインタ変数の作成
 	fp = fopen(file, "rb");	//ファイルをオープンする
 	if (fp == NULL) {	//エラーチェック
@@ -179,10 +193,10 @@ Render
 全てのフレームの描画処理を呼び出す
 */
 void CModelX::Render() {
-	
+
 	for (int i = 0; i < mFrame.size(); i++) {
 		mFrame[i]->Render();
-		
+		//if (ColorFlag())glMaterialfv(GL_FRONT, GL_DIFFUSE, CVector3(mRed, mGreen, mBlue, mAlpha});//色の設定
 	}
 }
 
@@ -244,6 +258,18 @@ void CModelX::AnimateFrame() {
 			}
 		}
 	}
+#ifdef _DEBUG
+	//for (int i = 0; i < mFrame.size(); i++) {
+	//	printf("Frame:%s\n", mFrame[i]->mpName);
+	//	for (int j = 0; j < 16; j++) {
+	//		printf("%10f", mFrame[i]->mTransformMatrix.f[j]);
+	//		if (j % 4 == 3) printf("\n");
+	//	}
+	//}
+#endif
+
+	//Set mCombinedMatrix mSkinningMatrix
+	//	mFrame[0]->Animate(world);
 }
 //16
 /*
@@ -282,8 +308,8 @@ void CModelX::AnimateVertex() {
 }
 //17
 /*
- FindMaterial
- マテリアル名に該当するマテリアルを返却する
+FindMaterial
+マテリアル名に該当するマテリアルを返却する
 */
 CMaterial* CModelX::FindMaterial(char* name) {
 	//マテリアル配列のイテレータ作成
@@ -300,9 +326,9 @@ CMaterial* CModelX::FindMaterial(char* name) {
 }
 //18
 /*
- FindTexture
- nameに該当するファイル名を持つテクスチャを検索して
- 返却する
+FindTexture
+nameに該当するファイル名を持つテクスチャを検索して
+返却する
 */
 CTexture* CModelX::FindTexture(char* name) {
 	//テクスチャ配列のイテレータ作成
@@ -320,8 +346,8 @@ CTexture* CModelX::FindTexture(char* name) {
 
 
 /*
- FindFrame
- フレーム名に該当するフレームのアドレスを返す
+FindFrame
+フレーム名に該当するフレームのアドレスを返す
 */
 CModelXFrame* CModelX::FindFrame(char* name) {
 	/*ハンマーン装備調整デバック*/
@@ -342,12 +368,12 @@ CModelXFrame* CModelX::FindFrame(char* name) {
 	return NULL;
 }
 /*
- AddAnimationSet
- アニメーションセットを追加します
+AddAnimationSet
+アニメーションセットを追加します
 */
 int count = 0;
 void CModelX::AddAnimationSet(char *file) {
-	
+
 	Load(file);
 }
 
@@ -360,7 +386,7 @@ void CModelX::CreateVertexBuffer() {
 }
 
 /*
- CModelXFrame
+CModelXFrame
 */
 CModelXFrame::CModelXFrame(CModelX* model) {
 	//現在のフレーム配列の要素数を取得し設定する
@@ -369,7 +395,7 @@ CModelXFrame::CModelXFrame(CModelX* model) {
 	model->mFrame.push_back(this);
 	//変換行列を単位行列にする
 	mTransformMatrix.identity();
-//20
+	//20
 	////次の単語（フレーム名の予定）を取得する
 	//削除model->GetToken(); // frame name
 	//フレーム名分エリアを確保する
@@ -422,18 +448,25 @@ CModelXFrame::CModelXFrame(CModelX* model) {
 			model->SkipNode();
 		}
 	}
+#ifdef _DEBUG
+	//printf("%s\n", mpName);
+	//for (int i = 0; i < ARRAY_SIZE(mTransformMatrix.f); i++) {
+	//	printf("%10f", mTransformMatrix.f[i]);
+	//	if ((i+1) % 4 == 0) printf("\n");
+	//}
+#endif
 }
 /*
- Render
- メッシュの面数が0以上なら描画する
+Render
+メッシュの面数が0以上なら描画する
 */
 void CModelXFrame::Render() {
 	if (mMesh.mFaceNum != 0)
 		mMesh.Render();
 }
 /*
- Animate
- 合成行列の作成
+Animate
+合成行列の作成
 */
 void CModelXFrame::Animate(CMatrix44* parent) {
 	//親からの変換行列に、自分の変換行列を掛ける
@@ -442,7 +475,13 @@ void CModelXFrame::Animate(CMatrix44* parent) {
 	for (int i = 0; i < mChild.size(); i++) {
 		mChild[i]->Animate(&mCombinedMatrix);
 	}
-
+#ifdef _DEBUG
+	//printf("%s\n", mpName);
+	//for (int i = 0; i < ARRAY_SIZE(mCombinedMatrix.f); i++) {
+	//	printf("%10f", mCombinedMatrix.f[i]);
+	//	if ((i+1) % 4 == 0) printf("\n");
+	//}
+#endif
 }
 
 
@@ -450,8 +489,8 @@ void CModelXFrame::Animate(CMatrix44* parent) {
 CMesh
 */
 /*
- Init
- Meshのデータを取り込む
+Init
+Meshのデータを取り込む
 */
 void CMesh::Init(CModelX *model) {
 	model->GetToken();	// { or 名前
@@ -505,13 +544,16 @@ void CMesh::Init(CModelX *model) {
 			for (int i = 0; i < mNormalNum; i += 3) {
 				model->GetToken(); // 3
 				ni = model->GetIntToken();
+				//				mpNormal[mpVertexIndex[i]] = pNormal[ni];
 				mpNormal[i] = pNormal[ni];
 
 				ni = model->GetIntToken();
-				mpNormal[i+1] = pNormal[ni];
+				//				mpNormal[mpVertexIndex[i + 1]] = pNormal[ni];
+				mpNormal[i + 1] = pNormal[ni];
 
 				ni = model->GetIntToken();
-				mpNormal[i+2] = pNormal[ni];
+				//				mpNormal[mpVertexIndex[i + 2]] = pNormal[ni];
+				mpNormal[i + 2] = pNormal[ni];
 			}
 			delete[] pNormal;
 			model->GetToken();	// }
@@ -529,7 +571,10 @@ void CMesh::Init(CModelX *model) {
 			//マテリアルデータの作成
 			for (int i = 0; i < mMaterialNum; i++) {
 				model->GetToken();	// Material
-				
+				//if (strcmp(model->mToken, "Material") == 0) {
+				//	mMaterial.push_back(new CMaterial(model));
+				//}
+				//17S
 				if (strcmp(model->mToken, "Material") == 0) {
 					// 新規
 					mMaterial.push_back(new CMaterial(model));
@@ -569,10 +614,16 @@ void CMesh::Init(CModelX *model) {
 		}
 	}
 
+#ifdef _DEBUG
+	//printf("NormalNum:%d\n", mNormalNum);
+	//for (int i = 0; i < mNormalNum ; i++) {
+	//	printf("%10f%10f%10f\n", mpNormal[i].x, mpNormal[i].y, mpNormal[i].z);
+	//}
+#endif
 }
 /*
- Render
- 画面に描画する
+Render
+画面に描画する
 */
 void CMesh::Render() {
 	/* 頂点データ，法線データ，テクスチャ座標の配列を有効にする */
@@ -672,13 +723,13 @@ void CMesh::Render(CModelX *model, CMatrix44 transformMatrix[], int transformMat
 
 //16
 /*
- AnimateVertex
- 頂点にアニメーションを適用
+AnimateVertex
+頂点にアニメーションを適用
 */
 void CMesh::AnimateVertex(CModelX *model) {
 	//アニメーション用の頂点エリアクリア
-	memset(mpAnimateVertex, 0, sizeof(CVector3) * mVertexNum);
-	memset(mpAnimateNormal, 0, sizeof(CVector3) * mNormalNum);
+	memset(mpAnimateVertex, 0, sizeof(CVector3)* mVertexNum);
+	memset(mpAnimateNormal, 0, sizeof(CVector3)* mNormalNum);
 	//スキンウェイト分繰り返し
 	for (int i = 0; i < mSkinWeights.size(); i++) {
 		//フレーム番号取得
@@ -781,13 +832,13 @@ void CMesh::CreateVertexBuffer() {
 
 
 /*
- Materialデータの読み込みと設定
- */
+Materialデータの読み込みと設定
+*/
 CMaterial::CMaterial(CModelX *model)
-	: mpName(0)
-	, mpTextureFilename(0)
-	//18
-	, mTextureId(0)
+: mpName(0)
+, mpTextureFilename(0)
+//18
+, mTextureId(0)
 {
 	//17
 	//CModelXにマテリアルを追加する
@@ -849,11 +900,18 @@ CMaterial::CMaterial(CModelX *model)
 		mColorRGBA[i] = 0;
 	}
 
+#ifdef _DEBUG
+	//printf("Material\n");
+	//printf("Diffuse:%10f %10f %10f %10f\n", mDiffuse[0], mDiffuse[1], mDiffuse[2], mDiffuse[3]);
+	//printf("Power:%10f\n", mPower);
+	//printf("Specular:%10f %10f %10f %10f\n", mSpecular[0], mSpecular[1], mSpecular[2]);
+	//printf("Emissive:%10f %10f %10f %10f\n", mEmissive[0], mEmissive[1], mEmissive[2]);
+#endif
 }
 
 /*
- SetMaterial
- マテリアルを適用する
+SetMaterial
+マテリアルを適用する
 */
 void CMaterial::SetMaterial() {
 	glMaterialfv(GL_FRONT, GL_EMISSION, mEmissive);
@@ -911,8 +969,8 @@ void CMaterial::SetShader(CShader *shader) {
 }
 
 /*
- UnSetMaterial
- テクスチャマッピングを無効にする
+UnSetMaterial
+テクスチャマッピングを無効にする
 */
 void CMaterial::UnSetMaterial() {
 	//テクスチャが有る時
@@ -931,11 +989,11 @@ CSkinWeights
 スキンウェイトの読み込み
 */
 CSkinWeights::CSkinWeights(CModelX *model)
-	: mpFrameName(0)
-	, mFrameIndex(0)
-	, mIndexNum(0)
-	, mpIndex(0)
-	, mpWeight(0)
+: mpFrameName(0)
+, mFrameIndex(0)
+, mIndexNum(0)
+, mpIndex(0)
+, mpWeight(0)
 {
 	model->GetToken();	// {
 	model->GetToken();	// FrameName
@@ -967,6 +1025,16 @@ CSkinWeights::CSkinWeights(CModelX *model)
 	}
 	model->GetToken();	// }
 
+#ifdef _DEBUG
+	//printf("\nSkinWeights:%s\n", mpFrameName);
+	//for (int i = 0; i < mIndexNum; i++) {
+	//	printf("%d %10f\n", mpIndex[i], mpWeight[i]);
+	//}
+	//for (int i = 0; i < 16; i++) {
+	//	printf("%10f", mOffset.f[i]);
+	//	if ((i + 1) % 4 == 0) printf("\n");
+	//}
+#endif
 }
 
 /*
@@ -975,12 +1043,12 @@ CAnimationSet
 
 */
 CAnimationSet::CAnimationSet(CModelX *model)
-	: mpName(0)
-	//14S
-	, mTime(0)
-	, mWeight(0)
-	, mMaxTime(0)
-	//14E
+: mpName(0)
+//14S
+, mTime(0)
+, mWeight(0)
+, mMaxTime(0)
+//14E
 {
 	model->mAnimationSet.push_back(this);
 
@@ -1000,8 +1068,10 @@ CAnimationSet::CAnimationSet(CModelX *model)
 		}
 	}
 	//終了時間設定
-	mMaxTime = mAnimation[0]->mpKey[mAnimation[0]->mKeyNum-1].mTime;
-
+	mMaxTime = mAnimation[0]->mpKey[mAnimation[0]->mKeyNum - 1].mTime;
+#ifdef _DEBUG
+	//	printf("AnimationSet:%s\n", mpName);
+#endif
 }
 
 CAnimation::CAnimation(CModelX *model)
@@ -1096,7 +1166,8 @@ CAnimation::CAnimation(CModelX *model)
 				break;
 			}
 			model->GetToken(); // }
-		} else {
+		}
+		else {
 			model->SkipNode();
 		}
 	}
@@ -1117,6 +1188,13 @@ CAnimation::CAnimation(CModelX *model)
 		SAFE_DELETE_ARRAY(key[i]);
 	}
 
+#ifdef _DEBUG
+	//printf("Animation:%s\n", mpFrameName);
+	//for (int j = 0; j < 16; j++) {
+	//	printf("%10f", mpKey[0].mMatrix.f[j]);
+	//	if (j % 4 == 3) printf("\n");
+	//}
+#endif
 
 }
 
@@ -1192,6 +1270,29 @@ void CModelXS::Update(CMatrix44 &matrix) {
 
 	mpModel->mAnimationSet[mAnimationIndex]->mTime = mAnimationTime;
 
+	UpdateSkinMatrix(matrix);
+	/*
+	//フレームの変換行列をアニメーションで更新する
+	mpModel->AnimateFrame();
+	//フレームの合成行列を計算する
+	mpModel->mFrame[0]->Animate(&matrix);
+	//フレームの合成行列を退避する
+
+	for (int i = 0; i < mpModel->mFrame.size(); i++) {
+	mpCombinedMatrix[i] = mpModel->mFrame[i]->mCombinedMatrix;
+	}
+	//メッシュ毎のスキンメッシュ行列配列を設定する
+	for (int i = 0; i < mpModel->mMesh.size(); i++) {
+	for (int j = 0; j < mpModel->mMesh[i]->mSkinWeights.size(); j++) {
+	//スキンメッシュの行列配列を退避する
+	mpMeshSkinMatrix[i].mpSkinnedMatrix[j + 1]
+	= mpCombinedMatrix[ mpModel->mMesh[i]->mSkinWeights[j]->mFrameIndex] * mpModel->mMesh[i]->mSkinWeights[j]->mOffset;
+	}
+	}
+	*/
+}
+
+void CModelXS::UpdateSkinMatrix(CMatrix44 &matrix) {
 	//フレームの変換行列をアニメーションで更新する
 	mpModel->AnimateFrame();
 	//フレームの合成行列を計算する
@@ -1206,11 +1307,11 @@ void CModelXS::Update(CMatrix44 &matrix) {
 		for (int j = 0; j < mpModel->mMesh[i]->mSkinWeights.size(); j++) {
 			//スキンメッシュの行列配列を退避する
 			mpMeshSkinMatrix[i].mpSkinnedMatrix[j + 1]
-				= mpCombinedMatrix[ mpModel->mMesh[i]->mSkinWeights[j]->mFrameIndex] * mpModel->mMesh[i]->mSkinWeights[j]->mOffset;
+				= mpCombinedMatrix[mpModel->mMesh[i]->mSkinWeights[j]->mFrameIndex] * mpModel->mMesh[i]->mSkinWeights[j]->mOffset;
 		}
 	}
-
 }
+
 /*MATRIXのアップデート*/
 void CModelXS::MatrixUpdate(CMatrix44 &matrix){
 	//フレームの変換行列をアニメーションで更新する

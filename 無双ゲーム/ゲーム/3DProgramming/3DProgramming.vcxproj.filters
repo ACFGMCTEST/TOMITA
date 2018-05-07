@@ -263,6 +263,12 @@
     <ClCompile Include="GameMain\Sound\CSound.cpp">
       <Filter>ソース ファイル\GameMain\Sound</Filter>
     </ClCompile>
+    <ClCompile Include="GameMain\Collision\CCollider3.cpp">
+      <Filter>ソース ファイル\GameMain\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMain\Graphic\CModelObj.cpp">
+      <Filter>ソース ファイル\GameMain\Graphic</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Define\Define.h">
@@ -444,6 +450,12 @@
     </ClInclude>
     <ClInclude Include="GameMain\Sound\CSound.h">
       <Filter>ソース ファイル\GameMain\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMain\Collision\CCollider3.h">
+      <Filter>ソース ファイル\GameMain\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMain\Graphic\CModelObj.h">
+      <Filter>ソース ファイル\GameMain\Graphic</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

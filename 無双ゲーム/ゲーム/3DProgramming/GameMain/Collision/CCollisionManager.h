@@ -13,10 +13,6 @@ private:
 
 	void Update(CTask *t);//更新処理
 
-	void PlayerCollision(CTask *TaskYou, CTask *Player); //プレイヤーのあたりはんてい処理
-	void EnemyCollision(CTask *TaskYou, CTask *Enemy); //エネミーのあたりはんてい処理A
-	void CameraCollision(CTask *TaskYou, CTask *Camera);//カメラの当たり判定
-	void OnCollision(CTask *TaskYou, CTask *Task_I);    //あたり判定呼び出し処理
 
 
 	static CCollisionManager *mCollisionManager;

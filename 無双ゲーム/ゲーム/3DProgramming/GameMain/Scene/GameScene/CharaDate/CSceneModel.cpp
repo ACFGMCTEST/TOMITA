@@ -71,9 +71,6 @@ void CSceneModel::CPlayerAdd(CVector3 PlayerPos, CModelX *model){
 
 	pl->Init(model);
 	pl->mPosition = PlayerPos;//ポジション決める
-
-	CCollisionManager::GetInstance()->Add(CTask::E_TAG_PLAYER, pl->mpCBLeg);//あたり判定追加
-	CCollisionManager::GetInstance()->Add(CTask::E_TAG_PLAYER, pl->mpCBBody);//あたり判定追加
 	mModelTaskManager.Add(pl);//タスクに追加
 	mpPlayer = pl; //操作用
 }
@@ -86,8 +83,6 @@ void CSceneModel::CEnemyAdd(CVector3 EnemyPos, CModelX *model){
 	ene->Init(model);
 	ene->mPosition = EnemyPos;
 	/*当たり判定追加処理*/
-	CCollisionManager::GetInstance()->Add(CTask::E_TAG_ENEMY, ene->mpCBLeg);//あたり判定追加
-	CCollisionManager::GetInstance()->Add(CTask::E_TAG_ENEMY, ene->mpCBBody);
 	CCollisionManager::GetInstance()->Add(CTask::E_TAG_ATTACK_INIT_RANGE, ene->mpCBAttackInitBox);
 	CCollisionManager::GetInstance()->Add(CTask::E_TAG_ATTACK_RANGE, ene->mpCBAttackBox);
 	mModelTaskManager.Add(ene);

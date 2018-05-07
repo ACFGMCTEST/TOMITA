@@ -14,6 +14,7 @@
     <ClCompile Include="3DBase\C3DBase.cpp" />
     <ClCompile Include="GameMain\Camera\CCamera.cpp" />
     <ClCompile Include="GameMain\Collision\CCollider.cpp" />
+    <ClCompile Include="GameMain\Collision\CCollider3.cpp" />
     <ClCompile Include="GameMain\Collision\CCollision.cpp" />
     <ClCompile Include="GameMain\Collision\CCollisionManager.cpp" />
     <ClCompile Include="GameMain\Collision\CCollision2D.cpp" />
@@ -23,6 +24,7 @@
     <ClCompile Include="GameMain\Graphic\CBox.cpp" />
     <ClCompile Include="GameMain\Graphic\CHpBar.cpp" />
     <ClCompile Include="GameMain\Graphic\CLoadTexManager.cpp" />
+    <ClCompile Include="GameMain\Graphic\CModelObj.cpp" />
     <ClCompile Include="GameMain\Graphic\CModelX.cpp" />
     <ClCompile Include="GameMain\Graphic\CRectangle.cpp" />
     <ClCompile Include="GameMain\Graphic\CRectangle2.cpp" />
@@ -71,6 +73,7 @@
     <ClInclude Include="Define\Define.h" />
     <ClInclude Include="GameMain\Camera\CCamera.h" />
     <ClInclude Include="GameMain\Collision\CCollider.h" />
+    <ClInclude Include="GameMain\Collision\CCollider3.h" />
     <ClInclude Include="GameMain\Collision\CCollision.h" />
     <ClInclude Include="GameMain\Collision\CCollisionManager.h" />
     <ClInclude Include="GameMain\Collision\CCollision2D.h" />
@@ -85,6 +88,7 @@
     <ClInclude Include="GameMain\Graphic\CBox.h" />
     <ClInclude Include="GameMain\Graphic\CHpBar.h" />
     <ClInclude Include="GameMain\Graphic\CLoadTexManager.h" />
+    <ClInclude Include="GameMain\Graphic\CModelObj.h" />
     <ClInclude Include="GameMain\Graphic\CModelX.h" />
     <ClInclude Include="GameMain\Graphic\CRectangle.h" />
     <ClInclude Include="GameMain\Graphic\CRectangle2.h" />
