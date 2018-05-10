@@ -99,6 +99,30 @@
     <Filter Include="ソース ファイル\GameMain\Sound">
       <UniqueIdentifier>{4ae00013-0313-4cd0-9e35-02cc991734cd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\GameMain\Scene\GameScene\CharaData\Player">
+      <UniqueIdentifier>{fdeeca9d-3d47-4b27-be6f-d9b0cc315e17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameMain\Scene\GameScene\CharaData\Enemy">
+      <UniqueIdentifier>{d40701ad-ece6-41b3-9770-034d9e24653a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameMain\Scene\GameScene\CharaData\Player\State">
+      <UniqueIdentifier>{0a58360e-c6f7-47d9-9025-0f20f1b192d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameMain\Scene\GameScene\CharaData\Player\State\Attack">
+      <UniqueIdentifier>{f50eceee-85d2-4280-88ad-f26e244c34b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameMain\Scene\GameScene\CharaData\Player\State\Run">
+      <UniqueIdentifier>{12e72dc2-c69c-410d-b261-dc4aaf986b9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameMain\Scene\GameScene\CharaData\Player\State\Idling">
+      <UniqueIdentifier>{e02cd55d-e650-4546-816f-c78ca2b92e6b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameMain\Scene\GameScene\CharaData\Player\State\Jump">
+      <UniqueIdentifier>{fe2342af-b0bd-4df0-8d42-40a730de3107}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\StateMachine">
+      <UniqueIdentifier>{18f4abf7-8150-4bd2-887e-6dca1e43c6b6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main\main.cpp">
@@ -106,9 +130,6 @@
     </ClCompile>
     <ClCompile Include="Light\CLight.cpp">
       <Filter>ソース ファイル\Light</Filter>
-    </ClCompile>
-    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\CXCharPlayer.cpp">
-      <Filter>ソース ファイル\GameMain\Scene\GameScene\CharaData</Filter>
     </ClCompile>
     <ClCompile Include="GameMain\Scene\GameScene\Map\CMap.cpp">
       <Filter>ソース ファイル\GameMain\Scene\GameScene\Map</Filter>
@@ -227,9 +248,6 @@
     <ClCompile Include="GameMain\Scene\GameScene\CharaDate\CSceneModel.cpp">
       <Filter>ソース ファイル\GameMain\Scene\GameScene\CharaData</Filter>
     </ClCompile>
-    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\CXCharEnemy.cpp">
-      <Filter>ソース ファイル\GameMain\Scene\GameScene\CharaData</Filter>
-    </ClCompile>
     <ClCompile Include="GameMain\Scene\GameScene\Effect\CEffect2D.cpp">
       <Filter>ソース ファイル\GameMain\Scene\GameScene\Effect</Filter>
     </ClCompile>
@@ -269,6 +287,30 @@
     <ClCompile Include="GameMain\Graphic\CModelObj.cpp">
       <Filter>ソース ファイル\GameMain\Graphic</Filter>
     </ClCompile>
+    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Player\CXCharPlayer.cpp">
+      <Filter>ソース ファイル\GameMain\Scene\GameScene\CharaData\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Player\State\Attack\CStatePlayerAttack.cpp">
+      <Filter>ソース ファイル\GameMain\Scene\GameScene\CharaData\Player\State\Attack</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Player\State\Idling\CStatePlayeridling.cpp">
+      <Filter>ソース ファイル\GameMain\Scene\GameScene\CharaData\Player\State\Idling</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Player\State\Jump\CStatePlayerJump.cpp">
+      <Filter>ソース ファイル\GameMain\Scene\GameScene\CharaData\Player\State\Jump</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Player\State\Run\CStatePlayerRun.cpp">
+      <Filter>ソース ファイル\GameMain\Scene\GameScene\CharaData\Player\State\Run</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Enemy\CXCharEnemy.cpp">
+      <Filter>ソース ファイル\GameMain\Scene\GameScene\CharaData\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="StateMachine\CStateBase.cpp">
+      <Filter>ソース ファイル\StateMachine</Filter>
+    </ClCompile>
+    <ClCompile Include="StateMachine\CStateMachine.cpp">
+      <Filter>ソース ファイル\StateMachine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Define\Define.h">
@@ -276,9 +318,6 @@
     </ClInclude>
     <ClInclude Include="Light\CLight.h">
       <Filter>ソース ファイル\Light</Filter>
-    </ClInclude>
-    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\CXCharPlayer.h">
-      <Filter>ソース ファイル\GameMain\Scene\GameScene\CharaData</Filter>
     </ClInclude>
     <ClInclude Include="GameMain\Scene\GameScene\Map\CMap.h">
       <Filter>ソース ファイル\GameMain\Scene\GameScene\Map</Filter>
@@ -400,9 +439,6 @@
     <ClInclude Include="GameMain\Scene\GameScene\CharaDate\CSceneModel.h">
       <Filter>ソース ファイル\GameMain\Scene\GameScene\CharaData</Filter>
     </ClInclude>
-    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\CXCharEnemy.h">
-      <Filter>ソース ファイル\GameMain\Scene\GameScene\CharaData</Filter>
-    </ClInclude>
     <ClInclude Include="GameMain\Scene\GameScene\Effect\CEffect2D.h">
       <Filter>ソース ファイル\GameMain\Scene\GameScene\Effect</Filter>
     </ClInclude>
@@ -456,6 +492,30 @@
     </ClInclude>
     <ClInclude Include="GameMain\Graphic\CModelObj.h">
       <Filter>ソース ファイル\GameMain\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Player\CXCharPlayer.h">
+      <Filter>ソース ファイル\GameMain\Scene\GameScene\CharaData\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Player\State\Attack\CStatePlayerAttack.h">
+      <Filter>ソース ファイル\GameMain\Scene\GameScene\CharaData\Player\State\Attack</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Player\State\Idling\CStatePlayeridling.h">
+      <Filter>ソース ファイル\GameMain\Scene\GameScene\CharaData\Player\State\Idling</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Player\State\Jump\CStatePlayerJump.h">
+      <Filter>ソース ファイル\GameMain\Scene\GameScene\CharaData\Player\State\Jump</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Player\State\Run\CStatePlayerRun.h">
+      <Filter>ソース ファイル\GameMain\Scene\GameScene\CharaData\Player\State\Run</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Enemy\CXCharEnemy.h">
+      <Filter>ソース ファイル\GameMain\Scene\GameScene\CharaData\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="StateMachine\CStateBase.h">
+      <Filter>ソース ファイル\StateMachine</Filter>
+    </ClInclude>
+    <ClInclude Include="StateMachine\CStateMachine.h">
+      <Filter>ソース ファイル\StateMachine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

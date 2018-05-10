@@ -1,9 +1,4 @@
 #include "CXCharEnemy.h"
-#include "../../CharaDate/CSceneModel.h"
-#include "../../../../Key/CKey.h"
-#include "../../../../Key/CMouse.h"
-#include "../../../../Convenient/CConvenient.h"
-#include "../../Map/CMap.h"
 #include <time.h>
 
 /*回転感覚時間*/
@@ -78,7 +73,6 @@ void CXCharEnemy::AIMove(){
 
 /*更新処理*/
 void CXCharEnemy::Update(){
-	AnimaState(E_ATTACK_RUN);
 
 	AIMove();
 	mpCBAttackInitBox->Update();
@@ -88,7 +82,6 @@ void CXCharEnemy::Update(){
 
 /*攻撃準備*/
 void CXCharEnemy::AttackInit(){
-	AnimaState(E_ATTACK_INIT);
 }
 
 /*攻撃*/
@@ -103,5 +96,4 @@ void CXCharEnemy::Attack(CCollider &col){
 /*障害物に当たった時のジャンプフラグ立て*/
 void CXCharEnemy::ColEnabledJump(){
 	mFlagJump = true;
-	Jump();
 }

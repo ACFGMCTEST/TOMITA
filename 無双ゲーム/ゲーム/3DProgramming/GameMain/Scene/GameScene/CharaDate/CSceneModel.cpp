@@ -8,7 +8,7 @@
 #include "../../../Collision/CCollision2D.h"
 #include "../../../Key/CMouse.h"
 #include "../../../Convenient/CConvenient.h"
-#include "CXCharEnemy.h"
+#include "Enemy\CXCharEnemy.h"
 #include "../CGameScene.h"
 
 
@@ -89,7 +89,6 @@ void CSceneModel::CEnemyAdd(CVector3 EnemyPos, CModelX *model){
 }
 
 void CSceneModel::Init() {
-
 	mMouseInitCount = 0.0f;							//マウスが初期位置に戻るまでの時間
 	mLagTime = 0.0f;								//lagによるバグ回避時間
 
@@ -138,25 +137,16 @@ void CSceneModel::Init() {
 }
 
 void CSceneModel::Update() {
-	
-		/*lag回避*/
-		if (!CConvenient::Time(&mLagTime, LAG_SIZE)){
-			CMouse::GetInstance()->mLeftFlag = false;
-		}
+	/*lag回避*/
+	if (!CConvenient::Time(&mLagTime, LAG_SIZE)){
+		CMouse::GetInstance()->mLeftFlag = false;
+	}
 
-		
-		mModelTaskManager.AllUpdate();
-
-
-
-
-	
+	mModelTaskManager.AllUpdate();
 }
 
 void CSceneModel::Render() {
-	
 	mModelTaskManager.AllRender();
-
 }
 
 void CSceneModel::UpdateEffect(){

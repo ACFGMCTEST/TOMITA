@@ -1,4 +1,4 @@
-#include "../Scene/GameScene/CharaDate/CXCharEnemy.h"
+
 #include "../Scene/GameScene/CharaDate/CSceneModel.h"
 #include "../../GameMain/Scene/CSceneManager.h"
 #include "CCollisionManager.h"

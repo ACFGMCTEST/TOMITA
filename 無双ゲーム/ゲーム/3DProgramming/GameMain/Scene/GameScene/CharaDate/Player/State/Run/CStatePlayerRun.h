@@ -1,13 +1,14 @@
 #ifndef STATE_PLAYER_RUN_H
 #define STATE_PLAYER_RUN_H
-#include "../CStatePlayerBase.h"
-/*プレイヤーの現在の状態(待機)クラス*/
-class CStatePlayerRun : public CStatePlayerBase
+
+#include "../../../../../../../StateMachine/CStateBase.h"
+
+/*プレイヤーの現在の状態(走る)クラス*/
+class CStatePlayerRun : public CStateBase
 {
+private:
+	void Move();//
 public:
-
-
-
 	CStatePlayerRun();
 	~CStatePlayerRun();
 	/*初めに呼び出し*/
@@ -17,6 +18,8 @@ public:
 	//遷移時の処理
 	// isNextをfalseに戻す処理はここで行うとよい
 	void OnChangeEvent();
+	//変更する関数
+	void ChangeState();
 
 };
 

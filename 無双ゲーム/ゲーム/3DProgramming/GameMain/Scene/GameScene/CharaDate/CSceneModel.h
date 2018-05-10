@@ -4,7 +4,8 @@
 #include "../../../Graphic/CModelX.h"
 #include "../../../Matrix/CMatrix44.h"
 #include "../../../Camera/CCamera.h"
-#include "CXCharPlayer.h"
+#include "Player\CXCharPlayer.h"
+
 
 #include "../../../Graphic/CRectangle2.h"
 #include "../../../Task/CTaskManager.h"
@@ -37,7 +38,7 @@ public:
 	ˆø”ƒ|ƒWƒVƒ‡ƒ“Œˆ‚ß‚é
 	*/
 	void CSceneModel::CPlayerAdd(CVector3 PlayerPos, CModelX *model);
-	void CSceneModel::CEnemyAdd(CVector3 EnemyPos, CModelX *model);
+	void CSceneModel::CEnemyAdd (CVector3 EnemyPos,  CModelX *model);
 	CTaskManager mModelTaskManager;
 	CSceneModel();
 	~CSceneModel();

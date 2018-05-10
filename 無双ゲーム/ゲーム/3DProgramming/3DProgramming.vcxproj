@@ -44,8 +44,12 @@
     <ClCompile Include="GameMain\Scene\GameOverScene\CGameOverScene.cpp" />
     <ClCompile Include="GameMain\Scene\GameScene\CGameScene.cpp" />
     <ClCompile Include="GameMain\Scene\GameScene\CharaDate\CSceneModel.cpp" />
-    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\CXCharEnemy.cpp" />
-    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\CXCharPlayer.cpp" />
+    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Enemy\CXCharEnemy.cpp" />
+    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Player\CXCharPlayer.cpp" />
+    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Player\State\Attack\CStatePlayerAttack.cpp" />
+    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Player\State\Idling\CStatePlayeridling.cpp" />
+    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Player\State\Jump\CStatePlayerJump.cpp" />
+    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Player\State\Run\CStatePlayerRun.cpp" />
     <ClCompile Include="GameMain\Scene\GameScene\Effect\CEffect2D.cpp" />
     <ClCompile Include="GameMain\Scene\GameScene\Effect\CExplosion.cpp" />
     <ClCompile Include="GameMain\Scene\GameScene\Map\CMap.cpp" />
@@ -67,6 +71,8 @@
     <ClCompile Include="GameMain\Vector\CVector4.cpp" />
     <ClCompile Include="Light\CLight.cpp" />
     <ClCompile Include="Main\main.cpp" />
+    <ClCompile Include="StateMachine\CStateBase.cpp" />
+    <ClCompile Include="StateMachine\CStateMachine.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="3DBase\C3DBase.h" />
@@ -109,8 +115,12 @@
     <ClInclude Include="GameMain\Scene\GameOverScene\CGameOverScene.h" />
     <ClInclude Include="GameMain\Scene\GameScene\CGameScene.h" />
     <ClInclude Include="GameMain\Scene\GameScene\CharaDate\CSceneModel.h" />
-    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\CXCharEnemy.h" />
-    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\CXCharPlayer.h" />
+    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Enemy\CXCharEnemy.h" />
+    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Player\CXCharPlayer.h" />
+    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Player\State\Attack\CStatePlayerAttack.h" />
+    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Player\State\Idling\CStatePlayeridling.h" />
+    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Player\State\Jump\CStatePlayerJump.h" />
+    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Player\State\Run\CStatePlayerRun.h" />
     <ClInclude Include="GameMain\Scene\GameScene\Effect\CEffect2D.h" />
     <ClInclude Include="GameMain\Scene\GameScene\Effect\CExplosion.h" />
     <ClInclude Include="GameMain\Scene\GameScene\Map\CMap.h" />
@@ -131,6 +141,8 @@
     <ClInclude Include="GameMain\Vector\CVector3.h" />
     <ClInclude Include="GameMain\Vector\CVector4.h" />
     <ClInclude Include="Light\CLight.h" />
+    <ClInclude Include="StateMachine\CStateBase.h" />
+    <ClInclude Include="StateMachine\CStateMachine.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="mesh.flag" />
