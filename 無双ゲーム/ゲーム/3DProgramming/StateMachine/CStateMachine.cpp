@@ -1,16 +1,17 @@
 #include "CStateMachine.h"
-
+#include <assert.h>
 /*XV*/
 void CStateMachine::Update()
 {
 	nowState->Update();
+	nowState->ChangeState();//ó‘ÔØ‚è‘Ö‚¦
+
 	if (nowState->IsNext())
 	{
-		// ‘JˆÚ‚Ìˆ—‚ğÀs
-		nowState->OnChangeEvent();
-
 		// ‘JˆÚæ‚Ìæ“¾
 		auto it = stateMap.find(nowState->NextRegisterName());
+		// ‘JˆÚ‚Ìˆ—‚ğÀs(‰Šú‰»ˆ—)
+		nowState->OnChangeEvent();
 		// Œ©‚Â‚©‚ç‚È‚©‚Á‚½ê‡Aˆ—‚ğI—¹
 		if (it == stateMap.end()) return;
 
@@ -29,11 +30,21 @@ void CStateMachine::Update()
 	}
 }
 
-// “o˜^‚·‚é
-void CStateMachine::Register(const std::string& name, const std::shared_ptr<CStateBase> state)
-{
-	stateMap.insert(std::make_pair(name, state));
-	std::cout << "StateMachine : " << name << "‚ğ“o˜^" << std::endl;
+//// “o˜^‚·‚é
+//void CStateMachine::Register(const std::string& name, const std::shared_ptr<CStateBase> state)
+//{
+//	stateMap.insert(std::make_pair(name, state));//ƒ}ƒbƒv‚É–¼‘O‚Æ‘®«‚ğ’Ç‰Á
+//#ifdef _DEBUG
+//	std::cout << "StateMachine : " << name << "‚ğ“o˜^" << std::endl;//ƒfƒoƒbƒN—p
+//#endif
+//}
+//// “o˜^‚·‚é,e‚Ìİ’è
+void CStateMachine::Register(const std::string& name, const std::shared_ptr<CStateBase> state, CTask *parent){
+	state->SetParent(parent);//e‚ğİ’è‚·‚é
+	stateMap.insert(std::make_pair(name, state));//ƒ}ƒbƒv‚É–¼‘O‚Æ‘®«‚ğ’Ç‰Á
+#ifdef _DEBUG
+	std::cout << "StateMachine : " << name << "‚ğ“o˜^" << std::endl;//ƒfƒoƒbƒN—p
+#endif
 }
 
 // Å‰‚©‚çn‚ß‚éó‘Ô‚ğİ’è
@@ -41,9 +52,9 @@ void CStateMachine::SetStartState(const std::string& registerName)
 {
 	auto it = stateMap.find(registerName);
 	if (it == stateMap.end()) return;
-
+#ifdef _DEBUG
 	std::cout << "StateMachine : " << it->first << "‚ğƒXƒ^[ƒgó‘Ô‚Éİ’è" << std::endl;
-
+#endif
 	nowState = it->second;
 	nowState->Start();
 
@@ -54,17 +65,18 @@ void CStateMachine::Deregistration(const std::string& registerName)
 {
 	auto it = stateMap.find(registerName);
 	if (it == stateMap.end()) return;
-
+#ifdef _DEBUG
 	std::cout << "StateMachine : " << it->first << "‚ğ“o˜^‚ğíœ‚·‚é" << std::endl;
-
+#endif
 	stateMap.erase(it);
 }
 
 // ‚·‚×‚Ä‚Ì“o˜^‚ğíœ‚·‚é
 void CStateMachine::AllDeregistration()
 {
+#ifdef _DEBUG
 	std::cout << "StateMachine : " << "‚·‚×‚Ä‚Ì“o˜^‚ğíœ‚·‚é" << std::endl;
-
+#endif
 	stateMap.clear();
 }
 

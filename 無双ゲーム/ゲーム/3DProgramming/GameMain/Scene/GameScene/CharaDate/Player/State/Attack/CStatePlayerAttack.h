@@ -1,14 +1,9 @@
 #ifndef STATE_PLAYER_ATTACK_H
 #define STATE_PLAYER_ATTACK_H
-#include "../CStatePlayerBase.h"
-
+#include "../../../../../../../StateMachine/CStateBase.h"
 /*プレイヤーの現在の状態(攻撃)クラス*/
-class CStatePlayerAttack : public CStatePlayerBase
-{
+class CStatePlayerAttack : public CStateBase{
 public:
-
-
-
 	CStatePlayerAttack();
 	~CStatePlayerAttack();
 	/*初めに呼び出し*/
@@ -18,6 +13,8 @@ public:
 	//遷移時の処理
 	// isNextをfalseに戻す処理はここで行うとよい
 	void OnChangeEvent();
+	//変更する関数
+	void ChangeState();
 
 };
 

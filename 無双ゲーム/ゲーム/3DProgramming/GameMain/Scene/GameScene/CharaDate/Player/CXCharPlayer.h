@@ -3,22 +3,26 @@
 
 #include "../../../../Graphic/CModelX.h"
 #include "../../../../Vector/CVector3.h"
-
+#include "../../../../Collision/CCollider.h"
 #include "../../Effect/CEffect2D.h"
 #include "../../../../Key/CKey.h"
+#include "../../../../Collision/CCollider.h"
+#include "../../../../Collision/CCollider3.h"
+#include"../../../../../StateMachine/CStateMachine.h"
+#include "../../../../../StateMachine/CStateBase.h"
 
 //プレイヤーの数
 #define CHARA_ARRAY 3
 /*キャラステータス*/
 /*進むスピード*/
-#define SPEED_RUN 0.35f //走る
-#define SPEED_RUN_SKILL 0.6f //スキル時の走行スピード
+#define SPEED_RUN 0.1f //MAX走る
+#define SPEED_RUN_ACC(v) if (SPEED_RUN > v){v += SPEED_RUN* 0.01f; }else{v = SPEED_RUN;}//加速度計算上限に来た場合
 
 #define SPEED_ATTACK_RUN SPEED_RUN*0.8f //ため走る
-#define SPEED_JUMP_DOWN 0.05f //ジャンプ中はveloctyをマイナスする
-#define SPEED_ATTACK_RUN_SKILL 0.4 //スキル発動時の移動速度
+#define SPEED_JUMP_DOWN 0.05f			//ジャンプ中はveloctyをマイナスする
+#define SPEED_ATTACK_RUN_SKILL 0.4		//スキル発動時の移動速度
 
-#define SKILL_TIME_LIMIT 1200.0f
+#define SKILL_TIME_LIMIT 1200.0f 
 
 /*吹き飛ばす力*/
 #define ATTACK_POWER 0.02f
@@ -50,27 +54,25 @@
 /*進む方角*/
 #define FORWARD 0.0f,0.0f,1.0f
 /*
- CXCharPlayer
- プレイヤークラス
+CXCharPlayer
+プレイヤークラス
 */
 //class CXCharPlayer : public CXCharacter {
 class CXCharPlayer : public CModelXS {
 private:
+	
 	int mRotCount;//回転地カウント　移動するときに使う
 	CKey AttackInitKey;//Init時に使う
+	/*プレイヤーのステータス管理*/
+	CTask *mpStateParent;//ステータスの親_アクセス用
+	std::unique_ptr<CStateMachine> mStateMachine;//ステータス管理
+
 public:
 	float mGravitTime;//重力の時間
 	float mVelocity; //速さ 使うもの
 	float mPower;//攻撃力
 	bool mFlagKnockback;//ノックバック中か判断
 	bool mFlagJump;//ジャンプフラグ
-	bool mFlagSlpoe;//今坂に当たっているか判断
-
-
-	const float mGageDecrease = 0.17f;//スキルゲージの１フレーム毎の減少速度
-	const float mGageLimit=200.0f;	//スキルゲージのリミット都合がいいので時間制御も兼ねる
-
-	float mSkillTime;//スキルの発動時間
 
 	CVector3 mForward;//進む向き
 	CVector4 fortank; //自分が向いている向き
@@ -79,18 +81,6 @@ public:
 	CVector3 mPrevPos; //前の位置保存場所 
 
 	CVector3 mRotation;	//回転
-	/*向き*/
-	enum E_DIRECTION{
-	E_RIGHT,
-	E_LEFT,
-	E_TOP,
-	E_BOTTOM
-	};
-	E_DIRECTION eDirection;//現在の方向
-	bool DirectionAnima();//向きの制御 アニメーションが終わるまで移動しない
-	
-
-
 	CXCharPlayer();
 	//初期化処理
 	void Init(CModelX *model);
@@ -102,61 +92,55 @@ public:
 	void Render();
 	//billboardの描画処理
 	void BillboardRender();
+
+	/*回転関数
+	rot = 回転値*/
+	void PlusRot(float rot);
 	void PosUpdate();//ポジションの変更関数　
 	int mCountKnockBack; //ノックバックする回数
 
+	/*当たったときに呼び出す
+	count:移動回数
+	Forward:進む方角
+	*/
+	void ColMove(int count, CVector3 Foward);
 
-	/*操作する場合*/
-	void MyMove();
-	/*簡易移動フラグ関数*/
-	bool FlagMove();
-	/*簡易アニメーション切り替え*/
-	void AnimaState(ESTATE state);
+	/*回転するまで移動しない*/
+	//bool FlagRotMove(int angle);
 
-	/*経路探索　ポジションをとるよう*/
-	CVector4 *mGoPos; //向かうポジション newして保存
-	int mGoPosSize; //最後までの配列保存
-	int mGoCount;//どこに行くカウント 最後の配列から0に向かっていく
 	/*POSだけのマトリックスアップデート*/
 	void MatrixUpdate();
 
+	/*移動させる*/
+	void Move();
 
-	/*アタックのステータス 攻撃中判断*/
-	bool FlagAttackState();
-	/*速さ制御関数*/
-	void MoveSpeed();
-	/*動かすときの処理
-	forward = 方向設定
-	velocity = 力
+	/*当たり判定呼び出し
+	元の場所に戻すための関数
 	*/
-	void Move(const CVector3 &forward,float velocity);
+	bool Collision(const COBB &box, const CColSphere &sphere);
+	bool Collision(const COBB *box, const CColSphere *sphere);
+
+	bool Collision(CCollider2* me, CCollider2* you);
+	bool Collision(CCollider3* me, CCollider3* you);
 
 
-	/*ハンマーの溜める処理*/
-	void HammerUp();
-	/*Hammerの初期化処理*/
-	void HammerInit();
 	/*重力
 	自分の足がついているときを重力を止める場所にする
 	*/
 	void Gravity();
-
-	/*ジャンプ関数
-	当たり判定の仕様
-	自分の当たり判定に入っている
-	地面に一番近い
-
-	もしかしたら当たり判定がうまいこと働いてきれいに止まってくるかも
-	ガクブル現象がなければしなくていいんだけど
-	*/
-	void Jump();
 	/*グラウンドの設定*/
 	void ColGround();
+
 	/*キャラクター動く時の回転
 	float = 向きたい方向
 	*/
 	int MoveRotation(int  angle);
 
+	CVector3 mAdjust;
+
+
+	/*操作する回転値計算*/
+	void PlayerMoveRot();
 };
 
 #endif

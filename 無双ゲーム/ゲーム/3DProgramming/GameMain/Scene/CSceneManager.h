@@ -8,11 +8,13 @@ private:
 public:
 
 	int NextNo;
+	
 	enum EState
 	{
 		E_INIT,
 		E_LOOP
 	};
+
 	EState eStatus = E_INIT;
 	static CSceneManager *GetInstance(); //GetInstance
 

@@ -1,5 +1,17 @@
 ﻿cl : コマンド ライン warning D9025: '/sdl' より '/GS-' が優先されます。
-  CCamera.cpp
+  CStatePlayerAttack.cpp
+c:\users\tomi-\desktop\tomita_comit\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\ctexture.h(83): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+c:\users\tomi-\desktop\tomita_comit\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\ctexture.h(90): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : 'strcpy' の宣言を確認してください。
+c:\users\tomi-\desktop\tomita_comit\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(110): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\tomita_comit\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(234): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\tomita_comit\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(319): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\tomita_comit\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(324): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\tomita_comit\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(329): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\tomita_comit\無双ゲーム\ゲーム\3dprogramming\define\define.h(90): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\tomita_comit\無双ゲーム\ゲーム\3dprogramming\define\define.h(85) : 'BACK_POS' の前の定義を確認してください
+  CXCharPlayer.cpp
 c:\users\tomi-\desktop\tomita_comit\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\ctexture.h(83): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
           c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 'fopen' の宣言を確認してください。
 c:\users\tomi-\desktop\tomita_comit\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\ctexture.h(90): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
@@ -13,5 +25,7 @@ c:\users\tomi-\desktop\tomita_comit\無双ゲーム\ゲーム\3dprogramming\defi
           c:\users\tomi-\desktop\tomita_comit\無双ゲーム\ゲーム\3dprogramming\define\define.h(85) : 'BACK_POS' の前の定義を確認してください
 c:\users\tomi-\desktop\tomita_comit\無双ゲーム\ゲーム\3dprogramming\define\define.h(85): warning C4005: 'BACK_POS' : マクロが再定義されました。
           c:\users\tomi-\desktop\tomita_comit\無双ゲーム\ゲーム\3dprogramming\define\define.h(90) : 'BACK_POS' の前の定義を確認してください
-cl : コマンド ライン warning D9028: 簡易リビルド時のエラーです、通常のビルドに戻します
+c:\users\tomi-\desktop\tomita_comit\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\itemscene\citem.h(11): warning C4005: 'TIP_ARRAY' : マクロが再定義されました。
+          c:\users\tomi-\desktop\tomita_comit\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\effect\ceffect2d.h(5) : 'TIP_ARRAY' の前の定義を確認してください
+  コードを生成中...
   3DProgramming.vcxproj -> C:\Users\tomi-\Desktop\TOMITA_COMIT\無双ゲーム\ゲーム\Debug\3DProgramming.exe

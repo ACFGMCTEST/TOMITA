@@ -70,9 +70,6 @@ void CCamera::CharaPos(){
 /*初期化処理*/
 void CCamera::Init(){
 	PosUpdate(mRot, FIAST_POS);
-	
-
-
 	/*球の当たり判定設定*/
 	mpCBSphere = new CCollider(E_COL_SPHEPE);
 	mpCBSphere->mpParent = this;
@@ -93,6 +90,7 @@ void CCamera::SetPos(float x, float y, float z) {
 	//カメラ行列の設定
 	gluLookAt(CAMERA_LOOK);
 }
+
 /*カメラ設定*/
 void CCamera::MouseCamera(){
 	/*カメラ設定マウス*/
@@ -147,7 +145,6 @@ void CCamera::PosUpdate(CVector3 rot, CVector3 pos){
 	mRot.y = mRotPercent;//３６０にする
 	mat.rotationX(matrixRot.x);
 	mat.rotationY(matrixRot.y);
-
 	//カメラを回転させる
 	cp = cp * mat;
 	cp += SavePos;
