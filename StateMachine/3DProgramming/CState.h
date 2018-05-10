@@ -80,6 +80,9 @@ public:
 		Init(m);
 		//初期ステータスはプレイヤー待機モーション
 		ChangeState(CStatePlayerIdle::Instance());
+		//カプセル　キャラクタ全体
+		new CCollider3Capsule(this, CVector3(0.0f, 1.5f, 0.0f), CVector3(0.0f, -0.9f, 0.0f), 0.5f
+			, &mpCombinedMatrix[m->FindFrame("metarig_hips")->mIndex]);
 	}
 	CStatePlayer(CModelX *m, CVector3 &pos)
 		: CStatePlayer(m)
