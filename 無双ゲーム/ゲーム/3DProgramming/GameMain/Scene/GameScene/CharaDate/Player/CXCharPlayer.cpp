@@ -16,16 +16,20 @@
 #include "State\Idling\CStatePlayeridling.h"
 #include "State\Jump\CStatePlayerJump.h"
 #include "State\Run\CStatePlayerRun.h"
-#include "../../../../../StateMachine/CStateMachine.h"
-
+#include "State\RunAttack\CStatePlayerRunAttack.h"
+/*当たり判定*/
+#include "../../../../Collision/ColType/CColCapsule.h"
+#include "../../../../Collision/ColType/CColTriangle.h"
 
 /*向き*/
 #define FORWARD_JUMP  0.0f,1.0f,1.0f//ジャンプ
 
 /*あたり判定の設定値*/
+#define OBB_RADIUS 0.5f
 /*胴*/
 #define OBB_SPHERE_BODY_SIZE 0.4f
 #define OBB_SPHERE_BODY_POS CVector3(0.0f,0.0f,0.0f)
+#define COL_POS CVector3(0.0f, 1.5f, 0.0f), CVector3(0.0f, -0.9f, 0.0f)
 /*武器*/
 #define OBB_WEAPON_POS CVector3(0.0f,0.5f,0.0f)
 #define OBB_WEAPON_SIZE CVector3(0.4f, 0.7f, 0.4f)
@@ -41,46 +45,32 @@
 #define TURN_SPEED 10
 
 CXCharPlayer::CXCharPlayer() : mVelocity(0.0f), mFlagKnockback(false), mRotCount(0),
-mGravitTime(GRA_INIT_TIME_COUNT), mFlagJump(false), mAdjust(),
-mStateMachine(std::make_unique<CStateMachine>())
+mGravitTime(GRA_INIT_TIME_COUNT), mFlagJump(false), mAdjust()
 {
-	// 第一引数にステートの「登録名」
-	// 第二引数でStateBaseを継承したクラスのshared_ptrオブジェクトを生成
-	mStateMachine->Register(PL_STATE_ATTACK, std::make_shared<CStatePlayerAttack>(),this);
-	mStateMachine->Register(PL_STATE_IDLING, std::make_shared<CStatePlayerIdling>(),this);
-	mStateMachine->Register(PL_STATE_RUN,    std::make_shared<CStatePlayerRun>(),this);
-	mStateMachine->Register(PL_STATE_JUMP,   std::make_shared<CStatePlayerJump>(),this);
-	// 最初のステートを登録名で指定
-	mStateMachine->SetStartState(PL_STATE_IDLING);
-
 	mForward = CVector3(FORWARD);
 	mpParent = this;
-
-	mState = E_IDLING;
-	ePriority = CTask::E_PLAYER;
-
 };
-
-/*当たり判定初期化*/
-void CXCharPlayer::ColInit(){
-	/*当たり判定のインスタンス化*/
-	//mpCBWeapon = new CCollider(CTask::E_COL_BOX);
-
-	/*ペアレント設定*/
-	//mpCBWeapon->mpParent = this;
-}
-#define COL_POS CVector3(0.0f, 1.5f, 0.0f), CVector3(0.0f, -0.9f, 0.0f)
 /*
 Init
 モデルと衝突判定の設定を行う
 */
 void CXCharPlayer::Init(CModelX *model) {
-	ColInit();
+	mStateMachine = (std::make_unique<CStateMachine>());
+	// 第一引数にステートの「登録名」
+	// 第二引数でStateBaseを継承したクラスのshared_ptrオブジェクトを生成
+	mStateMachine->Register(PL_STATE_ATTACK, std::make_shared<CStatePlayerAttack>(), this);
+	mStateMachine->Register(PL_STATE_IDLING, std::make_shared<CStatePlayerIdling>(), this);
+	mStateMachine->Register(PL_STATE_RUN, std::make_shared<CStatePlayerRun>(), this);
+	mStateMachine->Register(PL_STATE_JUMP, std::make_shared<CStatePlayerJump>(), this);
+	mStateMachine->Register(PL_STATE_RUN_ATTACK, std::make_shared<CStatePlayerRunAttack>(), this);
+	// 最初のステートを登録名で指定
+	mStateMachine->SetStartState(PL_STATE_IDLING);
+
 	//モデルの設定
 	CModelXS::Init(model);
+
 	//カプセル　キャラクタ全体
-	new CCollider3Capsule(this, COL_POS, 0.5f
-		, &mpCombinedMatrix[model->FindFrame("metarig_hips")->mIndex]);
+	new CColCapsule(this, COL_POS, OBB_RADIUS, &mpCombinedMatrix[model->FindFrame("metarig_hips")->mIndex]);
 
 	mPower = ATTACK_POWER;//攻撃力
 
@@ -222,63 +212,16 @@ void CXCharPlayer::Update(){
 	mPrevPos = mPosition;
 	Gravity();/*重力*/
 	PosUpdate();//ポジションを更新
-
 	/*ステータスマシン更新*/
 	mStateMachine->Update();
-	//状態によりアニメーション変化
-	switch (mState)
-	{
-	case E_IDLING://立ち
 
-		mCountKnockBack = 0;
-		break;
-	case E_RUN://走る
-		break;
-	case E_ATTACK_RUN://攻撃走る
-		break;
-	case E_ATTACK_INIT:
-		ChangeAnimation(E_ATTACK_INIT, false, ANIMA_SPEED_ATTCK);
-		break;
-	case E_ATTACK://攻撃
-		break;
-	case E_ATTACK_IDLING:
-		ChangeAnimation(E_ATTACK_IDLING, true, ANIMA_SPEED_ATTCK);
-		break;
-	case E_JUMP:
-		ChangeAnimation(E_JUMP, false, ANIMA_SPEED_JUMP);
-		break;
-	case E_ATTACK_JUMP:
-		ChangeAnimation(E_ATTACK_JUMP, false, ANIMA_SPEED_JUMP);
-		break;
-	case E_DMGM://ダメージ
-		ChangeAnimation(E_DMGM, false, ANIMA_SPEED);
-		if (mCountKnockBack <= 0){ //カウントが０になると
-			mCountKnockBack = 0;
-		}
-		else{
-			mCountKnockBack -= 1;
-		}
-		break;
-	};
 }
 
 
 
 /*Render*/
 void CXCharPlayer::Render() {
-	//27
-	//HPバーの設定
-	//mHpBar.mPosition = mPosition;
-	//mHpBar.mPosition.y += 1.8f;
-	//mHpBar.Update();	//更新
-	//mHpBar.Render();	//描画
 	CModelXS::Render();
-#ifdef _DEBUG
-	//	mpCBBody->Render();
-	//	mpCBWeapon->Render();
-	//	mpCBLeg->Render();
-	//	mpColCapsule->Render();
-#endif
 }
 
 /*エフェクトの描画処理*/
@@ -302,50 +245,8 @@ void CXCharPlayer::ColMove(int count, CVector3 Forward){
 	mCountKnockBack = count;
 }
 
-/*当たり判定呼び出し
-元の場所に戻すための関数
-*/
-bool CXCharPlayer::Collision(const COBB &box, const CColSphere &sphere) {
-	return Collision(&box, &sphere);
-}
-
-bool CXCharPlayer::Collision(const COBB *box, const CColSphere *sphere) {
-	return true;
-}
 
 
-
-
-/*当たり判定*/
-bool CXCharPlayer::Collision(CCollider2* me, CCollider2* you) {
-	
-	switch (me->eColTag) {
-	case E_COL_CAPSULE:
-		if (you->eColTag == E_COL_TRIANGLE &&
-			(you->eTag == E_TAG_GROUND ||
-			you->eTag == E_TAG_WALL)) {
-			CVector3 cross;
-			float length;
-			CVector3 adjust;
-			if (CCollision::IntersectTriangleCapsule3(you->mV[1][0], you->mV[1][1], you->mV[1][2],
-				me->mV[1][0], me->mV[1][1], me->mF[0], &adjust, &cross, &length)) {
-				if (cross == CVector3())
-					return false;
-				//				if (you->eTag == E_TAG_BOX)
-				ColGround();//地面にあった時の処理
-				mPosition = mPosition + adjust;
-			}
-		}
-		break;
-	case E_COL_SPHEPE:
-		if (you->eTag == E_TAG_GROUND) {
-			if (you->eColTag == E_COL_BOX)
-				return Collision((COBB*)&you->mObb, (CColSphere*)&me->mColSphere);
-		}
-	}
-
-	return false;
-}
 void SetAdjust(CVector3 *s, const CVector3 &t) {
 	//x
 	if (s->x > 0) {
@@ -411,17 +312,23 @@ void SetAdjust(CVector3 *s, const CVector3 &t) {
 		}
 	}
 }
-//m 自分　y 相手
-bool CXCharPlayer::Collision(CCollider3* m, CCollider3* y) {
-	//CCollider3 *m = (CCollider3*)me;
-	//CCollider3 *y = (CCollider3*)you;
 
+//m 自分　y 相手
+bool CXCharPlayer::Collision(CColBase* m, CColBase* y) {
+	//CColBase *m = (CColBase*)me;
+	//CColBase *y = (CColBase*)you;
+	/*自分のタイプが何か判断*/
 	switch (m->mType) {
-	case CCollider3::COL_CAPSULE:
-		CCollider3Capsule *cc = (CCollider3Capsule*)m;
+
+	case CColBase::COL_CAPSULE://自分の当たり判定がカプセルの場合
+		CColCapsule *cc = (CColCapsule*)m;
+
+		/*相手のタイプ何か判断*/
 		switch (y->mType) {
-		case CCollider3::COL_TRIANGLE:
-			CCollider3Triangle ct = (*(CCollider3Triangle*)y).GetUpdate();
+			/*相手が三角の場合*/
+		case CColBase::COL_TRIANGLE:
+			CColTriangle ct = (*(CColTriangle*)y).GetUpdate();
+			/*当たり判定計算*/
 			if (CCollision::IntersectTriangleCapsule3(ct.mV[0], ct.mV[1], ct.mV[2],
 				cc->mV[0], cc->mV[1], cc->mRadius, &cc->mAdjust)) {
 				ColGround();//地面にあった時の処理
@@ -437,9 +344,10 @@ bool CXCharPlayer::Collision(CCollider3* m, CCollider3* y) {
 				UpdateSkinMatrix(matrix);
 			}
 			break;
-		}
+
+		};
 		break;
-	}
+	};
 
 	return false;
 }

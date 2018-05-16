@@ -30,7 +30,7 @@ mUp = //視界の上方向のベクトルx,y,z
 #define OBB_POS CVector3(0.0f, 1.0f, 0.0f) 
 #define OBB_SPHERE_SIZE 3.0f
 /*カメラの位置*/
-#define CAMERA_OFFSET CVector3(0.0f, 1.0f, 5.0f) //カメラ位置プレイヤーからの相対位置
+#define CAMERA_OFFSET CVector3(0.0f, 1.0f, 4.0f) //カメラ位置プレイヤーからの相対位置
 //キャラ
 #define CHARA_POS(pos)	CVector3(pos.x,	pos.y + 3.0f, pos.z-1.0f)
 
@@ -56,12 +56,12 @@ void CCamera::CharaPos(){
 void CCamera::Init(){
 
 
-	/*球の当たり判定設定*/
-	mpCBSphere = new CCollider(E_COL_SPHEPE);
-	mpCBSphere->mpParent = this;
-	mpCBSphere->SetShere(OBB_SPHERE_SIZE, OBB_POS, &mMatrix);
-	/*当たり判定追加*/
-	CCollisionManager::GetInstance()->Add(CTask::E_TAG_CAMERA, mpCBSphere);
+	///*球の当たり判定設定*/
+	//mpCBSphere = new CCollider(E_COL_SPHEPE);
+	//mpCBSphere->mpParent = this;
+	//mpCBSphere->SetShere(OBB_SPHERE_SIZE, OBB_POS, &mMatrix);
+	///*当たり判定追加*/
+	//CCollisionManager::GetInstance()->Add(CTask::E_TAG_CAMERA, mpCBSphere);
 }
 /* 視点と注視点の設定
 void setPos(float x, float y, float z)
@@ -193,96 +193,10 @@ void CCamera::Update() {
 	/*カメラの移動*/
 	//Move(pos, CSceneModel::mpPlayer->mVelocity);
 	PosUpdate(mRot, pos);
-	mpCBSphere->mColSphere.mPos = mPos;
 	//移動行列を計算する
 	mMatrix.translate(mPos);
 	//当たり判定更新
-	mpCBSphere->Update();
-
-}
-/*当たり判定呼び出し
-元の場所に戻すための関数
-*/
-void CCamera::Collision(const COBB &box) {
-
-
-	CVector3 savePos = mpCBSphere->mColSphere.mPos;//計算用
-
-	float lengthX = mPos.x - savePos.x;  //球とポジションの距離
-	float lengthY = mPos.y - savePos.y;  //球とポジションの距離
-	float lengthZ = mPos.z - savePos.z;  //球とポジションの距離
-
-	//BoxのX軸方向を求める
-	CVector3 vx = box.mMatrixRotation * VEC_RIGHT;
-	//BoxのY軸方向を求める
-	CVector3 vy = box.mMatrixRotation * VEC_TOP;
-	//BoxのZ軸方向を求める
-	CVector3 vz = box.mMatrixRotation * VEC_FRONT;
-	//四角形から球へのベクトルを求める
-	CVector3 vectorBS = savePos - box.mPos;
-	//四角形から球へ、四角形のX軸に対する長さとの差を求める
-	float dx = mpCBSphere->mColSphere.mRadius + box.mLength[0] - fabs(vx.Dot(vectorBS));
-	//四角形から球へ、四角形のY軸に対する長さとの差を求める
-	float dy = mpCBSphere->mColSphere.mRadius + box.mLength[1] - fabs(vy.Dot(vectorBS));
-	//四角形から球へ、四角形のZ軸に対する長さとの差を求める
-	float dz = mpCBSphere->mColSphere.mRadius + box.mLength[2] - fabs(vz.Dot(vectorBS));
-
-
-	//衝突しているか判定する
-	if (dx > 0.0f && dy > 0.0f && dz > 0.0f) {
-		if (dx > dy) {
-			if (dy > dz) {
-				//Z軸で戻す
-				if (vz.Dot(vectorBS) > 0.0f) {
-					mPos = savePos + vz * dz;
-					//跳ね返り方向設定
-					/*mRefrectVec*/
-				}
-				else {
-					mPos= savePos - vz * dz;
-				}
-			}
-			else {
-				//Y軸で戻す
-				if (vy.Dot(vectorBS) > 0.0f) {
-					mPos = savePos + vy * dy;
-				}
-				else {
-					mPos = savePos - vy * dy;
-				}
-			}
-		}
-		else{
-			if (dx > dz) {
-
-				//Z軸で戻す
-				if (vz.Dot(vectorBS) > 0.0f) {
-					mPos = savePos + vz * dz;
-				}
-				else {
-					mPos = savePos - vz * dz;
-				}
-			}
-			else {
-
-				//X軸で戻す
-				if (vx.Dot(vectorBS) > 0.0f) {
-					mPos = savePos + vx * dx;
-				}
-				else {
-					mPos = savePos - vx * dx;
-				}
-			}
-		}
-	}
-	mPos.x += lengthX;
-	mPos.y += lengthY;
-	mPos.z += lengthZ;
-
-	PosUpdate(mRot, mPos);
-	/*当たり判定更新*/
-	mpCBSphere->Update();
-
+	//mpCBSphere->Update();
 
 }
 

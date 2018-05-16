@@ -496,54 +496,6 @@ bool CCollision::CollSphereBox(CColSphere sphere, COBB &box){
 //}
 
 
-
-/*面と線分の衝突判定
-corss	=接地面
-pt		=割合
-line	=線
-tri		=面
-*/
-bool CCollision::IntersectTriangleRay(CVector3 *corss, float *pt, CColLine line, CColTriangle tri){
-	CVector3 e1, e2, normal, pv1, pv2;
-
-	e1 = tri.v1 - tri.v0;
-	e2 = tri.v2 - tri.v0;
-
-	//面の法線を求める
-	normal = CVector3::Cross(e1, e2).GetNormalize();
-
-	//始点からポリゴン上のある地点（どこでもいい）へのベクトル
-	pv1 = line.mBegins - tri.v0;
-	//終点からポリゴン上のある地点（どこでもいい）へのベクトル
-	pv2 = line.mEnd - tri.v0;
-
-	//ポリゴンの法線との内積を求める
-	float d1 = CVector3::Dot(pv1, normal);
-	float d2 = CVector3::Dot(pv2, normal);
-
-	//ポリゴンを貫通していない
-	if (d1*d2>0) return false;
-
-	//始点からポリゴンまでの距離と線分の長さの比率を求める
-	//接地地点を出すのに使用する
-	float t = d1 / (d1 - d2);
-	if (*pt < t) return false;
-
-	//裏から貫通している場合は衝突していないことにする
-	if (t<0) return false;
-
-	//線分と平面の接地地点を求める ほしい情報
-	CVector3 c = line.mBegins + (line.mEnd - line.mBegins)*t;
-
-	//接地地点が三角形ポリゴン上か調べる
-	if (!TriangleIntersect(c, tri.v0, tri.v1, tri.v2, normal)) return false;
-
-	*pt = t;
-	*corss = c;
-
-	return true;
-}
-
 CVector3 CCollision::Reflect(const CVector3& normal, const CVector3& vector) {
 	if (normal.Dot(vector) < 0.0f)
 		return normal * normal.Dot(vector) * -2.0f + vector;

@@ -1,7 +1,7 @@
 #include "CTask.h"
 
 
-CTask::CTask() :mpNext(0), mpPrev(0), mKillFlag(false), mUiFlag(false), mCharaFlag(false){};
+CTask::CTask() :mpNext(0), mpPrev(0), mKillFlag(false),mCharaFlag(false){};
 
 
 CTask::~CTask(){};

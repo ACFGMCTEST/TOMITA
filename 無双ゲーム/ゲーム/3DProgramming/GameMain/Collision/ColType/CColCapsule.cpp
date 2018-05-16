@@ -1,15 +1,19 @@
 #include "glut.h"
 #include "CColCapsule.h"
 
-
-
+/*コンストラクタ*/
+CColCapsule::CColCapsule() : mRadius(0.0f) {
+	mType = COL_CAPSULE;
+	CCollisionManager::GetInstance()->Add(this);//あたり判定追加
+}
+/*更新処理*/
 void CColCapsule::Update() {
 	if (mpCombinedMatrix) {
 		mV[0] = mV[0] * *mpCombinedMatrix;
 		mV[1] = mV[1] * *mpCombinedMatrix;
 	}
 }
-
+/*更新処理呼び出し*/
 CColCapsule CColCapsule::GetUpdate() {
 	CColCapsule cc = *this;
 	cc.Update();
@@ -26,14 +30,13 @@ pcombinedMatrix:連結させるフレームの合成行列
 CColCapsule::CColCapsule(CTask *parent, CVector3 v0, CVector3 v1, float radius, CMatrix44 *pcombinedMatrix)
 : CColCapsule()
 {
-	eColTag = E_COL_CAPSULE;
 	mpCombinedMatrix = pcombinedMatrix;
 	mV[0] = v0;
 	mV[1] = v1;
 	mRadius = radius;
 	mpParent = parent;
 }
-
+/*描画処理*/
 void CColCapsule::Render() {
 	float color[] = { 1.0f, 1.0f, 0.0f, 0.5f };
 	glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, color);

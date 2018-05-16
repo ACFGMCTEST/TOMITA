@@ -1,7 +1,9 @@
 #include "CModelObj.h"
 #include <stdio.h>
 #include <string.h>
-#include "../Collision/CCollider3.h"
+#include "../Collision/ColType/CColTriangle.h"
+
+#define COLOR  0.5f;//
 
 void CModelObj::LoadFile(char* filename) {
 	//printf 画面へ文字を出力する　\n 改行
@@ -58,7 +60,11 @@ void CModelObj::LoadFile(char* filename) {
 				t.mVertex[2] = mVectorV[--v];
 
 				t.mNormal = mVectorN[--n];
+				/*色設定*/
+				t.diffuse[0] = t.diffuse[1] = t.diffuse[2] = COLOR;
+
 				mTriangle.push_back(t);
+
 			}
 		}
 		mVectorV.clear();
@@ -77,8 +83,8 @@ void CModelObj::Render() {
 
 void CModelObj::AddCollisionManager() {
 	for each (CTriangle triangle in mTriangle)
-	{
+	{   
 		//三角形コライダを生成する
-		new CCollider3Triangle(triangle.mVertex[0], triangle.mVertex[1], triangle.mVertex[2]);
+		new CColTriangle(triangle.mVertex[0], triangle.mVertex[1], triangle.mVertex[2]);
 	}
 }

@@ -4,19 +4,26 @@
 #include "CColBase.h"
 
 /*当たり判定クラス　球*/
-class CColSphere :public CCollBase
+class CColSphere :public CColBase
 {
+private:
+	/*更新処理*/
+	void Update();
 public:
 	float mRadius;//半径
 	////回転行列 
 	CMatrix44 mMatrixRotation;
 
-
+	/*コンストラクタ*/
+	CColSphere();
+	/*球のパラメータ設定*/
+	CColSphere(CTask *parent, float radius, CVector3 pos, CMatrix44 *m);
 	//OBBに行列を反映
-	void Transform(CMatrix44 &mat) {
-		CVector4 c = CVector4(mPos.x, mPos.y, mPos.z, 1);
-		c = c*mat;
-		mPos = CVector3(c.x, c.y, c.z);
-	}
+	void Transform(CMatrix44 &mat);
+	/*更新処理呼び出し*/
+	CColSphere GetUpdate();
+	/*描画*/
+	void Render();
+
 };
 #endif

@@ -19,7 +19,13 @@
 #define PL_STATE_IDLING "playerIdling"
 #define PL_STATE_RUN "playerRun"
 #define PL_STATE_JUMP "playerJump"
-
+#define PL_STATE_RUN_ATTACK "playerRunAttack"
+/*エネミーの状態遷移*/
+/*スライム*/
+#define SLI_STATE_ATTACK	"slimeAttack"
+#define SLI_STATE_IDLING	"slimeIdling"
+#define SLI_STATE_RUN		"slimeRun"
+#define SLI_STATE_JUMP		"slimeJump"
 
 #include <iostream>
 #include <unordered_map>

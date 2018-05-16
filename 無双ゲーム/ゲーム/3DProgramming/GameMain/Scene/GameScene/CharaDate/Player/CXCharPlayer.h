@@ -3,20 +3,18 @@
 
 #include "../../../../Graphic/CModelX.h"
 #include "../../../../Vector/CVector3.h"
-#include "../../../../Collision/CCollider.h"
 #include "../../Effect/CEffect2D.h"
 #include "../../../../Key/CKey.h"
-#include "../../../../Collision/CCollider.h"
-#include "../../../../Collision/CCollider3.h"
 #include"../../../../../StateMachine/CStateMachine.h"
 #include "../../../../../StateMachine/CStateBase.h"
+#include "../../../../Collision/ColType/CColBase.h"
 
 //プレイヤーの数
 #define CHARA_ARRAY 3
 /*キャラステータス*/
 /*進むスピード*/
-#define SPEED_RUN 0.1f //MAX走る
-#define SPEED_RUN_ACC(v) if (SPEED_RUN > v){v += SPEED_RUN* 0.01f; }else{v = SPEED_RUN;}//加速度計算上限に来た場合
+#define SPEED_RUN 0.2f //MAX走る
+#define SPEED_RUN_ACC(v) if (SPEED_RUN > v){v += SPEED_RUN* 0.1f; }else{v = SPEED_RUN;}//加速度計算上限に来た場合
 
 #define SPEED_ATTACK_RUN SPEED_RUN*0.8f //ため走る
 #define SPEED_JUMP_DOWN 0.05f			//ジャンプ中はveloctyをマイナスする
@@ -64,7 +62,6 @@ private:
 	int mRotCount;//回転地カウント　移動するときに使う
 	CKey AttackInitKey;//Init時に使う
 	/*プレイヤーのステータス管理*/
-	CTask *mpStateParent;//ステータスの親_アクセス用
 	std::unique_ptr<CStateMachine> mStateMachine;//ステータス管理
 
 public:
@@ -84,8 +81,6 @@ public:
 	CXCharPlayer();
 	//初期化処理
 	void Init(CModelX *model);
-	/*あたり判定初期化*/
-	void ColInit();
 	//更新処理
 	void Update();
 	//描画処理
@@ -114,14 +109,8 @@ public:
 	/*移動させる*/
 	void Move();
 
-	/*当たり判定呼び出し
-	元の場所に戻すための関数
-	*/
-	bool Collision(const COBB &box, const CColSphere &sphere);
-	bool Collision(const COBB *box, const CColSphere *sphere);
-
-	bool Collision(CCollider2* me, CCollider2* you);
-	bool Collision(CCollider3* me, CCollider3* you);
+	/*当たり判定*/
+	bool Collision(CColBase* me, CColBase* you);
 
 
 	/*重力

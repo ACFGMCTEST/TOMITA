@@ -3,10 +3,9 @@
 #include "../../GameMain/Scene/CSceneManager.h"
 #include "CCollisionManager.h"
 #include "CCollision.h"
-
-/*回転を逆向きにする*/
-#define REVERSE_ROT(rot) CVector3(rot.x,rot.y +180,rot.z)
-
+#include "ColType\CColCapsule.h"
+/*コンストラクタ*/
+CCollisionManager::CCollisionManager() {}
 CCollisionManager* CCollisionManager::mCollisionManager = 0;
 
 //GetInstance
@@ -16,124 +15,155 @@ CCollisionManager* CCollisionManager::GetInstance() {
 	}
 	return mCollisionManager;
 }
-
-
-void CCollisionManager::Add(CTask::E_TAG tag, CCollider *col){
-	col->eTag = tag;
-	col->ePriority = (CTask::E_PRIORITY)tag;//当たり判定用の順番に
-
-	CTaskManager::Add(col);
-}
-
-
-
-/*当たり判定フラグ*/
-bool CCollisionManager::ColIf(CTask *Task_You, CTask *Task_I){
-	CCollider *col_you, *col_I;
-	col_you = dynamic_cast<CCollider*>(Task_You);
-	col_I = dynamic_cast<CCollider*>(Task_I);
-	/*アタリ判定判断(相手)*/
-	switch (Task_You->eColTag)
-	{
-		/*ボックスの場合*/
-	case CTask::E_COL_BOX:
-
-		/*当たり判定判断(自分)*/
-		switch (Task_I->eColTag)
-		{
-			/*ボックスの場合*/
-		case CTask::E_COL_BOX:
-			/*相手のボックスと自分のボックスを判断*/
-			return (CCollision::CollisionOBB(col_you->mObb, col_I->mObb));
-			break;
-			/*球の場合*/
-		case CTask::E_COL_SPHEPE:
-			/*相手のボックスと自分の球を判断*/
-			return (CCollision::CollSphereBox(col_I->mColSphere, col_you->mObb));
-			break;
-		}
-
-		break;
-		/*相手が球の場合*/
-	case CTask::E_COL_SPHEPE:
-		CColSphere *you = &col_you->mColSphere;
-		/*当たり判定判断(自分)*/
-		switch (Task_I->eColTag)
-		{
-			/*ボックスの場合*/
-		case CTask::E_COL_BOX:
-			return (CCollision::CollSphereBox(*you, col_I->mObb));
-			break;
-			/*球の場合*/
-		case CTask::E_COL_SPHEPE:
-			return CCollision::CollisionShpere(*you, col_I->mColSphere);
-			break;
-		};
-		break;
+/*追加処理*/
+void CCollisionManager::Add(CColBase *t){
+	/*何も設定していないとき*/
+	if (mpRoot == 0){
+		/*頭の設定*/
+		mpRoot = t;
+		mpRoot->mpPrev = 0;
+		mpRoot->mpNext = 0;
+		/*尻尾の設定*/
+		mpTail = 0;
 	}
+	/*2番目の処理*/
+	else if (mpTail == 0){
+		/*現在のものが小さい場合*/
+		if (mpRoot->mType < t->mType){
+			/*尻尾の設定*/
+			mpTail = t;
+			mpTail->mpPrev = mpRoot;
+			mpTail->mpNext = 0;
+			/*頭の設定*/
+			mpRoot->mpPrev = 0;
+			mpRoot->mpNext = mpTail;
+
+		}
+		/*現在のものが大きい場合*/
+		else{
+			/*尻尾の設定*/
+			mpTail = mpRoot;
+			mpTail->mpPrev = t;
+			mpTail->mpNext = 0;
+			/*頭の設定*/
+			mpRoot = t;
+			mpRoot->mpPrev = 0;
+			mpRoot->mpNext = mpTail;
+		}
+	}
+	/*3番目以上*/
+	else if (mpRoot->mpNext != 0 && mpTail->mpPrev != 0){
+		CTask temp;
+		CTask *moveTask = &temp;//探すタスク
+		moveTask->mpNext = mpRoot;
+
+		/*追加する場所を探す*/
+		while (moveTask != mpTail)
+		{
+			moveTask = moveTask->mpNext;
 
 
-	return false;
-}
+			/*最初*/
+			if (mpRoot->mType > t->mType){
+				/*追加するもの設定*/
+				t->mpPrev = 0;
+				t->mpNext = mpRoot;
+				/*頭のタスク設定*/
+				mpRoot = t;
+				/*探すタスク設定*/
+				moveTask->mpPrev = t;
+				if (moveTask->mpNext == 0){
+					mpTail = moveTask;
+				}
 
-
-/*更新2段目*/
-void CCollisionManager::Update(CTask *t){
-	CTask *task;
-	task = mpRoot;
-	/*探索処理*/
-	while (task != 0)
-	{
-		/*同じもの以外*/
-		if (t != task && t != 0 && task != 0){
-			switch (t->eTag)
-			{
-			case CTask::E_TAG_PLAYER:
-				t->mpParent->Collision((CCollider2*)t, (CCollider2*)task);//task何か,tプレイヤー
-				break;
-			case CTask::E_TAG_ENEMY:
-			case CTask::E_TAG_ATTACK_INIT_RANGE:
-			case CTask::E_TAG_ATTACK_RANGE:
-			
 				break;
 			}
-		}
-		task = task->mpNext;
-	}
+			/*最後*/
+			else if (moveTask == mpTail){
+				/*しっぽ設定*/
+				t->mpPrev = mpTail;
+				mpTail->mpNext = t;
+				mpTail = t;
+				mpTail->mpNext = 0;
+				break;
+			}
+			/*中間*/
+			else if (moveTask->mType <= t->mType &&
+				t->mType <= moveTask->mpNext->mType){
+				/*追加するもの設定*/
+				t->mpNext = moveTask->mpNext;
+				t->mpPrev = moveTask;
+				/*外側のタスク設定*/
+				moveTask->mpNext->mpPrev = t;
+				moveTask->mpNext = t;
 
+				break;
+			}
+
+		}
+	}
+	//CTaskManager::Add(col);
+}
+
+/*地形の当たり判定しない部分を決める*/
+bool CCollisionManager::FlagMap(const CColBase &task,const CColBase &map){
+	CXCharPlayer *pl = dynamic_cast<CXCharPlayer*>(task.mpParent);
+	/*三角形のポリゴンの場合マップ*/
+	if (map.mType == CTask::COL_TRIANGLE){
+		/*マップでない方の位置から判定するマップのポリゴン数の幅を決める*/
+		int taskNum;//プレイヤーの座標から番号を特定する
+		int mapPrev;//
+		int mapTail;
+		/*if (){
+			return true;
+		}*/
+		//printf("ポジション%f,%f,%f\n", pl->mPosition.x, pl->mPosition.y, pl->mPosition.z);
+		//return false;
+		//return true;
+	}
+	else{
+		return true;
+	}
 }
 
 /*更新処理*/
 void CCollisionManager::Update(){
 
-
-
-	CTask *task;
-	task = mpRoot;
+	CColBase *task;
+	task = (CColBase*)mpRoot;
 
 	/*探索処理*/
 	while (task != 0)
 	{
-		task->Update();
-		task = task->mpNext;
+		//自身のコライダタイプを識別
+		switch (task->mType) {
+		case CColBase::COL_CAPSULE:
+		case CColBase::COL_BOX:
+		case CColBase::COL_SPHEPE:
+			//変化しないコライダは衝突判定しない
+			if (task->mpCombinedMatrix) {
+				//コライダをコピーして更新
+				CColCapsule cc = (*(CColCapsule*)task).GetUpdate();
+				//コライダを先頭から衝突判定していく
+				CColBase *n = (CColBase*)mpRoot;
+				while (n != NULL) {
+					//親のタスクで衝突判定させる
+					if (task->mpParent && task != n && FlagMap(cc,*n)) {
+						task->mpParent->Collision(&cc, n);
+					}
+					n = (CColBase*)n->mpNext;
+				}
+			}
+			break;
+		}
+		task = (CColBase*)task->mpNext;
 	}
-
-	task = mpRoot;
-
-	/*探索処理*/
-	while (task != 0)
-	{
-		if (task->eColTag != CTask::E_COL_TRIANGLE)
-			Update(task);
-		task = task->mpNext;
-	}
-
 
 #ifdef _DEBUG 
-	//	AllRender();
+	AllRender();
 #endif
 }
 
-CCollisionManager::CCollisionManager(){}
-
-
+CCollisionManager::~CCollisionManager(){
+	AllKill();
+}

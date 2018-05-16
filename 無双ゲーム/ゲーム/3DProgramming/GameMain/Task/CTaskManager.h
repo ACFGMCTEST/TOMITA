@@ -11,7 +11,6 @@ class  CTaskManager
 {
 private:
 	static CTaskManager *mTaskManager;
-	
 	void SwapTask(CTask **p, CTask **n);
 public:
 	CTask *mpRoot;

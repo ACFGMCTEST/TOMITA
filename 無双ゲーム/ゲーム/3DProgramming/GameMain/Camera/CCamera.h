@@ -3,7 +3,6 @@
 
 #include "../Matrix/CMatrix44.h"
 #include "../Vector/CVector3.h"
-#include "../Collision/CCollider.h"
 #include "../Task/CTask.h"
 #include "../Graphic/CRectangle2.h"
 
@@ -38,7 +37,6 @@ public:
 	CVector3 mUp;	//カメラの上方向
 	CMatrix44 mCameraMatrix;
 	CMatrix44 mCameraInverse;
-	CCollider *mpCBSphere;//当たり判定球体
 
 	//カメラの上方向の初期化
 	CCamera();
@@ -68,8 +66,7 @@ public:
 	speed = 速さ
 	*/
 	void Move(CVector3 pos, float speed);
-	/*当たり判定戻す*/
-	void CCamera::Collision(const COBB &box);
+	
 	/*回転値の参照*/
 	CVector3 Rot();
 	

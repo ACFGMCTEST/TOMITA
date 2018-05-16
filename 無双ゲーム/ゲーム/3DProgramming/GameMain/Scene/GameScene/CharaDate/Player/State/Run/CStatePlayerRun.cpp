@@ -14,7 +14,7 @@ void CStatePlayerRun::ChangeState(){
 	}
 	/*UŒ‚‚·‚éê‡*/
 	if (CKey::once(KEY_ATTACK)){
-		mNextRegisterName = PL_STATE_ATTACK;//UŒ‚
+		mNextRegisterName = PL_STATE_RUN_ATTACK;//UŒ‚
 	}
 	//–¼‘O‚ª“ü‚ê‚Îƒtƒ‰ƒO‚ğ—§‚Ä‚é
 	if (!mNextRegisterName.empty()) mFlagNext = true;//•¶š‚ª“ü‚ê‚Î

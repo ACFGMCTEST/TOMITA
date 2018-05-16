@@ -47,7 +47,7 @@ void CTaskManager::Add(CTask  *t){
 	/*2”Ô–Ú‚Ìˆ—*/
 	else if (mpTail == 0){
 		/*Œ»Ý‚Ì‚à‚Ì‚ª¬‚³‚¢ê‡*/
-		if (mpRoot-> ePriority < t-> ePriority){
+		if (mpRoot-> eName < t-> eName){
 			/*K”ö‚ÌÝ’è*/
 			mpTail = t;
 			mpTail->mpPrev = mpRoot;
@@ -82,7 +82,7 @@ void CTaskManager::Add(CTask  *t){
 
 
 			/*Å‰*/
-			if (mpRoot-> ePriority > t-> ePriority){
+			if (mpRoot-> eName > t-> eName){
 				/*’Ç‰Á‚·‚é‚à‚ÌÝ’è*/
 				t->mpPrev = 0;
 				t->mpNext = mpRoot;
@@ -106,8 +106,8 @@ void CTaskManager::Add(CTask  *t){
 				break;
 			} 
 			/*’†ŠÔ*/
-			else if (moveTask-> ePriority <= t-> ePriority &&
-					t-> ePriority <= moveTask->mpNext-> ePriority){
+			else if (moveTask-> eName <= t-> eName &&
+					t-> eName <= moveTask->mpNext-> eName){
 				/*’Ç‰Á‚·‚é‚à‚ÌÝ’è*/
 				t->mpNext = moveTask->mpNext;
 				t->mpPrev = moveTask;
@@ -246,7 +246,7 @@ void CTaskManager::AbsR(){
 	while (p->mpNext != mpTail){ //Œã‚ë‚Ìƒ^ƒXƒN
 		p = p->mpNext;
 		n = p->mpNext;
-		if (p-> ePriority > n-> ePriority){
+		if (p-> eName > n-> eName){
 			CTask sp, sn;
 			SwapTask(&p, &n);
 

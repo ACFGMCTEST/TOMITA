@@ -5,20 +5,19 @@
 #include "../../Vector/CVector3.h"
 
 class CColCapsule : public CColBase {
+private:
+	/*更新*/
 	void Update();
 public:
 	CVector3 mV[2];
 	float mRadius;
-
-	CColCapsule() : mRadius(0.0f) {
-		mType = COL_CAPSULE;
-		CCollisionManager::GetInstance()->Add(this);//あたり判定追加
-	}
-
+	/*コンストラクタ*/
+	CColCapsule();
+	/*パラメータ設定*/
 	CColCapsule(CTask *parent, CVector3 v0, CVector3 v1, float radius, CMatrix44 *pcombinedMatrix);
-
+	/*更新処理呼び出し*/
 	CColCapsule GetUpdate();
-
+	/*描画処理*/
 	void Render();
 
 };

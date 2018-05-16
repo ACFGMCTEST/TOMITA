@@ -1,9 +1,6 @@
-/*“–‚½‚è”»’è‚Ì‚Ü‚Æ‚ß
-’S“–Ò@•y“cŒ’“l
-*/
+#ifndef COLLISION_H
+#define COLLISION_H
 
-
-#pragma once
 #include "../Matrix/CMatrix44.h"
 #include "../Vector/CVector2.h"
 #include "../Vector/CVector3.h"
@@ -78,16 +75,7 @@ public:
 	/*“–‚½‚è”»’è‚ÌŠÖ”(‹…‚ÆBOX‚Ì”»’è)*/
 	static bool CollSphereBox(CColSphere sphere, COBB &box);
 
-	///*“–‚½‚è”»’èŠÖ”(‹…‚Æ•Ç”»’è)*/
-	//static bool ColSphereWall(const CColSphere &sphere,const CColWall &wall);
-
-	/*–Ê‚Æü•ª‚ÌÕ“Ë”»’è
-	corss	=Ú’n–Ê
-	pt		=Š„‡
-	line	=ü
-	tri		=–Ê
-	*/
-	static bool IntersectTriangleRay(CVector3 *corss, float *pt, CColLine line, CColTriangle tri);
 
 	static CVector3 Reflect(const CVector3& normal, const CVector3& vector);
 };
+#endif

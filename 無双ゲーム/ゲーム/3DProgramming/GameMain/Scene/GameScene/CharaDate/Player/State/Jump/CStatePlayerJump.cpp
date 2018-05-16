@@ -36,7 +36,7 @@ void CStatePlayerJump::Update()
 
 	mPrevPosY = pl->mPosition.y;//現在のポジション記憶
 	float jumpVilocity = JUMP_SPEED - GRAVITY(pl->mGravitTime);//動かす力
-	printf("%f\n", jumpVilocity);
+	
 	/*ジャンプが0より大きい場合*/
 	pl->mPosition.y += jumpVilocity;
 

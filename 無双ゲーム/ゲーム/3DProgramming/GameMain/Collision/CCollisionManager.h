@@ -1,19 +1,12 @@
 #ifndef CCOLLISIONMANAGER_HPP
 #define CCOLLISIONMANAGER_HPP
-#include "CCollider.h"
 #include "../Task/CTaskManager.h"
-#include "CCollider.h"
+#include "ColType\CColBase.h"
 
-/*すべての当たり判定管理*/
-class CCollisionManager : public CTaskManager{
+class CCollisionManager : public CTaskManager {
 private:
-
-	/*当たり判定tag判断*/
-	bool ColIf(CTask *Task_You, CTask *Task_I);
-
-	void Update(CTask *t);//更新処理
-
-
+	/*地形の当たり判定しない部分を決める*/
+	bool FlagMap(const CColBase &task, const CColBase &map);
 
 	static CCollisionManager *mCollisionManager;
 	CCollisionManager();
@@ -23,9 +16,10 @@ public:
 	static CCollisionManager *GetInstance(); //GetInstance
 	~CCollisionManager();
 
-	void Add(CTask::E_TAG tag, CCollider *col);//あたり判定追加処理
+	void Add(CColBase *col);//あたり判定追加処理
 
 	void Update();
+ 
 };
 
 #endif

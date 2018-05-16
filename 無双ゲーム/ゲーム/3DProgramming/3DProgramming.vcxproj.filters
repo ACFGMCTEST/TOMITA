@@ -123,6 +123,27 @@
     <Filter Include="ソース ファイル\StateMachine">
       <UniqueIdentifier>{18f4abf7-8150-4bd2-887e-6dca1e43c6b6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\GameMain\Scene\GameScene\CharaData\Player\State\RunAtack">
+      <UniqueIdentifier>{1df01c72-40d7-459b-8429-2a49ad926c30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameMain\Scene\GameScene\CharaData\Enemy\Slime">
+      <UniqueIdentifier>{f91a6961-d443-4e7d-add4-0701c9f1527c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameMain\Scene\GameScene\CharaData\Enemy\Slime\State">
+      <UniqueIdentifier>{5cca209f-3887-49a7-a5d0-aee06381f68d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameMain\Scene\GameScene\CharaData\Enemy\Slime\State\Attack">
+      <UniqueIdentifier>{618d210e-fdc8-4716-8b61-0e6af501bc09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameMain\Scene\GameScene\CharaData\Enemy\Slime\State\Run">
+      <UniqueIdentifier>{53159648-1789-4cc5-967c-0836417ecd6b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameMain\Scene\GameScene\CharaData\Enemy\Slime\State\Jump">
+      <UniqueIdentifier>{67311028-ad14-43cb-b8f4-a69b5a06be4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameMain\Scene\GameScene\CharaData\Enemy\Slime\State\Idling">
+      <UniqueIdentifier>{06d6428a-5bca-42f7-b8b6-cbb14dfed2bb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main\main.cpp">
@@ -263,9 +284,6 @@
     <ClCompile Include="GameMain\Scene\GameScene\Pause\CPause.cpp">
       <Filter>ソース ファイル\GameMain\Scene\GameScene\Pause</Filter>
     </ClCompile>
-    <ClCompile Include="GameMain\Collision\CCollider.cpp">
-      <Filter>ソース ファイル\GameMain\Collision</Filter>
-    </ClCompile>
     <ClCompile Include="GameMain\Graphic\CTriangularPrism.cpp">
       <Filter>ソース ファイル\GameMain\Graphic</Filter>
     </ClCompile>
@@ -280,9 +298,6 @@
     </ClCompile>
     <ClCompile Include="GameMain\Sound\CSound.cpp">
       <Filter>ソース ファイル\GameMain\Sound</Filter>
-    </ClCompile>
-    <ClCompile Include="GameMain\Collision\CCollider3.cpp">
-      <Filter>ソース ファイル\GameMain\Collision</Filter>
     </ClCompile>
     <ClCompile Include="GameMain\Graphic\CModelObj.cpp">
       <Filter>ソース ファイル\GameMain\Graphic</Filter>
@@ -302,14 +317,44 @@
     <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Player\State\Run\CStatePlayerRun.cpp">
       <Filter>ソース ファイル\GameMain\Scene\GameScene\CharaData\Player\State\Run</Filter>
     </ClCompile>
-    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Enemy\CXCharEnemy.cpp">
-      <Filter>ソース ファイル\GameMain\Scene\GameScene\CharaData\Enemy</Filter>
-    </ClCompile>
     <ClCompile Include="StateMachine\CStateBase.cpp">
       <Filter>ソース ファイル\StateMachine</Filter>
     </ClCompile>
     <ClCompile Include="StateMachine\CStateMachine.cpp">
       <Filter>ソース ファイル\StateMachine</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMain\Collision\ColType\CColCapsule.cpp">
+      <Filter>ソース ファイル\GameMain\Collision\ColType</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMain\Collision\ColType\CColTriangle.cpp">
+      <Filter>ソース ファイル\GameMain\Collision\ColType</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Player\State\RunAttack\CStatePlayerRunAttack.cpp">
+      <Filter>ソース ファイル\GameMain\Scene\GameScene\CharaData\Player\State\RunAtack</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\CSlime.cpp">
+      <Filter>ソース ファイル\GameMain\Scene\GameScene\CharaData\Enemy\Slime</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\State\Attack\CStateSlimeAttack.cpp">
+      <Filter>ソース ファイル\GameMain\Scene\GameScene\CharaData\Enemy\Slime\State\Attack</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Enemy\CEnemyBase.cpp">
+      <Filter>ソース ファイル\GameMain\Scene\GameScene\CharaData\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\State\Idling\CStateSlimeIdling.cpp">
+      <Filter>ソース ファイル\GameMain\Scene\GameScene\CharaData\Enemy\Slime\State\Idling</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\State\Run\CStateSlimeRun.cpp">
+      <Filter>ソース ファイル\GameMain\Scene\GameScene\CharaData\Enemy\Slime\State\Run</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\State\Jump\CStateSlimeJump.cpp">
+      <Filter>ソース ファイル\GameMain\Scene\GameScene\CharaData\Enemy\Slime\State\Jump</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMain\Collision\ColType\CColSphere.cpp">
+      <Filter>ソース ファイル\GameMain\Collision\ColType</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMain\Collision\ColType\COBB.cpp">
+      <Filter>ソース ファイル\GameMain\Collision\ColType</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -454,9 +499,6 @@
     <ClInclude Include="GameMain\Scene\GameScene\Pause\CPause.h">
       <Filter>ソース ファイル\GameMain\Scene\GameScene\Pause</Filter>
     </ClInclude>
-    <ClInclude Include="GameMain\Collision\CCollider.h">
-      <Filter>ソース ファイル\GameMain\Collision</Filter>
-    </ClInclude>
     <ClInclude Include="GameMain\Graphic\CTriangularPrism.h">
       <Filter>ソース ファイル\GameMain\Graphic</Filter>
     </ClInclude>
@@ -487,9 +529,6 @@
     <ClInclude Include="GameMain\Sound\CSound.h">
       <Filter>ソース ファイル\GameMain\Sound</Filter>
     </ClInclude>
-    <ClInclude Include="GameMain\Collision\CCollider3.h">
-      <Filter>ソース ファイル\GameMain\Collision</Filter>
-    </ClInclude>
     <ClInclude Include="GameMain\Graphic\CModelObj.h">
       <Filter>ソース ファイル\GameMain\Graphic</Filter>
     </ClInclude>
@@ -508,14 +547,35 @@
     <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Player\State\Run\CStatePlayerRun.h">
       <Filter>ソース ファイル\GameMain\Scene\GameScene\CharaData\Player\State\Run</Filter>
     </ClInclude>
-    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Enemy\CXCharEnemy.h">
-      <Filter>ソース ファイル\GameMain\Scene\GameScene\CharaData\Enemy</Filter>
-    </ClInclude>
     <ClInclude Include="StateMachine\CStateBase.h">
       <Filter>ソース ファイル\StateMachine</Filter>
     </ClInclude>
     <ClInclude Include="StateMachine\CStateMachine.h">
       <Filter>ソース ファイル\StateMachine</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMain\Collision\ColType\CColCapsule.h">
+      <Filter>ソース ファイル\GameMain\Collision\ColType</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Player\State\RunAttack\CStatePlayerRunAttack.h">
+      <Filter>ソース ファイル\GameMain\Scene\GameScene\CharaData\Player\State\RunAtack</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\CSlime.h">
+      <Filter>ソース ファイル\GameMain\Scene\GameScene\CharaData\Enemy\Slime</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\State\Attack\CStateSlimeAttack.h">
+      <Filter>ソース ファイル\GameMain\Scene\GameScene\CharaData\Enemy\Slime\State\Attack</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Enemy\CEnemyBase.h">
+      <Filter>ソース ファイル\GameMain\Scene\GameScene\CharaData\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\State\Idling\CStateSlimeIdling.h">
+      <Filter>ソース ファイル\GameMain\Scene\GameScene\CharaData\Enemy\Slime\State\Idling</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\State\Run\CStateSlimeRun.h">
+      <Filter>ソース ファイル\GameMain\Scene\GameScene\CharaData\Enemy\Slime\State\Run</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\State\Jump\CStateSlimeJump.h">
+      <Filter>ソース ファイル\GameMain\Scene\GameScene\CharaData\Enemy\Slime\State\Jump</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

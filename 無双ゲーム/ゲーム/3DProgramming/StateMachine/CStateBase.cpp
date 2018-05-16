@@ -22,7 +22,6 @@ bool  CStateBase::IsNext()const
 }
 /*親設定する*/
 void  CStateBase::SetParent(CTask *p){
-	mpParent = new CTask();//インスタンス作成
 	mpParent = p;//STATE設定.元の親にアクセスできるようにする
 }
 

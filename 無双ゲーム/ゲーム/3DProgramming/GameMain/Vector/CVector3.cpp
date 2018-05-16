@@ -167,32 +167,11 @@ const bool CVector3::operator != (const CVector3 &v) const{
 }
 
 /*中間値を出す*/
-CVector3 CVector3::Median(const CVector3 &v) const{
+CVector3 CVector3::TriangleCenter(const CVector3 &v0, const CVector3 &v1, const CVector3 &v2){
 	/*値を返すよう*/
 	CVector3 pos;
-	float vx, vy, vz;
-	/*xの中間値を求める*/
-	if (v.x > x){
-		vx = (abs(v.x) - abs(x));
-	}
-	else{
-		vx = (abs(x) - abs(v.x));
-	}
-	/*yの中間値を求める*/
-	if (v.y > y){
-		vy = (abs(v.y) - abs(y));
-	}
-	else{
-		vy = (abs(y) - abs(v.y));
-	}
-	/*zの中間値を求める*/
-	if (v.z > z){
-		vz = (abs(v.z) - abs(z));
-	}
-	else{
-		vz = (abs(z) - abs(v.z));
-	}
-	pos = CVector3(vx, vy, vz);
-	printf("中間値を求める(%f,%f,%f)\n",vx,vy,vz);
+	pos.x = (v0.x + v1.x + v2.x) / 3;//xの中心
+	pos.y = (v0.y + v1.y + v2.y) / 3;//yの中心
+	pos.z = (v0.z + v1.z + v2.z) / 3;//zの中心
 	return pos;
 }

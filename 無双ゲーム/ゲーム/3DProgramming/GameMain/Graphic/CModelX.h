@@ -10,7 +10,8 @@ Blenderのタイムライン  60の場合
 */
 #define ANIMA_SPEED 60 * 4
 #define ANIMA_SPEED_RUN 60 
-#define ANIMA_SPEED_ATTCK 40
+#define ANIMA_SPEED_ATTCK 60
+#define ANIMA_SPEED_RUN_ATTCK 30
 #define ANIMA_SPEED_JUMP 60
 
 #define MODEL_FILE "sample.blend.x"	//入力ファイル名

@@ -2,13 +2,34 @@
 #define COL_TRIANGLE_H
 
 #include "CColBase.h"
+#include "../CCollisionManager.h"
 
 
 /*当たり判定クラス 三角面*/
-class CColTriangle : CCollBase{
-public:
-	CVector3 v0, v1, v2;//三角形の頂点
 
+//三角形コライダクラス
+class CColTriangle : public CColBase {
+private:
+
+	//更新　頂点を合成行列で掛ける
+	void Update();
+public:
+	int mNumber;//参加系ポリゴンの何番目に生成されたかカウント
+	static int mAllCount;//三角ポリゴンの数をカウント
+
+	CVector3 mV[3];
+	CVector3 mPos;//三角形の中心
+
+	/*コンストラクタ*/
+	CColTriangle();
+	/*デストラクタ*/
+	~CColTriangle();
+
+	/*パラメータ設定*/
+	CColTriangle(const CVector3 &v0, const CVector3 &v1, const CVector3 &v2);
+	//頂点を合成行列で掛けたコライダを取得する
+	CColTriangle GetUpdate();
 };
+
 
 #endif

@@ -73,7 +73,7 @@ void CSceneManager::SceneMain(){
 	{
 	case E_INIT:
 
-		CSceneManager::GetInstance()->ChangeScene(eSceneNo::E_TITLE);
+		CSceneManager::GetInstance()->ChangeScene(eSceneNo::E_HOME);
 
 		eStatus = E_LOOP;
 

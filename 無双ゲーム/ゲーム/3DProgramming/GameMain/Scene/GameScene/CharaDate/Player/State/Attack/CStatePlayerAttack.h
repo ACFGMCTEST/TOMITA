@@ -3,6 +3,11 @@
 #include "../../../../../../../StateMachine/CStateBase.h"
 /*プレイヤーの現在の状態(攻撃)クラス*/
 class CStatePlayerAttack : public CStateBase{
+private:
+	float mAnimaSpeed;//アニメーションスピード
+	float mTimeCount;//時間計測用
+	/*攻撃の移動速さ調整*/
+	void AttackSpeed();
 public:
 	CStatePlayerAttack();
 	~CStatePlayerAttack();
@@ -15,6 +20,7 @@ public:
 	void OnChangeEvent();
 	//変更する関数
 	void ChangeState();
+
 
 };
 
