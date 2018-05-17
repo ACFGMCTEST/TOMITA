@@ -71,7 +71,7 @@ void CXCharPlayer::Init(CModelX *model) {
 
 	//カプセル　キャラクタ全体
 	new CColCapsule(this, COL_POS, OBB_RADIUS, &mpCombinedMatrix[model->FindFrame("metarig_hips")->mIndex]);
-
+	mpMatrix = &mpCombinedMatrix[model->FindFrame("metarig_hips")->mIndex];
 	mPower = ATTACK_POWER;//攻撃力
 
 	PosUpdate();

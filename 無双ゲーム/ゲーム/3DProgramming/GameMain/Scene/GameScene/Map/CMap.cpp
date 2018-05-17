@@ -3,10 +3,12 @@
 /*仮の地形サイズ*/
 #define MAP_Y 0.1f
 #define GROUND_SIZE CVector3(100.0f,MAP_Y,100.0f)
+#define F_MAP "x\\ProvisionalGround.obj"
+//#define F_MAP "x\\Ground.obj"
 
 /*初期化処理*/
 void CMap::Init(){
-	mGround.LoadFile("x\\Ground.obj");
+	mGround.LoadFile(F_MAP);
 	mGround.AddCollisionManager();
 };
 /*更新処理*/

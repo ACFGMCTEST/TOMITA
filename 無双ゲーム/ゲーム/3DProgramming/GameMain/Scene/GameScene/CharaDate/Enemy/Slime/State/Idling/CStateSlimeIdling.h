@@ -6,6 +6,7 @@
 /*プレイヤーの現在の状態(待機)クラス*/
 class CStateSlimeIdling : public CStateBase
 {
+private:
 public:
 	CStateSlimeIdling();
 	~CStateSlimeIdling();

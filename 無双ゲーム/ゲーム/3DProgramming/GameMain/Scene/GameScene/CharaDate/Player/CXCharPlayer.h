@@ -57,14 +57,16 @@ CXCharPlayer
 */
 //class CXCharPlayer : public CXCharacter {
 class CXCharPlayer : public CModelXS {
+protected:
+	/*ステータス管理マネージャー*/
+	std::unique_ptr<CStateMachine> mStateMachine;//ステータス管理
 private:
-	
+
 	int mRotCount;//回転地カウント　移動するときに使う
 	CKey AttackInitKey;//Init時に使う
-	/*プレイヤーのステータス管理*/
-	std::unique_ptr<CStateMachine> mStateMachine;//ステータス管理
-
+	
 public:
+	CMatrix44 *mpMatrix;//当たり判定の原点
 	float mGravitTime;//重力の時間
 	float mVelocity; //速さ 使うもの
 	float mPower;//攻撃力

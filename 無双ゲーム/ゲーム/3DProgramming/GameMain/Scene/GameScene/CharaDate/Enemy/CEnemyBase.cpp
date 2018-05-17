@@ -18,6 +18,7 @@
 /*コンストラクタ*/
 CEnemyBase::CEnemyBase(){
 	CXCharPlayer::CXCharPlayer();
+	mGravitTime = GRA_INIT_TIME_COUNT;
 	mVelocity = 0.0f;
 	mFlagKnockback = false;
 	mForward = CVector3(FORWARD);
@@ -34,6 +35,8 @@ void CEnemyBase::Init(CModelX *model){
 /*動かす関数*/
 void CEnemyBase::AIMove(){
 	mRotation = mForward.getRotationTowards(CSceneModel::mpPlayer->mPosition + mPosition * -1.0f);
+	mForward = CVector3(FORWARD);
+	CXCharPlayer::Move();
 }
 
 /*更新処理*/
@@ -41,7 +44,6 @@ void CEnemyBase::Update(){
 	mAdjust = CVector3();
 	mPrevPos = mPosition;
 	Gravity();/*重力*/
-	AIMove();
 	PosUpdate();//ポジションを更新
 }
 

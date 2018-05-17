@@ -9,10 +9,12 @@ inline float min(float a, float b) {
 
 
 /*‹…“¯Žm‚Ì“–‚½‚è”»’è*/
-bool CCollision::CollisionShpere(const CColSphere &sphereA, const CColSphere &sphereB) {
+bool CCollision::CollisionShpere(const CColSphere &sphereA,const CColSphere &sphereB)
+{
 	CVector3 v = sphereB.mPos - sphereA.mPos;
-	return (v.LengthSq() >(sphereA.mRadius + sphereB.mRadius)*(sphereA.mRadius + sphereB.mRadius));
+	return (v.LengthSq() <(sphereA.mRadius + sphereB.mRadius)*(sphereA.mRadius + sphereB.mRadius));
 }
+
 bool CCollision::TriangleIntersect(const CVector3 &c, const CVector3 &v0, const CVector3 &v1, const  CVector3 &v2, const CVector3 &n){
 	if (CVector3::Dot(CVector3::Cross(v1 - v0, c - v0), n)<0) return false;
 	if (CVector3::Dot(CVector3::Cross(v2 - v1, c - v1), n)<0) return false;

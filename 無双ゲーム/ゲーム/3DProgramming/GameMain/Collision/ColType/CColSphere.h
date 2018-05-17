@@ -18,6 +18,9 @@ public:
 	CColSphere();
 	/*球のパラメータ設定*/
 	CColSphere(CTask *parent, float radius, CVector3 pos, CMatrix44 *m);
+	/*球のパラメータ設定 マネージャーで管理しない場合*/
+	CColSphere(float radius, CVector3 pos, CMatrix44 *m);
+
 	//OBBに行列を反映
 	void Transform(CMatrix44 &mat);
 	/*更新処理呼び出し*/

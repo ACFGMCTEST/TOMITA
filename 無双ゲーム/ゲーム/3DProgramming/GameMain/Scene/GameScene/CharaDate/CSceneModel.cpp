@@ -40,7 +40,10 @@
 #define F_PL_DAMAGE				"x\\Anima\\Ani_Damage.x"
 
 /*エネミー*/
+/*スライム*/
 #define MODEL_FILE_SLIME		"x\\Slime\\Slime.x"//スライム	
+#define SLIME_MAX 10//スライムの数
+#define SLIME_POS(i) CVector3(i * SLIME_MAX / 10,0,i * SLIME_MAX / 10)//スライムの数
 /*アニメーションのファイル場所*/
 #define F_SLI_IDLING			"x\\Slime\\Anima\\Idling.x"
 #define F_SLI_RUN				"x\\Slime\\Anima\\Run.x"
@@ -52,8 +55,6 @@
 #define LAG_SIZE 0.1f //0，1秒間lag回避用
 /*パックの初期位置*/
 #define PUCK_INIT_POS 0.0f,0.0f,-10.0f
-
-
 /*静的初期化*/
 CXCharPlayer *CSceneModel::mpPlayer;
 
@@ -113,35 +114,52 @@ void CSceneModel::PlayerAdd(){
 
 /*エネミー追加処理(スライム)*/
 void CSceneModel::SlimeAdd(){
+	/*コピー用*/
+	CModelX *temp = new CModelX();
 	/*プレイヤー*/
-	mModSlime.Load(MODEL_FILE_SLIME);
+	temp->Load(MODEL_FILE_SLIME);
 	/*アニメーション追加処理*/
 	for (int i = 0; i < CTask::E_STATE_ARRAY; i++)
 	{
 		switch (i)
 		{
 		case CTask::E_IDLING:
-			mModSlime.AddAnimationSet(F_SLI_IDLING);//待機追加_0 
+			temp->AddAnimationSet(F_SLI_IDLING);//待機追加_0 
 			break;
 		case CTask::E_RUN:
-			mModSlime.AddAnimationSet(F_SLI_RUN);//走る追加
+			temp->AddAnimationSet(F_SLI_RUN);//走る追加
 			break;
 		case CTask::E_ATTACK:
-			mModSlime.AddAnimationSet(F_SLI_ATTACK);//攻撃追加_2 
+			temp->AddAnimationSet(F_SLI_ATTACK);//攻撃追加_2 
 			break;
 		case CTask::E_JUMP:
-			mModSlime.AddAnimationSet(F_SLI_JUMP);//ジャンプ追加
+			temp->AddAnimationSet(F_SLI_JUMP);//ジャンプ追加
 			break;
 		case CTask::E_DMGM:
-			mModSlime.AddAnimationSet(F_SLI_DAMAGE);//ダメージ
+			temp->AddAnimationSet(F_SLI_DAMAGE);//ダメージ
 			break;
 		}
 	}
 
-	CSlime *sl = new CSlime(); //new作成
+	CSlime *sl[SLIME_MAX];
+	CModelX *model[SLIME_MAX];
+	for (int i = 0; i < SLIME_MAX; i++)
+	{
+		/*インスタンス作成*/
+		model[i] = new CModelX();
+		sl[i] = new CSlime();
+		/*メモリをコピー*/
+		memcpy(model[i], temp, sizeof(CModelX));//モデルをコピーする
+		/*newしたモデルとアドレスを同じにしない*/
+		if (model[i] == temp){
+			printf("ここを通ってはいけない");//
+		}
 
-	sl->Init(&mModSlime);
-	CTaskManager::GetInstance()->Add(sl);//タスクに追加
+		sl[i]->Init(model[i]);
+		sl[i]->mPosition = SLIME_POS(i);
+		CTaskManager::GetInstance()->Add(sl[i]);//タスクに追加
+	}
+	P_DELETE(temp);//モデルを消す
 }
 
 void CSceneModel::Init() {

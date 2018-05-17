@@ -11,11 +11,18 @@ CColSphere::CColSphere(){
 }
 
 /*球のパラメータ設定*/
-CColSphere::CColSphere(CTask *parent, float radius, CVector3 pos, CMatrix44 *m){
+CColSphere::CColSphere(CTask *parent, float radius, CVector3 pos, CMatrix44 *m):
+CColSphere(){
 	mParentNextPos = pos;
 	mRadius = radius;
 	mpCombinedMatrix = m;
 	mpParent = parent;
+}
+/*球のパラメータ設定 マネージャーで管理しない場合*/
+CColSphere::CColSphere(float radius, CVector3 pos, CMatrix44 *m){
+	mParentNextPos = pos;
+	mRadius = radius;
+	mpCombinedMatrix = m;
 }
 
 /*更新処理*/

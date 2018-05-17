@@ -5,9 +5,6 @@
 
 /*エネミーのクラス*/
 class CEnemyBase : public CXCharPlayer{
-protected:
-	/*ステータス管理*/
-	std::unique_ptr<CStateMachine> mStateMachine;//ステータス管理
 public:
 	
 	CEnemyBase();
