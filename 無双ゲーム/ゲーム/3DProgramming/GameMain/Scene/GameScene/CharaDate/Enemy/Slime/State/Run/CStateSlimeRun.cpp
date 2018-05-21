@@ -7,7 +7,7 @@
 //変更する関数
 void CStateSlimeRun::ChangeState(){
 	CSlime *sli = dynamic_cast<CSlime*>(mpParent);
-	/*動区フラグがたっていなければ*/
+	/*フラグがたっていなければ*/
 	if (!sli->Search()){
 		mNextRegisterName = SLI_STATE_IDLING;//走る
 	}

@@ -2,15 +2,16 @@
 #include "../CCollisionManager.h"
 #include "glut.h"
 
-/*コンストラクタ*/
-COBB::COBB(){
+/*コンストラクタ　引数:当たり判定を追加するかしないか判断*/
+COBB::COBB(bool addCol){
 	mType = COL_BOX;//球体にする
-	CCollisionManager::GetInstance()->Add(this);//あたり判定追加
+	/*引数で判断*/
+	if (addCol)CCollisionManager::GetInstance()->Add(this);//あたり判定追加
 };
 /*パラメータ設定*/
 COBB::COBB(CVector3 &center, CVector3 &v, CMatrix44 *matrix){
 	/*ボックスであるか判定*/
-	mParentNextPos = center;
+	mPos = center;
 	/*ベクトルを決める*/
 	mAxis[0] = CVector3(1.0f, 0.0f, 0.0f);
 	mAxis[1] = CVector3(0.0f, 1.0f, 0.0f);
@@ -29,8 +30,6 @@ void COBB::Update(){
 	mAxis[0] = CVector3(1.0f, 0.0f, 0.0f);
 	mAxis[1] = CVector3(0.0f, 1.0f, 0.0f);
 	mAxis[2] = CVector3(0.0f, 0.0f, 1.0f);
-	/*ポジションを調整する*/
-	mPos = mParentNextPos;
 	//移動回転させる
 	Transform(*mpCombinedMatrix);
 }

@@ -24,8 +24,8 @@ public:
 	CMatrix44 mMatrixRotation;
 
 
-	/*コンストラクタ*/
-	COBB();
+	/*コンストラクタ　引数:当たり判定を追加するかしないか判断*/
+	COBB(bool addCol);
 	/*パラメータ設定*/
 	COBB(CVector3 &center, CVector3 &v, CMatrix44 *matrix);
 	//OBBに行列を反映

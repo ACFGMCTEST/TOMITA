@@ -14,6 +14,49 @@ bool CCollision::CollisionShpere(const CColSphere &sphereA,const CColSphere &sph
 	CVector3 v = sphereB.mPos - sphereA.mPos;
 	return (v.LengthSq() <(sphereA.mRadius + sphereB.mRadius)*(sphereA.mRadius + sphereB.mRadius));
 }
+//カプセル同士の衝突
+bool CCollision::CollisionCapsule(const CColCapsule *capsuleA, const CColCapsule *capsuleB){
+
+	CVector3 topA = capsuleA->mV[0].Transeform(*capsuleA->mpCombinedMatrix);
+	CVector3 topB = capsuleB->mV[0].Transeform(*capsuleB->mpCombinedMatrix);
+	CVector3 BottomA = capsuleA->mV[1].Transeform(*capsuleA->mpCombinedMatrix);
+	CVector3 BottomB = capsuleB->mV[1].Transeform(*capsuleB->mpCombinedMatrix);
+
+	//printf("エネミー:top(%f,%f,%f),bottom(%f,%f,%f)\n", topB.x, topB.y, topB.z, BottomB.x, BottomB.y, BottomB.z);
+
+	//球の中心とカプセルの線分の距離を計算
+	float distance = DistanceLine(topA, BottomA, topB, BottomB, NULL, NULL);
+	//半径の和の二乗を計算
+	float radiusSum = capsuleA->mRadius + capsuleB->mRadius;
+	float radiusSumSQ = radiusSum * radiusSum;
+	//距離が半径の和より大きければ当たっていない
+	if (distance < radiusSumSQ){
+		return true;
+	}
+	else{
+		return false;
+	}
+
+	///*球体用*/
+	//CColSphere TopColA(capsuleA.mRadius, capsuleA.mV[0], capsuleA.mpCombinedMatrix);
+	//CColSphere TopColB(capsuleB.mRadius, capsuleB.mV[0], capsuleB.mpCombinedMatrix);
+	//CColSphere BottomColA(capsuleA.mRadius, capsuleA.mV[1], capsuleA.mpCombinedMatrix);
+	//CColSphere BottomColB(capsuleB.mRadius, capsuleB.mV[1], capsuleB.mpCombinedMatrix);
+	////AABB用
+	//CVector3 TopPosA = CVector3(capsuleA.mV[0].x + capsuleA.mRadius, capsuleA.mV[0].y, capsuleA.mV[0].z + capsuleA.mRadius);
+	//CVector3 TopPosB = CVector3(capsuleB.mV[0].x + capsuleB.mRadius, capsuleB.mV[0].y, capsuleB.mV[0].z + capsuleB.mRadius);
+	//CVector3 BottomPosB = CVector3(capsuleA.mV[1].x + capsuleA.mRadius, capsuleA.mV[1].y, capsuleA.mV[1].z + capsuleA.mRadius);
+	//CVector3 BottomPosB = CVector3(capsuleB.mV[1].x + capsuleB.mRadius, capsuleB.mV[1].y, capsuleB.mV[1].z + capsuleB.mRadius);
+
+
+	//return (CCollision::CollisionShpere(TopColA, TopColB) ||
+	//	CCollision::CollisionShpere(TopColA, BottomColB) ||
+	//	CCollision::CollisionShpere(BottomColA, TopColB) ||
+	//	CCollision::CollisionShpere(BottomColA, BottomColB) ||
+	//	CCollision::CollisionAABB()
+	//	) ;
+
+}
 
 bool CCollision::TriangleIntersect(const CVector3 &c, const CVector3 &v0, const CVector3 &v1, const  CVector3 &v2, const CVector3 &n){
 	if (CVector3::Dot(CVector3::Cross(v1 - v0, c - v0), n)<0) return false;
@@ -122,6 +165,7 @@ CVector2 CCollision::PointOnLineSegmentNearestPoint(const CVector2 &v0, const CV
 	//t=<1 t>=0 の場合は線分上に近い点がある 
 	return v0 + V*t;
 }
+
 //-----------------------------------------------------------------------------
 bool CCollision::IntersectTriangleSphere(const CVector3 &v0, const CVector3 &v1, const CVector3 &v2, const CVector3 &center, float radius, CVector3 *cross, float *length)
 {
@@ -482,26 +526,6 @@ bool CCollision::CollSphereBox(CColSphere sphere, COBB &box){
 	}
 	return false;
 
-}
-
-/*当たり判定関数(球と壁判定)*/
-//static bool ColSphereWall(const CColSphere &sphere, const CColWall &wall){
-//	
-//	
-//	float dot;
-//	CVector3 vec;
-//	vec = sphere.mPos + wall.mPos * -1.0f;
-//	dot = vec.Dot(wall.mNormal);
-//	if (dot < sphere.mRadius){
-//		return true;
-//	}
-//}
-
-
-CVector3 CCollision::Reflect(const CVector3& normal, const CVector3& vector) {
-	if (normal.Dot(vector) < 0.0f)
-		return normal * normal.Dot(vector) * -2.0f + vector;
-	return vector;
 }
 
 /*

@@ -139,7 +139,7 @@ CVector3 CVector3::Cross(const CVector3& v) const {
 	return CVector3(y*v.z - z*v.y, z*v.x - x*v.z, x*v.y - y*v.x);
 }
 
-CVector3 CVector3::Transeform(CMatrix44 &mat) {
+CVector3 CVector3::Transeform(CMatrix44 &mat) const{
 	CVector4 c = CVector4(x, y, z, 1);
 	c = c*mat;
 	return CVector3(c.x, c.y, c.z);

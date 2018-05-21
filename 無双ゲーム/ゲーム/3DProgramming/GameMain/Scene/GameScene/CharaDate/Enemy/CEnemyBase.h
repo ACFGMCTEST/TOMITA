@@ -18,5 +18,10 @@ public:
 	/*UŒ‚€”õ “–‚½‚è”»’è•”•ª‚ÅŒÄ‚Ô*/
 	void AttackInit();
 
+	/*“–‚½‚è”»’è*/
+	bool Collision(CColBase* me, CColBase* you);
+	/*ƒJƒvƒZƒ‹“à“–‚½‚è”»’è*/
+	void CapsuleCol(CColCapsule *caps, CColBase* y);
+
 };
 #endif

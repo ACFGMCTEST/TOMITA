@@ -8,7 +8,7 @@
 #include"../../../../../StateMachine/CStateMachine.h"
 #include "../../../../../StateMachine/CStateBase.h"
 #include "../../../../Collision/ColType/CColBase.h"
-
+#include "../../../../Collision/ColType/CColCapsule.h"
 //プレイヤーの数
 #define CHARA_ARRAY 3
 /*キャラステータス*/
@@ -111,8 +111,12 @@ public:
 	/*移動させる*/
 	void Move();
 
+	/*当たり判定調整用*/
+	void SetAdjust(CVector3 *s, const CVector3 &t);
 	/*当たり判定*/
 	bool Collision(CColBase* me, CColBase* you);
+	/*カプセル内当たり判定*/
+	void CapsuleCol(CColCapsule *caps, CColBase* y);
 
 
 	/*重力

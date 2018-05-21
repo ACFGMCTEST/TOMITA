@@ -24,18 +24,17 @@
 /*向き*/
 #define FORWARD_JUMP  0.0f,1.0f,1.0f//ジャンプ
 
-/*あたり判定の設定値*/
-#define OBB_RADIUS 0.5f
-/*胴*/
-#define OBB_SPHERE_BODY_SIZE 0.4f
-#define OBB_SPHERE_BODY_POS CVector3(0.0f,0.0f,0.0f)
-#define COL_POS CVector3(0.0f, 1.5f, 0.0f), CVector3(0.0f, -0.9f, 0.0f)
-/*武器*/
-#define OBB_WEAPON_POS CVector3(0.0f,0.5f,0.0f)
-#define OBB_WEAPON_SIZE CVector3(0.4f, 0.7f, 0.4f)
-/*足*/
-#define OBB_LEG_SIZE 0.3f
-#define OBB_LEG_POS CVector3(0.0f,-1.0f,0.0f)
+/*あたり判定の設定値(main)*/
+#define COL_RADIUS 0.6f//半径
+#define COL_POS CVector3(0,1.5f,0),CVector3(0,-1.0f,0)//ポジションカプセル
+#define COL_MATRIX &mpCombinedMatrix[model->FindFrame("metarig_hips")->mIndex]//マトリックス
+/*腕*/
+#define COL_ATTACK_RADIUS 0.4f
+#define COL_RIGHT_POS CVector3(0.0f,0.5f,0.0f)
+#define COL_LEFT_POS  CVector3(0.0f,0.5f,0.0f)
+#define COL_LEFT_MATRIX  &mpCombinedMatrix[model->FindFrame ("metarig_forearm_L")->mIndex]//マトリックス
+#define COL_RIGHT_MATRIX &mpCombinedMatrix[model->FindFrame("metarig_forearm_R")->mIndex]//マトリックス
+
 
 /*HPバーの設定値*/
 #define HP_BAR_POS CVector3(mPosition.x,mPosition.y + 1.8f,mPosition.z)
@@ -70,8 +69,13 @@ void CXCharPlayer::Init(CModelX *model) {
 	CModelXS::Init(model);
 
 	//カプセル　キャラクタ全体
-	new CColCapsule(this, COL_POS, OBB_RADIUS, &mpCombinedMatrix[model->FindFrame("metarig_hips")->mIndex]);
-	mpMatrix = &mpCombinedMatrix[model->FindFrame("metarig_hips")->mIndex];
+	new CColCapsule(this, COL_POS, COL_RADIUS, COL_MATRIX);
+	mpMatrix = COL_MATRIX;
+	//球体　腕.右
+	new CColSphere(this, COL_ATTACK_RADIUS, COL_RIGHT_POS, COL_RIGHT_MATRIX);
+	//球体　腕.左
+	new CColSphere(this, COL_ATTACK_RADIUS, COL_LEFT_POS, COL_LEFT_MATRIX);
+
 	mPower = ATTACK_POWER;//攻撃力
 
 	PosUpdate();
@@ -247,7 +251,7 @@ void CXCharPlayer::ColMove(int count, CVector3 Forward){
 
 
 
-void SetAdjust(CVector3 *s, const CVector3 &t) {
+void CXCharPlayer::SetAdjust(CVector3 *s, const CVector3 &t) {
 	//x
 	if (s->x > 0) {
 		if (t.x > 0) {
@@ -313,39 +317,54 @@ void SetAdjust(CVector3 *s, const CVector3 &t) {
 	}
 }
 
+/*カプセル内当たり判定*/
+void CXCharPlayer::CapsuleCol(CColCapsule *cc, CColBase* y){
+	CColTriangle ct(false);//三角形の当たり判定
+	CColCapsule  caps(false);//球の当たり判定
+	/*相手のタイプ何か判断*/
+	switch (y->mType) {
+		/*相手が三角の場合*/
+	case CColBase::COL_TRIANGLE:
+		ct = (*(CColTriangle*)y).GetUpdate();
+		/*当たり判定計算*/
+		if (CCollision::IntersectTriangleCapsule3(ct.mV[0], ct.mV[1], ct.mV[2],
+			cc->mV[0], cc->mV[1], cc->mRadius, &cc->mAdjust)) {
+			ColGround();//地面にあった時の処理
+			SetAdjust(&mAdjust, cc->mAdjust);
+			mPosition = mPosition + mAdjust;
+			CMatrix44 rot_y, pos, matrix;
+			//回転行列の作成
+			rot_y.rotationY(mRotation.y);
+			//移動行列を計算する
+			pos.translate(mPosition);
+			//回転移動行列を求める
+			matrix = pos * rot_y;
+			//UpdateSkinMatrix(matrix);
+			CModelXS::Update(matrix);
+		}
+		break;
+		/*相手がカプセルの場合*/
+	case CColBase::COL_CAPSULE:
+		caps = *(CColCapsule*)y;//カプセルにする
+		if (CCollision::CollisionCapsule(cc, &caps)){
+		};
+
+
+		break;
+	};
+}
+
 //m 自分　y 相手
 bool CXCharPlayer::Collision(CColBase* m, CColBase* y) {
 	//CColBase *m = (CColBase*)me;
 	//CColBase *y = (CColBase*)you;
+	CColCapsule cc(false);
 	/*自分のタイプが何か判断*/
 	switch (m->mType) {
 
 	case CColBase::COL_CAPSULE://自分の当たり判定がカプセルの場合
-		CColCapsule *cc = (CColCapsule*)m;
-
-		/*相手のタイプ何か判断*/
-		switch (y->mType) {
-			/*相手が三角の場合*/
-		case CColBase::COL_TRIANGLE:
-			CColTriangle ct = (*(CColTriangle*)y).GetUpdate();
-			/*当たり判定計算*/
-			if (CCollision::IntersectTriangleCapsule3(ct.mV[0], ct.mV[1], ct.mV[2],
-				cc->mV[0], cc->mV[1], cc->mRadius, &cc->mAdjust)) {
-				ColGround();//地面にあった時の処理
-				SetAdjust(&mAdjust, cc->mAdjust);
-				mPosition = mPosition + mAdjust;
-				CMatrix44 rot_y, pos, matrix;
-				//回転行列の作成
-				rot_y.rotationY(mRotation.y);
-				//移動行列を計算する
-				pos.translate(mPosition);
-				//回転移動行列を求める
-				matrix = pos * rot_y;
-				UpdateSkinMatrix(matrix);
-			}
-			break;
-
-		};
+		cc = *(CColCapsule*)m;//カプセルにする
+		CapsuleCol(&cc, y);//カプセルの当たり判定
 		break;
 	};
 

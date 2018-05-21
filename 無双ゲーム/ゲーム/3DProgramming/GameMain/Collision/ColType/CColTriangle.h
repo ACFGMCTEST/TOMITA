@@ -20,8 +20,8 @@ public:
 	CVector3 mV[3];
 	CVector3 mPos;//三角形の中心
 
-	/*コンストラクタ*/
-	CColTriangle();
+	/*トライアングル代入*/
+	CColTriangle(bool addFlag);
 	/*デストラクタ*/
 	~CColTriangle();
 

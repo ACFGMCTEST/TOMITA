@@ -12,6 +12,7 @@
 #include "ColType\COBB.h"
 #include "ColType\CColSphere.h"
 #include "ColType\CColTriangle.h"
+#include "ColType\CColCapsule.h"
 #include "ColType\CColLine.h"
 
 
@@ -31,6 +32,9 @@ private:
 public:
 	//‹…“¯m‚ÌÕ“Ë”»’è
 	static bool CollisionShpere(const CColSphere &sphereA, const CColSphere &sphereB);
+	//ƒJƒvƒZƒ‹“¯m‚ÌÕ“Ë
+	static bool CollisionCapsule(const CColCapsule *capsuleA, const CColCapsule *capsuleB);
+
 	//OBB“¯m‚ÌÕ“Ë”»’è
 	static bool CollisionOBB(const COBB &A, const COBB &B);
 	//AABB“¯m‚ÌÕ“Ë”»’è
@@ -76,6 +80,5 @@ public:
 	static bool CollSphereBox(CColSphere sphere, COBB &box);
 
 
-	static CVector3 Reflect(const CVector3& normal, const CVector3& vector);
 };
 #endif

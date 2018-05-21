@@ -86,15 +86,11 @@ void CSlime::Render(){
 
 /*索敵関数*/
 bool CSlime::Search(){
+
 	/*索敵内に入れば動く*/
 	CColSphere plCol = CColSphere(SERACH_SPHERE(CSceneModel::mpPlayer->mpMatrix));//プレイヤー
 	CColSphere sliCol = CColSphere(SERACH_SPHERE(mpMatrix));//エネミー
 	
 	/*視界内に来ているか判断*/
-	if (CCollision::CollisionShpere(plCol.GetUpdate(), sliCol.GetUpdate())){//球体の当たり判定
-		return true;
-	}
-	else{
-		return  false;
-	}
+	return CCollision::CollisionShpere(plCol.GetUpdate(), sliCol.GetUpdate());
 }

@@ -4,33 +4,35 @@
 /*球体の分割数*/
 #define DIVISION_NUM 20,20
 
-/*コンストラクタ*/
-CColSphere::CColSphere(){
+/*コンストラクタ　引数:当たり判定を追加するかしないか判断*/
+CColSphere::CColSphere(bool addFlag){
 	mType = COL_SPHEPE;//球体にする
-	CCollisionManager::GetInstance()->Add(this);//あたり判定追加
+	if(addFlag)CCollisionManager::GetInstance()->Add(this);//あたり判定追加
 }
 
 /*球のパラメータ設定*/
 CColSphere::CColSphere(CTask *parent, float radius, CVector3 pos, CMatrix44 *m):
-CColSphere(){
-	mParentNextPos = pos;
+CColSphere(true){
+	mPos = pos;
 	mRadius = radius;
 	mpCombinedMatrix = m;
 	mpParent = parent;
 }
 /*球のパラメータ設定 マネージャーで管理しない場合*/
 CColSphere::CColSphere(float radius, CVector3 pos, CMatrix44 *m){
-	mParentNextPos = pos;
+	mPos = pos;
 	mRadius = radius;
 	mpCombinedMatrix = m;
 }
 
 /*更新処理*/
 void CColSphere::Update(){
-	/*ポジションを調整する*/
-	mPos = mParentNextPos;
-	//移動回転させる
-	Transform(*mpCombinedMatrix);
+	/*CMatrix44 pos;
+	pos.translate(mPos);
+	*mpCombinedMatrix = *mpCombinedMatrix * pos;
+*/
+
+	mPos = mPos * *mpCombinedMatrix;
 }
 
 /*更新処理呼び出し*/
@@ -48,8 +50,16 @@ void CColSphere::Transform(CMatrix44 &mat) {
 }
 /*描画*/
 void CColSphere::Render(){
+
+	//glPushMatrix();
+	//glColor3d(r,g,b); //色の設定
+	//glTranslated(mPos.x, mPos.y, mPos.z);//平行移動値の設定
+	//glutSolidSphere(mRadius, DIVISION_NUM);//引数：(半径, Z軸まわりの分割数, Z軸に沿った分割数)
+
+	glPopMatrix();
 	glPushMatrix();
-	glColor3d(r,g,b); //色の設定
-	glTranslated(mPos.x, mPos.y, mPos.z);//平行移動値の設定
-	glutSolidSphere(mRadius, DIVISION_NUM);//引数：(半径, Z軸まわりの分割数, Z軸に沿った分割数)
+
+	glMultMatrixf(mpCombinedMatrix->f);
+	glutSolidSphere(mRadius, DIVISION_NUM);
+	glPopMatrix();
 }

@@ -1247,13 +1247,13 @@ Update
 matrix：移動、回転、拡大縮小の行列
 */
 void CModelXS::Update(CMatrix44 &matrix) {
-	//現在のアニメーションと異なるとき
-	if (mpModel->mAnimationIndex != mAnimationIndex) {
-		mpModel->mAnimationSet[mpModel->mAnimationIndex]->mWeight = 0.0f;
-		mpModel->mAnimationSet[mAnimationIndex]->mWeight = 1.0f;
-		mpModel->mAnimationSet[mAnimationIndex]->mTime = mAnimationTime;
-		mpModel->mAnimationIndex = mAnimationIndex;
-	}
+	////現在のアニメーションと異なるとき
+	//if (mpModel->mAnimationIndex != mAnimationIndex) {
+	//	mpModel->mAnimationSet[mpModel->mAnimationIndex]->mWeight = 0.0f;
+	//	mpModel->mAnimationSet[mAnimationIndex]->mWeight = 1.0f;
+	//	mpModel->mAnimationSet[mAnimationIndex]->mTime = mAnimationTime;
+	//	mpModel->mAnimationIndex = mAnimationIndex;
+	//}
 
 	//最後まで再生していない
 	if (mAnimationTime <= mpModel->mAnimationSet[mAnimationIndex]->mMaxTime) {
@@ -1268,6 +1268,11 @@ void CModelXS::Update(CMatrix44 &matrix) {
 		}
 	}
 
+	for (int i = 0; i < mpModel->mAnimationSet.size(); i++)
+	{
+		mpModel->mAnimationSet[i]->mWeight = 0.0f;	
+	}
+	mpModel->mAnimationSet[mAnimationIndex]->mWeight = 1.0f;
 	mpModel->mAnimationSet[mAnimationIndex]->mTime = mAnimationTime;
 
 	UpdateSkinMatrix(matrix);

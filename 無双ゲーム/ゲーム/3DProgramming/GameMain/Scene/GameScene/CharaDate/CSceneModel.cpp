@@ -43,7 +43,7 @@
 /*スライム*/
 #define MODEL_FILE_SLIME		"x\\Slime\\Slime.x"//スライム	
 #define SLIME_MAX 10//スライムの数
-#define SLIME_POS(i) CVector3(i * SLIME_MAX / 10,0,i * SLIME_MAX / 10)//スライムの数
+#define SLIME_POS(i) CVector3(i * SLIME_MAX,0,i * SLIME_MAX)//スライムの数
 /*アニメーションのファイル場所*/
 #define F_SLI_IDLING			"x\\Slime\\Anima\\Idling.x"
 #define F_SLI_RUN				"x\\Slime\\Anima\\Run.x"
@@ -115,7 +115,7 @@ void CSceneModel::PlayerAdd(){
 /*エネミー追加処理(スライム)*/
 void CSceneModel::SlimeAdd(){
 	/*コピー用*/
-	CModelX *temp = new CModelX();
+	CModelX *temp = &mModSlime;
 	/*プレイヤー*/
 	temp->Load(MODEL_FILE_SLIME);
 	/*アニメーション追加処理*/
@@ -142,24 +142,14 @@ void CSceneModel::SlimeAdd(){
 	}
 
 	CSlime *sl[SLIME_MAX];
-	CModelX *model[SLIME_MAX];
 	for (int i = 0; i < SLIME_MAX; i++)
 	{
 		/*インスタンス作成*/
-		model[i] = new CModelX();
 		sl[i] = new CSlime();
-		/*メモリをコピー*/
-		memcpy(model[i], temp, sizeof(CModelX));//モデルをコピーする
-		/*newしたモデルとアドレスを同じにしない*/
-		if (model[i] == temp){
-			printf("ここを通ってはいけない");//
-		}
-
-		sl[i]->Init(model[i]);
+		sl[i]->Init(temp);
 		sl[i]->mPosition = SLIME_POS(i);
 		CTaskManager::GetInstance()->Add(sl[i]);//タスクに追加
 	}
-	P_DELETE(temp);//モデルを消す
 }
 
 void CSceneModel::Init() {

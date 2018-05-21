@@ -1,10 +1,13 @@
 #include "glut.h"
 #include "CColCapsule.h"
 
-/*コンストラクタ*/
-CColCapsule::CColCapsule() : mRadius(0.0f) {
+/*コンストラクタ　引数:当たり判定追加しないか判断*/
+CColCapsule::CColCapsule(bool addFlag) : mRadius(0.0f) {
 	mType = COL_CAPSULE;
-	CCollisionManager::GetInstance()->Add(this);//あたり判定追加
+	if (addFlag){
+		CCollisionManager::GetInstance()->Add(this);//あたり判定追加
+		printf("カプセル追加しました\n");
+	}
 }
 /*更新処理*/
 void CColCapsule::Update() {
@@ -28,7 +31,7 @@ radius:半径
 pcombinedMatrix:連結させるフレームの合成行列
 */
 CColCapsule::CColCapsule(CTask *parent, CVector3 v0, CVector3 v1, float radius, CMatrix44 *pcombinedMatrix)
-: CColCapsule()
+: CColCapsule(true)
 {
 	mpCombinedMatrix = pcombinedMatrix;
 	mV[0] = v0;
@@ -36,6 +39,7 @@ CColCapsule::CColCapsule(CTask *parent, CVector3 v0, CVector3 v1, float radius, 
 	mRadius = radius;
 	mpParent = parent;
 }
+
 /*描画処理*/
 void CColCapsule::Render() {
 	float color[] = { 1.0f, 1.0f, 0.0f, 0.5f };
@@ -52,6 +56,8 @@ void CColCapsule::Render() {
 	mat.translate(vec);
 	glMultMatrixf(mat.f);
 	glutSolidSphere(mRadius, 20, 20);
+
+
 	glPopMatrix();
 	glPushMatrix();
 	vec = mV[1] - mV[0];

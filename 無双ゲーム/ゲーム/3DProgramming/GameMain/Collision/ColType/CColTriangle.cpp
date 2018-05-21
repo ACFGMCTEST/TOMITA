@@ -4,22 +4,27 @@
 int CColTriangle::mAllCount = 0;
 
 /*コンストラクタ newする*/
-CColTriangle::CColTriangle() {
+CColTriangle::CColTriangle(bool addFlag) {
+
 	mType = COL_TRIANGLE;
-	CCollisionManager::GetInstance()->Add(this);//あたり判定追加
+	/*追加するフラグが立つと追加する*/
+	if (addFlag){
+		CCollisionManager::GetInstance()->Add(this);//あたり判定追加
+	}
 }
 /*デストラクタ*/
 CColTriangle::~CColTriangle(){
 	mAllCount--;
 }
 
+
 /*コンストラクタ　頂点数代入*/
-CColTriangle::CColTriangle(const CVector3 &v0, const CVector3 &v1, const CVector3 &v2) : CColTriangle()
+CColTriangle::CColTriangle(const CVector3 &v0, const CVector3 &v1, const CVector3 &v2) :
+CColTriangle(true)
 {
 	mAllCount++;//カウントする
 	mNumber = mAllCount;//自分の生成番号決める
 	mPos = CVector3::TriangleCenter(v0, v1, v2);
-	printf("三角形の中心(%f, %f, %f)\n", mPos.x, mPos.y, mPos.z);
 	/*自分のポジションから当たり判定する*/
 
 	mV[0] = v0;

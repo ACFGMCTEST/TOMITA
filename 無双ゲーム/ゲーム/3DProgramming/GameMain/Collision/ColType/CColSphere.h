@@ -7,6 +7,7 @@
 class CColSphere :public CColBase
 {
 private:
+	CVector3 mInitPos;//初めのpos値
 	/*更新処理*/
 	void Update();
 public:
@@ -14,8 +15,8 @@ public:
 	////回転行列 
 	CMatrix44 mMatrixRotation;
 
-	/*コンストラクタ*/
-	CColSphere();
+	/*コンストラクタ　引数:当たり判定を追加するかしないか判断*/
+	CColSphere(bool addFlag);
 	/*球のパラメータ設定*/
 	CColSphere(CTask *parent, float radius, CVector3 pos, CMatrix44 *m);
 	/*球のパラメータ設定 マネージャーで管理しない場合*/

@@ -9,7 +9,6 @@
 class CColBase : public CTask
 {
 public:
-	CVector3 mParentNextPos;//親から調整したもの
 	CVector3 mPos;		//中心座標
 	float r, g, b, a;//色情報
 	CVector3 mAdjust;	//衝突応答　調整値

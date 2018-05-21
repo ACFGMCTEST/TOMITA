@@ -14,6 +14,7 @@ private:
 public:
 
 	static CCollisionManager *GetInstance(); //GetInstance
+
 	~CCollisionManager();
 
 	void Add(CColBase *col);//‚ ‚½‚è”»’è’Ç‰Áˆ—

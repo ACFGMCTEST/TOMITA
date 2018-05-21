@@ -16,6 +16,7 @@ private:
 	float mLagTime;//lagによるバグ回避時間
 
 	CModelX mModPlayer;//モデル読み込み用
+	CModelX mModSlime;//モデル読み込み用
 
 
 public:
