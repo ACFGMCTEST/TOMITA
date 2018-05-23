@@ -27,105 +27,12 @@ CTutorial::CTutorial() : mFlagUv(false), eTutoState(E_RULE){}
 CTutorial::~CTutorial(){}
 /*初期化*/
 void CTutorial::Init(){
-	eTutoState= E_RULE;
-	/*テクスチャ読み込み*/
-	mTex.load(TEX_NAME);
-
-	for (int i = 0; i < ARRAY_OPERA; i++){
-		/*四角形サイズ設定*/
-		mOperation[i].SetVertex(SIZE_OPERA);
-		/*貼り付け*/
-		mOperation[i].SetUv(&mTex, TEX_SIZE(E_TEX_RULE));
-	}
-
+	
 }
 
 /*更新*/
 void CTutorial::Update(){
 
-	for (int i = 0; i < ARRAY_OPERA; i++){
-		mOperation[i].mPosition = FAST_POS;
-	}
-
-	/*チューリアル状態遷移*/
-	switch (eTutoState)
-	{
-	case CTutorial::E_RULE:
-
-		/*エンター&&攻撃ボタン切り替え*/
-		if (CKey::once(VK_RETURN) || CKey::once(KEY_ATTACK) || CKey::once(KEY_ATTACK2)
-			|| CMouse::GetInstance()->mOneLeftFlag){
-			eTutoState = E_WALK;
-		}
-		break;
-	case CTutorial::E_WALK:
-		/*テクスチャ張替え*/
-		if (!mFlagUv){
-			mOperation[0].SetUv(&mTex, TEX_SIZE(E_TEX_MOVE));
-			mOperation[1].SetUv(&mTex, TEX_SIZE(E_TEX_MOVE));
-			mFlagUv = true;
-		}
-		/*エンター&&攻撃ボタン切り替え*/
-		if (CKey::once(VK_RETURN) || CKey::once(KEY_ATTACK) || CKey::once(KEY_ATTACK2)
-			|| CMouse::GetInstance()->mOneLeftFlag){
-			eTutoState = E_CAMERA;
-			mFlagUv = false;
-		}
-		break;
-	case E_CAMERA:
-		/*ポジション変える*/
-		for (int i = 0; i < ARRAY_OPERA; i++){
-			mOperation[i].mPosition = POS(i);
-		}
-		/*テクスチャ張替え*/
-		if (!mFlagUv){
-			mOperation[0].SetUv(&mTex, TEX_SIZE(E_TEX_CAMERA_KEY));
-			mOperation[1].SetUv(&mTex, TEX_SIZE(E_TEX_CAMERA_MOUSE));
-			mFlagUv = true;
-		}
-		/*エンター&&攻撃ボタン切り替え*/
-		if (CKey::once(VK_RETURN) || CKey::once(KEY_ATTACK) || CKey::once(KEY_ATTACK2)
-			|| CMouse::GetInstance()->mOneLeftFlag){
-			eTutoState = E_ATTACK;
-			mFlagUv = false;
-		}
-		break;
-
-	case CTutorial::E_ATTACK:
-		/*ポジション変える*/
-		for (int i = 0; i < ARRAY_OPERA; i++){
-			mOperation[i].mPosition = POS(i);
-		}
-		/*テクスチャ張替え*/
-		if (!mFlagUv){
-			mOperation[0].SetUv(&mTex, TEX_SIZE(E_TEX_ATTACK_PUSH));
-			mOperation[1].SetUv(&mTex, TEX_SIZE(E_TEX_ATACK_LONG));
-			mFlagUv = true;
-		}
-		/*エンター&&攻撃ボタン切り替え*/
-		if (CKey::once(VK_RETURN) || CKey::once(KEY_ATTACK) || CKey::once(KEY_ATTACK2)
-			|| CMouse::GetInstance()->mOneLeftFlag){
-			eTutoState = E_PAUZE;
-			mFlagUv = false;
-		}
-		break;
-	case CTutorial::E_PAUZE:
-		/*テクスチャ張替え*/
-		if (!mFlagUv){
-			mOperation[0].SetUv(&mTex, TEX_SIZE(E_TEX_PAUZE));
-			mOperation[1].SetUv(&mTex, TEX_SIZE(E_TEX_PAUZE));
-			mFlagUv = true;
-		}
-		/*エンター&&攻撃ボタン切り替え*/
-		if (CKey::once(VK_RETURN) || CKey::once(KEY_ATTACK) || CKey::once(KEY_ATTACK2)
-			|| CMouse::GetInstance()->mOneLeftFlag){
-			eTutoState = E_ARRAY;
-			mFlagUv = false;
-		}
-		break;
-	case CTutorial::E_ARRAY:
-		break;
-	}
 }
 
 /*描画*/

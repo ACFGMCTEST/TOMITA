@@ -6,7 +6,6 @@ CColCapsule::CColCapsule(bool addFlag) : mRadius(0.0f) {
 	mType = COL_CAPSULE;
 	if (addFlag){
 		CCollisionManager::GetInstance()->Add(this);//あたり判定追加
-		printf("カプセル追加しました\n");
 	}
 }
 /*更新処理*/

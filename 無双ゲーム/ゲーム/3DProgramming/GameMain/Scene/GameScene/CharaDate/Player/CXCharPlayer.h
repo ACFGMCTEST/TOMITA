@@ -126,9 +126,6 @@ public:
 	/*カプセルの移動*/
 	//void ColCapsAdjus(CColCapsule *youCaps, CColCapsule *caps);
 
-
-
-
 	/*重力
 	自分の足がついているときを重力を止める場所にする
 	*/

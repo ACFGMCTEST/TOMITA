@@ -13,6 +13,7 @@ class  CTask
 {
 public:
 
+	int mNumber;//©•ª‚Ì»‘¢”Ô†
 	CTask *mpNext;
 	CTask *mpPrev;
 

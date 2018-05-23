@@ -12,13 +12,10 @@ private:
 
 	/*テクスチャの配列番号*/
 	enum E_TEX{
-	E_TEX_RULE,			//0番ルール
-	E_TEX_MOVE,			//1番移動説明
-	E_TEX_CAMERA_KEY,	//2番カメラキー説明
-	E_TEX_CAMERA_MOUSE,	//3番カメラマウス説明
-	E_TEX_ATTACK_PUSH,	//4番攻撃説明
-	E_TEX_ATACK_LONG,	//5番攻撃ため説明
-	E_TEX_PAUZE,		//6番ポーズ説明
+		E_TEX_WALK,//歩く　
+		E_TEX_ATTTACK,//攻撃
+		E_TEX_JUMP,//ジャンプ
+		E_TEX_SPECIAL,//必殺技
 	};
 	CTexture mTex;//テクスチャロード
 
@@ -29,7 +26,6 @@ public:
 	enum E_TUTORIAL_STATE{
 		E_RULE, //ルール説明
 		E_WALK,//歩き説明
-		E_CAMERA,//カメラの説明
 		E_ATTACK,//操作説明
 		E_PAUZE,//ポーズ説明
 		E_ARRAY,//enumの数

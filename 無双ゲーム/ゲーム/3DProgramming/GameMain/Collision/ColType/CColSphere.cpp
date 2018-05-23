@@ -17,6 +17,7 @@ CColSphere::CColSphere(CTask *parent, CVector3 pos, float radius, CMatrix44 *m)
 	mPos = pos;
 	mRadius = radius;
 	mpCombinedMatrix = m;
+	mMatrixRotation = *m;
 	mpParent = parent;
 }
 /*球のパラメータ設定 マネージャーで管理しない場合*/
@@ -24,6 +25,8 @@ CColSphere::CColSphere(float radius, CVector3 pos, CMatrix44 *m){
 	mPos = pos;
 	mRadius = radius;
 	mpCombinedMatrix = m;
+	mMatrixRotation = *m;
+
 }
 
 /*更新処理*/
@@ -32,8 +35,8 @@ void CColSphere::Update(){
 	pos.translate(mPos);
 	*mpCombinedMatrix = *mpCombinedMatrix * pos;
     */
-
-	mPos = mPos * *mpCombinedMatrix;
+	Transform(*mpCombinedMatrix);
+	//mPos = mPos * *mpCombinedMatrix;
 }
 
 /*更新処理呼び出し*/

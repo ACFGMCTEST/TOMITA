@@ -7,7 +7,6 @@ class CSlime : public CEnemyBase{
 private:
 	static int mAllCount;//エネミーの数
 public:
-	int mNumber;//自分の製造番号
 	CSlime();
 	~CSlime();
 	/*初期化処理*/

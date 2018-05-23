@@ -68,6 +68,8 @@ void CSlime::Init(CModelX *model){
 }
 /*コンストラクタ*/
 CSlime::CSlime(){
+
+	eName = CTask::E_SLIME;
 	mAllCount++;
 	mNumber = mAllCount;
 	CEnemyBase::CEnemyBase();

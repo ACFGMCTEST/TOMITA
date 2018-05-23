@@ -27,13 +27,13 @@
 /*あたり判定の設定値(main)*/
 #define COL_RADIUS 0.6f//半径
 #define COL_POS CVector3(0,1.5f,0),CVector3(0,-1.0f,0)//ポジションカプセル
-#define COL_MATRIX &mpCombinedMatrix[model->FindFrame("metarig_hips")->mIndex]//マトリックス
+#define COL_MATRIX(string) &mpCombinedMatrix[model->FindFrame(string)->mIndex]//マトリックス
 /*腕*/
 #define COL_ATTACK_RADIUS 0.4f
 #define COL_RIGHT_POS CVector3(0.0f,0.5f,0.0f)
 #define COL_LEFT_POS  CVector3(0.0f,0.5f,0.0f)
-#define COL_LEFT_MATRIX  &mpCombinedMatrix[model->FindFrame ("metarig_forearm_L")->mIndex]//マトリックス
-#define COL_RIGHT_MATRIX &mpCombinedMatrix[model->FindFrame("metarig_forearm_R")->mIndex]//マトリックス
+#define COL_LEFT_MATRIX(string)  &mpCombinedMatrix[model->FindFrame (string)->mIndex]//マトリックス
+#define COL_RIGHT_MATRIX(string) &mpCombinedMatrix[model->FindFrame(string)->mIndex]//マトリックス
 
 
 /*HPバーの設定値*/
@@ -46,6 +46,7 @@
 CXCharPlayer::CXCharPlayer() : mVelocity(0.0f), mFlagKnockback(false), mRotCount(0),
 mGravitTime(GRA_INIT_TIME_COUNT), mFlagJump(false), mAdjust()
 {
+	eName = CTask::E_PLAYER;
 	mForward = CVector3(FORWARD);
 	mpParent = this;
 };
@@ -69,12 +70,12 @@ void CXCharPlayer::Init(CModelX *model) {
 	CModelXS::Init(model);
 
 	//カプセル　キャラクタ全体
-	new CColCapsule(this, COL_POS, COL_RADIUS, COL_MATRIX);
-	mpMatrix = COL_MATRIX;
+	new CColCapsule(this, COL_POS, COL_RADIUS, COL_MATRIX("metarig_hips"));
+	mpMatrix = COL_MATRIX("metarig_hips");
 	//球体　腕.右
-	new CColSphere(this, COL_RIGHT_POS, COL_ATTACK_RADIUS, COL_RIGHT_MATRIX);
+	new CColSphere(this, COL_RIGHT_POS, COL_ATTACK_RADIUS, COL_RIGHT_MATRIX("metarig_forearm_L"));
 	//球体　腕.左
-	new CColSphere(this, COL_LEFT_POS, COL_ATTACK_RADIUS, COL_LEFT_MATRIX);
+	new CColSphere(this, COL_LEFT_POS, COL_ATTACK_RADIUS, COL_LEFT_MATRIX("metarig_forearm_R"));
 
 	mPower = ATTACK_POWER;//攻撃力
 
@@ -324,11 +325,11 @@ void CXCharPlayer::Collision(CColSphere *youSphere,CColSphere *sphere) {
 	float lengthY = mPosition.y - savePos.y;  //球とポジションの距離
 	float lengthZ = mPosition.z - savePos.z;  //球とポジションの距離
 	//BoxのX軸方向を求める
-	CVector3 vx = youSphere->mMatrixRotation * VEC_RIGHT;
+	CVector3 vx = *youSphere->mpCombinedMatrix * VEC_RIGHT;
 	//BoxのY軸方向を求める
-	CVector3 vy = youSphere->mMatrixRotation * VEC_TOP;
+	CVector3 vy = *youSphere->mpCombinedMatrix * VEC_TOP;
 	//BoxのZ軸方向を求める
-	CVector3 vz = youSphere->mMatrixRotation * VEC_FRONT;
+	CVector3 vz = *youSphere->mpCombinedMatrix * VEC_FRONT;
 	//四角形から球へのベクトルを求める
 	CVector3 vectorBS = savePos - youSphere->mPos;
 	//四角形から球へ、四角形のX軸に対する長さとの差を求める
@@ -441,6 +442,7 @@ void CXCharPlayer::CapsuleCol(CColCapsule *cc, CColBase* y){
 		//	/*当たり判定*/
 		//	Collision(TopColA, TopColB);
 		//};
+	
 
 
 		break;
@@ -454,9 +456,10 @@ void CXCharPlayer::SphereCol(CColSphere *sphere, CColBase *y){
 		/*相手が球の場合*/
 	case CColBase::COL_SPHEPE:
 		sph = (*(CColSphere*)y).GetUpdate();
-		/*当たり判定計算*/
-		if (CCollision::CollisionShpere(*sphere, sph)){
-			Collision(sphere, &sph);
+		/*当たり判定計算　*/
+		if (CCollision::CollisionShpere(sph,*sphere) && sph.mpParent->eName == CTask::E_SLIME){
+			printf("今当たっているエネミーの番号(%d)\n", sph.mpParent->mNumber);
+			Collision(&sph,sphere);
 		}
 
 	};
