@@ -17,7 +17,8 @@
 /*あたり判定の設定値*/
 #define COL_RADIUS 0.6f
 #define COL_POS CVector3(0.0f, 1.0f, 0.0f), CVector3(0.0f, 0.0f, 0.0f)
-#define COL_BONE &mpCombinedMatrix[model->FindFrame("Armature_Root_jnt")->mIndex]
+#define COL_SPHE_POS CVector3(0.0f, 0.0f, 0.0f)
+#define COL_BONE(string) &mpCombinedMatrix[model->FindFrame(string)->mIndex]
 
 /*回転感覚時間*/
 #define ROT_PYCK_TIME 1.0f
@@ -54,8 +55,11 @@ void CSlime::Init(CModelX *model){
 	//モデルの設定
 	CModelXS::Init(model);
 	//カプセル　キャラクタ全体
-	new CColCapsule(this, COL_POS, COL_RADIUS, COL_BONE);
-	mpMatrix = COL_BONE;
+	new CColCapsule(this, COL_POS, COL_RADIUS, COL_BONE("Armature_Root_jnt"));
+	//球体の当たり判定
+	new CColSphere(this, COL_SPHE_POS, COL_RADIUS, COL_BONE("Armature_Root_jnt"));
+
+	mpMatrix = COL_BONE("Armature_Root_jnt");
 
 	mPower = ATTACK_POWER;//攻撃力
 

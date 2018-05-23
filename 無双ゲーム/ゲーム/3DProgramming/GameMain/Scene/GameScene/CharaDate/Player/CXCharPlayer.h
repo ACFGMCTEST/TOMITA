@@ -9,6 +9,7 @@
 #include "../../../../../StateMachine/CStateBase.h"
 #include "../../../../Collision/ColType/CColBase.h"
 #include "../../../../Collision/ColType/CColCapsule.h"
+#include "../../../../Collision/ColType/CColSphere.h"
 //プレイヤーの数
 #define CHARA_ARRAY 3
 /*キャラステータス*/
@@ -117,6 +118,15 @@ public:
 	bool Collision(CColBase* me, CColBase* you);
 	/*カプセル内当たり判定*/
 	void CapsuleCol(CColCapsule *caps, CColBase* y);
+	/*玉バージョン*/
+	void Collision(CColSphere *youSphere,CColSphere *sphere);
+	/*球体内の当たり判定*/
+	void SphereCol(CColSphere *sphere, CColBase *y);
+
+	/*カプセルの移動*/
+	//void ColCapsAdjus(CColCapsule *youCaps, CColCapsule *caps);
+
+
 
 
 	/*重力

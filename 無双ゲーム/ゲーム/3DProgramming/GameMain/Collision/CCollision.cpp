@@ -17,44 +17,39 @@ bool CCollision::CollisionShpere(const CColSphere &sphereA,const CColSphere &sph
 //ƒJƒvƒZƒ‹“¯Žm‚ÌÕ“Ë
 bool CCollision::CollisionCapsule(const CColCapsule *capsuleA, const CColCapsule *capsuleB){
 
-	CVector3 topA = capsuleA->mV[0].Transeform(*capsuleA->mpCombinedMatrix);
-	CVector3 topB = capsuleB->mV[0].Transeform(*capsuleB->mpCombinedMatrix);
-	CVector3 BottomA = capsuleA->mV[1].Transeform(*capsuleA->mpCombinedMatrix);
-	CVector3 BottomB = capsuleB->mV[1].Transeform(*capsuleB->mpCombinedMatrix);
-
-	//printf("ƒGƒlƒ~[:top(%f,%f,%f),bottom(%f,%f,%f)\n", topB.x, topB.y, topB.z, BottomB.x, BottomB.y, BottomB.z);
-
-	//‹…‚Ì’†S‚ÆƒJƒvƒZƒ‹‚Ìü•ª‚Ì‹——£‚ðŒvŽZ
-	float distance = DistanceLine(topA, BottomA, topB, BottomB, NULL, NULL);
-	//”¼Œa‚Ì˜a‚Ì“ñæ‚ðŒvŽZ
-	float radiusSum = capsuleA->mRadius + capsuleB->mRadius;
-	float radiusSumSQ = radiusSum * radiusSum;
-	//‹——£‚ª”¼Œa‚Ì˜a‚æ‚è‘å‚«‚¯‚ê‚Î“–‚½‚Á‚Ä‚¢‚È‚¢
-	if (distance < radiusSumSQ){
-		return true;
-	}
-	else{
-		return false;
-	}
-
-	///*‹…‘Ì—p*/
-	//CColSphere TopColA(capsuleA.mRadius, capsuleA.mV[0], capsuleA.mpCombinedMatrix);
-	//CColSphere TopColB(capsuleB.mRadius, capsuleB.mV[0], capsuleB.mpCombinedMatrix);
-	//CColSphere BottomColA(capsuleA.mRadius, capsuleA.mV[1], capsuleA.mpCombinedMatrix);
-	//CColSphere BottomColB(capsuleB.mRadius, capsuleB.mV[1], capsuleB.mpCombinedMatrix);
-	////AABB—p
-	//CVector3 TopPosA = CVector3(capsuleA.mV[0].x + capsuleA.mRadius, capsuleA.mV[0].y, capsuleA.mV[0].z + capsuleA.mRadius);
-	//CVector3 TopPosB = CVector3(capsuleB.mV[0].x + capsuleB.mRadius, capsuleB.mV[0].y, capsuleB.mV[0].z + capsuleB.mRadius);
-	//CVector3 BottomPosB = CVector3(capsuleA.mV[1].x + capsuleA.mRadius, capsuleA.mV[1].y, capsuleA.mV[1].z + capsuleA.mRadius);
-	//CVector3 BottomPosB = CVector3(capsuleB.mV[1].x + capsuleB.mRadius, capsuleB.mV[1].y, capsuleB.mV[1].z + capsuleB.mRadius);
+	//CVector3 topA =    capsuleA->mV[0].Transeform(*capsuleA->mpCombinedMatrix);
+	//CVector3 BottomA = capsuleA->mV[1].Transeform(*capsuleA->mpCombinedMatrix);
+	//CVector3 topB =    capsuleB->mV[0].Transeform(*capsuleB->mpCombinedMatrix);
+	//CVector3 BottomB = capsuleB->mV[1].Transeform(*capsuleB->mpCombinedMatrix);
 
 
-	//return (CCollision::CollisionShpere(TopColA, TopColB) ||
-	//	CCollision::CollisionShpere(TopColA, BottomColB) ||
-	//	CCollision::CollisionShpere(BottomColA, TopColB) ||
-	//	CCollision::CollisionShpere(BottomColA, BottomColB) ||
-	//	CCollision::CollisionAABB()
-	//	) ;
+
+	////‹…‚Ì’†S‚ÆƒJƒvƒZƒ‹‚Ìü•ª‚Ì‹——£‚ðŒvŽZ
+	//float distance = DistanceLine(topA, BottomA, topB, BottomB, NULL, NULL);
+	////”¼Œa‚Ì˜a‚Ì“ñæ‚ðŒvŽZ
+	//float radiusSum = capsuleA->mRadius + capsuleB->mRadius;
+	//float radiusSumSQ = radiusSum * radiusSum;
+	////‹——£‚ª”¼Œa‚Ì˜a‚æ‚è‘å‚«‚¯‚ê‚Î“–‚½‚Á‚Ä‚¢‚È‚¢
+	//return (distance < radiusSumSQ);
+
+	/*‹…‘Ì—p*/
+	CColSphere TopColA(capsuleA->mRadius, capsuleA->mV[0], capsuleA->mpCombinedMatrix);
+	CColSphere TopColB(capsuleB->mRadius, capsuleB->mV[0], capsuleB->mpCombinedMatrix);
+	CColSphere BottomColA(capsuleA->mRadius, capsuleA->mV[1], capsuleA->mpCombinedMatrix);
+	CColSphere BottomColB(capsuleB->mRadius, capsuleB->mV[1], capsuleB->mpCombinedMatrix);
+	//AABB—p
+	CVector3 TopPosA = CVector3(capsuleA->mV[0].x + capsuleA->mRadius, capsuleA->mV[0].y, capsuleA->mV[0].z + capsuleA->mRadius);
+	CVector3 TopPosB = CVector3(capsuleB->mV[0].x + capsuleB->mRadius, capsuleB->mV[0].y, capsuleB->mV[0].z + capsuleB->mRadius);
+	CVector3 BottomPosA = CVector3(capsuleA->mV[1].x + capsuleA->mRadius, capsuleA->mV[1].y, capsuleA->mV[1].z + capsuleA->mRadius);
+	CVector3 BottomPosB = CVector3(capsuleB->mV[1].x + capsuleB->mRadius, capsuleB->mV[1].y, capsuleB->mV[1].z + capsuleB->mRadius);
+
+
+	return (CCollision::CollisionShpere(TopColA, TopColB) ||
+		CCollision::CollisionShpere(TopColA, BottomColB) ||
+		CCollision::CollisionShpere(BottomColA, TopColB) ||
+		CCollision::CollisionShpere(BottomColA, BottomColB) ||
+		CCollision::CollisionAABB(TopPosA, TopPosB, BottomPosA, BottomPosB)
+		) ;
 
 }
 

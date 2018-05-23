@@ -60,8 +60,9 @@ void CEnemyBase::AttackInit(){
 void CEnemyBase::CapsuleCol(CColCapsule *cc, CColBase* y){
 	CColTriangle ct(false);//三角形の当たり判定
 	CColCapsule  caps(false);//球の当たり判定
+
 	/*相手のタイプ何か判断*/
-	switch (y->mType) {
+	switch (y->mType){
 		/*相手が三角の場合*/
 	case CColBase::COL_TRIANGLE:
 		ct = (*(CColTriangle*)y).GetUpdate();
@@ -87,8 +88,6 @@ void CEnemyBase::CapsuleCol(CColCapsule *cc, CColBase* y){
 
 //m 自分　y 相手
 bool CEnemyBase::Collision(CColBase* m, CColBase* y) {
-	//CColBase *m = (CColBase*)me;
-	//CColBase *y = (CColBase*)you;
 	CColCapsule cc(false);
 	/*自分のタイプが何か判断*/
 	switch (m->mType) {

@@ -4,15 +4,16 @@
 /*球体の分割数*/
 #define DIVISION_NUM 20,20
 
-/*コンストラクタ　引数:当たり判定を追加するかしないか判断*/
-CColSphere::CColSphere(bool addFlag){
+/*当たり判定追加するとき*/
+void CColSphere::ColAdd(){
 	mType = COL_SPHEPE;//球体にする
-	if(addFlag)CCollisionManager::GetInstance()->Add(this);//あたり判定追加
+	CCollisionManager::GetInstance()->Add(this);//あたり判定追加
 }
 
 /*球のパラメータ設定*/
-CColSphere::CColSphere(CTask *parent, float radius, CVector3 pos, CMatrix44 *m):
-CColSphere(true){
+CColSphere::CColSphere(CTask *parent, CVector3 pos, float radius, CMatrix44 *m)
+{
+	ColAdd();
 	mPos = pos;
 	mRadius = radius;
 	mpCombinedMatrix = m;
@@ -30,7 +31,7 @@ void CColSphere::Update(){
 	/*CMatrix44 pos;
 	pos.translate(mPos);
 	*mpCombinedMatrix = *mpCombinedMatrix * pos;
-*/
+    */
 
 	mPos = mPos * *mpCombinedMatrix;
 }

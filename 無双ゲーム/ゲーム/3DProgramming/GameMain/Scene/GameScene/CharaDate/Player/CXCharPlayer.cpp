@@ -72,9 +72,9 @@ void CXCharPlayer::Init(CModelX *model) {
 	new CColCapsule(this, COL_POS, COL_RADIUS, COL_MATRIX);
 	mpMatrix = COL_MATRIX;
 	//球体　腕.右
-	new CColSphere(this, COL_ATTACK_RADIUS, COL_RIGHT_POS, COL_RIGHT_MATRIX);
+	new CColSphere(this, COL_RIGHT_POS, COL_ATTACK_RADIUS, COL_RIGHT_MATRIX);
 	//球体　腕.左
-	new CColSphere(this, COL_ATTACK_RADIUS, COL_LEFT_POS, COL_LEFT_MATRIX);
+	new CColSphere(this, COL_LEFT_POS, COL_ATTACK_RADIUS, COL_LEFT_MATRIX);
 
 	mPower = ATTACK_POWER;//攻撃力
 
@@ -317,10 +317,96 @@ void CXCharPlayer::SetAdjust(CVector3 *s, const CVector3 &t) {
 	}
 }
 
+/*玉バージョン*/
+void CXCharPlayer::Collision(CColSphere *youSphere,CColSphere *sphere) {
+	CVector3 savePos = sphere->mPos;//計算用
+	float lengthX = mPosition.x - savePos.x;  //球とポジションの距離
+	float lengthY = mPosition.y - savePos.y;  //球とポジションの距離
+	float lengthZ = mPosition.z - savePos.z;  //球とポジションの距離
+	//BoxのX軸方向を求める
+	CVector3 vx = youSphere->mMatrixRotation * VEC_RIGHT;
+	//BoxのY軸方向を求める
+	CVector3 vy = youSphere->mMatrixRotation * VEC_TOP;
+	//BoxのZ軸方向を求める
+	CVector3 vz = youSphere->mMatrixRotation * VEC_FRONT;
+	//四角形から球へのベクトルを求める
+	CVector3 vectorBS = savePos - youSphere->mPos;
+	//四角形から球へ、四角形のX軸に対する長さとの差を求める
+	float dx = sphere->mRadius + youSphere->mRadius - fabs(vx.Dot(vectorBS));
+	//四角形から球へ、四角形のY軸に対する長さとの差を求める
+	float dy = sphere->mRadius + youSphere->mRadius - fabs(vy.Dot(vectorBS));
+	//四角形から球へ、四角形のZ軸に対する長さとの差を求める
+	float dz = sphere->mRadius + youSphere->mRadius - fabs(vz.Dot(vectorBS));
+
+	//衝突しているか判定する
+	if (dx > 0.0f && dy > 0.0f && dz > 0.0f) {
+		if (dx > dy) {
+			if (dy > dz) {
+				//Z軸で戻す
+				if (vz.Dot(vectorBS) > 0.0f) {
+					mPosition = savePos + vz * dz;
+				}
+				else {
+					mPosition = savePos - vz * dz;
+				}
+			}
+			else {
+				/*球がボディの時判定 && ジャンプしていないとき*/
+				//Y軸で戻す
+				if (vy.Dot(vectorBS) > 0.0f) {
+					mPosition = savePos + vy * dy;
+				}
+				else {
+					mPosition = savePos - vy * dy;
+				}
+			}
+		}
+		else{
+			if (dx > dz) {
+
+				//Z軸で戻す
+				if (vz.Dot(vectorBS) > 0.0f) {
+					mPosition = savePos + vz * dz;
+				}
+				else {
+					mPosition = savePos - vz * dz;
+				}
+			}
+			else {
+
+				//X軸で戻す
+				if (vx.Dot(vectorBS) > 0.0f) {
+					mPosition = savePos + vx * dx;
+				}
+				else {
+					mPosition = savePos - vx * dx;
+				}
+			}
+		}
+	}
+	mPosition.x += lengthX;
+	mPosition.y += lengthY;
+	mPosition.z += lengthZ;
+
+	/*マトリックスだけ更新*/
+	CMatrix44 rot_y, pos, matrix;
+	//回転行列の作成
+	rot_y.rotationY(mRotation.y);
+
+	//移動行列を計算する
+	pos.translate(mPosition);
+	//回転移動行列を求める
+	matrix = pos * rot_y;
+	//頂点データの更新
+	CModelXS::MatrixUpdate(matrix);
+
+}
+
+
 /*カプセル内当たり判定*/
 void CXCharPlayer::CapsuleCol(CColCapsule *cc, CColBase* y){
 	CColTriangle ct(false);//三角形の当たり判定
-	CColCapsule  caps(false);//球の当たり判定
+	CColCapsule  caps(false);//カプセルの当たり判定
 	/*相手のタイプ何か判断*/
 	switch (y->mType) {
 		/*相手が三角の場合*/
@@ -339,26 +425,50 @@ void CXCharPlayer::CapsuleCol(CColCapsule *cc, CColBase* y){
 			pos.translate(mPosition);
 			//回転移動行列を求める
 			matrix = pos * rot_y;
-			//UpdateSkinMatrix(matrix);
 			CModelXS::Update(matrix);
 		}
 		break;
 		/*相手がカプセルの場合*/
 	case CColBase::COL_CAPSULE:
-		caps = *(CColCapsule*)y;//カプセルにする
-		if (CCollision::CollisionCapsule(cc, &caps)){
-		};
+		//caps = (*(CColCapsule*)y).GetUpdate();//カプセルにする
+		//
+		//if (CCollision::CollisionCapsule(cc, &caps)){
+		//	/*球体*/
+		//	CColSphere TopColA(cc->mRadius, cc->mV[0], cc->mpCombinedMatrix);
+		//	CColSphere TopColB(caps.mRadius, caps.mV[0], caps.mpCombinedMatrix);
+		//	CColSphere BottomColA(cc->mRadius, cc->mV[1], cc->mpCombinedMatrix);
+		//	CColSphere BottomColB(caps.mRadius, caps.mV[1], caps.mpCombinedMatrix);
+		//	/*当たり判定*/
+		//	Collision(TopColA, TopColB);
+		//};
 
 
 		break;
 	};
 }
+/*球体内の当たり判定*/
+void CXCharPlayer::SphereCol(CColSphere *sphere, CColBase *y){
+	CColSphere  sph;//球の当たり判定
+	/*相手のタイプ何か判断*/
+	switch (y->mType) {
+		/*相手が球の場合*/
+	case CColBase::COL_SPHEPE:
+		sph = (*(CColSphere*)y).GetUpdate();
+		/*当たり判定計算*/
+		if (CCollision::CollisionShpere(*sphere, sph)){
+			Collision(sphere, &sph);
+		}
+
+	};
+}
+
 
 //m 自分　y 相手
 bool CXCharPlayer::Collision(CColBase* m, CColBase* y) {
 	//CColBase *m = (CColBase*)me;
 	//CColBase *y = (CColBase*)you;
 	CColCapsule cc(false);
+	CColSphere sph;
 	/*自分のタイプが何か判断*/
 	switch (m->mType) {
 
@@ -366,6 +476,11 @@ bool CXCharPlayer::Collision(CColBase* m, CColBase* y) {
 		cc = *(CColCapsule*)m;//カプセルにする
 		CapsuleCol(&cc, y);//カプセルの当たり判定
 		break;
+		
+	case CColBase::COL_SPHEPE:
+		sph = *(CColSphere*)m;//球体
+		SphereCol(&sph, y);//球体の当たり判定
+		
 	};
 
 	return false;
