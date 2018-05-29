@@ -18,7 +18,7 @@ public:
 	/*当たり判定追加*/
 	void ColAdd();
 	/*球のパラメータ設定*/
-	CColSphere(CTask *parent, CVector3 pos, float radius, CMatrix44 *m);
+	CColSphere(CTask *parent, CVector3 pos, float radius, CMatrix44 *m,CColBase::E_STATE state);
 	/*球のパラメータ設定 マネージャーで管理しない場合*/
 	CColSphere(float radius, CVector3 pos, CMatrix44 *m);
 

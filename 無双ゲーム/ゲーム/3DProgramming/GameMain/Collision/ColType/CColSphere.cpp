@@ -10,8 +10,10 @@ void CColSphere::ColAdd(){
 	CCollisionManager::GetInstance()->Add(this);//あたり判定追加
 }
 
+
+
 /*球のパラメータ設定*/
-CColSphere::CColSphere(CTask *parent, CVector3 pos, float radius, CMatrix44 *m)
+CColSphere::CColSphere(CTask *parent, CVector3 pos, float radius, CMatrix44 *m,CColBase::E_STATE state)
 {
 	ColAdd();
 	mPos = pos;
@@ -19,7 +21,9 @@ CColSphere::CColSphere(CTask *parent, CVector3 pos, float radius, CMatrix44 *m)
 	mpCombinedMatrix = m;
 	mMatrixRotation = *m;
 	mpParent = parent;
+	CColBase::eState = state;
 }
+
 /*球のパラメータ設定 マネージャーで管理しない場合*/
 CColSphere::CColSphere(float radius, CVector3 pos, CMatrix44 *m){
 	mPos = pos;

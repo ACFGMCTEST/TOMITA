@@ -39,15 +39,15 @@ CTitle::CTitle() :mFlagFadeOut(false){
 	mTitleLogo.SetColor(NO_A_WHITE_COLOR,0.0f); //タイトルロゴのカラーを決める
 	mTitleLogo.SetVertex(TITLELOGO_SIZE);//タイトルサイズ決める
 	mTitleLogo.mPosition = TITLE_POS;//ポジション決める
-	mTexTitleLogo.load(TEX_TITLE_FILE);	//テクスチャファイル読み込み
+	mTexTitleLogo.Load(TEX_TITLE_FILE);	//テクスチャファイル読み込み
 	mTitleLogo.SetUv(&mTexTitleLogo, 0, 0, TEX_TITLE_X, TEX_TITLE_Y);//TGA上の座標
 	/*押してくださいポリゴン設定*/
 	mPushKey.SetColor(NO_A_WHITE_COLOR, 0.0f); //タイトルロゴのカラーを決める
 	mPushKey.SetVertex(PUSH_KEY_SIZE);//タイトルサイズ決める
 	mPushKey.mPosition = PUSH_KEY_POS;//ポジション決める
-	mTexPushKey.load(TEX_PUSH_KEY_FILE);	//テクスチャファイル読み込み
+	mTexPushKey.Load(TEX_PUSH_KEY_FILE);	//テクスチャファイル読み込み
 	mPushKey.SetUv(&mTexPushKey, 0, 0, TEX_PUSH_X, TEX_PUSH_Y);//TGA上の座標
-	mTexBG.load(TEX_BG_FILE);	//テクスチャファイル読み込み
+	mTexBG.Load(TEX_BG_FILE);	//テクスチャファイル読み込み
 	mBG.SetUv(&mTexBG, 0, 0, TEX_BG_X, TEX_BG_Y);//TGA上の座標
 	/*背景ポリゴン設定*/
 	mBG.SetColor(WHITE_COLOR); //タイトルロゴのカラーを決める
@@ -56,7 +56,7 @@ CTitle::CTitle() :mFlagFadeOut(false){
 	mCursor.SetColor(WHITE_COLOR);
 	mCursor.SetVertex(CURSOR_SIZE);
 	mCursor.mpPos = &CMouse::GetInstance()->mPos;
-	mTexCursor.load(TEX_CURSOR_FILE);
+	mTexCursor.Load(TEX_CURSOR_FILE);
 	mCursor.SetUv(&mTexCursor, 0, 0, TEX_CURSOR_X, TEX_CURSOR_Y);
 }
 

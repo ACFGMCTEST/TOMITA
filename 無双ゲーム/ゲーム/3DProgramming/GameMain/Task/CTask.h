@@ -25,7 +25,7 @@ public:
 
 
 	//プレイヤーの状態値
-	enum ESTATE {
+	enum E_STATE {
 		E_IDLING,		//立ち
 		E_RUN,		//走る
 		E_ATTACK,	//攻撃
@@ -34,7 +34,6 @@ public:
 		E_DMGM,		//ダメージ
 		E_STATE_ARRAY//ステータスの上限
 	};
-	ESTATE mState;	//プレイヤーの状態
 
 	//何者か判断
 	enum E_NAME{
@@ -43,7 +42,7 @@ public:
 	};
 	E_NAME eName;//ネーム
 
-	/*当たり判定の属性*/
+	/*当たり判定の形*/
 	enum EType {
 		COL_TRIANGLE,	//三角形コライダ
 		COL_BOX,//ボックス
@@ -51,6 +50,7 @@ public:
 		COL_CAPSULE		//カプセルコライダ
 	};
 	EType mType;
+
 
 
 	CTask();

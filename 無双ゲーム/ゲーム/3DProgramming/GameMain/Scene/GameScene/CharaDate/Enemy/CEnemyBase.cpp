@@ -12,15 +12,24 @@
 /*準備*/
 #define OBB_ATTACK_INIT_BOX_SIZE CVector3(20.0f, 4.0f, 20.0f)
 #define OBB_ATTACK_INIT_BOX_POS CVector3(-0.01f, -0.06f, -0.1f)
-
 /*攻撃*/
 #define OBB_ATTACK_BOX_SIZE CVector3(3.0f, 3.0f, 3.0f)
 #define OBB_ATTACK_BOX_POS CVector3(-0.01f, -0.01f, -0.1f)
 /*ゴールの方向に向ける*/
 #define GOAL_POS_X (rand() % (int)MAPCHIP_SIZE*CMap::GoalCount()) - MAPCHIP_SIZE*CMap::GoalCount()*0.5f
-
+/*hpバー*/
+#define HP_MAX 10.0f
+#define HP_SIZE -5.0f,5.0f,4.0f,4.5f
+#define TEX_SIZE_HP 0,0,490,46
 /*コンストラクタ*/
 CEnemyBase::CEnemyBase(){
+	/*HP設定*/
+	mHp.Init(HP_MAX, HP_MAX, HP_SIZE, &mPosition);//サイズとポジション
+	mTexGauge.Load(TGA_FILE"UI\\Gauge.tga");//HPテクスチャ読み込む
+	mTexmFrame.Load(TGA_FILE"UI\\Frame.tga");//HPテクスチャ読み込む
+	mHp.SetTex(&mTexmFrame,&mTexGauge, TEX_SIZE_HP);//テクスチャ
+
+	
 	CXCharPlayer::CXCharPlayer();
 	mGravitTime = GRA_INIT_TIME_COUNT;
 	mVelocity = 0.0f;
@@ -45,6 +54,7 @@ void CEnemyBase::AIMove(){
 
 /*更新処理*/
 void CEnemyBase::Update(){
+	mHp.Update();
 	mAdjust = CVector3();
 	mPrevPos = mPosition;
 	Gravity();/*重力*/
@@ -99,4 +109,17 @@ bool CEnemyBase::Collision(CColBase* m, CColBase* y) {
 	};
 
 	return false;
+}
+/*ダメージを受けた時の処理*/
+void CEnemyBase::Damage(float power){
+	mHp.mValue -= power;
+	/*ｈｐがなくなったとき消す*/
+	if (mHp.mValue <= 0){
+		CTask::mKillFlag = true;//削除するフラグを立てる
+	}
+}
+/*描画処理*/
+void CEnemyBase::Render(){
+	mHp.Render();
+	CXCharPlayer::Render();
 }

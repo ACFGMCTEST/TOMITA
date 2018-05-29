@@ -20,6 +20,8 @@
 /*当たり判定*/
 #include "../../../../Collision/ColType/CColCapsule.h"
 #include "../../../../Collision/ColType/CColTriangle.h"
+/*エネミー*/
+#include "../Enemy/CEnemyBase.h"
 
 /*向き*/
 #define FORWARD_JUMP  0.0f,1.0f,1.0f//ジャンプ
@@ -31,9 +33,8 @@
 /*腕*/
 #define COL_ATTACK_RADIUS 0.4f
 #define COL_RIGHT_POS CVector3(0.0f,0.5f,0.0f)
+#define COL_BODY_POS CVector3(0.0f,0.0f,0.0f)
 #define COL_LEFT_POS  CVector3(0.0f,0.5f,0.0f)
-#define COL_LEFT_MATRIX(string)  &mpCombinedMatrix[model->FindFrame (string)->mIndex]//マトリックス
-#define COL_RIGHT_MATRIX(string) &mpCombinedMatrix[model->FindFrame(string)->mIndex]//マトリックス
 
 
 /*HPバーの設定値*/
@@ -65,17 +66,19 @@ void CXCharPlayer::Init(CModelX *model) {
 	mStateMachine->Register(PL_STATE_RUN_ATTACK, std::make_shared<CStatePlayerRunAttack>(), this);
 	// 最初のステートを登録名で指定
 	mStateMachine->SetStartState(PL_STATE_IDLING);
-
+	mStr = PL_STATE_IDLING;//現在のステータスを入れる.
 	//モデルの設定
 	CModelXS::Init(model);
 
 	//カプセル　キャラクタ全体
 	new CColCapsule(this, COL_POS, COL_RADIUS, COL_MATRIX("metarig_hips"));
 	mpMatrix = COL_MATRIX("metarig_hips");
+	//球体　ボディ
+	new CColSphere(this, COL_BODY_POS, COL_RADIUS, COL_MATRIX("metarig_hips"),CColBase::PL_BODY);
 	//球体　腕.右
-	new CColSphere(this, COL_RIGHT_POS, COL_ATTACK_RADIUS, COL_RIGHT_MATRIX("metarig_forearm_L"));
+	new CColSphere(this, COL_RIGHT_POS, COL_ATTACK_RADIUS, COL_MATRIX("metarig_forearm_L"),CColBase::PL_ATTACK);
 	//球体　腕.左
-	new CColSphere(this, COL_LEFT_POS, COL_ATTACK_RADIUS, COL_LEFT_MATRIX("metarig_forearm_R"));
+	new CColSphere(this, COL_LEFT_POS, COL_ATTACK_RADIUS, COL_MATRIX("metarig_forearm_R"),CColBase::PL_ATTACK);
 
 	mPower = ATTACK_POWER;//攻撃力
 
@@ -431,36 +434,33 @@ void CXCharPlayer::CapsuleCol(CColCapsule *cc, CColBase* y){
 		break;
 		/*相手がカプセルの場合*/
 	case CColBase::COL_CAPSULE:
-		//caps = (*(CColCapsule*)y).GetUpdate();//カプセルにする
-		//
-		//if (CCollision::CollisionCapsule(cc, &caps)){
-		//	/*球体*/
-		//	CColSphere TopColA(cc->mRadius, cc->mV[0], cc->mpCombinedMatrix);
-		//	CColSphere TopColB(caps.mRadius, caps.mV[0], caps.mpCombinedMatrix);
-		//	CColSphere BottomColA(cc->mRadius, cc->mV[1], cc->mpCombinedMatrix);
-		//	CColSphere BottomColB(caps.mRadius, caps.mV[1], caps.mpCombinedMatrix);
-		//	/*当たり判定*/
-		//	Collision(TopColA, TopColB);
-		//};
-	
-
 
 		break;
 	};
 }
+
 /*球体内の当たり判定*/
 void CXCharPlayer::SphereCol(CColSphere *sphere, CColBase *y){
 	CColSphere  sph;//球の当たり判定
+	CEnemyBase *ene;
 	/*相手のタイプ何か判断*/
 	switch (y->mType) {
 		/*相手が球の場合*/
 	case CColBase::COL_SPHEPE:
 		sph = (*(CColSphere*)y).GetUpdate();
-		/*当たり判定計算　*/
-		if (CCollision::CollisionShpere(sph,*sphere) && sph.mpParent->eName == CTask::E_SLIME){
-			printf("今当たっているエネミーの番号(%d)\n", sph.mpParent->mNumber);
-			Collision(&sph,sphere);
+		/*当たり判定計算*/
+		if (CCollision::CollisionShpere(sph,*sphere) && sph.eState == CColBase::ENE_BODY){
+			/*
+			当たり判定が攻撃の場合
+			攻撃している場合
+			*/
+			if (sphere->eState == CColBase::PL_ATTACK && mStr == PL_STATE_ATTACK){
+				ene = (CEnemyBase*)sph.mpParent;
+				ene->Damage(mPower);
+			}
+			//Collision(&sph, sphere);
 		}
+	
 
 	};
 }
@@ -468,8 +468,7 @@ void CXCharPlayer::SphereCol(CColSphere *sphere, CColBase *y){
 
 //m 自分　y 相手
 bool CXCharPlayer::Collision(CColBase* m, CColBase* y) {
-	//CColBase *m = (CColBase*)me;
-	//CColBase *y = (CColBase*)you;
+	
 	CColCapsule cc(false);
 	CColSphere sph;
 	/*自分のタイプが何か判断*/
@@ -487,4 +486,9 @@ bool CXCharPlayer::Collision(CColBase* m, CColBase* y) {
 	};
 
 	return false;
+}
+
+/*現在のstrをれる*/
+void CXCharPlayer::State(std::string s){
+	mStr = s; 
 }

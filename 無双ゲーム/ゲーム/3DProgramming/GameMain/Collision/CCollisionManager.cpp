@@ -4,6 +4,7 @@
 #include "CCollisionManager.h"
 #include "CCollision.h"
 #include "ColType\CColCapsule.h"
+#include "ColType\CColSphere.h"
 /*コンストラクタ*/
 CCollisionManager::CCollisionManager() {}
 CCollisionManager* CCollisionManager::mCollisionManager = 0;
@@ -138,8 +139,6 @@ void CCollisionManager::Update(){
 		//自身のコライダタイプを識別
 		switch (task->mType) {
 		case CColBase::COL_CAPSULE:
-		case CColBase::COL_BOX:
-		case CColBase::COL_SPHEPE:
 			//変化しないコライダは衝突判定しない
 			if (task->mpCombinedMatrix) {
 				//コライダをコピーして更新
@@ -148,7 +147,25 @@ void CCollisionManager::Update(){
 				CColBase *n = (CColBase*)mpRoot;
 				while (n != NULL) {
 					//親のタスクで衝突判定させる
-					if (task->mpParent && task != n && FlagMap(cc,*n)) {
+					if (task->mpParent && task != n) {
+						task->mpParent->Collision(&cc, n);
+					}
+					n = (CColBase*)n->mpNext;
+				}
+			}
+			break;
+		case CColBase::COL_BOX:
+			break;
+		case CColBase::COL_SPHEPE:
+			//変化しないコライダは衝突判定しない
+			if (task->mpCombinedMatrix) {
+				//コライダをコピーして更新
+				CColSphere cc = (*(CColSphere*)task).GetUpdate();
+				//コライダを先頭から衝突判定していく
+				CColBase *n = (CColBase*)mpRoot;
+				while (n != NULL) {
+					//親のタスクで衝突判定させる
+					if (task->mpParent && task != n) {
 						task->mpParent->Collision(&cc, n);
 					}
 					n = (CColBase*)n->mpNext;

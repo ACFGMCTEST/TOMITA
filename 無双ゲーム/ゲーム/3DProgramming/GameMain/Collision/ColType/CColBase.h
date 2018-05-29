@@ -9,12 +9,22 @@
 class CColBase : public CTask
 {
 public:
+	/*当たり判定属性用*/
+	enum E_STATE{
+		NO,//設定なし
+		PL_ATTACK,//プレイヤーのアタック
+		PL_BODY,//プレイヤーのボディ
+		ENE_ATTACK,//エネミーのアタック
+		ENE_BODY,//エネミーのアタック
+	};
+	E_STATE eState;
+
 	CVector3 mPos;		//中心座標
 	float r, g, b, a;//色情報
 	CVector3 mAdjust;	//衝突応答　調整値
 	CTask *mpParent;	//親のタスク
 	CMatrix44 *mpCombinedMatrix;	//フレームの合成行列
-	CColBase() : mpParent(0), mpCombinedMatrix(0) {}
+	CColBase() : mpParent(0), mpCombinedMatrix(0){}
 
 	/*色設定*/
 	void SetColor(float cr, float cg, float cb, float ca){

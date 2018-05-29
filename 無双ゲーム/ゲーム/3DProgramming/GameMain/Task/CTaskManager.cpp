@@ -227,7 +227,16 @@ void CTaskManager::AllUpdate(){
 	while (task != 0)
 	{
 		task->Update();
+		task = task->mpNext;
+		
+	}
 
+	task = mpRoot;
+	/*‚·‚×‚Ä‚ÌRender•\Ž¦*/
+	while (task != 0)
+	{
+		/*ƒtƒ‰ƒOíœ*/
+		if (task->mKillFlag){Kill(&task);}
 		task = task->mpNext;
 
 	}

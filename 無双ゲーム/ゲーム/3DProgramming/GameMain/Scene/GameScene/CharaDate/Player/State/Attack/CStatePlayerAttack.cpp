@@ -59,9 +59,9 @@ void CStatePlayerAttack::Update()
 	CXCharPlayer *pl = dynamic_cast<CXCharPlayer*>(mpParent);
 	/*アニメーション*/
 	pl->ChangeAnimation(CTask::E_ATTACK, false, ANIMA_SPEED_ATTCK);
-
 	/*攻撃*/
 	AttackSpeed();//攻撃で少し前に移動させる
+	pl->State(PL_STATE_ATTACK);//ステータスを入れる
 }
 //遷移時の処理
 // isNextをfalseに戻す処理はここで行うとよい

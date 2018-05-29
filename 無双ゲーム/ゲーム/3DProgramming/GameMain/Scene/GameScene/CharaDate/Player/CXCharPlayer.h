@@ -17,28 +17,8 @@
 #define SPEED_RUN 0.2f //MAX走る
 #define SPEED_RUN_ACC(v) if (SPEED_RUN > v){v += SPEED_RUN* 0.1f; }else{v = SPEED_RUN;}//加速度計算上限に来た場合
 
-#define SPEED_ATTACK_RUN SPEED_RUN*0.8f //ため走る
-#define SPEED_JUMP_DOWN 0.05f			//ジャンプ中はveloctyをマイナスする
-#define SPEED_ATTACK_RUN_SKILL 0.4		//スキル発動時の移動速度
-
-#define SKILL_TIME_LIMIT 1200.0f 
-
-/*吹き飛ばす力*/
-#define ATTACK_POWER 0.02f
-#define ATTACK_POWER_MAX 0.5f		//デフォルト
-
-#define ATTACK_W0_POWER_MAX	0.65f	//武器事の攻撃力
-#define ATTACK_WS0_POWER_MAX 1.3f	//武器事の攻撃力
-#define ATTACK_W1_POWER_MAX 0.6f
-#define ATTACK_W2_POWER_MAX 1.11f
-#define ATTACK_W3_POWER_MAX 0.55f
-
-#define POWER_UP 0.001f//攻撃のあがり幅
-#define W_0_POWER_UP 0.0013f
-#define W_1_POWER_UP 0.0012f
-#define WS_1_POWER_UP 0.01f
-#define W_2_POWER_UP 0.00222f
-#define W_3_POWER_UP 0.0011f
+/*攻撃力*/
+#define ATTACK_POWER 2.0f
 
 /*吹き飛び*/
 #define KNOCK_BACK  0.2f/*吹き飛びの度合い*/
@@ -61,6 +41,7 @@ class CXCharPlayer : public CModelXS {
 protected:
 	/*ステータス管理マネージャー*/
 	std::unique_ptr<CStateMachine> mStateMachine;//ステータス管理
+	std::string mStr;//現在の状態
 private:
 
 	int mRotCount;//回転地カウント　移動するときに使う
@@ -143,6 +124,9 @@ public:
 
 	/*操作する回転値計算*/
 	void PlayerMoveRot();
+
+	/*現在のstrをれる*/
+	void State(std::string s);
 };
 
 #endif

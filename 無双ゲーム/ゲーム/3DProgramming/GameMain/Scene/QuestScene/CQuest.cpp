@@ -60,7 +60,7 @@ void CQuest::Init(){
 
 	//背景の呼び出し
 	mpTexture = new CTexture();	//テクスチャクラスのインスタンス作成
-	mpTexture->load(TGA_FILE"BG.tga");	//テクスチャファイル読み込み
+	mpTexture->Load(TGA_FILE"BG.tga");	//テクスチャファイル読み込み
 	
 	mBG.SetVertex(BG_SIZE); //ここで大きさ変更
 	mBG.SetColor(1.0f, 1.0f, 1.0f, 1.0f);
@@ -70,7 +70,7 @@ void CQuest::Init(){
 
 	////クエスト名00
 	mpTexture = new CTexture();	//テクスチャクラスのインスタンス作成
-	mpTexture->load(QUEST_NAME0);	//テクスチャファイル読み込み
+	mpTexture->Load(QUEST_NAME0);	//テクスチャファイル読み込み
 	mQuestName00.SetVertex(NAME_SIZE);
 	mQuestName00.SetColor(WHITE_COLOR);
 	mQuestName00.SetUv(mpTexture, TEST_CG);
@@ -82,7 +82,7 @@ void CQuest::Init(){
 
 	//クエスト名01
 	mpMenu = new CTexture();	//テクスチャクラスのインスタンス作成
-	mpMenu->load(QUEST_NAME1);	//テクスチャファイル読み込み
+	mpMenu->Load(QUEST_NAME1);	//テクスチャファイル読み込み
 	mQuestName01.SetVertex(NAME_SIZE);
 	mQuestName01.SetColor(WHITE_COLOR);
 	mQuestName01.SetUv(mpMenu, TEST_CG);
@@ -94,7 +94,7 @@ void CQuest::Init(){
 
 	//クエスト名02
 	mpMenu = new CTexture();	//テクスチャクラスのインスタンス作成
-	mpMenu->load(QUEST_NAME2);	//テクスチャファイル読み込み
+	mpMenu->Load(QUEST_NAME2);	//テクスチャファイル読み込み
 	mQuestName02.SetVertex(NAME_SIZE);
 	mQuestName02.SetColor(WHITE_COLOR);
 	mQuestName02.SetUv(mpMenu, TEST_CG);
@@ -107,7 +107,7 @@ void CQuest::Init(){
 
 	////戻るボタンの呼び出し
 	mpMenu = new CTexture();	//テクスチャクラスのインスタンス作成
-	mpMenu->load(BACK);	//テクスチャファイル読み込み
+	mpMenu->Load(BACK);	//テクスチャファイル読み込み
 	mBackButton.SetVertex(BACK_RECT);
 	mBackButton.SetColor(WHITE_COLOR);
 	mBackButton.SetUv(mpMenu, BACK_CG);
@@ -117,7 +117,7 @@ void CQuest::Init(){
 
 	/*カーソル四角作成*/
 	mpTexCursor = new CTexture();
-	mpTexCursor->load(TGA_FILE"cursor.tga");
+	mpTexCursor->Load(TGA_FILE"cursor.tga");
 	mCursor.SetVertex(CURSOR_SIZE);
 	mCursor.SetColor(WHITE_COLOR);
 	mCursor.SetUv(mpTexCursor, CURSOR_CG);

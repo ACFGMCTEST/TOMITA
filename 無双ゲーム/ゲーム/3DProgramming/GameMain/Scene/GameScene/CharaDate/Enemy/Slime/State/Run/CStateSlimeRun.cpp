@@ -24,7 +24,7 @@ void CStateSlimeRun::Start()
 void CStateSlimeRun::Update(){
 	CSlime *sli = dynamic_cast<CSlime*>(mpParent);
 	/*アイドリングの処理*/
-	sli->ChangeAnimation(CTask::E_RUN, true, ANIMA_SPEED_RUN);
+	//sli->ChangeAnimation(CTask::E_RUN, true, ANIMA_SPEED_RUN);
 
 	/*動く*/
 	SPEED_RUN_ACC(sli->mVelocity);//移動速度計算

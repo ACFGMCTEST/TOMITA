@@ -1,18 +1,5 @@
 ﻿cl : コマンド ライン warning D9025: '/sdl' より '/GS-' が優先されます。
-  CXCharPlayer.cpp
-c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\ctexture.h(83): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-          c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 'fopen' の宣言を確認してください。
-c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\ctexture.h(90): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-          c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : 'strcpy' の宣言を確認してください。
-c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(111): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(235): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(320): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(325): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(330): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+  CTaskManager.cpp
 c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(90): warning C4005: 'BACK_POS' : マクロが再定義されました。
           c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(85) : 'BACK_POS' の前の定義を確認してください
-c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(85): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(90) : 'BACK_POS' の前の定義を確認してください
-c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\itemscene\citem.h(11): warning C4005: 'TIP_ARRAY' : マクロが再定義されました。
-          c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\effect\ceffect2d.h(5) : 'TIP_ARRAY' の前の定義を確認してください
   3DProgramming.vcxproj -> C:\Users\tomi-\Desktop\TOMITA\無双ゲーム\ゲーム\Debug\3DProgramming.exe

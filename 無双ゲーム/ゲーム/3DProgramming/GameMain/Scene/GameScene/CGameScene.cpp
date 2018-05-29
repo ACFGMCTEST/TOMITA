@@ -5,6 +5,7 @@
 #include "../../Key/CMouse.h"
 #include "./../CSceneManager.h"
 #include "../QuestScene/CQuest.h"
+#include "../../Graphic/CBillBoard.h"
 
 CCamera MainCamera;
 
@@ -15,8 +16,6 @@ CGameScene::~CGameScene(){
 
 }
 
-
-
 //ŒJ‚è•Ô‚µŽÀs‚³‚ê‚éˆ—
 void CGameScene::Update() {
 	switch (eState)
@@ -24,6 +23,7 @@ void CGameScene::Update() {
 	case E_INIT:
 		mSceneModel.Init();
 		MainCamera.Init();
+		CBillBoard::mpCamera = &MainCamera;
 		mMap.Init();
 		eState = E_MAIN;
 		break;
@@ -31,17 +31,11 @@ void CGameScene::Update() {
 	case E_MAIN:
 
 		MainCamera.Update();
-
 		mMap.Update();
 		mMap.Render();
-
 		mSceneModel.Update();
-
 		CCollisionManager::GetInstance()->Update();
 		mSceneModel.Render();
-
-	
-				
 
 		break;
 	case E_END:

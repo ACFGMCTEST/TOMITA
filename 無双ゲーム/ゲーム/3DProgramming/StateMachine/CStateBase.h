@@ -47,6 +47,7 @@ protected:
 	// nextRegisterNameに遷移先の登録名を代入する
 	/*属性の親 castして使う アクセス用*/
 	CTask *mpParent;
+	
 
 public:
 

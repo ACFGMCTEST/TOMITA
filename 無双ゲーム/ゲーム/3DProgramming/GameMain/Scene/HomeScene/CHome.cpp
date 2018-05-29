@@ -49,13 +49,13 @@ CHome::CHome() :CTitle(){
 		,mSelectButton.mPosition.y);
 
 	/*セレクトテクスチャ設定*/
-	mTexSelectButton.load(TEX_SELECT_FILE);
+	mTexSelectButton.Load(TEX_SELECT_FILE);
 	mSelectButton.SetUv(&mTexSelectButton, 0, 0, TEX_BUTTON_X, TEX_BUTTON_Y);
 	/*セレクトテクスチャ設定*/
-	mTexModelChangeButton.load(TEX_MODEL_CHANGE_FILE);
+	mTexModelChangeButton.Load(TEX_MODEL_CHANGE_FILE);
 	mModelChangeButton.SetUv(&mTexModelChangeButton, 0, 0,TEX_BUTTON_X, TEX_BUTTON_Y);	
 	/*セレクトテクスチャ設定*/
-	mTexStageCursor.load(TEX_STAGE_CURSOR_FILE);
+	mTexStageCursor.Load(TEX_STAGE_CURSOR_FILE);
 	mSelectCursor.SetUv(&mTexStageCursor, 0, 0, TEX_STAGE_CURSOR_X, TEX_STAGE_CURSOR_Y);
 
 }

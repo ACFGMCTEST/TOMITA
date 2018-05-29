@@ -6,6 +6,7 @@
 class CSlime : public CEnemyBase{
 private:
 	static int mAllCount;//エネミーの数
+
 public:
 	CSlime();
 	~CSlime();
@@ -19,5 +20,7 @@ public:
 	void Render();
 	/*索敵関数*/
 	bool Search();
+	/*球体判定*/
+	void SphereCol(CColSphere *sphere, CColBase *y);
 };
 #endif

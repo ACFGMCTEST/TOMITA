@@ -53,7 +53,7 @@ public:
 	CTexture(char *file)
 		: id(0)
 		, mpName(0) {
-		load(file);
+		Load(file);
 	}
 	/*
 	デストラクタ（このインスタンスが破棄されるときに実行される）
@@ -74,7 +74,7 @@ public:
 	/*
 	画像ファイルの読み込み（テクスチャファイルの読み込み）
 	*/
-	void load(const char* filename) {
+	void Load(const char* filename) {
 		//画像データ
 		unsigned char* data;
 		//ファイルポインタの作成

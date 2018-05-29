@@ -49,7 +49,7 @@ void CStatePlayerJump::Update()
 			mFlagFall = true;
 		}
 	}
-	
+	pl->State(PL_STATE_JUMP);
 
 
 }

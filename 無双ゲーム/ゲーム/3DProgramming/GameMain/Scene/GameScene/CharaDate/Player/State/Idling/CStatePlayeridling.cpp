@@ -32,7 +32,7 @@ void CStatePlayerIdling::Update(){
 	pl = dynamic_cast<CXCharPlayer*>(mpParent);
 	/*アイドリングの処理*/
 	pl->ChangeAnimation(CTask::E_IDLING, true, ANIMA_SPEED);
-
+	pl->State(PL_STATE_IDLING);//ステータスを入れる
 }
 
 CStatePlayerIdling::CStatePlayerIdling()

@@ -3,6 +3,7 @@
 /*更新*/
 void CStateMachine::Update()
 {
+
 	nowState->Update();
 	nowState->ChangeState();//状態切り替え
 
@@ -10,6 +11,7 @@ void CStateMachine::Update()
 	{
 		// 遷移先の取得
 		auto it = stateMap.find(nowState->NextRegisterName());
+
 		// 遷移時の処理を実行(初期化処理)
 		nowState->OnChangeEvent();
 		// 見つからなかった場合、処理を終了

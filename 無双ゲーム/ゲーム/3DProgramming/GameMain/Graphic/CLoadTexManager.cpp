@@ -42,19 +42,19 @@ CLoadTexManager::CLoadTexManager()
 
 
 	/*テクスチャロード 	ボックス*/
-	mpTile->load(TEX_FILE_FAST_FLOOR);//タイル
-	mpBox->load(TEX_FILE_BOX);//ボックス
-	mpFastFloor->load(TEX_FILE_FAST_FLOOR);
-	mpSlowFloor->load(TEX_FILE_SLOW_FLOOR);//減速床
-	//mpTrampoline->load()//トランポリン
-	mpSlope->load(TEX_FILE_SLOPE);//坂
-	mpNet->load(TEX_FILE_NET);//網
-	mpWall->load(TEX_FILE_WALL);//壁
+	mpTile->Load(TEX_FILE_FAST_FLOOR);//タイル
+	mpBox->Load(TEX_FILE_BOX);//ボックス
+	mpFastFloor->Load(TEX_FILE_FAST_FLOOR);
+	mpSlowFloor->Load(TEX_FILE_SLOW_FLOOR);//減速床
+	//mpTrampoline->Load()//トランポリン
+	mpSlope->Load(TEX_FILE_SLOPE);//坂
+	mpNet->Load(TEX_FILE_NET);//網
+	mpWall->Load(TEX_FILE_WALL);//壁
 
 
 	/*テクスチャロード 	ビルボード*/
-	mpSpark->load(TEX_FILE_SPARK_EFFECT);
-	mpHammer->load(TEX_FILE_HAMMER_EFFECT);
+	mpSpark->Load(TEX_FILE_SPARK_EFFECT);
+	mpHammer->Load(TEX_FILE_HAMMER_EFFECT);
 }
 
 CLoadTexManager::~CLoadTexManager()

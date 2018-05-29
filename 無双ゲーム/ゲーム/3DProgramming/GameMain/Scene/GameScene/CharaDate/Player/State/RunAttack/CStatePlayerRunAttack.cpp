@@ -37,6 +37,7 @@ void CStatePlayerRunAttack::Update()
 	/*アニメーション*/
 	pl->ChangeAnimation(CTask::E_RUN_ATTACK, false, ANIMA_SPEED_RUN_ATTCK);
 	pl->Move();
+	pl->State(PL_STATE_RUN_ATTACK);
 }
 //遷移時の処理
 // isNextをfalseに戻す処理はここで行うとよい

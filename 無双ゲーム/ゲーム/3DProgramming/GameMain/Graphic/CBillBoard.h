@@ -8,18 +8,26 @@
 
 class CBillBoard {
 public:
+
+
 	//四角形の頂点4つ
 	CVector3 mVertex[4];
 	//位置
-	CVector3 mPosition;
+	CVector3 *mpPosition;
 	//合成行列
 	CMatrix44 mMatrix;
 	//カメラのポインタ
-	CCamera *mpCamera;
+	static CCamera *mpCamera;
 	//テクスチャ
 	CTexture *mpTexture;	
+	float mUv[4][2];//テクスチャマッピング
+	/*サイズ設定*/
+	void SetVertex(float left, float right, float bottom, float top,CVector3 *pos);
+	/*テクスチャ設定*/
+	void SetUv(CTexture *t, int left, int top, int right, int bottom);
+	/*コンストラクタ*/
+	CBillBoard();
 
-	void SetVertex(float left, float right, float bottom, float top);
 	void Update();
 	void Render();
 

@@ -156,8 +156,7 @@ void CSceneModel::Init() {
 	mMouseInitCount = 0.0f;							//マウスが初期位置に戻るまでの時間
 	mLagTime = 0.0f;								//lagによるバグ回避時間
 
-	CVector3 mPosition;								//位置　
-
+	
 	/*プレイヤー初期化*/
 	PlayerAdd();
 	/*エネミー*/

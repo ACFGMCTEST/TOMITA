@@ -25,7 +25,7 @@ void CGameOver::Init(){
 	mBG.SetUv(&t, TEST_CG);
 ///////////////////////////////////////////////////////////////////
 	//ゲームオーバーテクスチャの読み込み
-	mTexOverLogo.load(TGA_FILE"GameOver.tga");
+	mTexOverLogo.Load(TGA_FILE"GameOver.tga");
 	//ゲームオーバーロゴの描画設定
 	mGameOverLogo.SetVertex(TITLE_SIZE); //ここで大きさ変更
 	mGameOverLogo.SetColor(NO_A_WHITE_COLOR, mAlpha);

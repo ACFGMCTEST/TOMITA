@@ -15,7 +15,7 @@
 
 
 /*あたり判定の設定値*/
-#define COL_RADIUS 0.6f
+#define COL_RADIUS 1.0f
 #define COL_POS CVector3(0.0f, 1.0f, 0.0f), CVector3(0.0f, 0.0f, 0.0f)
 #define COL_SPHE_POS CVector3(0.0f, 0.0f, 0.0f)
 #define COL_BONE(string) &mpCombinedMatrix[model->FindFrame(string)->mIndex]
@@ -23,9 +23,6 @@
 /*回転感覚時間*/
 #define ROT_PYCK_TIME 1.0f
 /*当たり判定*/
-/*準備*/
-#define OBB_ATTACK_INIT_BOX_SIZE CVector3(20.0f, 4.0f, 20.0f)
-#define OBB_ATTACK_INIT_BOX_POS CVector3(-0.01f, -0.06f, -0.1f)
 
 /*攻撃*/
 #define OBB_ATTACK_BOX_SIZE CVector3(3.0f, 3.0f, 3.0f)
@@ -42,13 +39,14 @@ int CSlime::mAllCount = 0;
 
 /*初期化処理*/
 void CSlime::Init(CModelX *model){
+
 	mStateMachine = (std::make_unique<CStateMachine>());
 	// 第一引数にステートの「登録名」
 	// 第二引数でStateBaseを継承したクラスのshared_ptrオブジェクトを生成
 	mStateMachine->Register(SLI_STATE_ATTACK, std::make_shared<CStateSlimeAttack>(), this);
 	mStateMachine->Register(SLI_STATE_IDLING, std::make_shared<CStateSlimeIdling>(), this);
-	mStateMachine->Register(SLI_STATE_RUN,    std::make_shared<CStateSlimeRun>(), this);
-	mStateMachine->Register(SLI_STATE_JUMP,   std::make_shared<CStateSlimeJump>(), this);
+	mStateMachine->Register(SLI_STATE_RUN, std::make_shared<CStateSlimeRun>(), this);
+	mStateMachine->Register(SLI_STATE_JUMP, std::make_shared<CStateSlimeJump>(), this);
 	// 最初のステートを登録名で指定
 	mStateMachine->SetStartState(SLI_STATE_IDLING);
 
@@ -57,7 +55,7 @@ void CSlime::Init(CModelX *model){
 	//カプセル　キャラクタ全体
 	new CColCapsule(this, COL_POS, COL_RADIUS, COL_BONE("Armature_Root_jnt"));
 	//球体の当たり判定
-	new CColSphere(this, COL_SPHE_POS, COL_RADIUS, COL_BONE("Armature_Root_jnt"));
+	new CColSphere(this, COL_SPHE_POS, COL_RADIUS, COL_BONE("Armature_Root_jnt"), CColBase::ENE_BODY);
 
 	mpMatrix = COL_BONE("Armature_Root_jnt");
 
@@ -76,6 +74,8 @@ CSlime::CSlime(){
 }
 /*デストラクタ*/
 CSlime::~CSlime(){
+	//全部で10体いる
+	//一回スライムを消すと7体になる
 	mAllCount--;
 }
 
@@ -87,7 +87,7 @@ void CSlime::Update(){
 }
 /*描画処理*/
 void CSlime::Render(){
-	CXCharPlayer::Render();
+	CEnemyBase::Render();
 }
 
 /*索敵関数*/
@@ -99,4 +99,21 @@ bool CSlime::Search(){
 	
 	/*視界内に来ているか判断*/
 	return CCollision::CollisionShpere(plCol.GetUpdate(), sliCol.GetUpdate());
+}
+
+
+/*球体内の当たり判定*/
+void CSlime::SphereCol(CColSphere *sphere, CColBase *y){
+	CColSphere  sph;//球の当たり判定
+	/*相手のタイプ何か判断*/
+	switch (y->mType) {
+		/*相手が球の場合*/
+	case CColBase::COL_SPHEPE:
+		sph = (*(CColSphere*)y).GetUpdate();
+		/*当たり判定計算　*/
+		if (CCollision::CollisionShpere(sph, *sphere) && sph.eState == CColBase::PL_BODY){
+			Collision(&sph, sphere);
+		}
+
+	};
 }

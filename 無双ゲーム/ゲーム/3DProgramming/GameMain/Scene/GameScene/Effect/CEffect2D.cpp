@@ -76,7 +76,6 @@ void CEffect2D::Update(CVector3 pos){
 	mMatrix.identity();
 	mMatrix.translate(pos);
 	mMatrix = mMatrix * mpCamera->mCameraInverse;
-
 }
 /*サイズアップ*/
 void CEffect2D::SizeUp(float up){
@@ -98,7 +97,6 @@ void CEffect2D::Render(){
 	/*描画*/
 	CRectangle::Render();
 	glPopMatrix();
-
 }
 /*アニメーションフラグをtrueに*/
 void CEffect2D::EnableAnima(){

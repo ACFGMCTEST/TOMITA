@@ -28,6 +28,7 @@ void CStatePlayerRun::Update(){
 	pl->ChangeAnimation(CTask::E_RUN, true, ANIMA_SPEED_RUN);
 	SPEED_RUN_ACC(pl->mVelocity);//プレイヤー移動速度計算
 	pl->PlayerMoveRot();//プレイヤー向きを決める
+	pl->State(PL_STATE_RUN);
 }
 
 CStatePlayerRun::CStatePlayerRun()
