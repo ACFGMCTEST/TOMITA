@@ -4,9 +4,8 @@
 CStateBase::CStateBase() :mFlagNext(false),mNextRegisterName(""){
 };
 /*デストラクタ*/
-CStateBase::~CStateBase(){
-	P_DELETE(mpParent);
-}
+CStateBase::~CStateBase(){}
+
 // 遷移時の処理
 // isNextをfalseに戻す処理はここで行うとよい
 void CStateBase::OnChangeEvent(){

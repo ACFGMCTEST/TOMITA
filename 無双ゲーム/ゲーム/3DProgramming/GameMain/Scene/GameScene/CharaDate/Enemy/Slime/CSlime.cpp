@@ -8,7 +8,6 @@
 #include "State\Jump\CStateSlimeJump.h"
 #include "State\Run\CStateSlimeRun.h"
 /*当たり判定*/
-#include "../../../../../Collision/ColType/CColCapsule.h"
 #include "../../../../../Collision/ColType/CColTriangle.h"
 #include "../../../../../Collision/CCollision.h"
 #include "../../../../../Collision/ColType/CColSphere.h"
@@ -43,19 +42,19 @@ void CSlime::Init(CModelX *model){
 	mStateMachine = (std::make_unique<CStateMachine>());
 	// 第一引数にステートの「登録名」
 	// 第二引数でStateBaseを継承したクラスのshared_ptrオブジェクトを生成
-	mStateMachine->Register(SLI_STATE_ATTACK, std::make_shared<CStateSlimeAttack>(), this);
+	//mStateMachine->Register(SLI_STATE_ATTACK, std::make_shared<CStateSlimeAttack>(), this);
 	mStateMachine->Register(SLI_STATE_IDLING, std::make_shared<CStateSlimeIdling>(), this);
-	mStateMachine->Register(SLI_STATE_RUN, std::make_shared<CStateSlimeRun>(), this);
-	mStateMachine->Register(SLI_STATE_JUMP, std::make_shared<CStateSlimeJump>(), this);
+	//mStateMachine->Register(SLI_STATE_RUN, std::make_shared<CStateSlimeRun>(), this);
 	// 最初のステートを登録名で指定
 	mStateMachine->SetStartState(SLI_STATE_IDLING);
 
 	//モデルの設定
 	CModelXS::Init(model);
 	//カプセル　キャラクタ全体
-	new CColCapsule(this, COL_POS, COL_RADIUS, COL_BONE("Armature_Root_jnt"));
+	mpCaps   = new CColCapsule(this, COL_POS, COL_RADIUS, COL_BONE("Armature_Root_jnt"));
 	//球体の当たり判定
-	new CColSphere(this, COL_SPHE_POS, COL_RADIUS, COL_BONE("Armature_Root_jnt"), CColBase::ENE_BODY);
+	mpSphere = new CColSphere(this, COL_SPHE_POS, COL_RADIUS, COL_BONE("Armature_Root_jnt"), CColBase::ENE_BODY);
+
 
 	mpMatrix = COL_BONE("Armature_Root_jnt");
 
@@ -74,9 +73,14 @@ CSlime::CSlime(){
 }
 /*デストラクタ*/
 CSlime::~CSlime(){
-	//全部で10体いる
-	//一回スライムを消すと7体になる
+	//全部で5体いる
+	//一回スライムを消すと2体になる
 	mAllCount--;
+	printf("自分(%p),\n", this);
+	CTask *caps = mpCaps;
+	CTask *sphe = mpSphere;
+	CCollisionManager::GetInstance()->Kill(&caps);
+	CCollisionManager::GetInstance()->Kill(&sphe);
 }
 
 /*更新処理*/

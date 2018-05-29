@@ -226,20 +226,13 @@ void CTaskManager::AllUpdate(){
 	/*すべてのRender表示*/
 	while (task != 0)
 	{
+		/*削除フラグが立つと消す*/
+		if (task->mKillFlag){ Kill(&task); }
 		task->Update();
 		task = task->mpNext;
-		
-	}
-
-	task = mpRoot;
-	/*すべてのRender表示*/
-	while (task != 0)
-	{
-		/*フラグ削除*/
-		if (task->mKillFlag){Kill(&task);}
-		task = task->mpNext;
 
 	}
+
 }
 /*バブルソート*/
 void CTaskManager::AbsR(){

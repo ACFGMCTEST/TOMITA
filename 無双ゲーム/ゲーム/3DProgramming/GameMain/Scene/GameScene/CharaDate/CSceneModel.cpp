@@ -42,7 +42,7 @@
 /*エネミー*/
 /*スライム*/
 #define MODEL_FILE_SLIME		"x\\Slime\\Slime.x"//スライム	
-#define SLIME_MAX 10//スライムの数
+#define SLIME_MAX 5//スライムの数
 #define SLIME_POS(i) CVector3(i * SLIME_MAX + 10,0,i * SLIME_MAX + 10)//スライムの数
 /*アニメーションのファイル場所*/
 #define F_SLI_IDLING			"x\\Slime\\Anima\\Idling.x"

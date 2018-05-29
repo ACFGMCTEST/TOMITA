@@ -11,6 +11,8 @@ private:
 public:
 	CVector3 mV[2];
 	float mRadius;
+	/*コンストラクタ*/
+	CColCapsule(){};
 	/*コンストラクタ　引数:当たり判定追加しないか判断*/
 	CColCapsule(bool addFlag);
 	/*パラメータ設定*/
