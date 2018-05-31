@@ -4,13 +4,17 @@
 
 //変更する関数
 void CStateSlimeIdling::ChangeState(){
-	//CSlime *sli = dynamic_cast<CSlime*>(mpParent);
-	///*動くフラグがたてば*/
-	//if (sli->Search()){
-	//	/mNextRegisterName = SLI_STATE_RUN;//走る
-	//}
-	////名前が入ればフラグを立てる
-	//if (!mNextRegisterName.empty()) mFlagNext = true;//文字が入れば
+	CSlime *sli = dynamic_cast<CSlime*>(mpParent);
+	/*動くフラグがたてば*/
+	if (sli->Search()){
+		mNextRegisterName = SLI_STATE_RUN;//走る
+	}
+	/*ダメージを受けているなら*/
+	if (sli->mFlagDamage) {
+		mNextRegisterName = SLI_STATE_DAMAGE;//ダメージ
+	}
+	//名前が入ればフラグを立てる
+	if (!mNextRegisterName.empty()) mFlagNext = true;//文字が入れば
 }
 
 

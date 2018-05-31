@@ -8,9 +8,16 @@
 /*当たり判定クラスベース*/
 class CColBase : public CTask
 {
+protected:
+	float r, g, b, a;//色情報
 public:
+	CTask * mpParent;	//親のタスク
+	CMatrix44 *mpCombinedMatrix;	//フレームの合成行列
+	CVector3 mPos;		//中心座標
+	CVector3 mAdjust;	//衝突応答　調整値
+
 	/*当たり判定属性用*/
-	enum E_STATE{
+	enum E_STATE {
 		NO,//設定なし
 		PL_ATTACK,//プレイヤーのアタック
 		PL_BODY,//プレイヤーのボディ
@@ -19,11 +26,6 @@ public:
 	};
 	E_STATE eState;
 
-	CVector3 mPos;		//中心座標
-	float r, g, b, a;//色情報
-	CVector3 mAdjust;	//衝突応答　調整値
-	CTask *mpParent;	//親のタスク
-	CMatrix44 *mpCombinedMatrix;	//フレームの合成行列
 	CColBase() : mpParent(0), mpCombinedMatrix(0){}
 
 	/*色設定*/

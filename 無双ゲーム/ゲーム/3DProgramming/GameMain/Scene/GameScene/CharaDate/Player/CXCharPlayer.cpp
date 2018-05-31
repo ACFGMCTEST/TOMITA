@@ -36,15 +36,17 @@
 #define COL_BODY_POS CVector3(0.0f,0.0f,0.0f)
 #define COL_LEFT_POS  CVector3(0.0f,0.5f,0.0f)
 
-
-/*HPバーの設定値*/
-#define HP_BAR_POS CVector3(mPosition.x,mPosition.y + 1.8f,mPosition.z)
-#define HP_BAR_SIZE -0.4f, 0.4f, -0.1f, 0.0f
-
 /*動きの回転する速さ*/
 #define TURN_SPEED 10
 
-CXCharPlayer::CXCharPlayer() : mVelocity(0.0f), mFlagKnockback(false), mRotCount(0),
+/*エフェクトの設定*/
+#define EFF_SIZE 10.0f,10.0f//サイズ
+#define EFF_POS(pos) CVector3(pos.x,pos.y + 2.0f, pos.z)//エフェクトのポジション
+#define TEX_EFF_SIZE 0.0f,0.0f,2000,250//テクスチャのサイズ
+#define EFF_SET_ANIMA 8,250//設定のアニメーション
+#define EFF_SPEED  0.02f//再生スピード
+
+CXCharPlayer::CXCharPlayer() : mVelocity(0.0f), mRotCount(0),
 mGravitTime(GRA_INIT_TIME_COUNT), mFlagJump(false), mAdjust()
 {
 	eName = CTask::E_PLAYER;
@@ -69,7 +71,6 @@ void CXCharPlayer::Init(CModelX *model) {
 	mStr = PL_STATE_IDLING;//現在のステータスを入れる.
 	//モデルの設定
 	CModelXS::Init(model);
-
 	//カプセル　キャラクタ全体
 	new CColCapsule(this, COL_POS, COL_RADIUS, COL_MATRIX("metarig_hips"));
 	mpMatrix = COL_MATRIX("metarig_hips");
@@ -79,11 +80,14 @@ void CXCharPlayer::Init(CModelX *model) {
 	new CColSphere(this, COL_RIGHT_POS, COL_ATTACK_RADIUS, COL_MATRIX("metarig_forearm_L"),CColBase::PL_ATTACK);
 	//球体　腕.左
 	new CColSphere(this, COL_LEFT_POS, COL_ATTACK_RADIUS, COL_MATRIX("metarig_forearm_R"),CColBase::PL_ATTACK);
-
 	mPower = ATTACK_POWER;//攻撃力
-
+	/*エフェクトの設定*/
+	mpHitEffect = new CEffect2D();
+	mpHitEffect->Init(TGA_FILE"GameEffect\\Hit.tga", EFF_SIZE, STexVer(TEX_EFF_SIZE));//画像や頂点数代入
+	mpHitEffect->SetAnima(EFF_SET_ANIMA);//アニメーションの準備
+	CTaskManager::GetInstance()->Add(mpHitEffect);
+	
 	PosUpdate();
-	mPrevPos = mPosition;
 }
 
 
@@ -102,7 +106,7 @@ void CXCharPlayer::PosUpdate(){
 
 	//頂点データの更新
 	CModelXS::Update(matrix);
-	mPrevPos = mPosition;
+
 }
 
 /*回転関数*/
@@ -216,13 +220,12 @@ void CXCharPlayer::ColGround(){
 
 /*更新処理*/
 void CXCharPlayer::Update(){
+	
 	mAdjust = CVector3();
-	mPrevPos = mPosition;
 	Gravity();/*重力*/
 	PosUpdate();//ポジションを更新
 	/*ステータスマシン更新*/
 	mStateMachine->Update();
-
 }
 
 
@@ -441,6 +444,7 @@ void CXCharPlayer::CapsuleCol(CColCapsule *cc, CColBase* y){
 
 /*球体内の当たり判定*/
 void CXCharPlayer::SphereCol(CColSphere *sphere, CColBase *y){
+	
 	CColSphere  sph;//球の当たり判定
 	CEnemyBase *ene;
 	/*相手のタイプ何か判断*/
@@ -456,9 +460,12 @@ void CXCharPlayer::SphereCol(CColSphere *sphere, CColBase *y){
 			*/
 			if (sphere->eState == CColBase::PL_ATTACK && mStr == PL_STATE_ATTACK){
 				ene = (CEnemyBase*)sph.mpParent;
-				ene->Damage(mPower);
+				ene->Damage(mPower,mRotation);
+				//エフェクト発動
+				mpHitEffect->StartAnima(EFF_SPEED,EFF_POS(mPosition));
+				
 			}
-			//Collision(&sph, sphere);
+			Collision(&sph, sphere);
 		}
 	
 

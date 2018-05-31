@@ -12,12 +12,12 @@ private:
 	/*当たり判定*/
 	CColCapsule *mpCaps;//カプセル胴体
 	CColSphere  *mpSphere;//球体胴体
+	
 public:
 	CSlime();
 	~CSlime();
 	/*初期化処理*/
 	void Init(CModelX *model);
-	
 
 	/*更新*/
 	void Update();

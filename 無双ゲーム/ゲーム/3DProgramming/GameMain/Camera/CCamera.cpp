@@ -137,7 +137,7 @@ void CCamera::PosUpdate(CVector3 rot, CVector3 pos){
 	//カメラ位置代入
 	mPos = SavePos;
 
-	mMatrix.MatrixTransform(mRot, mPos);
+	//mMatrix.MatrixTransform(mRot, mPos);
 	
 	//カメラ視点代入
 	mEye = cp;
@@ -182,8 +182,8 @@ void CCamera::Update() {
 	//視点の設定
 	//gluLookAt(eye[0], eye[1], eye[2], pos[0], pos[1], pos[2], mUp.x, mUp.y, mUp.z);
 	gluLookAt(CAMERA_LOOK);
-	glGetFloatv(GL_MODELVIEW_MATRIX, mCameraMatrix.f);
-	mCameraInverse = mCameraMatrix.getInverse();
+	glGetFloatv(GL_MODELVIEW_MATRIX, mMatrix.f);
+	mCameraInverse = mMatrix.getInverse();
 	mCameraInverse.m[3][0] = mCameraInverse.m[3][1] = mCameraInverse.m[3][2] = 0.0f;
 
 	/*キャラクタスイッチに使う*/
@@ -193,10 +193,7 @@ void CCamera::Update() {
 	/*カメラの移動*/
 	//Move(pos, CSceneModel::mpPlayer->mVelocity);
 	PosUpdate(mRot, pos);
-	//移動行列を計算する
-	mMatrix.translate(mPos);
-	//当たり判定更新
-	//mpCBSphere->Update();
+	
 
 }
 

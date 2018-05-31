@@ -44,9 +44,7 @@ public:
 		CVector4 mSavePos;//初期のポジション保存
 	public:
 		CMatrix44 *mpMatrix;//マトリックス
-		CSpark(){
-			CEffect2D::Init(CEffect2D::E_SPARK);
-		}
+		CSpark(){}
 		/*初期化処理*/
 		void Init(CVector3 pos){
 			mPos = CVector4(pos.x,pos.y,pos.x);

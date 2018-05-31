@@ -305,14 +305,3 @@ void CTaskManager::AllRender(){
 
 }
 
-void CTaskManager::AllBillboardRender(){
-	CTask *task;
-	task = mpRoot;
-
-	/*‚·‚×‚Ä‚ÌRender•\Ž¦*/
-	while (task != 0)
-	{
-		task->BillboardRender();
-		task = task->mpNext;
-	}
-}

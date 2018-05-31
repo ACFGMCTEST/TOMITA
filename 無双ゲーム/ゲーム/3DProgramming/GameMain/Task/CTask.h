@@ -31,23 +31,26 @@ public:
 		E_ATTACK,	//攻撃
 		E_RUN_ATTACK,//移動攻撃
 		E_JUMP,	    //ジャンプ
-		E_DMGM,		//ダメージ
+		E_DAMAGE,		//ダメージ
 		E_STATE_ARRAY//ステータスの上限
 	};
 
 	//何者か判断
 	enum E_NAME{
-		E_PLAYER,
-		E_SLIME,
+		E_PLAYER,//プレイヤー
+		E_SLIME,//スライム
+		E_HIT_EFFECT,//攻撃した時のエフェクト
+		E_BILLBOARD,//ビルボード
 	};
 	E_NAME eName;//ネーム
 
 	/*当たり判定の形*/
 	enum EType {
-		COL_TRIANGLE,	//三角形コライダ
 		COL_BOX,//ボックス
 		COL_SPHEPE,//球
-		COL_CAPSULE		//カプセルコライダ
+		COL_CAPSULE,		//カプセルコライダ
+		COL_TRIANGLE,	//三角形コライダ
+
 	};
 	EType mType;
 
@@ -58,7 +61,6 @@ public:
 	virtual void Init();
 	virtual void Update();
 	virtual void Render();
-	virtual void BillboardRender();//billboardするもの　処理手順で見えなくなるものがあるので分ける
 	virtual bool Collision(CColBase* p1, CColBase* p2) { return false; };
 
 };

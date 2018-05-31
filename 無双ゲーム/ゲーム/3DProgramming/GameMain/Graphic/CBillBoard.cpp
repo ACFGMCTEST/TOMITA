@@ -1,8 +1,7 @@
 #include "CBillBoard.h"
 #include "glut.h"
 #include "../Camera/CCamera.h"
-//カメラのポインタ
-CCamera *CBillBoard::mpCamera = 0;
+
 /*コンストラクタ*/
 CBillBoard::CBillBoard():mpTexture(0){}
 
@@ -38,7 +37,7 @@ void CBillBoard::SetUv(CTexture *t, int left, int top, int right, int bottom) {
 void CBillBoard::Update() {
 	mMatrix.identity();
 	mMatrix.translate(*mpPosition);
-	mMatrix = mMatrix * mpCamera->mCameraInverse;
+	mMatrix = mMatrix * MainCamera.mCameraInverse;
 }
 /*描画*/
 void CBillBoard::Render() {

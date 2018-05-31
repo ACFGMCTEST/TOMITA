@@ -12,13 +12,11 @@
 
 class CSceneModel{
 private:
-	float mMouseInitCount;//マウスが初期位置に戻るまでの時間
-	float mLagTime;//lagによるバグ回避時間
-
 	CModelX mModPlayer;//モデル読み込み用
 	CModelX mModSlime;//モデル読み込み用
 
-
+	float mMouseInitCount;//マウスが初期位置に戻るまでの時間
+	float mLagTime;//lagによるバグ回避時間
 public:
 
 	static CXCharPlayer *mpPlayer; //アクセス用 キャラクター操作に使うため 静的に
@@ -38,7 +36,6 @@ public:
 
 	void Init();
 	void Update();
-	void UpdateEffect();
 	void Render();
 };
 #endif

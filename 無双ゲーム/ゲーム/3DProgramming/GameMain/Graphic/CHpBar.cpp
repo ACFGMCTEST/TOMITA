@@ -19,7 +19,7 @@ void CHpBar::Init(float max, float value, float left, float right, float bottom,
 	mMax = max;
 	mValue = value;
 	mHeight = abs(left) + abs(right);
-	mWidth  = abs(top) + abs(bottom);
+	mWidth  = abs(top)  + abs(bottom);
 	//À•W‚Ìİ’è‚ğs‚¤
 	mGauge.SetVertex(left, right, bottom, top, pos);
 	mFrame.SetVertex(left, right, bottom, top, pos);

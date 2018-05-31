@@ -3,7 +3,7 @@
 #include "glut.h"
 #include <string.h>
 /*tag保管場所*/
-#define TGA_FILE "TexFile\\"
+#define TGA_FILE "../Graphic\\TexFile\\"
 #define ALL_SCENE_TEX_FILE "AllScene\\"
 #define TEX_CURSOR_FILE TGA_FILE ALL_SCENE_TEX_FILE"cursor.tga"
 #define TEX_STAGE_CURSOR_FILE TGA_FILE ALL_SCENE_TEX_FILE"SelectCursor.tga"
@@ -23,6 +23,16 @@
 /*テクスチャのアルファ値のマックス*/
 #define ALPHA_MAX 1.0f
 
+/*テクスチャのサイズ頂点指定*/
+struct STexVer{
+	float left;
+	float top;
+	float right;
+	float bottom;
+	/*サイズコンストラクタ*/
+	STexVer(float x0, float y0, float x1, float y1) :
+		left(x0), top(y0), right(x1), bottom(y1){}
+};
 /*
 TGAファイルのヘッダフォーマット
 */

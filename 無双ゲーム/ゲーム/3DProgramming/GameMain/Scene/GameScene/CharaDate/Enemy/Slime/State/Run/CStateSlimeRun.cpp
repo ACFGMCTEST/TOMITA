@@ -1,8 +1,10 @@
 #include "CStateSlimeRun.h"
 #include "../../CSlime.h"
 /*進むスピード*/
-#define SPEED_RUN 0.01f //MAX走る
+#define SPEED_RUN 0.05f //MAX走る
 #define SPEED_RUN_ACC(v) if (SPEED_RUN > v){v += SPEED_RUN* 0.1f; }else{v = SPEED_RUN;}//加速度計算上限に来た場合
+/*アニメのスピード*/
+#define ANIMA_SPEED 60 * 4
 
 //変更する関数
 void CStateSlimeRun::ChangeState(){
@@ -24,7 +26,7 @@ void CStateSlimeRun::Start()
 void CStateSlimeRun::Update(){
 	CSlime *sli = dynamic_cast<CSlime*>(mpParent);
 	/*アイドリングの処理*/
-	//sli->ChangeAnimation(CTask::E_RUN, true, ANIMA_SPEED_RUN);
+	sli->ChangeAnimation(CTask::E_RUN, true, ANIMA_SPEED);
 
 	/*動く*/
 	SPEED_RUN_ACC(sli->mVelocity);//移動速度計算

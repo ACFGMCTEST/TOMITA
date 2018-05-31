@@ -61,7 +61,6 @@ public:
 	void AllUpdate();
 	void AllRender();
 	void AllInit();
-	void AllBillboardRender();//billboard‚·‚é‚à‚Ì
 	/*‚Ù‚µ‚¢‚à‚Ì
 	Num ‚Ù‚µ‚¢‘®«w’è
 	Count »‘¢”Ô†

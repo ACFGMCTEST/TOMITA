@@ -7,6 +7,7 @@
 #include "State\Idling\CStateSlimeIdling.h"
 #include "State\Jump\CStateSlimeJump.h"
 #include "State\Run\CStateSlimeRun.h"
+#include "State\Damage\CStateSlimeDamage.h"
 /*当たり判定*/
 #include "../../../../../Collision/ColType/CColTriangle.h"
 #include "../../../../../Collision/CCollision.h"
@@ -40,11 +41,9 @@ int CSlime::mAllCount = 0;
 void CSlime::Init(CModelX *model){
 
 	mStateMachine = (std::make_unique<CStateMachine>());
-	// 第一引数にステートの「登録名」
-	// 第二引数でStateBaseを継承したクラスのshared_ptrオブジェクトを生成
-	//mStateMachine->Register(SLI_STATE_ATTACK, std::make_shared<CStateSlimeAttack>(), this);
 	mStateMachine->Register(SLI_STATE_IDLING, std::make_shared<CStateSlimeIdling>(), this);
-	//mStateMachine->Register(SLI_STATE_RUN, std::make_shared<CStateSlimeRun>(), this);
+	mStateMachine->Register(SLI_STATE_RUN, std::make_shared<CStateSlimeRun>(), this);
+	mStateMachine->Register(SLI_STATE_DAMAGE, std::make_shared<CStateSlimeDamage>(), this);
 	// 最初のステートを登録名で指定
 	mStateMachine->SetStartState(SLI_STATE_IDLING);
 
@@ -53,19 +52,15 @@ void CSlime::Init(CModelX *model){
 	//カプセル　キャラクタ全体
 	mpCaps   = new CColCapsule(this, COL_POS, COL_RADIUS, COL_BONE("Armature_Root_jnt"));
 	//球体の当たり判定
-	mpSphere = new CColSphere(this, COL_SPHE_POS, COL_RADIUS, COL_BONE("Armature_Root_jnt"), CColBase::ENE_BODY);
-
-
 	mpMatrix = COL_BONE("Armature_Root_jnt");
-
+	mpSphere = new CColSphere(this, COL_SPHE_POS, COL_RADIUS, mpMatrix, CColBase::ENE_BODY);
+	
 	mPower = ATTACK_POWER;//攻撃力
 
 	PosUpdate();
-	mPrevPos = mPosition;
 }
 /*コンストラクタ*/
 CSlime::CSlime(){
-
 	eName = CTask::E_SLIME;
 	mAllCount++;
 	mNumber = mAllCount;
@@ -85,10 +80,12 @@ CSlime::~CSlime(){
 
 /*更新処理*/
 void CSlime::Update(){
+	*mpMatrix = CMatrix44::MatrixTransform(mPosition, mRotation);
 	CEnemyBase::Update();
 	/*ステータス更新*/
 	mStateMachine->Update();
 }
+
 /*描画処理*/
 void CSlime::Render(){
 	CEnemyBase::Render();
@@ -114,7 +111,7 @@ void CSlime::SphereCol(CColSphere *sphere, CColBase *y){
 		/*相手が球の場合*/
 	case CColBase::COL_SPHEPE:
 		sph = (*(CColSphere*)y).GetUpdate();
-		/*当たり判定計算　*/
+		/*当たり判定計算*/
 		if (CCollision::CollisionShpere(sph, *sphere) && sph.eState == CColBase::PL_BODY){
 			Collision(&sph, sphere);
 		}

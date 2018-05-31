@@ -22,18 +22,18 @@
 #define HP_SIZE -5.0f,5.0f,4.0f,4.5f
 #define TEX_SIZE_HP 0,0,490,46
 /*コンストラクタ*/
-CEnemyBase::CEnemyBase(){
+CEnemyBase::CEnemyBase() : mFlagDamage(false){
 	/*HP設定*/
-	mHp.Init(HP_MAX, HP_MAX, HP_SIZE, &mPosition);//サイズとポジション
+	mpHp = new CHpBar();
+	mpHp->Init(HP_MAX, HP_MAX, HP_SIZE, &mPosition);//サイズとポジション
 	mTexGauge.Load(TGA_FILE"UI\\Gauge.tga");//HPテクスチャ読み込む
 	mTexmFrame.Load(TGA_FILE"UI\\Frame.tga");//HPテクスチャ読み込む
-	mHp.SetTex(&mTexmFrame,&mTexGauge, TEX_SIZE_HP);//テクスチャ
-
+	mpHp->SetTex(&mTexmFrame,&mTexGauge, TEX_SIZE_HP);//テクスチャ
+	CTaskManager::GetInstance()->Add(mpHp);
 	
 	CXCharPlayer::CXCharPlayer();
 	mGravitTime = GRA_INIT_TIME_COUNT;
 	mVelocity = 0.0f;
-	mFlagKnockback = false;
 	mForward = CVector3(FORWARD);
 	/*親設定*/
 	mpParent = this;
@@ -54,9 +54,7 @@ void CEnemyBase::AIMove(){
 
 /*更新処理*/
 void CEnemyBase::Update(){
-	mHp.Update();
 	mAdjust = CVector3();
-	mPrevPos = mPosition;
 	Gravity();/*重力*/
 	PosUpdate();//ポジションを更新
 }
@@ -110,16 +108,25 @@ bool CEnemyBase::Collision(CColBase* m, CColBase* y) {
 
 	return false;
 }
+/*吹っ飛ぶ判定*/
+void CEnemyBase::BlowOff() {
+	mRotation = mDamageRot;//回転値の方向に飛ぶ
+	mVelocity = mDamagePower;//攻撃力によって吹っ飛ぶ度合いを決める
+	CXCharPlayer::Move();
+}
 /*ダメージを受けた時の処理*/
-void CEnemyBase::Damage(float power){
-	mHp.mValue -= power;
+void CEnemyBase::Damage(float power, CVector3 rot){
+	mpHp->mValue -= power;
 	/*ｈｐがなくなったとき消す*/
-	if (mHp.mValue <= 0){
+	if (mpHp->mValue <= 0){
 		CTask::mKillFlag = true;//削除するフラグを立てる
 	}
+	/*吹っ飛ぶ処理の準備*/
+	mDamagePower = power;
+	mDamageRot = rot;
+	mFlagDamage = true;
 }
 /*描画処理*/
 void CEnemyBase::Render(){
-	mHp.Render();
 	CXCharPlayer::Render();
 }

@@ -144,6 +144,12 @@
     <Filter Include="ソース ファイル\GameMain\Scene\GameScene\CharaData\Enemy\Slime\State\Idling">
       <UniqueIdentifier>{06d6428a-5bca-42f7-b8b6-cbb14dfed2bb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\GameMain\Scene\GameScene\CharaData\Player\State\Damage">
+      <UniqueIdentifier>{cf1caf2b-ef6f-4813-8665-ff26bbff1a61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameMain\Scene\GameScene\CharaData\Enemy\Slime\State\Damage">
+      <UniqueIdentifier>{d07c235d-443d-4a78-85ea-1ee56ec6e26a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main\main.cpp">
@@ -355,6 +361,12 @@
     </ClCompile>
     <ClCompile Include="GameMain\Collision\ColType\COBB.cpp">
       <Filter>ソース ファイル\GameMain\Collision\ColType</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Player\State\Damage\CStatePlayerDamage.cpp">
+      <Filter>ソース ファイル\GameMain\Scene\GameScene\CharaData\Player\State\Damage</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\State\Damage\CStateSlimeDamage.cpp">
+      <Filter>ソース ファイル\GameMain\Scene\GameScene\CharaData\Enemy\Slime\State\Damage</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -576,6 +588,12 @@
     </ClInclude>
     <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\State\Jump\CStateSlimeJump.h">
       <Filter>ソース ファイル\GameMain\Scene\GameScene\CharaData\Enemy\Slime\State\Jump</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Player\State\Damage\CStatePlayerDamage.h">
+      <Filter>ソース ファイル\GameMain\Scene\GameScene\CharaData\Player\State\Damage</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\State\Damage\CStateSlimeDamage.h">
+      <Filter>ソース ファイル\GameMain\Scene\GameScene\CharaData\Enemy\Slime\State\Damage</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -28,28 +28,29 @@
 #define COL_INIT_MOUSE_SIZE -DISP_X/2, DISP_Y/2, DISP_X/2, -DISP_Y/2
 
 /*モデルのファイル場所*/
+
 /*プレイヤー*/
-#define MODEL_FILE_UNITY		"x\\SDUnity\\SDUnityBoxing.x"
+#define MODEL_FILE_UNITY		MODEL_FILE"SDUnity\\SDUnityBoxing.x"
 /*アニメーションのファイル場所*/
-#define F_PL_IDLING				"x\\Anima\\Idling.x"
-#define F_PL_RUN				"x\\Anima\\Run.x"
-#define F_PL_RUN_ATTACK			"x\\Anima\\powerRunAttack.x"
-#define F_PL_ATTACK				"x\\Anima\\Attack2.x"
-#define F_PL_ATTACK_JUMP		"x\\Anima\\Ani_AttackJump.x"
-#define F_PL_JUMP				"x\\Anima\\Ani_Jump.x"
-#define F_PL_DAMAGE				"x\\Anima\\Ani_Damage.x"
+#define F_PL_IDLING				MODEL_FILE"Anima\\Idling.x"
+#define F_PL_RUN				MODEL_FILE"Anima\\Run.x"
+#define F_PL_RUN_ATTACK			MODEL_FILE"Anima\\powerRunAttack.x"
+#define F_PL_ATTACK				MODEL_FILE"Anima\\Attack2.x"
+#define F_PL_ATTACK_JUMP		MODEL_FILE"Anima\\Ani_AttackJump.x"
+#define F_PL_JUMP				MODEL_FILE"Anima\\Ani_Jump.x"
+#define F_PL_DAMAGE				MODEL_FILE"Anima\\Ani_Damage.x"
 
 /*エネミー*/
 /*スライム*/
-#define MODEL_FILE_SLIME		"x\\Slime\\Slime.x"//スライム	
+#define MODEL_FILE_SLIME		MODEL_FILE"Slime\\Slime.x"//スライム	
 #define SLIME_MAX 5//スライムの数
 #define SLIME_POS(i) CVector3(i * SLIME_MAX + 10,0,i * SLIME_MAX + 10)//スライムの数
 /*アニメーションのファイル場所*/
-#define F_SLI_IDLING			"x\\Slime\\Anima\\Idling.x"
-#define F_SLI_RUN				"x\\Slime\\Anima\\Run.x"
-#define F_SLI_ATTACK			"x\\Slime\\Anima\\Attack2.x"
-#define F_SLI_JUMP				"x\\Slime\\Anima\\Ani_Jump.x"
-#define F_SLI_DAMAGE			"x\\Slime\\Anima\\Ani_Damage.x"
+#define F_SLI_IDLING			MODEL_FILE"Slime\\Anima\\Idling.x"
+#define F_SLI_RUN				MODEL_FILE"Slime\\Anima\\Run.x"
+#define F_SLI_ATTACK			MODEL_FILE"Slime\\Anima\\Attack2.x"
+#define F_SLI_JUMP				MODEL_FILE"Slime\\Anima\\Ani_Jump.x"
+#define F_SLI_DAMAGE			MODEL_FILE"Slime\\Anima\\Damage.x"
 
 /*lag回避用*/
 #define LAG_SIZE 0.1f //0，1秒間lag回避用
@@ -99,7 +100,7 @@ void CSceneModel::PlayerAdd(){
 		case CTask::E_JUMP:
 			mModPlayer.AddAnimationSet(F_PL_JUMP);//ジャンプ追加
 			break;
-		case CTask::E_DMGM:
+		case CTask::E_DAMAGE:
 			mModPlayer.AddAnimationSet(F_PL_DAMAGE);//ダメージ
 			break;
 		}
@@ -135,7 +136,7 @@ void CSceneModel::SlimeAdd(){
 		case CTask::E_JUMP:
 			temp->AddAnimationSet(F_SLI_JUMP);//ジャンプ追加
 			break;
-		case CTask::E_DMGM:
+		case CTask::E_DAMAGE:
 			temp->AddAnimationSet(F_SLI_DAMAGE);//ダメージ
 			break;
 		}
@@ -176,8 +177,4 @@ void CSceneModel::Update() {
 
 void CSceneModel::Render() {
 	CTaskManager::GetInstance()->AllRender();
-}
-
-void CSceneModel::UpdateEffect(){
-	CTaskManager::GetInstance()->AllBillboardRender();
 }

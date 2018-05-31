@@ -1,10 +1,15 @@
 //冨田健斗
 #ifndef CEffect2D_HPP
 #define CEffect2D_HPP
+#include  "../../../Task/CTask.h"
 #include "../../../Graphic/CRectangle.h"
 #define TIP_ARRAY 11
 
-
+/*エフェクトサイズ*/
+#define EFF_SIZE(x,y)CVector3(-x,y,0.0f),\
+	CVector3(-x, -y, 0.0f), \
+	CVector3(x, -y, 0.0f), \
+	CVector3(x, y, 0.0f)
 /*ハンマーエフェクトサイズ*/
 #define HAMMER_EFFECT_SIZE	CVector3 (-0.1f, 0.1f,0.0f),\
 	CVector3(-0.1f, -0.1f, 0.0f), \
@@ -12,12 +17,7 @@
 	CVector3(0.1f, 0.1f, 0.0f)
 #define HAMMER_EFFECT_POS CVector3(0.0f, 0.8f, 0.0f)
 #define HAMMER_SIZE_UP 0.002f //サイズアップするスピード
-/*火花サイズ*/
-#define ONE_SPARK_SIZE 0.5f
-#define SPARK_EFFECT_SIZE	CVector3 (-ONE_SPARK_SIZE, ONE_SPARK_SIZE,0.0f),\
-	CVector3(-ONE_SPARK_SIZE, -ONE_SPARK_SIZE, 0.0f), \
-	CVector3(ONE_SPARK_SIZE, -ONE_SPARK_SIZE, 0.0f), \
-	CVector3(ONE_SPARK_SIZE, ONE_SPARK_SIZE, 0.0f)
+
 /*エフェクトのポジション*/
 #define SPARK_EFFECT_POS CVector3(0.0f, 1.0f, 0.0f)
 
@@ -30,9 +30,9 @@
 #define TEX_SPARK_EFFECT_WIDTH 225 //幅
 #define TEX_SPARK_EFFECT_ANI_SIZE 5
 
-class CEffect2D : public CRectangle{
-
-public:
+class CEffect2D : public CRectangle ,CTask{
+private:
+	CTexture mTex;/*テクスチャ*/
 	float mAnimaCount;//現在の枚数
 	float mAnimaSize;//何枚あるか
 	float mAnimaFrameNum; //現在のナンバー数
@@ -40,8 +40,8 @@ public:
 	float mAnimaFrameMax; //アニメーションの最大Frame数配列数なので注意
 	float *mpWidthLeft, *mpWidthRight;//幅
 	float mTexLeft, mTexTop, mTexRight, mTexBottom; //縦横
+	float mAnimaSpeed;//再生スピード
 	bool mAnimaFlag;//アニメーションをスタートするか決める
-
 
 	enum E_VER{
 		E_LT,//左上
@@ -51,14 +51,7 @@ public:
 		E_ARRAY
 	};
 	CVector3 ver[E_ARRAY];//頂点数
-	/*状態管理*/
-	enum E_STATUS
-	{
-		E_HAMMER,
-		E_SPARK,
-	};
-
-
+public:
 	~CEffect2D();
 	CEffect2D();
 	/*サイズ指定*/
@@ -72,16 +65,16 @@ public:
 	/*テクスチャ貼り付け*/
 	void SetTex(CTexture *name, float left, float top, float right, float bottom);
 	/*更新処理*/
-	void Update(CVector3 pos);
+	void Update();
 	/*描画処理*/
 	void Render();
-	/*アニメーションフラグをtrueに*/
-	void EnableAnima();
+	/*アニメーションフラグをtrueに,引数で再生スピードとポジションを決める*/
+	void StartAnima(float speed ,CVector3 pos);
 	/*アニメーションフラグをfalseに*/
 	void DisableAnima();
 
 	/*初期設定*/
-	void Init(CEffect2D::E_STATUS eStatus);
+	void CEffect2D::Init(char *name, float x, float y, STexVer texVer);
 	/*テクスチャがあるときの初期化*/
 	void NoTexInit();
 

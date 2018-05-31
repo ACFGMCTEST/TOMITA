@@ -13,29 +13,16 @@
 */
 class CCamera : public CTask{
 private:
-	CVector3 mForward;//移動方向
 	CMatrix44 mMatrix;//行列
-
-	CVector2 mSaveMousePos;//マウスのポジション
 	CRectangle2 mColInitMouse;//マウスの初期位置
-
-	float mMouseInitCount;//カメラの初期化時間
-
-public:
+	CVector3 mForward;//移動方向
 	CVector3 mRot;//自分の方向
-	enum E_XYZ
-	{
-		E_X,
-		E_Y,
-		E_Z,
-		E_ARRAY
-	};
-
 	CVector3 mPos;//ポジション
 	CVector3 mEye;//視点
-
 	CVector3 mUp;	//カメラの上方向
-	CMatrix44 mCameraMatrix;
+	CVector2 mSaveMousePos;//マウスのポジション
+	float mMouseInitCount;//カメラの初期化時間
+public:
 	CMatrix44 mCameraInverse;
 
 	//カメラの上方向の初期化

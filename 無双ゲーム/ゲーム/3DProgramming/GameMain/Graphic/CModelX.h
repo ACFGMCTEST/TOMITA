@@ -4,10 +4,7 @@
 #include "glew.h"
 #include "glut.h"
 
-/*アニメのスピード
-Blenderのタイムライン  60の場合
-4倍がちょうどよくなる
-*/
+/*アニメのスピード*/
 #define ANIMA_SPEED 60 * 4
 #define ANIMA_SPEED_RUN 60 
 #define ANIMA_SPEED_ATTCK 60

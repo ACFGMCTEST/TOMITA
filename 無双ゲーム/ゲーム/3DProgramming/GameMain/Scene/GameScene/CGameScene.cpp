@@ -23,7 +23,6 @@ void CGameScene::Update() {
 	case E_INIT:
 		mSceneModel.Init();
 		MainCamera.Init();
-		CBillBoard::mpCamera = &MainCamera;
 		mMap.Init();
 		eState = E_MAIN;
 		break;

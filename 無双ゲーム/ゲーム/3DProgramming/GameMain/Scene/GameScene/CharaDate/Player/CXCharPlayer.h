@@ -36,7 +36,6 @@
 CXCharPlayer
 プレイヤークラス
 */
-//class CXCharPlayer : public CXCharacter {
 class CXCharPlayer : public CModelXS {
 protected:
 	/*ステータス管理マネージャー*/
@@ -44,24 +43,24 @@ protected:
 	std::string mStr;//現在の状態
 private:
 
-	int mRotCount;//回転地カウント　移動するときに使う
+	CEffect2D *mpHitEffect;//攻撃時のエフェクト
 	CKey AttackInitKey;//Init時に使う
-	
+	int mRotCount;//回転地カウント　移動するときに使う
+
 public:
 	CMatrix44 *mpMatrix;//当たり判定の原点
+
+	CVector3 mForward;//進む向き
+	CVector3 mPosition;	//位置
+	CVector3 mRotation;	//回転
+
+
 	float mGravitTime;//重力の時間
 	float mVelocity; //速さ 使うもの
 	float mPower;//攻撃力
-	bool mFlagKnockback;//ノックバック中か判断
+
 	bool mFlagJump;//ジャンプフラグ
 
-	CVector3 mForward;//進む向き
-	CVector4 fortank; //自分が向いている向き
-
-	CVector3 mPosition;	//位置
-	CVector3 mPrevPos; //前の位置保存場所 
-
-	CVector3 mRotation;	//回転
 	CXCharPlayer();
 	//初期化処理
 	void Init(CModelX *model);

@@ -102,6 +102,6 @@ public:
 	CMatrix44 getInverse(void);
 
 	/*vec3‚ð’¼‚·*/
-	CMatrix44  MatrixTransform(CVector3 pos,CVector3 rot);
+	static CMatrix44  MatrixTransform(CVector3 pos,CVector3 rot);
 
 };

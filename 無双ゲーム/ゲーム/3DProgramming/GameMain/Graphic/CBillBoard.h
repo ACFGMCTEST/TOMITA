@@ -16,8 +16,6 @@ public:
 	CVector3 *mpPosition;
 	//合成行列
 	CMatrix44 mMatrix;
-	//カメラのポインタ
-	static CCamera *mpCamera;
 	//テクスチャ
 	CTexture *mpTexture;	
 	float mUv[4][2];//テクスチャマッピング

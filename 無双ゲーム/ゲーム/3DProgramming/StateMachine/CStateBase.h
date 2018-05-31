@@ -26,7 +26,7 @@
 #define SLI_STATE_IDLING	"slimeIdling"
 #define SLI_STATE_RUN		"slimeRun"
 #define SLI_STATE_JUMP		"slimeJump"
-
+#define SLI_STATE_DAMAGE	"slimeDamage"
 #include <iostream>
 #include <unordered_map>
 #include <string>
