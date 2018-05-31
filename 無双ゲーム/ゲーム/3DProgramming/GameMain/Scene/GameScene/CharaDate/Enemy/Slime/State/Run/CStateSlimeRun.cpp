@@ -13,6 +13,10 @@ void CStateSlimeRun::ChangeState(){
 	if (!sli->Search()){
 		mNextRegisterName = SLI_STATE_IDLING;//走る
 	}
+	/*ダメージを受けているなら*/
+	if (sli->mFlagDamage) {
+		mNextRegisterName = SLI_STATE_DAMAGE;//ダメージ
+	}
 	//名前が入ればフラグを立てる
 	if (!mNextRegisterName.empty()) mFlagNext = true;//文字が入れば
 }

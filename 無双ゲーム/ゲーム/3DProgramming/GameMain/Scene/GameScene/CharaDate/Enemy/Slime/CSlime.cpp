@@ -45,7 +45,7 @@ void CSlime::Init(CModelX *model){
 	mStateMachine->Register(SLI_STATE_RUN, std::make_shared<CStateSlimeRun>(), this);
 	mStateMachine->Register(SLI_STATE_DAMAGE, std::make_shared<CStateSlimeDamage>(), this);
 	// 最初のステートを登録名で指定
-	mStateMachine->SetStartState(SLI_STATE_IDLING);
+	mStateMachine->SetStartState(SLI_STATE_DAMAGE);
 
 	//モデルの設定
 	CModelXS::Init(model);

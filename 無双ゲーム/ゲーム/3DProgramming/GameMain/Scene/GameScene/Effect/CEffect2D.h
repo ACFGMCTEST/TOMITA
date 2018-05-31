@@ -30,7 +30,7 @@
 #define TEX_SPARK_EFFECT_WIDTH 225 //幅
 #define TEX_SPARK_EFFECT_ANI_SIZE 5
 
-class CEffect2D : public CRectangle ,CTask{
+class CEffect2D : public CRectangle ,public CTask{
 private:
 	CTexture mTex;/*テクスチャ*/
 	float mAnimaCount;//現在の枚数

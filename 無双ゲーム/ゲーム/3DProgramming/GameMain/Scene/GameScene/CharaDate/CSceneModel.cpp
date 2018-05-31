@@ -48,8 +48,6 @@
 /*アニメーションのファイル場所*/
 #define F_SLI_IDLING			MODEL_FILE"Slime\\Anima\\Idling.x"
 #define F_SLI_RUN				MODEL_FILE"Slime\\Anima\\Run.x"
-#define F_SLI_ATTACK			MODEL_FILE"Slime\\Anima\\Attack2.x"
-#define F_SLI_JUMP				MODEL_FILE"Slime\\Anima\\Ani_Jump.x"
 #define F_SLI_DAMAGE			MODEL_FILE"Slime\\Anima\\Damage.x"
 
 /*lag回避用*/
@@ -131,10 +129,10 @@ void CSceneModel::SlimeAdd(){
 			temp->AddAnimationSet(F_SLI_RUN);//走る追加
 			break;
 		case CTask::E_ATTACK:
-			temp->AddAnimationSet(F_SLI_ATTACK);//攻撃追加_2 
+			temp->AddAnimationSet(F_SLI_RUN);//攻撃追加_2 
 			break;
 		case CTask::E_JUMP:
-			temp->AddAnimationSet(F_SLI_JUMP);//ジャンプ追加
+			temp->AddAnimationSet(F_SLI_RUN);//ジャンプ追加
 			break;
 		case CTask::E_DAMAGE:
 			temp->AddAnimationSet(F_SLI_DAMAGE);//ダメージ
