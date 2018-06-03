@@ -108,7 +108,7 @@ void CCollisionManager::Add(CColBase *t){
 
 /*地形の当たり判定しない部分を決める*/
 bool CCollisionManager::FlagMap(const CColBase &task,const CColBase &map){
-	CXCharPlayer *pl = dynamic_cast<CXCharPlayer*>(task.mpParent);
+	CPlayer *pl = dynamic_cast<CPlayer*>(task.mpParent);
 	/*三角形のポリゴンの場合マップ*/
 	if (map.mType == CTask::COL_TRIANGLE){
 		/*マップでない方の位置から判定するマップのポリゴン数の幅を決める*/

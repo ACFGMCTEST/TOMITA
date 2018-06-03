@@ -5,17 +5,20 @@
 #define DIVISION_NUM 20,20
 
 /*“–‚½‚è”»’è’Ç‰Á‚·‚é‚Æ‚«*/
-void CColSphere::ColAdd(){
+CColSphere::CColSphere(){
 	mType = COL_SPHEPE;//‹…‘Ì‚É‚·‚é
-	CCollisionManager::GetInstance()->Add(this);//‚ ‚½‚è”»’è’Ç‰Á
 }
 
+CColSphere::CColSphere(bool flag) {
+	mType = COL_SPHEPE;//‹…‘Ì‚É‚·‚é
+	if (flag)	CCollisionManager::GetInstance()->Add(this);
+
+};
 
 
 /*‹…‚Ìƒpƒ‰ƒ[ƒ^İ’è*/
 CColSphere::CColSphere(CTask *parent, CVector3 pos, float radius, CMatrix44 *m,CColBase::E_STATE state)
-{
-	ColAdd();
+:CColSphere(true){
 	mPos = pos;
 	mRadius = radius;
 	mpCombinedMatrix = m;

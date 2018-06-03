@@ -1,11 +1,11 @@
 #ifndef ENEMY_BASE_H
 #define ENEMY_BASE_H
 
-#include "../Player/CXCharPlayer.h"
+#include "../Player/CPlayer.h"
 #include"../../../../Graphic/CHpBar.h"
 
 /*エネミーのクラス*/
-class CEnemyBase : public CXCharPlayer{
+class CEnemyBase : public CPlayer{
 protected:
 	CHpBar * mpHp;//HPバー
 	CTexture mTexmFrame;//Hpのテクスチャ
@@ -28,6 +28,8 @@ public:
 	bool Collision(CColBase* me, CColBase* you);
 	/*カプセル内当たり判定*/
 	void CapsuleCol(CColCapsule *caps, CColBase* y);
+	/*球体内当たり判定 ｍ自分*/
+	void SphereCol(CColSphere *m, CColBase* y);
 	/*AIの動き関数*/
 	void AIMove();
 	/*ダメージを受けた時の処理*/

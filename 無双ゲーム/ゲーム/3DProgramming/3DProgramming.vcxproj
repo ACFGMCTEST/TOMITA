@@ -11,11 +11,17 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <None Include="mesh.flag" />
+    <None Include="mesh.vert" />
+    <None Include="skinmesh.flag" />
+    <None Include="skinmesh.vert" />
+  </ItemGroup>
+  <ItemGroup>
     <ClCompile Include="3DBase\C3DBase.cpp" />
     <ClCompile Include="GameMain\Camera\CCamera.cpp" />
     <ClCompile Include="GameMain\Collision\CCollision.cpp" />
-    <ClCompile Include="GameMain\Collision\CCollisionManager.cpp" />
     <ClCompile Include="GameMain\Collision\CCollision2D.cpp" />
+    <ClCompile Include="GameMain\Collision\CCollisionManager.cpp" />
     <ClCompile Include="GameMain\Collision\ColType\CColCapsule.cpp" />
     <ClCompile Include="GameMain\Collision\ColType\CColSphere.cpp" />
     <ClCompile Include="GameMain\Collision\ColType\CColTriangle.cpp" />
@@ -47,19 +53,19 @@
     <ClCompile Include="GameMain\Scene\GameScene\CGameScene.cpp" />
     <ClCompile Include="GameMain\Scene\GameScene\CharaDate\CSceneModel.cpp" />
     <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Enemy\CEnemyBase.cpp" />
+    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\Attack\CSlimeAttack.cpp" />
     <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\CSlime.cpp" />
-    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\State\Attack\CStateSlimeAttack.cpp" />
-    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\State\Damage\CStateSlimeDamage.cpp" />
-    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\State\Idling\CStateSlimeIdling.cpp" />
-    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\State\Jump\CStateSlimeJump.cpp" />
-    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\State\Run\CStateSlimeRun.cpp" />
-    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Player\CXCharPlayer.cpp" />
-    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Player\State\Attack\CStatePlayerAttack.cpp" />
-    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Player\State\Damage\CStatePlayerDamage.cpp" />
-    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Player\State\Idling\CStatePlayeridling.cpp" />
-    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Player\State\Jump\CStatePlayerJump.cpp" />
-    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Player\State\RunAttack\CStatePlayerRunAttack.cpp" />
-    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Player\State\Run\CStatePlayerRun.cpp" />
+    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\Damage\CSlimeDamage.cpp" />
+    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\Idling\CSlimeIdling.cpp" />
+    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\Jump\CSlimeJump.cpp" />
+    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\Run\CSlimeRun.cpp" />
+    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Player\Attack\CPlayerAttack.cpp" />
+    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Player\CPlayer.cpp" />
+    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Player\Damage\CPlayerDamage.cpp" />
+    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Player\Idling\CPlayeridling.cpp" />
+    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Player\Jump\CPlayerJump.cpp" />
+    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Player\RunAttack\CPlayerRunAttack.cpp" />
+    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Player\Run\CPlayerRun.cpp" />
     <ClCompile Include="GameMain\Scene\GameScene\Effect\CEffect2D.cpp" />
     <ClCompile Include="GameMain\Scene\GameScene\Effect\CExplosion.cpp" />
     <ClCompile Include="GameMain\Scene\GameScene\Map\CMap.cpp" />
@@ -89,8 +95,8 @@
     <ClInclude Include="Define\Define.h" />
     <ClInclude Include="GameMain\Camera\CCamera.h" />
     <ClInclude Include="GameMain\Collision\CCollision.h" />
-    <ClInclude Include="GameMain\Collision\CCollisionManager.h" />
     <ClInclude Include="GameMain\Collision\CCollision2D.h" />
+    <ClInclude Include="GameMain\Collision\CCollisionManager.h" />
     <ClInclude Include="GameMain\Collision\ColType\CColBase.h" />
     <ClInclude Include="GameMain\Collision\ColType\CColCapsule.h" />
     <ClInclude Include="GameMain\Collision\ColType\CColLine.h" />
@@ -115,6 +121,7 @@
     <ClInclude Include="GameMain\Key\CInput.h" />
     <ClInclude Include="GameMain\Key\CKey.h" />
     <ClInclude Include="GameMain\Key\CMouse.h" />
+    <ClInclude Include="GameMain\Matrix\CMatricx22.h" />
     <ClInclude Include="GameMain\Matrix\CMatrix44.h" />
     <ClInclude Include="GameMain\Scene\CScene.h" />
     <ClInclude Include="GameMain\Scene\CSceneManager.h" />
@@ -125,19 +132,19 @@
     <ClInclude Include="GameMain\Scene\GameScene\CGameScene.h" />
     <ClInclude Include="GameMain\Scene\GameScene\CharaDate\CSceneModel.h" />
     <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Enemy\CEnemyBase.h" />
+    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\Attack\CSlimeAttack.h" />
     <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\CSlime.h" />
-    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\State\Attack\CStateSlimeAttack.h" />
-    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\State\Damage\CStateSlimeDamage.h" />
-    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\State\Idling\CStateSlimeIdling.h" />
-    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\State\Jump\CStateSlimeJump.h" />
-    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\State\Run\CStateSlimeRun.h" />
-    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Player\CXCharPlayer.h" />
-    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Player\State\Attack\CStatePlayerAttack.h" />
-    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Player\State\Damage\CStatePlayerDamage.h" />
-    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Player\State\Idling\CStatePlayeridling.h" />
-    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Player\State\Jump\CStatePlayerJump.h" />
-    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Player\State\RunAttack\CStatePlayerRunAttack.h" />
-    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Player\State\Run\CStatePlayerRun.h" />
+    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\Damage\CSlimeDamage.h" />
+    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\Idling\CSlimeIdling.h" />
+    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\Jump\CSlimeJump.h" />
+    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\Run\CSlimeRun.h" />
+    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Player\Attack\CPlayerAttack.h" />
+    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Player\CPlayer.h" />
+    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Player\Damage\CPlayerDamage.h" />
+    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Player\Idling\CPlayeridling.h" />
+    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Player\Jump\CPlayerJump.h" />
+    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Player\RunAttack\CPlayerRunAttack.h" />
+    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Player\Run\CPlayerRun.h" />
     <ClInclude Include="GameMain\Scene\GameScene\Effect\CEffect2D.h" />
     <ClInclude Include="GameMain\Scene\GameScene\Effect\CExplosion.h" />
     <ClInclude Include="GameMain\Scene\GameScene\Map\CMap.h" />
@@ -157,15 +164,19 @@
     <ClInclude Include="GameMain\Vector\CVector2.h" />
     <ClInclude Include="GameMain\Vector\CVector3.h" />
     <ClInclude Include="GameMain\Vector\CVector4.h" />
+    <ClInclude Include="include\glew.h" />
+    <ClInclude Include="include\glext.h" />
+    <ClInclude Include="include\GLFW\eglew.h" />
+    <ClInclude Include="include\GLFW\glew.h" />
+    <ClInclude Include="include\GLFW\glfw3.h" />
+    <ClInclude Include="include\GLFW\glfw3native.h" />
+    <ClInclude Include="include\GLFW\glxew.h" />
+    <ClInclude Include="include\GLFW\wglew.h" />
+    <ClInclude Include="include\glpng.h" />
+    <ClInclude Include="include\glut.h" />
     <ClInclude Include="Light\CLight.h" />
     <ClInclude Include="StateMachine\CStateBase.h" />
     <ClInclude Include="StateMachine\CStateMachine.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="mesh.flag" />
-    <None Include="mesh.vert" />
-    <None Include="skinmesh.flag" />
-    <None Include="skinmesh.vert" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B339D9DB-AAB0-4938-B5E6-4E3D204B1FEA}</ProjectGuid>

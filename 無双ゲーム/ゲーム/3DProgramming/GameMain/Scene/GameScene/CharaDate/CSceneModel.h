@@ -4,7 +4,7 @@
 #include "../../../Graphic/CModelX.h"
 #include "../../../Matrix/CMatrix44.h"
 #include "../../../Camera/CCamera.h"
-#include "Player\CXCharPlayer.h"
+#include "Player\CPlayer.h"
 
 
 #include "../../../Graphic/CRectangle2.h"
@@ -19,7 +19,7 @@ private:
 	float mLagTime;//lagによるバグ回避時間
 public:
 
-	static CXCharPlayer *mpPlayer; //アクセス用 キャラクター操作に使うため 静的に
+	static CPlayer *mpPlayer; //アクセス用 キャラクター操作に使うため 静的に
 	
 
 

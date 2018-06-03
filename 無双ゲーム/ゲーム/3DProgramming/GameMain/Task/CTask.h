@@ -34,6 +34,7 @@ public:
 		E_DAMAGE,		//ダメージ
 		E_STATE_ARRAY//ステータスの上限
 	};
+	
 
 	//何者か判断
 	enum E_NAME{

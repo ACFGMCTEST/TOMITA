@@ -2,11 +2,12 @@
 #include "CColCapsule.h"
 
 /*コンストラクタ　引数:当たり判定追加しないか判断*/
-CColCapsule::CColCapsule(bool addFlag) : mRadius(0.0f) {
+CColCapsule::CColCapsule() : mRadius(0.0f) {
 	mType = COL_CAPSULE;
-	if (addFlag){
-		CCollisionManager::GetInstance()->Add(this);//あたり判定追加
-	}
+}
+/*当たり判定の設定*/
+CColCapsule::CColCapsule(bool flag) : CColCapsule(){
+	if(flag)CCollisionManager::GetInstance()->Add(this);//あたり判定追加
 }
 /*更新処理*/
 void CColCapsule::Update() {

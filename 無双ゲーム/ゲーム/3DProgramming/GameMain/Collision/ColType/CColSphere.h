@@ -14,9 +14,8 @@ public:
 	float mRadius;//半径
 	////回転行列 
 	CMatrix44 mMatrixRotation;
-	CColSphere(){};
-	/*当たり判定追加*/
-	void ColAdd();
+	CColSphere();
+	CColSphere(bool flag);
 	/*球のパラメータ設定*/
 	CColSphere(CTask *parent, CVector3 pos, float radius, CMatrix44 *m,CColBase::E_STATE state);
 	/*球のパラメータ設定 マネージャーで管理しない場合*/

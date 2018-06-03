@@ -14,6 +14,13 @@ private:
 	CColSphere  *mpSphere;//球体胴体
 	
 public:
+	enum E_STATE {
+		E_IDLING,		//立ち
+		E_RUN,		//走る
+		E_DAMAGE,		//ダメージ
+		E_STATE_ARRAY//ステータスの上限
+	};
+
 	CSlime();
 	~CSlime();
 	/*初期化処理*/

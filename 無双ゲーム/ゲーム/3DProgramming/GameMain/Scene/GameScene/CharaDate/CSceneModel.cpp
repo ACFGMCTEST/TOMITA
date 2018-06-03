@@ -55,7 +55,7 @@
 /*パックの初期位置*/
 #define PUCK_INIT_POS 0.0f,0.0f,-10.0f
 /*静的初期化*/
-CXCharPlayer *CSceneModel::mpPlayer;
+CPlayer *CSceneModel::mpPlayer;
 
 /*すべてのモデルキャラ削除*/
 void CSceneModel::ModelAllKill(){
@@ -104,7 +104,7 @@ void CSceneModel::PlayerAdd(){
 		}
 	}
 
-	CXCharPlayer *pl = new CXCharPlayer(); //new作成
+	CPlayer *pl = new CPlayer(); //new作成
 
 	pl->Init(&mModPlayer);
 	CTaskManager::GetInstance()->Add(pl);//タスクに追加
@@ -120,24 +120,21 @@ void CSceneModel::SlimeAdd(){
 	/*アニメーション追加処理*/
 	for (int i = 0; i < CTask::E_STATE_ARRAY; i++)
 	{
-		switch (i)
+		CSlime::E_STATE state = (CSlime::E_STATE)i;
+		switch (state)
 		{
-		case CTask::E_IDLING:
+		case CSlime::E_IDLING:
 			temp->AddAnimationSet(F_SLI_IDLING);//待機追加_0 
+
 			break;
-		case CTask::E_RUN:
+		case CSlime::E_RUN:
 			temp->AddAnimationSet(F_SLI_RUN);//走る追加
+
 			break;
-		case CTask::E_ATTACK:
-			temp->AddAnimationSet(F_SLI_RUN);//攻撃追加_2 
+		case CSlime::E_DAMAGE:
+			temp->AddAnimationSet(F_SLI_DAMAGE);//攻撃追加_2 
 			break;
-		case CTask::E_JUMP:
-			temp->AddAnimationSet(F_SLI_RUN);//ジャンプ追加
-			break;
-		case CTask::E_DAMAGE:
-			temp->AddAnimationSet(F_SLI_DAMAGE);//ダメージ
-			break;
-		}
+		};
 	}
 
 	CSlime *sl[SLIME_MAX];

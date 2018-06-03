@@ -3,11 +3,11 @@
 /*モデル*/
 #include "../../CSceneModel.h"
 /*ステータス*/
-#include "State\Attack\CStateSlimeAttack.h"
-#include "State\Idling\CStateSlimeIdling.h"
-#include "State\Jump\CStateSlimeJump.h"
-#include "State\Run\CStateSlimeRun.h"
-#include "State\Damage\CStateSlimeDamage.h"
+#include "Attack\CSlimeAttack.h"
+#include "Idling\CSlimeIdling.h"
+#include "Jump\CSlimeJump.h"
+#include "Run\CSlimeRun.h"
+#include "Damage\CSlimeDamage.h"
 /*当たり判定*/
 #include "../../../../../Collision/ColType/CColTriangle.h"
 #include "../../../../../Collision/CCollision.h"
@@ -41,11 +41,11 @@ int CSlime::mAllCount = 0;
 void CSlime::Init(CModelX *model){
 
 	mStateMachine = (std::make_unique<CStateMachine>());
-	mStateMachine->Register(SLI_STATE_IDLING, std::make_shared<CStateSlimeIdling>(), this);
-	mStateMachine->Register(SLI_STATE_RUN, std::make_shared<CStateSlimeRun>(), this);
-	mStateMachine->Register(SLI_STATE_DAMAGE, std::make_shared<CStateSlimeDamage>(), this);
+	mStateMachine->Register(SLI_STATE_IDLING, std::make_shared<CSlimeIdling>(), this);
+	mStateMachine->Register(SLI_STATE_RUN, std::make_shared<CSlimeRun>(), this);
+	mStateMachine->Register(SLI_STATE_DAMAGE, std::make_shared<CSlimeDamage>(), this);
 	// 最初のステートを登録名で指定
-	mStateMachine->SetStartState(SLI_STATE_DAMAGE);
+	mStateMachine->SetStartState(SLI_STATE_IDLING);
 
 	//モデルの設定
 	CModelXS::Init(model);
@@ -68,10 +68,7 @@ CSlime::CSlime(){
 }
 /*デストラクタ*/
 CSlime::~CSlime(){
-	//全部で5体いる
-	//一回スライムを消すと2体になる
 	mAllCount--;
-	printf("自分(%p),\n", this);
 	CTask *caps = mpCaps;
 	CTask *sphe = mpSphere;
 	CCollisionManager::GetInstance()->Kill(&caps);
@@ -101,7 +98,6 @@ bool CSlime::Search(){
 	/*視界内に来ているか判断*/
 	return CCollision::CollisionShpere(plCol.GetUpdate(), sliCol.GetUpdate());
 }
-
 
 /*球体内の当たり判定*/
 void CSlime::SphereCol(CColSphere *sphere, CColBase *y){
