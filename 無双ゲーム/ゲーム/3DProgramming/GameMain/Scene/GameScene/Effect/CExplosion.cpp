@@ -3,63 +3,78 @@
 
 /*コンストラクタ*/
 CExplosion::CExplosion() : mEnabled(false), mCount(0){
-	mForward = VEC_BACK;
+	CTask::eName = CTask::E_BILLBOARD;
 }
 /*初期化処理*/
-void CExplosion::Init(CVector3 pos, CVector3 rot){
-	mPos = CVector4(pos.x, pos.y, pos.z);
-	mRot = rot;
+void CExplosion::Init(CTexture *tex, float x, float y, STexVer texVer){
 	for (int i = 0; i < EXP_ARRAY; i++){
-		mSpark[i].Init(mPos);
+		mSpark[i].Init(tex, x, y, texVer);
 	}
 	mCount = 0;
 	mEnabled = true;
 }
+/*初期化処理　設定されている場合*/
+void CExplosion::Init() {	
+	for (int i = 0; i < EXP_ARRAY; i++) {
+		mSpark[i].Init();
+	}
+	mCount = 0;
+	mEnabled = true;
+}
+
 /*更新処理*/
 void CExplosion::Update(){
-
-	C3DBase::UpdateMatrix();
 	if (mEnabled){
 		/*時間がたつまで*/
 		if (mCount++ < LIFE_TIME){
 			for (int i = 0; i < EXP_ARRAY; i++){
 				mSpark[i].Update();
+				/*演出 色のa値,算出*/
+				float a = 1.0f - (mCount / LIFE_TIME);
+				mSpark[i].SetDiffuse(1.0f, 1.0f, 1.0f, a);
 			}
 		}
 		/*時間がたつと*/
 		else{
-			/*現在,デバック用に初期化してループするようにしている*/
-			Init(mPos,mRot);
+			Init();
 			mEnabled = false;
 		}
 	}
 }
+/*爆発が終了した判断*/
+bool CExplosion::ExpEnd() {
+	return (mCount >= LIFE_TIME && mEnabled);
+}
 /*描画*/
-void CExplosion::Render(){
+void CExplosion::Render() {
 
-	if (mEnabled){
-		glPushMatrix();
-		C3DBase::UpdateMatrix();
-		glMultMatrixf(mMatrix.f);
-		glEnable(GL_BLEND);
-		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-		for (int i = 0; i < EXP_ARRAY; i++){
-			mSpark[i].Render();
-		}
-		glDisable(GL_BLEND);
-		glPopMatrix();
+	for (int i = 0; i < EXP_ARRAY; i++) {
+		mSpark[i].Render();
 	}
 }
-/*アニメーションをオンに*/
-void CExplosion::EnabledAnima(){
-	/*初回の時のみ*/
-	if (mEnabled){
-		Init(mPos, mRot);
+/*アニメーションセット*/
+void CExplosion::SetAnima(int size, float width) {
+	for (int i = 0; i < EXP_ARRAY; i++) {
+		mSpark[i].SetAnima(size, width);
 	}
-	mEnabled = true;
+}
+
+/*アニメーションをオンに*/
+void CExplosion::StartAnima(float speed,CVector3 pos){
+	/*一回のみ*/
+	if (!mEnabled) {
+		for (int i = 0; i < EXP_ARRAY; i++) {
+
+			mSpark[i].StartAnima(speed, pos);
+		}
+		mEnabled = true;
+	}
 
 }
 /*アニメーションをオフに*/
 void CExplosion::DisableAnima(){
+	for (int i = 0; i < EXP_ARRAY; i++) {
+		mSpark[i].DisableAnima();
+	}
 	mEnabled = false;
 }

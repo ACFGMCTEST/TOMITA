@@ -3,18 +3,22 @@
 
 #include "../Player/CPlayer.h"
 #include"../../../../Graphic/CHpBar.h"
+#include "../../Effect/CExplosion.h"
 
 /*エネミーのクラス*/
 class CEnemyBase : public CPlayer{
 protected:
-	CHpBar * mpHp;//HPバー
+	CHpBar     *mpHp;//HPバー
 	CTexture mTexmFrame;//Hpのテクスチャ
 	CTexture mTexGauge; //Hpのテクスチャ
 	CVector3 mDamageRot;//ダメージを受けた回転値
 	float mDamagePower;//吹っ飛ぶ値
 public:
+	CExplosion * mpExplosion;//爆発エフェクト(死亡時の演出)
 	bool mFlagDamage;//ダメージ中のフラグ
+	bool mFlagUpdate;//アップデートするかしないか
 	CEnemyBase();
+	~CEnemyBase();
 	
 	/*初期化処理*/
 	void Init(CModelX *model);
@@ -36,6 +40,7 @@ public:
 	void Damage(float power, CVector3 rot);
 	/*吹っ飛ぶ判定:引数　飛ぶ方向指定*/
 	void BlowOff();
-
+	/*体力ゲージのHp取得*/
+	float HP() {return mpHp->mValue;}
 };
 #endif

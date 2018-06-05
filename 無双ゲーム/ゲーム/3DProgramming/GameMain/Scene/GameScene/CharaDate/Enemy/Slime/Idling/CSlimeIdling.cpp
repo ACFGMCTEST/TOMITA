@@ -5,10 +5,12 @@
 //変更する関数
 void CSlimeIdling::ChangeState(){
 	CSlime *sli = dynamic_cast<CSlime*>(mpParent);
+
 	/*動くフラグがたてば*/
-	if (sli->Search()){
+	if ( sli->Search()){
 		mNextRegisterName = SLI_STATE_RUN;//走る
 	}
+
 	/*ダメージを受けているなら*/
 	if (sli->mFlagDamage) {
 		mNextRegisterName = SLI_STATE_DAMAGE;//ダメージ
@@ -29,7 +31,7 @@ void CSlimeIdling::Start(){
 void CSlimeIdling::Update(){
 	CSlime *sli = dynamic_cast<CSlime*>(mpParent);
 	/*アイドリングの処理*/
-	sli->ChangeAnimation(CTask::E_IDLING, true, ANIMA_SPEED);
+	sli->ChangeAnimation(CSlime::E_IDLING, true, ANIMA_SPEED);
 
 }
 

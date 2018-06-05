@@ -107,7 +107,7 @@ void CTaskManager::Add(CTask  *t){
 			} 
 			/*’†ŠÔ*/
 			else if (moveTask-> eName <= t-> eName &&
-					t-> eName <= moveTask->mpNext-> eName){
+				t-> eName <= moveTask->mpNext-> eName){
 				/*’Ç‰Á‚·‚é‚à‚ÌÝ’è*/
 				t->mpNext = moveTask->mpNext;
 				t->mpPrev = moveTask;

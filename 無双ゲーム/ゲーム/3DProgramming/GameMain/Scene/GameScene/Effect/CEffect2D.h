@@ -32,7 +32,7 @@
 
 class CEffect2D : public CRectangle ,public CTask{
 private:
-	CTexture mTex;/*テクスチャ*/
+	float mSizeX, mSizeY;//サイズ
 	float mAnimaCount;//現在の枚数
 	float mAnimaSize;//何枚あるか
 	float mAnimaFrameNum; //現在のナンバー数
@@ -51,6 +51,9 @@ private:
 		E_ARRAY
 	};
 	CVector3 ver[E_ARRAY];//頂点数
+
+	/*テクスチャ貼り付け*/
+	void SetTex(CTexture *name, float left, float top, float right, float bottom);
 public:
 	~CEffect2D();
 	CEffect2D();
@@ -62,8 +65,6 @@ public:
 	void SetFrame(int i);
 	/*サイズアップ*/
 	void SizeUp(float up);
-	/*テクスチャ貼り付け*/
-	void SetTex(CTexture *name, float left, float top, float right, float bottom);
 	/*更新処理*/
 	void Update();
 	/*描画処理*/
@@ -74,9 +75,9 @@ public:
 	void DisableAnima();
 
 	/*初期設定*/
-	void CEffect2D::Init(char *name, float x, float y, STexVer texVer);
-	/*テクスチャがあるときの初期化*/
-	void NoTexInit();
+	void CEffect2D::Init(CTexture *tex, float x, float y, STexVer texVer);
+	/*初期化値が設定されている場合*/
+	void Init();
 
 
 

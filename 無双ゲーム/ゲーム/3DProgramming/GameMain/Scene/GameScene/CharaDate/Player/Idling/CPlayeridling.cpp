@@ -31,7 +31,7 @@ void CPlayerIdling::Update(){
 	CPlayer *pl;
 	pl = dynamic_cast<CPlayer*>(mpParent);
 	/*アイドリングの処理*/
-	pl->ChangeAnimation(CTask::E_IDLING, true, ANIMA_SPEED);
+	pl->ChangeAnimation(CPlayer::E_IDLING, true, ANIMA_SPEED);
 	pl->State(PL_STATE_IDLING);//ステータスを入れる
 }
 

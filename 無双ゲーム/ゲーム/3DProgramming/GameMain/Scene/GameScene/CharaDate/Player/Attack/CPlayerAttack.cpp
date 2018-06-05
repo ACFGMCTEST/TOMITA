@@ -39,18 +39,13 @@ void CPlayerAttack::AttackSpeed(){
 	/*攻撃の速さをいじる*/
 	if (FRAME_VEL_ATTACK1 <= pl->mAnimationTime && pl->mAnimationTime <= FRAME_VEL_ATTACK2){ //少し動く
 		pl->mVelocity = VEL_ATTACK1;
-		printf("アタック1です\n");
 	}
 	else if (FRAME_VEL_ATTACK2 <= pl->mAnimationTime && pl->mAnimationTime <= FRAME_VEL_ATTACK3){//ちょっと止まる
 		pl->mVelocity = VEL_ATTACK2;
-		printf("アタック2です\n");
 	}
 	else{//一番動く
 		pl->mVelocity = VEL_ATTACK3;
-		printf("アタック3です\n");
 	}
-
-	printf("現在フレーム%f\n", pl->mAnimationTime);
 	pl->Move();
 }
 /*更新処理*/
@@ -58,7 +53,7 @@ void CPlayerAttack::Update()
 {
 	CPlayer *pl = dynamic_cast<CPlayer*>(mpParent);
 	/*アニメーション*/
-	pl->ChangeAnimation(CTask::E_ATTACK, false, ANIMA_SPEED_ATTCK);
+	pl->ChangeAnimation(CPlayer::E_ATTACK, false, ANIMA_SPEED_ATTCK);
 	/*攻撃*/
 	AttackSpeed();//攻撃で少し前に移動させる
 	pl->State(PL_STATE_ATTACK);//ステータスを入れる

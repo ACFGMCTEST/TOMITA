@@ -392,6 +392,7 @@ public:
 
 	int mAnimationIndex;	//アニメーション番号
 	bool mAnimationLoopFlg;	//true:繰り返す
+	bool mRenderFlag;//描画のフラグ
 	float mAnimationFrameSize;//アニメーションの再生フレーム数
 	float mAnimationTime;	//現在のアニメーション時間
 
@@ -401,6 +402,7 @@ public:
 		: mpModel(0)
 		, mpCombinedMatrix(0)
 		, mpMeshSkinMatrix(0)
+		, mRenderFlag(true)
 	{}
 
 	~CModelXS() {

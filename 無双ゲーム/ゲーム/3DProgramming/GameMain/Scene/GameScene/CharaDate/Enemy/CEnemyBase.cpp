@@ -4,7 +4,7 @@
 #include "../../../../Collision/ColType/CColCapsule.h"
 #include "../../../../Collision/ColType/CColTriangle.h"
 #include "../../../../Collision/CCollision.h"
-
+#include "../../../../Graphic/CLoadTexManager.h"
 #include <time.h>
 /*回転感覚時間*/
 #define ROT_PYCK_TIME 1.0f
@@ -22,7 +22,11 @@
 #define HP_SIZE -5.0f,5.0f,4.0f,4.5f
 #define TEX_SIZE_HP 0,0,490,46
 /*吹き飛ぶ力*/
-#define DMAGE_SPEED(power) power * 1.0f//吹っ飛ぶ力
+#define DMAGE_SPEED(power) power * 0.5f//吹っ飛ぶ力
+/*爆発テクスチャ*/
+#define EXP_SIZE 0.3f,0.3f//サイズ
+#define TAX_EXP_SIZE  0,0,270,270
+#define EXP_SET_ANIMA 1,270
 /*コンストラクタ*/
 CEnemyBase::CEnemyBase() : mFlagDamage(false) {
 	/*HP設定*/
@@ -32,13 +36,24 @@ CEnemyBase::CEnemyBase() : mFlagDamage(false) {
 	mTexmFrame.Load(TGA_FILE"UI\\Frame.tga");//HPテクスチャ読み込む
 	mpHp->SetTex(&mTexmFrame, &mTexGauge, TEX_SIZE_HP);//テクスチャ
 	CTaskManager::GetInstance()->Add(mpHp);
-
 	CPlayer::CPlayer();
+	/*爆発の設定*/
+	mpExplosion = new CExplosion();
+	mpExplosion->Init(CLoadTexManager::GetInstance()->mpSpark,
+		EXP_SIZE, STexVer(TAX_EXP_SIZE));
+	mpExplosion->SetAnima(EXP_SET_ANIMA);
+	CTaskManager::GetInstance()->Add(mpExplosion);
+	
 	mGravitTime = GRA_INIT_TIME_COUNT;
 	mVelocity = 0.0f;
 	mForward = CVector3(FORWARD);
 	/*親設定*/
 	mpParent = this;
+}
+/*デストラクタ*/
+CEnemyBase::~CEnemyBase() {
+	if(mpExplosion)mpExplosion->mKillFlag = true;
+	if(mpHp)mpHp->mKillFlag = true;
 }
 
 /*初期化処理*/
@@ -56,9 +71,12 @@ void CEnemyBase::AIMove() {
 
 /*更新処理*/
 void CEnemyBase::Update() {
-	mAdjust = CVector3();
-	Gravity();/*重力*/
-	PosUpdate();//ポジションを更新
+	/*描画していないときはアップデートしない*/
+
+		mAdjust = CVector3();
+		Gravity();/*重力*/
+		PosUpdate();//ポジションを更新
+
 }
 
 /*攻撃準備*/
@@ -106,10 +124,13 @@ void CEnemyBase::SphereCol(CColSphere *m, CColBase* y) {
 		/*相手が球の場合*/
 	case CColBase::COL_SPHEPE:
 		sph = (*(CColSphere*)y).GetUpdate();
-		/*当たり判定計算 ほかのエネミーに当たっているとき ダメージを受けているとき*/
-		if (CCollision::CollisionShpere(sph, *m) && sph.eState == CColBase::ENE_BODY && mFlagDamage) {
-			ene = (CEnemyBase*)sph.mpParent;
-			ene->Damage(mDamagePower, mDamageRot);
+		/*当たり判定計算*/
+		if (CCollision::CollisionShpere(sph, *m)) {
+			/*ほかのエネミーに当たっているとき ダメージを受けているとき*/
+			if (sph.eState == CColBase::ENE_BODY && mFlagDamage) {
+				ene = (CEnemyBase*)sph.mpParent;
+				ene->Damage(mDamagePower, mDamageRot);
+			}
 		}
 
 
@@ -144,10 +165,6 @@ void CEnemyBase::BlowOff() {
 /*ダメージを受けた時の処理*/
 void CEnemyBase::Damage(float power, CVector3 rot) {
 	mpHp->mValue -= power;
-	/*ｈｐがなくなったとき消す*/
-	if (mpHp->mValue <= 0) {
-		CTask::mKillFlag = true;//削除するフラグを立てる
-	}
 	/*吹っ飛ぶ処理の準備*/
 	mDamagePower = power;
 	mDamageRot = rot;

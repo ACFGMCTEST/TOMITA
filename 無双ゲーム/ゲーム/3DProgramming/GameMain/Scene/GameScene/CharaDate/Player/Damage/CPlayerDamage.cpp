@@ -21,7 +21,7 @@ void CPlayerDamage::Start(){
 void CPlayerDamage::Update(){
 	CPlayer *pl = dynamic_cast<CPlayer*>(mpParent);
 	/*アイドリングの処理*/
-	pl->ChangeAnimation(CTask::E_DAMAGE, true, ANIMA_SPEED);
+	pl->ChangeAnimation(CPlayer::E_DAMAGE, true, ANIMA_SPEED);
 
 }
 

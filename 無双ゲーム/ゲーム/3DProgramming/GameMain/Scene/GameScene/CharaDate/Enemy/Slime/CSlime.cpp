@@ -31,8 +31,9 @@
 #define GOAL_POS_X (rand() % (int)MAPCHIP_SIZE*CMap::GoalCount()) - MAPCHIP_SIZE*CMap::GoalCount()*0.5f
 
 /*索敵範囲*/
-#define SEARCH_RANGE 3.0f
-#define SERACH_SPHERE(mat) SEARCH_RANGE,CVector3(0.0f,0.0f,0.0f),mat//球体の設定(索敵に使う)
+#define SEARCH_RANGE 9.0f
+#define ATTACK_RANGE 2.0f
+#define SERACH_SPHERE(range,mat) range,CVector3(0.0f,0.0f,0.0f),mat//球体の設定(索敵に使う)
 
 
 int CSlime::mAllCount = 0;
@@ -44,6 +45,7 @@ void CSlime::Init(CModelX *model){
 	mStateMachine->Register(SLI_STATE_IDLING, std::make_shared<CSlimeIdling>(), this);
 	mStateMachine->Register(SLI_STATE_RUN, std::make_shared<CSlimeRun>(), this);
 	mStateMachine->Register(SLI_STATE_DAMAGE, std::make_shared<CSlimeDamage>(), this);
+	mStateMachine->Register(SLI_STATE_ATTACK, std::make_shared<CSlimeAttack>(), this);
 	// 最初のステートを登録名で指定
 	mStateMachine->SetStartState(SLI_STATE_IDLING);
 
@@ -71,10 +73,25 @@ CSlime::~CSlime(){
 	mAllCount--;
 	CTask *caps = mpCaps;
 	CTask *sphe = mpSphere;
-	CCollisionManager::GetInstance()->Kill(&caps);
-	CCollisionManager::GetInstance()->Kill(&sphe);
+	if(mpCaps)CCollisionManager::GetInstance()->Kill(&caps);
+	if (mpSphere)CCollisionManager::GetInstance()->Kill(&sphe);
 }
-
+#define SPEED 1.0f//爆発のアニメーションスピード
+/*当たり判定削除*/
+void CSlime::Delete() {
+	if(mpCaps){
+		CTask *caps = mpCaps;
+		CTask *sphe = mpSphere;
+		CCollisionManager::GetInstance()->Kill(&caps);
+		CCollisionManager::GetInstance()->Kill(&sphe);
+		if (mpHp)mpHp->mKillFlag = true;
+		mpExplosion->StartAnima(SPEED,mPosition);//爆発エフェクト準備
+	}
+	/*爆発が終わると*/
+	if (mpExplosion->ExpEnd()) {
+		CTask::mKillFlag = true;//削除するフラグを立てる
+	}
+}
 /*更新処理*/
 void CSlime::Update(){
 	*mpMatrix = CMatrix44::MatrixTransform(mPosition, mRotation);
@@ -92,16 +109,27 @@ void CSlime::Render(){
 bool CSlime::Search(){
 
 	/*索敵内に入れば動く*/
-	CColSphere plCol = CColSphere(SERACH_SPHERE(CSceneModel::mpPlayer->mpMatrix));//プレイヤー
-	CColSphere sliCol = CColSphere(SERACH_SPHERE(mpMatrix));//エネミー
+	CColSphere plCol = CColSphere(SERACH_SPHERE(SEARCH_RANGE,CSceneModel::mpPlayer->mpMatrix));//プレイヤー
+	CColSphere sliCol = CColSphere(SERACH_SPHERE(SEARCH_RANGE ,mpMatrix));//エネミー
 	
+	/*視界内に来ているか判断*/
+	return CCollision::CollisionShpere(plCol.GetUpdate(), sliCol.GetUpdate());
+}
+/*攻撃範囲*/
+bool CSlime::AttackRange() {
+
+	/*索敵内に入れば動く*/
+	CColSphere plCol = CColSphere(SERACH_SPHERE(ATTACK_RANGE,CSceneModel::mpPlayer->mpMatrix));//プレイヤー
+	CColSphere sliCol = CColSphere(SERACH_SPHERE(ATTACK_RANGE,mpMatrix));//エネミー
 	/*視界内に来ているか判断*/
 	return CCollision::CollisionShpere(plCol.GetUpdate(), sliCol.GetUpdate());
 }
 
 /*球体内の当たり判定*/
 void CSlime::SphereCol(CColSphere *sphere, CColBase *y){
+	
 	CColSphere  sph;//球の当たり判定
+
 	/*相手のタイプ何か判断*/
 	switch (y->mType) {
 		/*相手が球の場合*/

@@ -46,13 +46,17 @@
 #define EFF_SET_ANIMA 8,250//設定のアニメーション
 #define EFF_SPEED  0.02f//再生スピード
 
-CPlayer::CPlayer() : mVelocity(0.0f), mRotCount(0),
+CPlayer::CPlayer() : mVelocity(0.0f), mRotCount(0),mpHitEffect(0),
 mGravitTime(GRA_INIT_TIME_COUNT), mFlagJump(false), mAdjust()
 {
 	eName = CTask::E_PLAYER;
 	mForward = CVector3(FORWARD);
 	mpParent = this;
 };
+
+CPlayer::~CPlayer() {
+	if(mpHitEffect)mpHitEffect->CTask::mKillFlag = true;
+}
 /*
 Init
 モデルと衝突判定の設定を行う
@@ -83,7 +87,9 @@ void CPlayer::Init(CModelX *model) {
 	mPower = ATTACK_POWER;//攻撃力
 	/*エフェクトの設定*/
 	mpHitEffect = new CEffect2D();
-	mpHitEffect->Init(TGA_FILE"GameEffect\\Hit.tga", EFF_SIZE, STexVer(TEX_EFF_SIZE));//画像や頂点数代入
+	CTexture *tex = new CTexture(); 
+	tex->Load(TGA_FILE"GameEffect\\Hit.tga");
+	mpHitEffect->Init(tex, EFF_SIZE, STexVer(TEX_EFF_SIZE));//画像や頂点数代入
 	mpHitEffect->SetAnima(EFF_SET_ANIMA);//アニメーションの準備
 	CTaskManager::GetInstance()->Add(mpHitEffect);
 	

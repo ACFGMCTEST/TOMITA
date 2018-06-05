@@ -7,6 +7,7 @@
 class CSlimeDamage : public CStateBase
 {
 private:
+	float mCount;//ƒJƒEƒ“ƒg
 public:
 	CSlimeDamage();
 	~CSlimeDamage();

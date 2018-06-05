@@ -16,13 +16,16 @@ private:
 public:
 	enum E_STATE {
 		E_IDLING,		//立ち
-		E_RUN,		//走る
+		E_RUN,			//走る
 		E_DAMAGE,		//ダメージ
+		E_ATTACK,		//アタック
 		E_STATE_ARRAY//ステータスの上限
 	};
 
 	CSlime();
 	~CSlime();
+	/*削除*/
+	void Delete();
 	/*初期化処理*/
 	void Init(CModelX *model);
 
@@ -32,6 +35,8 @@ public:
 	void Render();
 	/*索敵関数*/
 	bool Search();
+	/*攻撃範囲*/
+	bool AttackRange();
 	/*球体判定*/
 	void SphereCol(CColSphere *sphere, CColBase *y);
 };

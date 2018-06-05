@@ -16,7 +16,7 @@ void CSlimeJump::Update()
 {
 	CSlime *sl = dynamic_cast<CSlime*>(mpParent);
 	/*アニメーション*/
-	sl->ChangeAnimation(CTask::E_JUMP, true, ANIMA_SPEED_JUMP);
+	sl->ChangeAnimation(CSlime::E_JUMP, true, ANIMA_SPEED_JUMP);
 
 	/*ジャンプ*/
 	sl->Move();//移動関数.横(x,z)の移動

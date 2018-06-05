@@ -29,90 +29,94 @@
 /*ランダム関数値*/
 #define RAND_INIT_NUM 0.9f
 /*消える時間*/
-#define LIFE_TIME 40.0f
+#define LIFE_TIME 30.0f
 /*進むスピード*/
-#define VELOCITY 0.2f
+#define VELOCITY 0.17f
 /*法線の最大値*/
 #define NORMAL_MAX 1.0f
 #define NORMAL_HALF 0.5f
 
-class CExplosion :public  C3DBase{
-public:
-	class  CSpark : public CEffect2D{
+class CExplosion :public CTask{
+private:
+	class  CSpark : public CEffect2D {
 	private:
 		/*初期ポジション保存*/
 		CVector4 mSavePos;//初期のポジション保存
+		CVector3 *mpPos;//位置
 	public:
-		CMatrix44 *mpMatrix;//マトリックス
-		CSpark(){}
+		CSpark() :CEffect2D() {}
 		/*初期化処理*/
-		void Init(CVector3 pos){
-			mPos = CVector4(pos.x,pos.y,pos.x);
-			mSavePos = CVector4(pos.x,pos.y,pos.z);
-			
+		void Init(CTexture *tex, float x, float y, STexVer texVer) {
+			CEffect2D::Init(tex, x, y, texVer);
+			/*ランダムに火花がはじける*/
+			mPos.setRandomPositionSphere(RAND_INIT_NUM);
+			mForward = CVector4(mPos.x, mPos.y, mPos.z);
+		}
+		/*引数ないバージョン(値が設定されている場合はこちら)*/
+		void Init() {
+			CEffect2D::Init();
 			/*ランダムに火花がはじける*/
 			mPos.setRandomPositionSphere(RAND_INIT_NUM);
 			mForward = CVector4(mPos.x, mPos.y, mPos.z);
 		}
 
-
 		/*更新処理*/
-		void Update(){
+		void Update() {
 			mPos = mPos + mForward * VELOCITY;
-			/*ビルボード設定*/
-			mpCamera = &MainCamera;
-			mMatrix.identity();
-			mMatrix.translate(mPos);
-			
-			CMatrix44 rot;
-			/*初期場所から回転値を出す*/
-			mRot.z = CVector2::Angle(CVector2(mPos.x, mPos.y), CVector2(mSavePos.x, mSavePos.y));
-			mRot.z = mRot.z;
-			/*回転値が３６０度以上にしないようにする*/
-			if (mRot.z >= ANGLE_360){
-				mRot.z -= ANGLE_360;
-			}
-			////回転行列の作成
-			rot.rotationZ(mRot.z);
-			mMatrix = mMatrix * mpCamera->mCameraInverse * rot;
+			CEffect2D::Update();
+			//		/*ビルボード設定*/
+			//		mpCamera = &MainCamera;
+			//		mMatrix.identity();
+			//		mMatrix.translate(mPos);
+			////		
+			//		CMatrix44 rot;
+			//		/*初期場所から回転値を出す*/
+			//		mRot.z = CVector2::Angle(CVector2(mPos.x, mPos.y), CVector2(mSavePos.x, mSavePos.y));
+			//		/*回転値が３６０度以上にしないようにする*/
+			//		if (mRot.z >= ANGLE_360){
+			//			mRot.z -= ANGLE_360;
+			//		}
+			//		////回転行列の作成
+			//		rot.rotationZ(mRot.z);
+			//		mMatrix = mMatrix * mpCamera->mCameraInverse * rot;
 
-	/*法線計算　上の失敗したもの　惜しいとこまで行ったから参考にする*/
-			float nx, ny, nz;//法線たち
-			/*0から90 OK*/
-			if (0 <= mRot.z && mRot.z <= ANGLE_90){
-				nx = 0.0f;
-				ny = NORMAL_MAX;
-				nz = 0.0f;
-			}
-			/*90から180 OK*/
-			if (ANGLE_90 <= mRot.z && mRot.z <= ANGLE_180){
-				nx = 0.0f;
-				ny = -NORMAL_MAX;
-				nz = 0.0f;
-			}
-			/*180から270 OK*/
-			if (ANGLE_180 <= mRot.z && mRot.z <= ANGLE_270){
-				nx = 0.0f;
-				ny = -NORMAL_MAX;
-				nz = 0.0f;
-			}
-			/*270から360*/
-			if (ANGLE_270 <= mRot.z && mRot.z <= ANGLE_360){
-				nx = 0.0f;
-				ny = NORMAL_MAX;
-				nz = 0.0f;
-			}
-			SetNormal(nx, ny, nz);
+			///*法線計算　上の失敗したもの　惜しいとこまで行ったから参考にする*/
+			//		float nx, ny, nz;//法線たち
+			//		/*0から90 OK*/
+			//		if (0 <= mRot.z && mRot.z <= ANGLE_90){
+			//			nx = 0.0f;
+			//			ny = NORMAL_MAX;
+			//			nz = 0.0f;
+			//		}
+			//		/*90から180 OK*/
+			//		if (ANGLE_90 <= mRot.z && mRot.z <= ANGLE_180){
+			//			nx = 0.0f;
+			//			ny = -NORMAL_MAX;
+			//			nz = 0.0f;
+			//		}
+			//		/*180から270 OK*/
+			//		if (ANGLE_180 <= mRot.z && mRot.z <= ANGLE_270){
+			//			nx = 0.0f;
+			//			ny = -NORMAL_MAX;
+			//			nz = 0.0f;
+			//		}
+			//		/*270から360*/
+			//		if (ANGLE_270 <= mRot.z && mRot.z <= ANGLE_360){
+			//			nx = 0.0f;
+			//			ny = NORMAL_MAX;
+			//			nz = 0.0f;
+			//		}
+			//		SetNormal(nx, ny, nz);
 
+			//
 		}
-		
 	};
 
 	CSpark mSpark[EXP_ARRAY];
-
 	bool mEnabled;
 	int mCount;
-
+public:
+	
 	CExplosion();
 
 
@@ -120,16 +124,21 @@ public:
 	rot = 回転値
 	m44 = 親のマトリックス
 	*/
-	void Init(CVector3 pos, CVector3 rot);
+	void Init(CTexture *tex, float x, float y, STexVer texVer);
+	/*設定されている場合*/
+	void Init();
 	/*更新処理*/
 	void Update();
 	/*描画*/
 	void Render();
+	/*アニメーションセット*/
+	void SetAnima(int size, float width);
 	/*アニメーションをオンに*/
-	void EnabledAnima();
+	void StartAnima(float speed, CVector3 pos);
 	/*アニメーションをオフに*/
 	void DisableAnima();
-
+	/*爆発が終了した判断*/
+	bool ExpEnd();
 };
 
 

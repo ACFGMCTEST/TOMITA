@@ -1342,10 +1342,13 @@ void CModelXS::MatrixUpdate(CMatrix44 &matrix){
 描画する
 */
 void CModelXS::Render() {
-	//メッシュ毎に描画する
-	for (int i = 0; i < mpModel->mMesh.size(); i++) {
-		//モデル、スキンメッシュ行列配列、スキンメッシュ行列配列要素数
-		mpModel->mMesh[i]->Render(mpModel, mpMeshSkinMatrix[i].mpSkinnedMatrix, mpMeshSkinMatrix[i].mSize);
+	/*描画する*/
+	if (mRenderFlag) {
+		//メッシュ毎に描画する
+		for (int i = 0; i < mpModel->mMesh.size(); i++) {
+			//モデル、スキンメッシュ行列配列、スキンメッシュ行列配列要素数
+			mpModel->mMesh[i]->Render(mpModel, mpMeshSkinMatrix[i].mpSkinnedMatrix, mpMeshSkinMatrix[i].mSize);
+		}
 	}
 }
 

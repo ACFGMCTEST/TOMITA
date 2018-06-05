@@ -29,7 +29,7 @@ void CPlayerJump::Update()
 {
 	CPlayer *pl = dynamic_cast<CPlayer*>(mpParent);
 	/*アニメーション*/
-	pl->ChangeAnimation(CTask::E_JUMP, true, ANIMA_SPEED_JUMP);
+	pl->ChangeAnimation(CPlayer::E_JUMP, true, ANIMA_SPEED_JUMP);
 
 	/*ジャンプ*/
 	pl->Move();//移動関数.横(x,z)の移動

@@ -35,7 +35,7 @@ void CPlayerRunAttack::Update()
 {
 	CPlayer *pl = dynamic_cast<CPlayer*>(mpParent);
 	/*アニメーション*/
-	pl->ChangeAnimation(CTask::E_RUN_ATTACK, false, ANIMA_SPEED_RUN_ATTCK);
+	pl->ChangeAnimation(CPlayer::E_RUN_ATTACK, false, ANIMA_SPEED_RUN_ATTCK);
 	pl->Move();
 	pl->State(PL_STATE_RUN_ATTACK);
 }

@@ -11,12 +11,17 @@ void CSlimeRun::ChangeState(){
 	CSlime *sli = dynamic_cast<CSlime*>(mpParent);
 	/*フラグがたっていなければ*/
 	if (!sli->Search()){
-		mNextRegisterName = SLI_STATE_IDLING;//走る
+		mNextRegisterName = SLI_STATE_IDLING;//待機
+	}
+	/*攻撃のフラグがたつと*/
+	if (sli->AttackRange()) {
+		mNextRegisterName = SLI_STATE_ATTACK;//攻撃
 	}
 	/*ダメージを受けているなら*/
 	if (sli->mFlagDamage) {
 		mNextRegisterName = SLI_STATE_DAMAGE;//ダメージ
 	}
+	
 	//名前が入ればフラグを立てる
 	if (!mNextRegisterName.empty()) mFlagNext = true;//文字が入れば
 }
@@ -30,7 +35,7 @@ void CSlimeRun::Start()
 void CSlimeRun::Update(){
 	CSlime *sli = dynamic_cast<CSlime*>(mpParent);
 	/*アイドリングの処理*/
-	sli->ChangeAnimation(CTask::E_RUN, true, ANIMA_SPEED);
+	sli->ChangeAnimation(CSlime::E_RUN, true, ANIMA_SPEED);
 
 	/*動く*/
 	SPEED_RUN_ACC(sli->mVelocity);//移動速度計算

@@ -48,6 +48,17 @@ private:
 	int mRotCount;//回転地カウント　移動するときに使う
 
 public:
+	//プレイヤーの状態値
+	enum E_STATE {
+		E_IDLING,		//立ち
+		E_RUN,		//走る
+		E_ATTACK,	//攻撃
+		E_RUN_ATTACK,//移動攻撃
+		E_JUMP,	    //ジャンプ
+		E_DAMAGE,		//ダメージ
+		E_STATE_ARRAY//ステータスの上限
+	};
+
 	CMatrix44 *mpMatrix;//当たり判定の原点
 
 	CVector3 mForward;//進む向き
@@ -62,6 +73,7 @@ public:
 	bool mFlagJump;//ジャンプフラグ
 
 	CPlayer();
+	~CPlayer();
 	//初期化処理
 	void Init(CModelX *model);
 	//更新処理

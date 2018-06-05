@@ -32,13 +32,12 @@
 /*プレイヤー*/
 #define MODEL_FILE_UNITY		MODEL_FILE"SDUnity\\SDUnityBoxing.x"
 /*アニメーションのファイル場所*/
-#define F_PL_IDLING				MODEL_FILE"Anima\\Idling.x"
-#define F_PL_RUN				MODEL_FILE"Anima\\Run.x"
-#define F_PL_RUN_ATTACK			MODEL_FILE"Anima\\powerRunAttack.x"
-#define F_PL_ATTACK				MODEL_FILE"Anima\\Attack2.x"
-#define F_PL_ATTACK_JUMP		MODEL_FILE"Anima\\Ani_AttackJump.x"
-#define F_PL_JUMP				MODEL_FILE"Anima\\Ani_Jump.x"
-#define F_PL_DAMAGE				MODEL_FILE"Anima\\Ani_Damage.x"
+#define F_PL_IDLING				MODEL_FILE"SDUnity\\Anima\\Idling.x"
+#define F_PL_RUN				MODEL_FILE"SDUnity\\Anima\\Run.x"
+#define F_PL_RUN_ATTACK			MODEL_FILE"SDUnity\\Anima\\powerRunAttack.x"
+#define F_PL_ATTACK				MODEL_FILE"SDUnity\\Anima\\Attack2.x"
+#define F_PL_JUMP				MODEL_FILE"SDUnity\\Anima\\Ani_Jump.x"
+#define F_PL_DAMAGE				MODEL_FILE"SDUnity\\Anima\\Damage.x"
 
 /*エネミー*/
 /*スライム*/
@@ -49,6 +48,7 @@
 #define F_SLI_IDLING			MODEL_FILE"Slime\\Anima\\Idling.x"
 #define F_SLI_RUN				MODEL_FILE"Slime\\Anima\\Run.x"
 #define F_SLI_DAMAGE			MODEL_FILE"Slime\\Anima\\Damage.x"
+#define F_SLI_ATTACK			MODEL_FILE"Slime\\Anima\\Attack.x"
 
 /*lag回避用*/
 #define LAG_SIZE 0.1f //0，1秒間lag回避用
@@ -79,26 +79,26 @@ void CSceneModel::PlayerAdd(){
 	/*プレイヤー*/
 	mModPlayer.Load(MODEL_FILE_UNITY);
 	/*アニメーション追加処理*/
-	for (int i = 0; i < CTask::E_STATE_ARRAY; i++)
+	for (int i = 0; i < CPlayer::E_STATE_ARRAY; i++)
 	{
 		switch (i)
 		{
-		case CTask::E_IDLING:
+		case CPlayer::E_IDLING:
 			mModPlayer.AddAnimationSet(F_PL_IDLING);//待機追加_0 
 			break;
-		case CTask::E_RUN:
+		case CPlayer::E_RUN:
 			mModPlayer.AddAnimationSet(F_PL_RUN);//走る追加
 			break;
-		case CTask::E_RUN_ATTACK:
+		case CPlayer::E_RUN_ATTACK:
 			mModPlayer.AddAnimationSet(F_PL_RUN_ATTACK);//走り攻撃
 			break;
-		case CTask::E_ATTACK:
+		case CPlayer::E_ATTACK:
 			mModPlayer.AddAnimationSet(F_PL_ATTACK);//攻撃追加_2 
 			break;
-		case CTask::E_JUMP:
+		case CPlayer::E_JUMP:
 			mModPlayer.AddAnimationSet(F_PL_JUMP);//ジャンプ追加
 			break;
-		case CTask::E_DAMAGE:
+		case CPlayer::E_DAMAGE:
 			mModPlayer.AddAnimationSet(F_PL_DAMAGE);//ダメージ
 			break;
 		}
@@ -118,21 +118,22 @@ void CSceneModel::SlimeAdd(){
 	/*プレイヤー*/
 	temp->Load(MODEL_FILE_SLIME);
 	/*アニメーション追加処理*/
-	for (int i = 0; i < CTask::E_STATE_ARRAY; i++)
+	for (int i = 0; i < CSlime::E_STATE_ARRAY; i++)
 	{
 		CSlime::E_STATE state = (CSlime::E_STATE)i;
 		switch (state)
 		{
 		case CSlime::E_IDLING:
-			temp->AddAnimationSet(F_SLI_IDLING);//待機追加_0 
-
+			temp->AddAnimationSet(F_SLI_IDLING);
 			break;
 		case CSlime::E_RUN:
-			temp->AddAnimationSet(F_SLI_RUN);//走る追加
-
+			temp->AddAnimationSet(F_SLI_RUN);
 			break;
 		case CSlime::E_DAMAGE:
-			temp->AddAnimationSet(F_SLI_DAMAGE);//攻撃追加_2 
+			temp->AddAnimationSet(F_SLI_DAMAGE);
+			break;
+		case CSlime::E_ATTACK:
+			temp->AddAnimationSet(F_SLI_ATTACK);
 			break;
 		};
 	}

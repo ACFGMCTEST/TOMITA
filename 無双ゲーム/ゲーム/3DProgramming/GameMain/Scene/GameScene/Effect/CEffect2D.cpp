@@ -12,10 +12,9 @@
 #include<stdio.h>
 
 
-
 CEffect2D::CEffect2D() : mAnimaCount(0), mAnimaSize(0), mTimeCount(0), 
 mAnimaFrameNum(0), mAnimaFrameMax(0), mAnimaFlag(false), mpWidthLeft(0),mpWidthRight(0){
-	CTask::eName = CTask::E_HIT_EFFECT;
+	CTask::eName = CTask::E_BILLBOARD;
 }
 
 CEffect2D::~CEffect2D(){
@@ -117,18 +116,19 @@ void CEffect2D::DisableAnima(){
 }
 
 /*初期の値に戻す*/
-void CEffect2D::Init(char *name, float x, float y, STexVer texVer){
-	mTex.Load(name);//テクスチャ読み込み
-	/*ハンマーエフェクト初期化処理*/
+void CEffect2D::Init(CTexture *tex, float x, float y, STexVer texVer){
+	mpTexture = tex;
+	/*サイズ*/
 	SetVertex(EFF_SIZE(x,y));//頂点
+	mSizeX = x; mSizeY = y;//サイズ
 	SetDiffuse(WHITE_COLOR);
 	SetNormal(VEC_NORMAL);
-	SetTex(&mTex, texVer.left, texVer.top, texVer.right, texVer.bottom);
-	SetAnima(TEX_HAMMER_EFFECT_ANI_SIZE, TEX_HAMMER_EFFECT_WIDTH);
+	SetTex(mpTexture, texVer.left, texVer.top, texVer.right, texVer.bottom);
 }
+
 /*テクスチャがあるときの初期化*/
-void CEffect2D::NoTexInit(){
+void CEffect2D::Init(){
 	/*ハンマーエフェクト初期化処理*/
-	SetVertex(HAMMER_EFFECT_SIZE);
+	SetVertex(EFF_SIZE(mSizeX,mSizeY));
 	SetFrame(0);//初期値に設定
 }
