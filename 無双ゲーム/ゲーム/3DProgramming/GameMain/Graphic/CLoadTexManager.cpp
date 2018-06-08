@@ -16,14 +16,29 @@ CLoadTexManager* CLoadTexManager::GetInstance(){
 
 CLoadTexManager::CLoadTexManager()
 {
+	/*火花エフェクト*/
 	mpSpark = new CTexture();
-	/*テクスチャロード 	ビルボード*/
 	mpSpark->Load(TEX_FILE_SPARK_EFFECT);
+	/*ヒットエフェクト*/
+	mpHit = new CTexture();
+	mpHit->Load(TGA_FILE"GameEffect\\Hit.tga");
+	/*HP2D*/
+	mpHp2DFrame = new CTexture();
+	mpHp2DGauge= new CTexture();
+	mpHp2DFrame->Load(TGA_FILE"UI\\Frame.tga");
+	mpHp2DGauge->Load(TGA_FILE"UI\\Gauge.tga");
+	/*スカイボックス*/
+	mpSkyBox = new CTexture();
+	mpSkyBox->Load(TGA_FILE"SkyBox\\skyBox.tga");
 }
 
 CLoadTexManager::~CLoadTexManager()
 {
 	/*テクスチャデリート　ビルボート*/
 	P_DELETE(mpSpark);						//火花
+	P_DELETE(mpHit);
+	P_DELETE(mpHp2DFrame);
+	P_DELETE(mpHp2DGauge);
+	P_DELETE(mpSkyBox);
 
 }

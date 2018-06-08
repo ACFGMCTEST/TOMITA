@@ -10,6 +10,7 @@
 #include "../../../../Collision/ColType/CColBase.h"
 #include "../../../../Collision/ColType/CColCapsule.h"
 #include "../../../../Collision/ColType/CColSphere.h"
+#include "../../../../Graphic/CHpBar2D.h"
 //プレイヤーの数
 #define CHARA_ARRAY 3
 /*キャラステータス*/
@@ -18,7 +19,7 @@
 #define SPEED_RUN_ACC(v) if (SPEED_RUN > v){v += SPEED_RUN* 0.1f; }else{v = SPEED_RUN;}//加速度計算上限に来た場合
 
 /*攻撃力*/
-#define ATTACK_POWER 2.0f
+#define ATTACK_POWER 4.0f
 
 /*吹き飛び*/
 #define KNOCK_BACK  0.2f/*吹き飛びの度合い*/
@@ -41,13 +42,16 @@ protected:
 	/*ステータス管理マネージャー*/
 	std::unique_ptr<CStateMachine> mStateMachine;//ステータス管理
 	std::string mStr;//現在の状態
+	CVector3 mDamageRot;//ダメージを受けた回転値
+	float mDamagePower;//吹っ飛ぶ値
 private:
-
 	CEffect2D *mpHitEffect;//攻撃時のエフェクト
+	CHpBar2D *mpHp;//hp
 	CKey AttackInitKey;//Init時に使う
 	int mRotCount;//回転地カウント　移動するときに使う
-
 public:
+	bool mFlagDamage;//ダメージ中のフラグ
+	bool mFlagAttack;//攻撃するフラグ
 	//プレイヤーの状態値
 	enum E_STATE {
 		E_IDLING,		//立ち
@@ -132,12 +136,16 @@ public:
 
 	CVector3 mAdjust;
 
-
 	/*操作する回転値計算*/
 	void PlayerMoveRot();
 
 	/*現在のstrをれる*/
 	void State(std::string s);
+
+	/*吹っ飛ぶ判定:*/
+	void BlowOff();
+	/*ダメージを受けた時の処理*/
+	void Damage(float power, CVector3 rot);
 };
 
 #endif

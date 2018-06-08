@@ -17,12 +17,14 @@
 #include "Jump\CPlayerJump.h"
 #include "Run\CPlayerRun.h"
 #include "RunAttack\CPlayerRunAttack.h"
+#include "Damage\CPlayerDamage.h"
 /*当たり判定*/
 #include "../../../../Collision/ColType/CColCapsule.h"
 #include "../../../../Collision/ColType/CColTriangle.h"
 /*エネミー*/
 #include "../Enemy/CEnemyBase.h"
-
+/*画像読み込みクラス*/
+#include  "../../../../Graphic/CLoadTexManager.h"
 /*向き*/
 #define FORWARD_JUMP  0.0f,1.0f,1.0f//ジャンプ
 
@@ -45,9 +47,12 @@
 #define TEX_EFF_SIZE 0.0f,0.0f,2000,250//テクスチャのサイズ
 #define EFF_SET_ANIMA 8,250//設定のアニメーション
 #define EFF_SPEED  0.02f//再生スピード
+/*HPバー*/
+#define HP_SIZE RECT_SIZE(0.5f,T_MANA_HP_SIZE.right,T_MANA_HP_SIZE.bottom,)
 
-CPlayer::CPlayer() : mVelocity(0.0f), mRotCount(0),mpHitEffect(0),
-mGravitTime(GRA_INIT_TIME_COUNT), mFlagJump(false), mAdjust()
+CPlayer::CPlayer() : mVelocity(0.0f), mRotCount(0), mpHitEffect(0),
+mGravitTime(GRA_INIT_TIME_COUNT), mFlagJump(false), mAdjust(), mpHp(0),
+mFlagDamage(false),mFlagAttack(false)
 {
 	eName = CTask::E_PLAYER;
 	mForward = CVector3(FORWARD);
@@ -55,7 +60,8 @@ mGravitTime(GRA_INIT_TIME_COUNT), mFlagJump(false), mAdjust()
 };
 
 CPlayer::~CPlayer() {
-	if(mpHitEffect)mpHitEffect->CTask::mKillFlag = true;
+	if (mpHitEffect)mpHitEffect->CTask::mKillFlag = true;
+	if (mpHp)mpHp->CTask::mKillFlag = true;
 }
 /*
 Init
@@ -70,6 +76,7 @@ void CPlayer::Init(CModelX *model) {
 	mStateMachine->Register(PL_STATE_RUN, std::make_shared<CPlayerRun>(), this);
 	mStateMachine->Register(PL_STATE_JUMP, std::make_shared<CPlayerJump>(), this);
 	mStateMachine->Register(PL_STATE_RUN_ATTACK, std::make_shared<CPlayerRunAttack>(), this);
+	mStateMachine->Register(PL_STATE_DAMAGE, std::make_shared<CPlayerDamage>(), this);
 	// 最初のステートを登録名で指定
 	mStateMachine->SetStartState(PL_STATE_IDLING);
 	mStr = PL_STATE_IDLING;//現在のステータスを入れる.
@@ -79,20 +86,28 @@ void CPlayer::Init(CModelX *model) {
 	new CColCapsule(this, COL_POS, COL_RADIUS, COL_MATRIX("metarig_hips"));
 	mpMatrix = COL_MATRIX("metarig_hips");
 	//球体　ボディ
-	new CColSphere(this, COL_BODY_POS, COL_RADIUS, COL_MATRIX("metarig_hips"),CColBase::PL_BODY);
+	new CColSphere(this, COL_BODY_POS, COL_RADIUS, COL_MATRIX("metarig_hips"), CColBase::PL_BODY);
 	//球体　腕.右
-	new CColSphere(this, COL_RIGHT_POS, COL_ATTACK_RADIUS, COL_MATRIX("metarig_forearm_L"),CColBase::PL_ATTACK);
+	new CColSphere(this, COL_RIGHT_POS, COL_ATTACK_RADIUS, COL_MATRIX("metarig_forearm_L"), CColBase::PL_ATTACK);
 	//球体　腕.左
-	new CColSphere(this, COL_LEFT_POS, COL_ATTACK_RADIUS, COL_MATRIX("metarig_forearm_R"),CColBase::PL_ATTACK);
+	new CColSphere(this, COL_LEFT_POS, COL_ATTACK_RADIUS, COL_MATRIX("metarig_forearm_R"), CColBase::PL_ATTACK);
 	mPower = ATTACK_POWER;//攻撃力
 	/*エフェクトの設定*/
 	mpHitEffect = new CEffect2D();
-	CTexture *tex = new CTexture(); 
-	tex->Load(TGA_FILE"GameEffect\\Hit.tga");
-	mpHitEffect->Init(tex, EFF_SIZE, STexVer(TEX_EFF_SIZE));//画像や頂点数代入
+	mpHitEffect->Init(CLoadTexManager::GetInstance()->mpHit,
+		EFF_SIZE, STexVer(TEX_EFF_SIZE));//画像や頂点数代入
 	mpHitEffect->SetAnima(EFF_SET_ANIMA);//アニメーションの準備
 	CTaskManager::GetInstance()->Add(mpHitEffect);
+	/*ｈｐ設定*/
+	mpHp = new CHpBar2D();
+	mpHp->Init(100, 100, HP_SIZE);
+	mpHp->mPos = CVector2(-DISP_2D_X + mpHp->mWidth/2, DISP_2D_Y - mpHp->mHeight/2);
+	mpHp->SetTex(CLoadTexManager::GetInstance()->mpHp2DFrame,
+				CLoadTexManager::GetInstance()->mpHp2DGauge,
+				T_MANA_HP_SIZE);
+	CTaskManager::GetInstance()->Add(mpHp);
 	
+
 	PosUpdate();
 }
 
@@ -100,7 +115,7 @@ void CPlayer::Init(CModelX *model) {
 
 
 /*ポジションのアップデート関数*/
-void CPlayer::PosUpdate(){
+void CPlayer::PosUpdate() {
 	CMatrix44 rot_y, pos, matrix;
 	//回転行列の作成
 	rot_y.rotationY(mRotation.y);
@@ -116,18 +131,18 @@ void CPlayer::PosUpdate(){
 }
 
 /*回転関数*/
-void CPlayer::PlusRot(float rot){
+void CPlayer::PlusRot(float rot) {
 
 	mRotation.y += rot;//タス処理
-	if (mRotation.y < 0){//回転値がマイナスなら
+	if (mRotation.y < 0) {//回転値がマイナスなら
 		mRotation.y = ANGLE_360 + mRotation.y;//３６０以内にとどめる
 	}
-	if (mRotation.y > ANGLE_360){//３６０以上の場合
+	if (mRotation.y > ANGLE_360) {//３６０以上の場合
 		mRotation.y = mRotation.y + ANGLE_360;
 	}
 }
 /*キャラクター回転差が小さい方向に回転する*/
-int CPlayer::MoveRotation(int angle){
+int CPlayer::MoveRotation(int angle) {
 
 	/*右回り*/
 	int turnRight = angle - mRotation.y;
@@ -143,15 +158,15 @@ int CPlayer::MoveRotation(int angle){
 	*/
 	if (mRotation.y == angle ||
 		mRotation.y <= angle && angle <= mRotation.y + TURN_SPEED ||
-		mRotation.y - TURN_SPEED <= angle && angle <= mRotation.y){
+		mRotation.y - TURN_SPEED <= angle && angle <= mRotation.y) {
 		return angle;
 	}
 	/*右方向確認*/
-	if (turnRight < turnLeft){
+	if (turnRight < turnLeft) {
 		return mRotation.y + TURN_SPEED;
 	}
 	/*方向確認*/
-	else{
+	else {
 		return mRotation.y - TURN_SPEED;
 	}
 
@@ -160,34 +175,34 @@ int CPlayer::MoveRotation(int angle){
 
 
 /*動くときの関数*/
-void CPlayer::PlayerMoveRot(){
+void CPlayer::PlayerMoveRot() {
 
 	LIMIT_ANGLE(mRotation.y);
 
-	if (CKey::push('A')){//左に移動
+	if (CKey::push('A')) {//左に移動
 		mRotation.y = MoveRotation(((int)MainCamera.Rot().y + ANGLE_90) % 360);
 	}
-	if (CKey::push('D')){//右に移動
+	if (CKey::push('D')) {//右に移動
 		mRotation.y = MoveRotation(((int)MainCamera.Rot().y + ANGLE_270) % 360);
 	}
 
-	if (CKey::push('W')){//前に移動
+	if (CKey::push('W')) {//前に移動
 
 		mRotation.y = MoveRotation(((int)MainCamera.Rot().y) % 360);
-		if (CKey::push('A')){//左に移動
+		if (CKey::push('A')) {//左に移動
 			mRotation.y = MoveRotation(((int)MainCamera.Rot().y + ANGLE_45) % 360);
 		}
-		if (CKey::push('D')){//右に移動
+		if (CKey::push('D')) {//右に移動
 			mRotation.y = MoveRotation(((int)MainCamera.Rot().y + ANGLE_315) % 360);
 		}
 	}
 
-	if (CKey::push('S')){
+	if (CKey::push('S')) {
 		mRotation.y = MoveRotation(((int)MainCamera.Rot().y + ANGLE_180) % 360);
-		if (CKey::push('A')){//左に移動
+		if (CKey::push('A')) {//左に移動
 			mRotation.y = MoveRotation(((int)MainCamera.Rot().y + ANGLE_125) % 360);
 		}
-		if (CKey::push('D')){//右に移動
+		if (CKey::push('D')) {//右に移動
 			mRotation.y = MoveRotation(((int)MainCamera.Rot().y + ANGLE_225) % 360);
 		}
 	}
@@ -199,7 +214,7 @@ void CPlayer::PlayerMoveRot(){
 forward = 方向設定
 velocity = 力
 */
-void CPlayer::Move(){
+void CPlayer::Move() {
 
 	CMatrix44 rot_y, pos, matrix;
 	CVector3 moveForward = mForward;//参照でいじれないので
@@ -213,20 +228,20 @@ void CPlayer::Move(){
 
 
 /*重力*/
-void CPlayer::Gravity(){
+void CPlayer::Gravity() {
 	/*地面についていないなら*/
 	mPosition.y -= GRAVITY(mGravitTime);
 	mGravitTime += GRA_TIME_UP;//時間が経つ
 }
 /*グラウンドの設定*/
-void CPlayer::ColGround(){
+void CPlayer::ColGround() {
 	mGravitTime = GRA_INIT_TIME_COUNT;
 	mFlagJump = false;//ジャンプ終了
 }
 
 /*更新処理*/
-void CPlayer::Update(){
-	
+void CPlayer::Update() {
+
 	mAdjust = CVector3();
 	Gravity();/*重力*/
 	PosUpdate();//ポジションを更新
@@ -242,15 +257,15 @@ void CPlayer::Render() {
 }
 
 /*エフェクトの描画処理*/
-void CPlayer::BillboardRender(){
+void CPlayer::BillboardRender() {
 	CVector3 pos = HAMMER_EFFECT_POS;
 	pos = pos * mpCombinedMatrix[mpModel->FindFrame("metarig_WeaponHandle")->mIndex];//マトリックスから
 
 }
 
 /*あたり判定の時に呼び出し*/
-void CPlayer::ColMove(int count, CVector3 Forward){
-	if (count <= -1){//カウントがマイナスなら
+void CPlayer::ColMove(int count, CVector3 Forward) {
+	if (count <= -1) {//カウントがマイナスなら
 		mVelocity = -KNOCK_BACK; //後ろ向きにする
 		count *= -1;//プラスにする
 	}
@@ -331,7 +346,7 @@ void CPlayer::SetAdjust(CVector3 *s, const CVector3 &t) {
 }
 
 /*玉バージョン*/
-void CPlayer::Collision(CColSphere *youSphere,CColSphere *sphere) {
+void CPlayer::Collision(CColSphere *youSphere, CColSphere *sphere) {
 	CVector3 savePos = sphere->mPos;//計算用
 	float lengthX = mPosition.x - savePos.x;  //球とポジションの距離
 	float lengthY = mPosition.y - savePos.y;  //球とポジションの距離
@@ -374,7 +389,7 @@ void CPlayer::Collision(CColSphere *youSphere,CColSphere *sphere) {
 				}
 			}
 		}
-		else{
+		else {
 			if (dx > dz) {
 
 				//Z軸で戻す
@@ -417,7 +432,7 @@ void CPlayer::Collision(CColSphere *youSphere,CColSphere *sphere) {
 
 
 /*カプセル内当たり判定*/
-void CPlayer::CapsuleCol(CColCapsule *cc, CColBase* y){
+void CPlayer::CapsuleCol(CColCapsule *cc, CColBase* y) {
 	CColTriangle ct(false);//三角形の当たり判定
 	CColCapsule  caps(false);//カプセルの当たり判定
 	/*相手のタイプ何か判断*/
@@ -449,8 +464,8 @@ void CPlayer::CapsuleCol(CColCapsule *cc, CColBase* y){
 }
 
 /*球体内の当たり判定*/
-void CPlayer::SphereCol(CColSphere *sphere, CColBase *y){
-	
+void CPlayer::SphereCol(CColSphere *sphere, CColBase *y) {
+
 	CColSphere  sph;//球の当たり判定
 	CEnemyBase *ene;
 	/*相手のタイプ何か判断*/
@@ -459,29 +474,28 @@ void CPlayer::SphereCol(CColSphere *sphere, CColBase *y){
 	case CColBase::COL_SPHEPE:
 		sph = (*(CColSphere*)y).GetUpdate();
 		/*当たり判定計算*/
-		if (CCollision::CollisionShpere(sph,*sphere) && sph.eState == CColBase::ENE_BODY){
+		if (CCollision::CollisionShpere(sph, *sphere) && sph.eState == CColBase::ENE_BODY) {
 			/*
 			当たり判定が攻撃の場合
 			攻撃している場合
 			*/
-			if (sphere->eState == CColBase::PL_ATTACK && mStr == PL_STATE_ATTACK){
+			if (sphere->eState == CColBase::PL_ATTACK && mStr == PL_STATE_ATTACK) {
 				ene = (CEnemyBase*)sph.mpParent;
-				ene->Damage(mPower,mRotation);
+				ene->Damage(mPower, mRotation);
 				//エフェクト発動
-				mpHitEffect->StartAnima(EFF_SPEED,EFF_POS(mPosition));
-				
+				mpHitEffect->StartAnima(EFF_SPEED, EFF_POS(mPosition));
+
 			}
 			Collision(&sph, sphere);
 		}
-	
+
 
 	};
 }
 
-
 //m 自分　y 相手
 bool CPlayer::Collision(CColBase* m, CColBase* y) {
-	
+
 	CColCapsule cc(false);
 	CColSphere sph;
 	/*自分のタイプが何か判断*/
@@ -491,17 +505,40 @@ bool CPlayer::Collision(CColBase* m, CColBase* y) {
 		cc = *(CColCapsule*)m;//カプセルにする
 		CapsuleCol(&cc, y);//カプセルの当たり判定
 		break;
-		
+
 	case CColBase::COL_SPHEPE:
 		sph = *(CColSphere*)m;//球体
 		SphereCol(&sph, y);//球体の当たり判定
-		
+
 	};
 
 	return false;
 }
 
 /*現在のstrをれる*/
-void CPlayer::State(std::string s){
-	mStr = s; 
+void CPlayer::State(std::string s) {
+	mStr = s;
+}
+
+#define DOUNBLE_POWER(pow) pow*10.0f
+/*ダメージを受けた時の処理*/
+void CPlayer::Damage(float power, CVector3 rot) {
+	mpHp->mValue -= DOUNBLE_POWER(power);
+	/*吹っ飛ぶ処理の準備*/
+	mDamagePower = power;
+	mDamageRot = rot;
+	mFlagDamage = true;
+	mStateMachine->ForceChange(PL_STATE_DAMAGE);
+
+}
+
+/*吹っ飛ぶ判定*/
+/*吹き飛ぶ力*/
+#define DMAGE_SPEED(power) power * 0.5f//吹っ飛ぶ力
+void CPlayer::BlowOff() {
+	CVector3 save = mRotation;//元に戻すため
+	mRotation = mDamageRot;//回転値の方向に飛ぶ
+	mVelocity = DMAGE_SPEED(mDamagePower);//攻撃力によって吹っ飛ぶ度合いを決める
+	CPlayer::Move();
+	mRotation = save;
 }

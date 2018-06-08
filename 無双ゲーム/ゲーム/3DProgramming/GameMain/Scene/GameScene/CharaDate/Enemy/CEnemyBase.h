@@ -9,13 +9,8 @@
 class CEnemyBase : public CPlayer{
 protected:
 	CHpBar     *mpHp;//HPバー
-	CTexture mTexmFrame;//Hpのテクスチャ
-	CTexture mTexGauge; //Hpのテクスチャ
-	CVector3 mDamageRot;//ダメージを受けた回転値
-	float mDamagePower;//吹っ飛ぶ値
 public:
 	CExplosion * mpExplosion;//爆発エフェクト(死亡時の演出)
-	bool mFlagDamage;//ダメージ中のフラグ
 	bool mFlagUpdate;//アップデートするかしないか
 	CEnemyBase();
 	~CEnemyBase();
@@ -25,7 +20,7 @@ public:
 	/*更新*/
 	void Update();
 	/*描画*/
-	void  Render();
+	void Render();
 	/*攻撃準備 当たり判定部分で呼ぶ*/
 	void AttackInit();
 	/*当たり判定*/
@@ -36,11 +31,9 @@ public:
 	void SphereCol(CColSphere *m, CColBase* y);
 	/*AIの動き関数*/
 	void AIMove();
-	/*ダメージを受けた時の処理*/
-	void Damage(float power, CVector3 rot);
-	/*吹っ飛ぶ判定:引数　飛ぶ方向指定*/
-	void BlowOff();
 	/*体力ゲージのHp取得*/
 	float HP() {return mpHp->mValue;}
+	/*ダメージを受けた時の処理*/
+	void Damage(float power, CVector3 rot);
 };
 #endif

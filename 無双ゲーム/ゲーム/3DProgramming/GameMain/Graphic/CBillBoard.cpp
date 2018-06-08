@@ -6,7 +6,7 @@
 CBillBoard::CBillBoard():mpTexture(0){}
 
 /*サイズ設定*/
-void CBillBoard::SetVertex(float left, float right, float bottom, float top,CVector3 *pos) {
+void CBillBoard::SetVertex(float left, float top, float right, float bottom,CVector3 *pos) {
 	mVertex[0].x = left;
 	mVertex[0].y = top;
 	mVertex[0].z = 0.0f;
@@ -20,6 +20,21 @@ void CBillBoard::SetVertex(float left, float right, float bottom, float top,CVec
 	mVertex[3].y = top;
 	mVertex[3].z = 0.0f;
 	mpPosition = pos;
+}
+/*サイズ設定*/
+void CBillBoard::SetVertex(float left, float right, float bottom, float top) {
+	mVertex[0].x = left;
+	mVertex[0].y = top;
+	mVertex[0].z = 0.0f;
+	mVertex[1].x = left;
+	mVertex[1].y = bottom;
+	mVertex[1].z = 0.0f;
+	mVertex[2].x = right;
+	mVertex[2].y = bottom;
+	mVertex[2].z = 0.0f;
+	mVertex[3].x = right;
+	mVertex[3].y = top;
+	mVertex[3].z = 0.0f;
 }
 /*テクスチャ設定*/
 void CBillBoard::SetUv(CTexture *t, int left, int top, int right, int bottom) {
@@ -37,6 +52,23 @@ void CBillBoard::SetUv(CTexture *t, int left, int top, int right, int bottom) {
 void CBillBoard::Update() {
 	mMatrix.identity();
 	mMatrix.translate(*mpPosition);
+	mMatrix = mMatrix * MainCamera.mCameraInverse;
+}
+
+/*更新処理*/
+void CBillBoard::BeforePosUpdate() {
+	CMatrix44 rot_y,matrix;
+	CVector3 forward = CVector3(0, 0, -1.0f);
+	CVector3 rot = forward.getRotationTowards(MainCamera.mPos + *mpPosition * -1.0f);
+	CVector3 p = *mpPosition;
+	rot_y.rotationY(rot.y);
+	//進行方向を計算
+	forward = forward * rot_y;
+	//移動させる
+	p += forward * 0.1f;
+
+	mMatrix.identity();
+	mMatrix.translate(p);
 	mMatrix = mMatrix * MainCamera.mCameraInverse;
 }
 /*描画*/

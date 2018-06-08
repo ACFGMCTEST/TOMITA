@@ -2,6 +2,8 @@
 #include "../CPlayer.h"
 /*ジャンプのスピード*/
 #define JUMP_SPEED 0.3f//ジャンプするスピード
+/*アニメのスピード*/
+#define ANIMA_SPEED_JUMP 30
 
 //変更する関数
 void CPlayerJump::ChangeState(){
@@ -33,13 +35,10 @@ void CPlayerJump::Update()
 
 	/*ジャンプ*/
 	pl->Move();//移動関数.横(x,z)の移動
-
 	mPrevPosY = pl->mPosition.y;//現在のポジション記憶
 	float jumpVilocity = JUMP_SPEED - GRAVITY(pl->mGravitTime);//動かす力
-	
 	/*ジャンプが0より大きい場合*/
 	pl->mPosition.y += jumpVilocity;
-
 	/*落下中でない場合*/
 	if (!mFlagFall){
 		pl->mFlagJump = true;//地面から飛ぶときの判定調整用

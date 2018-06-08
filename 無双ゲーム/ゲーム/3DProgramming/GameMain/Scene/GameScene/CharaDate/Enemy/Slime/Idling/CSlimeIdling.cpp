@@ -1,6 +1,8 @@
 #include "CSlimeIdling.h"
 #include "../CSlime.h"
 
+/*アニメのスピード*/
+#define ANIMA_SPEED 60 * 4
 
 //変更する関数
 void CSlimeIdling::ChangeState(){
@@ -32,6 +34,7 @@ void CSlimeIdling::Update(){
 	CSlime *sli = dynamic_cast<CSlime*>(mpParent);
 	/*アイドリングの処理*/
 	sli->ChangeAnimation(CSlime::E_IDLING, true, ANIMA_SPEED);
+	sli->State(SLI_STATE_IDLING);
 
 }
 

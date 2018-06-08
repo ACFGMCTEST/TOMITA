@@ -18,23 +18,20 @@
 /*ゴールの方向に向ける*/
 #define GOAL_POS_X (rand() % (int)MAPCHIP_SIZE*CMap::GoalCount()) - MAPCHIP_SIZE*CMap::GoalCount()*0.5f
 /*hpバー*/
-#define HP_MAX 10.0f
-#define HP_SIZE -5.0f,5.0f,4.0f,4.5f
+#define HP_MAX 10.0f 
+#define HP_SIZE -5.0f,4.0f,5.0f,3.0f
 #define TEX_SIZE_HP 0,0,490,46
-/*吹き飛ぶ力*/
-#define DMAGE_SPEED(power) power * 0.5f//吹っ飛ぶ力
 /*爆発テクスチャ*/
 #define EXP_SIZE 0.3f,0.3f//サイズ
 #define TAX_EXP_SIZE  0,0,270,270
 #define EXP_SET_ANIMA 1,270
 /*コンストラクタ*/
-CEnemyBase::CEnemyBase() : mFlagDamage(false) {
+CEnemyBase::CEnemyBase(){
 	/*HP設定*/
 	mpHp = new CHpBar();
 	mpHp->Init(HP_MAX, HP_MAX, HP_SIZE, &mPosition);//サイズとポジション
-	mTexGauge.Load(TGA_FILE"UI\\Gauge.tga");//HPテクスチャ読み込む
-	mTexmFrame.Load(TGA_FILE"UI\\Frame.tga");//HPテクスチャ読み込む
-	mpHp->SetTex(&mTexmFrame, &mTexGauge, TEX_SIZE_HP);//テクスチャ
+	mpHp->SetTex(CLoadTexManager::GetInstance()->mpHp2DFrame,
+				 CLoadTexManager::GetInstance()->mpHp2DGauge, TEX_SIZE_HP);//テクスチャ
 	CTaskManager::GetInstance()->Add(mpHp);
 	CPlayer::CPlayer();
 	/*爆発の設定*/
@@ -72,11 +69,9 @@ void CEnemyBase::AIMove() {
 /*更新処理*/
 void CEnemyBase::Update() {
 	/*描画していないときはアップデートしない*/
-
-		mAdjust = CVector3();
-		Gravity();/*重力*/
-		PosUpdate();//ポジションを更新
-
+	mAdjust = CVector3();
+	Gravity();/*重力*/
+	PosUpdate();//ポジションを更新
 }
 
 /*攻撃準備*/
@@ -119,6 +114,7 @@ void CEnemyBase::SphereCol(CColSphere *m, CColBase* y) {
 
 	CColSphere  sph;//球の当たり判定
 	CEnemyBase *ene;
+	CPlayer *pl;
 	/*相手のタイプ何か判断*/
 	switch (y->mType) {
 		/*相手が球の場合*/
@@ -130,6 +126,13 @@ void CEnemyBase::SphereCol(CColSphere *m, CColBase* y) {
 			if (sph.eState == CColBase::ENE_BODY && mFlagDamage) {
 				ene = (CEnemyBase*)sph.mpParent;
 				ene->Damage(mDamagePower, mDamageRot);
+			}
+			/*プレイヤーに当たった時*/
+			if (mFlagAttack && sph.eState == CColBase::PL_BODY && mStr == SLI_STATE_ATTACK ||
+				mFlagAttack && sph.eState == CColBase::PL_ATTACK && mStr == SLI_STATE_ATTACK)
+			{
+				pl = (CPlayer*)sph.mpParent;
+				pl->Damage(mPower, mRotation);
 			}
 		}
 
@@ -156,12 +159,7 @@ bool CEnemyBase::Collision(CColBase* m, CColBase* y) {
 	return false;
 }
 
-/*吹っ飛ぶ判定*/
-void CEnemyBase::BlowOff() {
-	mRotation = mDamageRot;//回転値の方向に飛ぶ
-	mVelocity = DMAGE_SPEED(mDamagePower);//攻撃力によって吹っ飛ぶ度合いを決める
-	CPlayer::Move();
-}
+
 /*ダメージを受けた時の処理*/
 void CEnemyBase::Damage(float power, CVector3 rot) {
 	mpHp->mValue -= power;

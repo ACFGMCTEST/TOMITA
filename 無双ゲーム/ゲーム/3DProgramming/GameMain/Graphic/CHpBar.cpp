@@ -15,14 +15,14 @@ void CHpBar::Init(float max, float value, float widht, float height, CVector3 *p
 	mGauge.SetVertex(-widht, widht, -height, height, pos);
 	mFrame.SetVertex(-widht, widht, -height, height, pos);
 }
-void CHpBar::Init(float max, float value, float left, float right, float bottom, float top, CVector3 *pos){
+void CHpBar::Init(float max, float value, float left, float top, float right, float bottom, CVector3 *pos){
 	mMax = max;
 	mValue = value;
-	mHeight = abs(left) + abs(right);
-	mWidth  = abs(top)  + abs(bottom);
+	mHeight = top - bottom;
+	mWidth  = right - left;
 	//座標の設定を行う
-	mGauge.SetVertex(left, right, bottom, top, pos);
-	mFrame.SetVertex(left, right, bottom, top, pos);
+	mGauge.SetVertex(left, top, right, bottom, pos);
+	mFrame.SetVertex(left, top, right, bottom, pos);
 }
 void CHpBar::SetTex(CTexture *frameName, CTexture *gaugeName, int left, int top, int right, int bottom){
 	mGauge.SetUv(gaugeName, left, top, right, bottom);//ゲージテクスチャ設定
@@ -34,22 +34,31 @@ void CHpBar::Update(){
 	float per = (float)mValue / mMax;
 
 
+	////バーの長さを計算します
+	//per = mWidth * per;
+	////バーの右の座標を計算します
+	//mGauge.mVertex[2].x = -mWidth / 2 + per;
+	//mGauge.mVertex[3].x = -mWidth / 2 + per;
+
 	//バーの長さを計算します
-	per = mWidth * per;
+	per = -(mWidth / 2) + (mWidth * per);
 	//バーの右の座標を計算します
-	mGauge.mVertex[2].x = -mWidth / 2 + per;
-	mGauge.mVertex[3].x = -mWidth / 2 + per;
-	if (mValue <= 0){
+	mGauge.mVertex[2].x =  per;
+	mGauge.mVertex[3].x =  per;
+
+	if (mValue <= 0) {
 		mGauge.mVertex[2].x = 0;
 		mGauge.mVertex[3].x = 0;
 	}
 	//カメラに向かせる
 	mGauge.Update();
-	mFrame.Update();
+	mFrame.BeforePosUpdate();
 }
 
 /*描画*/
 void CHpBar::Render(){
+
 	if (mValue > 0){ mGauge.Render(); }
 	mFrame.Render();
+
 }

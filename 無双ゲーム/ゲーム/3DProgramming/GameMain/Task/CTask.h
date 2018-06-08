@@ -31,6 +31,7 @@ public:
 		E_PLAYER,//プレイヤー
 		E_SLIME,//スライム
 		E_BILLBOARD,//ビルボード
+		E_2D,//２Ｄ表示のもの
 	};
 	E_NAME eName;//ネーム
 

@@ -6,7 +6,8 @@
 
 /*コンストラクタ*/
 CRectangle::CRectangle()
-: mpTexture(0), r(1.0f), g(1.0f), b(1.0f), a(1.0f), mEnabled(false), mpCamera(0), mFlagSaveTex(false){
+: mpTexture(0), r(1.0f), g(1.0f), b(1.0f), a(1.0f), mEnabled(false),
+mpCamera(0), mFlagSaveTex(false),mFlagNormal(false){
 	for (int i = 0; i < 4; i++) {
 		for (int j = 0; j < 2; j++) {
 			mUv[i][j] = 0.0f;
@@ -33,6 +34,7 @@ void CRectangle::SetNormal(float x, float y, float z){
 	mNormal.x = x;
 	mNormal.y = y;
 	mNormal.z = z;
+	mFlagNormal = true;//法線を有効にする
 }
 
 /*
@@ -128,7 +130,7 @@ void CRectangle::Render() {
 
 
 		glMaterialfv(GL_FRONT, GL_DIFFUSE, diffuse);
-		glNormal3f(mNormal.x, mNormal.y, mNormal.z);
+		if(mFlagNormal)glNormal3f(mNormal.x, mNormal.y, mNormal.z);
 
 		glBegin(GL_TRIANGLES);	//三角形の頂点指定開始
 

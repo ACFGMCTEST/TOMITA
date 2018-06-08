@@ -36,10 +36,12 @@ void CSlimeAttack::AttackSpeed(){
 		sli->mAnimationTime <= FRAME_VEL_ATTACK_END) {
 		mAnimaSpeed = ANIMA_SPEED_HIGH;//“®‚«‚ð‘‚­‚·‚é
 		sli->mVelocity = BASE_SPEED;
+		sli->mFlagAttack = true;
 	}
 	else {
 		mAnimaSpeed = ANIMA_SPEED_SLOW;//“®‚«‚ð’x‚­‚·‚é
 		sli->mVelocity = 0.0f;
+		sli->mFlagAttack = false;
 	}
 	sli->Move();
 }
@@ -51,6 +53,7 @@ void CSlimeAttack::Update()
 	sli->ChangeAnimation(CSlime::E_ATTACK, false, mAnimaSpeed);
 	/*UŒ‚*/
 	AttackSpeed();//UŒ‚‚Å­‚µ‘O‚ÉˆÚ“®‚³‚¹‚é
+	sli->State(SLI_STATE_ATTACK);
 }
 //‘JˆÚŽž‚Ìˆ—
 // isNext‚ðfalse‚É–ß‚·ˆ—‚Í‚±‚±‚Ås‚¤‚Æ‚æ‚¢

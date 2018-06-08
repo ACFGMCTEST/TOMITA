@@ -78,5 +78,6 @@ public:
 
 	/*三角形の重心を求める*/
 	static CVector3 TriangleCenter(const CVector3 &v0, const CVector3 &v1, const CVector3 &v2);
+
 };
 

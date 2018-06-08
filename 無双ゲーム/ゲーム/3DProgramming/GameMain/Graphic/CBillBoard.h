@@ -20,13 +20,15 @@ public:
 	CTexture *mpTexture;	
 	float mUv[4][2];//テクスチャマッピング
 	/*サイズ設定*/
-	void SetVertex(float left, float right, float bottom, float top,CVector3 *pos);
+	void SetVertex(float left, float top, float right, float bottom, CVector3 *pos);
+	void SetVertex(float left, float top, float right, float bottom);
 	/*テクスチャ設定*/
 	void SetUv(CTexture *t, int left, int top, int right, int bottom);
 	/*コンストラクタ*/
 	CBillBoard();
 
 	void Update();
+	void BeforePosUpdate();
 	void Render();
 
 };

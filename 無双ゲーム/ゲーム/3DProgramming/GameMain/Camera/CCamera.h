@@ -17,12 +17,12 @@ private:
 	CRectangle2 mColInitMouse;//マウスの初期位置
 	CVector3 mForward;//移動方向
 	CVector3 mRot;//自分の方向
-	CVector3 mPos;//ポジション
 	CVector3 mEye;//視点
 	CVector3 mUp;	//カメラの上方向
 	CVector2 mSaveMousePos;//マウスのポジション
 	float mMouseInitCount;//カメラの初期化時間
 public:
+	CVector3 mPos;//ポジション
 	CMatrix44 mCameraInverse;
 
 	//カメラの上方向の初期化

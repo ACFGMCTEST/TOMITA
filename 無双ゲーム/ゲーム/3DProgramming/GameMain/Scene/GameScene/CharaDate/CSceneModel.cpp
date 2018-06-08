@@ -27,33 +27,8 @@
 /*サイズ*/
 #define COL_INIT_MOUSE_SIZE -DISP_X/2, DISP_Y/2, DISP_X/2, -DISP_Y/2
 
-/*モデルのファイル場所*/
-
-/*プレイヤー*/
-#define MODEL_FILE_UNITY		MODEL_FILE"SDUnity\\SDUnityBoxing.x"
-/*アニメーションのファイル場所*/
-#define F_PL_IDLING				MODEL_FILE"SDUnity\\Anima\\Idling.x"
-#define F_PL_RUN				MODEL_FILE"SDUnity\\Anima\\Run.x"
-#define F_PL_RUN_ATTACK			MODEL_FILE"SDUnity\\Anima\\powerRunAttack.x"
-#define F_PL_ATTACK				MODEL_FILE"SDUnity\\Anima\\Attack2.x"
-#define F_PL_JUMP				MODEL_FILE"SDUnity\\Anima\\Ani_Jump.x"
-#define F_PL_DAMAGE				MODEL_FILE"SDUnity\\Anima\\Damage.x"
-
-/*エネミー*/
-/*スライム*/
-#define MODEL_FILE_SLIME		MODEL_FILE"Slime\\Slime.x"//スライム	
-#define SLIME_MAX 5//スライムの数
-#define SLIME_POS(i) CVector3(i * SLIME_MAX + 10,0,i * SLIME_MAX + 10)//スライムの数
-/*アニメーションのファイル場所*/
-#define F_SLI_IDLING			MODEL_FILE"Slime\\Anima\\Idling.x"
-#define F_SLI_RUN				MODEL_FILE"Slime\\Anima\\Run.x"
-#define F_SLI_DAMAGE			MODEL_FILE"Slime\\Anima\\Damage.x"
-#define F_SLI_ATTACK			MODEL_FILE"Slime\\Anima\\Attack.x"
-
 /*lag回避用*/
 #define LAG_SIZE 0.1f //0，1秒間lag回避用
-/*パックの初期位置*/
-#define PUCK_INIT_POS 0.0f,0.0f,-10.0f
 /*静的初期化*/
 CPlayer *CSceneModel::mpPlayer;
 
@@ -73,6 +48,15 @@ CSceneModel::~CSceneModel(){
 	
 
 }
+/*プレイヤー*/
+#define MODEL_FILE_UNITY		MODEL_FILE"SDUnity\\SDUnityBoxing.x"
+/*アニメーションのファイル場所*/
+#define F_PL_IDLING				MODEL_FILE"SDUnity\\Anima\\Idling.x"
+#define F_PL_RUN				MODEL_FILE"SDUnity\\Anima\\Run.x"
+#define F_PL_RUN_ATTACK			MODEL_FILE"SDUnity\\Anima\\powerRunAttack.x"
+#define F_PL_ATTACK				MODEL_FILE"SDUnity\\Anima\\Attack2.x"
+#define F_PL_JUMP				MODEL_FILE"SDUnity\\Anima\\Jump.x"
+#define F_PL_DAMAGE				MODEL_FILE"SDUnity\\Anima\\Damage.x"
 
 /*プレイヤー追加処理*/
 void CSceneModel::PlayerAdd(){
@@ -89,11 +73,11 @@ void CSceneModel::PlayerAdd(){
 		case CPlayer::E_RUN:
 			mModPlayer.AddAnimationSet(F_PL_RUN);//走る追加
 			break;
-		case CPlayer::E_RUN_ATTACK:
-			mModPlayer.AddAnimationSet(F_PL_RUN_ATTACK);//走り攻撃
-			break;
 		case CPlayer::E_ATTACK:
 			mModPlayer.AddAnimationSet(F_PL_ATTACK);//攻撃追加_2 
+			break;
+		case CPlayer::E_RUN_ATTACK:
+			mModPlayer.AddAnimationSet(F_PL_RUN_ATTACK);//走り攻撃
 			break;
 		case CPlayer::E_JUMP:
 			mModPlayer.AddAnimationSet(F_PL_JUMP);//ジャンプ追加
@@ -110,6 +94,16 @@ void CSceneModel::PlayerAdd(){
 	CTaskManager::GetInstance()->Add(pl);//タスクに追加
 	mpPlayer = pl; //操作用
 }
+/*エネミー*/
+/*スライム*/
+#define MODEL_FILE_SLIME		MODEL_FILE"Slime\\Slime.x"//スライム	
+#define SLIME_MAX 5//スライムの数
+#define SLIME_POS(i) CVector3(i * SLIME_MAX + 10,0,i * SLIME_MAX + 10)//スライムの数
+/*アニメーションのファイル場所*/
+#define F_SLI_IDLING			MODEL_FILE"Slime\\Anima\\Idling.x"
+#define F_SLI_RUN				MODEL_FILE"Slime\\Anima\\Run.x"
+#define F_SLI_DAMAGE			MODEL_FILE"Slime\\Anima\\Damage.x"
+#define F_SLI_ATTACK			MODEL_FILE"Slime\\Anima\\Attack.x"
 
 /*エネミー追加処理(スライム)*/
 void CSceneModel::SlimeAdd(){

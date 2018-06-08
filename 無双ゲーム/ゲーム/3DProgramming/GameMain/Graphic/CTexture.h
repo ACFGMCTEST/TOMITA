@@ -32,6 +32,7 @@ struct STexVer{
 	/*サイズコンストラクタ*/
 	STexVer(float x0, float y0, float x1, float y1) :
 		left(x0), top(y0), right(x1), bottom(y1){}
+
 };
 /*
 TGAファイルのヘッダフォーマット
@@ -128,6 +129,8 @@ public:
 		//格納領域を解放
 		delete[] data;
 	}
+
+
 	/*
 	DrawImage
 	left:四角形左座標

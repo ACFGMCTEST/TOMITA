@@ -20,6 +20,7 @@ private:
 	float mSaveInitTexVer[E_ARRAY];//テクスチャのサイズ保存 初めの値
 	float mSaveTexVer[E_ARRAY];//テクスチャのサイズ保存 現在の値
 	bool mFlagSaveTex;//テクスチャがセーブされたか判断
+	bool mFlagNormal;//法線のフラグ
 public:
 	//カメラのポインタ
 	CCamera *mpCamera;
@@ -51,7 +52,6 @@ public:
 
 	/*描画処理*/
 	void Render();	
-
 	/*
 	フェード関数 speed = フェードの速さ
 	a = ALPHA

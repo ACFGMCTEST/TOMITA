@@ -1,25 +1,49 @@
 ﻿cl : コマンド ライン warning D9025: '/sdl' より '/GS-' が優先されます。
-  CSceneModel.cpp
-c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\ctexture.h(93): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  CModelX.cpp
+c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\ctexture.h(94): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
           c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 'fopen' の宣言を確認してください。
-c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\ctexture.h(100): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\ctexture.h(101): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
           c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : 'strcpy' の宣言を確認してください。
-c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(108): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(232): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(317): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(322): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(327): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(90): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(85) : 'BACK_POS' の前の定義を確認してください
-c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(120): warning C4005: 'MODEL_FILE' : マクロが再定義されました。
-          c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(14) : 'MODEL_FILE' の前の定義を確認してください
-c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\effect\ceffect2d.h(33): warning C4584: 'CEffect2D' : 基底クラス 'CTask' は既に 'CRectangle' の基底クラスです。
-          c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\task\ctask.h(13) : 'CTask' の宣言を確認してください。
-          c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\crectangle.h(10) : 'CRectangle' の宣言を確認してください。
-c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(85): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(90) : 'BACK_POS' の前の定義を確認してください
-c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\cscenemodel.cpp(25): warning C4005: 'ANGLE_5' : マクロが再定義されました。
-          c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(107) : 'ANGLE_5' の前の定義を確認してください
-c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\cscenemodel.cpp(26): warning C4005: 'ANGLE_180' : マクロが再定義されました。
-          c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(102) : 'ANGLE_180' の前の定義を確認してください
+c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(102): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(226): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(311): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(316): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(321): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(28): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(197): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(210): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(215): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(223): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(228): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(281): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(285): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(301): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(381): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(404): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : 'strcpy' の宣言を確認してください。
+c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(475): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(705): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(734): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(782): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(797): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(851): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : 'strcpy' の宣言を確認してください。
+c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(876): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : 'strcpy' の宣言を確認してください。
+c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(1002): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : 'strcpy' の宣言を確認してください。
+c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(1058): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : 'strcpy' の宣言を確認してください。
+c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(1093): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : 'strcpy' の宣言を確認してください。
+c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(1219): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(1272): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(1308): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(1312): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(1313): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(1329): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(1333): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(1334): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\tomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(1349): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
   3DProgramming.vcxproj -> C:\Users\tomi-\Desktop\TOMITA\無双ゲーム\ゲーム\Debug\3DProgramming.exe

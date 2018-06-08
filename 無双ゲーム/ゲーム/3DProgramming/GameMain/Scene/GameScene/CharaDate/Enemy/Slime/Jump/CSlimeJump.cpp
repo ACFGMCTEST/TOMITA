@@ -3,6 +3,8 @@
 
 /*ジャンプのスピード*/
 #define JUMP_SPEED 0.3f//ジャンプするスピード
+/*アニメのスピード*/
+#define ANIMA_SPEED_JUMP 60
 
 //変更する関数
 void CSlimeJump::ChangeState(){

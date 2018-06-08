@@ -49,13 +49,7 @@ public:
 	void SetVertex(float x1, float x2, float y1, float y2, float z1, float z2);
 	enum E_TexBox 
 	{
-		E_SPEED_UP,			//高速床
-		E_SPEED_DOWN,		//減速床
-		E_TRAMPOLINE,		//トランポリン
-		E_BOX,				//ボックス
-		E_NET,				//網
-		E_WALL,				//壁
-		E_SLOPE,			//坂
+		E_SKY_BOX,
 	};
 	E_TexBox eTexState;
 	//テクスチャの設定

@@ -150,9 +150,25 @@ void CBox::AllUV(CTexture *t, int left, int top, int right, int bottom){
 
 }
 
+
 /*テクスチャ設定*/
 void CBox::SetTex(E_TexBox eTexState){
-	
+	switch (eTexState)
+	{
+#define SIZE(i) 256 * i//ｓｕｋａｉボックス縦横比
+#define REVERSE(left,top,right,bottom) left,bottom,right,top
+	case E_TexBox::E_SKY_BOX:
+		mRect[E_y1].SetUv(CLoadTexManager::GetInstance()->mpSkyBox, SIZE(1), 0, SIZE(2), SIZE(1));
+		mRect[E_y2].SetUv(CLoadTexManager::GetInstance()->mpSkyBox, SIZE(1), SIZE(2), SIZE(2), SIZE(3));
+
+		mRect[E_x1].SetUv(CLoadTexManager::GetInstance()->mpSkyBox, REVERSE( 0 , SIZE(1), SIZE(1), SIZE(2)));
+		mRect[E_z2].SetUv(CLoadTexManager::GetInstance()->mpSkyBox, REVERSE(SIZE(1), SIZE(1), SIZE(2), SIZE(2)));
+		mRect[E_x2].SetUv(CLoadTexManager::GetInstance()->mpSkyBox, REVERSE(SIZE(2), SIZE(1), SIZE(3), SIZE(2)));
+		mRect[E_z1].SetUv(CLoadTexManager::GetInstance()->mpSkyBox, REVERSE(SIZE(3), SIZE(1), SIZE(4), SIZE(2)));
+		
+		SetColor(WHITE_COLOR);
+		break;
+	}
 }
 
 void CBox::Render() {

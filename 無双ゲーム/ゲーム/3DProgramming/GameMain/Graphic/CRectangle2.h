@@ -11,7 +11,7 @@
 
 
 /*サイズマクロ*/
-#define BUTTON_SIZE(Double,x,y) -Double*x,Double*y,Double*x,-Double*y //背景のサイズ ロゴの調整用
+#define RECT_SIZE(Double,x,y) -Double*x,Double*y,Double*x,-Double*y //四角形のサイズ変更
 #define BG_SIZE -DISP_X,DISP_Y,DISP_X,-DISP_Y //背景のサイズ
 #define CURSOR_SIZE -10.0f,10.0f,10.0f,-10.0f//カーソルのサイズ
 /*ポジション移動*/

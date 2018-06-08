@@ -1197,7 +1197,8 @@ CAnimation::CAnimation(CModelX *model)
 #endif
 
 }
-
+/*アニメのスピード*/
+#define ANIMA_SPEED 60 * 4
 /*
 Init
 初期化処理

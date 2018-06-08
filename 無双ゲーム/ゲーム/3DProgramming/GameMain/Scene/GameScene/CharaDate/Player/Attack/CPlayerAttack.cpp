@@ -10,6 +10,8 @@
 #define VEL_ATTACK1 BASE_SPEED * 0.5f
 #define VEL_ATTACK2 0
 #define VEL_ATTACK3 BASE_SPEED * 0.7f
+/*アニメのスピード*/
+#define ANIMA_SPEED_ATTCK 60
 
 //変更する関数
 void CPlayerAttack::ChangeState(){
