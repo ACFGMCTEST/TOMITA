@@ -269,6 +269,9 @@ public:
 	}
 	//描画
 	void Render();
+	//アニメーションないバージョン
+	void NoaAnimaRender();
+
 	//合成行列の作成
 	void Animate(CMatrix44* parent);
 };
@@ -281,6 +284,7 @@ class CModelX {
 public:
 	char* mpPointer;	//読み込み位置
 	char mToken[1024];	//取り出した単語の領域
+	bool mAnimaFlag;//フラグアニメーション
 	/*色セット*/
 	void SetColor(float r, float g, float b, float a);
 	/*色があるか判断*/
@@ -303,7 +307,7 @@ public:
 	std::vector<CMesh*> mMesh;	//Mesh配列
 
 	CModelX()
-		: mpPointer(0), mAnimationIndex(0)
+		: mpPointer(0), mAnimationIndex(0), mAnimaFlag(false)
 	{}
 	~CModelX() {
 		if (mFrame.size() > 0)
@@ -324,6 +328,8 @@ public:
 	}
 	//ファイル読み込み
 	void Load(char* file);
+	//ファイル読み込み
+	void NoAnimaLoad(char* file);
 	//単語の取り出し
 	void GetToken();
 	//ノードの読み飛ばし

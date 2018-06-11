@@ -19,7 +19,7 @@ void CMap::Init(){
 		mGround.mBottom * SIZE_DOUB, mGround.mTop * SIZE_DOUB
 	);
 	mSkyBox.SetTex(CBox::E_TexBox::E_SKY_BOX);
-	mGroundX.Load(MODEL_FILE"Ground\\Map.x");
+	mGroundX.NoAnimaLoad(MODEL_FILE"Ground\\Map.x");
 	
 };
 /*更新処理*/

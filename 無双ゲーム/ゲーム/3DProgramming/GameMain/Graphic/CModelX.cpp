@@ -9,6 +9,7 @@
 #include "../../Light/CLight.h"
 
 void CModelX::Load(char *file) {
+	mAnimaFlag = true;
 	//
 	//ファイルサイズを取得する
 	//
@@ -90,6 +91,93 @@ void CModelX::Load(char *file) {
 
 	mShader.load("skinmesh.vert", "skinmesh.flag");
 }
+
+/*アニメーションがないバージョン*/
+void CModelX::NoAnimaLoad(char *file) {
+	//
+	//ファイルサイズを取得する
+	//
+	//int fd = open(file, O_RDONLY);	//ファイルをオープンする
+	//if (fd == -1) {	//エラーチェック
+	//	printf("open error\n");
+	//	return;
+	//}
+	//struct stat statBuf;
+	//fstat(fd, &statBuf);	//ファイルの情報を取得する
+	//close(fd);	//ファイルをクローズする
+	//int size = statBuf.st_size;	//ファイルのサイズを取得する
+	//
+	//ファイルから3Dモデルのデータを読み込む
+	//
+	FILE *fp;	//ファイルポインタ変数の作成
+	fp = fopen(file, "rb");	//ファイルをオープンする
+	if (fp == NULL) {	//エラーチェック
+		printf("fopen error\n");
+		return;
+	}
+	fseek(fp, 0L, SEEK_END);
+	int size = ftell(fp);
+	fseek(fp, 0L, SEEK_SET);
+	char *buf = mpPointer = new char[size + 1];	//ファイルサイズ+1バイト分の領域を確保
+	fread(buf, size, 1, fp);	//確保した領域にファイルサイズ分データを読み込む
+	buf[size] = '\0';	//最後に\0を設定する（文字列の終端）
+	fclose(fp);	//ファイルをクローズする
+
+	CModelXFrame *p = new CModelXFrame();
+	p->mpName = new char[1];
+	p->mpName[0] = '\0';
+	mFrame.push_back(p);
+
+	//文字列の最後まで繰り返し
+	while (*mpPointer != '\0') {
+		GetToken();	//単語の取得
+					//17
+					//template 読み飛ばし
+		if (strcmp(mToken, "template") == 0) {
+			SkipNode();
+		}
+		//Material の時
+		else if (strcmp(mToken, "Material") == 0) {
+			new CMaterial(this);
+		}
+		//単語がFrameの場合
+		else if (strcmp(mToken, "Frame") == 0) {
+			//20
+			//フレーム名取得
+			GetToken();
+			if (!strchr(mToken, '{')) {
+
+				//フレームが無ければ
+				if (FindFrame(mToken) == 0) {
+					//フレームを作成する
+					p->mChild.push_back(new CModelXFrame(this));
+					//				new CModelXFrame(this);
+				}
+				////フレームを作成する
+				//削除new CModelXFrame(this);
+			}
+			else {
+				SkipNode();
+				GetToken(); //}
+			}
+		}
+		//単語がAnimationSetの場合
+		else if (strcmp(mToken, "AnimationSet") == 0) {
+			new CAnimationSet(this);
+		}
+	}
+
+	SAFE_DELETE_ARRAY(buf);	//確保した領域を開放する
+
+							//スキンウェイトのフレーム番号設定
+	SetSkinWeightFrameIndex();
+	CreateVertexBuffer();
+
+	mFrame[0]->Animate(&CMatrix44());
+
+	mShader.load("skinmesh.vert", "skinmesh.flag");
+}
+
 
 
 /*
@@ -195,10 +283,14 @@ Render
 void CModelX::Render() {
 
 	for (int i = 0; i < mFrame.size(); i++) {
-		mFrame[i]->Render();
+		if(mAnimaFlag)	mFrame[i]->Render();
+		else {
+			mFrame[i]->NoaAnimaRender();
+		}
 		//if (ColorFlag())glMaterialfv(GL_FRONT, GL_DIFFUSE, CVector3(mRed, mGreen, mBlue, mAlpha});//色の設定
 	}
 }
+
 
 /*
 AnimateFrame
@@ -464,6 +556,16 @@ void CModelXFrame::Render() {
 	if (mMesh.mFaceNum != 0)
 		mMesh.Render();
 }
+/*アニメーションないバージョン*/
+void CModelXFrame::NoaAnimaRender() {
+	if (mMesh.mFaceNum != 0) {
+		glPushMatrix();
+		glMultMatrixf(mCombinedMatrix.f);
+		mMesh.Render();
+		glPopMatrix();
+	}
+}
+
 /*
 Animate
 合成行列の作成
@@ -626,6 +728,7 @@ Render
 画面に描画する
 */
 void CMesh::Render() {
+
 	/* 頂点データ，法線データ，テクスチャ座標の配列を有効にする */
 	glEnableClientState(GL_VERTEX_ARRAY);
 	glEnableClientState(GL_NORMAL_ARRAY);
