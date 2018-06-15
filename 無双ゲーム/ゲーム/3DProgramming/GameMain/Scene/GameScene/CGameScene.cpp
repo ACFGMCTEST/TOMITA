@@ -23,15 +23,15 @@ void CGameScene::Update() {
 	case E_INIT:
 		mSceneModel.Init();
 		MainCamera.Init();
-		mMap.Init();
+		CMap::GetInstance()->Init();
 		eState = E_MAIN;
 		break;
 		
 	case E_MAIN:
 
 		MainCamera.Update();
-		mMap.Update();
-		mMap.Render();
+		CMap::GetInstance()->Update();
+		CMap::GetInstance()->Render();
 		mSceneModel.Update();
 		CCollisionManager::GetInstance()->Update();
 		mSceneModel.Render();

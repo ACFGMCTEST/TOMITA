@@ -21,6 +21,7 @@
 #define PL_STATE_JUMP "playerJump"
 #define PL_STATE_RUN_ATTACK "playerRunAttack"
 #define PL_STATE_DAMAGE "playerDamage"
+#define PL_STATE_AVOID "playerAvoid"
 /*エネミーの状態遷移*/
 /*スライム*/
 #define SLI_STATE_ATTACK	"slimeAttack"

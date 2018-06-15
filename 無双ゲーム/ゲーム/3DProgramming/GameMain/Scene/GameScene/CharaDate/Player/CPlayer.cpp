@@ -18,6 +18,7 @@
 #include "Run\CPlayerRun.h"
 #include "RunAttack\CPlayerRunAttack.h"
 #include "Damage\CPlayerDamage.h"
+#include "Avoid\CPlayerAvoid.h"
 /*当たり判定*/
 #include "../../../../Collision/ColType/CColCapsule.h"
 #include "../../../../Collision/ColType/CColTriangle.h"
@@ -77,6 +78,7 @@ void CPlayer::Init(CModelX *model) {
 	mStateMachine->Register(PL_STATE_JUMP, std::make_shared<CPlayerJump>(), this);
 	mStateMachine->Register(PL_STATE_RUN_ATTACK, std::make_shared<CPlayerRunAttack>(), this);
 	mStateMachine->Register(PL_STATE_DAMAGE, std::make_shared<CPlayerDamage>(), this);
+	mStateMachine->Register(PL_STATE_AVOID, std::make_shared<CPlayerAvoid>(), this);
 	// 最初のステートを登録名で指定
 	mStateMachine->SetStartState(PL_STATE_IDLING);
 	mStr = PL_STATE_IDLING;//現在のステータスを入れる.
@@ -110,9 +112,6 @@ void CPlayer::Init(CModelX *model) {
 
 	PosUpdate();
 }
-
-
-
 
 /*ポジションのアップデート関数*/
 void CPlayer::PosUpdate() {
@@ -241,7 +240,6 @@ void CPlayer::ColGround() {
 
 /*更新処理*/
 void CPlayer::Update() {
-
 	mAdjust = CVector3();
 	Gravity();/*重力*/
 	PosUpdate();//ポジションを更新
@@ -379,14 +377,14 @@ void CPlayer::Collision(CColSphere *youSphere, CColSphere *sphere) {
 				}
 			}
 			else {
-				/*球がボディの時判定 && ジャンプしていないとき*/
-				//Y軸で戻す
-				if (vy.Dot(vectorBS) > 0.0f) {
-					mPosition = savePos + vy * dy;
-				}
-				else {
-					mPosition = savePos - vy * dy;
-				}
+				///*球がボディの時判定 && ジャンプしていないとき*/
+				////Y軸で戻す
+				//if (vy.Dot(vectorBS) > 0.0f) {
+				//	mPosition = savePos + vy * dy;
+				//}
+				//else {
+				//	mPosition = savePos - vy * dy;
+				//}
 			}
 		}
 		else {
@@ -486,7 +484,8 @@ void CPlayer::SphereCol(CColSphere *sphere, CColBase *y) {
 				mpHitEffect->StartAnima(EFF_SPEED, EFF_POS(mPosition));
 
 			}
-			Collision(&sph, sphere);
+			/*回避中は当たらない*/
+			if(mStr != PL_STATE_AVOID) Collision(&sph, sphere);
 		}
 
 

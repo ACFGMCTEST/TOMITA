@@ -41,7 +41,6 @@ class CPlayer : public CModelXS {
 protected:
 	/*ステータス管理マネージャー*/
 	std::unique_ptr<CStateMachine> mStateMachine;//ステータス管理
-	std::string mStr;//現在の状態
 	CVector3 mDamageRot;//ダメージを受けた回転値
 	float mDamagePower;//吹っ飛ぶ値
 private:
@@ -50,8 +49,9 @@ private:
 	CKey AttackInitKey;//Init時に使う
 	int mRotCount;//回転地カウント　移動するときに使う
 public:
-	bool mFlagDamage;//ダメージ中のフラグ
+	bool mFlagDamage;//ダメージ中のフラ
 	bool mFlagAttack;//攻撃するフラグ
+	std::string mStr;//現在の状態
 	//プレイヤーの状態値
 	enum E_STATE {
 		E_IDLING,		//立ち
@@ -60,6 +60,7 @@ public:
 		E_RUN_ATTACK,//移動攻撃
 		E_JUMP,	    //ジャンプ
 		E_DAMAGE,		//ダメージ
+		E_AVOID,		//回避
 		E_STATE_ARRAY//ステータスの上限
 	};
 

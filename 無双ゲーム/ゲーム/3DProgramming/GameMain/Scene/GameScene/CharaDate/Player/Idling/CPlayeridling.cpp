@@ -10,6 +10,10 @@ void CPlayerIdling::ChangeState(){
 	if (CKey::push('A') || CKey::push('D') || CKey::push('S') || CKey::push('W')){
 		mNextRegisterName = PL_STATE_RUN;//走る状態に移行
 	}
+	/*回避する場合*/
+	if (CKey::push(KEY_AVOID)){
+		mNextRegisterName = PL_STATE_AVOID;//回避に移行
+	}
 	/*ジャンプする場合*/
 	if (CKey::once(KEY_JUMP)){
 		mNextRegisterName = PL_STATE_JUMP;//ジャンプ

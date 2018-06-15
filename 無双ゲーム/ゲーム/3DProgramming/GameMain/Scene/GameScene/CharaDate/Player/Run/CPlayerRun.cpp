@@ -6,16 +6,17 @@
 //変更する関数
 void CPlayerRun::ChangeState(){
 	/*アイドリングする場合*/
-	if (CKey::push('W') || CKey::push('A') || CKey::push('S') || CKey::push('D')){}
-	else{
+	if ( !(CKey::push('W') || CKey::push('A') || CKey::push('S') || CKey::push('D') ) ){
 		mNextRegisterName = PL_STATE_IDLING;
-	}
-	/*ジャンプする場合*/
-	if (CKey::once(KEY_JUMP)){
+	}/*回避する場合*/
+	else if (CKey::push(KEY_AVOID)) {
+		mNextRegisterName = PL_STATE_AVOID;//回避に移行
+	}/*ジャンプする場合*/
+	else if (CKey::once(KEY_JUMP)){
 		mNextRegisterName = PL_STATE_JUMP;//ジャンプ
 	}
 	/*攻撃する場合*/
-	if (CKey::once(KEY_ATTACK)){
+	else if (CKey::once(KEY_ATTACK)){
 		mNextRegisterName = PL_STATE_ATTACK;//攻撃
 	}
 	//名前が入ればフラグを立てる

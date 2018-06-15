@@ -132,7 +132,10 @@ void CEnemyBase::SphereCol(CColSphere *m, CColBase* y) {
 				mFlagAttack && sph.eState == CColBase::PL_ATTACK && mStr == SLI_STATE_ATTACK)
 			{
 				pl = (CPlayer*)sph.mpParent;
-				pl->Damage(mPower, mRotation);
+				/*ƒvƒŒƒCƒ„[‚ª‰ñ”ð‚µ‚Ä‚¢‚È‚¢‚Æ‚«*/
+				if (pl->mStr != PL_STATE_AVOID) {
+					pl->Damage(mPower, mRotation);
+				}
 			}
 		}
 

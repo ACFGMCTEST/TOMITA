@@ -1,7 +1,7 @@
 #include "CPlayerJump.h"
 #include "../CPlayer.h"
 /*ジャンプのスピード*/
-#define JUMP_SPEED 0.3f//ジャンプするスピード
+#define JUMP_SPEED 1.3f//ジャンプするスピード
 /*アニメのスピード*/
 #define ANIMA_SPEED_JUMP 30
 

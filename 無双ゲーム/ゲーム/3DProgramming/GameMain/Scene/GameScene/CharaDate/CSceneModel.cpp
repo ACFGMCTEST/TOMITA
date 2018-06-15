@@ -8,15 +8,18 @@
 #include "../../../Collision/CCollision2D.h"
 #include "../../../Key/CMouse.h"
 #include "../../../Convenient/CConvenient.h"
+
+/*キャラクター*/
 #include "../CharaDate/Enemy/Slime/CSlime.h"
+#include "../CharaDate/Enemy/Slime/King/CKingSlime.h"
+
 #include "../CGameScene.h"
 
 
 
 #define Char_HP_SIZE 600.0f,600.0f,0.8f,0.1f //キャラのHP
 /*キャラクターのポジション*/
-#define PLAYER_POS i*2,0.0f,0.0f//プレイヤーのポジション
-#define ENEMY_POS  i*3.0f,0.0f,10.0f//エネミーのポジション
+#define POS_Y 10
 
 /*角度*/
 #define ANGLE_360 360
@@ -57,6 +60,7 @@ CSceneModel::~CSceneModel(){
 #define F_PL_ATTACK				MODEL_FILE"SDUnity\\Anima\\Attack2.x"
 #define F_PL_JUMP				MODEL_FILE"SDUnity\\Anima\\Jump.x"
 #define F_PL_DAMAGE				MODEL_FILE"SDUnity\\Anima\\Damage.x"
+#define F_PL_AVOID				MODEL_FILE"SDUnity\\Anima\\Avoid.x"
 
 /*プレイヤー追加処理*/
 void CSceneModel::PlayerAdd(){
@@ -85,12 +89,16 @@ void CSceneModel::PlayerAdd(){
 		case CPlayer::E_DAMAGE:
 			mModPlayer.AddAnimationSet(F_PL_DAMAGE);//ダメージ
 			break;
+		case CPlayer::E_AVOID:
+			mModPlayer.AddAnimationSet(F_PL_AVOID);//回避
+			break;
 		}
 	}
 
 	CPlayer *pl = new CPlayer(); //new作成
 
 	pl->Init(&mModPlayer);
+	pl->mPosition.y = POS_Y;
 	CTaskManager::GetInstance()->Add(pl);//タスクに追加
 	mpPlayer = pl; //操作用
 }
@@ -98,13 +106,12 @@ void CSceneModel::PlayerAdd(){
 /*スライム*/
 #define MODEL_FILE_SLIME		MODEL_FILE"Slime\\Slime.x"//スライム	
 #define SLIME_MAX 5//スライムの数
-#define SLIME_POS(i) CVector3(i * SLIME_MAX + 10,0,i * SLIME_MAX + 10)//スライムの数
+#define SLIME_POS(i) CVector3(i * SLIME_MAX + 10,POS_Y,i * SLIME_MAX + 10)//スライムの数
 /*アニメーションのファイル場所*/
 #define F_SLI_IDLING			MODEL_FILE"Slime\\Anima\\Idling.x"
 #define F_SLI_RUN				MODEL_FILE"Slime\\Anima\\Run.x"
 #define F_SLI_DAMAGE			MODEL_FILE"Slime\\Anima\\Damage.x"
 #define F_SLI_ATTACK			MODEL_FILE"Slime\\Anima\\Attack.x"
-
 /*エネミー追加処理(スライム)*/
 void CSceneModel::SlimeAdd(){
 	/*コピー用*/
@@ -143,6 +150,48 @@ void CSceneModel::SlimeAdd(){
 	}
 }
 
+/*スライム*/
+#define KING_MODEL_FILE_SLIME		MODEL_FILE"Slime\\King\\KingSlime.x"//スライム	
+#define SLIME_MAX 5//スライムの数
+#define KING_SLIME_POS CVector3(0 ,POS_Y,SLIME_MAX*3)//スライムの数
+/*アニメーションのファイル場所*/
+#define F_SLI_IDLING			MODEL_FILE"Slime\\King\\Anima\\Idling.x"
+#define F_SLI_RUN				MODEL_FILE"Slime\\King\\Anima\\Run.x"
+#define F_SLI_DAMAGE			MODEL_FILE"Slime\\King\\Anima\\Damage.x"
+#define F_SLI_ATTACK			MODEL_FILE"Slime\\King\\Anima\\Attack.x"
+/*キングエネミー*/
+void CSceneModel::KingSlimeAdd() {
+	mModKingSlime.FileName(MODEL_FILE"Slime\\King\\");
+	mModKingSlime.Load(KING_MODEL_FILE_SLIME);
+	/*アニメーション追加処理*/
+	for (int i = 0; i < CSlime::E_STATE_ARRAY; i++)
+	{
+		CSlime::E_STATE state = (CSlime::E_STATE)i;
+		switch (state)
+		{
+		case CSlime::E_IDLING:
+			mModKingSlime.AddAnimationSet(F_SLI_IDLING);
+			break;
+		case CSlime::E_RUN:
+			mModKingSlime.AddAnimationSet(F_SLI_RUN);
+			break;
+		case CSlime::E_DAMAGE:
+			mModKingSlime.AddAnimationSet(F_SLI_DAMAGE);
+			break;
+		case CSlime::E_ATTACK:
+			mModKingSlime.AddAnimationSet(F_SLI_ATTACK);
+			break;
+		};
+	}
+
+	CKingSlime *sl = new CKingSlime();
+	sl->Init(&mModKingSlime);
+	
+	sl->mPosition = sl->mPosition.Transeform(CMap::GetInstance()->mRespawn);
+	printf("%f,%f,%f", sl->mPosition.x, sl->mPosition.y, sl->mPosition.z);
+	CTaskManager::GetInstance()->Add(sl);//タスクに追加
+}
+
 void CSceneModel::Init() {
 	mMouseInitCount = 0.0f;							//マウスが初期位置に戻るまでの時間
 	mLagTime = 0.0f;								//lagによるバグ回避時間
@@ -152,7 +201,7 @@ void CSceneModel::Init() {
 	PlayerAdd();
 	/*エネミー*/
 	SlimeAdd();//スライム
-
+	KingSlimeAdd();//スライム
 
 }
 

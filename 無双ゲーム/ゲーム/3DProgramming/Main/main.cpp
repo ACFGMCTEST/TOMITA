@@ -12,9 +12,10 @@
 #define LIGHT_SET_COL 1.0f, 1.0f, 1.0f //カラー
 #define LIGHT_POS  0.0f, 0.1f, 0.0f, 0.0f //ポジション
 
-int WinPosX, WinPosY;//main.cppで設定
 
 CSceneManager Main;
+
+int WinPosX, WinPosY;
 /* display関数
 1秒間に60回実行される
 */

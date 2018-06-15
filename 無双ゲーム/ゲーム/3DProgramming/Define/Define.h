@@ -1,10 +1,7 @@
 /*
 マクロ置き場
 */
-#define COLLISION_ARRAY_SIZE 500 //
-#define CANNONBALL_ARRAY_SIZE 4//砲弾数
-#define FIRE_INTERVAL 20
-#define TANKENEMY_ARRAY_SIZE 4//
+
 #define DISP_X  800
 #define DISP_Y  600
 
@@ -17,8 +14,8 @@
 
 /*キー入力*/
 #define KEY_JUMP VK_SPACE
-#define KEY_ATTACK VK_SHIFT
-#define KEY_ATTACK2 VK_CONTROL
+#define KEY_ATTACK VK_CONTROL
+#define KEY_AVOID VK_SHIFT
 #define KEY_SKILL 'E'
 #define SOUNDFILE "../Sound/"
 
@@ -75,10 +72,6 @@
 #define DISP_2D_Y 300 //縦幅
 
 
-/*ウインドウポジション*/
-extern int WinPosX,WinPosY;//main.cppで設定
-
-
 //仮絵の奴
 
 #define TEST_CG  0, 0, 900, 200
@@ -118,3 +111,7 @@ extern int WinPosX,WinPosY;//main.cppで設定
 #define GRAVITY(time) (GRA_ACCELERA * time) //最終的sにかかる力
 /*モデルのファイルの場所*/
 #define MODEL_FILE "../Graphic\\x\\"
+
+/*ウインドウのポジション*/
+extern int WinPosX;
+extern int WinPosY;

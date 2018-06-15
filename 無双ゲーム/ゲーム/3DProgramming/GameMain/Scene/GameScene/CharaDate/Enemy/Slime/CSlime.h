@@ -7,12 +7,12 @@
 
 /*エネミーのクラス*/
 class CSlime : public CEnemyBase{
+protected:
+	/*当たり判定*/
+	CColCapsule * mpCaps;//カプセル胴体
+	CColSphere  *mpSphere;//球体胴体
 private:
 	static int mAllCount;//エネミーの数
-	/*当たり判定*/
-	CColCapsule *mpCaps;//カプセル胴体
-	CColSphere  *mpSphere;//球体胴体
-	
 public:
 	enum E_STATE {
 		E_IDLING,		//立ち

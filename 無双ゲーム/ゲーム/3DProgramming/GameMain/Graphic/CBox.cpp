@@ -85,16 +85,12 @@ void CBox::SetVertex(float x1, float x2, float y1, float y2, float z1, float z2)
 
 	//下
 	v0 = CVector3(x1, y1, z1);
-	v1 = CVector3(x1, y1, z2);
+	v1 = CVector3(x2, y1, z1);
 	v2 = CVector3(x2, y1, z2);
-	v3 = CVector3(x2, y1, z1);
+	v3 = CVector3(x1, y1, z2);
 	mRect[E_y1].SetVertex(v0, v1, v2, v3);
-	mRect[E_y1].SetNormal(BOX_NORMAL_Y1);
+	mRect[E_y1].SetNormal(BOX_NORMAL_Y2);
 
-	SetMyVertex(myVertex, &VerNum, v0, mRect[E_y1].mNormal);
-	SetMyVertex(myVertex, &VerNum, v1, mRect[E_y1].mNormal);
-	SetMyVertex(myVertex, &VerNum, v2, mRect[E_y1].mNormal);
-	SetMyVertex(myVertex, &VerNum, v3, mRect[E_y1].mNormal);
 	//上
 	v0 = CVector3(x1, y2, z1);
 	v1 = CVector3(x1, y2, z2);
@@ -158,7 +154,7 @@ void CBox::SetTex(E_TexBox eTexState){
 #define SIZE(i) 256 * i//ｓｕｋａｉボックス縦横比
 #define REVERSE(left,top,right,bottom) left,bottom,right,top
 	case E_TexBox::E_SKY_BOX:
-		mRect[E_y1].SetUv(CLoadTexManager::GetInstance()->mpSkyBox, SIZE(1), 0, SIZE(2), SIZE(1));
+		mRect[E_y1].SetUv(CLoadTexManager::GetInstance()->mpSkyBox, SIZE(2), SIZE(1), SIZE(1), SIZE(0));
 		mRect[E_y2].SetUv(CLoadTexManager::GetInstance()->mpSkyBox, SIZE(1), SIZE(2), SIZE(2), SIZE(3));
 
 		mRect[E_x1].SetUv(CLoadTexManager::GetInstance()->mpSkyBox, REVERSE( 0 , SIZE(1), SIZE(1), SIZE(2)));

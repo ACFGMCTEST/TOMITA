@@ -41,6 +41,8 @@ mUp = //視界の上方向のベクトルx,y,z
 #define CAMERA_DIVIDE  10//カメラスピード調整用
 
 
+
+
 //カメラの上方向の初期化
 CCamera::CCamera() : mUp(0.0f, 1.0f, 0.0f) ,mForward(FORWARD){
 	//視点と注視点の設定
@@ -144,7 +146,7 @@ void CCamera::PosUpdate(CVector3 rot, CVector3 pos){
 
 
 }
-
+#define LIMIT_Y 30 //カメラの上下方向リミット
 /*矢印キーでカメラ移動*/
 void CCamera::CharaUpdate(){
 	/*カメラ設定*/
@@ -153,6 +155,12 @@ void CCamera::CharaUpdate(){
 	}
 	if (CKey::push(VK_RIGHT)) {//右
 		mRot.y -= ANGLE_SPEED;
+	}
+	if (CKey::push(VK_UP) && mRot.x >= -LIMIT_Y) {//左
+		mRot.x -= ANGLE_SPEED;
+	}
+	if (CKey::push(VK_DOWN) && mRot.x <= LIMIT_Y) {//右
+		mRot.x += ANGLE_SPEED;
 	}
 
 	/*ローテーションがマイナスの場合*/

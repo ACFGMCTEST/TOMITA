@@ -59,8 +59,10 @@
     <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\Damage\CSlimeDamage.cpp" />
     <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\Idling\CSlimeIdling.cpp" />
     <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\Jump\CSlimeJump.cpp" />
+    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\King\CKingSlime.cpp" />
     <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\Run\CSlimeRun.cpp" />
     <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Player\Attack\CPlayerAttack.cpp" />
+    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Player\Avoid\CPlayerAvoid.cpp" />
     <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Player\CPlayer.cpp" />
     <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Player\Damage\CPlayerDamage.cpp" />
     <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Player\Idling\CPlayeridling.cpp" />
@@ -135,12 +137,15 @@
     <ClInclude Include="GameMain\Scene\GameScene\CharaDate\CSceneModel.h" />
     <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Enemy\CEnemyBase.h" />
     <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\Attack\CSlimeAttack.h" />
+    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\CKingSlime.h" />
     <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\CSlime.h" />
     <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\Damage\CSlimeDamage.h" />
     <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\Idling\CSlimeIdling.h" />
     <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\Jump\CSlimeJump.h" />
+    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\King\CKingSlime.h" />
     <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\Run\CSlimeRun.h" />
     <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Player\Attack\CPlayerAttack.h" />
+    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Player\Avoid\CPlayerAvoid.h" />
     <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Player\CPlayer.h" />
     <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Player\Damage\CPlayerDamage.h" />
     <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Player\Idling\CPlayeridling.h" />

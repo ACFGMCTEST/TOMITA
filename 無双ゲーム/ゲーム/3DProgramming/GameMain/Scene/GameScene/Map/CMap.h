@@ -9,12 +9,15 @@
 class CMap{
 
 private:
+	static CMap *mMap;
 	CMatrix44 m44;//仮のもの
 	CModelX mGroundX;//Xファイル描画用
 	CModelObj mGround;//Objファイル
 	CBox mSkyBox;//背景
 	
 public:
+	CMatrix44 mRespawn;//リスポーンする行列
+	static CMap *GetInstance();
 	CMap(){};
 	~CMap(){};
 	/*初期化*/

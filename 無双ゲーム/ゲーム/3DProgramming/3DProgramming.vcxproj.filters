@@ -240,6 +240,12 @@
     <ClCompile Include="GameMain\Graphic\CHpBar2D.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Player\Avoid\CPlayerAvoid.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\King\CKingSlime.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="3DBase\C3DBase.h">
@@ -500,6 +506,15 @@
     <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Player\CPlayer.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="GameMain\Graphic\CHpBar2D.h" />
+    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Player\Avoid\CPlayerAvoid.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMain\Graphic\CHpBar2D.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\CKingSlime.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\King\CKingSlime.h" />
   </ItemGroup>
 </Project>

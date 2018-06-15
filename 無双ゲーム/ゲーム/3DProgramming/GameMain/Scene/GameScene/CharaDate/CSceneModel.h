@@ -14,6 +14,7 @@ class CSceneModel{
 private:
 	CModelX mModPlayer;//モデル読み込み用
 	CModelX mModSlime;//モデル読み込み用
+	CModelX mModKingSlime;//モデル読み込み用
 
 	float mMouseInitCount;//マウスが初期位置に戻るまでの時間
 	float mLagTime;//lagによるバグ回避時間
@@ -30,6 +31,8 @@ public:
 	void PlayerAdd();//プレイヤ－
 	/*エネミー*/
 	void SlimeAdd ();//スライム追加
+	/*キングエネミー*/
+	void KingSlimeAdd();//キングスライム追加
 
 	CSceneModel();
 	~CSceneModel();

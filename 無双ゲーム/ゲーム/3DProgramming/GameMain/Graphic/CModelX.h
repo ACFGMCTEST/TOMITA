@@ -3,7 +3,7 @@
 
 #include "glew.h"
 #include "glut.h"
-
+#include <string>
 
 #define MODEL_FILE "sample.blend.x"	//入力ファイル名
 //#define MODEL_FILE "ラグナ.x"	//入力ファイル名
@@ -284,6 +284,7 @@ class CModelX {
 public:
 	char* mpPointer;	//読み込み位置
 	char mToken[1024];	//取り出した単語の領域
+	std::string mFile;//読み込みファイル場所
 	bool mAnimaFlag;//フラグアニメーション
 	/*色セット*/
 	void SetColor(float r, float g, float b, float a);
@@ -307,7 +308,7 @@ public:
 	std::vector<CMesh*> mMesh;	//Mesh配列
 
 	CModelX()
-		: mpPointer(0), mAnimationIndex(0), mAnimaFlag(false)
+		: mpPointer(0), mAnimationIndex(0), mAnimaFlag(false),mFile("")
 	{}
 	~CModelX() {
 		if (mFrame.size() > 0)
@@ -325,6 +326,9 @@ public:
 		for (int i = 0; i < mTexture.size(); i++) {
 			delete mTexture[i];
 		}
+	}
+	//ファイル場所指定
+	void FileName(char *file) {mFile = file;
 	}
 	//ファイル読み込み
 	void Load(char* file);

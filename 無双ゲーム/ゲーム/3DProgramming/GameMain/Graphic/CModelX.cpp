@@ -43,6 +43,7 @@ void CModelX::Load(char *file) {
 	p->mpName = new char[1];
 	p->mpName[0] = '\0';
 	mFrame.push_back(p);
+	bool AnimationSetFlag = false; //AnimationSetが複数ある場合があるので一回のみにする
 
 	//文字列の最後まで繰り返し
 	while (*mpPointer != '\0') {
@@ -78,8 +79,9 @@ void CModelX::Load(char *file) {
 			}
 		}
 		//単語がAnimationSetの場合
-		else if (strcmp(mToken, "AnimationSet") == 0) {
+		else if (strcmp(mToken, "AnimationSet") == 0 && !AnimationSetFlag) {
 			new CAnimationSet(this);
+			AnimationSetFlag = true;
 		}
 	}
 
@@ -94,21 +96,7 @@ void CModelX::Load(char *file) {
 
 /*アニメーションがないバージョン*/
 void CModelX::NoAnimaLoad(char *file) {
-	//
-	//ファイルサイズを取得する
-	//
-	//int fd = open(file, O_RDONLY);	//ファイルをオープンする
-	//if (fd == -1) {	//エラーチェック
-	//	printf("open error\n");
-	//	return;
-	//}
-	//struct stat statBuf;
-	//fstat(fd, &statBuf);	//ファイルの情報を取得する
-	//close(fd);	//ファイルをクローズする
-	//int size = statBuf.st_size;	//ファイルのサイズを取得する
-	//
-	//ファイルから3Dモデルのデータを読み込む
-	//
+
 	FILE *fp;	//ファイルポインタ変数の作成
 	fp = fopen(file, "rb");	//ファイルをオープンする
 	if (fp == NULL) {	//エラーチェック
@@ -423,14 +411,20 @@ nameに該当するファイル名を持つテクスチャを検索して
 返却する
 */
 CTexture* CModelX::FindTexture(char* name) {
+
 	//テクスチャ配列のイテレータ作成
 	std::vector<CTexture*>::iterator itr;
+	
 	//テクスチャ配列の先頭から順に検索
 	for (itr = mTexture.begin(); itr != mTexture.end(); itr++) {
+		
+
 		//名前が一致すればテクスチャのポインタを返却
 		if (strcmp(name, (*itr)->mpName) == 0) {
 			return *itr;
 		}
+
+		
 	}
 	//無い時はNULLを返却
 	return NULL;
@@ -465,7 +459,6 @@ AddAnimationSet
 */
 int count = 0;
 void CModelX::AddAnimationSet(char *file) {
-
 	Load(file);
 }
 
@@ -732,10 +725,21 @@ void CMesh::Render() {
 	/* 頂点データ，法線データ，テクスチャ座標の配列を有効にする */
 	glEnableClientState(GL_VERTEX_ARRAY);
 	glEnableClientState(GL_NORMAL_ARRAY);
+	/* 頂点データ，法線データ，テクスチャ座標の配列を有効にする */
+	glEnableClientState(GL_VERTEX_ARRAY);
+	glEnableClientState(GL_NORMAL_ARRAY);
 	//16
 	/* 頂点データ，法線データ，テクスチャ座標の場所を指定する */
-	glVertexPointer(3, GL_FLOAT, 0, mpAnimateVertex);
-	glNormalPointer(GL_FLOAT, 0, mpAnimateNormal);
+	//glVertexPointer(3, GL_FLOAT, 0, mpAnimateVertex);
+	//glNormalPointer(GL_FLOAT, 0, mpAnimateNormal);
+	glVertexPointer(3, GL_FLOAT, 0, mpVertex);
+	glNormalPointer(GL_FLOAT, 0, mpNormal);
+
+
+	////16
+	///* 頂点データ，法線データ，テクスチャ座標の場所を指定する */
+	//glVertexPointer(3, GL_FLOAT, 0, mpAnimateVertex);
+	//glNormalPointer(GL_FLOAT, 0, mpAnimateNormal);
 	//19
 	glTexCoordPointer(2, GL_FLOAT, 0, mpTextureCoords);
 
@@ -975,11 +979,22 @@ CMaterial::CMaterial(CModelX *model)
 		//テクスチャありの場合、テクスチャファイル名取得
 		model->GetToken(); // {
 		model->GetToken(); // filename
-		mpTextureFilename = new char[strlen(model->mToken) + 1];
-		strcpy(mpTextureFilename, model->mToken);
-		//18
+
+		/*テクスチャの場所指定ない場合*/
+		if (model->mFile.empty()) {
+			mpTextureFilename = new char[strlen(model->mToken) + 1];
+			strcpy(mpTextureFilename, model->mToken);
+		}
+		/*ある場合*/
+		else {
+			mpTextureFilename = new char[model->mFile.size() + strlen(model->mToken) + 1];
+			strcpy(mpTextureFilename, model->mFile.c_str());
+			strcat(mpTextureFilename, model->mToken);
+		}
+
+
 		//テクスチャファイル名でテクスチャを検索する
-		CTexture *p = model->FindTexture(model->mToken);
+		CTexture *p = model->FindTexture(mpTextureFilename);
 		//テクスチャが在る時
 		if (p) {
 			//テクスチャIDを取得
@@ -987,7 +1002,7 @@ CMaterial::CMaterial(CModelX *model)
 		}
 		else {
 			//無い場合、テクスチャ読み込み
-			p = new CTexture(model->mToken);
+			p = new CTexture(mpTextureFilename);
 			if (p->mpName) {
 				//テクスチャ配列に追加
 				model->mTexture.push_back(p);
@@ -1164,7 +1179,13 @@ CAnimationSet::CAnimationSet(CModelX *model)
 
 	while (*model->mpPointer != '\0') {
 		model->GetToken(); // } or Animation
-		if (strchr(model->mToken, '}'))break;
+
+
+		if (strchr(model->mToken, '}')) {
+			model->GetToken(); // AnimationSetがある場合飛ばす
+			//break;
+		}
+
 		if (strcmp(model->mToken, "Animation") == 0) {
 			//Animation要素読み込み
 			mAnimation.push_back(new CAnimation(model));
@@ -1203,7 +1224,11 @@ CAnimation::CAnimation(CModelX *model)
 	float *time[4] = { 0, 0, 0, 0 };
 	while (*model->mpPointer != '\0') {
 		model->GetToken(); // } or AnimationKey
-		if (strchr(model->mToken, '}')) break;
+		
+
+		if (strchr(model->mToken, '}')) {
+			break;
+		}
 		if (strcmp(model->mToken, "AnimationKey") == 0) {
 			model->GetToken(); // {
 			//データのタイプ取得
@@ -1267,12 +1292,16 @@ CAnimation::CAnimation(CModelX *model)
 					}
 				}
 				break;
-			}
-			model->GetToken(); // }
+			};
+
+			model->GetToken();// }
+		
+			
 		}
 		else {
 			model->SkipNode();
 		}
+		
 	}
 	//行列データではない時
 	if (mpKey == 0) {

@@ -10,7 +10,6 @@
 class CGameScene : public CScene{
 private:
 	CSceneModel mSceneModel;
-	CMap mMap;
 public:
 
 	/*ó‘Ô*/
