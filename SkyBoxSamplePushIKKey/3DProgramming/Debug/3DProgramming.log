@@ -1,0 +1,29 @@
+﻿2018/06/15 19:15:48 にビルドを開始しました。
+     1>ノード 2 上のプロジェクト "C:\Users\Game\Desktop\OC170714Finish_3DProgramming\3DProgramming\3DProgramming.vcxproj" (Build ターゲット)。
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHa /RTC1 /MDd /GS- /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
+     1>cl : コマンド ライン warning D9025: '/sdl' より '/GS-' が優先されます。
+         main.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Game\Desktop\OC170714Finish_3DProgramming\Debug\3DProgramming.exe" /INCREMENTAL /NOLOGO glew32.lib glpngd.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST:NO /DEBUG /PDB:"C:\Users\Game\Desktop\OC170714Finish_3DProgramming\Debug\3DProgramming.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Game\Desktop\OC170714Finish_3DProgramming\Debug\3DProgramming.lib" /MACHINE:X86 Debug\CCamera.obj
+         Debug\CCollision.obj
+         Debug\CFPS.obj
+         Debug\CImage.obj
+         Debug\CKey.obj
+         Debug\CLight.obj
+         Debug\CMatrix.obj
+         Debug\CModelObj.obj
+         Debug\CModelSX.obj
+         Debug\CModelX.obj
+         Debug\CShader.obj
+         Debug\CTexture.obj
+         Debug\CXLoader.obj
+         Debug\CXModelLoader.obj
+         Debug\CXSModelLoader.obj
+         Debug\main.obj
+         3DProgramming.vcxproj -> C:\Users\Game\Desktop\OC170714Finish_3DProgramming\Debug\3DProgramming.exe
+     1>プロジェクト "C:\Users\Game\Desktop\OC170714Finish_3DProgramming\3DProgramming\3DProgramming.vcxproj" (Build ターゲット) のビルドが完了しました。
+
+ビルドに成功しました。
+
+経過時間 00:00:01.64
