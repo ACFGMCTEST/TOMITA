@@ -1,4 +1,4 @@
-﻿2018/06/15 20:15:41 にビルドを開始しました。
+﻿2018/06/17 19:53:00 にビルドを開始しました。
      1>ノード 2 上のプロジェクト "C:\Users\Game\Desktop\2018GitTest\TOMITA\SkyBoxSamplePushIKKey\3DProgramming\3DProgramming.vcxproj" (Rebuild ターゲット)。
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHa /RTC1 /MDd /GS- /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt CCamera.cpp CCollision.cpp CFPS.cpp CImage.cpp CKey.cpp CLight.cpp CMatrix.cpp CModelObj.cpp CModelSX.cpp CModelX.cpp CShader.cpp CTexture.cpp CXLoader.cpp CXModelLoader.cpp CXSModelLoader.cpp main.cpp
@@ -80,7 +80,7 @@
      1>c:\users\game\desktop\2018gittest\tomita\skyboxsamplepushikkey\3dprogramming\ccamera.cpp(52): warning C4244: '引数' : 'double' から 'float' への変換です。データが失われる可能性があります。
          コードを生成中...
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Game\Desktop\2018GitTest\TOMITA\SkyBoxSamplePushIKKey\Debug\3DProgramming.exe" /INCREMENTAL /NOLOGO glew32.lib glpngd.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST:NO /DEBUG /PDB:"C:\Users\Game\Desktop\2018GitTest\TOMITA\SkyBoxSamplePushIKKey\Debug\3DProgramming.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Game\Desktop\2018GitTest\TOMITA\SkyBoxSamplePushIKKey\Debug\3DProgramming.lib" /MACHINE:X86 Debug\CCamera.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Game\Desktop\2018GitTest\TOMITA\SkyBoxSamplePushIKKey\Debug\3DProgramming.exe" /INCREMENTAL /NOLOGO glew32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST:NO /DEBUG /PDB:"C:\Users\Game\Desktop\2018GitTest\TOMITA\SkyBoxSamplePushIKKey\Debug\3DProgramming.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Game\Desktop\2018GitTest\TOMITA\SkyBoxSamplePushIKKey\Debug\3DProgramming.lib" /MACHINE:X86 Debug\CCamera.obj
          Debug\CCollision.obj
          Debug\CFPS.obj
          Debug\CImage.obj
@@ -96,29 +96,9 @@
          Debug\CXModelLoader.obj
          Debug\CXSModelLoader.obj
          Debug\main.obj
-     1>glpngd.lib(adler32.obj) : warning LNK4099: PDB 'vc90.pdb' が 'glpngd.lib(adler32.obj)' で、または 'C:\Users\Game\Desktop\2018GitTest\TOMITA\SkyBoxSamplePushIKKey\Debug\vc90.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
-     1>glpngd.lib(crc32.obj) : warning LNK4099: PDB 'vc90.pdb' が 'glpngd.lib(crc32.obj)' で、または 'C:\Users\Game\Desktop\2018GitTest\TOMITA\SkyBoxSamplePushIKKey\Debug\vc90.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
-     1>glpngd.lib(glpng.obj) : warning LNK4099: PDB 'vc90.pdb' が 'glpngd.lib(glpng.obj)' で、または 'C:\Users\Game\Desktop\2018GitTest\TOMITA\SkyBoxSamplePushIKKey\Debug\vc90.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
-     1>glpngd.lib(infblock.obj) : warning LNK4099: PDB 'vc90.pdb' が 'glpngd.lib(infblock.obj)' で、または 'C:\Users\Game\Desktop\2018GitTest\TOMITA\SkyBoxSamplePushIKKey\Debug\vc90.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
-     1>glpngd.lib(infcodes.obj) : warning LNK4099: PDB 'vc90.pdb' が 'glpngd.lib(infcodes.obj)' で、または 'C:\Users\Game\Desktop\2018GitTest\TOMITA\SkyBoxSamplePushIKKey\Debug\vc90.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
-     1>glpngd.lib(inffast.obj) : warning LNK4099: PDB 'vc90.pdb' が 'glpngd.lib(inffast.obj)' で、または 'C:\Users\Game\Desktop\2018GitTest\TOMITA\SkyBoxSamplePushIKKey\Debug\vc90.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
-     1>glpngd.lib(inflate.obj) : warning LNK4099: PDB 'vc90.pdb' が 'glpngd.lib(inflate.obj)' で、または 'C:\Users\Game\Desktop\2018GitTest\TOMITA\SkyBoxSamplePushIKKey\Debug\vc90.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
-     1>glpngd.lib(inftrees.obj) : warning LNK4099: PDB 'vc90.pdb' が 'glpngd.lib(inftrees.obj)' で、または 'C:\Users\Game\Desktop\2018GitTest\TOMITA\SkyBoxSamplePushIKKey\Debug\vc90.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
-     1>glpngd.lib(infutil.obj) : warning LNK4099: PDB 'vc90.pdb' が 'glpngd.lib(infutil.obj)' で、または 'C:\Users\Game\Desktop\2018GitTest\TOMITA\SkyBoxSamplePushIKKey\Debug\vc90.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
-     1>glpngd.lib(png.obj) : warning LNK4099: PDB 'vc90.pdb' が 'glpngd.lib(png.obj)' で、または 'C:\Users\Game\Desktop\2018GitTest\TOMITA\SkyBoxSamplePushIKKey\Debug\vc90.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
-     1>glpngd.lib(pngerror.obj) : warning LNK4099: PDB 'vc90.pdb' が 'glpngd.lib(pngerror.obj)' で、または 'C:\Users\Game\Desktop\2018GitTest\TOMITA\SkyBoxSamplePushIKKey\Debug\vc90.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
-     1>glpngd.lib(pngget.obj) : warning LNK4099: PDB 'vc90.pdb' が 'glpngd.lib(pngget.obj)' で、または 'C:\Users\Game\Desktop\2018GitTest\TOMITA\SkyBoxSamplePushIKKey\Debug\vc90.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
-     1>glpngd.lib(pngmem.obj) : warning LNK4099: PDB 'vc90.pdb' が 'glpngd.lib(pngmem.obj)' で、または 'C:\Users\Game\Desktop\2018GitTest\TOMITA\SkyBoxSamplePushIKKey\Debug\vc90.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
-     1>glpngd.lib(pngread.obj) : warning LNK4099: PDB 'vc90.pdb' が 'glpngd.lib(pngread.obj)' で、または 'C:\Users\Game\Desktop\2018GitTest\TOMITA\SkyBoxSamplePushIKKey\Debug\vc90.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
-     1>glpngd.lib(pngrio.obj) : warning LNK4099: PDB 'vc90.pdb' が 'glpngd.lib(pngrio.obj)' で、または 'C:\Users\Game\Desktop\2018GitTest\TOMITA\SkyBoxSamplePushIKKey\Debug\vc90.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
-     1>glpngd.lib(pngrtran.obj) : warning LNK4099: PDB 'vc90.pdb' が 'glpngd.lib(pngrtran.obj)' で、または 'C:\Users\Game\Desktop\2018GitTest\TOMITA\SkyBoxSamplePushIKKey\Debug\vc90.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
-     1>glpngd.lib(pngrutil.obj) : warning LNK4099: PDB 'vc90.pdb' が 'glpngd.lib(pngrutil.obj)' で、または 'C:\Users\Game\Desktop\2018GitTest\TOMITA\SkyBoxSamplePushIKKey\Debug\vc90.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
-     1>glpngd.lib(pngset.obj) : warning LNK4099: PDB 'vc90.pdb' が 'glpngd.lib(pngset.obj)' で、または 'C:\Users\Game\Desktop\2018GitTest\TOMITA\SkyBoxSamplePushIKKey\Debug\vc90.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
-     1>glpngd.lib(pngtrans.obj) : warning LNK4099: PDB 'vc90.pdb' が 'glpngd.lib(pngtrans.obj)' で、または 'C:\Users\Game\Desktop\2018GitTest\TOMITA\SkyBoxSamplePushIKKey\Debug\vc90.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
-     1>glpngd.lib(zutil.obj) : warning LNK4099: PDB 'vc90.pdb' が 'glpngd.lib(zutil.obj)' で、または 'C:\Users\Game\Desktop\2018GitTest\TOMITA\SkyBoxSamplePushIKKey\Debug\vc90.pdb' に見つかりません。デバッグ情報がないものとして、オブジェクトにリンクします。
          3DProgramming.vcxproj -> C:\Users\Game\Desktop\2018GitTest\TOMITA\SkyBoxSamplePushIKKey\Debug\3DProgramming.exe
      1>プロジェクト "C:\Users\Game\Desktop\2018GitTest\TOMITA\SkyBoxSamplePushIKKey\3DProgramming\3DProgramming.vcxproj" (Rebuild ターゲット) のビルドが完了しました。
 
 ビルドに成功しました。
 
-経過時間 00:00:12.06
+経過時間 00:00:12.36

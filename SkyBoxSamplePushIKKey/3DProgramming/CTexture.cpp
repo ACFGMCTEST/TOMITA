@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include "glew.h"
 #include "glut.h"
-#include "glpng.h"
+//#include "glpng.h"
 #include "CTexture.h"
 #include "BmpFormat.h"
 //#include "png.h"
@@ -66,16 +66,16 @@ bool CTexture::loadBmp(char *path){
 	return true;
 }
 
-bool CTexture::loadPng(char *path){
-	pngInfo info;
-	m_bufID = pngBind (path, PNG_NOMIPMAP, PNG_ALPHA, &info, GL_CLAMP, GL_NEAREST, GL_NEAREST);
-	if(m_bufID==0) return false;
-	m_width = info.Width;
-	m_height = info.Height;
-
-	return true;
-
-}
+//bool CTexture::loadPng(char *path){
+//	pngInfo info;
+//	m_bufID = pngBind (path, PNG_NOMIPMAP, PNG_ALPHA, &info, GL_CLAMP, GL_NEAREST, GL_NEAREST);
+//	if(m_bufID==0) return false;
+//	m_width = info.Width;
+//	m_height = info.Height;
+//
+//	return true;
+//
+//}
 
 bool CTexture::Load(char *path){
 	FILE* fp = NULL;
@@ -89,10 +89,10 @@ bool CTexture::Load(char *path){
 		fclose(fp);
 		return loadBmp(path);
 	}
-	else if(crc[1]==0x50 && crc[2]==0x4E && crc[3]==0x47) {
-		fclose(fp);
-		return loadPng(path);
-	}
+	//else if(crc[1]==0x50 && crc[2]==0x4E && crc[3]==0x47) {
+	//	fclose(fp);
+	//	return loadPng(path);
+	//}
 	else {
 		fclose(fp);
 		return loadTga(path);
