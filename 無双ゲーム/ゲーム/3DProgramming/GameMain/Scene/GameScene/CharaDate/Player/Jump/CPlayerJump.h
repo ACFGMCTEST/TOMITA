@@ -9,11 +9,15 @@ class CPlayerJump : public CStateBase
 private:
 	float mPrevPosY;//前のポジション
 	bool mFlagFall;//落下中にフラグだ立つ
+	float mVelocity;//移動量
+	/*アニメーション ジャンプ中か判断*/
+	bool JumpAnima();
 public:
 	CPlayerJump();
 	~CPlayerJump();
 	/*初めに呼び出し*/
 	void Start();
+	
 	/*更新処理*/
 	void Update();
 	//遷移時の処理

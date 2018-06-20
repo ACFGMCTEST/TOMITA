@@ -10,9 +10,9 @@
 #define VEL_ATTACK2 0
 #define VEL_ATTACK3 0.07f
 /*アニメのスピード*/
-#define ANIMA_SPEED 30
+#define ANIMA_SPEED 20
 /*回避スピード*/
-#define AVOID_SPEED 0.7f
+#define AVOID_SPEED SPEED_RUN  * 1.4f
 //変更する関数
 void CPlayerAvoid::ChangeState(){
 	/*ジャンプする場合*/
@@ -21,7 +21,7 @@ void CPlayerAvoid::ChangeState(){
 	}
 	/*アイドリングする*/
 	CPlayer *pl = dynamic_cast<CPlayer*>(mpParent);
-	if (pl->mAnimationTime >
+	if (pl->mAnimationTime > 
 		pl->mpModel->mAnimationSet[pl->mAnimationIndex]->mMaxTime){
 		mNextRegisterName = PL_STATE_IDLING;
 	}

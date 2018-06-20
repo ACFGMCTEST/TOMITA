@@ -284,7 +284,7 @@ class CModelX {
 public:
 	char* mpPointer;	//読み込み位置
 	char mToken[1024];	//取り出した単語の領域
-	std::string mFile;//読み込みファイル場所
+	std::string mTexDirectory;//読み込みファイル場所
 	bool mAnimaFlag;//フラグアニメーション
 	/*色セット*/
 	void SetColor(float r, float g, float b, float a);
@@ -308,7 +308,7 @@ public:
 	std::vector<CMesh*> mMesh;	//Mesh配列
 
 	CModelX()
-		: mpPointer(0), mAnimationIndex(0), mAnimaFlag(false),mFile("")
+		: mpPointer(0), mAnimationIndex(0), mAnimaFlag(false),mTexDirectory("")
 	{}
 	~CModelX() {
 		if (mFrame.size() > 0)
@@ -328,8 +328,7 @@ public:
 		}
 	}
 	//ファイル場所指定
-	void FileName(char *file) {mFile = file;
-	}
+	void TexDirectory(char *fileName) {mTexDirectory = fileName;}
 	//ファイル読み込み
 	void Load(char* file);
 	//ファイル読み込み
@@ -394,6 +393,7 @@ public:
 	CMatrix44 *mpCombinedMatrix;	//ボーンの合成行列
 	CMeshSkinMatrix *mpMeshSkinMatrix;	//メッシュ毎のスキンメッシュ行列
 
+	bool mAnimaFlag;//アニメーションをするか判断
 	int mAnimationIndex;	//アニメーション番号
 	bool mAnimationLoopFlg;	//true:繰り返す
 	bool mRenderFlag;//描画のフラグ
@@ -407,6 +407,7 @@ public:
 		, mpCombinedMatrix(0)
 		, mpMeshSkinMatrix(0)
 		, mRenderFlag(true)
+		, mAnimaFlag(false)
 	{}
 
 	~CModelXS() {

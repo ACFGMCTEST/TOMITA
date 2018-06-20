@@ -119,6 +119,7 @@ void CRectangle::Render() {
 
 	}
 	else {
+
 		//テクスチャを有効にする
 		glEnable(GL_TEXTURE_2D);
 		//アルファブレンドを有効にする
@@ -128,9 +129,9 @@ void CRectangle::Render() {
 		//テクスチャを指定
 		glBindTexture(GL_TEXTURE_2D, mpTexture->id);
 
-
 		glMaterialfv(GL_FRONT, GL_DIFFUSE, diffuse);
-		if(mFlagNormal)glNormal3f(mNormal.x, mNormal.y, mNormal.z);
+
+		glNormal3f(mNormal.x, mNormal.y, mNormal.z);
 
 		glBegin(GL_TRIANGLES);	//三角形の頂点指定開始
 
@@ -149,12 +150,13 @@ void CRectangle::Render() {
 		glVertex3f(mVertex[3].x, mVertex[3].y, mVertex[3].z);	//頂点の指定
 		glEnd();	//頂点指定終了
 
-		//テクスチャを解放
+	    //テクスチャを解放
 		glBindTexture(GL_TEXTURE_2D, 0);
 		//アルファブレンドを無効
 		glDisable(GL_BLEND);
 		//テクスチャを無効
 		glDisable(GL_TEXTURE_2D);
+
 	}
 }
 

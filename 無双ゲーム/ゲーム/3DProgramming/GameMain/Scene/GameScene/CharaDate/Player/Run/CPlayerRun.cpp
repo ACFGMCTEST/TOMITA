@@ -1,7 +1,7 @@
 #include "CPlayerRun.h"
 #include "../CPlayer.h"
 /*アニメのスピード*/
-#define ANIMA_SPEED_RUN 100 
+#define ANIMA_SPEED_RUN 60
 
 //変更する関数
 void CPlayerRun::ChangeState(){

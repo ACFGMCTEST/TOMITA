@@ -81,8 +81,8 @@ void CEnemyBase::AttackInit() {
 
 /*カプセル内当たり判定*/
 void CEnemyBase::CapsuleCol(CColCapsule *cc, CColBase* y) {
-	CColTriangle ct(false);//三角形の当たり判定
-	CColCapsule  caps(false);//球の当たり判定
+	CColTriangle ct;//三角形の当たり判定
+	CColCapsule  caps;//球の当たり判定
 
 	/*相手のタイプ何か判断*/
 	switch (y->mType) {

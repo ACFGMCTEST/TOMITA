@@ -110,7 +110,7 @@
 #define GRA_TIME_UP 0.3f//重力の加速時間
 #define GRAVITY(time) (GRA_ACCELERA * time) //最終的sにかかる力
 /*モデルのファイルの場所*/
-#define MODEL_FILE "../Graphic\\x\\"
+#define MODEL_FILE "../Graphic\\3dModel\\"
 
 /*ウインドウのポジション*/
 extern int WinPosX;

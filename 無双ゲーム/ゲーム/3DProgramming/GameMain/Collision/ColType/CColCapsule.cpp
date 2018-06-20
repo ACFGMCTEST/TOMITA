@@ -5,10 +5,6 @@
 CColCapsule::CColCapsule() : mRadius(0.0f) {
 	mType = COL_CAPSULE;
 }
-/*当たり判定の設定*/
-CColCapsule::CColCapsule(bool flag) : CColCapsule(){
-	if(flag)CCollisionManager::GetInstance()->Add(this);//あたり判定追加
-}
 /*更新処理*/
 void CColCapsule::Update() {
 	if (mpCombinedMatrix) {
@@ -31,8 +27,9 @@ radius:半径
 pcombinedMatrix:連結させるフレームの合成行列
 */
 CColCapsule::CColCapsule(CTask *parent, CVector3 v0, CVector3 v1, float radius, CMatrix44 *pcombinedMatrix)
-: CColCapsule(true)
+: CColCapsule()
 {
+	CCollisionManager::GetInstance()->Add(this);//あたり判定追加
 	mpCombinedMatrix = pcombinedMatrix;
 	mV[0] = v0;
 	mV[1] = v1;

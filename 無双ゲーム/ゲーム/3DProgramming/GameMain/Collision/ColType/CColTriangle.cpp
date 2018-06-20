@@ -4,13 +4,10 @@
 int CColTriangle::mAllCount = 0;
 
 /*コンストラクタ newする*/
-CColTriangle::CColTriangle(bool addFlag) {
+CColTriangle::CColTriangle() {
 
 	mType = COL_TRIANGLE;
-	/*追加するフラグが立つと追加する*/
-	if (addFlag){
-		CCollisionManager::GetInstance()->Add(this);//あたり判定追加
-	}
+	
 }
 /*デストラクタ*/
 CColTriangle::~CColTriangle(){
@@ -20,8 +17,9 @@ CColTriangle::~CColTriangle(){
 
 /*コンストラクタ　頂点数代入*/
 CColTriangle::CColTriangle(const CVector3 &v0, const CVector3 &v1, const CVector3 &v2) :
-CColTriangle(true)
+CColTriangle()
 {
+	CCollisionManager::GetInstance()->Add(this);//あたり判定追加
 	mAllCount++;//カウントする
 	mNumber = mAllCount;//自分の生成番号決める
 	mPos = CVector3::TriangleCenter(v0, v1, v2);

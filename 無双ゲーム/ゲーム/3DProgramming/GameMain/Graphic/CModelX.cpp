@@ -981,14 +981,14 @@ CMaterial::CMaterial(CModelX *model)
 		model->GetToken(); // filename
 
 		/*テクスチャの場所指定ない場合*/
-		if (model->mFile.empty()) {
+		if (model->mTexDirectory.empty()) {
 			mpTextureFilename = new char[strlen(model->mToken) + 1];
 			strcpy(mpTextureFilename, model->mToken);
 		}
 		/*ある場合*/
 		else {
-			mpTextureFilename = new char[model->mFile.size() + strlen(model->mToken) + 1];
-			strcpy(mpTextureFilename, model->mFile.c_str());
+			mpTextureFilename = new char[model->mTexDirectory.size() + strlen(model->mToken) + 1];
+			strcpy(mpTextureFilename, model->mTexDirectory.c_str());
 			strcat(mpTextureFilename, model->mToken);
 		}
 
@@ -1362,6 +1362,7 @@ loop:true 繰り返す
 framesize：最後まで再生するのに使用されるフレーム数
 */
 void CModelXS::ChangeAnimation(int index, bool loop, float framesize) {
+	mAnimaFlag = true;
 	//同じ場合は切り替えない
 	if (mAnimationIndex == index){
 		return;
@@ -1387,27 +1388,30 @@ void CModelXS::Update(CMatrix44 &matrix) {
 	//	mpModel->mAnimationSet[mAnimationIndex]->mTime = mAnimationTime;
 	//	mpModel->mAnimationIndex = mAnimationIndex;
 	//}
-
-	//最後まで再生していない
-	if (mAnimationTime <= mpModel->mAnimationSet[mAnimationIndex]->mMaxTime) {
-		//時間を進める
-		mAnimationTime += mpModel->mAnimationSet[mAnimationIndex]->mMaxTime
-			/ mAnimationFrameSize;
-	}
-	else {
-		//繰り返しの場合は、時間を0に戻す
-		if (mAnimationLoopFlg) {
-			mAnimationTime = 0.0f;
+	/*アニメーションのフラグが立っていないときはしない*/
+	if (mAnimaFlag) {
+		//最後まで再生していない
+		if (mAnimationTime <= mpModel->mAnimationSet[mAnimationIndex]->mMaxTime) {
+			//時間を進める
+			mAnimationTime += mpModel->mAnimationSet[mAnimationIndex]->mMaxTime
+				/ mAnimationFrameSize;
 		}
-	}
+		else {
+			//繰り返しの場合は、時間を0に戻す
+			if (mAnimationLoopFlg) {
+				mAnimationTime = 0.0f;
+			}
+		}
 
-	for (int i = 0; i < mpModel->mAnimationSet.size(); i++)
-	{
-		mpModel->mAnimationSet[i]->mWeight = 0.0f;	
-	}
-	mpModel->mAnimationSet[mAnimationIndex]->mWeight = 1.0f;
-	mpModel->mAnimationSet[mAnimationIndex]->mTime = mAnimationTime;
 
+		for (int i = 0; i < mpModel->mAnimationSet.size(); i++)
+		{
+			mpModel->mAnimationSet[i]->mWeight = 0.0f;
+		}
+		mpModel->mAnimationSet[mAnimationIndex]->mWeight = 1.0f;
+		mpModel->mAnimationSet[mAnimationIndex]->mTime = mAnimationTime;
+		mAnimaFlag = false;
+	}
 	UpdateSkinMatrix(matrix);
 	/*
 	//フレームの変換行列をアニメーションで更新する

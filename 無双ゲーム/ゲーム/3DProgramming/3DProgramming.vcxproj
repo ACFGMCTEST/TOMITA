@@ -38,6 +38,7 @@
     <ClCompile Include="GameMain\Graphic\CRectangle.cpp" />
     <ClCompile Include="GameMain\Graphic\CRectangle2.cpp" />
     <ClCompile Include="GameMain\Graphic\CShader.cpp" />
+    <ClCompile Include="GameMain\Graphic\CTexture.cpp" />
     <ClCompile Include="GameMain\Graphic\CTriangle.cpp" />
     <ClCompile Include="GameMain\Graphic\CTriangle2.cpp" />
     <ClCompile Include="GameMain\Graphic\CTriangularPrism.cpp" />
@@ -108,6 +109,7 @@
     <ClInclude Include="GameMain\Collision\ColType\COBB.h" />
     <ClInclude Include="GameMain\Convenient\CConvenient.h" />
     <ClInclude Include="GameMain\Csv\CCsv.h" />
+    <ClInclude Include="GameMain\Graphic\BmpFormat.h" />
     <ClInclude Include="GameMain\Graphic\CBillBoard.h" />
     <ClInclude Include="GameMain\Graphic\CBox.h" />
     <ClInclude Include="GameMain\Graphic\CHpBar.h" />

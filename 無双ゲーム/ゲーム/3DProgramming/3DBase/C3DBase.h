@@ -13,7 +13,6 @@ public:
 	CMatrix44 mMatrix;//行列
 	CVector3 mPos;//位置
 	CVector3 mRot;//回転値
-	CVector3 mNormal;//法線
 	CVector3 mForward;//方向
 
 	C3DBase();

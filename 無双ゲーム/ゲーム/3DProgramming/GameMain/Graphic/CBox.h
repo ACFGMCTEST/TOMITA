@@ -33,20 +33,14 @@ public:
 	GLuint	mMyVertexBuffer;
 	
 	/*大きさ記憶用*/
-	float mSizeX1;
-	float mSizeX2;
-	float mSizeY1;
-	float mSizeY2;
-	float mSizeZ1;
-	float mSizeZ2;
-
+	float mSize;
 	/*頂点場所*/
 	enum E_VER{
 		E_x1, E_x2, E_z1, E_z2, E_y1, E_y2
 	};
 
 	//頂点データの設定 1のほうをマイナスで外側　1のほうをプラスで内側
-	void SetVertex(float x1, float x2, float y1, float y2, float z1, float z2);
+	void SetVertex(float size);
 	enum E_TexBox 
 	{
 		E_SKY_BOX,
@@ -86,16 +80,10 @@ public:
 	void RenderTop();
 
 	/*コンストラクタ*/
-	CBox() :mSizeX1(0.0f), mSizeX2(0.0f), mSizeY1(0.0f), mSizeY2(0.0f), mSizeZ1(0.0f), mSizeZ2(0.0f){
+	CBox() :mSize(0.0f){
 		for (int i = 0; i < 6; i++) mRect[i].SetDiffuse(1.0f, 1.0f, 0.0f, 1.0f);
 
 	}
-
-
-	/*大きさを変える関数
-	float Double は　倍率を入れる
-	*/
-	void SizeDouble(float Double);
 	
 
 	/*テクスチャ横スクロール関数*/

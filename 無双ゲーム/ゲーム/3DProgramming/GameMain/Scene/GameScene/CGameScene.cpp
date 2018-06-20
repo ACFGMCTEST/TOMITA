@@ -21,9 +21,9 @@ void CGameScene::Update() {
 	switch (eState)
 	{
 	case E_INIT:
+		CMap::GetInstance()->Init();
 		mSceneModel.Init();
 		MainCamera.Init();
-		CMap::GetInstance()->Init();
 		eState = E_MAIN;
 		break;
 		

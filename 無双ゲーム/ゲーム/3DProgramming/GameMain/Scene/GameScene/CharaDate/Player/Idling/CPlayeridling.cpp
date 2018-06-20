@@ -2,7 +2,7 @@
 #include "../CPlayer.h"
 
 /*アニメのスピード*/
-#define ANIMA_SPEED 60 * 4
+#define ANIMA_SPEED 60 * 2
 
 //変更する関数
 void CPlayerIdling::ChangeState(){

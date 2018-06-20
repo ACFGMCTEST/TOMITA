@@ -42,7 +42,7 @@ void reshape(GLFWwindow* window, int width, int height) {
 
 	glMatrixMode(GL_PROJECTION);		//行列をプロジェクションモードへ変更
 	glLoadIdentity();
-	gluPerspective(75.0, (double)width / (double)height, 1.0, 1000.0);
+	gluPerspective(75.0, (double)width / (double)height, 1.0, 2000.0);
 
 
 }

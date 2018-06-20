@@ -240,6 +240,15 @@ void CPlayer::ColGround() {
 
 /*更新処理*/
 void CPlayer::Update() {
+	/*デバック用*/
+	if (CKey::push('I')) {
+		mPosition.y += 2.0f;
+		mGravitTime = 0;//時間が経つ
+	}
+	if (CKey::push('O')) {
+		mGravitTime = 0;//時間が経つ
+	}
+
 	mAdjust = CVector3();
 	Gravity();/*重力*/
 	PosUpdate();//ポジションを更新
@@ -431,8 +440,8 @@ void CPlayer::Collision(CColSphere *youSphere, CColSphere *sphere) {
 
 /*カプセル内当たり判定*/
 void CPlayer::CapsuleCol(CColCapsule *cc, CColBase* y) {
-	CColTriangle ct(false);//三角形の当たり判定
-	CColCapsule  caps(false);//カプセルの当たり判定
+	CColTriangle ct;//三角形の当たり判定
+	CColCapsule  caps;//カプセルの当たり判定
 	/*相手のタイプ何か判断*/
 	switch (y->mType) {
 		/*相手が三角の場合*/
@@ -495,7 +504,7 @@ void CPlayer::SphereCol(CColSphere *sphere, CColBase *y) {
 //m 自分　y 相手
 bool CPlayer::Collision(CColBase* m, CColBase* y) {
 
-	CColCapsule cc(false);
+	CColCapsule cc;
 	CColSphere sph;
 	/*自分のタイプが何か判断*/
 	switch (m->mType) {

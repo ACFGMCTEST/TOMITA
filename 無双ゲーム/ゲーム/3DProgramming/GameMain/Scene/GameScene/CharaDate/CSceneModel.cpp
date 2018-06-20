@@ -65,6 +65,7 @@ CSceneModel::~CSceneModel(){
 /*プレイヤー追加処理*/
 void CSceneModel::PlayerAdd(){
 	/*プレイヤー*/
+	mModPlayer.TexDirectory(MODEL_FILE"SDUnity\\");
 	mModPlayer.Load(MODEL_FILE_UNITY);
 	/*アニメーション追加処理*/
 	for (int i = 0; i < CPlayer::E_STATE_ARRAY; i++)
@@ -117,6 +118,7 @@ void CSceneModel::SlimeAdd(){
 	/*コピー用*/
 	CModelX *temp = &mModSlime;
 	/*プレイヤー*/
+	temp->TexDirectory(MODEL_FILE"Slime\\");
 	temp->Load(MODEL_FILE_SLIME);
 	/*アニメーション追加処理*/
 	for (int i = 0; i < CSlime::E_STATE_ARRAY; i++)
@@ -161,7 +163,7 @@ void CSceneModel::SlimeAdd(){
 #define F_SLI_ATTACK			MODEL_FILE"Slime\\King\\Anima\\Attack.x"
 /*キングエネミー*/
 void CSceneModel::KingSlimeAdd() {
-	mModKingSlime.FileName(MODEL_FILE"Slime\\King\\");
+	mModKingSlime.TexDirectory(MODEL_FILE"Slime\\King\\");
 	mModKingSlime.Load(KING_MODEL_FILE_SLIME);
 	/*アニメーション追加処理*/
 	for (int i = 0; i < CSlime::E_STATE_ARRAY; i++)
@@ -186,9 +188,8 @@ void CSceneModel::KingSlimeAdd() {
 
 	CKingSlime *sl = new CKingSlime();
 	sl->Init(&mModKingSlime);
-	
-	sl->mPosition = sl->mPosition.Transeform(CMap::GetInstance()->mRespawn);
-	printf("%f,%f,%f", sl->mPosition.x, sl->mPosition.y, sl->mPosition.z);
+	sl->mPosition = sl->mPosition *   CMap::GetInstance()->mRespawn;
+	printf("%f,%f,%f,\n", sl->mPosition.x, sl->mPosition.y, sl->mPosition.z);
 	CTaskManager::GetInstance()->Add(sl);//タスクに追加
 }
 

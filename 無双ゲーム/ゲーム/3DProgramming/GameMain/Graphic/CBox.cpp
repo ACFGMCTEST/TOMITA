@@ -39,97 +39,67 @@ void SetMyVertex(CBoxVertex *myVer,int *i,CVector3 Ver ,CVector3 Normal){
 
 }
 
-void CBox::SetVertex(float x1, float x2, float y1, float y2, float z1, float z2) {
+void CBox::SetVertex(float size) {
 	//頂点インデックスを使わず、全ての面データを作成
 	CBoxVertex *myVertex;
 	//頂点数分頂点配列作成
 	myVertex = new CBoxVertex[BOX_VER_SIZE];
 	int VerNum = 0;
-	mSizeX1 = x1;
-	mSizeX2 = x2;
-	mSizeY1 = y1;
-	mSizeY2 = y2;
-	mSizeZ1 = z1;
-	mSizeZ2 = z2;
+	
 	CVector3 v0, v1, v2, v3;
 
 
 
 
 	//右
-	v0.x = x1; v0.y = y2; v0.z = z1;
-	v1.x = x1; v1.y = y1; v1.z = z1;
-	v2.x = x1; v2.y = y1; v2.z = z2;
-	v3.x = x1; v3.y = y2; v3.z = z2;
+	v0 = CVector3(-size, size, -size);
+	v1 = CVector3(-size, -size, -size);
+	v2 = CVector3(-size, -size, size);
+	v3 = CVector3(-size, size, size);
 	mRect[E_x1].SetVertex(v0, v1, v2, v3);
 	mRect[E_x1].SetNormal(BOX_NORMAL_X1);
 
-
-	SetMyVertex(myVertex, &VerNum, v0, mRect[E_x1].mNormal);
-	SetMyVertex(myVertex, &VerNum, v1, mRect[E_x1].mNormal);
-	SetMyVertex(myVertex, &VerNum, v2, mRect[E_x1].mNormal);
-	SetMyVertex(myVertex, &VerNum, v3, mRect[E_x1].mNormal);
 	//左
-	v0.x = x2; v0.y = y2; v0.z = z2;
-	v1.x = x2; v1.y = y1; v1.z = z2;
-	v2.x = x2; v2.y = y1; v2.z = z1;
-	v3.x = x2; v3.y = y2; v3.z = z1;
+	v0 = CVector3(size, size, size);
+	v1 = CVector3(size, -size, size);
+	v2 = CVector3(size, -size, -size);
+	v3 = CVector3(size, size, -size);
 	mRect[E_x2].SetVertex(v0, v1, v2, v3);
 	mRect[E_x2].SetNormal(BOX_NORMAL_X2);
 
-	SetMyVertex(myVertex, &VerNum, v0, mRect[E_x2].mNormal);
-	SetMyVertex(myVertex, &VerNum, v1, mRect[E_x2].mNormal);
-	SetMyVertex(myVertex, &VerNum, v2, mRect[E_x2].mNormal);
-	SetMyVertex(myVertex, &VerNum, v3, mRect[E_x2].mNormal);
-
-
 	//下
-	v0 = CVector3(x1, y1, z1);
-	v1 = CVector3(x2, y1, z1);
-	v2 = CVector3(x2, y1, z2);
-	v3 = CVector3(x1, y1, z2);
+	v0 = CVector3(size, -size, -size);
+	v1 = CVector3(size, -size, size);
+	v2 = CVector3(-size, -size,size);
+	v3 = CVector3(-size, -size, -size);
 	mRect[E_y1].SetVertex(v0, v1, v2, v3);
-	mRect[E_y1].SetNormal(BOX_NORMAL_Y2);
+	mRect[E_y1].SetNormal(BOX_NORMAL_Y1);
+	
 
 	//上
-	v0 = CVector3(x1, y2, z1);
-	v1 = CVector3(x1, y2, z2);
-	v2 = CVector3(x2, y2, z2);
-	v3 = CVector3(x2, y2, z1);
+	v0 = CVector3(-size, size, -size);
+	v1 = CVector3(-size, size, size);
+	v2 = CVector3(size, size,  size);
+	v3 = CVector3(size, size,  -size);
 	mRect[E_y2].SetVertex(v0, v1, v2, v3);
 	mRect[E_y2].SetNormal(BOX_NORMAL_Y2);
-
-
-	SetMyVertex(myVertex, &VerNum, v0, mRect[E_y2].mNormal);
-	SetMyVertex(myVertex, &VerNum, v1, mRect[E_y2].mNormal);
-	SetMyVertex(myVertex, &VerNum, v2, mRect[E_y2].mNormal);
-	SetMyVertex(myVertex, &VerNum, v3, mRect[E_y2].mNormal);
-
+	
 
 	//後ろ
-	v0.x = x2; v0.y = y2; v0.z = z1;
-	v1.x = x2; v1.y = y1; v1.z = z1;
-	v2.x = x1; v2.y = y1; v2.z = z1;
-	v3.x = x1; v3.y = y2; v3.z = z1;
+	v0 = CVector3(size,  size, -size);
+	v1 = CVector3(size,  -size, -size);
+	v2 = CVector3(-size, -size, -size);
+	v3 = CVector3(-size, size, -size);
 	mRect[E_z1].SetVertex(v0, v1, v2, v3);
 	mRect[E_z1].SetNormal(BOX_NORMAL_Z1);
 
-	SetMyVertex(myVertex, &VerNum, v0, mRect[E_z2].mNormal);
-	SetMyVertex(myVertex, &VerNum, v1, mRect[E_z2].mNormal);
-	SetMyVertex(myVertex, &VerNum, v2, mRect[E_z2].mNormal);
-	SetMyVertex(myVertex, &VerNum, v3, mRect[E_z2].mNormal);
-
 	//前
-	v0.x = x1; v0.y = y2; v0.z = z2;
-	v1.x = x1; v1.y = y1; v1.z = z2;
-	v2.x = x2; v2.y = y1; v2.z = z2;
-	v3.x = x2; v3.y = y2; v3.z = z2;
+	v0 = CVector3(-size, size,  size);
+	v1 = CVector3(-size, -size, size);
+	v2 = CVector3(size,  -size, size);
+	v3 = CVector3(size,  size,  size);
 	mRect[E_z2].SetVertex(v0, v1, v2, v3);
 	mRect[E_z2].SetNormal(BOX_NORMAL_Z2);
-	SetMyVertex(myVertex, &VerNum, v0, mRect[E_z2].mNormal);
-	SetMyVertex(myVertex, &VerNum, v1, mRect[E_z2].mNormal);
-	SetMyVertex(myVertex, &VerNum, v2, mRect[E_z2].mNormal);
-	SetMyVertex(myVertex, &VerNum, v3, mRect[E_z2].mNormal);
 }
 
 /*すべてのUVを同じに*/
@@ -154,11 +124,12 @@ void CBox::SetTex(E_TexBox eTexState){
 #define SIZE(i) 256 * i//ｓｕｋａｉボックス縦横比
 #define REVERSE(left,top,right,bottom) left,bottom,right,top
 	case E_TexBox::E_SKY_BOX:
-		mRect[E_y1].SetUv(CLoadTexManager::GetInstance()->mpSkyBox, SIZE(2), SIZE(1), SIZE(1), SIZE(0));
+		mRect[E_y1].SetUv(CLoadTexManager::GetInstance()->mpSkyBox, SIZE(2), SIZE(0), SIZE(1), SIZE(1));
 		mRect[E_y2].SetUv(CLoadTexManager::GetInstance()->mpSkyBox, SIZE(1), SIZE(2), SIZE(2), SIZE(3));
 
 		mRect[E_x1].SetUv(CLoadTexManager::GetInstance()->mpSkyBox, REVERSE( 0 , SIZE(1), SIZE(1), SIZE(2)));
 		mRect[E_z2].SetUv(CLoadTexManager::GetInstance()->mpSkyBox, REVERSE(SIZE(1), SIZE(1), SIZE(2), SIZE(2)));
+
 		mRect[E_x2].SetUv(CLoadTexManager::GetInstance()->mpSkyBox, REVERSE(SIZE(2), SIZE(1), SIZE(3), SIZE(2)));
 		mRect[E_z1].SetUv(CLoadTexManager::GetInstance()->mpSkyBox, REVERSE(SIZE(3), SIZE(1), SIZE(4), SIZE(2)));
 		
@@ -207,14 +178,6 @@ void CBox::RenderTop() {
 	//三角ポリゴンを描画する
 	mRect[E_y2].Render();
 	glPopMatrix();	//モデルビュー行列を退避した値に戻す
-}
-
-/*大きさを変える関数
-float Double は　倍率を入れる
-*/
-void CBox::SizeDouble(float Double){
-	SetVertex(mSizeX1*Double, mSizeX2*Double,mSizeY1 * Double, mSizeY2 * Double,mSizeZ1 * Double, mSizeZ2 * Double);
-
 }
 
 

@@ -20,22 +20,16 @@ CMap* CMap::GetInstance() {
 /*初期化処理*/
 void CMap::Init(){
 
-	mGround.LoadFile(F_MAP);
+	mGround.Load(F_MAP);
 	mGround.AddCollisionManager();
-
-#define SIZE_DOUB 4//スカイボックスのサイズ
-	float y1 = SIZE_DOUB * (mGround.mRight + mGround.mBottom) / 2;
-	float y2 =  -5.0f* SIZE_DOUB;
-	mSkyBox.SetVertex
-	(
-		mGround.mRight * SIZE_DOUB, mGround.mLeft * SIZE_DOUB,
-		y1,y2,
-		mGround.mBottom * SIZE_DOUB, mGround.mTop * SIZE_DOUB
-	);
-	mSkyBox.SetTex(CBox::E_TexBox::E_SKY_BOX);
-	mGroundX.FileName(MODEL_FILE"Ground\\");
+	/*空設定*/
+	mSky.TexDirectory(MODEL_FILE"Sky\\");
+	mSky.Load(MODEL_FILE"Sky\\sky.obj");
+	/*地形設定*/
+	mGroundX.TexDirectory(MODEL_FILE"Ground\\");
 	mGroundX.NoAnimaLoad(MODEL_FILE"Ground\\Map.x");
 	mRespawn = mGroundX.FindFrame("Armature")->mCombinedMatrix;
+	
 };
 /*更新処理*/
 void CMap::Update(){
@@ -44,6 +38,9 @@ void CMap::Update(){
 /*描画処理*/
 void CMap::Render(){
 	//mGround.Render();
-	mSkyBox.Render();
+
+	glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);//色は置き換えてマッピング
+	mSky.Render();
 	mGroundX.Render();
+
 };

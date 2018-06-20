@@ -15,7 +15,7 @@
 #define CHARA_ARRAY 3
 /*キャラステータス*/
 /*進むスピード*/
-#define SPEED_RUN 0.2f //MAX走る
+#define SPEED_RUN 0.4f //MAX走る
 #define SPEED_RUN_ACC(v) if (SPEED_RUN > v){v += SPEED_RUN* 0.1f; }else{v = SPEED_RUN;}//加速度計算上限に来た場合
 
 /*攻撃力*/

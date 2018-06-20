@@ -13,7 +13,7 @@ private:
 	CMatrix44 m44;//仮のもの
 	CModelX mGroundX;//Xファイル描画用
 	CModelObj mGround;//Objファイル
-	CBox mSkyBox;//背景
+	CModelObj mSky;//背景
 	
 public:
 	CMatrix44 mRespawn;//リスポーンする行列
