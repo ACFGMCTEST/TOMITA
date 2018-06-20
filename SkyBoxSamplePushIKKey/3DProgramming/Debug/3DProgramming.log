@@ -1,0 +1,104 @@
+﻿2018/06/17 19:53:00 にビルドを開始しました。
+     1>ノード 2 上のプロジェクト "C:\Users\Game\Desktop\2018GitTest\TOMITA\SkyBoxSamplePushIKKey\3DProgramming\3DProgramming.vcxproj" (Rebuild ターゲット)。
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHa /RTC1 /MDd /GS- /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt CCamera.cpp CCollision.cpp CFPS.cpp CImage.cpp CKey.cpp CLight.cpp CMatrix.cpp CModelObj.cpp CModelSX.cpp CModelX.cpp CShader.cpp CTexture.cpp CXLoader.cpp CXModelLoader.cpp CXSModelLoader.cpp main.cpp
+     1>cl : コマンド ライン warning D9025: '/sdl' より '/GS-' が優先されます。
+         main.cpp
+         CXSModelLoader.cpp
+     1>c:\users\game\desktop\2018gittest\tomita\skyboxsamplepushikkey\3dprogramming\cxsmodelloader.cpp(25): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+         CXModelLoader.cpp
+     1>c:\users\game\desktop\2018gittest\tomita\skyboxsamplepushikkey\3dprogramming\cxmodelloader.cpp(142): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(230) : 'fscanf' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\skyboxsamplepushikkey\3dprogramming\cxmodelloader.cpp(370): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(230) : 'fscanf' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\skyboxsamplepushikkey\3dprogramming\cxmodelloader.cpp(531): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+         CXLoader.cpp
+     1>c:\users\game\desktop\2018gittest\tomita\skyboxsamplepushikkey\3dprogramming\cxloader.cpp(33): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(304) : 'sscanf' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\skyboxsamplepushikkey\3dprogramming\cxloader.cpp(41): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+         CTexture.cpp
+     1>c:\users\game\desktop\2018gittest\tomita\skyboxsamplepushikkey\3dprogramming\ctexture.cpp(22): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\skyboxsamplepushikkey\3dprogramming\ctexture.cpp(82): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\skyboxsamplepushikkey\3dprogramming\ctexture.cpp(150): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+         CShader.cpp
+     1>c:\users\game\desktop\2018gittest\tomita\skyboxsamplepushikkey\3dprogramming\cshader.cpp(14): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+         CModelX.cpp
+         CModelSX.cpp
+         CModelObj.cpp
+     1>c:\users\game\desktop\2018gittest\tomita\skyboxsamplepushikkey\3dprogramming\cmodelobj.cpp(29): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\skyboxsamplepushikkey\3dprogramming\cmodelobj.cpp(36): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(230) : 'fscanf' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\skyboxsamplepushikkey\3dprogramming\cmodelobj.cpp(39): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(230) : 'fscanf' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\skyboxsamplepushikkey\3dprogramming\cmodelobj.cpp(43): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(230) : 'fscanf' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\skyboxsamplepushikkey\3dprogramming\cmodelobj.cpp(47): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(230) : 'fscanf' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\skyboxsamplepushikkey\3dprogramming\cmodelobj.cpp(51): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(230) : 'fscanf' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\skyboxsamplepushikkey\3dprogramming\cmodelobj.cpp(55): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(230) : 'fscanf' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\skyboxsamplepushikkey\3dprogramming\cmodelobj.cpp(62): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(230) : 'fscanf' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\skyboxsamplepushikkey\3dprogramming\cmodelobj.cpp(66): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(230) : 'fscanf' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\skyboxsamplepushikkey\3dprogramming\cmodelobj.cpp(79): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\skyboxsamplepushikkey\3dprogramming\cmodelobj.cpp(100): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(230) : 'fscanf' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\skyboxsamplepushikkey\3dprogramming\cmodelobj.cpp(120): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(230) : 'fscanf' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\skyboxsamplepushikkey\3dprogramming\cmodelobj.cpp(153): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(230) : 'fscanf' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\skyboxsamplepushikkey\3dprogramming\cmodelobj.cpp(156): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(230) : 'fscanf' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\skyboxsamplepushikkey\3dprogramming\cmodelobj.cpp(161): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(230) : 'fscanf' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\skyboxsamplepushikkey\3dprogramming\cmodelobj.cpp(166): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(230) : 'fscanf' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\skyboxsamplepushikkey\3dprogramming\cmodelobj.cpp(176): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(230) : 'fscanf' の宣言を確認してください。
+     1>c:\users\game\desktop\2018gittest\tomita\skyboxsamplepushikkey\3dprogramming\cmodelobj.cpp(190): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(230) : 'fscanf' の宣言を確認してください。
+         CMatrix.cpp
+         CLight.cpp
+         CKey.cpp
+     1>c:\users\game\desktop\2018gittest\tomita\skyboxsamplepushikkey\3dprogramming\ckey.h(34): warning C4800: 'unsigned long' : ブール値を 'true' または 'false' に強制的に設定します (警告の処理)
+         CImage.cpp
+         CFPS.cpp
+     1>c:\users\game\desktop\2018gittest\tomita\skyboxsamplepushikkey\3dprogramming\cfps.cpp(33): warning C4244: '=' : 'LONGLONG' から 'int' への変換です。データが失われる可能性があります。
+         CCollision.cpp
+         CCamera.cpp
+     1>c:\users\game\desktop\2018gittest\tomita\skyboxsamplepushikkey\3dprogramming\ccamera.cpp(52): warning C4244: '引数' : 'double' から 'float' への変換です。データが失われる可能性があります。
+         コードを生成中...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Game\Desktop\2018GitTest\TOMITA\SkyBoxSamplePushIKKey\Debug\3DProgramming.exe" /INCREMENTAL /NOLOGO glew32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST:NO /DEBUG /PDB:"C:\Users\Game\Desktop\2018GitTest\TOMITA\SkyBoxSamplePushIKKey\Debug\3DProgramming.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Game\Desktop\2018GitTest\TOMITA\SkyBoxSamplePushIKKey\Debug\3DProgramming.lib" /MACHINE:X86 Debug\CCamera.obj
+         Debug\CCollision.obj
+         Debug\CFPS.obj
+         Debug\CImage.obj
+         Debug\CKey.obj
+         Debug\CLight.obj
+         Debug\CMatrix.obj
+         Debug\CModelObj.obj
+         Debug\CModelSX.obj
+         Debug\CModelX.obj
+         Debug\CShader.obj
+         Debug\CTexture.obj
+         Debug\CXLoader.obj
+         Debug\CXModelLoader.obj
+         Debug\CXSModelLoader.obj
+         Debug\main.obj
+         3DProgramming.vcxproj -> C:\Users\Game\Desktop\2018GitTest\TOMITA\SkyBoxSamplePushIKKey\Debug\3DProgramming.exe
+     1>プロジェクト "C:\Users\Game\Desktop\2018GitTest\TOMITA\SkyBoxSamplePushIKKey\3DProgramming\3DProgramming.vcxproj" (Rebuild ターゲット) のビルドが完了しました。
+
+ビルドに成功しました。
+
+経過時間 00:00:12.36
