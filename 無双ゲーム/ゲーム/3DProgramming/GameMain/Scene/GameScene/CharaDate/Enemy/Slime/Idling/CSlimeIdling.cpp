@@ -10,12 +10,12 @@ void CSlimeIdling::ChangeState(){
 
 	/*動くフラグがたてば*/
 	if ( sli->Search()){
-		mNextRegisterName = SLI_STATE_RUN;//走る
+		mNextRegisterName = F_SLI_RUN;//走る
 	}
 
 	/*ダメージを受けているなら*/
 	if (sli->mFlagDamage) {
-		mNextRegisterName = SLI_STATE_DAMAGE;//ダメージ
+		mNextRegisterName = F_SLI_DAMAGE;//ダメージ
 	}
 	//名前が入ればフラグを立てる
 	if (!mNextRegisterName.empty()) mFlagNext = true;//文字が入れば
@@ -33,8 +33,8 @@ void CSlimeIdling::Start(){
 void CSlimeIdling::Update(){
 	CSlime *sli = dynamic_cast<CSlime*>(mpParent);
 	/*アイドリングの処理*/
-	sli->ChangeAnimation(CSlime::E_IDLING, true, ANIMA_SPEED);
-	sli->State(SLI_STATE_IDLING);
+	sli->ChangeAnimation(F_SLI_IDLING,F_SLI_KING_IDLING, true, ANIMA_SPEED);
+	sli->State(F_SLI_IDLING);
 
 }
 

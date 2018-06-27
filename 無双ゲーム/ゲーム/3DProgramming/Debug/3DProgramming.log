@@ -1,13 +1,19 @@
 ﻿cl : コマンド ライン warning D9025: '/sdl' より '/GS-' が優先されます。
+  CStateMachine.cpp
+  CStateBase.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
   main.cpp
 c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
           c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
 c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
           c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83) : 'BACK_POS' の前の定義を確認してください
-c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\ctexture.h(94): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-          c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 'fopen' の宣言を確認してください。
-c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\ctexture.h(101): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-          c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : 'strcpy' の宣言を確認してください。
+  CLight.cpp
+  CVector4.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\vector\cvector4.cpp(86): warning C4244: '引数' : 'double' から 'float' への変換です。データが失われる可能性があります。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\vector\cvector4.cpp(90): warning C4244: '引数' : 'double' から 'float' への変換です。データが失われる可能性があります。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\vector\cvector4.cpp(109): warning C4244: '引数' : 'int' から 'float' への変換です。データが失われる可能性があります。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\vector\cvector4.cpp(110): warning C4244: '引数' : 'int' から 'float' への変換です。データが失われる可能性があります。
   CVector3.cpp
 c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
           c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
@@ -15,32 +21,72 @@ c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamema
 c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\vector\cvector3.cpp(101): warning C4244: '引数' : 'double' から 'float' への変換です。データが失われる可能性があります。
 c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\vector\cvector3.cpp(120): warning C4244: '引数' : 'int' から 'float' への変換です。データが失われる可能性があります。
 c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\vector\cvector3.cpp(121): warning C4244: '引数' : 'int' から 'float' への変換です。データが失われる可能性があります。
-  CMap.cpp
-c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\ctexture.h(94): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-          c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 'fopen' の宣言を確認してください。
-c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\ctexture.h(101): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-          c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : 'strcpy' の宣言を確認してください。
-c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(102): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(226): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(316): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(321): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(326): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+  CVector2.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\vector\cvector2.cpp(67): warning C4244: '=' : 'double' から 'float' への変換です。データが失われる可能性があります。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\vector\cvector2.cpp(69): warning C4244: 'return' : 'double' から 'float' への変換です。データが失われる可能性があります。
+  CTaskManager.cpp
 c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
           c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
-c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(113): warning C4005: 'MODEL_FILE' : マクロが再定義されました。
-          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(8) : 'MODEL_FILE' の前の定義を確認してください
+  CTask.cpp
+  CSound.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\sound\csound.cpp(25): warning C4244: '=' : 'double' から 'float' への変換です。データが失われる可能性があります。
+  CTitleScene.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
 c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
           c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83) : 'BACK_POS' の前の定義を確認してください
-  CPlayerJump.cpp
-c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\ctexture.h(94): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-          c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 'fopen' の宣言を確認してください。
-c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\ctexture.h(101): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-          c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : 'strcpy' の宣言を確認してください。
+  CTitle.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83) : 'BACK_POS' の前の定義を確認してください
+c:\program files (x86)\windows kits\8.1\include\shared\minwindef.h(130): warning C4005: 'APIENTRY' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\include\glfw\glfw3.h(98) : 'APIENTRY' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\titlescene\ctitle.cpp(17): warning C4005: 'CURSOR_SIZE' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\crectangle2.h(16) : 'CURSOR_SIZE' の前の定義を確認してください
+  CQuestScene.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83) : 'BACK_POS' の前の定義を確認してください
+  CQuest.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83) : 'BACK_POS' の前の定義を確認してください
+  CItemScene.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83) : 'BACK_POS' の前の定義を確認してください
+  CItem.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\itemscene\citem.cpp(9): warning C4005: 'DISP_2D_Y' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(72) : 'DISP_2D_Y' の前の定義を確認してください
+  CHomeScene.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83) : 'BACK_POS' の前の定義を確認してください
+  CHome.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83) : 'BACK_POS' の前の定義を確認してください
+  CTutorial.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\tutorial\ctutorial.cpp(17): warning C4005: 'TEX_SIZE' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\tutorial\ctutorial.cpp(16) : 'TEX_SIZE' の前の定義を確認してください
+  CResult.cpp
 c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(102): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
 c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(226): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(316): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(321): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(326): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(317): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(322): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(327): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
 c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
           c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
 c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(113): warning C4005: 'MODEL_FILE' : マクロが再定義されました。
@@ -48,16 +94,356 @@ c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define
 c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\effect\ceffect2d.h(33): warning C4584: 'CEffect2D' : 基底クラス 'CTask' は既に 'CRectangle' の基底クラスです。
           c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\task\ctask.h(13) : 'CTask' の宣言を確認してください。
           c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\crectangle.h(10) : 'CRectangle' の宣言を確認してください。
-  CSceneModel.cpp
-c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\ctexture.h(94): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-          c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 'fopen' の宣言を確認してください。
-c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\ctexture.h(101): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-          c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : 'strcpy' の宣言を確認してください。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\result\cresult.cpp(5): warning C4005: 'BG_SIZE' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\crectangle2.h(15) : 'BG_SIZE' の前の定義を確認してください
+  コードを生成中...
+  コンパイル中...
+  CPause.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\pause\cpause.cpp(16): warning C4005: 'BG_SIZE' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\crectangle2.h(15) : 'BG_SIZE' の前の定義を確認してください
+  CMap.cpp
 c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(102): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
 c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(226): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(316): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(321): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(326): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(317): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(322): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(327): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(113): warning C4005: 'MODEL_FILE' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(8) : 'MODEL_FILE' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83) : 'BACK_POS' の前の定義を確認してください
+  CExplosion.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\effect\ceffect2d.h(33): warning C4584: 'CEffect2D' : 基底クラス 'CTask' は既に 'CRectangle' の基底クラスです。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\task\ctask.h(13) : 'CTask' の宣言を確認してください。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\crectangle.h(10) : 'CRectangle' の宣言を確認してください。
+  CEffect2D.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\effect\ceffect2d.h(33): warning C4584: 'CEffect2D' : 基底クラス 'CTask' は既に 'CRectangle' の基底クラスです。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\task\ctask.h(13) : 'CTask' の宣言を確認してください。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\crectangle.h(10) : 'CRectangle' の宣言を確認してください。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83) : 'BACK_POS' の前の定義を確認してください
+  CPlayerRun.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(102): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(226): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(317): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(322): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(327): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(113): warning C4005: 'MODEL_FILE' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(8) : 'MODEL_FILE' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\effect\ceffect2d.h(33): warning C4584: 'CEffect2D' : 基底クラス 'CTask' は既に 'CRectangle' の基底クラスです。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\task\ctask.h(13) : 'CTask' の宣言を確認してください。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\crectangle.h(10) : 'CRectangle' の宣言を確認してください。
+  CPlayerRunAttack.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(102): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(226): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(317): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(322): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(327): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(113): warning C4005: 'MODEL_FILE' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(8) : 'MODEL_FILE' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\effect\ceffect2d.h(33): warning C4584: 'CEffect2D' : 基底クラス 'CTask' は既に 'CRectangle' の基底クラスです。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\task\ctask.h(13) : 'CTask' の宣言を確認してください。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\crectangle.h(10) : 'CRectangle' の宣言を確認してください。
+  CPlayerJump.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(102): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(226): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(317): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(322): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(327): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(113): warning C4005: 'MODEL_FILE' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(8) : 'MODEL_FILE' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\effect\ceffect2d.h(33): warning C4584: 'CEffect2D' : 基底クラス 'CTask' は既に 'CRectangle' の基底クラスです。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\task\ctask.h(13) : 'CTask' の宣言を確認してください。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\crectangle.h(10) : 'CRectangle' の宣言を確認してください。
+  CPlayeridling.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(102): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(226): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(317): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(322): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(327): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(113): warning C4005: 'MODEL_FILE' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(8) : 'MODEL_FILE' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\effect\ceffect2d.h(33): warning C4584: 'CEffect2D' : 基底クラス 'CTask' は既に 'CRectangle' の基底クラスです。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\task\ctask.h(13) : 'CTask' の宣言を確認してください。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\crectangle.h(10) : 'CRectangle' の宣言を確認してください。
+  CPlayerDied.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(102): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(226): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(317): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(322): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(327): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(113): warning C4005: 'MODEL_FILE' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(8) : 'MODEL_FILE' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\effect\ceffect2d.h(33): warning C4584: 'CEffect2D' : 基底クラス 'CTask' は既に 'CRectangle' の基底クラスです。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\task\ctask.h(13) : 'CTask' の宣言を確認してください。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\crectangle.h(10) : 'CRectangle' の宣言を確認してください。
+  CPlayerDamage.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(102): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(226): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(317): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(322): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(327): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(113): warning C4005: 'MODEL_FILE' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(8) : 'MODEL_FILE' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\effect\ceffect2d.h(33): warning C4584: 'CEffect2D' : 基底クラス 'CTask' は既に 'CRectangle' の基底クラスです。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\task\ctask.h(13) : 'CTask' の宣言を確認してください。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\crectangle.h(10) : 'CRectangle' の宣言を確認してください。
+  CPlayer.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(102): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(226): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(317): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(322): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(327): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(113): warning C4005: 'MODEL_FILE' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(8) : 'MODEL_FILE' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\effect\ceffect2d.h(33): warning C4584: 'CEffect2D' : 基底クラス 'CTask' は既に 'CRectangle' の基底クラスです。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\task\ctask.h(13) : 'CTask' の宣言を確認してください。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\crectangle.h(10) : 'CRectangle' の宣言を確認してください。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\itemscene\citem.h(11): warning C4005: 'TIP_ARRAY' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\effect\ceffect2d.h(6) : 'TIP_ARRAY' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\player\cplayer.cpp(26): warning C4005: 'COL_RADIUS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\player\cplayer.h(48) : 'COL_RADIUS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\player\cplayer.cpp(27): warning C4005: 'COL_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\player\cplayer.h(49) : 'COL_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\player\cplayer.cpp(39): warning C4005: 'EFF_SIZE' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\effect\ceffect2d.h(12) : 'EFF_SIZE' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\player\cplayer.cpp(100): warning C4002: マクロ 'RECT_SIZE' に指定された実引数の数が多すぎます。
+  CPlayerAvoid.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(102): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(226): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(317): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(322): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(327): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(113): warning C4005: 'MODEL_FILE' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(8) : 'MODEL_FILE' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\effect\ceffect2d.h(33): warning C4584: 'CEffect2D' : 基底クラス 'CTask' は既に 'CRectangle' の基底クラスです。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\task\ctask.h(13) : 'CTask' の宣言を確認してください。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\crectangle.h(10) : 'CRectangle' の宣言を確認してください。
+  CPlayerAttack.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(102): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(226): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(317): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(322): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(327): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(113): warning C4005: 'MODEL_FILE' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(8) : 'MODEL_FILE' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\effect\ceffect2d.h(33): warning C4584: 'CEffect2D' : 基底クラス 'CTask' は既に 'CRectangle' の基底クラスです。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\task\ctask.h(13) : 'CTask' の宣言を確認してください。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\crectangle.h(10) : 'CRectangle' の宣言を確認してください。
+  CSlimeRun.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(102): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(226): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(317): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(322): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(327): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(113): warning C4005: 'MODEL_FILE' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(8) : 'MODEL_FILE' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\effect\ceffect2d.h(33): warning C4584: 'CEffect2D' : 基底クラス 'CTask' は既に 'CRectangle' の基底クラスです。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\task\ctask.h(13) : 'CTask' の宣言を確認してください。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\crectangle.h(10) : 'CRectangle' の宣言を確認してください。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\enemy\slime\run\cslimerun.cpp(4): warning C4005: 'SPEED_RUN' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\player\cplayer.h(18) : 'SPEED_RUN' の前の定義を確認してください
+  CKingSlimeRun.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(102): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(226): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(317): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(322): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(327): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(113): warning C4005: 'MODEL_FILE' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(8) : 'MODEL_FILE' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\effect\ceffect2d.h(33): warning C4584: 'CEffect2D' : 基底クラス 'CTask' は既に 'CRectangle' の基底クラスです。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\task\ctask.h(13) : 'CTask' の宣言を確認してください。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\crectangle.h(10) : 'CRectangle' の宣言を確認してください。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83) : 'BACK_POS' の前の定義を確認してください
+  CKingSlimeJump.cpp
+  CKingSlimeIdling.cpp
+  CKingSlimeDamage.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(102): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(226): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(317): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(322): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(327): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(113): warning C4005: 'MODEL_FILE' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(8) : 'MODEL_FILE' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\effect\ceffect2d.h(33): warning C4584: 'CEffect2D' : 基底クラス 'CTask' は既に 'CRectangle' の基底クラスです。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\task\ctask.h(13) : 'CTask' の宣言を確認してください。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\crectangle.h(10) : 'CRectangle' の宣言を確認してください。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83) : 'BACK_POS' の前の定義を確認してください
+  CKingSlime.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(102): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(226): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(317): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(322): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(327): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(113): warning C4005: 'MODEL_FILE' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(8) : 'MODEL_FILE' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\effect\ceffect2d.h(33): warning C4584: 'CEffect2D' : 基底クラス 'CTask' は既に 'CRectangle' の基底クラスです。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\task\ctask.h(13) : 'CTask' の宣言を確認してください。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\crectangle.h(10) : 'CRectangle' の宣言を確認してください。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\enemy\slime\king\ckingslime.cpp(10): warning C4005: 'COL_RADIUS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\player\cplayer.h(48) : 'COL_RADIUS' の前の定義を確認してください
+  CKingSlimeAttack.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(102): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(226): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(317): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(322): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(327): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(113): warning C4005: 'MODEL_FILE' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(8) : 'MODEL_FILE' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\effect\ceffect2d.h(33): warning C4584: 'CEffect2D' : 基底クラス 'CTask' は既に 'CRectangle' の基底クラスです。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\task\ctask.h(13) : 'CTask' の宣言を確認してください。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\crectangle.h(10) : 'CRectangle' の宣言を確認してください。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83) : 'BACK_POS' の前の定義を確認してください
+  コードを生成中...
+  コンパイル中...
+  CSlimeJump.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(102): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(226): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(317): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(322): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(327): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(113): warning C4005: 'MODEL_FILE' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(8) : 'MODEL_FILE' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\effect\ceffect2d.h(33): warning C4584: 'CEffect2D' : 基底クラス 'CTask' は既に 'CRectangle' の基底クラスです。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\task\ctask.h(13) : 'CTask' の宣言を確認してください。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\crectangle.h(10) : 'CRectangle' の宣言を確認してください。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83) : 'BACK_POS' の前の定義を確認してください
+  CSlimeIdling.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(102): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(226): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(317): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(322): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(327): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(113): warning C4005: 'MODEL_FILE' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(8) : 'MODEL_FILE' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\effect\ceffect2d.h(33): warning C4584: 'CEffect2D' : 基底クラス 'CTask' は既に 'CRectangle' の基底クラスです。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\task\ctask.h(13) : 'CTask' の宣言を確認してください。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\crectangle.h(10) : 'CRectangle' の宣言を確認してください。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83) : 'BACK_POS' の前の定義を確認してください
+  CSlimeDamage.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(102): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(226): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(317): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(322): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(327): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(113): warning C4005: 'MODEL_FILE' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(8) : 'MODEL_FILE' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\effect\ceffect2d.h(33): warning C4584: 'CEffect2D' : 基底クラス 'CTask' は既に 'CRectangle' の基底クラスです。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\task\ctask.h(13) : 'CTask' の宣言を確認してください。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\crectangle.h(10) : 'CRectangle' の宣言を確認してください。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83) : 'BACK_POS' の前の定義を確認してください
+  CSlime.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(102): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(226): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(317): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(322): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(327): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(113): warning C4005: 'MODEL_FILE' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(8) : 'MODEL_FILE' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\effect\ceffect2d.h(33): warning C4584: 'CEffect2D' : 基底クラス 'CTask' は既に 'CRectangle' の基底クラスです。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\task\ctask.h(13) : 'CTask' の宣言を確認してください。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\crectangle.h(10) : 'CRectangle' の宣言を確認してください。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\enemy\slime\cslime.cpp(38): warning C4005: 'ATTACK_POWER' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\player\cplayer.h(22) : 'ATTACK_POWER' の前の定義を確認してください
+  CSlimeAttack.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(102): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(226): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(317): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(322): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(327): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(113): warning C4005: 'MODEL_FILE' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(8) : 'MODEL_FILE' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\effect\ceffect2d.h(33): warning C4584: 'CEffect2D' : 基底クラス 'CTask' は既に 'CRectangle' の基底クラスです。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\task\ctask.h(13) : 'CTask' の宣言を確認してください。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\crectangle.h(10) : 'CRectangle' の宣言を確認してください。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83) : 'BACK_POS' の前の定義を確認してください
+  CEnemyBase.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(102): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(226): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(317): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(322): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(327): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(113): warning C4005: 'MODEL_FILE' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(8) : 'MODEL_FILE' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\effect\ceffect2d.h(33): warning C4584: 'CEffect2D' : 基底クラス 'CTask' は既に 'CRectangle' の基底クラスです。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\task\ctask.h(13) : 'CTask' の宣言を確認してください。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\crectangle.h(10) : 'CRectangle' の宣言を確認してください。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83) : 'BACK_POS' の前の定義を確認してください
+  CSceneModel.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(102): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(226): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(317): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(322): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(327): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
 c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
           c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
 c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(113): warning C4005: 'MODEL_FILE' : マクロが再定義されました。
@@ -71,24 +457,12 @@ c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamema
           c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(100) : 'ANGLE_5' の前の定義を確認してください
 c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\cscenemodel.cpp(29): warning C4005: 'ANGLE_180' : マクロが再定義されました。
           c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(95) : 'ANGLE_180' の前の定義を確認してください
-c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\cscenemodel.cpp(158): warning C4005: 'F_SLI_IDLING' : マクロが再定義されました。
-          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\cscenemodel.cpp(111) : 'F_SLI_IDLING' の前の定義を確認してください
-c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\cscenemodel.cpp(159): warning C4005: 'F_SLI_RUN' : マクロが再定義されました。
-          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\cscenemodel.cpp(112) : 'F_SLI_RUN' の前の定義を確認してください
-c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\cscenemodel.cpp(160): warning C4005: 'F_SLI_DAMAGE' : マクロが再定義されました。
-          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\cscenemodel.cpp(113) : 'F_SLI_DAMAGE' の前の定義を確認してください
-c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\cscenemodel.cpp(161): warning C4005: 'F_SLI_ATTACK' : マクロが再定義されました。
-          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\cscenemodel.cpp(114) : 'F_SLI_ATTACK' の前の定義を確認してください
   CGameScene.cpp
-c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\ctexture.h(94): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-          c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 'fopen' の宣言を確認してください。
-c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\ctexture.h(101): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-          c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : 'strcpy' の宣言を確認してください。
 c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(102): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
 c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(226): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(316): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(321): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(326): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(317): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(322): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(327): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
 c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
           c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
 c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(113): warning C4005: 'MODEL_FILE' : マクロが再定義されました。
@@ -98,18 +472,12 @@ c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamema
           c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\crectangle.h(10) : 'CRectangle' の宣言を確認してください。
 c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
           c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83) : 'BACK_POS' の前の定義を確認してください
-  コードを生成中...
-  コンパイル中...
-  CPlayer.cpp
-c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\ctexture.h(94): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-          c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 'fopen' の宣言を確認してください。
-c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\ctexture.h(101): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-          c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : 'strcpy' の宣言を確認してください。
+  CSceneManager.cpp
 c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(102): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
 c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(226): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(316): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(321): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(326): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(317): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(322): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(327): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
 c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
           c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
 c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(113): warning C4005: 'MODEL_FILE' : マクロが再定義されました。
@@ -121,48 +489,242 @@ c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define
           c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83) : 'BACK_POS' の前の定義を確認してください
 c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\itemscene\citem.h(11): warning C4005: 'TIP_ARRAY' : マクロが再定義されました。
           c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\effect\ceffect2d.h(6) : 'TIP_ARRAY' の前の定義を確認してください
-c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\player\cplayer.cpp(46): warning C4005: 'EFF_SIZE' : マクロが再定義されました。
-          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\effect\ceffect2d.h(12) : 'EFF_SIZE' の前の定義を確認してください
-c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\player\cplayer.cpp(105): warning C4002: マクロ 'RECT_SIZE' に指定された実引数の数が多すぎます。
-  コードを生成中...
-  スキップ中... (関連する変更は検出されませんでした)
-  CLight.cpp
-  CVector4.cpp
-  CTutorial.cpp
-  CExplosion.cpp
-  CEffect2D.cpp
-  CPlayerRun.cpp
-  CPlayerRunAttack.cpp
-  CPlayeridling.cpp
-  CPlayerDamage.cpp
-  CPlayerAvoid.cpp
-  CPlayerAttack.cpp
-  CSlimeRun.cpp
-  CKingSlime.cpp
-  CSlimeJump.cpp
-  CSlimeIdling.cpp
-  CSlimeDamage.cpp
-  CSlime.cpp
-  CSlimeAttack.cpp
-  CEnemyBase.cpp
-  CGameOverScene.cpp
-  CGameOver.cpp
-  CSceneManager.cpp
+  CScene.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
   CMatrix44.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\matrix\cmatrix44.cpp(29): warning C4244: '初期化中' : 'double' から 'float' への変換です。データが失われる可能性があります。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\matrix\cmatrix44.cpp(43): warning C4244: '初期化中' : 'double' から 'float' への変換です。データが失われる可能性があります。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\matrix\cmatrix44.cpp(56): warning C4244: '初期化中' : 'double' から 'float' への変換です。データが失われる可能性があります。
+  CMouse.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
+c:\program files (x86)\windows kits\8.1\include\shared\minwindef.h(130): warning C4005: 'APIENTRY' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\include\glfw\glfw3.h(98) : 'APIENTRY' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\key\cmouse.cpp(8): warning C4005: 'RECT_SIZE' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\crectangle2.h(14) : 'RECT_SIZE' の前の定義を確認してください
+  CKey.cpp
+  CInput.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
   CTriangularPrism.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(8): warning C4005: 'MODEL_FILE' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(113) : 'MODEL_FILE' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(102): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(226): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(317): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(322): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(327): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(113): warning C4005: 'MODEL_FILE' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(8) : 'MODEL_FILE' の前の定義を確認してください
+  CTriangle2.cpp
   CTriangle.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83) : 'BACK_POS' の前の定義を確認してください
+  CTexture.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\ctexture.cpp(23): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\ctexture.cpp(85): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\ctexture.cpp(142): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\ctexture.cpp(149): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : 'strcpy' の宣言を確認してください。
+  CShader.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cshader.cpp(14): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+  CRectangle2.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83) : 'BACK_POS' の前の定義を確認してください
+  コードを生成中...
+  コンパイル中...
   CRectangle.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83) : 'BACK_POS' の前の定義を確認してください
   CModelX.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(102): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(226): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(317): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(322): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(327): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(29): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(101): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(273): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(290): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(295): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(303): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(308): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(361): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(365): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(381): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(467): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(490): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : 'strcpy' の宣言を確認してください。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(571): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(813): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(842): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(890): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(905): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(959): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : 'strcpy' の宣言を確認してください。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(987): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : 'strcpy' の宣言を確認してください。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(992): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : 'strcpy' の宣言を確認してください。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(993): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(118) : 'strcat' の宣言を確認してください。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(1121): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : 'strcpy' の宣言を確認してください。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(1177): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : 'strcpy' の宣言を確認してください。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(1218): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : 'strcpy' の宣言を確認してください。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(1352): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(1389): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(1425): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(1482): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(1519): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(1523): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(1524): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(1540): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(1544): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(1545): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.cpp(1560): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
   CModelObj.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelobj.cpp(32): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelobj.cpp(39): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(230) : 'fscanf' の宣言を確認してください。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelobj.cpp(42): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(230) : 'fscanf' の宣言を確認してください。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelobj.cpp(47): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(230) : 'fscanf' の宣言を確認してください。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelobj.cpp(52): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(230) : 'fscanf' の宣言を確認してください。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelobj.cpp(57): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(230) : 'fscanf' の宣言を確認してください。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelobj.cpp(62): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(230) : 'fscanf' の宣言を確認してください。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelobj.cpp(72): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(230) : 'fscanf' の宣言を確認してください。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelobj.cpp(73): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : 'strcpy' の宣言を確認してください。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelobj.cpp(74): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(118) : 'strcat' の宣言を確認してください。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelobj.cpp(78): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(230) : 'fscanf' の宣言を確認してください。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelobj.cpp(93): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 'fopen' の宣言を確認してください。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelobj.cpp(114): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(230) : 'fscanf' の宣言を確認してください。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelobj.cpp(139): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(230) : 'fscanf' の宣言を確認してください。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelobj.cpp(140): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : 'strcpy' の宣言を確認してください。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelobj.cpp(141): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(118) : 'strcat' の宣言を確認してください。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelobj.cpp(176): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(230) : 'fscanf' の宣言を確認してください。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelobj.cpp(179): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(230) : 'fscanf' の宣言を確認してください。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelobj.cpp(185): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(230) : 'fscanf' の宣言を確認してください。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelobj.cpp(191): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(230) : 'fscanf' の宣言を確認してください。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelobj.cpp(202): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(230) : 'fscanf' の宣言を確認してください。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelobj.cpp(219): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(230) : 'fscanf' の宣言を確認してください。
+  CLoadTexManager.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
+  CHpBar2D.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
   CHpBar.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
   CBox.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(8): warning C4005: 'MODEL_FILE' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(113) : 'MODEL_FILE' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(102): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(226): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(317): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(322): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(327): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
   CBillBoard.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
+  CCsve.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\csv\ccsve.cpp(60): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+          c:\program files (x86)\microsoft visual studio 12.0\vc\include\string.h(112) : 'strcpy' の宣言を確認してください。
+  CConvenient.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
   COBB.cpp
   CColTriangle.cpp
   CColSphere.cpp
   CColCapsule.cpp
   CCollisionManager.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(102): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(226): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(317): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(322): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(327): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(113): warning C4005: 'MODEL_FILE' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(8) : 'MODEL_FILE' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\effect\ceffect2d.h(33): warning C4584: 'CEffect2D' : 基底クラス 'CTask' は既に 'CRectangle' の基底クラスです。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\task\ctask.h(13) : 'CTask' の宣言を確認してください。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\crectangle.h(10) : 'CRectangle' の宣言を確認してください。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\collision\ccollisionmanager.cpp(117): warning C4101: 'mapTail' : ローカル変数は 1 度も使われていません。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\collision\ccollisionmanager.cpp(116): warning C4101: 'mapPrev' : ローカル変数は 1 度も使われていません。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\collision\ccollisionmanager.cpp(115): warning C4101: 'taskNum' : ローカル変数は 1 度も使われていません。
+  CCollision2D.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
   CCollision.cpp
   CCamera.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(102): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(226): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(317): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(322): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(327): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(113): warning C4005: 'MODEL_FILE' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\cmodelx.h(8) : 'MODEL_FILE' の前の定義を確認してください
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\effect\ceffect2d.h(33): warning C4584: 'CEffect2D' : 基底クラス 'CTask' は既に 'CRectangle' の基底クラスです。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\task\ctask.h(13) : 'CTask' の宣言を確認してください。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\crectangle.h(10) : 'CRectangle' の宣言を確認してください。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\define\define.h(83) : 'BACK_POS' の前の定義を確認してください
   C3DBase.cpp
+  コードを生成中...
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\collision\ccollisionmanager.cpp(128): warning C4715: 'CCollisionManager::FlagMap' : 値を返さないコントロール パスがあります。
   3DProgramming.vcxproj -> C:\Users\tomi-\Desktop\pushTomita\無双ゲーム\ゲーム\Debug\3DProgramming.exe

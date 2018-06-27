@@ -12,15 +12,18 @@ public:
 
 	//四角形の頂点4つ
 	CVector3 mVertex[4];
-	//位置
+	//位置 ポインタで合わせるもの
 	CVector3 *mpPosition;
+	//調整用ポジション ポインタで合わせるため調整用
+	CVector3 mAjustPos;
+
 	//合成行列
 	CMatrix44 mMatrix;
 	//テクスチャ
 	CTexture *mpTexture;	
 	float mUv[4][2];//テクスチャマッピング
 	/*サイズ設定*/
-	void SetVertex(float left, float top, float right, float bottom, CVector3 *pos);
+	void SetVertex(float left, float top, float right, float bottom, CVector3 *pos,CVector3 mAjust);
 	void SetVertex(float left, float top, float right, float bottom);
 	/*テクスチャ設定*/
 	void SetUv(CTexture *t, int left, int top, int right, int bottom);

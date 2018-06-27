@@ -35,38 +35,45 @@
 #define ATTACK_RANGE 2.0f
 #define SERACH_SPHERE(range,mat) range,CVector3(0.0f,0.0f,0.0f),mat//球体の設定(索敵に使う)
 
-
+#define ATTACK_POWER 100.0f
 int CSlime::mAllCount = 0;
-
-/*初期化処理*/
-void CSlime::Init(CModelX *model){
-
+/*スライムのステータス初期化 Kingスライムも同じものしよう*/
+void CSlime::StateInit() {
 	mStateMachine = (std::make_unique<CStateMachine>());
-	mStateMachine->Register(SLI_STATE_IDLING, std::make_shared<CSlimeIdling>(), this);
-	mStateMachine->Register(SLI_STATE_RUN, std::make_shared<CSlimeRun>(), this);
-	mStateMachine->Register(SLI_STATE_DAMAGE, std::make_shared<CSlimeDamage>(), this);
-	mStateMachine->Register(SLI_STATE_ATTACK, std::make_shared<CSlimeAttack>(), this);
+	mStateMachine->Register(F_SLI_IDLING, std::make_shared<CSlimeIdling>(), this);
+	mStateMachine->Register(F_SLI_RUN, std::make_shared<CSlimeRun>(), this);
+	mStateMachine->Register(F_SLI_DAMAGE, std::make_shared<CSlimeDamage>(), this);
+	mStateMachine->Register(F_SLI_ATTACK, std::make_shared<CSlimeAttack>(), this);
 	// 最初のステートを登録名で指定
-	mStateMachine->SetStartState(SLI_STATE_IDLING);
+	mStateMachine->SetStartState(F_SLI_IDLING);
+}
+/*スライムの初期化*/
+void CSlime::SlimeInit(CModelX *model) {
 
 	//モデルの設定
 	CModelXS::Init(model);
 	//カプセル　キャラクタ全体
-	mpCaps   = new CColCapsule(this, COL_POS, COL_RADIUS, COL_BONE("Armature_Root_jnt"));
+	mpCaps = new CColCapsule(this, COL_POS, COL_RADIUS, COL_BONE("Armature_Root_jnt"));
 	//球体の当たり判定
 	mpMatrix = COL_BONE("Armature_Root_jnt");
 	mpSphere = new CColSphere(this, COL_SPHE_POS, COL_RADIUS, mpMatrix, CColBase::ENE_BODY);
 	
+	
 	mPower = ATTACK_POWER;//攻撃力
-
 	PosUpdate();
+}
+/*初期化処理*/
+void CSlime::Init(CModelX *model){
+
+	SlimeInit(model);
+	StateInit();
+	CEnemyBase::Init();
 }
 /*コンストラクタ*/
 CSlime::CSlime(){
 	eName = CTask::E_SLIME;
 	mAllCount++;
 	mNumber = mAllCount;
-	CEnemyBase::CEnemyBase();
 }
 /*デストラクタ*/
 CSlime::~CSlime(){
@@ -84,6 +91,7 @@ void CSlime::Delete() {
 		CTask *sphe = mpSphere;
 		CCollisionManager::GetInstance()->Kill(&caps);
 		CCollisionManager::GetInstance()->Kill(&sphe);
+		
 		if (mpHp)mpHp->mKillFlag = true;
 		mpExplosion->StartAnima(SPEED,mPosition);//爆発エフェクト準備
 	}

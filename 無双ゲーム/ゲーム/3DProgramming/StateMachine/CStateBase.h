@@ -14,21 +14,7 @@
 #define STATE_BASE_H
 
 
-/*キャタクターの状態*/
-#define PL_STATE_ATTACK "playerAttack"
-#define PL_STATE_IDLING "playerIdling"
-#define PL_STATE_RUN "playerRun"
-#define PL_STATE_JUMP "playerJump"
-#define PL_STATE_RUN_ATTACK "playerRunAttack"
-#define PL_STATE_DAMAGE "playerDamage"
-#define PL_STATE_AVOID "playerAvoid"
-/*エネミーの状態遷移*/
-/*スライム*/
-#define SLI_STATE_ATTACK	"slimeAttack"
-#define SLI_STATE_IDLING	"slimeIdling"
-#define SLI_STATE_RUN		"slimeRun"
-#define SLI_STATE_JUMP		"slimeJump"
-#define SLI_STATE_DAMAGE	"slimeDamage"
+
 #include <iostream>
 #include <unordered_map>
 #include <string>
@@ -50,7 +36,6 @@ protected:
 	/*属性の親 castして使う アクセス用*/
 	CTask *mpParent;
 	
-
 public:
 
 	/*コンストラクタ*/
@@ -64,6 +49,7 @@ public:
 	virtual void Update() = 0;
 	//状態切り替え関数
 	virtual void ChangeState() = 0;
+
 
 
 	// 遷移時の処理

@@ -12,8 +12,7 @@ public:
 	/*コンストラクタ*/
 	CHpBar(){ CTask::eName = CTask::E_BILLBOARD; }
 	/*設定*/
-	void Init(float max, float value, float widht, float height, CVector3 *pos);
-	void Init(float max, float value, float left, float top, float right, float bottom, CVector3 *pos);
+	void Init(float max, float value, float widht, float height, CVector3 *pos,CVector3 ajust);
 	/*テクスチャ設定*/
 	void SetTex(CTexture *frameName, CTexture *gaugeName, int left, int top, int right, int bottom);
 	void Update();

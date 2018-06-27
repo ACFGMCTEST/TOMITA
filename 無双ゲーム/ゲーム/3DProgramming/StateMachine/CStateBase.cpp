@@ -10,7 +10,7 @@ CStateBase::~CStateBase(){}
 // isNext‚ğfalse‚É–ß‚·ˆ—‚Í‚±‚±‚Ås‚¤‚Æ‚æ‚¢
 void CStateBase::OnChangeEvent(){
 	mFlagNext = false;//‚±‚±‚É—ˆ‚é‚ÆØ‚è‘Ö‚í‚Á‚½
-	printf("%s‚ÉØ‚è‘Ö‚í‚è‚Ü‚µ‚½\n", mNextRegisterName.c_str());
+	//printf("%s‚ÉØ‚è‘Ö‚í‚è‚Ü‚µ‚½\n", mNextRegisterName.c_str());
 	mNextRegisterName = "";//‰Šú‰»
 };
 

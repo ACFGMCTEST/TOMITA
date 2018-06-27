@@ -17,13 +17,13 @@
 void CPlayerAvoid::ChangeState(){
 	/*ジャンプする場合*/
 	if (CKey::once(KEY_JUMP)){
-		mNextRegisterName = PL_STATE_JUMP;//ジャンプ
+		mNextRegisterName = F_PL_JUMP;//ジャンプ
 	}
 	/*アイドリングする*/
 	CPlayer *pl = dynamic_cast<CPlayer*>(mpParent);
 	if (pl->mAnimationTime > 
 		pl->mpModel->mAnimationSet[pl->mAnimationIndex]->mMaxTime){
-		mNextRegisterName = PL_STATE_IDLING;
+		mNextRegisterName = F_PL_IDLING;
 	}
 
 	//名前が入ればフラグを立てる
@@ -38,10 +38,10 @@ void CPlayerAvoid::Update()
 {
 	CPlayer *pl = dynamic_cast<CPlayer*>(mpParent);
 	/*アニメーション*/
-	pl->ChangeAnimation(CPlayer::E_AVOID, false, ANIMA_SPEED);
+	pl->ChangeAnimation(F_PL_AVOID, false, ANIMA_SPEED);
 	pl->mVelocity = AVOID_SPEED;
 	pl->Move();
-	pl->State(PL_STATE_AVOID);
+	pl->State(F_PL_AVOID);
 }
 //遷移時の処理
 // isNextをfalseに戻す処理はここで行うとよい

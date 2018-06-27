@@ -460,6 +460,7 @@ AddAnimationSet
 int count = 0;
 void CModelX::AddAnimationSet(char *file) {
 	Load(file);
+	mAnimaName.push_back(file);
 }
 
 void CModelX::CreateVertexBuffer() {
@@ -1361,10 +1362,84 @@ index:アニメーションの番号
 loop:true 繰り返す
 framesize：最後まで再生するのに使用されるフレーム数
 */
-void CModelXS::ChangeAnimation(int index, bool loop, float framesize) {
+//void CModelXS::ChangeAnimation(int index, bool loop, float framesize) {
+//	mAnimaFlag = true;
+//	//同じ場合は切り替えない
+//	if (mAnimationIndex == index){
+//		return;
+//	}
+//	//番号、繰り返し、フレーム数を設定
+//	mAnimationIndex = index;
+//	mAnimationLoopFlg = loop;
+//	mAnimationFrameSize = framesize;
+//	//アニメーションの時間を最初にする
+//	mAnimationTime = 0.0f;
+//}
+/*
+ChangeAnimation
+アニメーションを切り替える
+fileName:アニメーションのファイル名
+loop:true 繰り返す
+framesize：最後まで再生するのに使用されるフレーム数
+*/
+void CModelXS::ChangeAnimation(char *fileName, bool loop, float framesize) {
 	mAnimaFlag = true;
+	int index = -1;
+	/*ファイルネームからアニメーションのインデックスをもとめる*/
+	for (int i = 0; i < mpModel->mAnimaName.size(); i++)
+	{
+		if (mpModel->mAnimaName[i] == fileName) {
+			index = i;
+			break;
+		}
+	}
+
+	//存在しないファイルの場合
+	if (index == -1) {
+		printf("%sのファイルのアニメーションはありません\n", fileName);
+		return;
+	}
 	//同じ場合は切り替えない
-	if (mAnimationIndex == index){
+	if (mAnimationIndex == index) {
+		return;
+	}
+	//番号、繰り返し、フレーム数を設定
+	mAnimationIndex = index;
+	mAnimationLoopFlg = loop;
+	mAnimationFrameSize = framesize;
+	//アニメーションの時間を最初にする
+	mAnimationTime = 0.0f;
+}
+/*
+ChangeAnimation
+アニメーションを切り替える
+fileName:アニメーションのファイル名
+fileSecondName:アニメーションのキング系のファイル名
+loop:true 繰り返す
+framesize：最後まで再生するのに使用されるフレーム数
+*/
+void CModelXS::ChangeAnimation(char *fileName,char *fileSecondName, bool loop, float framesize) {
+	mAnimaFlag = true;
+	int index = -1;
+	/*ファイルネームからアニメーションのインデックスをもとめる*/
+	for (int i = 0; i < mpModel->mAnimaName.size(); i++)
+	{
+		if (mpModel->mAnimaName[i] == fileName) {
+			index = i;
+			break;
+		}else 	if (mpModel->mAnimaName[i] == fileSecondName) {
+			index = i;
+			break;
+		}
+	}
+
+	//存在しないファイルの場合
+	if (index == -1) {
+		printf("%sのファイルのアニメーションはありません\n", fileName);
+		return;
+	}
+	//同じ場合は切り替えない
+	if (mAnimationIndex == index) {
 		return;
 	}
 	//番号、繰り返し、フレーム数を設定

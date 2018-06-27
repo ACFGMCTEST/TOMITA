@@ -3,7 +3,7 @@
 #include "../../../../../../../StateMachine/CStateBase.h"
 /*プレイヤーの現在の状態(攻撃)クラス*/
 class CSlimeAttack : public CStateBase{
-private:
+protected:
 	float mAnimaSpeed;//アニメーションスピード
 	float mTimeCount;//時間計測用
 	/*攻撃の移動速さ調整*/

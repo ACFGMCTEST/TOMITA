@@ -11,14 +11,7 @@
 #include <math.h>
 #include "../../../../Collision/CCollisionManager.h"
 #include "../../../../Collision/CCollision.h"
-/*ステータス*/
-#include "Attack\CPlayerAttack.h"
-#include "Idling\CPlayeridling.h"
-#include "Jump\CPlayerJump.h"
-#include "Run\CPlayerRun.h"
-#include "RunAttack\CPlayerRunAttack.h"
-#include "Damage\CPlayerDamage.h"
-#include "Avoid\CPlayerAvoid.h"
+
 /*当たり判定*/
 #include "../../../../Collision/ColType/CColCapsule.h"
 #include "../../../../Collision/ColType/CColTriangle.h"
@@ -70,18 +63,20 @@ Init
 */
 void CPlayer::Init(CModelX *model) {
 	mStateMachine = (std::make_unique<CStateMachine>());
+
 	// 第一引数にステートの「登録名」
 	// 第二引数でStateBaseを継承したクラスのshared_ptrオブジェクトを生成
-	mStateMachine->Register(PL_STATE_ATTACK, std::make_shared<CPlayerAttack>(), this);
-	mStateMachine->Register(PL_STATE_IDLING, std::make_shared<CPlayerIdling>(), this);
-	mStateMachine->Register(PL_STATE_RUN, std::make_shared<CPlayerRun>(), this);
-	mStateMachine->Register(PL_STATE_JUMP, std::make_shared<CPlayerJump>(), this);
-	mStateMachine->Register(PL_STATE_RUN_ATTACK, std::make_shared<CPlayerRunAttack>(), this);
-	mStateMachine->Register(PL_STATE_DAMAGE, std::make_shared<CPlayerDamage>(), this);
-	mStateMachine->Register(PL_STATE_AVOID, std::make_shared<CPlayerAvoid>(), this);
+	mStateMachine->Register(F_PL_ATTACK,	std::make_shared<CPlayerAttack>(), this);
+	mStateMachine->Register(F_PL_IDLING,	std::make_shared<CPlayerIdling>	(), this);
+	mStateMachine->Register(F_PL_RUN,		std::make_shared<CPlayerRun>(), this);
+	mStateMachine->Register(F_PL_JUMP,		std::make_shared<CPlayerJump>(), this);
+	mStateMachine->Register(F_PL_RUN_ATTACK,std::make_shared<CPlayerRunAttack>(), this);
+	mStateMachine->Register(F_PL_DIED,      std::make_shared<CPlayerDied>(), this);
+	mStateMachine->Register(F_PL_DAMAGE,	std::make_shared<CPlayerDamage>(), this);
+	mStateMachine->Register(F_PL_AVOID,		std::make_shared<CPlayerAvoid>(), this);
 	// 最初のステートを登録名で指定
-	mStateMachine->SetStartState(PL_STATE_IDLING);
-	mStr = PL_STATE_IDLING;//現在のステータスを入れる.
+	mStateMachine->SetStartState(F_PL_IDLING);
+	mStr = F_PL_IDLING;//現在のステータスを入れる.
 	//モデルの設定
 	CModelXS::Init(model);
 	//カプセル　キャラクタ全体
@@ -479,22 +474,25 @@ void CPlayer::SphereCol(CColSphere *sphere, CColBase *y) {
 	switch (y->mType) {
 		/*相手が球の場合*/
 	case CColBase::COL_SPHEPE:
-		sph = (*(CColSphere*)y).GetUpdate();
-		/*当たり判定計算*/
-		if (CCollision::CollisionShpere(sph, *sphere) && sph.eState == CColBase::ENE_BODY) {
-			/*
-			当たり判定が攻撃の場合
-			攻撃している場合
-			*/
-			if (sphere->eState == CColBase::PL_ATTACK && mStr == PL_STATE_ATTACK) {
-				ene = (CEnemyBase*)sph.mpParent;
-				ene->Damage(mPower, mRotation);
-				//エフェクト発動
-				mpHitEffect->StartAnima(EFF_SPEED, EFF_POS(mPosition));
+		/*HPがある場合*/
+		if (HP() > 0) {
+			sph = (*(CColSphere*)y).GetUpdate();
+			/*当たり判定計算*/
+			if (CCollision::CollisionShpere(sph, *sphere) && sph.eState == CColBase::ENE_BODY) {
+				/*
+				当たり判定が攻撃の場合
+				攻撃している場合
+				*/
+				if (sphere->eState == CColBase::PL_ATTACK && mStr == F_PL_ATTACK) {
+					ene = (CEnemyBase*)sph.mpParent;
+					ene->Damage(mPower, mRotation);
+					//エフェクト発動
+					mpHitEffect->StartAnima(EFF_SPEED, EFF_POS(mPosition));
 
+				}
+				/*回避中は当たらない*/
+				if (mStr != F_PL_AVOID) Collision(&sph, sphere);
 			}
-			/*回避中は当たらない*/
-			if(mStr != PL_STATE_AVOID) Collision(&sph, sphere);
 		}
 
 
@@ -528,25 +526,32 @@ void CPlayer::State(std::string s) {
 	mStr = s;
 }
 
-#define DOUNBLE_POWER(pow) pow*10.0f
+
+#define AJUST_BLOW_OFF_POWER(pow) pow*0.1f //吹き飛ぶ威力
 /*ダメージを受けた時の処理*/
 void CPlayer::Damage(float power, CVector3 rot) {
-	mpHp->mValue -= DOUNBLE_POWER(power);
+	mpHp->mValue -= power;
 	/*吹っ飛ぶ処理の準備*/
-	mDamagePower = power;
+	mDamagePower = AJUST_BLOW_OFF_POWER(power);
 	mDamageRot = rot;
 	mFlagDamage = true;
-	mStateMachine->ForceChange(PL_STATE_DAMAGE);
+
+	mStateMachine->ForceChange(F_PL_DAMAGE);
 
 }
 
 /*吹っ飛ぶ判定*/
-/*吹き飛ぶ力*/
-#define DMAGE_SPEED(power) power * 0.5f//吹っ飛ぶ力
+/*吹き飛ぶ力 吹き飛ぶ力と現在の移動量で計算する*/
+void CPlayer::BlowSpeed() {
+#define DECELE_SPEED 0.2f//減速するスピード
+		mDamagePower = mDamagePower - mDamagePower * DECELE_SPEED;
+		mVelocity = mDamagePower;
+		if (mVelocity < 0) mVelocity = 0;//0以下にはならない
+}
 void CPlayer::BlowOff() {
 	CVector3 save = mRotation;//元に戻すため
 	mRotation = mDamageRot;//回転値の方向に飛ぶ
-	mVelocity = DMAGE_SPEED(mDamagePower);//攻撃力によって吹っ飛ぶ度合いを決める
+	BlowSpeed();
 	CPlayer::Move();
 	mRotation = save;
 }

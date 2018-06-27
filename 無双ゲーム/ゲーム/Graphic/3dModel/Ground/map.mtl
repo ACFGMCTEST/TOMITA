@@ -1,4 +1,4 @@
-# Blender MTL File: 'None'
+# Blender MTL File: 'map3.blend'
 # Material Count: 1
 
 newmtl Material
@@ -9,5 +9,5 @@ Ks 1.000000 1.000000 1.000000
 Ni 1.000000
 d 1.000000
 illum 2
-map_Kd map.tga
+map_Kd C:\Users\tomi-\Desktop\pushTomita\無双ゲーム\ゲーム\Graphic\x\Ground\map.tga
 map_Ks map.tga

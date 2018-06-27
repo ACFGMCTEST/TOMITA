@@ -108,18 +108,6 @@
     <ClCompile Include="GameMain\Scene\CSceneManager.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="GameMain\Scene\GameClearScene\CGameClear.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="GameMain\Scene\GameClearScene\CGameClearScene.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="GameMain\Scene\GameOverScene\CGameOver.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="GameMain\Scene\GameOverScene\CGameOverScene.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="GameMain\Scene\GameScene\CGameScene.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -249,6 +237,27 @@
     <ClCompile Include="GameMain\Graphic\CTexture.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="GameMain\Scene\GameScene\Result\CResult.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Player\Died\CPlayerDied.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\King\Attack\CKingSlimeAttack.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\King\Damage\CKingSlimeDamage.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\King\Idling\CKingSlimeIdling.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\King\Jump\CKingSlimeJump.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\King\Run\CKingSlimeRun.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="3DBase\C3DBase.h">
@@ -351,18 +360,6 @@
       <Filter>ソース ファイル</Filter>
     </ClInclude>
     <ClInclude Include="GameMain\Scene\CSceneManager.h">
-      <Filter>ソース ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="GameMain\Scene\GameClearScene\CGameClear.h">
-      <Filter>ソース ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="GameMain\Scene\GameClearScene\CGameClearScene.h">
-      <Filter>ソース ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="GameMain\Scene\GameOverScene\CGameOver.h">
-      <Filter>ソース ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="GameMain\Scene\GameOverScene\CGameOverScene.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
     <ClInclude Include="GameMain\Scene\GameScene\CGameScene.h">
@@ -518,7 +515,14 @@
     <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\CKingSlime.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\King\CKingSlime.h" />
     <ClInclude Include="GameMain\Graphic\BmpFormat.h" />
+    <ClInclude Include="GameMain\Scene\GameScene\Result\CResult.h" />
+    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Player\Died\CPlayerDied.h" />
+    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\King\CKingSlime.h" />
+    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\King\Attack\CKingSlimeAttack.h" />
+    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\King\Damage\CKingSlimeDamage.h" />
+    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\King\Idling\CKingSlimeIdling.h" />
+    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\King\Jump\CKingSlimeJump.h" />
+    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Enemy\Slime\King\Run\CKingSlimeRun.h" />
   </ItemGroup>
 </Project>

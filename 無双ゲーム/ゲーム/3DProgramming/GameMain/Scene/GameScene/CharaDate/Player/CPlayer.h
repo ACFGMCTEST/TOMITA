@@ -33,6 +33,34 @@
 #define POINT_UP_BIG 0.1f * 1.5f  //決め手型用
 /*進む方角*/
 #define FORWARD 0.0f,0.0f,1.0f
+
+/*ステータス*/
+#include "Attack\CPlayerAttack.h"
+#include "Idling\CPlayeridling.h"
+#include "Jump\CPlayerJump.h"
+#include "Run\CPlayerRun.h"
+#include "RunAttack\CPlayerRunAttack.h"
+#include "Damage\CPlayerDamage.h"
+#include "Died\CPlayerDied.h"
+#include "Avoid\CPlayerAvoid.h"
+
+/*あたり判定の設定値*/
+#define COL_RADIUS 1.0f
+#define COL_POS CVector3(0.0f, 1.0f, 0.0f), CVector3(0.0f, 0.0f, 0.0f)
+#define COL_SPHE_POS CVector3(0.0f, 0.0f, 0.0f)
+#define COL_BONE(string) &mpCombinedMatrix[model->FindFrame(string)->mIndex]
+
+/*プレイヤー*/
+#define MODEL_FILE_UNITY		MODEL_FILE"SDUnity\\SDUnityBoxing.x"
+/*アニメーションのファイル場所*/
+#define F_PL_IDLING				MODEL_FILE"SDUnity\\Anima\\Idling.x"
+#define F_PL_RUN				MODEL_FILE"SDUnity\\Anima\\Run.x"
+#define F_PL_RUN_ATTACK			MODEL_FILE"SDUnity\\Anima\\powerRunAttack.x"
+#define F_PL_ATTACK				MODEL_FILE"SDUnity\\Anima\\Attack2.x"
+#define F_PL_JUMP				MODEL_FILE"SDUnity\\Anima\\Jump.x"
+#define F_PL_DAMAGE				MODEL_FILE"SDUnity\\Anima\\Damage.x"
+#define F_PL_DIED			    MODEL_FILE"SDUnity\\Anima\\Died.x"
+#define F_PL_AVOID				MODEL_FILE"SDUnity\\Anima\\Avoid.x"
 /*
 CPlayer
 プレイヤークラス
@@ -49,20 +77,10 @@ private:
 	CKey AttackInitKey;//Init時に使う
 	int mRotCount;//回転地カウント　移動するときに使う
 public:
+
 	bool mFlagDamage;//ダメージ中のフラ
 	bool mFlagAttack;//攻撃するフラグ
 	std::string mStr;//現在の状態
-	//プレイヤーの状態値
-	enum E_STATE {
-		E_IDLING,		//立ち
-		E_RUN,		//走る
-		E_ATTACK,	//攻撃
-		E_RUN_ATTACK,//移動攻撃
-		E_JUMP,	    //ジャンプ
-		E_DAMAGE,		//ダメージ
-		E_AVOID,		//回避
-		E_STATE_ARRAY//ステータスの上限
-	};
 
 	CMatrix44 *mpMatrix;//当たり判定の原点
 
@@ -143,10 +161,17 @@ public:
 	/*現在のstrをれる*/
 	void State(std::string s);
 
+
+	/*吹き飛ぶ力 吹き飛ぶ力と現在の移動量で計算する*/
+	void BlowSpeed();
 	/*吹っ飛ぶ判定:*/
 	void BlowOff();
 	/*ダメージを受けた時の処理*/
 	void Damage(float power, CVector3 rot);
+
+
+	/*体力ゲージのHp取得*/
+	float HP() { return mpHp->mValue;}
 };
 
 #endif

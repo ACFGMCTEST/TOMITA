@@ -4,7 +4,7 @@
 初期化処理
 */
 
-void CHpBar::Init(float max, float value, float widht, float height, CVector3 *pos){
+void CHpBar::Init(float max, float value, float widht, float height, CVector3 *pos,CVector3 ajust){
 	mMax = max;
 	mValue = value;
 	mHeight = height;
@@ -12,18 +12,10 @@ void CHpBar::Init(float max, float value, float widht, float height, CVector3 *p
 	widht /= 2;
 	height /= 2;
 	//座標の設定を行う
-	mGauge.SetVertex(-widht, widht, -height, height, pos);
-	mFrame.SetVertex(-widht, widht, -height, height, pos);
+	mGauge.SetVertex(-widht, height, widht, -height, pos,ajust);
+	mFrame.SetVertex(-widht, height, widht, -height, pos,ajust);
 }
-void CHpBar::Init(float max, float value, float left, float top, float right, float bottom, CVector3 *pos){
-	mMax = max;
-	mValue = value;
-	mHeight = top - bottom;
-	mWidth  = right - left;
-	//座標の設定を行う
-	mGauge.SetVertex(left, top, right, bottom, pos);
-	mFrame.SetVertex(left, top, right, bottom, pos);
-}
+
 void CHpBar::SetTex(CTexture *frameName, CTexture *gaugeName, int left, int top, int right, int bottom){
 	mGauge.SetUv(gaugeName, left, top, right, bottom);//ゲージテクスチャ設定
 	mFrame.SetUv(frameName, left, top, right, bottom);//フレームテクスチャ設定

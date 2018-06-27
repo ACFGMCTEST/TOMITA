@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include "glew.h"
 #include "glut.h"
+
 #include "CTexture.h"
 #include "../Vector/CVector3.h"
 #include "../Vector/CVector2.h"
@@ -90,6 +91,5 @@ public:
 	/*ŽOŠpŒ`“–‚½‚è”»’è’Ç‰Á*/
 	void CModelObj::AddCollisionManager();
 };
-
 
 #endif

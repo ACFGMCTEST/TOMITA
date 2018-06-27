@@ -1,64 +1,29 @@
 ﻿cl : コマンド ライン warning D9025: '/sdl-' より '/GS-' が優先されます。
-  CModelObj.cpp
-c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\../../Define/Define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\../../Define/Define.h(78) : 'BACK_POS' の前の定義を確認してください
-GameMain\Graphic\CModelObj.cpp(31): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
-GameMain\Graphic\CModelObj.cpp(38): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(230) : 'fscanf' の宣言を確認してください。
-GameMain\Graphic\CModelObj.cpp(41): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(230) : 'fscanf' の宣言を確認してください。
-GameMain\Graphic\CModelObj.cpp(46): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(230) : 'fscanf' の宣言を確認してください。
-GameMain\Graphic\CModelObj.cpp(51): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(230) : 'fscanf' の宣言を確認してください。
-GameMain\Graphic\CModelObj.cpp(56): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(230) : 'fscanf' の宣言を確認してください。
-GameMain\Graphic\CModelObj.cpp(61): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(230) : 'fscanf' の宣言を確認してください。
-GameMain\Graphic\CModelObj.cpp(71): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(230) : 'fscanf' の宣言を確認してください。
-GameMain\Graphic\CModelObj.cpp(72): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
-GameMain\Graphic\CModelObj.cpp(73): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(118) : 'strcat' の宣言を確認してください。
-GameMain\Graphic\CModelObj.cpp(77): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(230) : 'fscanf' の宣言を確認してください。
-GameMain\Graphic\CModelObj.cpp(90): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(211) : 'fopen' の宣言を確認してください。
-GameMain\Graphic\CModelObj.cpp(111): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(230) : 'fscanf' の宣言を確認してください。
-GameMain\Graphic\CModelObj.cpp(136): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(230) : 'fscanf' の宣言を確認してください。
-GameMain\Graphic\CModelObj.cpp(137): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(112) : 'strcpy' の宣言を確認してください。
-GameMain\Graphic\CModelObj.cpp(138): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\string.h(118) : 'strcat' の宣言を確認してください。
-GameMain\Graphic\CModelObj.cpp(173): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(230) : 'fscanf' の宣言を確認してください。
-GameMain\Graphic\CModelObj.cpp(176): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(230) : 'fscanf' の宣言を確認してください。
-GameMain\Graphic\CModelObj.cpp(182): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(230) : 'fscanf' の宣言を確認してください。
-GameMain\Graphic\CModelObj.cpp(188): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(230) : 'fscanf' の宣言を確認してください。
-GameMain\Graphic\CModelObj.cpp(199): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(230) : 'fscanf' の宣言を確認してください。
-GameMain\Graphic\CModelObj.cpp(215): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\include\stdio.h(230) : 'fscanf' の宣言を確認してください。
-  CPlayerJump.cpp
-c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\player\../../../../Graphic/CModelX.h(102): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\player\../../../../Graphic/CModelX.h(226): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\player\../../../../Graphic/CModelX.h(316): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\player\../../../../Graphic/CModelX.h(321): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\player\../../../../Graphic/CModelX.h(326): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+  CResult.cpp
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(102): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(226): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(317): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(322): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(327): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
 c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\../../Define/Define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
           c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\../../Define/Define.h(78) : 'BACK_POS' の前の定義を確認してください
 c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\../../Define/Define.h(113): warning C4005: 'MODEL_FILE' : マクロが再定義されました。
-          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\player\../../../../Graphic/CModelX.h(8) : 'MODEL_FILE' の前の定義を確認してください
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(8) : 'MODEL_FILE' の前の定義を確認してください
 c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\player\../../Effect/CEffect2D.h(33): warning C4584: 'CEffect2D' : 基底クラス 'CTask' は既に 'CRectangle' の基底クラスです。
-          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\statemachine\../GameMain/Task/CTask.h(13) : 'CTask' の宣言を確認してください。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\../Task/CTask.h(13) : 'CTask' の宣言を確認してください。
           c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\effect\../../../Graphic/CRectangle.h(10) : 'CRectangle' の宣言を確認してください。
+c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\../../Define/Define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\../../Define/Define.h(83) : 'BACK_POS' の前の定義を確認してください
+C:\Users\tomi-\Desktop\pushTomita\無双ゲーム\ゲーム\3DProgramming\include\../Define/define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          C:\Users\tomi-\Desktop\pushTomita\無双ゲーム\ゲーム\3DProgramming\include\../Define/define.h(83) : 'BACK_POS' の前の定義を確認してください
+C:\Users\tomi-\Desktop\pushTomita\無双ゲーム\ゲーム\3DProgramming\include\../Define/define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          C:\Users\tomi-\Desktop\pushTomita\無双ゲーム\ゲーム\3DProgramming\include\../Define/define.h(78) : 'BACK_POS' の前の定義を確認してください
+C:\Users\tomi-\Desktop\pushTomita\無双ゲーム\ゲーム\3DProgramming\include\../Define/Define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          C:\Users\tomi-\Desktop\pushTomita\無双ゲーム\ゲーム\3DProgramming\include\../Define/Define.h(83) : 'BACK_POS' の前の定義を確認してください
+C:\Users\tomi-\Desktop\pushTomita\無双ゲーム\ゲーム\3DProgramming\include\../Define/Define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          C:\Users\tomi-\Desktop\pushTomita\無双ゲーム\ゲーム\3DProgramming\include\../Define/Define.h(78) : 'BACK_POS' の前の定義を確認してください
+GameMain\Scene\GameScene\Result\CResult.cpp(6): warning C4005: 'BG_SIZE' : マクロが再定義されました。
+          c:\users\tomi-\desktop\pushtomita\無双ゲーム\ゲーム\3dprogramming\gamemain\camera\../Graphic/CRectangle2.h(15) : 'BG_SIZE' の前の定義を確認してください
   コード生成しています。
   コード生成が終了しました。
   3DProgramming.vcxproj -> C:\Users\tomi-\Desktop\pushTomita\無双ゲーム\ゲーム\Release\3DProgramming.exe

@@ -5,6 +5,7 @@
 
 CMaterialObj::CMaterialObj() : m_pTex(NULL) ,m_TexDirectory(""){
 }
+
 void CMaterialObj::Map() {
 	glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, m_ambient);
 	glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, m_diffuse);
@@ -82,9 +83,11 @@ bool CModelObj::LoadMaterial(char *path) {
 CModelObj::CModelObj() :
 	m_pVertexAry(NULL), m_pNormalAry(NULL), m_pTexCoordAry(NULL), m_vertexNum(0) , m_TexDirectory(""){
 }
+
 CModelObj::~CModelObj() {
 	Release();
 }
+
 bool CModelObj::Load(const char *path) {
 	//ファイルポインタ(fp)の作成し開いたファイルのハンドルを渡す。
 	FILE* fp = fopen(path, "r");
@@ -201,7 +204,7 @@ bool CModelObj::Load(const char *path) {
 							m_pVertexAry[idx + 1] = pVertex[v2 - 1];		//頂点２の座標データ
 							m_pVertexAry[idx + 2] = pVertex[v3 - 1];
 
-							
+
 							m_pNormalAry[idx] = pNormal[n1 - 1];			//頂点１の法線データ
 							m_pNormalAry[idx + 1] = pNormal[n2 - 1];		//頂点２の法線データ
 							m_pNormalAry[idx + 2] = pNormal[n3 - 1];
@@ -210,6 +213,7 @@ bool CModelObj::Load(const char *path) {
 							m_pTexCoordAry[idx] = pTexCoord[t1 - 1];			//頂点１のテクスチャーコードデータ
 							m_pTexCoordAry[idx + 1] = pTexCoord[t2 - 1];		//頂点２のテクスチャーコードデータ
 							m_pTexCoordAry[idx + 2] = pTexCoord[t3 - 1];
+						
 						}
 						else {
 							fscanf(fp, "%d//%d %d//%d %d//%d", &v1, &n1, &v2, &n2, &v3, &n3);

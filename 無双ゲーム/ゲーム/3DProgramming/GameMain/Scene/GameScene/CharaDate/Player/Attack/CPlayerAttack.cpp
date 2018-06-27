@@ -17,13 +17,13 @@
 void CPlayerAttack::ChangeState(){
 	/*ジャンプする場合*/
 	if (CKey::once(KEY_JUMP)){
-		mNextRegisterName = PL_STATE_JUMP;//ジャンプ
+		mNextRegisterName = F_PL_JUMP;//ジャンプ
 	}
 	/*アイドリングする*/
 	CPlayer *pl = dynamic_cast<CPlayer*>(mpParent);
 	if (pl->mAnimationTime >
 		pl->mpModel->mAnimationSet[pl->mAnimationIndex]->mMaxTime){
-		mNextRegisterName = PL_STATE_IDLING;
+		mNextRegisterName = F_PL_IDLING;
 	}
 
 	//名前が入ればフラグを立てる
@@ -55,10 +55,10 @@ void CPlayerAttack::Update()
 {
 	CPlayer *pl = dynamic_cast<CPlayer*>(mpParent);
 	/*アニメーション*/
-	pl->ChangeAnimation(CPlayer::E_ATTACK, false, ANIMA_SPEED_ATTCK);
+	pl->ChangeAnimation(F_PL_ATTACK, false, ANIMA_SPEED_ATTCK);
 	/*攻撃*/
 	AttackSpeed();//攻撃で少し前に移動させる
-	pl->State(PL_STATE_ATTACK);//ステータスを入れる
+	pl->State(F_PL_ATTACK);//ステータスを入れる
 }
 //遷移時の処理
 // isNextをfalseに戻す処理はここで行うとよい

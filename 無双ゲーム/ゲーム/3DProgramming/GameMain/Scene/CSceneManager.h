@@ -16,6 +16,7 @@ public:
 	};
 
 	EState eStatus = E_INIT;
+
 	static CSceneManager *GetInstance(); //GetInstance
 
 	void ChangeScene(eSceneNo no);	//ƒV[ƒ“Ø‚è‘Ö‚¦

@@ -9,14 +9,19 @@
 class CEnemyBase : public CPlayer{
 protected:
 	CHpBar     *mpHp;//HPバー
+	/*hp設定　ajust*/
+	void SetHpBar(CVector3 ajust);
+	/*爆発設定*/
+	void SetExp();
 public:
 	CExplosion * mpExplosion;//爆発エフェクト(死亡時の演出)
 	bool mFlagUpdate;//アップデートするかしないか
 	CEnemyBase();
 	~CEnemyBase();
 	
+
 	/*初期化処理*/
-	void Init(CModelX *model);
+	void Init();
 	/*更新*/
 	void Update();
 	/*描画*/
@@ -31,9 +36,10 @@ public:
 	void SphereCol(CColSphere *m, CColBase* y);
 	/*AIの動き関数*/
 	void AIMove();
-	/*体力ゲージのHp取得*/
-	float HP() {return mpHp->mValue;}
 	/*ダメージを受けた時の処理*/
 	void Damage(float power, CVector3 rot);
+
+	/*体力ゲージのHp取得*/
+	float HP() { return mpHp->mValue; }
 };
 #endif

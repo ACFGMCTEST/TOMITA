@@ -9,7 +9,7 @@ void CSlimeDamage::ChangeState() {
 	CSlime *sli = dynamic_cast<CSlime*>(mpParent);
 	/*時間がたつとHPが0になると*/
 	if (CConvenient::Time(&mCount, BlowOffTime) && sli->HP() > 0) {
-		mNextRegisterName = SLI_STATE_IDLING;//アイドリングに戻る
+		mNextRegisterName = F_SLI_IDLING;//アイドリングに戻る
 		sli->mFlagDamage = false;
 	}
 	//名前が入ればフラグを立てる
@@ -28,7 +28,7 @@ void CSlimeDamage::Start() {
 void CSlimeDamage::Update() {
 	CSlime *sli = dynamic_cast<CSlime*>(mpParent);
 	if (sli->HP() <= 0) {
-		sli->ChangeAnimation(CSlime::E_DAMAGE, false, AnimaSpeed);//アニメーション
+		sli->ChangeAnimation(F_SLI_DAMAGE,F_SLI_KING_DAMAGE, false, AnimaSpeed);//アニメーション
 		/* ダメージモーションを取り消す*/
 		if (sli->mAnimationTime >
 			sli->mpModel->mAnimationSet[sli->mAnimationIndex]->mMaxTime) {

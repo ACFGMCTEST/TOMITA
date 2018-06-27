@@ -10,7 +10,11 @@ void CPlayerDamage::ChangeState(){
 	/*アイドリングする*/
 	if (pl->mAnimationTime >
 		pl->mpModel->mAnimationSet[pl->mAnimationIndex]->mMaxTime) {
-		mNextRegisterName = PL_STATE_IDLING;
+		mNextRegisterName = F_PL_IDLING;
+	}
+	/*hpがなくなると*/
+	if (pl->HP() <= 0) {
+		mNextRegisterName = F_PL_DIED;
 	}
 
 	//名前が入ればフラグを立てる
@@ -28,14 +32,14 @@ void CPlayerDamage::Start(){
 /*更新処理*/
 void CPlayerDamage::Update(){
 	CPlayer *pl = dynamic_cast<CPlayer*>(mpParent);
-	pl->ChangeAnimation(CPlayer::E_DAMAGE, false, ANIMA_SPEED);
+	pl->ChangeAnimation(F_PL_DAMAGE, false, ANIMA_SPEED);
 
 	/*モーション中でないときはノックバック*/
 	if (pl->mAnimationTime <=
 		pl->mpModel->mAnimationSet[pl->mAnimationIndex]->mMaxTime) {
 		pl->BlowOff();
 	}
-	pl->State(PL_STATE_DAMAGE);
+	pl->State(F_PL_DAMAGE);
 }
 
 

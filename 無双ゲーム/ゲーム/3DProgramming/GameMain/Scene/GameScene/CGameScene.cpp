@@ -6,10 +6,16 @@
 #include "./../CSceneManager.h"
 #include "../QuestScene/CQuest.h"
 #include "../../Graphic/CBillBoard.h"
+#include  "Result\CResult.h"
 
 CCamera MainCamera;
 
-CGameScene::CGameScene() : eState(E_INIT){
+
+
+CGameScene::E_STATE CGameScene::eState = CGameScene::E_INIT;
+
+CGameScene::CGameScene(){
+	eState = E_INIT;
 };
 
 CGameScene::~CGameScene(){
@@ -23,6 +29,7 @@ void CGameScene::Update() {
 	case E_INIT:
 		CMap::GetInstance()->Init();
 		mSceneModel.Init();
+		CResult::GetInstance()->Init();
 		MainCamera.Init();
 		eState = E_MAIN;
 		break;
@@ -35,6 +42,10 @@ void CGameScene::Update() {
 		mSceneModel.Update();
 		CCollisionManager::GetInstance()->Update();
 		mSceneModel.Render();
+
+		CResult::GetInstance()->Update();
+		CResult::GetInstance()->Render();
+
 
 		break;
 	case E_END:

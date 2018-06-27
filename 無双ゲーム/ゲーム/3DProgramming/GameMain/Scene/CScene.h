@@ -11,8 +11,6 @@ enum eSceneNo{
 	E_STAGE_SELECT,//ステージセレクト
 	E_MODEL_CHANGE,//モデルチェンジ
 	E_GAMEMAIN,//ゲームメイン
-	E_GAMECLEAR,//クリア
-	E_GAMEOVER,//オーバー
 };
 
 class CScene{

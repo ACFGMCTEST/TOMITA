@@ -5,29 +5,33 @@
 #define FRAME_VEL_ATTACK 10
 #define FRAME_VEL_ATTACK_END 20
 /*アニメーションのスピード*/
-#define ANIMA_SPEED_SLOW 300;
-#define ANIMA_SPEED_HIGH 60;
+#define ANIMA_AJUST 0.5f //全体のアニメーション調整用
+#define ANIMA_SPEED_SLOW 300 * ANIMA_AJUST
+#define ANIMA_SPEED_HIGH 60 * ANIMA_AJUST
 /*攻撃移動*/
 #define BASE_SPEED 0.2f
+
 //変更する関数
 void CSlimeAttack::ChangeState(){
 	/*アイドリングする*/
 	CSlime *sli= dynamic_cast<CSlime*>(mpParent);
 	if (sli->mAnimationTime >
 		sli->mpModel->mAnimationSet[sli->mAnimationIndex]->mMaxTime) {
-		mNextRegisterName = SLI_STATE_IDLING;
+		mNextRegisterName = F_SLI_IDLING;
 	}
 	/*ダメージを受けているなら*/
 	if (sli->mFlagDamage) {
-		mNextRegisterName = SLI_STATE_DAMAGE;//ダメージ
+		mNextRegisterName = F_SLI_DAMAGE;//ダメージ
 	}
 	//名前が入ればフラグを立てる
 	if (!mNextRegisterName.empty()) mFlagNext = true;//文字が入れば
 }
+
 /*初めに呼び出し*/
 void CSlimeAttack::Start(){
 	mAnimaSpeed = ANIMA_SPEED_SLOW;//初期化
 }
+
 /*攻撃の移動速さ調整*/
 void CSlimeAttack::AttackSpeed(){
 	CSlime *sli = dynamic_cast<CSlime*>(mpParent);
@@ -45,16 +49,18 @@ void CSlimeAttack::AttackSpeed(){
 	}
 	sli->Move();
 }
+
 /*更新処理*/
 void CSlimeAttack::Update()
 {
 	CSlime *sli = dynamic_cast<CSlime*>(mpParent);
 	/*アニメーション*/
-	sli->ChangeAnimation(CSlime::E_ATTACK, false, mAnimaSpeed);
+	sli->ChangeAnimation(F_SLI_ATTACK,F_SLI_KING_ATTACK, false, mAnimaSpeed);
 	/*攻撃*/
 	AttackSpeed();//攻撃で少し前に移動させる
-	sli->State(SLI_STATE_ATTACK);
+	sli->State(F_SLI_ATTACK);
 }
+
 //遷移時の処理
 // isNextをfalseに戻す処理はここで行うとよい
 void CSlimeAttack::OnChangeEvent()

@@ -5,8 +5,6 @@
 #include "ItemScene\CItemScene.h"
 #include "../Key/CMouse.h"
 #include"CSceneManager.h"
-#include"GameClearScene\CGameClearScene.h"
-#include"GameOverScene\CGameOverScene.h"
 
 CSceneManager* CSceneManager::mSceneManager = 0;
 
@@ -55,12 +53,6 @@ void CSceneManager::ChangeScene(eSceneNo SceneNo) {
 		break;
 	case E_GAMEMAIN:
 		mScene = new CGameScene;
-		break;
-	case E_GAMECLEAR:
-		mScene = new CGameClearScene;
-		break;
-	case E_GAMEOVER:
-		mScene = new CGameOverScene;
 		break;
 	default:
 		break;

@@ -8,6 +8,7 @@ math.h‚É‚È‚¢‹@”\‚ð‚±‚±‚É’Ç‰Á‚µ‚Ä‚¢‚­
 #define CONVIENIENT_HPP
 #include "../Define/Define.h"
 
+
 class CConvenient
 {
 private:

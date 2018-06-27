@@ -295,6 +295,7 @@ public:
 
 	std::vector<CModelXFrame*> mFrame;	//フレームの配列
 	std::vector<CAnimationSet*> mAnimationSet;	//アニメーションセットの配列
+	std::vector<std::string> mAnimaName;//アニメーションの名前
 	//24
 	int mAnimationIndex;	//現在のアニメーション番号
 
@@ -418,7 +419,11 @@ public:
 	//初期化処理
 	void Init(CModelX *model);
 	//アニメーションの変更
-	void ChangeAnimation(int index, bool loop, float framesize);
+	//void ChangeAnimation(int index, bool loop, float framesize);
+	//アニメーションの変更
+	void ChangeAnimation(char *fileName, bool loop, float framesize);
+	//使いまわしようアニメーションの変更
+	void ChangeAnimation(char *fileName, char *fileSecondName, bool loop, float framesize);
 	//更新処理
 	void Update(CMatrix44 &m);
 	void UpdateSkinMatrix(CMatrix44 &matrix);

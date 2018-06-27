@@ -18,7 +18,7 @@ public:
 		E_MAIN,
 		E_END
 	};
-	E_STATE eState;
+	static E_STATE eState;
 
 
 	CGameScene();
