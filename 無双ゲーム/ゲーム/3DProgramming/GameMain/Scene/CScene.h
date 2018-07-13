@@ -6,7 +6,6 @@
 #include <stdio.h>
 
 enum eSceneNo{
-	E_TITLE,//タイトル
 	E_HOME,//ホーム
 	E_STAGE_SELECT,//ステージセレクト
 	E_MODEL_CHANGE,//モデルチェンジ

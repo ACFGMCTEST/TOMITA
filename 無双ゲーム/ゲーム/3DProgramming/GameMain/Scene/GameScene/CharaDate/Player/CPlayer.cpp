@@ -44,38 +44,57 @@
 /*HPバー*/
 #define HP_SIZE RECT_SIZE(0.5f,T_MANA_HP_SIZE.right,T_MANA_HP_SIZE.bottom,)
 
+//ミニマップ設定用
+void CPlayer::SetMiniMap() {
+	/*ミニマップ用の描画*/
+	mpMiniRect = new CBillBoard();
+	SVer ver(10.0f);//サイズ
+	CVector3 pos = CVector3(0.0f, 10.0f, 0.0f);//調整用の距離
+	mpMiniRect->SetVertex(&MapCamera, ver, &mPosition, &mRotation, pos);//ビルボードの設定
+#define TEX_SIZE 386,386, 0.0f, 0.0f //ミニマップのサイズ
+	//テクスチャの設定
+	mpMiniRect->SetUv(CLoadTexManager::GetInstance()->
+		mpMiniMap[CLoadTexManager::PLAYER], TEX_SIZE);
+	/*タスクマネージャーに追加*/
+	CTaskManager::GetInstance()->Add(mpMiniRect);
+	mpMiniRect->mRenderFlag = false;
+}
+
 CPlayer::CPlayer() : mVelocity(0.0f), mRotCount(0), mpHitEffect(0),
 mGravitTime(GRA_INIT_TIME_COUNT), mFlagJump(false), mAdjust(), mpHp(0),
-mFlagDamage(false),mFlagAttack(false)
+mFlagDamage(false),mFlagAttack(false),mpMiniRect(0)
 {
 	eName = CTask::E_PLAYER;
 	mForward = CVector3(FORWARD);
 	mpParent = this;
-};
+	SetMiniMap();
+}
+
 
 CPlayer::~CPlayer() {
 	if (mpHitEffect)mpHitEffect->CTask::mKillFlag = true;
 	if (mpHp)mpHp->CTask::mKillFlag = true;
+	if (mpMiniRect)mpMiniRect->CTask::mKillFlag = true;
+	mStateMachine.AllDeregistration();//ステートマシン,アニメーション削除
 }
 /*
 Init
 モデルと衝突判定の設定を行う
 */
 void CPlayer::Init(CModelX *model) {
-	mStateMachine = (std::make_unique<CStateMachine>());
-
+	
 	// 第一引数にステートの「登録名」
 	// 第二引数でStateBaseを継承したクラスのshared_ptrオブジェクトを生成
-	mStateMachine->Register(F_PL_ATTACK,	std::make_shared<CPlayerAttack>(), this);
-	mStateMachine->Register(F_PL_IDLING,	std::make_shared<CPlayerIdling>	(), this);
-	mStateMachine->Register(F_PL_RUN,		std::make_shared<CPlayerRun>(), this);
-	mStateMachine->Register(F_PL_JUMP,		std::make_shared<CPlayerJump>(), this);
-	mStateMachine->Register(F_PL_RUN_ATTACK,std::make_shared<CPlayerRunAttack>(), this);
-	mStateMachine->Register(F_PL_DIED,      std::make_shared<CPlayerDied>(), this);
-	mStateMachine->Register(F_PL_DAMAGE,	std::make_shared<CPlayerDamage>(), this);
-	mStateMachine->Register(F_PL_AVOID,		std::make_shared<CPlayerAvoid>(), this);
+	mStateMachine.Register(F_PL_ATTACK,	std::make_shared<CPlayerAttack>(), this);
+	mStateMachine.Register(F_PL_IDLING,	std::make_shared<CPlayerIdling>	(), this);
+	mStateMachine.Register(F_PL_RUN,		std::make_shared<CPlayerRun>(), this);
+	mStateMachine.Register(F_PL_JUMP,		std::make_shared<CPlayerJump>(), this);
+	mStateMachine.Register(F_PL_RUN_ATTACK,std::make_shared<CPlayerRunAttack>(), this);
+	mStateMachine.Register(F_PL_DIED,      std::make_shared<CPlayerDied>(), this);
+	mStateMachine.Register(F_PL_DAMAGE,	std::make_shared<CPlayerDamage>(), this);
+	mStateMachine.Register(F_PL_AVOID,		std::make_shared<CPlayerAvoid>(), this);
 	// 最初のステートを登録名で指定
-	mStateMachine->SetStartState(F_PL_IDLING);
+	mStateMachine.SetStartState(F_PL_IDLING);
 	mStr = F_PL_IDLING;//現在のステータスを入れる.
 	//モデルの設定
 	CModelXS::Init(model);
@@ -104,6 +123,7 @@ void CPlayer::Init(CModelX *model) {
 				T_MANA_HP_SIZE);
 	CTaskManager::GetInstance()->Add(mpHp);
 	
+
 
 	PosUpdate();
 }
@@ -248,7 +268,7 @@ void CPlayer::Update() {
 	Gravity();/*重力*/
 	PosUpdate();//ポジションを更新
 	/*ステータスマシン更新*/
-	mStateMachine->Update();
+	mStateMachine.Update();
 }
 
 
@@ -258,12 +278,7 @@ void CPlayer::Render() {
 	CModelXS::Render();
 }
 
-/*エフェクトの描画処理*/
-void CPlayer::BillboardRender() {
-	CVector3 pos = HAMMER_EFFECT_POS;
-	pos = pos * mpCombinedMatrix[mpModel->FindFrame("metarig_WeaponHandle")->mIndex];//マトリックスから
 
-}
 
 /*あたり判定の時に呼び出し*/
 void CPlayer::ColMove(int count, CVector3 Forward) {
@@ -536,7 +551,7 @@ void CPlayer::Damage(float power, CVector3 rot) {
 	mDamageRot = rot;
 	mFlagDamage = true;
 
-	mStateMachine->ForceChange(F_PL_DAMAGE);
+	mStateMachine.ForceChange(F_PL_DAMAGE);
 
 }
 
@@ -544,10 +559,11 @@ void CPlayer::Damage(float power, CVector3 rot) {
 /*吹き飛ぶ力 吹き飛ぶ力と現在の移動量で計算する*/
 void CPlayer::BlowSpeed() {
 #define DECELE_SPEED 0.2f//減速するスピード
-		mDamagePower = mDamagePower - mDamagePower * DECELE_SPEED;
-		mVelocity = mDamagePower;
-		if (mVelocity < 0) mVelocity = 0;//0以下にはならない
+	mDamagePower = mDamagePower - mDamagePower * DECELE_SPEED;
+	mVelocity = mDamagePower;
+	if (mVelocity < 0) mVelocity = 0;//0以下にはならない
 }
+
 void CPlayer::BlowOff() {
 	CVector3 save = mRotation;//元に戻すため
 	mRotation = mDamageRot;//回転値の方向に飛ぶ

@@ -13,6 +13,7 @@ protected:
 	void SetHpBar(CVector3 ajust);
 	/*爆発設定*/
 	void SetExp();
+
 public:
 	CExplosion * mpExplosion;//爆発エフェクト(死亡時の演出)
 	bool mFlagUpdate;//アップデートするかしないか
@@ -26,6 +27,8 @@ public:
 	void Update();
 	/*描画*/
 	void Render();
+	
+
 	/*攻撃準備 当たり判定部分で呼ぶ*/
 	void AttackInit();
 	/*当たり判定*/
@@ -38,7 +41,6 @@ public:
 	void AIMove();
 	/*ダメージを受けた時の処理*/
 	void Damage(float power, CVector3 rot);
-
 	/*体力ゲージのHp取得*/
 	float HP() { return mpHp->mValue; }
 };

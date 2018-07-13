@@ -11,7 +11,7 @@ private:
 	std::unordered_map<std::string, std::shared_ptr<CStateBase>> stateMap;
 	std::shared_ptr<CStateBase> nowState;
 public:
-	CStateMachine() : nowState()
+	CStateMachine() : nowState(),stateMap()
 	{
 
 	}

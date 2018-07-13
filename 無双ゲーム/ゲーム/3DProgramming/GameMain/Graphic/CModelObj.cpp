@@ -89,6 +89,7 @@ CModelObj::~CModelObj() {
 }
 
 bool CModelObj::Load(const char *path) {
+	mTriangle.clear();
 	//ファイルポインタ(fp)の作成し開いたファイルのハンドルを渡す。
 	FILE* fp = fopen(path, "r");
 	//ファイルが開けなかった場合はエラーを表示しfalseを返す
@@ -288,5 +289,6 @@ void CModelObj::AddCollisionManager() {
 	{
 		//三角形コライダを生成する
 		new CColTriangle(triangle.mVertex[0], triangle.mVertex[1], triangle.mVertex[2]);
+		
 	}
 }

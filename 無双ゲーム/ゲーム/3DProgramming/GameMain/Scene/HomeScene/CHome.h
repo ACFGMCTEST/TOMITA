@@ -22,9 +22,13 @@ private:
 
 	/*選択した時の関数*/
 	void Select();
+	/*決定された場合(別別)*/
+	void SelectDecisionKey();
+	void SelectDecisionMouse();
 	/*決定された場合*/
 	void SelectDecision();
-
+	/*初めのフェード処理*/
+	void AllFade();
 
 	
 public:

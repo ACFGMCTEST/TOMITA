@@ -21,7 +21,7 @@
 #define TEX_BUTTON_Y	44
 
 /*テクスチャのフェードスピード*/
-#define FADE_SPEED 0.01f
+#define FADE_SPEED 0.03f
 /*テクスチャのアルファ値のマックス*/
 #define ALPHA_MAX 1.0f
 
@@ -34,6 +34,7 @@ struct STexVer{
 	/*サイズコンストラクタ*/
 	STexVer(float x0, float y0, float x1, float y1) :
 		left(x0), top(y0), right(x1), bottom(y1){}
+	STexVer(){}
 
 };
 /*

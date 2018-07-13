@@ -6,6 +6,7 @@
 #define TASK_HPP
 #include <stdio.h>
 #include <assert.h>
+#include "../../Define/Define.h"
 
 class CColBase;
 
@@ -19,6 +20,7 @@ public:
 
 	bool mKillFlag;  //フラグが立っているものを消す
 	bool mCharaFlag; //キャラクターのフラグがたっているものにはCol判定
+	bool mRenderFlag;
 
 	CTask *mpParent;//親 ここからタスク上のものにアクセスしていく
 	float mValue; //現在ＨＰ
@@ -34,6 +36,10 @@ public:
 		E_2D,//２Ｄ表示のもの
 	};
 	E_NAME eName;//ネーム
+	/*ステータス中身確認*/
+	void NamePrint() {
+		printf("%s\n", eName);
+	}
 
 	/*当たり判定の形*/
 	enum EType {
@@ -52,6 +58,7 @@ public:
 	virtual void Init();
 	virtual void Update();
 	virtual void Render();
+	virtual void MiniMapRender();
 	virtual bool Collision(CColBase* p1, CColBase* p2) { return false; };
 
 };

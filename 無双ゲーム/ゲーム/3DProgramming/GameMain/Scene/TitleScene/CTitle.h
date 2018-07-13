@@ -28,7 +28,7 @@ public:
 	CTexture mTexBG; //背景
 	CTexture mTexCursor; //カーソル
 	/*フェードアウト開始フラグ*/
-	bool mFlagFadeOut;
+	//bool mFlagFadeOut;
 
 	
 	~CTitle();

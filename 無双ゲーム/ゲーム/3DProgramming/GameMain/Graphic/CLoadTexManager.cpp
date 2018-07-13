@@ -30,6 +30,16 @@ CLoadTexManager::CLoadTexManager()
 	/*スカイボックス*/
 	mpSkyBox = new CTexture();
 	mpSkyBox->Load(TGA_FILE"SkyBox\\skyBox.tga");
+	/*ミニマップ*/
+	for (int i = 0; i < CLoadTexManager::E_ARRAY; i++)
+	{
+		mpMiniMap[i] = new CTexture();
+	}
+	mpMiniMap[E_MINIMAP::PLAYER]->Load(TGA_FILE"MiniMap\\Player.tga");
+	mpMiniMap[E_MINIMAP::ENEMY]->Load(TGA_FILE"MiniMap\\Enemy.tga");
+	mpMiniMap[E_MINIMAP::KING]->Load(TGA_FILE"MiniMap\\KingEnemy.tga");
+	mpMiniMap[E_MINIMAP::MAP_FRAME]->Load(TGA_FILE"MiniMap\\MapFrame.tga");
+	mpMiniMap[E_MINIMAP::GRID]-> Load(TGA_FILE"MiniMap\\Grid.tga");
 }
 
 CLoadTexManager::~CLoadTexManager()
@@ -40,5 +50,9 @@ CLoadTexManager::~CLoadTexManager()
 	P_DELETE(mpHp2DFrame);
 	P_DELETE(mpHp2DGauge);
 	P_DELETE(mpSkyBox);
-
+	/*ミニマップ*/
+	for (int i = 0; i < CLoadTexManager::E_ARRAY; i++)
+	{
+		P_DELETE(mpMiniMap[i]);
+	}
 }

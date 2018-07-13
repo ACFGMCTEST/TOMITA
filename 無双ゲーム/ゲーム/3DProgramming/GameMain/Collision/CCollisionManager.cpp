@@ -173,7 +173,10 @@ void CCollisionManager::Update(){
 			}
 			break;
 		}
-		task = (CColBase*)task->mpNext;
+		/*íœƒtƒ‰ƒO‚ª—§‚Â‚Æíœ*/
+		if (task->mKillFlag)  task = (CColBase*)Kill(task);
+		/*—§‚Á‚Ä‚¢‚È‚¢ê‡*/
+		else task = (CColBase*)task->mpNext;
 	}
 
 #ifdef _DEBUG 

@@ -9,6 +9,9 @@
 
 class  CTaskManager
 {
+protected:
+	CTaskManager();
+	CTask* Kill(CTask *t);
 private:
 	static CTaskManager *mTaskManager;
 	void SwapTask(CTask **p, CTask **n);
@@ -16,8 +19,18 @@ public:
 	CTask *mpRoot;
 	CTask *mpTail;
 	static CTaskManager *GetInstance(); 
-
-	CTaskManager();
+	//デバック用　現在格納されている数を表示
+	void PrintCount(char *str) {
+		CTask *task;
+		task = mpRoot;
+		int i = 0;
+		while (task != 0)
+		{
+			i++;
+			task = task->mpNext;
+		}
+		printf("%sは%dです\n", str, i);
+	}
 	~CTaskManager();
 
 	/*
@@ -55,11 +68,12 @@ public:
 
 	*/
 
-	void Sort(CTask **t);
-	void Kill(CTask **t);
+	void Sort(CTask *t);
+	
 	void AllKill();
 	void AllUpdate();
 	void AllRender();
+	void AllMiniMapRender();
 	void AllInit();
 	/*ほしいもの
 	Num ほしい属性指定

@@ -1,13 +1,23 @@
-# Blender MTL File: 'map3.blend'
-# Material Count: 1
+# Blender MTL File: 'map3.blend1'
+# Material Count: 2
 
 newmtl Material
-Ns 92.156863
+Ns 96.078431
 Ka 0.000000 0.000000 0.000000
-Kd 0.698896 0.698896 0.698896
-Ks 1.000000 1.000000 1.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.500000 0.500000 0.500000
 Ni 1.000000
 d 1.000000
 illum 2
-map_Kd C:\Users\tomi-\Desktop\pushTomita\無双ゲーム\ゲーム\Graphic\x\Ground\map.tga
-map_Ks map.tga
+map_Kd C:\Users\tomi-\Desktop\PushTomitaPush\無双ゲーム\ゲーム\画像編集\Map\Untitled.tga
+map_Ks C:\\Users\\tomi-\\Desktop\\PushTomitaPush\\無双ゲーム\\ゲーム\\画像編集\\Map\\Untitled.tga
+
+newmtl Material.001
+Ns 92.156863
+Ka 0.000000 0.000000 0.000000
+Kd 0.512000 0.512000 0.512000
+Ks 0.500000 0.500000 0.500000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd C:\Users\tomi-\Desktop\PushTomitaPush\無双ゲーム\無双ゲーム\ゲーム\画像編集\Map\Cave\cave.png

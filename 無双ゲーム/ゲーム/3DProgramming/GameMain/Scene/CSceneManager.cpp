@@ -39,9 +39,6 @@ void CSceneManager::ChangeScene(eSceneNo SceneNo) {
 
 	switch (SceneNo)
 	{
-	case E_TITLE:
-		mScene = new CTitleScene;
-		break;
 	case E_HOME:
 		mScene = new CHomeScene;
 		break;

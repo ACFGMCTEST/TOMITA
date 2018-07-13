@@ -11,7 +11,7 @@ void CPlayerIdling::ChangeState(){
 		mNextRegisterName = F_PL_RUN;//走る状態に移行
 	}
 	/*回避する場合*/
-	if (CKey::push(KEY_AVOID)){
+	else if (CKey::push(KEY_AVOID)) {
 		mNextRegisterName = F_PL_AVOID;//回避に移行
 	}
 	/*ジャンプする場合*/

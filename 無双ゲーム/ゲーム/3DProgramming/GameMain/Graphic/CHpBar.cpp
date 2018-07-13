@@ -4,7 +4,8 @@
 初期化処理
 */
 
-void CHpBar::Init(float max, float value, float widht, float height, CVector3 *pos,CVector3 ajust){
+void CHpBar::Init(CCamera *pCamera,float max, float value, float widht, float height, 
+	CVector3 *pos,CVector3 *rot,CVector3 ajust){
 	mMax = max;
 	mValue = value;
 	mHeight = height;
@@ -12,8 +13,21 @@ void CHpBar::Init(float max, float value, float widht, float height, CVector3 *p
 	widht /= 2;
 	height /= 2;
 	//座標の設定を行う
-	mGauge.SetVertex(-widht, height, widht, -height, pos,ajust);
-	mFrame.SetVertex(-widht, height, widht, -height, pos,ajust);
+	mGauge.SetVertex(pCamera,SVer(-widht, height, widht, -height), pos, rot,ajust);
+	mFrame.SetVertex(pCamera, SVer(-widht, height, widht, -height), pos, rot,ajust);
+}
+
+void CHpBar::Init(CCamera *pCamera, float max, float value, float widht, float height,
+	CVector3 *pos,CVector3 ajust) {
+	mMax = max;
+	mValue = value;
+	mHeight = height;
+	mWidth = widht;
+	widht /= 2;
+	height /= 2;
+	//座標の設定を行う
+	mGauge.SetVertex(pCamera, SVer(-widht, height, widht, -height), pos, ajust);
+	mFrame.SetVertex(pCamera, SVer(-widht, height, widht, -height), pos, ajust);
 }
 
 void CHpBar::SetTex(CTexture *frameName, CTexture *gaugeName, int left, int top, int right, int bottom){

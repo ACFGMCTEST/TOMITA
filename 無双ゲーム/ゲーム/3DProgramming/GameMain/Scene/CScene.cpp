@@ -1,3 +1,3 @@
 #include "CScene.h"
 
-int CScene::State = E_TITLE;
+int CScene::State = E_HOME;

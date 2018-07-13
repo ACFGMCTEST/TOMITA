@@ -13,7 +13,6 @@
 #define LIGHT_POS  0.0f, 0.1f, 0.0f, 0.0f //ポジション
 
 
-CSceneManager Main;
 
 int WinPosX, WinPosY;
 /* display関数
@@ -23,7 +22,7 @@ void display() {
 	//各バッファーをクリア
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 
-	Main.SceneMain();
+	CSceneManager::GetInstance()->SceneMain();
 
 	CMouse::GetInstance()->Update();
 }

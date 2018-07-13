@@ -35,10 +35,9 @@
 /*静的初期化*/
 CPlayer *CSceneModel::mpPlayer;
 
-/*すべてのモデルキャラ削除*/
-void CSceneModel::ModelAllKill(){
-	CTaskManager::GetInstance()->AllKill();
-}
+//簡易リスポーン位置を決める
+#define RESP(pObj,name)pObj->mPosition =  pObj->mPosition * \
+		CMap::GetInstance()->Matrix(name);
 
 /*コンストラクタ*/
 CSceneModel::CSceneModel() :mMouseInitCount(0.0f),mLagTime(0.0f){
@@ -77,27 +76,38 @@ void CSceneModel::PlayerAdd(){
 
 /*エネミー追加処理(スライム)*/
 void CSceneModel::SlimeAdd(){
-	/*コピー用*/
-	CModelX *temp = &mModSlime;
 	/*プレイヤー*/
-	temp->TexDirectory(MODEL_FILE"Slime\\");
-	temp->Load(MODEL_FILE_SLIME);
+	mModSlime.TexDirectory(MODEL_FILE"Slime\\");
+	mModSlime.Load(MODEL_FILE_SLIME);
 
 
 	/*アニメーション追加処理*/
-	temp->AddAnimationSet(F_SLI_IDLING);
-	temp->AddAnimationSet(F_SLI_RUN);
-	temp->AddAnimationSet(F_SLI_DAMAGE);
-	temp->AddAnimationSet(F_SLI_ATTACK);
+	mModSlime.AddAnimationSet(F_SLI_IDLING);
+	mModSlime.AddAnimationSet(F_SLI_RUN);
+	mModSlime.AddAnimationSet(F_SLI_DAMAGE);
+	mModSlime.AddAnimationSet(F_SLI_ATTACK);
 
+	
 
 	CSlime *sl[SLIME_MAX];
+#define RESP_0 0 //リスポーンする数
+#define RESP_1 3 //リスポーンする数
 	for (int i = 0; i < SLIME_MAX; i++)
 	{
 		/*インスタンス作成*/
 		sl[i] = new CSlime();
-		sl[i]->Init(temp);
-		sl[i]->mPosition = SLIME_POS(i);
+		sl[i]->Init(&mModSlime);
+
+
+		/*pos指定*/
+		if (RESP_0 <= i && i < RESP_1) {
+			RESP(sl[i],"EnemyResp0");//リスポーン場所指定　
+		}
+		else {
+			RESP(sl[i], "EnemyResp1");//リスポーン場所指定　
+		}
+		const float ajustPosX = 2.0f * i;
+		sl[i]->mPosition.x += ajustPosX;//一致するといけないので少しずらす。
 		CTaskManager::GetInstance()->Add(sl[i]);//タスクに追加
 	}
 }
@@ -115,14 +125,13 @@ void CSceneModel::KingSlimeAdd() {
 
 	CKingSlime *sl = new CKingSlime();
 	sl->Init(&mModKingSlime);
-	sl->mPosition = sl->mPosition *   CMap::GetInstance()->mRespawn;
+	sl->mPosition = sl->mPosition *   CMap::GetInstance()->Matrix("Armature_KingEnemy");
 	CTaskManager::GetInstance()->Add(sl);//タスクに追加
 }
 
 void CSceneModel::Init() {
 	mMouseInitCount = 0.0f;							//マウスが初期位置に戻るまでの時間
 	mLagTime = 0.0f;								//lagによるバグ回避時間
-
 	
 	/*プレイヤー初期化*/
 	PlayerAdd();
@@ -132,15 +141,5 @@ void CSceneModel::Init() {
 
 }
 
-void CSceneModel::Update() {
-	/*lag回避*/
-	if (!CConvenient::Time(&mLagTime, LAG_SIZE)){
-		CMouse::GetInstance()->mLeftFlag = false;
-	}
 
-	CTaskManager::GetInstance()->AllUpdate();
-}
 
-void CSceneModel::Render() {
-	CTaskManager::GetInstance()->AllRender();
-}

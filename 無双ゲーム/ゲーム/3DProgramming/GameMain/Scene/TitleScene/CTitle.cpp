@@ -33,8 +33,7 @@ float CTitle::mScrollRight = 0;
 CTitle::~CTitle(){
 }
 
-CTitle::CTitle() :mFlagFadeOut(false){
-
+CTitle::CTitle(){
 	/*タイトルポリゴン設定*/
 	mTitleLogo.SetColor(NO_A_WHITE_COLOR,0.0f); //タイトルロゴのカラーを決める
 	mTitleLogo.SetVertex(TITLELOGO_SIZE);//タイトルサイズ決める
@@ -75,17 +74,16 @@ void CTitle::Update(){
 	/*当たり判定の処理 ボタンをクリックしたとき,またはエンターを押したとき*/
 	if (CCollision2D::Collision2D(mPushKey, mCursor) && CMouse::GetInstance()->mOneLeftFlag ||
 		CKey::once(VK_RETURN)){
-		mFlagFadeOut = true;
 	}
 	/*フラグが立つとフェイドアウトしていく*/
-	if (mFlagFadeOut){
+	//if (mFlagFadeOut){
 		mPushKey.FadeOut(FADE_SPEED, 0.0f);
-	}
+	//}
 	/*演出初回フェードで登場*/
-	else if(mTitleLogo.mTriangle1.a != 1){
+	//else if(mTitleLogo.mTriangle1.a != 1){
 		mTitleLogo.Fade(FADE_SPEED,ALPHA_MAX);
 		mPushKey.Fade(FADE_SPEED, ALPHA_MAX);
-	}
+	//}
 
 
 };

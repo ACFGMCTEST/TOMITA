@@ -152,7 +152,18 @@ void CRectangle2::SetVertex(float left, float top, float right, float bottom) {
 	}
 
 }
-
+/*頂点とポジションを同時に入れる*/
+void CRectangle2::SetVerPos(CVector2 size, CVector2 pos) {
+	SetVertex(-size.x / 2 , size.y / 2, size.x / 2, -size.y / 2);
+	mPosition = CVector2(
+		pos.x - DISP_2D_X + size.x / 2,
+		pos.y - DISP_2D_Y + size.y / 2
+	);
+}
+/*頂点設定*/
+void CRectangle2::SetVer(CVector2 size) {
+	SetVertex(-size.x / 2, size.y / 2, size.x / 2, -size.y / 2);
+}
 void CRectangle2::SetColor(float r, float g, float b, float a) {
 	/*1番目*/
 	CConvenient::LimitEqual(&mTriangle1.r, r, LIMIT_COLOR, 0.0f);

@@ -11,6 +11,7 @@ class CGameScene : public CScene{
 private:
 	CSceneModel mSceneModel;
 public:
+ 	static bool mPauseFlag;//trueでアップデート停止,
 
 	/*状態*/
 	enum E_STATE{
@@ -25,6 +26,8 @@ public:
 	~CGameScene();
 	/*更新*/
 	void Update();
+	/*ミニマップ左上に表示するもの*/
+	void MiniMapRender();
 };
 
 #endif

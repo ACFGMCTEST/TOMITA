@@ -30,8 +30,7 @@ CHome::~CHome(){
 
 }
 CHome::CHome() :CTitle(){
-	/*BGのScroll引継ぎ*/
-	CTitle::BgScrollInit();
+	eScene = eSceneNo::E_HOME;
 	/*タイトル色指定*/
 	mTitleLogo.SetColor(WHITE_COLOR);
 	/*セレクトポリゴン設定*/
@@ -105,41 +104,44 @@ void CHome::Select(){
 	}
 
 }
-
-/*決定された場合*/
-void CHome::SelectDecision(){
+/*決定された場合(キー編)*/
+void CHome::SelectDecisionKey() {
+	/*キーバージョン*/
+	/*選択したか判断 モデルチェンジの場合*/
+	if (CKey::once(VK_RETURN)) {
+		if (mSelectCursor.mPosition.y == mModelChangeButton.mPosition.y) {
+			eScene = E_MODEL_CHANGE;
+			return;
+		}
+		else /*選択したか判断 ステージセレクトの場合*/
+			if (mSelectCursor.mPosition.y == mSelectButton.mPosition.y) {
+				eScene = E_STAGE_SELECT;
+				return;
+			}
+	}
+}
+/*決定された場合(マウス編)*/
+void CHome::SelectDecisionMouse() {
 	/*マウスバージョン*/
-	if (CCollision2D::Collision2D(mModelChangeButton, mCursor) && CMouse::GetInstance()->mOneLeftFlag){
-		mFlagFadeOut = true;
+	if (CCollision2D::Collision2D(mModelChangeButton, mCursor) && CMouse::GetInstance()->mOneLeftFlag) {
 		mSelectCursor.mPosition.y = mModelChangeButton.mPosition.y;
 		mModelChangeButton.RectScalingLeftPos(SCALLING_NUM);//拡大
 		eScene = E_MODEL_CHANGE;
 		return;
 	}
 	/*選択したか判断 ステージセレクトの場合*/
-	if (CCollision2D::Collision2D(mSelectButton, mCursor) && CMouse::GetInstance()->mOneLeftFlag ){
-		mFlagFadeOut = true;
+	if (CCollision2D::Collision2D(mSelectButton, mCursor) && CMouse::GetInstance()->mOneLeftFlag) {
 		mSelectCursor.mPosition.y = mSelectButton.mPosition.y;
 		mSelectButton.RectScalingLeftPos(SCALLING_NUM);//拡大
 		eScene = E_STAGE_SELECT;//セレクトに
 
 		return;
 	}
-	/*キーバージョン*/
-	/*選択したか判断 モデルチェンジの場合*/
-	if (CKey::once(VK_RETURN) && mSelectCursor.mPosition.y == mModelChangeButton.mPosition.y){
-		mFlagFadeOut = true;
-		eScene = E_MODEL_CHANGE;
-		return;
-	}
-	/*選択したか判断 ステージセレクトの場合*/
-	if (CKey::once(VK_RETURN) && mSelectCursor.mPosition.y == mSelectButton.mPosition.y){
-		mFlagFadeOut = true;
-		eScene = E_STAGE_SELECT;
-		return;
-	}
-
-
+}
+/*決定された場合*/
+void CHome::SelectDecision(){
+	SelectDecisionKey();
+	SelectDecisionMouse();
 }
 /*シーン遷移 判断*/
 bool CHome::SceneFlag(){
@@ -164,20 +166,22 @@ void CHome::Update(){
 
 	/*フェード処理*/
 	/*フラグが立つとフェイドアウトしていく*/
-	if (mFlagFadeOut){
+	if (eScene != E_HOME){
 		mSelectButton.FadeOut(FADE_SPEED, 0.0f);
 		if (eScene == E_MODEL_CHANGE)mModelChangeButton.FadeOut(FADE_SPEED, 0.0f);
 		if (eScene == E_STAGE_SELECT)mSelectCursor.FadeOut(FADE_SPEED, 0.0f);
 	}
 	/*演出初回フェードで登場*/
 	else if (mSelectButton.mTriangle1.a != 1){
-		mSelectButton.Fade(FADE_SPEED, 1.0f);
-		mModelChangeButton.Fade(FADE_SPEED, 1.0f);
-		mSelectCursor.Fade(FADE_SPEED, 1.0f);
-
+		AllFade();
 	}
 };
-
+/*初めのフェード処理*/
+void CHome::AllFade() {
+	mSelectButton.Fade(FADE_SPEED, 1.0f);
+	mModelChangeButton.Fade(FADE_SPEED, 1.0f);
+	mSelectCursor.Fade(FADE_SPEED, 1.0f);
+}
 /*
 描画処理のみを行う。
 */

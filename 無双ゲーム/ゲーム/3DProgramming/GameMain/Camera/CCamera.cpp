@@ -9,6 +9,7 @@
 #include "../Collision/CCollision2D.h"
 #include "../Convenient/CConvenient.h"
 #include "../Scene/GameScene/CGameScene.h"
+#include "../Graphic/CLoadTexManager.h"
 #include <math.h>
 
 
@@ -20,12 +21,15 @@
 #define SET_EYE	x, y+1.0f, z+10.0f //目線の設定
 /*移動方向*/
 #define MOVE_FORWARD CVector3(0.0f,0.0f,1.0f)
+
+
 /*カメラの設定値 gluLookAtで使用
 Eye = 視点の位置x,y,z;
 pos = 視界の中心位置の参照点座標x,y,z
 mUp = //視界の上方向のベクトルx,y,z
 */
 #define CAMERA_LOOK mEye.x,mEye.y,mEye.z, mPos.x,mPos.y,mPos.z, mUp.x,mUp.y,mUp.z
+
 /*あたり判定の設定値*/
 #define OBB_POS CVector3(0.0f, 1.0f, 0.0f) 
 #define OBB_SPHERE_SIZE 3.0f
@@ -54,6 +58,55 @@ void CCamera::CharaPos(){
 	///PosUpdate(mRot, CHARA_POS(CSceneModel::Player().mPosition));
 }
 
+/*左上に表示するマップ描画を開始する部分に使う*/
+void CCamera::StartMiniMap() {
+	/*
+	gluPerspective( GL10 gl, float fovy, float aspect, float zNear, float zFar )
+	gluPerspectiveは視野角、奥行きの最大、最小距離を設定します。
+		gluPerspectiveで設定した範囲外のポリゴンは基本的に描画されません。
+		gl	使用するGL10のインスタンスを指定します。
+		fovy	縦の視野角を”度”単位で設定します。
+		aspect	縦に対する横方向の視野角の倍率を設定します。
+		zNear	一番近いZ位置を指定します。
+		zFar	一番遠いZ位置を指定します。
+		aspectは通常 スクリーン幅 / スクリーン高さ を入れます
+	*/
+#define CAMERA_INIT 75.0, (double)DISP_X / (double)DISP_Y, 1.0, 1000.0 
+	gluPerspective(CAMERA_INIT);
+	glPushMatrix();
+
+	/*カメラの設定*/
+	glViewport(mMiniPos.x,mMiniPos.y,mMiniSize.x, mMiniSize.y);
+	
+
+	glLoadIdentity();
+	gluLookAt(CAMERA_LOOK);
+	glGetFloatv(GL_MODELVIEW_MATRIX, mMatrix.f);
+	mCameraInverse = mMatrix.getInverse();
+	mCameraInverse.m[3][0] = mCameraInverse.m[3][1] = mCameraInverse.m[3][2] = 0.0f;
+
+	glDisable(GL_NORMALIZE);
+	glDisable(GL_DEPTH_TEST);
+
+
+}
+/*描画処理*/
+void CCamera::Render() {
+	/*２Dの表示*/
+	CRectangle2::Disp2D_Start();
+	/*下の画面*/
+	mMiniMapBG.Render();
+	CRectangle2::Disp2D_Exit();
+}
+
+/*右上に表示するマップ描画を終了するときに使う*/
+void CCamera::EndMiniMap() {
+	glPopMatrix();
+	glViewport(0, 0, DISP_X, DISP_Y); //画面の描画エリアの指定
+
+	glEnable(GL_NORMALIZE);
+	glEnable(GL_DEPTH_TEST);
+}
 /*初期化処理*/
 void CCamera::Init(){
 
@@ -65,18 +118,32 @@ void CCamera::Init(){
 	///*当たり判定追加*/
 	//CCollisionManager::GetInstance()->Add(CTask::E_TAG_CAMERA, mpCBSphere);
 }
+
 /* 視点と注視点の設定
 void setPos(float x, float y, float z)
 x:注視点のX座標 y:注視点のY座標 z:注視点のZ座標
-規定の視点は注視点よりYへ+2、Zへ+4移動
 */
-void CCamera::SetPos(float x, float y, float z) {
-	//注視点の設定
-	mPos = CVector3(x, y, z);
-	//視点の設定
-	mEye = CVector3(SET_EYE);
-	//カメラ行列の設定
-	gluLookAt(CAMERA_LOOK);
+const float doub = 2.1f;//倍率
+const float ajust = 1.97f;//本来2倍だけどキツキツに画面表示なので調整
+const float BGDoub = 1.08f;//ミニマップ用BGの大きさ倍率
+const CVector3 eye = CVector3(0.0f, 100.0f, 0.0f);//+ 使う
+const CVector3 up = CVector3(0.0f, 1.0f, -1.0f);
+void CCamera::SetPos() {
+	mEye = CSceneModel::mpPlayer->mPosition;
+	mEye += eye;
+	mPos = CSceneModel::mpPlayer->mPosition;
+	mUp  = up;
+
+	//画面の描画エリアの指定
+	mMiniSize = CVector2(DISP_2D_X / doub, DISP_2D_Y / doub);//サイズ
+	mMiniPos = CVector2(DISP_2D_X *ajust - mMiniSize.x, DISP_2D_Y * ajust - mMiniSize.y);
+	//mMiniPos = CVector2(0.0f,0.0f);
+	/*ミニマップBGの設定*/
+	mMiniMapBG.SetVerPos(mMiniSize, mMiniPos);
+	mMiniMapBG.SetVer(mMiniSize * BGDoub);
+#define TEX_SIZE 0.0f,0.0f,500.0f,500.0f
+	mMiniMapBG.SetUv(CLoadTexManager::GetInstance()->
+		mpMiniMap[CLoadTexManager::MAP_FRAME], TEX_SIZE);
 }
 /*カメラ設定*/
 void CCamera::MouseCamera(){
@@ -187,8 +254,6 @@ void CCamera::Update() {
 	glMatrixMode(GL_MODELVIEW);
 	//モデルビューの行列を単位行列にする
 	glLoadIdentity();
-	//視点の設定
-	//gluLookAt(eye[0], eye[1], eye[2], pos[0], pos[1], pos[2], mUp.x, mUp.y, mUp.z);
 	gluLookAt(CAMERA_LOOK);
 	glGetFloatv(GL_MODELVIEW_MATRIX, mMatrix.f);
 	mCameraInverse = mMatrix.getInverse();

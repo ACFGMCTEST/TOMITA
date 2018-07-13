@@ -115,3 +115,5 @@
 /*ウインドウのポジション*/
 extern int WinPosX;
 extern int WinPosY;
+
+#define STR(var) #var   //引数にした変数を変数名を示す文字列リテラルとして返すマクロ関数

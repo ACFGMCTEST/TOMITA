@@ -3,6 +3,7 @@
 
 #include "../../../CSceneModel.h"
 #include "../../../../../../Collision/CCollision.h"
+#include "../../../../../../Graphic/CLoadTexManager.h"
 
 #define HP_AJUST_POS CVector3(0.0f,6.0f,0.0f)
 
@@ -22,13 +23,12 @@ void CKingSlime::Init(CModelX *model)
 	mpMatrix = COL_BONE("Armature_Root_jnt");
 	mpSphere = new CColSphere(this, COL_SPHE_POS, COL_RADIUS, mpMatrix, CColBase::ENE_BODY);
 
-	mStateMachine = (std::make_unique<CStateMachine>());
-	mStateMachine->Register(F_SLI_IDLING, std::make_shared<CKingSlimeIdling>(), this);
-	mStateMachine->Register(F_SLI_RUN,    std::make_shared<CKingSlimeRun>(), this);
-	mStateMachine->Register(F_SLI_DAMAGE, std::make_shared<CKingSlimeDamage>(), this);
-	mStateMachine->Register(F_SLI_ATTACK, std::make_shared<CKingSlimeAttack>(), this);
+	mStateMachine.Register(F_SLI_IDLING, std::make_shared<CKingSlimeIdling>(), this);
+	mStateMachine.Register(F_SLI_RUN,    std::make_shared<CKingSlimeRun>(), this);
+	mStateMachine.Register(F_SLI_DAMAGE, std::make_shared<CKingSlimeDamage>(), this);
+	mStateMachine.Register(F_SLI_ATTACK, std::make_shared<CKingSlimeAttack>(), this);
 	// 最初のステートを登録名で指定
-	mStateMachine->SetStartState(F_SLI_IDLING);
+	mStateMachine.SetStartState(F_SLI_IDLING);
 
 
 	/*ベースのもの*/
@@ -45,7 +45,13 @@ void CKingSlime::Init(CModelX *model)
 }
 
 CKingSlime::CKingSlime()
-{}
+{
+	/*ミニマップ設定*/
+#define TEX_SIZE 386,386, 0.0f, 0.0f //ミニマップのサイズ
+	mpMiniRect->SetUv(CLoadTexManager::GetInstance()->
+		mpMiniMap[CLoadTexManager::KING], TEX_SIZE);
+	mpMiniRect->SetVertex(SVer(11.0f));
+}
 
 /*更新処理*/
 void CKingSlime::Update() {

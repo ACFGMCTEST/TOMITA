@@ -79,7 +79,8 @@ void CStateMachine::AllDeregistration()
 #ifdef _DEBUG
 	std::cout << "StateMachine : " << "すべての登録を削除する" << std::endl;
 #endif
-	stateMap.clear();
+	/*サイズがあるとき*/
+	if (stateMap.size() != 0) {stateMap.clear();}
 }
 
 // ステート外から強制的に遷移を実行

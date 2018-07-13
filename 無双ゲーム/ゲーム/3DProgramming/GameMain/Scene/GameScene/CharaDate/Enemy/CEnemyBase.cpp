@@ -32,10 +32,12 @@
 void CEnemyBase::SetHpBar(CVector3 ajust) {
 	/*HP設定*/
 	mpHp = new CHpBar();
-	mpHp->Init(HP_MAX, HP_MAX, HP_SIZE, &mPosition, ajust);//サイズとポジション
+	mpHp->Init(&MainCamera,HP_MAX, HP_MAX, HP_SIZE, &mPosition,ajust);//サイズとポジション
 	mpHp->SetTex(CLoadTexManager::GetInstance()->mpHp2DFrame,
 		CLoadTexManager::GetInstance()->mpHp2DGauge, TEX_SIZE_HP);//テクスチャ
 	CTaskManager::GetInstance()->Add(mpHp);
+
+
 }
 /*爆発設定*/
 void CEnemyBase::SetExp() {
@@ -48,8 +50,12 @@ void CEnemyBase::SetExp() {
 }
 
 /*コンストラクタ*/
-CEnemyBase::CEnemyBase(){
-	
+CEnemyBase::CEnemyBase() {
+	/*ミニマップ設定*/
+#define TEX_SIZE 386,386, 0.0f, 0.0f //ミニマップのサイズ
+	mpMiniRect->SetUv(CLoadTexManager::GetInstance()->
+		mpMiniMap[CLoadTexManager::ENEMY], TEX_SIZE);
+	mpMiniRect->SetVertex(SVer(5.0f));//サイズ設定
 }
 /*デストラクタ*/
 CEnemyBase::~CEnemyBase() {
@@ -187,3 +193,4 @@ void CEnemyBase::Damage(float power, CVector3 rot) {
 void CEnemyBase::Render() {
 	CPlayer::Render();
 }
+

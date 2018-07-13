@@ -20,6 +20,12 @@ public:
 	CTexture *mpHit;//ヒットエフェクト
 	CTexture *mpHp2DFrame;//プレイヤーのHP(frame)
 	CTexture *mpHp2DGauge;//プレイヤーのHP(gauge)
+	/*ミニマップ用*/
+	enum  E_MINIMAP
+	{
+		PLAYER,ENEMY,KING,MAP_FRAME,GRID,E_ARRAY
+	};
+	CTexture *mpMiniMap[E_ARRAY];//ミニマップ各種テクスチャ
 	CTexture *mpSkyBox;//スカイボックス
 private:
 

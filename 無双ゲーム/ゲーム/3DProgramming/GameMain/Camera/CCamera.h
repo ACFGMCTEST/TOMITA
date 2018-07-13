@@ -11,17 +11,28 @@
 目の位置と目的の位置を保持し、
 カメラ行列（ビュー変換行列）を設定する
 */
-class CCamera : public CTask{
+class CCamera{
 private:
 	CMatrix44 mMatrix;//行列
 	CRectangle2 mColInitMouse;//マウスの初期位置
+
+
+	CRectangle2 mMiniMapBG;//ミニマップの背景
+
 	CVector3 mForward;//移動方向
+
 	CVector3 mRot;//自分の方向
 	CVector3 mEye;//視点
 	CVector3 mUp;	//カメラの上方向
+
 	CVector2 mSaveMousePos;//マウスのポジション
 	float mMouseInitCount;//カメラの初期化時間
 public:
+	//ミニマップ用
+	CVector2 mMiniSize;//サイズ
+	CVector2 mMiniPos;//ポジション
+														  
+
 	CVector3 mPos;//ポジション
 	CMatrix44 mCameraInverse;
 
@@ -31,9 +42,8 @@ public:
 	/* 視点と注視点の設定
 	void setPos(float x, float y, float z)
 	x:注視点のX座標 y:注視点のY座標 z:注視点のZ座標
-	規定の視点は注視点よりYへ+2、Zへ+4移動
 	*/
-	void SetPos(float x, float y, float z);
+	void SetPos();
 	/*マウスカメラ設定*/
 	void MouseCamera();
 	/*初期化処理*/
@@ -57,13 +67,22 @@ public:
 	/*回転値の参照*/
 	CVector3 Rot();
 	
+	/*左上に表示するマップ*/
+	void StartMiniMap();
+	/*右上に表示するマップ*/
+	void EndMiniMap();
 
 	/*キャラクターにポジション移動する*/
 	void CharaPos();
+
+	/*描画処理*/
+	void Render();
 };
 
 //カメラクラスのインスタンス
 extern CCamera MainCamera;
+//カメラクラスのインスタンス
+extern CCamera MapCamera;
 
 
 #endif

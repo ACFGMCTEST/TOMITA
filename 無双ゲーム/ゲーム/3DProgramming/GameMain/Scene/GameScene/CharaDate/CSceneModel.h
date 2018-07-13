@@ -24,9 +24,6 @@ public:
 	
 
 
-	/*すべてのモデルキャラ削除*/
-	void ModelAllKill();
-
 	/*プレイヤー追加関数*/
 	void PlayerAdd();//プレイヤ－
 	/*エネミー*/
@@ -37,8 +34,6 @@ public:
 	CSceneModel();
 	~CSceneModel();
 
-	void Init();
-	void Update();
-	void Render();
+	void Init(); 
 };
 #endif

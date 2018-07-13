@@ -401,8 +401,6 @@ public:
 	float mAnimationFrameSize;//アニメーションの再生フレーム数
 	float mAnimationTime;	//現在のアニメーション時間
 
-	void SetColor(float r, float g, float b, float a);
-
 	CModelXS()
 		: mpModel(0)
 		, mpCombinedMatrix(0)

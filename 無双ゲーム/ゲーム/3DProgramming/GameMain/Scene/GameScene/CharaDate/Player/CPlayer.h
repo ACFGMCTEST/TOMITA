@@ -11,6 +11,7 @@
 #include "../../../../Collision/ColType/CColCapsule.h"
 #include "../../../../Collision/ColType/CColSphere.h"
 #include "../../../../Graphic/CHpBar2D.h"
+#include "../../../../Graphic/CBillBoard.h"
 //プレイヤーの数
 #define CHARA_ARRAY 3
 /*キャラステータス*/
@@ -44,6 +45,7 @@
 #include "Died\CPlayerDied.h"
 #include "Avoid\CPlayerAvoid.h"
 
+
 /*あたり判定の設定値*/
 #define COL_RADIUS 1.0f
 #define COL_POS CVector3(0.0f, 1.0f, 0.0f), CVector3(0.0f, 0.0f, 0.0f)
@@ -67,13 +69,17 @@ CPlayer
 */
 class CPlayer : public CModelXS {
 protected:
-	/*ステータス管理マネージャー*/
-	std::unique_ptr<CStateMachine> mStateMachine;//ステータス管理
+	CStateMachine mStateMachine;//ステータス管理
 	CVector3 mDamageRot;//ダメージを受けた回転値
 	float mDamagePower;//吹っ飛ぶ値
+	CBillBoard *mpMiniRect;//ミニマップ用
+	/*ミニマップ設定用*/
+	void SetMiniMap();
 private:
 	CEffect2D *mpHitEffect;//攻撃時のエフェクト
 	CHpBar2D *mpHp;//hp
+
+
 	CKey AttackInitKey;//Init時に使う
 	int mRotCount;//回転地カウント　移動するときに使う
 public:
@@ -103,8 +109,6 @@ public:
 	void Update();
 	//描画処理
 	void Render();
-	//billboardの描画処理
-	void BillboardRender();
 
 	/*回転関数
 	rot = 回転値*/
@@ -172,6 +176,7 @@ public:
 
 	/*体力ゲージのHp取得*/
 	float HP() { return mpHp->mValue;}
+
 };
 
 #endif

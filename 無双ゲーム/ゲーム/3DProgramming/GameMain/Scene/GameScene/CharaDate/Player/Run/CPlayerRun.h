@@ -7,7 +7,6 @@
 class CPlayerRun : public CStateBase
 {
 private:
-	void Move();//
 public:
 	CPlayerRun();
 	~CPlayerRun();

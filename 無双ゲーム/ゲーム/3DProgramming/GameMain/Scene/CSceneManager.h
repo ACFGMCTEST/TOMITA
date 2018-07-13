@@ -5,6 +5,8 @@
 class CSceneManager{
 private:
 	static CSceneManager *mSceneManager;
+	CSceneManager();
+
 public:
 
 	int NextNo;
@@ -22,7 +24,6 @@ public:
 	void ChangeScene(eSceneNo no);	//ƒV[ƒ“Ø‚è‘Ö‚¦
 	void DeleteScene();			//KILL
 	void SceneMain();
-	CSceneManager();
 	~CSceneManager();
 
 };

@@ -21,6 +21,8 @@ CResult::~CResult(){
 #define TEX_SIZE_X 340
 #define TEX_SIZE_Y 50
 void CResult::Init(){
+	mRenderFlag = false;
+	mCount = 0.0f;
 	//ロゴテクスチャ
 	mTexLogo.Load(TGA_FILE"Result\\Result.tga");
 	

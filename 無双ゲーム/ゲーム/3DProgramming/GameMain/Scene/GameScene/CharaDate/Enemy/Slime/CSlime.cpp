@@ -39,13 +39,12 @@
 int CSlime::mAllCount = 0;
 /*スライムのステータス初期化 Kingスライムも同じものしよう*/
 void CSlime::StateInit() {
-	mStateMachine = (std::make_unique<CStateMachine>());
-	mStateMachine->Register(F_SLI_IDLING, std::make_shared<CSlimeIdling>(), this);
-	mStateMachine->Register(F_SLI_RUN, std::make_shared<CSlimeRun>(), this);
-	mStateMachine->Register(F_SLI_DAMAGE, std::make_shared<CSlimeDamage>(), this);
-	mStateMachine->Register(F_SLI_ATTACK, std::make_shared<CSlimeAttack>(), this);
+	mStateMachine.Register(F_SLI_IDLING, std::make_shared<CSlimeIdling>(), this);
+	mStateMachine.Register(F_SLI_RUN, std::make_shared<CSlimeRun>(), this);
+	mStateMachine.Register(F_SLI_DAMAGE, std::make_shared<CSlimeDamage>(), this);
+	mStateMachine.Register(F_SLI_ATTACK, std::make_shared<CSlimeAttack>(), this);
 	// 最初のステートを登録名で指定
-	mStateMachine->SetStartState(F_SLI_IDLING);
+	mStateMachine.SetStartState(F_SLI_IDLING);
 }
 /*スライムの初期化*/
 void CSlime::SlimeInit(CModelX *model) {
@@ -76,22 +75,15 @@ CSlime::CSlime(){
 	mNumber = mAllCount;
 }
 /*デストラクタ*/
-CSlime::~CSlime(){
+CSlime::~CSlime() {
 	mAllCount--;
-	CTask *caps = mpCaps;
-	CTask *sphe = mpSphere;
-	if(mpCaps)CCollisionManager::GetInstance()->Kill(&caps);
-	if (mpSphere)CCollisionManager::GetInstance()->Kill(&sphe);
 }
 #define SPEED 1.0f//爆発のアニメーションスピード
 /*当たり判定削除*/
 void CSlime::Delete() {
-	if(mpCaps){
-		CTask *caps = mpCaps;
-		CTask *sphe = mpSphere;
-		CCollisionManager::GetInstance()->Kill(&caps);
-		CCollisionManager::GetInstance()->Kill(&sphe);
-		
+	if(mpCaps && mpSphere){
+		mpSphere->mKillFlag = true;
+		mpCaps->mKillFlag = true;
 		if (mpHp)mpHp->mKillFlag = true;
 		mpExplosion->StartAnima(SPEED,mPosition);//爆発エフェクト準備
 	}
@@ -105,7 +97,7 @@ void CSlime::Update(){
 	*mpMatrix = CMatrix44::MatrixTransform(mPosition, mRotation);
 	CEnemyBase::Update();
 	/*ステータス更新*/
-	mStateMachine->Update();
+	mStateMachine.Update();
 }
 
 /*描画処理*/
@@ -115,7 +107,7 @@ void CSlime::Render(){
 
 /*索敵関数*/
 bool CSlime::Search(){
-
+#define SERACH_SPHERE(range,mat) range,CVector3(0.0f,0.0f,0.0f),mat//球体の設定(索敵に使う)
 	/*索敵内に入れば動く*/
 	CColSphere plCol = CColSphere(SERACH_SPHERE(SEARCH_RANGE,CSceneModel::mpPlayer->mpMatrix));//プレイヤー
 	CColSphere sliCol = CColSphere(SERACH_SPHERE(SEARCH_RANGE ,mpMatrix));//エネミー

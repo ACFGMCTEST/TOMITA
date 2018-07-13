@@ -112,6 +112,9 @@ public:
 	四角形の各頂点の座標を設定する
 	*/
 	void SetVertex(float left, float top, float right, float bottom);
+	/*頂点とポジションを同時に入れる*/
+	void SetVerPos(CVector2 size, CVector2 pos);
+	void SetVer(CVector2 size);
 	/* setColor
 	r:赤(0.0～1.0)
 	g:緑(0.0～1.0)

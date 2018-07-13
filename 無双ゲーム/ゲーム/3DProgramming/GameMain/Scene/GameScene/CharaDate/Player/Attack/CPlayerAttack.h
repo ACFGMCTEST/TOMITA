@@ -7,12 +7,15 @@
 class CPlayerAttack : public CStateBase{
 private:
 	float mAnimaSpeed;//アニメーションスピード
-	float mTimeCount;//時間計測用
+	float mTimeKey;//キー入力待ち
+	bool mFlagChangeAnima;//アニメーションの動くの判断
 	/*攻撃の移動速さ調整*/
 	void AttackSpeed();
 public:
 	CPlayerAttack();
 	~CPlayerAttack();
+	/*攻撃キー　待ち時間*/
+	void KeyUpdate();
 	/*初めに呼び出し*/
 	void Start();
 	/*更新処理*/
