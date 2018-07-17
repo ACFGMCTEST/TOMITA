@@ -5,10 +5,10 @@
 /*スピードのフレーム数でvelocityを変更する*/
 /*フレーム*/
 #define FRAME_VEL_ATTACK1 0
-#define FRAME_VEL_ATTACK2 30
-#define FRAME_VEL_ATTACK3 40
+#define FRAME_VEL_ATTACK2 20
+#define FRAME_VEL_ATTACK3 30
 /*スピード*/
-#define BASE_SPEED 0.2f
+#define BASE_SPEED 0.4f
 #define VEL_ATTACK1 BASE_SPEED * 0.5f
 #define VEL_ATTACK2 0
 #define VEL_ATTACK3 BASE_SPEED * 0.7f

@@ -34,6 +34,7 @@
 #define LAG_SIZE 0.1f //0，1秒間lag回避用
 /*静的初期化*/
 CPlayer *CSceneModel::mpPlayer;
+int  CSceneModel::mEnemyCount = 0;
 
 //簡易リスポーン位置を決める
 #define RESP(pObj,name)pObj->mPosition =  pObj->mPosition * \
@@ -43,6 +44,15 @@ CPlayer *CSceneModel::mpPlayer;
 CSceneModel::CSceneModel() :mMouseInitCount(0.0f),mLagTime(0.0f){
 
 
+}
+
+CSceneModel *CSceneModel::mpSceneModel = 0;
+//GetInstance
+CSceneModel* CSceneModel::GetInstance() {
+	if (mpSceneModel == 0) {
+		mpSceneModel = new CSceneModel();
+	}
+	return mpSceneModel;
 }
 
 /*デストラクタ*/
@@ -75,7 +85,7 @@ void CSceneModel::PlayerAdd(){
 }
 
 /*エネミー追加処理(スライム)*/
-void CSceneModel::SlimeAdd(){
+void CSceneModel::SlimeInit(){
 	/*プレイヤー*/
 	mModSlime.TexDirectory(MODEL_FILE"Slime\\");
 	mModSlime.Load(MODEL_FILE_SLIME);
@@ -87,33 +97,30 @@ void CSceneModel::SlimeAdd(){
 	mModSlime.AddAnimationSet(F_SLI_DAMAGE);
 	mModSlime.AddAnimationSet(F_SLI_ATTACK);
 
-	
+}
 
-	CSlime *sl[SLIME_MAX];
-#define RESP_0 0 //リスポーンする数
-#define RESP_1 3 //リスポーンする数
-	for (int i = 0; i < SLIME_MAX; i++)
-	{
-		/*インスタンス作成*/
-		sl[i] = new CSlime();
-		sl[i]->Init(&mModSlime);
-
-
-		/*pos指定*/
-		if (RESP_0 <= i && i < RESP_1) {
-			RESP(sl[i],"EnemyResp0");//リスポーン場所指定　
-		}
-		else {
-			RESP(sl[i], "EnemyResp1");//リスポーン場所指定　
-		}
-		const float ajustPosX = 2.0f * i;
-		sl[i]->mPosition.x += ajustPosX;//一致するといけないので少しずらす。
-		CTaskManager::GetInstance()->Add(sl[i]);//タスクに追加
-	}
+/*リスポーン指定してAdd*/
+void CSceneModel::SlimeAdd(char *name,CVector3 ajustPos) {
+	mEnemyCount++;
+	CSlime *sl;
+	/*インスタンス作成*/
+	sl= new CSlime();
+	sl->Init(&mModSlime);
+	/*pos指定*/
+	RESP(sl, name);//リスポーン場所指定　
+	sl->mPosition += ajustPos;
+	CTaskManager::GetInstance()->Add(sl);//タスクに追加
 }
 
 /*キングエネミー*/
 void CSceneModel::KingSlimeAdd() {
+	CKingSlime *sl = new CKingSlime();
+	sl->Init(&mModKingSlime);
+	sl->mPosition = sl->mPosition *   CMap::GetInstance()->Matrix("Armature_KingEnemy");
+	CTaskManager::GetInstance()->Add(sl);//タスクに追加
+}
+/*初期化処理*/
+void CSceneModel::KingSlimeInit() {
 	mModKingSlime.TexDirectory(MODEL_FILE"Slime\\King\\");
 	mModKingSlime.Load(KING_MODEL_FILE_SLIME);
 
@@ -123,21 +130,23 @@ void CSceneModel::KingSlimeAdd() {
 	mModKingSlime.AddAnimationSet(F_SLI_KING_DAMAGE);
 	mModKingSlime.AddAnimationSet(F_SLI_KING_ATTACK);
 
-	CKingSlime *sl = new CKingSlime();
-	sl->Init(&mModKingSlime);
-	sl->mPosition = sl->mPosition *   CMap::GetInstance()->Matrix("Armature_KingEnemy");
-	CTaskManager::GetInstance()->Add(sl);//タスクに追加
 }
 
 void CSceneModel::Init() {
 	mMouseInitCount = 0.0f;							//マウスが初期位置に戻るまでの時間
 	mLagTime = 0.0f;								//lagによるバグ回避時間
+	mEnemyCount = 0;
 	
 	/*プレイヤー初期化*/
 	PlayerAdd();
 	/*エネミー*/
-	SlimeAdd();//スライム
-	KingSlimeAdd();//スライム
+	SlimeInit();
+	for (int i = 0; i < SLIME_MAX0; i++) {
+		/*位置が被らないようにする*/
+		const CVector3 pos = CVector3(0.0f, 0.0f, 2.0f * i);
+		SlimeAdd(ENEMY_RESP_0,pos);//スライム
+	}
+	KingSlimeInit();//スライム
 
 }
 

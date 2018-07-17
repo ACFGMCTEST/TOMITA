@@ -51,7 +51,7 @@ void CGameScene::Update() {
 	{
 	case E_INIT:
 		CMap::GetInstance()->Init();
-		mSceneModel.Init();
+		CSceneModel::GetInstance()->Init();
 		CResult::GetInstance()->Init();
 		CTutorial::GetInstance()->Init();
 

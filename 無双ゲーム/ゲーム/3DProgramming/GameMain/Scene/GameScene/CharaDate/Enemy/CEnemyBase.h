@@ -19,7 +19,7 @@ public:
 	bool mFlagUpdate;//アップデートするかしないか
 	CEnemyBase();
 	~CEnemyBase();
-	
+
 
 	/*初期化処理*/
 	void Init();
@@ -40,7 +40,7 @@ public:
 	/*AIの動き関数*/
 	void AIMove();
 	/*ダメージを受けた時の処理*/
-	void Damage(float power, CVector3 rot);
+	float Damage(float power, CVector3 rot);
 	/*体力ゲージのHp取得*/
 	float HP() { return mpHp->mValue; }
 };

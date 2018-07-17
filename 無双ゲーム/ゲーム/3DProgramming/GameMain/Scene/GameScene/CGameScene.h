@@ -8,8 +8,6 @@
 #include "Tutorial\CTutorial.h"
 
 class CGameScene : public CScene{
-private:
-	CSceneModel mSceneModel;
 public:
  	static bool mPauseFlag;//trueでアップデート停止,
 

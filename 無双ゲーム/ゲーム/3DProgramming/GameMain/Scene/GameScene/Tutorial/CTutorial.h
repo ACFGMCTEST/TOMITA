@@ -8,19 +8,21 @@ private:
 	static CTutorial *mpTutorial;
 	CVector3 mPos;//はじめのポジション
 	CTutorial();
-
 	/*表示するテキスト並び順*/
 	enum ESTATE {
 		ALL_ENE_KILL,	//すべての敵を倒せ
 		MOVE,		//移動とカメラ説明
-		BLOW_OFF,	//吹き飛ばした時の説明
 		ATTACK_AVOID,	//攻撃と回避説明
+		BLOW_OFF,	//吹き飛ばした時の説明
+
+
 		HIGH_HILL_SLI,	//高台スライム倒す誘導
 		JUMP,		//ジャンプ説明
+
 		PUSH_OFF,	//高台から突き落とした時の説明
 		KING_KILL,	//親玉倒す
 		SPECIAL_ATTACK,	//必殺技説明
-		ARRAY
+		ARRAY,
 	};
 	ESTATE eState;//Tutorialの現在の状態
 	/*ポリゴン*/
@@ -34,6 +36,8 @@ private:
 	/*タイム*/
 	float mTime;
 	bool mFlagUv;//アップデートで張り替えるために使う
+	bool mFlagText; //テキスト消す
+	bool mFlagBG;   //BG消す
 public:
 	static CTutorial *GetInstance();
 

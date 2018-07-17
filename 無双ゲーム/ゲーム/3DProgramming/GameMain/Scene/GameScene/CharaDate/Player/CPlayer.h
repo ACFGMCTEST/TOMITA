@@ -83,6 +83,8 @@ private:
 	CKey AttackInitKey;//Init時に使う
 	int mRotCount;//回転地カウント　移動するときに使う
 public:
+	
+
 
 	bool mFlagDamage;//ダメージ中のフラ
 	bool mFlagAttack;//攻撃するフラグ

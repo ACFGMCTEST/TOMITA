@@ -6,6 +6,11 @@
 #include "../../../Graphic/CModelObj.h"
 #include "../../../Graphic/CBillBoard.h"
 
+/*マップのボーンの名前*/
+#define ENEMY_RESP_0 "EnemyResp0"
+#define ENEMY_RESP_1 "EnemyResp1"
+#define ENEMY_RESP_2 "EnemyResp2"
+#define ENEMY_KING_RESP "Armature"
 
 /*マップ*/
 class CMap{

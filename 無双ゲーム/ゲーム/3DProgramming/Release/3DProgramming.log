@@ -1,170 +1,42 @@
 ﻿cl : コマンド ライン warning D9025: '/sdl-' より '/GS-' が優先されます。
-  CCamera.cpp
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(102): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(226): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(317): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(322): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(327): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\task\../../Define/Define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\task\../../Define/Define.h(78) : 'BACK_POS' の前の定義を確認してください
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\task\../../Define/Define.h(113): warning C4005: 'MODEL_FILE' : マクロが再定義されました。
-          c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(8) : 'MODEL_FILE' の前の定義を確認してください
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\../../Define/Define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\../../Define/Define.h(83) : 'BACK_POS' の前の定義を確認してください
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\../../Define/Define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\../../Define/Define.h(78) : 'BACK_POS' の前の定義を確認してください
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\player\../../Effect/CEffect2D.h(33): warning C4584: 'CEffect2D' : 基底クラス 'CTask' は既に 'CRectangle' の基底クラスです。
-          c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\../Task/CTask.h(14) : 'CTask' の宣言を確認してください。
-          c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\effect\../../../Graphic/CRectangle.h(10) : 'CRectangle' の宣言を確認してください。
-C:\Users\tomi-\Desktop\PushTomitaPush\無双ゲーム\ゲーム\3DProgramming\include\../Define/Define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          C:\Users\tomi-\Desktop\PushTomitaPush\無双ゲーム\ゲーム\3DProgramming\include\../Define/Define.h(83) : 'BACK_POS' の前の定義を確認してください
-C:\Users\tomi-\Desktop\PushTomitaPush\無双ゲーム\ゲーム\3DProgramming\include\../Define/Define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          C:\Users\tomi-\Desktop\PushTomitaPush\無双ゲーム\ゲーム\3DProgramming\include\../Define/Define.h(78) : 'BACK_POS' の前の定義を確認してください
-C:\Users\tomi-\Desktop\PushTomitaPush\無双ゲーム\ゲーム\3DProgramming\include\../Define/define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          C:\Users\tomi-\Desktop\PushTomitaPush\無双ゲーム\ゲーム\3DProgramming\include\../Define/define.h(83) : 'BACK_POS' の前の定義を確認してください
-C:\Users\tomi-\Desktop\PushTomitaPush\無双ゲーム\ゲーム\3DProgramming\include\../Define/define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          C:\Users\tomi-\Desktop\PushTomitaPush\無双ゲーム\ゲーム\3DProgramming\include\../Define/define.h(78) : 'BACK_POS' の前の定義を確認してください
-  CSceneManager.cpp
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(102): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(226): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(317): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(322): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(327): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\task\../../Define/Define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\task\../../Define/Define.h(78) : 'BACK_POS' の前の定義を確認してください
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\task\../../Define/Define.h(113): warning C4005: 'MODEL_FILE' : マクロが再定義されました。
-          c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(8) : 'MODEL_FILE' の前の定義を確認してください
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\../../Define/Define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\../../Define/Define.h(83) : 'BACK_POS' の前の定義を確認してください
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\../../Define/Define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\../../Define/Define.h(78) : 'BACK_POS' の前の定義を確認してください
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\player\../../Effect/CEffect2D.h(33): warning C4584: 'CEffect2D' : 基底クラス 'CTask' は既に 'CRectangle' の基底クラスです。
-          c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\../Task/CTask.h(14) : 'CTask' の宣言を確認してください。
-          c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\effect\../../../Graphic/CRectangle.h(10) : 'CRectangle' の宣言を確認してください。
-C:\Users\tomi-\Desktop\PushTomitaPush\無双ゲーム\ゲーム\3DProgramming\include\../Define/define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          C:\Users\tomi-\Desktop\PushTomitaPush\無双ゲーム\ゲーム\3DProgramming\include\../Define/define.h(83) : 'BACK_POS' の前の定義を確認してください
-C:\Users\tomi-\Desktop\PushTomitaPush\無双ゲーム\ゲーム\3DProgramming\include\../Define/define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          C:\Users\tomi-\Desktop\PushTomitaPush\無双ゲーム\ゲーム\3DProgramming\include\../Define/define.h(78) : 'BACK_POS' の前の定義を確認してください
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\itemscene\CItem.h(11): warning C4005: 'TIP_ARRAY' : マクロが再定義されました。
-          c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\player\../../Effect/CEffect2D.h(6) : 'TIP_ARRAY' の前の定義を確認してください
-  CGameScene.cpp
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(102): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(226): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(317): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(322): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(327): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\task\../../Define/Define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\task\../../Define/Define.h(78) : 'BACK_POS' の前の定義を確認してください
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\task\../../Define/Define.h(113): warning C4005: 'MODEL_FILE' : マクロが再定義されました。
-          c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(8) : 'MODEL_FILE' の前の定義を確認してください
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\../../Define/Define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\../../Define/Define.h(83) : 'BACK_POS' の前の定義を確認してください
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\../../Define/Define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\../../Define/Define.h(78) : 'BACK_POS' の前の定義を確認してください
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\player\../../Effect/CEffect2D.h(33): warning C4584: 'CEffect2D' : 基底クラス 'CTask' は既に 'CRectangle' の基底クラスです。
-          c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\../Task/CTask.h(14) : 'CTask' の宣言を確認してください。
-          c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\effect\../../../Graphic/CRectangle.h(10) : 'CRectangle' の宣言を確認してください。
-C:\Users\tomi-\Desktop\PushTomitaPush\無双ゲーム\ゲーム\3DProgramming\include\../Define/define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          C:\Users\tomi-\Desktop\PushTomitaPush\無双ゲーム\ゲーム\3DProgramming\include\../Define/define.h(83) : 'BACK_POS' の前の定義を確認してください
-C:\Users\tomi-\Desktop\PushTomitaPush\無双ゲーム\ゲーム\3DProgramming\include\../Define/define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          C:\Users\tomi-\Desktop\PushTomitaPush\無双ゲーム\ゲーム\3DProgramming\include\../Define/define.h(78) : 'BACK_POS' の前の定義を確認してください
-  CSceneModel.cpp
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(102): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(226): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(317): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(322): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(327): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\task\../../Define/Define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\task\../../Define/Define.h(78) : 'BACK_POS' の前の定義を確認してください
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\task\../../Define/Define.h(113): warning C4005: 'MODEL_FILE' : マクロが再定義されました。
-          c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(8) : 'MODEL_FILE' の前の定義を確認してください
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\../../Define/Define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\../../Define/Define.h(83) : 'BACK_POS' の前の定義を確認してください
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\../../Define/Define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\../../Define/Define.h(78) : 'BACK_POS' の前の定義を確認してください
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\player\../../Effect/CEffect2D.h(33): warning C4584: 'CEffect2D' : 基底クラス 'CTask' は既に 'CRectangle' の基底クラスです。
-          c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\../Task/CTask.h(14) : 'CTask' の宣言を確認してください。
-          c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\effect\../../../Graphic/CRectangle.h(10) : 'CRectangle' の宣言を確認してください。
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\../../../../Define/Define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\../../../../Define/Define.h(83) : 'BACK_POS' の前の定義を確認してください
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\../../../../Define/Define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\../../../../Define/Define.h(78) : 'BACK_POS' の前の定義を確認してください
-C:\Users\tomi-\Desktop\PushTomitaPush\無双ゲーム\ゲーム\3DProgramming\include\../Define/Define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          C:\Users\tomi-\Desktop\PushTomitaPush\無双ゲーム\ゲーム\3DProgramming\include\../Define/Define.h(83) : 'BACK_POS' の前の定義を確認してください
-C:\Users\tomi-\Desktop\PushTomitaPush\無双ゲーム\ゲーム\3DProgramming\include\../Define/Define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          C:\Users\tomi-\Desktop\PushTomitaPush\無双ゲーム\ゲーム\3DProgramming\include\../Define/Define.h(78) : 'BACK_POS' の前の定義を確認してください
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(83) : 'BACK_POS' の前の定義を確認してください
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(78) : 'BACK_POS' の前の定義を確認してください
-C:\Users\tomi-\Desktop\PushTomitaPush\無双ゲーム\ゲーム\3DProgramming\include\../Define/define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          C:\Users\tomi-\Desktop\PushTomitaPush\無双ゲーム\ゲーム\3DProgramming\include\../Define/define.h(83) : 'BACK_POS' の前の定義を確認してください
-C:\Users\tomi-\Desktop\PushTomitaPush\無双ゲーム\ゲーム\3DProgramming\include\../Define/define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          C:\Users\tomi-\Desktop\PushTomitaPush\無双ゲーム\ゲーム\3DProgramming\include\../Define/define.h(78) : 'BACK_POS' の前の定義を確認してください
-GameMain\Scene\GameScene\CharaDate\CSceneModel.cpp(28): warning C4005: 'ANGLE_5' : マクロが再定義されました。
-          C:\Users\tomi-\Desktop\PushTomitaPush\無双ゲーム\ゲーム\3DProgramming\include\../Define/define.h(100) : 'ANGLE_5' の前の定義を確認してください
-GameMain\Scene\GameScene\CharaDate\CSceneModel.cpp(29): warning C4005: 'ANGLE_180' : マクロが再定義されました。
-          C:\Users\tomi-\Desktop\PushTomitaPush\無双ゲーム\ゲーム\3DProgramming\include\../Define/define.h(95) : 'ANGLE_180' の前の定義を確認してください
-  CResult.cpp
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(102): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(226): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(317): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(322): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(327): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\task\../../Define/Define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\task\../../Define/Define.h(78) : 'BACK_POS' の前の定義を確認してください
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\task\../../Define/Define.h(113): warning C4005: 'MODEL_FILE' : マクロが再定義されました。
-          c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(8) : 'MODEL_FILE' の前の定義を確認してください
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\../../Define/Define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\../../Define/Define.h(83) : 'BACK_POS' の前の定義を確認してください
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\../../Define/Define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\../../Define/Define.h(78) : 'BACK_POS' の前の定義を確認してください
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\player\../../Effect/CEffect2D.h(33): warning C4584: 'CEffect2D' : 基底クラス 'CTask' は既に 'CRectangle' の基底クラスです。
-          c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\../Task/CTask.h(14) : 'CTask' の宣言を確認してください。
-          c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\effect\../../../Graphic/CRectangle.h(10) : 'CRectangle' の宣言を確認してください。
-C:\Users\tomi-\Desktop\PushTomitaPush\無双ゲーム\ゲーム\3DProgramming\include\../Define/define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          C:\Users\tomi-\Desktop\PushTomitaPush\無双ゲーム\ゲーム\3DProgramming\include\../Define/define.h(83) : 'BACK_POS' の前の定義を確認してください
-C:\Users\tomi-\Desktop\PushTomitaPush\無双ゲーム\ゲーム\3DProgramming\include\../Define/define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          C:\Users\tomi-\Desktop\PushTomitaPush\無双ゲーム\ゲーム\3DProgramming\include\../Define/define.h(78) : 'BACK_POS' の前の定義を確認してください
-C:\Users\tomi-\Desktop\PushTomitaPush\無双ゲーム\ゲーム\3DProgramming\include\../Define/Define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          C:\Users\tomi-\Desktop\PushTomitaPush\無双ゲーム\ゲーム\3DProgramming\include\../Define/Define.h(83) : 'BACK_POS' の前の定義を確認してください
-C:\Users\tomi-\Desktop\PushTomitaPush\無双ゲーム\ゲーム\3DProgramming\include\../Define/Define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          C:\Users\tomi-\Desktop\PushTomitaPush\無双ゲーム\ゲーム\3DProgramming\include\../Define/Define.h(78) : 'BACK_POS' の前の定義を確認してください
-GameMain\Scene\GameScene\Result\CResult.cpp(5): warning C4005: 'BG_SIZE' : マクロが再定義されました。
-          c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\camera\../Graphic/CRectangle2.h(15) : 'BG_SIZE' の前の定義を確認してください
-GameMain\Scene\GameScene\Result\CResult.cpp(55): warning C4005: 'FADE_SPEED' : マクロが再定義されました。
-          c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(24) : 'FADE_SPEED' の前の定義を確認してください
-  CTutorial.cpp
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(102): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(226): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(317): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(322): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(327): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\task\../../Define/Define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\task\../../Define/Define.h(78) : 'BACK_POS' の前の定義を確認してください
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\task\../../Define/Define.h(113): warning C4005: 'MODEL_FILE' : マクロが再定義されました。
-          c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\../../../Graphic/CModelX.h(8) : 'MODEL_FILE' の前の定義を確認してください
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\../../Define/Define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\../../Define/Define.h(83) : 'BACK_POS' の前の定義を確認してください
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\../../Define/Define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\../../Define/Define.h(78) : 'BACK_POS' の前の定義を確認してください
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\player\../../Effect/CEffect2D.h(33): warning C4584: 'CEffect2D' : 基底クラス 'CTask' は既に 'CRectangle' の基底クラスです。
-          c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\../Task/CTask.h(14) : 'CTask' の宣言を確認してください。
-          c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\effect\../../../Graphic/CRectangle.h(10) : 'CRectangle' の宣言を確認してください。
-C:\Users\tomi-\Desktop\PushTomitaPush\無双ゲーム\ゲーム\3DProgramming\include\../Define/define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          C:\Users\tomi-\Desktop\PushTomitaPush\無双ゲーム\ゲーム\3DProgramming\include\../Define/define.h(83) : 'BACK_POS' の前の定義を確認してください
-C:\Users\tomi-\Desktop\PushTomitaPush\無双ゲーム\ゲーム\3DProgramming\include\../Define/define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          C:\Users\tomi-\Desktop\PushTomitaPush\無双ゲーム\ゲーム\3DProgramming\include\../Define/define.h(78) : 'BACK_POS' の前の定義を確認してください
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\tutorial\../../../../Define/Define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\tutorial\../../../../Define/Define.h(83) : 'BACK_POS' の前の定義を確認してください
-c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\tutorial\../../../../Define/Define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\tutorial\../../../../Define/Define.h(78) : 'BACK_POS' の前の定義を確認してください
-C:\Users\tomi-\Desktop\PushTomitaPush\無双ゲーム\ゲーム\3DProgramming\include\../Define/Define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          C:\Users\tomi-\Desktop\PushTomitaPush\無双ゲーム\ゲーム\3DProgramming\include\../Define/Define.h(83) : 'BACK_POS' の前の定義を確認してください
-C:\Users\tomi-\Desktop\PushTomitaPush\無双ゲーム\ゲーム\3DProgramming\include\../Define/Define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
-          C:\Users\tomi-\Desktop\PushTomitaPush\無双ゲーム\ゲーム\3DProgramming\include\../Define/Define.h(78) : 'BACK_POS' の前の定義を確認してください
-GameMain\Scene\GameScene\Tutorial\CTutorial.cpp(35): warning C4005: 'TEX_BG_Y' : マクロが再定義されました。
-          c:\users\tomi-\desktop\pushtomitapush\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\../Graphic/CTexture.h(15) : 'TEX_BG_Y' の前の定義を確認してください
+  CPlayer.cpp
+c:\users\tomi-\desktop\push\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\player\../../../../Graphic/CModelX.h(102): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\push\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\player\../../../../Graphic/CModelX.h(226): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\push\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\player\../../../../Graphic/CModelX.h(317): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\push\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\player\../../../../Graphic/CModelX.h(322): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\push\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\player\../../../../Graphic/CModelX.h(327): warning C4018: '<' : signed と unsigned の数値を比較しようとしました。
+c:\users\tomi-\desktop\push\無双ゲーム\ゲーム\3dprogramming\gamemain\task\../../Define/Define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\push\無双ゲーム\ゲーム\3dprogramming\gamemain\task\../../Define/Define.h(78) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\push\無双ゲーム\ゲーム\3dprogramming\gamemain\task\../../Define/Define.h(113): warning C4005: 'MODEL_FILE' : マクロが再定義されました。
+          c:\users\tomi-\desktop\push\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\player\../../../../Graphic/CModelX.h(8) : 'MODEL_FILE' の前の定義を確認してください
+c:\users\tomi-\desktop\push\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\../../Define/Define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\push\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\../../Define/Define.h(83) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\push\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\../../Define/Define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\push\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\../../Define/Define.h(78) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\push\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\player\../../Effect/CEffect2D.h(33): warning C4584: 'CEffect2D' : 基底クラス 'CTask' は既に 'CRectangle' の基底クラスです。
+          c:\users\tomi-\desktop\push\無双ゲーム\ゲーム\3dprogramming\gamemain\graphic\../Task/CTask.h(14) : 'CTask' の宣言を確認してください。
+          c:\users\tomi-\desktop\push\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\effect\../../../Graphic/CRectangle.h(10) : 'CRectangle' の宣言を確認してください。
+c:\users\tomi-\desktop\push\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\player\../../../../../Define/Define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\push\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\player\../../../../../Define/Define.h(83) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\push\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\player\../../../../../Define/Define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\push\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\player\../../../../../Define/Define.h(78) : 'BACK_POS' の前の定義を確認してください
+C:\Users\tomi-\Desktop\push\無双ゲーム\ゲーム\3DProgramming\include\../Define/Define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          C:\Users\tomi-\Desktop\push\無双ゲーム\ゲーム\3DProgramming\include\../Define/Define.h(83) : 'BACK_POS' の前の定義を確認してください
+C:\Users\tomi-\Desktop\push\無双ゲーム\ゲーム\3DProgramming\include\../Define/Define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          C:\Users\tomi-\Desktop\push\無双ゲーム\ゲーム\3DProgramming\include\../Define/Define.h(78) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\push\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\player\../../../ItemScene/CItem.h(11): warning C4005: 'TIP_ARRAY' : マクロが再定義されました。
+          c:\users\tomi-\desktop\push\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\player\../../Effect/CEffect2D.h(6) : 'TIP_ARRAY' の前の定義を確認してください
+c:\users\tomi-\desktop\push\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(78): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\push\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(83) : 'BACK_POS' の前の定義を確認してください
+c:\users\tomi-\desktop\push\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(83): warning C4005: 'BACK_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\push\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\effect\../../../../Define/Define.h(78) : 'BACK_POS' の前の定義を確認してください
+GameMain\Scene\GameScene\CharaDate\Player\CPlayer.cpp(26): warning C4005: 'COL_RADIUS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\push\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\player\CPlayer.h(50) : 'COL_RADIUS' の前の定義を確認してください
+GameMain\Scene\GameScene\CharaDate\Player\CPlayer.cpp(27): warning C4005: 'COL_POS' : マクロが再定義されました。
+          c:\users\tomi-\desktop\push\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\player\CPlayer.h(51) : 'COL_POS' の前の定義を確認してください
+GameMain\Scene\GameScene\CharaDate\Player\CPlayer.cpp(39): warning C4005: 'EFF_SIZE' : マクロが再定義されました。
+          c:\users\tomi-\desktop\push\無双ゲーム\ゲーム\3dprogramming\gamemain\scene\gamescene\charadate\player\../../Effect/CEffect2D.h(12) : 'EFF_SIZE' の前の定義を確認してください
+GameMain\Scene\GameScene\CharaDate\Player\CPlayer.cpp(119): warning C4002: マクロ 'RECT_SIZE' に指定された実引数の数が多すぎます。
   コード生成しています。
   コード生成が終了しました。
-  3DProgramming.vcxproj -> C:\Users\tomi-\Desktop\PushTomitaPush\無双ゲーム\ゲーム\Release\3DProgramming.exe
+  3DProgramming.vcxproj -> C:\Users\tomi-\Desktop\push\無双ゲーム\ゲーム\Release\3DProgramming.exe

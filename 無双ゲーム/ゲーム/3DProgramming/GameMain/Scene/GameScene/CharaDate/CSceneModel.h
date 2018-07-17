@@ -12,26 +12,33 @@
 
 class CSceneModel{
 private:
+	static CSceneModel *mpSceneModel;
 	CModelX mModPlayer;//モデル読み込み用
 	CModelX mModSlime;//モデル読み込み用
 	CModelX mModKingSlime;//モデル読み込み用
 
 	float mMouseInitCount;//マウスが初期位置に戻るまでの時間
 	float mLagTime;//lagによるバグ回避時間
-public:
 
+	CSceneModel();
+public:
+	static CSceneModel *GetInstance(); //GetInstance
 	static CPlayer *mpPlayer; //アクセス用 キャラクター操作に使うため 静的に
-	
+
+	static int mEnemyCount;//マップ上にいるエネミーの数
+
 
 
 	/*プレイヤー追加関数*/
 	void PlayerAdd();//プレイヤ－
 	/*エネミー*/
-	void SlimeAdd ();//スライム追加
+	void SlimeInit();//スライム追加
+	/*リスポーン指定してAdd*/
+	void SlimeAdd(char *RespawnM44Name,CVector3 ajustPos);
 	/*キングエネミー*/
+	void KingSlimeInit();
 	void KingSlimeAdd();//キングスライム追加
 
-	CSceneModel();
 	~CSceneModel();
 
 	void Init(); 

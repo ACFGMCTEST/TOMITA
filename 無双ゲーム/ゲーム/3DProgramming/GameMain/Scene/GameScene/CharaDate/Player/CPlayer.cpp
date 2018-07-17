@@ -494,18 +494,18 @@ void CPlayer::SphereCol(CColSphere *sphere, CColBase *y) {
 			sph = (*(CColSphere*)y).GetUpdate();
 			/*当たり判定計算*/
 			if (CCollision::CollisionShpere(sph, *sphere) && sph.eState == CColBase::ENE_BODY) {
+				ene = (CEnemyBase*)sph.mpParent;
 				/*
 				当たり判定が攻撃の場合
 				攻撃している場合
 				*/
 				if (sphere->eState == CColBase::PL_ATTACK && mStr == F_PL_ATTACK) {
-					ene = (CEnemyBase*)sph.mpParent;
-					ene->Damage(mPower, mRotation);
+					//エネミーのダメージとHPを入れる
+					float eneHp = ene->Damage(mPower, mRotation);	
 					//エフェクト発動
 					mpHitEffect->StartAnima(EFF_SPEED, EFF_POS(mPosition));
-
 				}
-				/*回避中は当たらない*/
+				/*回避中は当たらない && エネミーがダメージを追っているとき*/
 				if (mStr != F_PL_AVOID) Collision(&sph, sphere);
 			}
 		}

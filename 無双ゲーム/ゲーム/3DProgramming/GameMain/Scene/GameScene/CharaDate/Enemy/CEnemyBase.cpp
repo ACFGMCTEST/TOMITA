@@ -28,6 +28,7 @@
 #define TAX_EXP_SIZE  0,0,270,270
 #define EXP_SET_ANIMA 1,270
 
+
 /*hp設定　ajust*/
 void CEnemyBase::SetHpBar(CVector3 ajust) {
 	/*HP設定*/
@@ -51,6 +52,7 @@ void CEnemyBase::SetExp() {
 
 /*コンストラクタ*/
 CEnemyBase::CEnemyBase() {
+	
 	/*ミニマップ設定*/
 #define TEX_SIZE 386,386, 0.0f, 0.0f //ミニマップのサイズ
 	mpMiniRect->SetUv(CLoadTexManager::GetInstance()->
@@ -59,6 +61,7 @@ CEnemyBase::CEnemyBase() {
 }
 /*デストラクタ*/
 CEnemyBase::~CEnemyBase() {
+	CSceneModel::mEnemyCount--;
 	if(mpExplosion)mpExplosion->mKillFlag = true;
 	if(mpHp)mpHp->mKillFlag = true;
 }
@@ -181,13 +184,13 @@ bool CEnemyBase::Collision(CColBase* m, CColBase* y) {
 
 #define AJUST_BLOW_OFF_POWER(pow) pow*2.0f //全体の攻撃調整
 /*ダメージを受けた時の処理*/
-void CEnemyBase::Damage(float power, CVector3 rot) {
+float CEnemyBase::Damage(float power, CVector3 rot) {
 	mpHp->mValue -= power;
 	/*吹っ飛ぶ処理の準備*/
 	mDamagePower = AJUST_BLOW_OFF_POWER(power);
 	mDamageRot = rot;
 	mFlagDamage = true;
-
+	return mpHp->mValue;
 }
 /*描画処理*/
 void CEnemyBase::Render() {
