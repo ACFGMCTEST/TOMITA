@@ -14,7 +14,7 @@ void CSlimeIdling::ChangeState(){
 	}
 
 	/*ダメージを受けているなら*/
-	if (sli->mFlagDamage) {
+	if (sli->mFlagDamage || sli->HP() == 0) {
 		mNextRegisterName = F_SLI_DAMAGE;//ダメージ
 	}
 	//名前が入ればフラグを立てる
@@ -34,8 +34,6 @@ void CSlimeIdling::Update(){
 	CSlime *sli = dynamic_cast<CSlime*>(mpParent);
 	/*アイドリングの処理*/
 	sli->ChangeAnimation(F_SLI_IDLING,F_SLI_KING_IDLING, true, ANIMA_SPEED);
-	sli->State(F_SLI_IDLING);
-
 }
 
 CSlimeIdling::CSlimeIdling()

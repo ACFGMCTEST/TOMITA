@@ -10,7 +10,7 @@
 #define VEL_ATTACK2 0
 #define VEL_ATTACK3 0.07f
 /*アニメのスピード*/
-#define ANIMA_SPEED_RUN_ATTCK 20
+#define ANIMA_SPEED_RUN_ATTCK 50
 
 //変更する関数
 void CPlayerRunAttack::ChangeState(){
@@ -36,10 +36,10 @@ void CPlayerRunAttack::Start(){
 void CPlayerRunAttack::Update()
 {
 	CPlayer *pl = dynamic_cast<CPlayer*>(mpParent);
+	pl->mPower = ATTACK_POWER * 1.5f;
 	/*アニメーション*/
 	pl->ChangeAnimation(F_PL_RUN_ATTACK, false, ANIMA_SPEED_RUN_ATTCK);
 	pl->Move();
-	pl->State(F_PL_RUN_ATTACK);
 }
 //遷移時の処理
 // isNextをfalseに戻す処理はここで行うとよい

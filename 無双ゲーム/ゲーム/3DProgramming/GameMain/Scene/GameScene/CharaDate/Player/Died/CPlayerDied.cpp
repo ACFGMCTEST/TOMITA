@@ -32,8 +32,6 @@ void CPlayerDied::Update(){
 	pl->ChangeAnimation(F_PL_DIED, false, ANIMA_SPEED);
 
 	
-	pl->State(F_PL_DIED);
-
 }
 
 

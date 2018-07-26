@@ -16,7 +16,7 @@
 #define KEY_JUMP VK_SPACE
 #define KEY_ATTACK VK_CONTROL
 #define KEY_AVOID VK_SHIFT
-#define KEY_SKILL 'E'
+#define KEY_SPECIAL VK_RETURN
 #define SOUNDFILE "../Sound/"
 
 //#define MAP_ARRAY_X 15 //É}ÉbÉvêî

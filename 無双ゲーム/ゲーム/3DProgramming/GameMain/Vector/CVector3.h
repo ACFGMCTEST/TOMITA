@@ -75,7 +75,7 @@ public:
 	CVector3 Cross(const CVector3& v) const ;
 	/*マトリックスポジション以降*/
 	CVector3 Transeform(CMatrix44 &mat) const;
-
+	
 	/*三角形の重心を求める*/
 	static CVector3 TriangleCenter(const CVector3 &v0, const CVector3 &v1, const CVector3 &v2);
 

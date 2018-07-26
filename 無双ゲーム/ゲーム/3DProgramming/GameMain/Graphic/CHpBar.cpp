@@ -30,9 +30,9 @@ void CHpBar::Init(CCamera *pCamera, float max, float value, float widht, float h
 	mFrame.SetVertex(pCamera, SVer(-widht, height, widht, -height), pos, ajust);
 }
 
-void CHpBar::SetTex(CTexture *frameName, CTexture *gaugeName, int left, int top, int right, int bottom){
-	mGauge.SetUv(gaugeName, left, top, right, bottom);//ゲージテクスチャ設定
-	mFrame.SetUv(frameName, left, top, right, bottom);//フレームテクスチャ設定
+void CHpBar::SetTex(CTexture *frameName, CTexture *gaugeName,STexVer ver){
+	mGauge.SetUv(gaugeName, ver.left, ver.top, ver.right, ver.bottom);//ゲージテクスチャ設定
+	mFrame.SetUv(frameName, ver.left, ver.top, ver.right, ver.bottom);//フレームテクスチャ設定
 }
 
 void CHpBar::Update(){

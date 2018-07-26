@@ -17,13 +17,14 @@ void CPlayerRun::ChangeState(){
 	}
 	/*攻撃する場合*/
 	else if (CKey::once(KEY_ATTACK)){
-		mNextRegisterName = F_PL_ATTACK;//攻撃
+		mNextRegisterName = F_PL_RUN_ATTACK;//攻撃
 	}
 	//名前が入ればフラグを立てる
 	if (!mNextRegisterName.empty()) mFlagNext = true;//文字が入れば
 }
 /*初めに呼び出し*/
 void CPlayerRun::Start(){}
+
 /*更新処理*/
 void CPlayerRun::Update(){
 	CPlayer *pl;
@@ -31,7 +32,7 @@ void CPlayerRun::Update(){
 	pl->ChangeAnimation(F_PL_RUN, true, ANIMA_SPEED_RUN);
 	SPEED_RUN_ACC(pl->mVelocity);//プレイヤー移動速度計算
 	pl->PlayerMoveRot();//プレイヤー向きを決める
-	pl->State(F_PL_RUN);
+
 }
 
 CPlayerRun::CPlayerRun()

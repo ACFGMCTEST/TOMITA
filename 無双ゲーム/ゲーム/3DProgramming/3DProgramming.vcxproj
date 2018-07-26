@@ -72,7 +72,9 @@
     <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Player\Jump\CPlayerJump.cpp" />
     <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Player\RunAttack\CPlayerRunAttack.cpp" />
     <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Player\Run\CPlayerRun.cpp" />
+    <ClCompile Include="GameMain\Scene\GameScene\CharaDate\Player\Special\CPlayerSpecial.cpp" />
     <ClCompile Include="GameMain\Scene\GameScene\Effect\CEffect2D.cpp" />
+    <ClCompile Include="GameMain\Scene\GameScene\Effect\CEffect3D.cpp" />
     <ClCompile Include="GameMain\Scene\GameScene\Effect\CExplosion.cpp" />
     <ClCompile Include="GameMain\Scene\GameScene\Map\CMap.cpp" />
     <ClCompile Include="GameMain\Scene\GameScene\Pause\CPause.cpp" />
@@ -159,7 +161,9 @@
     <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Player\Jump\CPlayerJump.h" />
     <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Player\RunAttack\CPlayerRunAttack.h" />
     <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Player\Run\CPlayerRun.h" />
+    <ClInclude Include="GameMain\Scene\GameScene\CharaDate\Player\Special\CPlayerSpecial.h" />
     <ClInclude Include="GameMain\Scene\GameScene\Effect\CEffect2D.h" />
+    <ClInclude Include="GameMain\Scene\GameScene\Effect\CEffect3D.h" />
     <ClInclude Include="GameMain\Scene\GameScene\Effect\CExplosion.h" />
     <ClInclude Include="GameMain\Scene\GameScene\Map\CMap.h" />
     <ClInclude Include="GameMain\Scene\GameScene\Pause\CPause.h" />

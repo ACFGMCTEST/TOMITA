@@ -35,7 +35,7 @@ protected:
 private:
 	static int mAllCount;//エネミーの数
 public:
-
+	bool mFlagDecoy;//動かないフラグ
 	CSlime();
 	~CSlime();
 	/*削除*/
@@ -55,7 +55,10 @@ public:
 	bool Search();
 	/*攻撃範囲*/
 	bool AttackRange();
-	/*球体判定*/
-	void SphereCol(CColSphere *sphere, CColBase *y);
+	/*落ちた時のダメージ*/
+	void FallDamage(float height);
+	/*カプセル内当たり判定*/
+	void CapsuleCol(CColCapsule *cc, CColBase* y);
+	bool Collision(CColBase* m, CColBase* y);
 };
 #endif

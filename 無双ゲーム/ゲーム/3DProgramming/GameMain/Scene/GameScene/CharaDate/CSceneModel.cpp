@@ -41,7 +41,7 @@ int  CSceneModel::mEnemyCount = 0;
 		CMap::GetInstance()->Matrix(name);
 
 /*コンストラクタ*/
-CSceneModel::CSceneModel() :mMouseInitCount(0.0f),mLagTime(0.0f){
+CSceneModel::CSceneModel(){
 
 
 }
@@ -63,6 +63,11 @@ CSceneModel::~CSceneModel(){
 
 /*プレイヤー追加処理*/
 void CSceneModel::PlayerAdd(){
+	/*プレイヤーが扱うエフェクト*/
+	mModEffect3D.TexDirectory(MODEL_FILE"Effect\\");
+	mModEffect3D.Load(MODEL_FILE"Effect\\Effect.x");
+	mModEffect3D.AddAnimationSet(MODEL_FILE"Effect\\EffectAnima.x");
+
 	/*プレイヤー*/
 	mModPlayer.TexDirectory(MODEL_FILE"SDUnity\\");
 	mModPlayer.Load(MODEL_FILE_UNITY);
@@ -75,6 +80,8 @@ void CSceneModel::PlayerAdd(){
 	mModPlayer.AddAnimationSet(F_PL_DAMAGE);//ダメージ
 	mModPlayer.AddAnimationSet(F_PL_DIED);//死亡
 	mModPlayer.AddAnimationSet(F_PL_AVOID);//回避
+	mModPlayer.AddAnimationSet(F_PL_SPECIAL);//スペシャル技
+
 
 	CPlayer *pl = new CPlayer(); //new作成
 
@@ -100,7 +107,7 @@ void CSceneModel::SlimeInit(){
 }
 
 /*リスポーン指定してAdd*/
-void CSceneModel::SlimeAdd(char *name,CVector3 ajustPos) {
+CSlime *CSceneModel::SlimeAdd(char *name,CVector3 ajustPos) {
 	mEnemyCount++;
 	CSlime *sl;
 	/*インスタンス作成*/
@@ -110,6 +117,7 @@ void CSceneModel::SlimeAdd(char *name,CVector3 ajustPos) {
 	RESP(sl, name);//リスポーン場所指定　
 	sl->mPosition += ajustPos;
 	CTaskManager::GetInstance()->Add(sl);//タスクに追加
+	return sl;
 }
 
 /*キングエネミー*/
@@ -133,8 +141,6 @@ void CSceneModel::KingSlimeInit() {
 }
 
 void CSceneModel::Init() {
-	mMouseInitCount = 0.0f;							//マウスが初期位置に戻るまでの時間
-	mLagTime = 0.0f;								//lagによるバグ回避時間
 	mEnemyCount = 0;
 	
 	/*プレイヤー初期化*/
@@ -143,7 +149,7 @@ void CSceneModel::Init() {
 	SlimeInit();
 	for (int i = 0; i < SLIME_MAX0; i++) {
 		/*位置が被らないようにする*/
-		const CVector3 pos = CVector3(0.0f, 0.0f, 2.0f * i);
+		const CVector3 pos = CVector3(5.0f * i, 0.0f, 5.0f * i);
 		SlimeAdd(ENEMY_RESP_0,pos);//スライム
 	}
 	KingSlimeInit();//スライム

@@ -30,8 +30,10 @@ public:
 
 	//何者か判断
 	enum E_NAME{
-		E_PLAYER,//プレイヤー
+		E_3D_EFFECT,//３Dのエフェクト
+		E_PLAYER,//プレイヤ
 		E_SLIME,//スライム
+		E_KING_SLIME,//キングスライム
 		E_BILLBOARD,//ビルボード
 		E_2D,//２Ｄ表示のもの
 	};

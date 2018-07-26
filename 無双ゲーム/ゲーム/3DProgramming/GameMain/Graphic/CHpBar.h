@@ -20,7 +20,7 @@ public:
 	void Init(CCamera *pCamera, float max, float value, float widht, float height,
 		CVector3 *pos,CVector3 ajust);
 	/*テクスチャ設定*/
-	void SetTex(CTexture *frameName, CTexture *gaugeName, int left, int top, int right, int bottom);
+	void SetTex(CTexture *frameName, CTexture *gaugeName, STexVer ver);
 	void Update();
 	void Render();
 };

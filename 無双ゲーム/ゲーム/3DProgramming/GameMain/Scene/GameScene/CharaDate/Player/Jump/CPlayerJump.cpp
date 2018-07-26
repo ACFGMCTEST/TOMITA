@@ -100,7 +100,6 @@ void CPlayerJump::Update()
 			mFlagFall = true;
 		}
 	}
-	pl->State(F_PL_JUMP);
 }
 //‘JˆÚŽž‚Ìˆ—
 // isNext‚ðfalse‚É–ß‚·ˆ—‚Í‚±‚±‚Ås‚¤‚Æ‚æ‚¢

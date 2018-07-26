@@ -21,9 +21,16 @@ public:
 
 	/*更新処理*/
 	void Update();
+	/*描画処理*/
+	void Render();
 	/*攻撃範囲*/
 	bool AttackRange();
 
+	void CKingSlime::FallDamage(float height);
+	/*カプセル内当たり判定*/
+	void CKingSlime::CapsuleCol(CColCapsule *cc, CColBase* y);
+	//m 自分　y 相手
+	bool CKingSlime::Collision(CColBase* m, CColBase* y);
 private:
 
 };

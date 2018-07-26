@@ -10,7 +10,8 @@
 /*当たり判定設定*/
 #define COL_RADIUS 3.0f
 
-
+#define ATTACK_POWER 5.0f
+#define HP_MAX 100
 /*初期化処理*/
 void CKingSlime::Init(CModelX *model)
 {
@@ -34,7 +35,7 @@ void CKingSlime::Init(CModelX *model)
 	/*ベースのもの*/
 	mPower = ATTACK_POWER;//攻撃力
 	PosUpdate();
-	SetHpBar(HP_AJUST_POS);//hpバーの設定
+	SetHpBar(HP_MAX,HP_AJUST_POS);//hpバーの設定
 	SetExp();//爆発エフェクトの設定
 	CPlayer::CPlayer();
 	mGravitTime = GRA_INIT_TIME_COUNT;
@@ -46,6 +47,7 @@ void CKingSlime::Init(CModelX *model)
 
 CKingSlime::CKingSlime()
 {
+	CTask::eName = CTask::E_KING_SLIME;
 	/*ミニマップ設定*/
 #define TEX_SIZE 386,386, 0.0f, 0.0f //ミニマップのサイズ
 	mpMiniRect->SetUv(CLoadTexManager::GetInstance()->
@@ -56,6 +58,64 @@ CKingSlime::CKingSlime()
 /*更新処理*/
 void CKingSlime::Update() {
 	CSlime::Update();
+}
+/*カプセル内当たり判定*/
+void CKingSlime::CapsuleCol(CColCapsule *cc, CColBase* y) {
+	CColTriangle ct;//三角形の当たり判定
+	CColCapsule  caps;//球の当たり判定
+
+					  /*相手のタイプ何か判断*/
+	switch (y->mType) {
+		/*相手が三角の場合*/
+	case CColBase::COL_TRIANGLE:
+		ct = (*(CColTriangle*)y).GetUpdate();
+		/*当たり判定計算*/
+		if (CCollision::IntersectTriangleCapsule3(ct.mV[0], ct.mV[1], ct.mV[2],
+			cc->mV[0], cc->mV[1], cc->mRadius, &cc->mAdjust)) {
+			CKingSlime::FallDamage(FALL_SAFE);
+
+			ColGround();//地面にあった時の処理
+			SetAdjust(&mAdjust, cc->mAdjust);
+			mPosition = mPosition + mAdjust;
+			CMatrix44 rot_y, pos, matrix;
+			//回転行列の作成
+			rot_y.rotationY(mRotation.y);
+			//移動行列を計算する
+			pos.translate(mPosition);
+			//回転移動行列を求める
+			matrix = pos * rot_y;
+			//UpdateSkinMatrix(matrix);
+			CModelXS::Update(matrix);
+		}
+		break;
+	};
+}
+
+//m 自分　y 相手
+bool CKingSlime ::Collision(CColBase* m, CColBase* y) {
+
+	CColCapsule cc;
+	CColSphere sph;
+	/*自分のタイプが何か判断*/
+	switch (m->mType) {
+
+	case CTask::COL_CAPSULE://自分の当たり判定がカプセルの場合
+		cc = *(CColCapsule*)m;//カプセルにする
+		CKingSlime::CapsuleCol(&cc, y);//カプセルの当たり判定
+		break;
+	case CTask::COL_SPHEPE:
+		sph = *(CColSphere*)m;
+		SphereCol(&sph, y);
+		break;
+	};
+
+	return false;
+}
+
+
+/*描画処理*/
+void CKingSlime::Render() {
+	CSlime::Render();
 }
 CKingSlime ::~CKingSlime()
 {}
@@ -72,4 +132,14 @@ bool CKingSlime::AttackRange() {
 	CColSphere sliCol = CColSphere(SERACH_SPHERE(ATTACK_RANGE, mpMatrix));//エネミー
 	/*視界内に来ているか判断*/
 	return CCollision::CollisionShpere(plCol.GetUpdate(), sliCol.GetUpdate());
+}
+
+/*高いところから落ちるとダメージ 引数:落ちた地点との差分*/
+#define FALL_DAMAGE(dama,height) dama * height
+void CKingSlime::FallDamage(float height) {
+	/*高いところから落ちたら*/
+	if (mGroundPos.y > mPosition.y + height && HP() > 0) {
+		mpHp->mValue -= FALL_DAMAGE(mFallDamage, mGroundPos.y - mPosition.y);
+		mStateMachine.ForceChange(F_SLI_KING_DAMAGE);
+	}
 }

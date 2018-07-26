@@ -41,7 +41,6 @@ void CPlayerAvoid::Update()
 	pl->ChangeAnimation(F_PL_AVOID, false, ANIMA_SPEED);
 	pl->mVelocity = AVOID_SPEED;
 	pl->Move();
-	pl->State(F_PL_AVOID);
 }
 //‘JˆÚŽž‚Ìˆ—
 // isNext‚ðfalse‚É–ß‚·ˆ—‚Í‚±‚±‚Ås‚¤‚Æ‚æ‚¢
