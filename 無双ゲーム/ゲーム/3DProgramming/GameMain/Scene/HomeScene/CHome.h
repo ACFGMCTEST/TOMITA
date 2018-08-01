@@ -19,7 +19,8 @@ private:
 
 	/*シーン判断用*/
 	bool mFlagScene;
-
+	/*選択初期化*/
+	void SelectInit();
 	/*選択した時の関数*/
 	void Select();
 	/*決定された場合(別別)*/

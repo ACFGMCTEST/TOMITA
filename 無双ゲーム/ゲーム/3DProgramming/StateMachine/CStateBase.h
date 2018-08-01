@@ -25,7 +25,6 @@
 class CStateBase
 {
 protected:
-
 	// 遷移するかどうか
 	bool mFlagNext;
 	// 遷移先の登録名
@@ -37,6 +36,7 @@ protected:
 	CTask *mpParent;
 	
 public:
+	std::string mName;//自分の名前
 
 	/*コンストラクタ*/
 	CStateBase();
@@ -50,7 +50,8 @@ public:
 	//状態切り替え関数
 	virtual void ChangeState() = 0;
 
-
+	//自分の名前と一致しているか判断
+	bool Name(std::string s) { return s == mName; }
 
 	// 遷移時の処理
 	// isNextをfalseに戻す処理はここで行うとよい

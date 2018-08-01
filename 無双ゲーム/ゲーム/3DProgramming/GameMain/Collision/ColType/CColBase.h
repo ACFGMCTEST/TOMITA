@@ -20,6 +20,7 @@ public:
 	enum E_STATE {
 		NO,//設定なし
 		PL_ATTACK,//プレイヤーのアタック
+		PL_ATTACK_EFFECT3D,//3Dエフェクトの当たり判定
 		PL_BODY,//プレイヤーのボディ
 		ENE_ATTACK,//エネミーのアタック
 		ENE_BODY,//エネミーのアタック

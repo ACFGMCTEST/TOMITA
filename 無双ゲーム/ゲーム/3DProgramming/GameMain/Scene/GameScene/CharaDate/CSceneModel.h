@@ -5,7 +5,7 @@
 #include "../../../Matrix/CMatrix44.h"
 #include "../../../Camera/CCamera.h"
 #include "Player\CPlayer.h"
-
+#include "Enemy\Slime\CSlime.h"
 
 #include "../../../Graphic/CRectangle2.h"
 #include "../../../Task/CTaskManager.h"
@@ -16,15 +16,14 @@ private:
 	CModelX mModPlayer;//モデル読み込み用
 	CModelX mModSlime;//モデル読み込み用
 	CModelX mModKingSlime;//モデル読み込み用
-
-	float mMouseInitCount;//マウスが初期位置に戻るまでの時間
-	float mLagTime;//lagによるバグ回避時間
+	
 
 	CSceneModel();
 public:
+	CModelX mModEffect3D;//モデル3D
+
 	static CSceneModel *GetInstance(); //GetInstance
 	static CPlayer *mpPlayer; //アクセス用 キャラクター操作に使うため 静的に
-
 	static int mEnemyCount;//マップ上にいるエネミーの数
 
 
@@ -34,7 +33,7 @@ public:
 	/*エネミー*/
 	void SlimeInit();//スライム追加
 	/*リスポーン指定してAdd*/
-	void SlimeAdd(char *RespawnM44Name,CVector3 ajustPos);
+	CSlime *SlimeAdd(char *RespawnM44Name,CVector3 ajustPos);
 	/*キングエネミー*/
 	void KingSlimeInit();
 	void KingSlimeAdd();//キングスライム追加

@@ -30,6 +30,8 @@ void CSlimeAttack::ChangeState(){
 /*‰‚ß‚ÉŒÄ‚Ño‚µ*/
 void CSlimeAttack::Start(){
 	mAnimaSpeed = ANIMA_SPEED_SLOW;//‰Šú‰»
+
+
 }
 
 /*UŒ‚‚ÌˆÚ“®‘¬‚³’²®*/
@@ -58,7 +60,6 @@ void CSlimeAttack::Update()
 	sli->ChangeAnimation(F_SLI_ATTACK,F_SLI_KING_ATTACK, false, mAnimaSpeed);
 	/*UŒ‚*/
 	AttackSpeed();//UŒ‚‚Å­‚µ‘O‚ÉˆÚ“®‚³‚¹‚é
-	sli->State(F_SLI_ATTACK);
 }
 
 //‘JˆÚŽž‚Ìˆ—

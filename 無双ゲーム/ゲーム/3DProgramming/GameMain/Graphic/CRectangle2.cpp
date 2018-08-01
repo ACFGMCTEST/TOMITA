@@ -28,6 +28,7 @@ CRectangle2::CRectangle2() :mpTexture(0), mFlagDeg(false), mDegree(0), mpPos(nul
 
 //描画する
 void CRectangle2::Render() {
+
 	/*ポジションに値がアドレスが入った場合*/
 	if (mpPos){
 		mPosition = *mpPos;
@@ -86,8 +87,6 @@ void CRectangle2::Render() {
 	}
 }
 
-//更新処理の宣言
-void Update();
 /*
 left	画像の左上端を原点(0,0)とし、貼り付けたい領域の左の座標値
 top		画像の左上端を原点(0,0)とし、貼り付けたい領域の上の座標値
@@ -118,12 +117,14 @@ void CRectangle2::SetUv(CTexture *t, float left, float top, float right, float b
 	mSaveTexVer[E_BOTTOM] = bottom;
 	mSaveTexVer[E_LEFT] = left;
 	mSaveTexVer[E_RIGHT] = right;
+	SetColor(1.0f, 1.0f, 1.0f, 1.0f);
 }
 /*テクスチャある場合*/
 void CRectangle2::Uv(float left, float top, float right, float bottom){
 	/*テクスチャがない場合エラー*/
 	assert(mpTexture);
 	SetUv(mpTexture, left, top, right, bottom);	
+	
 }
 
 
@@ -141,7 +142,7 @@ void CRectangle2::SetVertex(float left, float top, float right, float bottom) {
 	mpRight = &mTriangle1.x3;
 	mpBottom = &mTriangle1.y3;
 	mpTop = &mTriangle2.y1;
-
+	
 	/*初期頂点入れる*/
 	if (!mFlagVerInit){
 		mSaveLeft = left;

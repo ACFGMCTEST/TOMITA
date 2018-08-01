@@ -22,11 +22,20 @@ CLoadTexManager::CLoadTexManager()
 	/*ヒットエフェクト*/
 	mpHit = new CTexture();
 	mpHit->Load(TGA_FILE"GameEffect\\Hit.tga");
+	/*ためるエフェクト*/
+	mpSaveUp = new CTexture();
+	mpSaveUp->Load(TGA_FILE"GameEffect\\SaveUp.tga");
 	/*HP2D*/
 	mpHp2DFrame = new CTexture();
-	mpHp2DGauge= new CTexture();
+	mpHp2DGauge = new CTexture();
+	mpMp2DGauge = new CTexture();
+	mpMp2DGaugeEffect = new CTexture();
+	mpMp2DFrame = new CTexture();
 	mpHp2DFrame->Load(TGA_FILE"UI\\Frame.tga");
 	mpHp2DGauge->Load(TGA_FILE"UI\\Gauge.tga");
+	mpMp2DGauge->Load(TGA_FILE"UI\\MpGauge.tga");
+	mpMp2DFrame->Load(TGA_FILE"UI\\MpFrame.tga");
+	mpMp2DGaugeEffect->Load(TGA_FILE"UI\\MpGaugeMaxEffect.tga");
 	/*スカイボックス*/
 	mpSkyBox = new CTexture();
 	mpSkyBox->Load(TGA_FILE"SkyBox\\skyBox.tga");
@@ -47,8 +56,13 @@ CLoadTexManager::~CLoadTexManager()
 	/*テクスチャデリート　ビルボート*/
 	P_DELETE(mpSpark);						//火花
 	P_DELETE(mpHit);
+	P_DELETE(mpSaveUp);
+	/*ゲージ*/
 	P_DELETE(mpHp2DFrame);
 	P_DELETE(mpHp2DGauge);
+	P_DELETE(mpMp2DGauge);
+	P_DELETE(mpMp2DFrame);
+	P_DELETE(mpMp2DGaugeEffect);
 	P_DELETE(mpSkyBox);
 	/*ミニマップ*/
 	for (int i = 0; i < CLoadTexManager::E_ARRAY; i++)

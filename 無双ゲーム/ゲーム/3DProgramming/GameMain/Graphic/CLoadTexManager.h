@@ -3,7 +3,7 @@
 #define LOAD_TEX_MANAGER_HPP
 #include "CTexture.h"
 /*テクスチャのサイズ*/
-#define T_MANA_HP_SIZE  STexVer(0,0,490,46)
+#define T_MANA_HP_SIZE  STexVer(0,0,490,30)
 
 
 class  CLoadTexManager
@@ -18,8 +18,12 @@ public:
 	/*ビルボードのロード*/
 	CTexture *mpSpark;//火花
 	CTexture *mpHit;//ヒットエフェクト
+	CTexture *mpSaveUp;//ためるエフェクト
 	CTexture *mpHp2DFrame;//プレイヤーのHP(frame)
 	CTexture *mpHp2DGauge;//プレイヤーのHP(gauge)
+	CTexture *mpMp2DGauge;//プレイヤーのMP(gauge)
+	CTexture *mpMp2DFrame;;//プレイヤーのMP(frame)
+	CTexture *mpMp2DGaugeEffect;//プレイヤーのMPエフェクト(gauge)
 	/*ミニマップ用*/
 	enum  E_MINIMAP
 	{

@@ -22,7 +22,6 @@
 #define HP_MAX 10.0f 
 #define HP_SIZE 10.0f,1.0f
 #define HP_AJUST_POS CVector3( 0.0f,4.0f,0.0f)//調整用
-#define TEX_SIZE_HP 0,0,490,46
 /*爆発テクスチャ*/
 #define EXP_SIZE 0.3f,0.3f//サイズ
 #define TAX_EXP_SIZE  0,0,270,270
@@ -30,12 +29,12 @@
 
 
 /*hp設定　ajust*/
-void CEnemyBase::SetHpBar(CVector3 ajust) {
+void CEnemyBase::SetHpBar(float hp,CVector3 ajust) {
 	/*HP設定*/
 	mpHp = new CHpBar();
-	mpHp->Init(&MainCamera,HP_MAX, HP_MAX, HP_SIZE, &mPosition,ajust);//サイズとポジション
+	mpHp->Init(&MainCamera,hp, hp, HP_SIZE, &mPosition,ajust);//サイズとポジション
 	mpHp->SetTex(CLoadTexManager::GetInstance()->mpHp2DFrame,
-		CLoadTexManager::GetInstance()->mpHp2DGauge, TEX_SIZE_HP);//テクスチャ
+		CLoadTexManager::GetInstance()->mpHp2DGauge, T_MANA_HP_SIZE);//テクスチャ
 	CTaskManager::GetInstance()->Add(mpHp);
 
 
@@ -50,27 +49,30 @@ void CEnemyBase::SetExp() {
 	CTaskManager::GetInstance()->Add(mpExplosion);
 }
 
+#define FALL_DAMAGE 8.0f//落ちた時のダメージ量
 /*コンストラクタ*/
-CEnemyBase::CEnemyBase() {
+CEnemyBase::CEnemyBase() : mFlagBlowDamage(false){
 	
 	/*ミニマップ設定*/
 #define TEX_SIZE 386,386, 0.0f, 0.0f //ミニマップのサイズ
 	mpMiniRect->SetUv(CLoadTexManager::GetInstance()->
 		mpMiniMap[CLoadTexManager::ENEMY], TEX_SIZE);
 	mpMiniRect->SetVertex(SVer(5.0f));//サイズ設定
+	mFallDamage = FALL_DAMAGE;
 }
 /*デストラクタ*/
 CEnemyBase::~CEnemyBase() {
 	CSceneModel::mEnemyCount--;
+#define MP_UP 20
+	CSceneModel::mpPlayer->MpUp(MP_UP);
 	if(mpExplosion)mpExplosion->mKillFlag = true;
 	if(mpHp)mpHp->mKillFlag = true;
 }
 
 /*初期化処理*/
 void CEnemyBase::Init() {
-	SetHpBar(HP_AJUST_POS);//hpバーの設定
+	SetHpBar(HP_MAX,HP_AJUST_POS);//hpバーの設定
 	SetExp();//爆発エフェクトの設定
-	CPlayer::CPlayer();
 	mGravitTime = GRA_INIT_TIME_COUNT;
 	mVelocity = 0.0f;
 	mForward = CVector3(FORWARD);
@@ -92,6 +94,10 @@ void CEnemyBase::Update() {
 	mAdjust = CVector3();
 	Gravity();/*重力*/
 	PosUpdate();//ポジションを更新
+	//地面より下に落ちてしまったときの対処
+	if (mPosition.y <= -10) {
+		mpHp->mValue = 0;
+	}
 }
 
 /*攻撃準備*/
@@ -99,35 +105,7 @@ void CEnemyBase::AttackInit() {
 }
 
 
-/*カプセル内当たり判定*/
-void CEnemyBase::CapsuleCol(CColCapsule *cc, CColBase* y) {
-	CColTriangle ct;//三角形の当たり判定
-	CColCapsule  caps;//球の当たり判定
 
-	/*相手のタイプ何か判断*/
-	switch (y->mType) {
-		/*相手が三角の場合*/
-	case CColBase::COL_TRIANGLE:
-		ct = (*(CColTriangle*)y).GetUpdate();
-		/*当たり判定計算*/
-		if (CCollision::IntersectTriangleCapsule3(ct.mV[0], ct.mV[1], ct.mV[2],
-			cc->mV[0], cc->mV[1], cc->mRadius, &cc->mAdjust)) {
-			ColGround();//地面にあった時の処理
-			SetAdjust(&mAdjust, cc->mAdjust);
-			mPosition = mPosition + mAdjust;
-			CMatrix44 rot_y, pos, matrix;
-			//回転行列の作成
-			rot_y.rotationY(mRotation.y);
-			//移動行列を計算する
-			pos.translate(mPosition);
-			//回転移動行列を求める
-			matrix = pos * rot_y;
-			//UpdateSkinMatrix(matrix);
-			CModelXS::Update(matrix);
-		}
-		break;
-	};
-}
 
 /*球体内当たり判定*/
 void CEnemyBase::SphereCol(CColSphere *m, CColBase* y) {
@@ -145,15 +123,17 @@ void CEnemyBase::SphereCol(CColSphere *m, CColBase* y) {
 			/*ほかのエネミーに当たっているとき ダメージを受けているとき*/
 			if (sph.eState == CColBase::ENE_BODY && mFlagDamage) {
 				ene = (CEnemyBase*)sph.mpParent;
-				ene->Damage(mDamagePower, mDamageRot);
+				if (mFlagBlowDamage) {
+					ene->Damage(mDamagePower, mDamageRot);
+				}
 			}
 			/*プレイヤーに当たった時*/
-			if (mFlagAttack && sph.eState == CColBase::PL_BODY   &&  mStr ==  F_SLI_ATTACK||
-				mFlagAttack && sph.eState == CColBase::PL_ATTACK && mStr == F_SLI_ATTACK)
+			if (mFlagAttack && sph.eState == CColBase::PL_BODY   ||
+				mFlagAttack && sph.eState == CColBase::PL_ATTACK )
 			{
 				pl = (CPlayer*)sph.mpParent;
 				/*プレイヤーが回避していないとき HPがあるとき*/
-				if (pl->mStr != F_PL_AVOID && pl->HP() > 0) {
+				if (!pl->StateFlag(F_PL_DAMAGE) && pl->HP() > 0) {
 					pl->Damage(mPower, mRotation);
 				}
 			}
@@ -161,25 +141,6 @@ void CEnemyBase::SphereCol(CColSphere *m, CColBase* y) {
 
 
 	};
-}
-//m 自分　y 相手
-bool CEnemyBase::Collision(CColBase* m, CColBase* y) {
-	CColCapsule cc;
-	CColSphere sph;
-	/*自分のタイプが何か判断*/
-	switch (m->mType) {
-
-	case CTask::COL_CAPSULE://自分の当たり判定がカプセルの場合
-		cc = *(CColCapsule*)m;//カプセルにする
-		CapsuleCol(&cc, y);//カプセルの当たり判定
-		break;
-	case CTask::COL_SPHEPE:
-		sph = *(CColSphere*)m;
-		SphereCol(&sph, y);
-		break;
-	};
-
-	return false;
 }
 
 #define AJUST_BLOW_OFF_POWER(pow) pow*2.0f //全体の攻撃調整
@@ -194,6 +155,6 @@ float CEnemyBase::Damage(float power, CVector3 rot) {
 }
 /*描画処理*/
 void CEnemyBase::Render() {
-	CPlayer::Render();
+	CModelXS::Render();
 }
 

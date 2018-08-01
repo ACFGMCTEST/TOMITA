@@ -30,7 +30,7 @@
 #define TEX_SPARK_EFFECT_WIDTH 225 //ïù
 #define TEX_SPARK_EFFECT_ANI_SIZE 5
 
-class CEffect2D : public CRectangle ,public CTask{
+class CEffect2D : public CRectangle{
 private:
 	float mSizeX, mSizeY;//ÉTÉCÉY
 	float mAnimaCount;//åªç›ÇÃñáêî

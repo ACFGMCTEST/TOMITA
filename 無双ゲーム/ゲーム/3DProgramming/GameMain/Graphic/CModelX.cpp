@@ -269,7 +269,7 @@ Render
 全てのフレームの描画処理を呼び出す
 */
 void CModelX::Render() {
-
+	
 	for (int i = 0; i < mFrame.size(); i++) {
 		if(mAnimaFlag)	mFrame[i]->Render();
 		else {
@@ -1341,7 +1341,7 @@ void CModelXS::Init(CModelX *model) {
 	//アニメーションパラメータ初期化
 	mAnimationIndex = 0;	//最初のアニメーションにします
 	mAnimationLoopFlg = true;	//アニメーションを繰り返す
-	mAnimationFrameSize = ANIMA_SPEED;	//フレームのサイズ指定
+	mAnimationFrameSize = 0;	//フレームのサイズ指定
 	mAnimationTime = 0.0f;	//最初のコマにします
 	mpModel->mAnimationSet[0]->mWeight = 1.0f;
 	//ボーン合成行列の配列作成
@@ -1399,17 +1399,20 @@ void CModelXS::ChangeAnimation(char *fileName, bool loop, float framesize) {
 		printf("%sのファイルのアニメーションはありません\n", fileName);
 		return;
 	}
-	//同じ場合は切り替えない
-	if (mAnimationIndex == index) {
-		return;
-	}
+	
 	//番号、繰り返し、フレーム数を設定
 	mAnimationIndex = index;
 	mAnimationLoopFlg = loop;
 	mAnimationFrameSize = framesize;
+	//同じ場合は切り替えない
+	if (mAnimationIndex == index) {
+		return;
+	}
 	//アニメーションの時間を最初にする
 	mAnimationTime = 0.0f;
 }
+
+
 /*
 ChangeAnimation
 アニメーションを切り替える
@@ -1555,12 +1558,11 @@ void CModelXS::MatrixUpdate(CMatrix44 &matrix){
 */
 void CModelXS::Render() {
 	/*描画する*/
-	if (mRenderFlag) {
+
 		//メッシュ毎に描画する
-		for (int i = 0; i < mpModel->mMesh.size(); i++) {
-			//モデル、スキンメッシュ行列配列、スキンメッシュ行列配列要素数
-			mpModel->mMesh[i]->Render(mpModel, mpMeshSkinMatrix[i].mpSkinnedMatrix, mpMeshSkinMatrix[i].mSize);
-		}
+	for (int i = 0; i < mpModel->mMesh.size(); i++) {
+		//モデル、スキンメッシュ行列配列、スキンメッシュ行列配列要素数
+		mpModel->mMesh[i]->Render(mpModel, mpMeshSkinMatrix[i].mpSkinnedMatrix, mpMeshSkinMatrix[i].mSize);
 	}
 }
 

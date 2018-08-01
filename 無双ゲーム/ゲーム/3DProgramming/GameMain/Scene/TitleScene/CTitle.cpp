@@ -68,6 +68,7 @@ void CTitle::Scroll(){
 	mScrollRight = mBG.mSaveTexVer[CRectangle2::E_TEXVER::E_RIGHT];
 
 }
+
 /*更新処理*/
 void CTitle::Update(){
 	Scroll();
@@ -80,13 +81,10 @@ void CTitle::Update(){
 		mPushKey.FadeOut(FADE_SPEED, 0.0f);
 	//}
 	/*演出初回フェードで登場*/
-	//else if(mTitleLogo.mTriangle1.a != 1){
 		mTitleLogo.Fade(FADE_SPEED,ALPHA_MAX);
 		mPushKey.Fade(FADE_SPEED, ALPHA_MAX);
-	//}
-
-
 };
+
 /*シーン遷移するときに使う*/
 bool CTitle::SceneFlag(){
 	/*フェードアウトが終了したら*/
@@ -95,6 +93,7 @@ bool CTitle::SceneFlag(){
 	}
 	return false;
 }
+
 /*BGのSCROLL引継ぎInit*/
 void CTitle::BgScrollInit(){
 	mBG.Uv(mScrollLeft, 0, mScrollRight, mBG.mSaveTexVer[CRectangle2::E_TEXVER::E_BOTTOM]);

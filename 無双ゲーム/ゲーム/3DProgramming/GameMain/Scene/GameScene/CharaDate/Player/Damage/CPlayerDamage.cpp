@@ -39,7 +39,6 @@ void CPlayerDamage::Update(){
 		pl->mpModel->mAnimationSet[pl->mAnimationIndex]->mMaxTime) {
 		pl->BlowOff();
 	}
-	pl->State(F_PL_DAMAGE);
 }
 
 

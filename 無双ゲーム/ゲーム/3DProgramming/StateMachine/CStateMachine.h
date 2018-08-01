@@ -35,7 +35,8 @@ public:
 	// ステート外から強制的に遷移を実行
 	void ForceChange(const std::string& registerName);
 
-
+	/*ステータスフラグ*/
+	bool StateFlag(std::string s) {return nowState->mName == s; }
 
 
 };

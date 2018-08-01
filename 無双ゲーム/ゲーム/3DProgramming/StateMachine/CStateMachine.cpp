@@ -42,6 +42,7 @@ void CStateMachine::Update()
 //}
 //// 登録する,親の設定
 void CStateMachine::Register(const std::string& name, const std::shared_ptr<CStateBase> state, CTask *parent){
+	state->mName = name;
 	state->SetParent(parent);//親を設定する
 	stateMap.insert(std::make_pair(name, state));//マップに名前と属性を追加
 #ifdef _DEBUG

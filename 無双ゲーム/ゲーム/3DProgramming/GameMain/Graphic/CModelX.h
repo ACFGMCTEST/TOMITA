@@ -432,6 +432,8 @@ public:
 	//•`‰æˆ—
 	void Render();
 
+	
+
 };
 
 #endif

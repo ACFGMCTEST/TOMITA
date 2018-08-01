@@ -12,6 +12,7 @@
 #include "../../../../Collision/ColType/CColSphere.h"
 #include "../../../../Graphic/CHpBar2D.h"
 #include "../../../../Graphic/CBillBoard.h"
+#include "../../Effect/CEffect3D.h"
 //プレイヤーの数
 #define CHARA_ARRAY 3
 /*キャラステータス*/
@@ -20,7 +21,7 @@
 #define SPEED_RUN_ACC(v) if (SPEED_RUN > v){v += SPEED_RUN* 0.1f; }else{v = SPEED_RUN;}//加速度計算上限に来た場合
 
 /*攻撃力*/
-#define ATTACK_POWER 4.0f
+#define ATTACK_POWER 3.5f
 
 /*吹き飛び*/
 #define KNOCK_BACK  0.2f/*吹き飛びの度合い*/
@@ -44,7 +45,7 @@
 #include "Damage\CPlayerDamage.h"
 #include "Died\CPlayerDied.h"
 #include "Avoid\CPlayerAvoid.h"
-
+#include "Special\CPlayerSpecial.h"
 
 /*あたり判定の設定値*/
 #define COL_RADIUS 1.0f
@@ -63,6 +64,10 @@
 #define F_PL_DAMAGE				MODEL_FILE"SDUnity\\Anima\\Damage.x"
 #define F_PL_DIED			    MODEL_FILE"SDUnity\\Anima\\Died.x"
 #define F_PL_AVOID				MODEL_FILE"SDUnity\\Anima\\Avoid.x"
+#define F_PL_SPECIAL			MODEL_FILE"SDUnity\\Anima\\Special.x"
+/*地面から落ちた時*/
+#define FALL_SAFE 9.0f//許容範囲
+#define GAUGE_VER 100//ゲージのサイズ
 /*
 CPlayer
 プレイヤークラス
@@ -72,23 +77,30 @@ protected:
 	CStateMachine mStateMachine;//ステータス管理
 	CVector3 mDamageRot;//ダメージを受けた回転値
 	float mDamagePower;//吹っ飛ぶ値
+	float mFallDamage;//落ちた時のダメージ量
+	CVector3 mGroundPos;//現在いる地面の場所
 	CBillBoard *mpMiniRect;//ミニマップ用
 	/*ミニマップ設定用*/
 	void SetMiniMap();
+	/*高いところから落ちるとダメージ 引数:落ちた地点との差分*/
+	void FallDamage(float height);
+
 private:
+
 	CEffect2D *mpHitEffect;//攻撃時のエフェクト
+	
+
 	CHpBar2D *mpHp;//hp
+	CHpBar2D *mpMp;//Mp
 
 
 	CKey AttackInitKey;//Init時に使う
 	int mRotCount;//回転地カウント　移動するときに使う
 public:
-	
-
 
 	bool mFlagDamage;//ダメージ中のフラ
 	bool mFlagAttack;//攻撃するフラグ
-	std::string mStr;//現在の状態
+	
 
 	CMatrix44 *mpMatrix;//当たり判定の原点
 
@@ -100,7 +112,7 @@ public:
 	float mGravitTime;//重力の時間
 	float mVelocity; //速さ 使うもの
 	float mPower;//攻撃力
-
+	
 	bool mFlagJump;//ジャンプフラグ
 
 	CPlayer();
@@ -126,9 +138,6 @@ public:
 
 	/*回転するまで移動しない*/
 	//bool FlagRotMove(int angle);
-
-	/*POSだけのマトリックスアップデート*/
-	void MatrixUpdate();
 
 	/*移動させる*/
 	void Move();
@@ -164,8 +173,6 @@ public:
 	/*操作する回転値計算*/
 	void PlayerMoveRot();
 
-	/*現在のstrをれる*/
-	void State(std::string s);
 
 
 	/*吹き飛ぶ力 吹き飛ぶ力と現在の移動量で計算する*/
@@ -178,7 +185,10 @@ public:
 
 	/*体力ゲージのHp取得*/
 	float HP() { return mpHp->mValue;}
-
+	//mpゲージmpを上昇させる 引数分アップ
+	void MpUp(float up);
+	/*現在の状態判断*/
+	bool StateFlag(std::string s) { return mStateMachine.StateFlag(s); }
 };
 
 #endif

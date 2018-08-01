@@ -76,8 +76,6 @@ void CTutorial::Update(){
 }
 /*文字切り替え*/
 void CTutorial::Change() {
-	printf("enemy : %d\n", CSceneModel::mEnemyCount);
-
 	/*
 	当たり判定設定
 	*/
@@ -131,8 +129,10 @@ void CTutorial::Change() {
 			//高台の敵を増やす
 			for (int i = 0; i < SLIME_MAX1; i++) {
 				/*位置が被らないようにする*/
-				const CVector3 pos = CVector3(0.0f, 0.0f, 2.0f * i);
-				CSceneModel::GetInstance()->SlimeAdd(ENEMY_RESP_1, pos);//スライム
+				const CVector3 pos = CVector3(-5 * i, 0.0f, 5 * i);
+				CSlime *sl;
+				sl = CSceneModel::GetInstance()->SlimeAdd(ENEMY_RESP_1, pos);//スライム
+				sl->mFlagDecoy = true;
 			}
 			eState = HIGH_HILL_SLI;
 			CGameScene::mPauseFlag = true;
@@ -152,12 +152,6 @@ void CTutorial::Change() {
 		/*ジャンプ説明*/
 	case CTutorial::JUMP:
 		Col.mpCombinedMatrix = &CMap::GetInstance()->Matrix(ENEMY_RESP_1);
-		/*ジャンプボタンを押すといったん文字を消す*/
-		if (CKey::once(KEY_JUMP)) {
-			mFlagBG = false;
-			mFlagText = false;
-			printf("ジャンプしました\n");
-		}
 		/*高台のリスポーン地点に近づくと次のテキスト表示に*/
 		ChangeFlag = CCollision::CollisionShpere(plCol.GetUpdate(), Col.GetUpdate());
 		/*上にいるなら*/
@@ -166,6 +160,13 @@ void CTutorial::Change() {
 			mFlagBG = true;
 			mFlagText = true;
 			CGameScene::mPauseFlag = true;
+		}
+		/*敵をすべて倒すとボスの説明*/
+		if (CSceneModel::mEnemyCount == 0) {
+			CSceneModel::GetInstance()->KingSlimeAdd();//キングスライム出現
+			eState = KING_KILL;
+			mFlagBG = true;
+			mFlagText = true;
 		}
 		break;
 		/*高台から落とそう*/
@@ -188,20 +189,23 @@ void CTutorial::Change() {
 	case CTutorial::KING_KILL:
 		if (CKey::once(VK_RETURN)) {
 			eState = SPECIAL_ATTACK;
+			CGameScene::mPauseFlag = true;
 		}
 		break;
 		/*必殺技説明*/
 	case CTutorial::SPECIAL_ATTACK:
 		if (CKey::once(VK_RETURN)) {
 			eState = ARRAY;
+			CGameScene::mPauseFlag = false;
 		}
 		break;
 	case CTutorial::ARRAY:
-#define ENEMY_MAX 30
+#define ENEMY_MAX 20
 		/*スライムがリスポーンしてくる*/
-		if (CConvenient::Time(&mTime, 2.5f) && CSceneModel::mEnemyCount <= ENEMY_MAX) {
+		if (CConvenient::Time(&mTime, 6.5f) && CSceneModel::mEnemyCount <= ENEMY_MAX) {
 			CVector3 pos = CVector3(rand() % 4,0.0f,rand() % 4);
 			CSceneModel::GetInstance()->SlimeAdd(ENEMY_RESP_2,pos);//スライム
+			
 			mTime = 0.0f;
 		}
 		break;

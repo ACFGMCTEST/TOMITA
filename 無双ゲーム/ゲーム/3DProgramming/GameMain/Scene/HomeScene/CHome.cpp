@@ -24,27 +24,29 @@
 /*演出の数値 拡大縮小関数*/
 #define SCALLING_NUM 1.2f,2.0f
 /*演出の数値 色の点滅用*/
-#define FLASHING_NUM 0.005f,1.0f,0.7f
+#define FLASHING_NUM 0.01f,1.0f,0.7f
 
 CHome::~CHome(){
 
 }
 CHome::CHome() :CTitle(){
+
 	eScene = eSceneNo::E_HOME;
 	/*タイトル色指定*/
-	mTitleLogo.SetColor(WHITE_COLOR);
+	mTitleLogo.SetColor(NO_A_WHITE_COLOR,0.0f);
 	/*セレクトポリゴン設定*/
-	mSelectButton.SetColor(NO_A_GRAY_COLOR, 0.0f);
+	mSelectButton.SetColor(NO_A_WHITE_COLOR, 0.0f);
 	mSelectButton.SetVertex(RECT_BUTTON_SIZE);
 	mSelectButton.mPosition = SELECT_POS;
 	/*モデルチェンジポリゴン設定*/
-	mModelChangeButton.SetColor(NO_A_GRAY_COLOR, 0.0f);
+	mModelChangeButton.SetColor(NO_A_WHITE_COLOR, 0.0f);
 	mModelChangeButton.SetVertex(RECT_BUTTON_SIZE);
 	mModelChangeButton.mPosition = MODEL_CHANGE_POS;
 	/*セレクトのButtonポリゴン設定*/
-	mSelectCursor.SetColor(NO_A_GRAY_COLOR, 0.0f);
+	mSelectCursor.SetColor(NO_A_WHITE_COLOR, 0.0f);
 	mSelectCursor.SetVertex(STAGE_CURSOR_SIZE);
-	mSelectCursor.mPosition = CVector2(*mSelectButton.mpLeft - *mSelectCursor.mpRight + mSelectButton.mPosition.x
+	mSelectCursor.mPosition = 
+		CVector2(*mSelectButton.mpLeft - *mSelectCursor.mpRight + mSelectButton.mPosition.x
 		,mSelectButton.mPosition.y);
 
 	/*セレクトテクスチャ設定*/
@@ -58,44 +60,40 @@ CHome::CHome() :CTitle(){
 	mSelectCursor.SetUv(&mTexStageCursor, 0, 0, TEX_STAGE_CURSOR_X, TEX_STAGE_CURSOR_Y);
 
 }
+/*選択初期化*/
+void CHome::SelectInit() {
+	/*モデルチェンジ初期化*/
+	mModelChangeButton.SetColor(NO_A_WHITE_COLOR, 1.0f);//色戻す
+	mModelChangeButton.SetVertex(RECT_BUTTON_SIZE);//サイズ戻す
+	mModelChangeButton.mPosition = MODEL_CHANGE_POS;//ポジション戻す
 
-
+	mSelectButton.SetColor(NO_A_WHITE_COLOR, 1.0f);//カラー戻す
+	mSelectButton.SetVertex(RECT_BUTTON_SIZE);//サイズ戻す
+	mSelectButton.mPosition = SELECT_POS;//ポジション戻す
+}
 /*選択処理*/
 void CHome::Select(){
 
 	/*セレクトを選んだ場合*/
-	if (mSelectCursor.mPosition.y == mSelectButton.mPosition.y){
-		/*演出*/
-		mSelectButton.RectScalingLeftPos(SCALLING_NUM);//拡大
-		mSelectButton.FlashingColor(FLASHING_NUM);//色点滅
+	if (eScene == E_HOME) {
+		if (mSelectCursor.mPosition.y == mSelectButton.mPosition.y) {
+			/*演出*/
+			mSelectButton.RectScalingLeftPos(SCALLING_NUM);//拡大
+			mSelectButton.FlashingColor(FLASHING_NUM);//色点滅
+		}
+		else 
+			if (mSelectCursor.mPosition.y == mModelChangeButton.mPosition.y) {
+				/*演出処理*/
+				mModelChangeButton.RectScalingLeftPos(SCALLING_NUM);//拡大
+				mModelChangeButton.FlashingColor(FLASHING_NUM);//色点滅
+			}
 	}
-	else{
-		/*セレクト初期化*/
-		mSelectButton.SetColor(NO_A_GRAY_COLOR, 1.0f);//カラー戻す
-		mSelectButton.SetVertex(RECT_BUTTON_SIZE);//サイズ戻す
-		mSelectButton.mPosition = SELECT_POS;//ポジション戻す
-	}
-
-	/*モデルチェンジを選んだ場合*/
-	if (mSelectCursor.mPosition.y == mModelChangeButton.mPosition.y){
-		/*演出処理*/
-		mModelChangeButton.RectScalingLeftPos(SCALLING_NUM);//拡大
-		mModelChangeButton.FlashingColor(FLASHING_NUM);//色点滅
-	}
-	else{
-		/*モデルチェンジ初期化*/
-		mModelChangeButton.SetColor(NO_A_GRAY_COLOR, 1.0f);//色戻す
-		mModelChangeButton.SetVertex(RECT_BUTTON_SIZE);//サイズ戻す
-		mModelChangeButton.mPosition = MODEL_CHANGE_POS;//ポジション戻す
-	}
-
-	/*色点滅*/
-	mSelectCursor.FlashingColor(FLASHING_NUM);
 
 	/*Cursorの移動処理*/
 	/*モデルチェンジ選んだ時*/
 	if (CKey::once(DOWN_KEY)){
 		mSelectCursor.mPosition.y = mModelChangeButton.mPosition.y;
+
 	}
 	/*ステージセレクト選んだ時*/
 	if (CKey::once(UP_KEY)){
@@ -123,23 +121,30 @@ void CHome::SelectDecisionKey() {
 /*決定された場合(マウス編)*/
 void CHome::SelectDecisionMouse() {
 	/*マウスバージョン*/
-	if (CCollision2D::Collision2D(mModelChangeButton, mCursor) && CMouse::GetInstance()->mOneLeftFlag) {
+	if (CCollision2D::Collision2D(mModelChangeButton, mCursor)) {
 		mSelectCursor.mPosition.y = mModelChangeButton.mPosition.y;
 		mModelChangeButton.RectScalingLeftPos(SCALLING_NUM);//拡大
-		eScene = E_MODEL_CHANGE;
+		if (CMouse::GetInstance()->mOneLeftFlag) {
+			eScene = E_MODEL_CHANGE;
+		}
 		return;
 	}
 	/*選択したか判断 ステージセレクトの場合*/
-	if (CCollision2D::Collision2D(mSelectButton, mCursor) && CMouse::GetInstance()->mOneLeftFlag) {
+	if (CCollision2D::Collision2D(mSelectButton, mCursor) ) {
 		mSelectCursor.mPosition.y = mSelectButton.mPosition.y;
 		mSelectButton.RectScalingLeftPos(SCALLING_NUM);//拡大
-		eScene = E_STAGE_SELECT;//セレクトに
+
+		if (CMouse::GetInstance()->mOneLeftFlag) {
+			eScene = E_STAGE_SELECT;//セレクトに
+		}
 
 		return;
 	}
 }
 /*決定された場合*/
 void CHome::SelectDecision(){
+	/*選択したときの関数*/
+	Select();
 	SelectDecisionKey();
 	SelectDecisionMouse();
 }
@@ -155,29 +160,29 @@ bool CHome::SceneFlag(){
 }
 
 /*更新処理*/
-void CHome::Update(){
+void CHome::Update() {
 	/*BGのScroll処理*/
 	CTitle::Scroll();
-	/*選択したときの関数*/
-	Select();
+	
 	/*決定されてたか判断*/
 	SelectDecision();
 
 
 	/*フェード処理*/
 	/*フラグが立つとフェイドアウトしていく*/
-	if (eScene != E_HOME){
-		mSelectButton.FadeOut(FADE_SPEED, 0.0f);
-		if (eScene == E_MODEL_CHANGE)mModelChangeButton.FadeOut(FADE_SPEED, 0.0f);
-		if (eScene == E_STAGE_SELECT)mSelectCursor.FadeOut(FADE_SPEED, 0.0f);
-	}
+
+	if (eScene == E_MODEL_CHANGE)mModelChangeButton.FadeOut(FADE_SPEED, 0.0f);
+	if (eScene == E_STAGE_SELECT) mSelectButton.FadeOut(FADE_SPEED, 0.0f);
+	if(eScene != E_HOME)mSelectCursor.FadeOut(FADE_SPEED, 0.0f);
+
 	/*演出初回フェードで登場*/
-	else if (mSelectButton.mTriangle1.a != 1){
+	if (eScene == E_HOME && mSelectButton.mTriangle1.a != 1) {
 		AllFade();
 	}
 };
 /*初めのフェード処理*/
 void CHome::AllFade() {
+	mTitleLogo.Fade(FADE_SPEED, 1.0f);
 	mSelectButton.Fade(FADE_SPEED, 1.0f);
 	mModelChangeButton.Fade(FADE_SPEED, 1.0f);
 	mSelectCursor.Fade(FADE_SPEED, 1.0f);

@@ -35,7 +35,7 @@
 #define ATTACK_RANGE 2.0f
 #define SERACH_SPHERE(range,mat) range,CVector3(0.0f,0.0f,0.0f),mat//球体の設定(索敵に使う)
 
-#define ATTACK_POWER 100.0f
+#define ATTACK_POWER 3.0f
 int CSlime::mAllCount = 0;
 /*スライムのステータス初期化 Kingスライムも同じものしよう*/
 void CSlime::StateInit() {
@@ -55,7 +55,8 @@ void CSlime::SlimeInit(CModelX *model) {
 	mpCaps = new CColCapsule(this, COL_POS, COL_RADIUS, COL_BONE("Armature_Root_jnt"));
 	//球体の当たり判定
 	mpMatrix = COL_BONE("Armature_Root_jnt");
-	mpSphere = new CColSphere(this, COL_SPHE_POS, COL_RADIUS, mpMatrix, CColBase::ENE_BODY);
+	mpSphere = new CColSphere(this, COL_SPHE_POS, COL_RADIUS, mpMatrix,
+		CColBase::ENE_BODY);
 	
 	
 	mPower = ATTACK_POWER;//攻撃力
@@ -70,6 +71,7 @@ void CSlime::Init(CModelX *model){
 }
 /*コンストラクタ*/
 CSlime::CSlime(){
+	mFlagDecoy = false;
 	eName = CTask::E_SLIME;
 	mAllCount++;
 	mNumber = mAllCount;
@@ -104,17 +106,62 @@ void CSlime::Update(){
 void CSlime::Render(){
 	CEnemyBase::Render();
 }
+/*カプセル内当たり判定*/
+void CSlime::CapsuleCol(CColCapsule *cc, CColBase* y) {
+	CColTriangle ct;//三角形の当たり判定
+	CColCapsule  caps;//球の当たり判定
+
+					  /*相手のタイプ何か判断*/
+	switch (y->mType) {
+		/*相手が三角の場合*/
+	case CColBase::COL_TRIANGLE:
+		ct = (*(CColTriangle*)y).GetUpdate();
+		/*当たり判定計算*/
+		if (CCollision::IntersectTriangleCapsule3(ct.mV[0], ct.mV[1], ct.mV[2],
+			cc->mV[0], cc->mV[1], cc->mRadius, &cc->mAdjust)) {
+			CSlime::FallDamage(FALL_SAFE);
+
+			ColGround();//地面にあった時の処理
+			SetAdjust(&mAdjust, cc->mAdjust);
+			mPosition = mPosition + mAdjust;
+			CMatrix44 rot_y, pos, matrix;
+			//回転行列の作成
+			rot_y.rotationY(mRotation.y);
+			//移動行列を計算する
+			pos.translate(mPosition);
+			//回転移動行列を求める
+			matrix = pos * rot_y;
+			//UpdateSkinMatrix(matrix);
+			CModelXS::Update(matrix);
+		}
+		break;
+	};
+}
 
 /*索敵関数*/
 bool CSlime::Search(){
+	if (!mFlagDecoy) {
 #define SERACH_SPHERE(range,mat) range,CVector3(0.0f,0.0f,0.0f),mat//球体の設定(索敵に使う)
-	/*索敵内に入れば動く*/
-	CColSphere plCol = CColSphere(SERACH_SPHERE(SEARCH_RANGE,CSceneModel::mpPlayer->mpMatrix));//プレイヤー
-	CColSphere sliCol = CColSphere(SERACH_SPHERE(SEARCH_RANGE ,mpMatrix));//エネミー
-	
-	/*視界内に来ているか判断*/
-	return CCollision::CollisionShpere(plCol.GetUpdate(), sliCol.GetUpdate());
+		/*索敵内に入れば動く*/
+		CColSphere plCol = CColSphere(SERACH_SPHERE(SEARCH_RANGE, CSceneModel::mpPlayer->mpMatrix));//プレイヤー
+		CColSphere sliCol = CColSphere(SERACH_SPHERE(SEARCH_RANGE, mpMatrix));//エネミー
+
+		/*視界内に来ているか判断*/
+		return CCollision::CollisionShpere(plCol.GetUpdate(), sliCol.GetUpdate());
+	}
+	return false;
 }
+
+/*高いところから落ちるとダメージ 引数:落ちた地点との差分*/
+#define FALL_DAMAGE(dama,height) dama * height
+void CSlime::FallDamage(float height) {
+	/*高いところから落ちたら*/
+	if (mGroundPos.y > mPosition.y + height && HP() > 0) {
+		mpHp->mValue -= FALL_DAMAGE(mFallDamage, mGroundPos.y - mPosition.y);
+		mStateMachine.ForceChange(F_SLI_DAMAGE);
+	}
+}
+
 /*攻撃範囲*/
 bool CSlime::AttackRange() {
 
@@ -125,20 +172,28 @@ bool CSlime::AttackRange() {
 	return CCollision::CollisionShpere(plCol.GetUpdate(), sliCol.GetUpdate());
 }
 
-/*球体内の当たり判定*/
-void CSlime::SphereCol(CColSphere *sphere, CColBase *y){
+
+
+//m 自分　y 相手
+bool CSlime::Collision(CColBase* m, CColBase* y) {
 	
-	CColSphere  sph;//球の当たり判定
+	CColCapsule cc;
+	CColSphere sph;
+	/*自分のタイプが何か判断*/
+	switch (m->mType) {
 
-	/*相手のタイプ何か判断*/
-	switch (y->mType) {
-		/*相手が球の場合*/
-	case CColBase::COL_SPHEPE:
-		sph = (*(CColSphere*)y).GetUpdate();
-		/*当たり判定計算*/
-		if (CCollision::CollisionShpere(sph, *sphere) && sph.eState == CColBase::PL_BODY){
-			Collision(&sph, sphere);
-		}
-
+	case CTask::COL_CAPSULE://自分の当たり判定がカプセルの場合
+		cc = *(CColCapsule*)m;//カプセルにする
+		CSlime::CapsuleCol(&cc, y);//カプセルの当たり判定
+		break;
+	case CTask::COL_SPHEPE:
+		sph = *(CColSphere*)m;
+		CEnemyBase::SphereCol(&sph, y);
+		break;
 	};
+
+	return false;
 }
+
+
+
