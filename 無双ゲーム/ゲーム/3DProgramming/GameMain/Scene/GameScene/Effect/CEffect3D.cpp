@@ -1,13 +1,14 @@
 #include "CEffect3D.h"
-#include "../../../Collision/ColType/CColSphere.h"
 #include "../../../Collision/CCollisionManager.h"
 
 /*コンストラクタ*/
-CEffect3D::CEffect3D(){
+CEffect3D::CEffect3D() :  mpCol(nullptr){
 	CTask::eName = CTask::E_3D_EFFECT;
 }
 /*デストラクタ*/
-CEffect3D::~CEffect3D() {}
+CEffect3D::~CEffect3D() {
+	if(mpCol)mpCol->mKillFlag = true;
+}
 /*初期化*/
 void CEffect3D::Init(CTask *parent,CModelX *mod,CVector3 *ppos,CVector3 *pRot) {
 	mpPos = ppos;
@@ -20,7 +21,9 @@ void CEffect3D::Init(CTask *parent,CModelX *mod,CVector3 *ppos,CVector3 *pRot) {
 #define COL_RADIUS 2.5f//半径
 #define COL_POS CVector3(0.0f,0.0f,0.0f)
 #define COL_MATRIX(string) &mpCombinedMatrix[mpModel->FindFrame(string)->mIndex]//マトリックス
-	new CColSphere(parent, COL_POS, COL_RADIUS, COL_MATRIX("Armature"), CColBase::PL_ATTACK_EFFECT3D);
+	mpCol =  new CColSphere
+	(parent, COL_POS, COL_RADIUS, 
+		COL_MATRIX("Armature"), CColBase::PL_ATTACK_EFFECT3D);
 }
 
 /*描画*/

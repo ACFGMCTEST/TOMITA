@@ -6,46 +6,28 @@
 
 class CPause{
 private:
-	bool mOperationFlag;//Operation表示
-public:
-	static bool mSceneChangeFlag;//シーンが変わるフラグ
-
-	CRectangle2 mPauseLogo;	//ポーズロゴ
-	CRectangle2 mBG;        //バックグラウンドの略 （背景)
-	/*ボタン*/
-	CRectangle2 mBackButton;		//ゲームへ戻る
-	CRectangle2 mTitleBackButton;	//タイトル終了
-	CRectangle2 mGuideButton;//操作説明ボタン
-
-	CRectangle2 mCursor;//カーソル
-	CRectangle2 mOperation;//操作説明
-
+	bool mPauseFlag;//表示非表示
+	/*ポリゴン*/
+	CRectangle2 mCursor;//かーソル
+	CRectangle2 mPause;//ポーズ画面
+	CRectangle2 mMainBack;//メインに戻る
+	CRectangle2 mTitleBack;//タイトルに戻る
 	/*テクスチャ*/
-	CTexture	mTexFilter;	//フィルタ
-	CTexture	mTexPauze;	//ポーズ
-	CTexture	mTexCursor;	//カーソル
-	CTexture	mTexResume;	//ゲームに戻る
-	CTexture	mTexQuit;	//終了する
-	CTexture	mTexOperation;//操作説明
-	CTexture	mTexGuideButton;//操作説明に行くボタン
-
-	
-	static bool mGoTitle;
-	static bool mBackGame;
-
-	/*状態選択*/
-	enum EStatus
-	{
-		E_GAMESTART,
-		E_GAMEEXIT
-	};
-	EStatus eStatus;
-
-	~CPause();
+	CTexture	mTexCursor;//Cursor
+	CTexture	mTexPause;//ポーズ画面
+	CTexture	mTexMainBack;//メインにもどる
+	CTexture	mTexTitleBack;//タイトルに戻る
+	static CPause *mpPause;
 	CPause();
-	void Init();
-	void Update();
+	 ~CPause();
+public:
+	static CPause *GetInstance();
+
+
+	//描画
 	void Render();
+	//更新
+	void Update();
 
 };
 #endif

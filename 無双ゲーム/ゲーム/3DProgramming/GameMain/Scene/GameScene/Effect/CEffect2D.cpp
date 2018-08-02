@@ -72,6 +72,8 @@ void CEffect2D::Update(){
 			if (mAnimaFrameMax - 1 == mAnimaFrameNum){//最大値の場合
 				mAnimaFrameNum = 0;//カウントをゼロに
 				mAnimaFlag = false;
+				//自分がいる場合
+				if (this != 0) { CTask::mKillFlag = true; }
 			}
 			mTimeCount = 0;//カウントをリセット
 		}

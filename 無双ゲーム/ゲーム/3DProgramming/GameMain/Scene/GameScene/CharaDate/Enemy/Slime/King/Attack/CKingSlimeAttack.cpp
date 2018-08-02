@@ -6,7 +6,7 @@
 #define FRAME_VEL_ATTACK 10
 #define FRAME_VEL_ATTACK_END 20
 /*アニメーションのスピード*/
-#define ANIMA_AJUST 0.5f //全体のアニメーション調整用
+#define ANIMA_AJUST 0.2f //全体のアニメーション調整用
 #define ANIMA_SPEED_SLOW 300 * ANIMA_AJUST
 #define ANIMA_SPEED_HIGH 60 * ANIMA_AJUST
 /*攻撃移動*/
@@ -14,6 +14,7 @@
 /*攻撃の移動速さ調整*/
 void CKingSlimeAttack::AttackSpeed() {
 	CKingSlime *sli = dynamic_cast<CKingSlime*>(mpParent);
+	sli->mPower = ATTACK_POWER * 4.0f;
 	/*攻撃の速さをいじる*/
 	if (FRAME_VEL_ATTACK <= sli->mAnimationTime &&
 		sli->mAnimationTime <= FRAME_VEL_ATTACK_END) {

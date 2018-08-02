@@ -8,11 +8,13 @@
 #include "../../Graphic/CBillBoard.h"
 #include "Tutorial\CTutorial.h"
 #include  "Result\CResult.h"
+#include "../../Sound/CLoadSoundManager.h"
+#include "Pause\CPause.h"
 
 CCamera MainCamera;
 CCamera MapCamera;
 
-bool CGameScene::mPauseFlag = false;
+bool CGameScene::mEnterEventFlag = false;
 
 CGameScene::E_STATE CGameScene::eState = CGameScene::E_INIT;
 
@@ -53,6 +55,7 @@ void CGameScene::Update() {
 		CMap::GetInstance()->Init();
 		CSceneModel::GetInstance()->Init();
 		CResult::GetInstance()->Init();
+		MainCamera.Init();
 		CTutorial::GetInstance()->Init();
 
 		eState = E_MAIN;
@@ -62,7 +65,7 @@ void CGameScene::Update() {
 
 		MainCamera.Update();
 		/*ポーズフラグが立つと*/
-		if (!mPauseFlag) {
+		if (!mEnterEventFlag) {
 			CMap::GetInstance()->Update();
 			CTaskManager::GetInstance()->AllUpdate();
 			CCollisionManager::GetInstance()->Update();
@@ -78,8 +81,14 @@ void CGameScene::Update() {
 		CTutorial::GetInstance()->Update();
 		CTutorial::GetInstance()->Render();
 
+		//ポーズ画面
+		CPause::GetInstance()->Update();
+		CPause::GetInstance()->Render();
+
 		break;
 	case E_END:
+		CLoadSoundManager::Sound(BGM_GAME_MAIN)->Stop();
+		CLoadSoundManager::Sound(BGM_GAME_MAIN)->Close();
 		CCollisionManager::GetInstance()->AllKill();
 		CTaskManager::GetInstance()->AllKill();
 		

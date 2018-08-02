@@ -18,8 +18,8 @@
 #define OBB_ATTACK_BOX_POS CVector3(-0.01f, -0.01f, -0.1f)
 /*ゴールの方向に向ける*/
 #define GOAL_POS_X (rand() % (int)MAPCHIP_SIZE*CMap::GoalCount()) - MAPCHIP_SIZE*CMap::GoalCount()*0.5f
-/*hpバー*/
-#define HP_MAX 10.0f 
+
+
 #define HP_SIZE 10.0f,1.0f
 #define HP_AJUST_POS CVector3( 0.0f,4.0f,0.0f)//調整用
 /*爆発テクスチャ*/
@@ -52,7 +52,9 @@ void CEnemyBase::SetExp() {
 #define FALL_DAMAGE 8.0f//落ちた時のダメージ量
 /*コンストラクタ*/
 CEnemyBase::CEnemyBase() : mFlagBlowDamage(false){
-	
+	//se代入
+	mpSeDamage = CLoadSoundManager::Sound(SE_DAMAGE);
+	mpSeFall = CLoadSoundManager::Sound(SE_FALL);
 	/*ミニマップ設定*/
 #define TEX_SIZE 386,386, 0.0f, 0.0f //ミニマップのサイズ
 	mpMiniRect->SetUv(CLoadTexManager::GetInstance()->
@@ -67,11 +69,13 @@ CEnemyBase::~CEnemyBase() {
 	CSceneModel::mpPlayer->MpUp(MP_UP);
 	if(mpExplosion)mpExplosion->mKillFlag = true;
 	if(mpHp)mpHp->mKillFlag = true;
+	mpSeDamage->Stop();
+	mpSeFall->Stop();
 }
 
 /*初期化処理*/
 void CEnemyBase::Init() {
-	SetHpBar(HP_MAX,HP_AJUST_POS);//hpバーの設定
+	SetHpBar(ENE_HP_MAX(1.0f),HP_AJUST_POS);//hpバーの設定
 	SetExp();//爆発エフェクトの設定
 	mGravitTime = GRA_INIT_TIME_COUNT;
 	mVelocity = 0.0f;
@@ -123,13 +127,17 @@ void CEnemyBase::SphereCol(CColSphere *m, CColBase* y) {
 			/*ほかのエネミーに当たっているとき ダメージを受けているとき*/
 			if (sph.eState == CColBase::ENE_BODY && mFlagDamage) {
 				ene = (CEnemyBase*)sph.mpParent;
-				if (mFlagBlowDamage) {
+				if (mFlagBlowDamage && HP() > 0&& ene->HP() > 0) {
+					//エフェクト発動
+					CVector3 pos = CVector3();
+					CLoadTexManager::GetInstance()->
+						HitEffect(pos.Transeform(*sph.mpCombinedMatrix));
 					ene->Damage(mDamagePower, mDamageRot);
 				}
 			}
 			/*プレイヤーに当たった時*/
-			if (mFlagAttack && sph.eState == CColBase::PL_BODY   ||
-				mFlagAttack && sph.eState == CColBase::PL_ATTACK )
+			if (mFlagAttack && sph.eState == CColBase::PL_BODY ||
+				mFlagAttack && sph.eState == CColBase::PL_ATTACK)
 			{
 				pl = (CPlayer*)sph.mpParent;
 				/*プレイヤーが回避していないとき HPがあるとき*/
@@ -137,15 +145,18 @@ void CEnemyBase::SphereCol(CColSphere *m, CColBase* y) {
 					pl->Damage(mPower, mRotation);
 				}
 			}
+			//if (sph.eState == CColBase::ENE_BODY && m->eState == CColBase::ENE_BODY)
+			//	Collision(&sph, m);//重ならないようにする
 		}
 
 
 	};
 }
 
-#define AJUST_BLOW_OFF_POWER(pow) pow*2.0f //全体の攻撃調整
+#define AJUST_BLOW_OFF_POWER(pow) pow*0.9f //全体の攻撃調整
 /*ダメージを受けた時の処理*/
 float CEnemyBase::Damage(float power, CVector3 rot) {
+	mpSeDamage->Play();
 	mpHp->mValue -= power;
 	/*吹っ飛ぶ処理の準備*/
 	mDamagePower = AJUST_BLOW_OFF_POWER(power);
@@ -153,6 +164,7 @@ float CEnemyBase::Damage(float power, CVector3 rot) {
 	mFlagDamage = true;
 	return mpHp->mValue;
 }
+
 /*描画処理*/
 void CEnemyBase::Render() {
 	CModelXS::Render();

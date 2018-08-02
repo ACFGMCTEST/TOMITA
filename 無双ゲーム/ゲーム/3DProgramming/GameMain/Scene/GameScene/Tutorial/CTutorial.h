@@ -24,7 +24,6 @@ private:
 		SPECIAL_ATTACK,	//必殺技説明
 		ARRAY,
 	};
-	ESTATE eState;//Tutorialの現在の状態
 	/*ポリゴン*/
 	CRectangle2 mRect;//操作説明文字
 	CRectangle2 mBG;//文字背景BG
@@ -39,6 +38,7 @@ private:
 	bool mFlagText; //テキスト消す
 	bool mFlagBG;   //BG消す
 public:
+	ESTATE eState;//Tutorialの現在の状態
 	static CTutorial *GetInstance();
 
 	~CTutorial();

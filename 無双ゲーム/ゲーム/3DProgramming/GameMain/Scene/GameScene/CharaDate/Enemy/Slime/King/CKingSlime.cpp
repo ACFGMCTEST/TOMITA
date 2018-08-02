@@ -11,7 +11,6 @@
 #define COL_RADIUS 3.0f
 
 #define ATTACK_POWER 5.0f
-#define HP_MAX 100
 /*初期化処理*/
 void CKingSlime::Init(CModelX *model)
 {
@@ -35,7 +34,7 @@ void CKingSlime::Init(CModelX *model)
 	/*ベースのもの*/
 	mPower = ATTACK_POWER;//攻撃力
 	PosUpdate();
-	SetHpBar(HP_MAX,HP_AJUST_POS);//hpバーの設定
+	SetHpBar(ENE_HP_MAX(3.0f),HP_AJUST_POS);//hpバーの設定
 	SetExp();//爆発エフェクトの設定
 	CPlayer::CPlayer();
 	mGravitTime = GRA_INIT_TIME_COUNT;
@@ -47,6 +46,7 @@ void CKingSlime::Init(CModelX *model)
 
 CKingSlime::CKingSlime()
 {
+	mWeight = OBJECT_WIGHT(2.5f);
 	CTask::eName = CTask::E_KING_SLIME;
 	/*ミニマップ設定*/
 #define TEX_SIZE 386,386, 0.0f, 0.0f //ミニマップのサイズ
@@ -59,12 +59,12 @@ CKingSlime::CKingSlime()
 void CKingSlime::Update() {
 	CSlime::Update();
 }
+
 /*カプセル内当たり判定*/
 void CKingSlime::CapsuleCol(CColCapsule *cc, CColBase* y) {
 	CColTriangle ct;//三角形の当たり判定
 	CColCapsule  caps;//球の当たり判定
-
-					  /*相手のタイプ何か判断*/
+					  //相手のタイプ何か判断
 	switch (y->mType) {
 		/*相手が三角の場合*/
 	case CColBase::COL_TRIANGLE:
@@ -118,7 +118,8 @@ void CKingSlime::Render() {
 	CSlime::Render();
 }
 CKingSlime ::~CKingSlime()
-{}
+{
+}
 
 
 /*索敵範囲*/
@@ -141,5 +142,6 @@ void CKingSlime::FallDamage(float height) {
 	if (mGroundPos.y > mPosition.y + height && HP() > 0) {
 		mpHp->mValue -= FALL_DAMAGE(mFallDamage, mGroundPos.y - mPosition.y);
 		mStateMachine.ForceChange(F_SLI_KING_DAMAGE);
+		CLoadSoundManager::Sound(SE_FALL)->Play();
 	}
 }

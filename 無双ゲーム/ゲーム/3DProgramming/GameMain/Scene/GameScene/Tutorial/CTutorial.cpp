@@ -8,6 +8,7 @@
 #include "../../../Collision/CCollision.h"
 #include "../CharaDate/Player/CPlayer.h"
 #include "../CharaDate/Enemy/Slime/CSlime.h"
+#include "../../../Sound/CLoadSoundManager.h"
 /*テクスチャの頂点指定,簡略化*/
 #define TEX_SIZE(v) v.left,v.top,v.right,v.bottom 
 
@@ -65,7 +66,7 @@ void CTutorial::Update(){
 	/*１秒たったら && キー操作説明以外の時 ポーズ*/
 	if (CConvenient::Time(&mTime, 0.5f)) {
 		if (eState == ESTATE::ALL_ENE_KILL) {
-			CGameScene::mPauseFlag = true;
+			CGameScene::mEnterEventFlag = true;
 		}
 	}
 
@@ -94,8 +95,10 @@ void CTutorial::Change() {
 	case CTutorial::ALL_ENE_KILL:
 		/*キーを押すと動く説明に*/
 		if (CKey::once(VK_RETURN)) {
+			CLoadSoundManager::Sound(BGM_GAME_MAIN)->Repeat();//BGM呼び出し
 			eState = MOVE;
-			CGameScene::mPauseFlag = false;
+			CGameScene::mEnterEventFlag = false;
+			CLoadSoundManager::Sound(SE_ENTER)->Play();
 		}
 		break;
 		/*動く説明*/
@@ -112,7 +115,7 @@ void CTutorial::Change() {
 		/*キーを押すと動く説明 || 下にいる敵を倒すと次のテキストに*/
 		if (CSceneModel::mEnemyCount <= SLIME_MAX0-1) {
 			eState = BLOW_OFF;
-			CGameScene::mPauseFlag = true;
+			CGameScene::mEnterEventFlag = true;
 			mFlagBG = true;
 		}
 		break;
@@ -122,7 +125,8 @@ void CTutorial::Change() {
 		if (CKey::once(VK_RETURN)) {
 			mFlagText = false;
 			mFlagBG = false;
-			CGameScene::mPauseFlag = false;
+			CGameScene::mEnterEventFlag = false;
+			CLoadSoundManager::Sound(SE_ENTER)->Play();
 		}
 		//敵をすべて倒すとテキスト切り替えと高台にリスポーン
 		if(CSceneModel::mEnemyCount == 0){
@@ -135,7 +139,7 @@ void CTutorial::Change() {
 				sl->mFlagDecoy = true;
 			}
 			eState = HIGH_HILL_SLI;
-			CGameScene::mPauseFlag = true;
+			CGameScene::mEnterEventFlag = true;
 		}
 		break;
 		/*高台説明*/
@@ -146,7 +150,8 @@ void CTutorial::Change() {
 		if (CKey::once(VK_RETURN)) {
 			eState = JUMP;
 			mFlagBG = false;
-			CGameScene::mPauseFlag = false;
+			CGameScene::mEnterEventFlag = false;
+			CLoadSoundManager::Sound(SE_ENTER)->Play();
 		}
 		break;
 		/*ジャンプ説明*/
@@ -159,7 +164,7 @@ void CTutorial::Change() {
 			eState = PUSH_OFF;
 			mFlagBG = true;
 			mFlagText = true;
-			CGameScene::mPauseFlag = true;
+			CGameScene::mEnterEventFlag = true;
 		}
 		/*敵をすべて倒すとボスの説明*/
 		if (CSceneModel::mEnemyCount == 0) {
@@ -175,7 +180,8 @@ void CTutorial::Change() {
 		if (CKey::once(VK_RETURN)) {
 			mFlagBG = false;
 			mFlagText = false;
-			CGameScene::mPauseFlag = false;
+			CGameScene::mEnterEventFlag = false;
+			CLoadSoundManager::Sound(SE_ENTER)->Play();
 		}
 		/*敵をすべて倒すとボスの説明*/
 		if (CSceneModel::mEnemyCount == 0) {
@@ -187,16 +193,19 @@ void CTutorial::Change() {
 		break;
 		/*キングを倒そう*/
 	case CTutorial::KING_KILL:
+		CGameScene::mEnterEventFlag = true;
+
 		if (CKey::once(VK_RETURN)) {
 			eState = SPECIAL_ATTACK;
-			CGameScene::mPauseFlag = true;
+			CLoadSoundManager::Sound(SE_ENTER)->Play();
 		}
 		break;
 		/*必殺技説明*/
 	case CTutorial::SPECIAL_ATTACK:
 		if (CKey::once(VK_RETURN)) {
 			eState = ARRAY;
-			CGameScene::mPauseFlag = false;
+			CGameScene::mEnterEventFlag = false;
+			CLoadSoundManager::Sound(SE_ENTER)->Play();
 		}
 		break;
 	case CTutorial::ARRAY:

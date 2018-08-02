@@ -112,6 +112,7 @@
 /*モデルのファイルの場所*/
 #define MODEL_FILE "../Graphic\\3dModel\\"
 
+
 /*ウインドウのポジション*/
 extern int WinPosX;
 extern int WinPosY;

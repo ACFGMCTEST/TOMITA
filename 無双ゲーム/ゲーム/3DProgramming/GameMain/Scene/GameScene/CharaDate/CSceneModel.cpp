@@ -147,9 +147,13 @@ void CSceneModel::Init() {
 	PlayerAdd();
 	/*エネミー*/
 	SlimeInit();
+	
 	for (int i = 0; i < SLIME_MAX0; i++) {
 		/*位置が被らないようにする*/
-		const CVector3 pos = CVector3(5.0f * i, 0.0f, 5.0f * i);
+		CVector3 pos = CVector3(
+			rand() % SLIME_MAX0 * i * 0.5f,
+			0.0f,
+			rand() % SLIME_MAX0 * i * 0.5f);
 		SlimeAdd(ENEMY_RESP_0,pos);//スライム
 	}
 	KingSlimeInit();//スライム

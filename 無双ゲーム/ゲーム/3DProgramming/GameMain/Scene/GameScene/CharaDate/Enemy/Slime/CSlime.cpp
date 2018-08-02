@@ -15,7 +15,7 @@
 
 
 /*あたり判定の設定値*/
-#define COL_RADIUS 1.0f
+#define COL_RADIUS 1.2f
 #define COL_POS CVector3(0.0f, 1.0f, 0.0f), CVector3(0.0f, 0.0f, 0.0f)
 #define COL_SPHE_POS CVector3(0.0f, 0.0f, 0.0f)
 #define COL_BONE(string) &mpCombinedMatrix[model->FindFrame(string)->mIndex]
@@ -37,6 +37,7 @@
 
 #define ATTACK_POWER 3.0f
 int CSlime::mAllCount = 0;
+
 /*スライムのステータス初期化 Kingスライムも同じものしよう*/
 void CSlime::StateInit() {
 	mStateMachine.Register(F_SLI_IDLING, std::make_shared<CSlimeIdling>(), this);
@@ -46,6 +47,7 @@ void CSlime::StateInit() {
 	// 最初のステートを登録名で指定
 	mStateMachine.SetStartState(F_SLI_IDLING);
 }
+
 /*スライムの初期化*/
 void CSlime::SlimeInit(CModelX *model) {
 
@@ -71,6 +73,7 @@ void CSlime::Init(CModelX *model){
 }
 /*コンストラクタ*/
 CSlime::CSlime(){
+	mWeight = OBJECT_WIGHT(0.4f);
 	mFlagDecoy = false;
 	eName = CTask::E_SLIME;
 	mAllCount++;
@@ -159,6 +162,7 @@ void CSlime::FallDamage(float height) {
 	if (mGroundPos.y > mPosition.y + height && HP() > 0) {
 		mpHp->mValue -= FALL_DAMAGE(mFallDamage, mGroundPos.y - mPosition.y);
 		mStateMachine.ForceChange(F_SLI_DAMAGE);
+		CLoadSoundManager::Sound(SE_FALL)->Play();
 	}
 }
 

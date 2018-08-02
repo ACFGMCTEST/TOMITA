@@ -49,6 +49,7 @@ void CResult::Clear() {
 }
 //Ž€–S‚µ‚½‚Æ‚«ŒÄ‚Ô
 void CResult::Over() {
+	mBG.SetColor(0.0f, 0.0f, 0.0f, 0.0f);
 	mRenderFlag = true;
 }
 

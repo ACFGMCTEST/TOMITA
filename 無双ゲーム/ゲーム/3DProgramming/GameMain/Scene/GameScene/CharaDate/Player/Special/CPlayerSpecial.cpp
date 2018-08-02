@@ -71,7 +71,7 @@ void CPlayerSpecial::Update()
 	/*エフェクト作成されておらず　パンチが放たれた場合*/
 #define PUNCH_FRAME_SIZE 70//PUNCHのアニメーションのフレーム
 	if (!mpEffect3D && pl->mAnimationTime >= PUNCH_FRAME_SIZE) {
-		pl->mPower *= 0.1f;
+		pl->mPower = ATTACK_POWER*2.5f;
 		pl->MpUp(-GAUGE_VER);//消す
 		/*３Dのエフェクト作成*/
 		CPlayer *pl = dynamic_cast<CPlayer*>(mpParent);

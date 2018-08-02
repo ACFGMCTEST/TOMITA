@@ -3,9 +3,11 @@
 #define CEffect3D_HPP
 #include "../../../Graphic/CModelX.h"
 #include "CEffect2D.h"
+#include "../../../Collision/ColType/CColSphere.h"
 
 class CEffect3D : public CModelXS ,public CTask {
 private :
+	CColSphere * mpCol;//当たり判定
 	CEffect2D * mpEffect;//エフェクト
 	//計算で使うもの
 	CVector3 mPos;

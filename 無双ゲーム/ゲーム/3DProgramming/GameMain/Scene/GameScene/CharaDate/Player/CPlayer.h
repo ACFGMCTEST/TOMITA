@@ -13,6 +13,7 @@
 #include "../../../../Graphic/CHpBar2D.h"
 #include "../../../../Graphic/CBillBoard.h"
 #include "../../Effect/CEffect3D.h"
+#include " ../../../../../../Sound/CLoadSoundManager.h"
 //プレイヤーの数
 #define CHARA_ARRAY 3
 /*キャラステータス*/
@@ -68,6 +69,10 @@
 /*地面から落ちた時*/
 #define FALL_SAFE 9.0f//許容範囲
 #define GAUGE_VER 100//ゲージのサイズ
+
+//吹き飛ぶときに使う 減速値 プレイヤーは１倍
+#define OBJECT_WIGHT(wight) wight * 3.0f
+#define BLOW_DECELERA(wig)wig * 0.05f 
 /*
 CPlayer
 プレイヤークラス
@@ -75,9 +80,11 @@ CPlayer
 class CPlayer : public CModelXS {
 protected:
 	CStateMachine mStateMachine;//ステータス管理
+	CVector3 mPrevPos;//移動前のポジション
 	CVector3 mDamageRot;//ダメージを受けた回転値
 	float mDamagePower;//吹っ飛ぶ値
 	float mFallDamage;//落ちた時のダメージ量
+	float mWeight;//重さ
 	CVector3 mGroundPos;//現在いる地面の場所
 	CBillBoard *mpMiniRect;//ミニマップ用
 	/*ミニマップ設定用*/
@@ -87,8 +94,6 @@ protected:
 
 private:
 
-	CEffect2D *mpHitEffect;//攻撃時のエフェクト
-	
 
 	CHpBar2D *mpHp;//hp
 	CHpBar2D *mpMp;//Mp

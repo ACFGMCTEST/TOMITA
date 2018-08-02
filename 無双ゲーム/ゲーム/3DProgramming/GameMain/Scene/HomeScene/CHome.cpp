@@ -5,6 +5,8 @@
 #include "../GameMain\Key\CKey.h"
 #include "../../Key/CMouse.h"
 #include "../../Collision/CCollision2D.h"
+#include "../../Sound/CLoadSoundManager.h"
+
 //テクスチャサイズ
 #define TEX_TITLE_X			410
 #define TEX_TITLE_Y			100
@@ -93,12 +95,12 @@ void CHome::Select(){
 	/*モデルチェンジ選んだ時*/
 	if (CKey::once(DOWN_KEY)){
 		mSelectCursor.mPosition.y = mModelChangeButton.mPosition.y;
-
+		CLoadSoundManager::Sound(SE_CURSOR_MOVE)->Play();
 	}
 	/*ステージセレクト選んだ時*/
 	if (CKey::once(UP_KEY)){
 		mSelectCursor.mPosition.y = mSelectButton.mPosition.y;
-	
+		CLoadSoundManager::Sound(SE_CURSOR_MOVE)->Play();
 	}
 
 }
@@ -109,11 +111,15 @@ void CHome::SelectDecisionKey() {
 	if (CKey::once(VK_RETURN)) {
 		if (mSelectCursor.mPosition.y == mModelChangeButton.mPosition.y) {
 			eScene = E_MODEL_CHANGE;
+			CLoadSoundManager::Sound(SE_DECISION)->Play();
+
 			return;
 		}
 		else /*選択したか判断 ステージセレクトの場合*/
 			if (mSelectCursor.mPosition.y == mSelectButton.mPosition.y) {
 				eScene = E_STAGE_SELECT;
+				CLoadSoundManager::Sound(SE_DECISION)->Play();
+
 				return;
 			}
 	}
@@ -122,20 +128,35 @@ void CHome::SelectDecisionKey() {
 void CHome::SelectDecisionMouse() {
 	/*マウスバージョン*/
 	if (CCollision2D::Collision2D(mModelChangeButton, mCursor)) {
+		//初めは音を鳴らす
+		if (mSelectCursor.mPosition.y !=
+			mModelChangeButton.mPosition.y)
+			CLoadSoundManager::Sound(SE_CURSOR_MOVE)->Play();
+		//ポジションを合わせる
 		mSelectCursor.mPosition.y = mModelChangeButton.mPosition.y;
-		mModelChangeButton.RectScalingLeftPos(SCALLING_NUM);//拡大
+		//拡大
+		mModelChangeButton.RectScalingLeftPos(SCALLING_NUM);
 		if (CMouse::GetInstance()->mOneLeftFlag) {
 			eScene = E_MODEL_CHANGE;
+			CLoadSoundManager::Sound(SE_DECISION)->Play();
+
 		}
 		return;
 	}
 	/*選択したか判断 ステージセレクトの場合*/
 	if (CCollision2D::Collision2D(mSelectButton, mCursor) ) {
+		//初めは音を鳴らす
+		if (mSelectCursor.mPosition.y !=
+			mSelectButton.mPosition.y)
+			CLoadSoundManager::Sound(SE_CURSOR_MOVE)->Play();
+		//ポジションを合わせる
 		mSelectCursor.mPosition.y = mSelectButton.mPosition.y;
 		mSelectButton.RectScalingLeftPos(SCALLING_NUM);//拡大
 
 		if (CMouse::GetInstance()->mOneLeftFlag) {
 			eScene = E_STAGE_SELECT;//セレクトに
+			CLoadSoundManager::Sound(SE_DECISION)->Play();
+
 		}
 
 		return;
@@ -173,7 +194,10 @@ void CHome::Update() {
 
 	if (eScene == E_MODEL_CHANGE)mModelChangeButton.FadeOut(FADE_SPEED, 0.0f);
 	if (eScene == E_STAGE_SELECT) mSelectButton.FadeOut(FADE_SPEED, 0.0f);
-	if(eScene != E_HOME)mSelectCursor.FadeOut(FADE_SPEED, 0.0f);
+	//決定された場合
+	if (eScene != E_HOME) {
+		mSelectCursor.FadeOut(FADE_SPEED, 0.0f);
+	}
 
 	/*演出初回フェードで登場*/
 	if (eScene == E_HOME && mSelectButton.mTriangle1.a != 1) {

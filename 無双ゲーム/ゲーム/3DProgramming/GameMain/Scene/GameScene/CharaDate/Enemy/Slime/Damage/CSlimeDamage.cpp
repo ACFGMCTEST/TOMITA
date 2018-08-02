@@ -29,7 +29,8 @@ void CSlimeDamage::Update() {
 	CSlime *sli = dynamic_cast<CSlime*>(mpParent);
 	if (sli->HP() <= 0) {
 		sli->mFlagBlowDamage = false;
-		sli->ChangeAnimation(F_SLI_DAMAGE,F_SLI_KING_DAMAGE, false, AnimaSpeed);//アニメーション
+		sli->ChangeAnimation(
+			F_SLI_DAMAGE,F_SLI_KING_DAMAGE, false, AnimaSpeed);//アニメーション
 		/* ダメージモーションを終了時 デリート処理*/
 		if (sli->mAnimationTime >
 			sli->mpModel->mAnimationSet[sli->mAnimationIndex]->mMaxTime) {

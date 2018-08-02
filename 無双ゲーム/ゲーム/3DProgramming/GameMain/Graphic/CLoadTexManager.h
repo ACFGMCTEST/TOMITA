@@ -4,7 +4,7 @@
 #include "CTexture.h"
 /*テクスチャのサイズ*/
 #define T_MANA_HP_SIZE  STexVer(0,0,490,30)
-
+#include "../Scene/GameScene/Effect/CEffect2D.h"
 
 class  CLoadTexManager
 {
@@ -31,6 +31,8 @@ public:
 	};
 	CTexture *mpMiniMap[E_ARRAY];//ミニマップ各種テクスチャ
 	CTexture *mpSkyBox;//スカイボックス
+
+	void HitEffect(CVector3 pos);//ヒットしたエフェクト
 private:
 
 };

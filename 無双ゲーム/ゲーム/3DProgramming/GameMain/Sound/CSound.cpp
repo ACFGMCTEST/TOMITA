@@ -28,7 +28,7 @@ void CSound::Sendstring(char *w){
 
 void CSound::Load(char *filename)
 {
-	//			wcscpy(file, filename);
+	//wcscpy(file, filename);
 	strcpy_s(file, filename);
 	Sendstring("close %s");
 	Sendstring("open %s");
@@ -37,6 +37,19 @@ void CSound::Load(char *filename)
 void CSound::Play()
 {
 	Sendstring("play %s from 0");
+}
+
+void CSound::OnePlay()
+{
+	char buf[100];//•¶š—ñŠi”[
+	char T[100];//play‚©”»’f
+	sprintf_s(buf, sizeof(buf), "status %s mode", file);//ó‘ÔŠm”F
+	mciSendString((LPCTSTR)buf, (LPTSTR)T, sizeof(T), NULL);
+	//‚È‚Á‚Ä‚¢‚éó‘Ô‚¶‚á‚È‚¢‚É–Â‚ç‚·
+	if (strcmp(T, "playing")) {
+		Sendstring("play %s from 0");
+		printf("%s\n", T);
+	}
 }
 
 void CSound::Repeat()

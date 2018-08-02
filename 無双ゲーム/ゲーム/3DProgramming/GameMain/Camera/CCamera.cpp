@@ -110,7 +110,7 @@ void CCamera::EndMiniMap() {
 /*‰Šú‰»ˆ—*/
 void CCamera::Init(){
 
-
+	mRot = CVector3();
 	///*‹…‚Ì“–‚½‚è”»’èÝ’è*/
 	//mpCBSphere = new CCollider(E_COL_SPHEPE);
 	//mpCBSphere->mpParent = this;

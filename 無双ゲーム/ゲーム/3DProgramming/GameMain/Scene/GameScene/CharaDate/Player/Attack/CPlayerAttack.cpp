@@ -2,6 +2,7 @@
 #include "../CPlayer.h"
 #include "../../../../../Convenient/CConvenient.h"
 #include "../../CSceneModel.h"
+#include "../../../../../Sound/CLoadSoundManager.h"
 
 /*スピードのフレーム数でvelocityを変更する*/
 /*フレーム*/
@@ -39,6 +40,7 @@ void CPlayerAttack::Start(){
 	mTimeKey = 0;
 	mFlagChangeAnima = false;
 	mAnimaSpeed = ANIMA_SPEED_ATTCK;
+	CLoadSoundManager::Sound(SE_PUNCH)->Play();
 }
 
 /*攻撃の移動速さ調整*/
@@ -48,6 +50,7 @@ void CPlayerAttack::AttackSpeed(){
 	{
 	case CPlayerAttack::Attack1sta:
 	case CPlayerAttack::Attack1end:
+		
 		pl->mVelocity = VEL_ATTACK1;
 		/*最大まで行くとチェンジで*/
 		if (pl->mAnimationTime > Attack2sta) {
@@ -58,6 +61,7 @@ void CPlayerAttack::AttackSpeed(){
 			pl->mVelocity = 0;
 			/*キー入力でアニメーション再開*/
 			if (CKey::once(KEY_ATTACK)) {
+				CLoadSoundManager::Sound(SE_PUNCH)->Play();
 				eAttackFrame = Attack2sta;
 				pl->mAnimationTime = Attack2sta;
 			}

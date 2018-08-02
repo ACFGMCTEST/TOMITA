@@ -7,9 +7,16 @@
 #include "Pause/CPause.h"
 #include "Tutorial\CTutorial.h"
 
+
 class CGameScene : public CScene{
+private:
+	CRectangle2 mPauze;//ポーズ
+	CRectangle2 mMainBack;//ゲームに戻る
+	CRectangle2 mStageSelectBack;//ステージセレクトに戻る
 public:
- 	static bool mPauseFlag;//trueでアップデート停止,
+	static bool mEnterEventFlag;//trueでアップデート停止,
+
+
 
 	/*状態*/
 	enum E_STATE{

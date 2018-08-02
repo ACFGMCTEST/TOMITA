@@ -11,6 +11,7 @@
 #include <math.h>
 #include "../../../../Collision/CCollisionManager.h"
 #include "../../../../Collision/CCollision.h"
+#include "../../Tutorial/CTutorial.h"
 
 /*当たり判定*/
 #include "../../../../Collision/ColType/CColCapsule.h"
@@ -35,12 +36,6 @@
 /*動きの回転する速さ*/
 #define TURN_SPEED 10
 
-/*エフェクトの設定*/
-#define EFF_SIZE 10.0f,10.0f//サイズ
-#define EFF_POS(pos) CVector3(pos.x,pos.y + 2.0f, pos.z)//エフェクトのポジション
-#define TEX_EFF_SIZE 0.0f,0.0f,2000,250//テクスチャのサイズ
-#define EFF_SET_ANIMA 8,250//設定のアニメーション
-#define EFF_SPEED  0.02f//再生スピード
 /*HPバー*/
 #define HP_SIZE RECT_SIZE(0.5f,T_MANA_HP_SIZE.right,T_MANA_HP_SIZE.bottom,)
 
@@ -61,10 +56,10 @@ void CPlayer::SetMiniMap() {
 }
 
 #define FALL_DAMAGE 1.0f//落ちた時のダメージ量
-CPlayer::CPlayer() : mVelocity(0.0f), mRotCount(0), mpHitEffect(0),
+CPlayer::CPlayer() : mVelocity(0.0f), mRotCount(0),
 mGravitTime(GRA_INIT_TIME_COUNT), mFlagJump(false), mAdjust(), mpHp(0),
 mpMp(0),mFlagDamage(false),mFlagAttack(false),mpMiniRect(0),mFallDamage(FALL_DAMAGE)
-{
+,mWeight(OBJECT_WIGHT(1.0f)){
 	eName = CTask::E_PLAYER;
 	mForward = CVector3(FORWARD);
 	mpParent = this;
@@ -73,7 +68,6 @@ mpMp(0),mFlagDamage(false),mFlagAttack(false),mpMiniRect(0),mFallDamage(FALL_DAM
 
 
 CPlayer::~CPlayer() {
-	if (mpHitEffect)mpHitEffect->CTask::mKillFlag = true;
 	if (mpHp)mpHp->CTask::mKillFlag = true;
 	if (mpMiniRect)mpMiniRect->CTask::mKillFlag = true;
 	mStateMachine.AllDeregistration();//ステートマシン,アニメーション削除
@@ -112,12 +106,7 @@ void CPlayer::Init(CModelX *model) {
 	//球体　腕.左
 	new CColSphere(this, COL_LEFT_POS, COL_ATTACK_RADIUS, COL_MATRIX("metarig_forearm_R"), CColBase::PL_ATTACK);
 	mPower = ATTACK_POWER;//攻撃力
-	/*エフェクトの設定*/
-	mpHitEffect = new CEffect2D();
-	mpHitEffect->Init(CLoadTexManager::GetInstance()->mpHit,
-		EFF_SIZE, STexVer(TEX_EFF_SIZE));//画像や頂点数代入
-	mpHitEffect->SetAnima(EFF_SET_ANIMA);//アニメーションの準備
-	CTaskManager::GetInstance()->Add(mpHitEffect);
+
 	/*ｈｐ設定*/
 	mpHp = new CHpBar2D();
 	mpHp->Init(100, 100, HP_SIZE);
@@ -269,6 +258,7 @@ void CPlayer::ColGround() {
 CKey key;
 /*更新処理*/
 void CPlayer::Update() {
+	mPrevPos = mPosition;
 	/*デバック用*/
 	if (CKey::push('I')) {
 		mPosition.y += 2.0f;
@@ -281,7 +271,7 @@ void CPlayer::Update() {
 		MpUp(mpMp->mMax);
 	}
 	//必殺技　ゲージがすべてたまったら
-	if  (key.Onces(KEY_SPECIAL) && mpMp->mValue ==  mpMp->mMax) {
+	if  (CKey::once(KEY_SPECIAL) && mpMp->mValue ==  mpMp->mMax) {
 		mStateMachine.ForceChange(F_PL_SPECIAL);
 	}
 	mAdjust = CVector3();
@@ -385,6 +375,9 @@ void CPlayer::SetAdjust(CVector3 *s, const CVector3 &t) {
 
 /*玉バージョン*/
 void CPlayer::Collision(CColSphere *youSphere, CColSphere *sphere) {
+	mPosition = mPrevPos;//前のポジションに戻す
+	PosUpdate();
+
 	CVector3 savePos = sphere->mPos;//計算用
 	float lengthX = mPosition.x - savePos.x;  //球とポジションの距離
 	float lengthY = mPosition.y - savePos.y;  //球とポジションの距離
@@ -418,14 +411,14 @@ void CPlayer::Collision(CColSphere *youSphere, CColSphere *sphere) {
 				}
 			}
 			else {
-				///*球がボディの時判定 && ジャンプしていないとき*/
-				////Y軸で戻す
-				//if (vy.Dot(vectorBS) > 0.0f) {
-				//	mPosition = savePos + vy * dy;
-				//}
-				//else {
-				//	mPosition = savePos - vy * dy;
-				//}
+				/*球がボディの時判定 && ジャンプしていないとき*/
+				//Y軸で戻す
+				if (vy.Dot(vectorBS) > 0.0f) {
+					mPosition = savePos + vy * dy;
+				}
+				else {
+					mPosition = savePos - vy * dy;
+				}
 			}
 		}
 		else {
@@ -475,6 +468,7 @@ void CPlayer::FallDamage(float height) {
 	if (mGroundPos.y > mPosition.y + height && HP() > 0) {
 		mpHp->mValue -= FALL_DAMAGE(mFallDamage,mGroundPos.y - mPosition.y);
 		mStateMachine.ForceChange(F_PL_DAMAGE);
+		CLoadSoundManager::Sound(SE_FALL)->Play();
 	}
 }
 
@@ -511,7 +505,8 @@ void CPlayer::CapsuleCol(CColCapsule *cc, CColBase* y) {
 		break;
 	};
 }
-#include "../Enemy/Slime/CSlime.h"
+
+
 /*球体内の当たり判定*/
 void CPlayer::SphereCol(CColSphere *sphere, CColBase *y) {
 
@@ -533,20 +528,18 @@ void CPlayer::SphereCol(CColSphere *sphere, CColBase *y) {
 				攻撃のエフェクトに当たった場合
 				*/
 #define IF_ATTACK(flag)  !ene->StateFlag(F_SLI_DAMAGE) && sphere->eState == CColBase::PL_ATTACK  && flag
-				if (sphere->eState == CColBase::PL_ATTACK_EFFECT3D ||
+				if (!ene->StateFlag(F_SLI_DAMAGE) && sphere->eState == CColBase::PL_ATTACK_EFFECT3D ||
 					IF_ATTACK(StateFlag(F_PL_ATTACK)) || 
 					IF_ATTACK(StateFlag(F_PL_RUN_ATTACK))) {
 					//エネミーのダメージとHPを入れる
 					float eneHp = ene->Damage(mPower, mRotation);	
 					//エフェクト発動
 					CVector3 pos = CVector3();
-					mpHitEffect->StartAnima(
-						EFF_SPEED, pos.Transeform(*sphere->mpCombinedMatrix));
+					CLoadTexManager::GetInstance()->
+						HitEffect(pos.Transeform(*sphere->mpCombinedMatrix));
 				}
-				/*回避中は当たらない && エネミーがダメージを追っているとき*/
-				if (sphere->eState == CColBase::PL_BODY
-					&& !ene->mFlagDamage)
-					Collision(&sph, sphere);
+				/*エネミーがダメージを追っているとき*/
+				if(!ene->mFlagDamage)Collision(&sph, sphere);
 			}
 		}
 
@@ -590,9 +583,10 @@ bool CPlayer::Collision(CColBase* m, CColBase* y) {
 
 
 
-#define AJUST_BLOW_OFF_POWER(pow) pow*1.0f //吹き飛ぶ威力
+#define AJUST_BLOW_OFF_POWER(pow) pow*0.2f //吹き飛ぶ威力
 /*ダメージを受けた時の処理*/
 void CPlayer::Damage(float power, CVector3 rot) {
+	CLoadSoundManager::Sound(SE_PL_DAMAGE)->OnePlay();
 	mpHp->mValue -= power;
 	/*吹っ飛ぶ処理の準備*/
 	 mVelocity = mDamagePower = AJUST_BLOW_OFF_POWER(power);
@@ -606,8 +600,7 @@ void CPlayer::Damage(float power, CVector3 rot) {
 /*吹っ飛ぶ判定*/
 /*吹き飛ぶ力 吹き飛ぶ力と現在の移動量で計算する*/
 void CPlayer::BlowSpeed() {
-#define DECELE_SPEED 0.4f//減速するスピード
-	mDamagePower = mDamagePower - mDamagePower * DECELE_SPEED;
+	mDamagePower = mDamagePower - mDamagePower * BLOW_DECELERA(mWeight);
 	mVelocity = mDamagePower;
 	if (mVelocity < 0) mVelocity = 0;//0以下にはならない
 }

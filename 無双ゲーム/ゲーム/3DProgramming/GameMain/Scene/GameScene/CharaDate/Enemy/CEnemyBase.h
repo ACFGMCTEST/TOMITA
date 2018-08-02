@@ -4,11 +4,17 @@
 #include "../Player/CPlayer.h"
 #include"../../../../Graphic/CHpBar.h"
 #include "../../Effect/CExplosion.h"
+#include "../../../../Sound/CSound.h"
 
+#define ENE_HP_MAX(doub) 10.0f * doub  //HP_引数倍率
 /*エネミーのクラス*/
 class CEnemyBase : public CPlayer{
 protected:
 	CHpBar     *mpHp;//HPバー
+
+	CSound *mpSeDamage;//ダメージを食らった時の音
+	CSound *mpSeFall;//地面に落ちた時の音
+
 	/*hp設定　ajust*/
 	void SetHpBar(float hp,CVector3 ajust);
 	/*爆発設定*/
